@@ -61,89 +61,95 @@ The [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/le
 
 All inbound traffic to a web role passes through a stateless load balancer, which distributes client requests among the role instances. Individual role instances do not have public IP addresses, and they are not directly addressable from the Internet. Web roles are stateless so that any client request can be routed to any role instance. A [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck.aspx) event is raised every 15 seconds. You can use this to indicate whether the role is ready to receive traffic, or whether it's busy and should be taken out of the load-balancer rotation.
 
-##Virtual Machines
+##Virtual machines
 
-Azure Virtual Machines differ from PaaS compute roles in several respects in relation to high availability. In some instances, you must do additional work to ensure high availability.
+Azure virtual machines differ from platform as a service (PaaS) compute roles in several respects in relation to high availability. In some instances, you must do additional work to ensure high availability.
 
 ###Disk durability
 
-Unlike PaaS role instances, data stored on Virtual Machine drives is persistent even when the virtual machine is relocated. Azure Virtual Machines use VM Disks that exist as blobs in Azure Storage. Because of the availability characteristics of Azure Storage, the data stored on a Virtual Machine’s drives is also highly available. Note that the D: drive is the exception to this rule. The D: drive is actually physical storage on the rack server that hosts the VM, and its data will be lost if the VM is recycled. The D: drive is intended for temporary storage only.
+Unlike PaaS role instances, data stored on virtual machine drives is persistent even when the virtual machine is relocated. Azure virtual machines use VM disks that exist as blobs in Azure Storage. Because of the availability characteristics of Azure Storage, the data stored on a virtual machine’s drives is also highly available. Note that drive D is the exception to this rule. Drive D is actually physical storage on the rack server that hosts the VM, and its data will be lost if the VM is recycled. Drive D is intended for temporary storage only.
 
 ###Partitioning
 
-Azure natively understands the tiers in a PaaS application (Web role and Worker role) and thus can properly distribute them across fault and update domains. In contrast, the tiers in an IaaS applications must be manually defined using availability sets. Availability Sets are required for an SLA under IaaS.
+Azure natively understands the tiers in a PaaS application (web role and worker role) and thus can properly distribute them across fault and update domains. In contrast, the tiers in an infrastructure as a service (IaaS) applications must be manually defined through availability sets. Availability sets are required for an SLA under IaaS.
 
-![Availability Sets for Microsoft Azure Virtual Machines](./media/resiliency-technical-guidance-recovery-local-failures/partitioning-2.png "Availability Sets for Microsoft Azure Virtual Machines")
+![Availability sets for Azure virtual machines](./media/resiliency-technical-guidance-recovery-local-failures/partitioning-2.png)
 
-In the diagram above the Internet Information Services (IIS) tier (which works as a web app tier) and the SQL tier (which works as a data tier) are assigned to different Availability Sets. This ensures that all instances of each tier have hardware redundancy by distributing them across fault domains, and are not taken down during an update.
+In the preceding diagram, the Internet Information Services (IIS) tier (which works as a web app tier) and the SQL tier (which works as a data tier) are assigned to different availability sets. This ensures that all instances of each tier have hardware redundancy by distributing virtual machines across fault domains, and that entire tiers are not taken down during an update.
 
 ###Load balancing
 
-If the VMs should have traffic distributed across them, you must group the VMs in a cloud service and load balance across a specific TCP or UDP endpoint. For more information, see [Load Balancing Virtual Machines](../virtual-machines/virtual-machines-linux-load-balance.md). If the VMs receive input from another source (for example, a queuing mechanism), then a load balancer is not required. The load balancer uses a basic health check to determine if traffic should be sent to the node. It is also possible to create your own probes to implement application specific health metrics that determine if the VM should receive traffic.
+If the VMs should have traffic distributed across them, you must group the VMs in a cloud service and load balance across a specific TCP or UDP endpoint. For more information, see [Load balancing virtual machines](../virtual-machines/virtual-machines-linux-load-balance.md). If the VMs receive input from another source (for example, a queuing mechanism), a load balancer is not required. The load balancer uses a basic health check to determine whether traffic should be sent to the node. It's also possible to create your own probes to implement application-specific health metrics that determine whether the VM should receive traffic.
 
 ##Storage
 
-Azure Storage is the baseline durable data service for Azure, providing blob, table, queue, and VM Disk storage. It uses a combination of replication and resource management to provide high availability within a single data center. The Azure Storage availability SLA guarantees that at least 99.9 percent of the time correctly formatted requests to add, update, read and delete data will be successfully and correctly processed, and that storage accounts will have connectivity to the Internet gateway.
+Azure Storage is the baseline durable data service for Azure. It provides blob, table, queue, and VM disk storage. It uses a combination of replication and resource management to provide high availability within a single datacenter. The Azure Storage availability SLA guarantees that at least 99.9 percent of the time, correctly formatted requests to add, update, read, and delete data will be successfully and correctly processed, and that storage accounts will have connectivity to the Internet gateway.
 
 ###Replication
 
-Data durability for Azure Storage is facilitated by maintaining multiple copies of all data on different drives located across fully independent physical storage sub-systems within the region. Data is replicated synchronously and all copies are committed before the write is acknowledged. Azure Storage is strongly consistent, meaning that reads are guaranteed to reflect the most recent writes. In addition, copies of data are continually scanned to detect and repair bit rot, an often overlooked threat to the integrity of stored data. Services benefit from replication just by using Azure Storage. No additional work is required by the service developer for recovery from a local failure.
+Azure Storage facilitates data durability by maintaining multiple copies of all data on different drives across fully independent physical storage subsystems within the region. Data is replicated synchronously, and all copies are committed before the write is acknowledged. Azure Storage is strongly consistent, meaning that reads are guaranteed to reflect the most recent writes. In addition, copies of data are continually scanned to detect and repair bit rot, an often overlooked threat to the integrity of stored data.
+
+Services benefit from replication just by using Azure Storage. The service developer doesn't need to do additional work to recover from a local failure.
 
 ###Resource management
 
-Storage accounts created after June 7th, 2012 can grow to up to 200TB (the previous maximum was 100 TB). If additional space is required, applications must be designed to leverage multiple storage accounts.
+Storage accounts created after June 7, 2012, can grow to up to 200 TB (the previous maximum was 100 TB). If additional space is required, applications must be designed to use multiple storage accounts.
 
 ###Virtual machine disks
 
-A virtual machine’s VM disk is stored as a page blob in Azure Storage, giving it all the same durability and scalability properties as blob storage. This design makes the data on a virtual machine’s disk persistent even if the server running the VM fails and the VM must be restarted on another server.
+A virtual machine’s VM disk is stored as a page blob in Azure Storage, giving it all the same durability and scalability properties as blob storage. This design makes the data on a virtual machine’s disk persistent, even if the server running the VM fails and the VM must be restarted on another server.
 
 ##Database
 
 ###SQL Database
 
-Microsoft Azure SQL Database provides database-as-a-service, allowing applications to quickly provision, insert data into, and query relational databases. It provides many of the familiar SQL Server features and functionality, while abstracting the burden of hardware, configuration, patching and resiliency.
+Microsoft Azure SQL Database provides database as a service. It allows applications to quickly provision, insert data into, and query relational databases. It provides many of the familiar SQL Server features and functionality, while abstracting the burden of hardware, configuration, patching, and resiliency.
 
->[AZURE.NOTE]Azure SQL Database does not provide 1 to 1 feature parity with SQL Server, and is intended to fulfill a different set of requirements uniquely suited to cloud applications (elastic scale, database-as-a-service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+>[AZURE.NOTE] Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL Database (PaaS)or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
 ####Replication
 
-Azure SQL Database provides built-in resiliency to node-level failure. All writes into a database are automatically replicated to two or more background nodes using a quorum commit technique (the primary and at least one secondary must confirm that the activity is written to the transaction log before the transaction is deemed successful and returns). In the case of node failure the database automatically fails over to one of the secondary replicas. This causes a transient connection interruption for client applications. For this reason all Microsoft Azure SQL Database clients must implement some form of transient connection handling. For more information, see [Using the Transient Fault Handling Application Block with SQL Azure](https://msdn.microsoft.com/library/hh680899.aspx).
+Azure SQL Database provides built-in resiliency to node-level failure. All writes into a database are automatically replicated to two or more background nodes through a quorum commit technique. (The primary and at least one secondary must confirm that the activity is written to the transaction log before the transaction is deemed successful and returns.) In the case of node failure, the database automatically fails over to one of the secondary replicas. This causes a transient connection interruption for client applications. For this reason, all Azure SQL Database clients must implement some form of transient connection handling. For more information, see [Using the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680899.aspx).
 
 ####Resource management
 
-Each database, when created, is configured with an upper size limit. The currently available maximum size is 150GB. When a database hits its upper size limit it rejects additional INSERT or UPDATE commands (querying and deleting data is still possible).
+Each database, when created, is configured with an upper size limit. The currently available maximum size is 150 GB. When a database hits its upper size limit, it rejects additional INSERT or UPDATE commands. (Querying and deleting data is still possible.)
 
-Within a database, Microsoft Azure SQL Database uses a fabric to manage resources. However, instead of a fabric controller, it uses a ring topology to detect failures. Every replica in a cluster has two neighbors, and is responsible for detecting when they go down. When a replica goes down, its neighbors trigger a Reconfiguration Agent (RA) to recreate it on another machine. Engine throttling is provided to ensure that a logical server does not use too many resources on a machine, or exceed the machine’s physical limits.
+Within a database, Azure SQL Database uses a fabric to manage resources. However, instead of a fabric controller, it uses a ring topology to detect failures. Every replica in a cluster has two neighbors and is responsible for detecting when they go down. When a replica goes down, its neighbors trigger a reconfiguration agent to re-create it on another machine. Engine throttling is provided to ensure that a logical server does not use too many resources on a machine, or exceed the machine’s physical limits.
 
 ###Elasticity
 
-If the application requires more than the 150GB database limit it must implement a scale-out approach. Scaling out with Microsoft Azure SQL Database is done by manually partitioning, also known as sharding, data across multiple Azure SQL Databases. This scale-out approach provides the opportunity to achieve near linear cost growth with scale. Elastic growth or capacity on demand can grow with incremental costs as needed because databases are billed based on the average actual size used per day, not based on maximum possible size.
+If the application requires more than the 150-GB database limit, it must implement a scale-out approach. You scale out with Azure SQL Database by manually partitioning, also known as sharding, data across multiple SQL databases. This scale-out approach provides the opportunity to achieve nearly linear cost growth with scale. Elastic growth or capacity on demand can grow with incremental costs as needed because databases are billed based on the average actual size used per day, not based on maximum possible size.
 
-##SQL Server on Virtual Machines
+##SQL Server on virtual machines
 
-By installing SQL Server on Azure Virtual Machines (version 2014 or later), you can take advantage of the traditional availability features of SQL Server, such as AlwaysOn Availability Groups or database mirroring. Note that Azure VM, storage, and networking, have different operational characteristics than an on-premises, non-virtualized IT infrastructure. A successful implementation of a High Availability / Disaster Recovery (HA/DR) SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.
+By installing SQL Server (version 2014 or later) on Azure virtual machines, you can take advantage of the traditional availability features of SQL Server. These features include AlwaysOn Availability Groups and database mirroring. Note that Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure. A successful implementation of a high availability/disaster recovery (HA/DR) SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.
 
 ###High-availability nodes in an availability set
 
-When you implement a high availability solution in Azure, the availability set in Azure enables you to place the high availability nodes into separate fault domains and upgrade domains. To be clear, the availability set is an Azure concept. It is a best practice that you should follow to make sure that your databases are indeed highly available, whether you are using AlwaysOn Availability Groups, database mirroring, or otherwise. If you do not follow this best practice, you might be under the false assumption that your system is highly available, but in reality your nodes can all fail simultaneously because they happen to be placed in the same fault domain in the Azure datacenter. This recommendation is not as applicable with log shipping, since, as a disaster recovery feature, you should ensure that the servers are running in separate Azure datacenter locations (regions). By definition, these datacenter locations are separate fault domains.
+When you implement a high-availability solution in Azure, you can use the availability set in Azure to place the high-availability nodes into separate fault domains and upgrade domains. To be clear, the availability set is an Azure concept. It's a best practice that you should follow to make sure that your databases are indeed highly available, whether you're using AlwaysOn Availability Groups, database mirroring, or otherwise.
 
-For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service. Only nodes in the same cloud service can participate in the same availability set. In addition, the VMs should be in the same VNet to ensure that they maintain their IPs even after service healing, thus avoiding DNS update times.
+If you don't follow this best practice, you might be under the false assumption that your system is highly available. But in reality, your nodes can all fail simultaneously because they happen to be placed in the same fault domain in the Azure datacenter.
+
+This recommendation is not as applicable with log shipping. As a disaster recovery feature, you should ensure that the servers are running in separate Azure datacenter locations (regions). By definition, these datacenter locations are separate fault domains.
+
+For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service. Only nodes in the same cloud service can participate in the same availability set. In addition, the VMs should be in the same virtual network to ensure that they maintain their IPs even after service healing. This avoids DNS update times.
 
 ###Azure-only: High-availability solutions
 
-You can have a high availability solution for your SQL Server databases in Azure using AlwaysOn Availability Groups or database mirroring.
+You can have a high-availability solution for your SQL Server databases in Azure by using AlwaysOn Availability Groups or database mirroring.
 
-The following diagram demonstrates the architecture of AlwaysOn Availability Groups running in Azure Virtual Machines. This diagram was taken from the depth article on this subject, [High availability and disaster recovery for SQL Server in Azure virtual machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+The following diagram demonstrates the architecture of AlwaysOn Availability Groups running in Azure virtual machines. This diagram was taken from the in-depth article on this subject, [High availability and disaster recovery for SQL Server in Azure virtual machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![AlwaysOn Availability Groups in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
-You can also automatically provision an AlwaysOn Availability Group deployment end-to-end on Azure VMs by using the AlwaysOn template in the Microsoft Azure Portal. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure Portal Gallery](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
+You can also automatically provision an AlwaysOn Availability Groups deployment end-to-end on Azure VMs by using the AlwaysOn template in the Azure portal. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure Portal Gallery](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-The following diagram demonstrates the use of Database Mirroring on Azure Virtual Machines. It was also taken from the depth topic, [High availability and disaster Recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+The following diagram demonstrates the use of database mirroring on Azure virtual machines. It was also taken from the in-depth topic [High availability and disaster recovery for SQL Server in Azure virtual machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Database mirroring in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
->[AZURE.NOTE]In both architectures, a domain controller is required. However, with Database Mirroring it is possible to use server certificates to eliminate the need for a domain controller.
+>[AZURE.NOTE] Both architectures require a domain controller. However, with database mirroring, it's possible to use server certificates to eliminate the need for a domain controller.
 
 ##Other Azure platform services
 
@@ -174,9 +180,9 @@ The data associated with HDInsight is stored by default in Azure Blob Storage, w
   7. Continue to invoke operations until they succeed.
   8. Consider autoscaling strategies.
 
-###Virtual Machines
+###Virtual machines
 
-  1. Review the [Virtual Machines](#virtual-machines) section of this document.
+  1. Review the [Virtual machines](#virtual-machines) section of this document.
   2. Do not use the D: drive for persistent storage.
   3. Group machines in a service tier into an availability set.
   4. Configure load balancing and optional probes.
@@ -192,10 +198,10 @@ The data associated with HDInsight is stored by default in Azure Blob Storage, w
   2. Implement a retry policy to handle transient errors.
   3. Use partitioning/sharding as a scale out strategy.
 
-###SQL Server on Virtual Machines
+###SQL Server on virtual machines
 
-  1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document.
-  2. Follow the previous recommendations for Virtual Machines.
+  1. Review the [SQL Server on virtual machines](#sql-server-on-virtual-machines) section of this document.
+  2. Follow the previous recommendations for virtual machines.
   3. Use SQL Server high availability features, such as AlwaysOn.
 
 ###Service Bus
