@@ -25,7 +25,7 @@
 - [PowerShell](sql-data-warehouse-manage-database-restore-powershell.md)
 - [REST](sql-data-warehouse-manage-database-restore-rest-api.md)
 
-Describes the options for restoring a database in Azure SQL Data Warehouse. These include restoring a live data warehouse and a deleted data warehouse. Live and deleted data warehouses are restored from the automatic snapshots created from all data warehouses. 
+This article describes the options for restoring a database in Azure SQL Data Warehouse. These include restoring a live data warehouse and a deleted data warehouse. Live and deleted data warehouses are restored from the automatic snapshots created from all data warehouses. 
 
 ## Recovery scenarios
 
@@ -52,7 +52,7 @@ SQL Data Warehouse stores all data on [locally redundant (LRS)](../storage/stora
 Database restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic snapshot and restore features provide a zero-admin way to protect databases from accidental corruption or deletion. To learn more about database restore, refer to [Database restore tasks][].
 
 ## Next steps
-For other important management tasks, see [Management overview][];
+For other important management tasks, see [Management overview][].
 
 <!--Image references-->
 
@@ -60,6 +60,7 @@ For other important management tasks, see [Management overview][];
 [Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
 [Management overview]: sql-data-warehouse-overview-management.md
+[Database restore tasks]: sql-data-warehouse-manage-database-restore-portal.md
 
 <!--MSDN references-->
 
