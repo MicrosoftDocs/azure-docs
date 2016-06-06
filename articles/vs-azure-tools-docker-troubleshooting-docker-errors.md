@@ -26,6 +26,7 @@ When adding docker support, `.UseUrls(Environment.GetEnvironmentVariable("ASPNET
 If Program.cs the `Main()` function or a new WebHostBuilder class wasn't found, a warning will be displayed.
 `.UseUrls()` is required to enable Kestrel to listen to incoming traffic, beyond localhost when run within a docker container.
 Upon completion, the typical code will look like the following:
+
 ```
 public class Program
 {
@@ -51,18 +52,21 @@ UseUrls() configured the WebHost to listen to incoming URL traffic.
 # Configure the listening port to 80
 ENV ASPNETCORE_SERVER.URLS http://*:80
 ```
+
 ## Volume Mapping not functioning
 To enable Edit & Refresh capabilities, volume mapping is configured to share the source code of your project to the .app folder within the container.
 As files are changed on your host machine, the containers /app directory uses the same directory.
 In docker-compose.debug.yml, the following configuration enables volume mapping
 
 ```
-    volumes:
-      - ..:/app
+volumes:
+    - ..:/app
 ```
+
 To test if volume mapping is functioning, try the following command:
 
 **From Windows**
+
 ```
 a
 cd wormhole
@@ -76,7 +80,9 @@ If no files are displayed, and your /c/Users/Public folder isn't empty, volume m
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
+
 Change into the wormhole directory to see the contents of the `/c/Users/Public` directory:
+
 ```
 / # cd wormhole/
 /wormhole # ls
@@ -85,6 +91,7 @@ Desktop          Host             NuGet.Config     a.txt
 Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
+
 **Note:** *When working with Linux VMs, the container file system is case sensitive.*  
 
 If you're unable to see the contents, try the following:
@@ -124,8 +131,12 @@ This could be an error during `docker-compose-up`. To view the error, perform th
 1. Locate the Docker entry.
 1. Locate the line that begins as follows:
 
+    ```
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
+    ```
 	
 1. Add the `-noexit` parameter so that the line now resembles the following. This will keep PowerShell open so that you can view the error.
 
+    ```
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+    ```
