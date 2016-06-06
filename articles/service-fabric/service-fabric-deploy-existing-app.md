@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="06/06/2016"
    ms.author="bscholl;mikhegn"/>
 
 # Deploy a guest executable to Service Fabric
 
 You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric terminology refers to those types of applications as guest executables.
-Guest executables are treated by Service Fabric like stateless services. As a result they will be placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command line utility
+Guest executables are treated by Service Fabric like stateless services. As a result, they will be placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command line utility
 
 ## Benefits of running a guest executable in Service Fabric
 
@@ -31,40 +31,6 @@ There are several advantages that come with running a guest executable in a Serv
 - Density. You can run multiple applications in a cluster, which eliminates the need for each application to run on its own hardware.
 
 In this article, we cover the basic steps to package a guest executable and deploy it to Service Fabric.  
-
-## Using Visual Studio to easily package an existing application
-
-Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
-You need to go through the following, to complete the publishing:
-
-1. Choose File -> New Project and create a new Service Fabric Application
-2. Choose Guest Executable as the Service Template
-3. Click Browse to select the folder with your executable and fill in the rest of the parameters to create the new service
-  - *Code Package Behavior* can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable will not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.
-  - *Program* choose the executable that should be executed in order to start the service.
-  - *Arguments* specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
-  - *WorkingFolder* choose the working directory for the process that is going to be started. You can specify two values:
-  	- *CodeBase* specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the structure shown below).
-    - *CodePackage* specifies that the working directory is going to be set to the root of the application package	(`MyServicePkg`).
-4. Give your service a name and click OK
-5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file (e.g.): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
-6. Publish your guest executable to a Service Fabric cluster
-
-### Check your running application
-
-In Service Fabric Explorer, identify the node where the service is running. In this example, it runs on Node1:
-
-![Node where service is running](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
-
-If you navigate to the node and browse to the application, you will see the essential node information, including its location on disk.
-
-![Location on disk](./media/service-fabric-deploy-existing-app/locationondisk2.png)
-
-If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder as shown below.
-
-![Location of log](./media/service-fabric-deploy-existing-app/loglocation.png)
-
-The following sections describes the details of guest executables and the application and service package used by Service Fabric.
 
 ## Quick overview of application and service manifest files
 
@@ -106,7 +72,9 @@ Note: You don't have to create the `config` and `data` directories if you don't 
 
 ## Process of packaging an existing app
 
-The process of packaging a guest executable is based on the following steps:
+When packaging a guest executable, you can choose either to use a Visual Studio project template or create the application package manually. Using Visual Studio, the application package structure and manifest files are created by the new project wizard for you. See below for a step-by-step guide on how to package a guest executable using Visual Studio.
+
+The process of manually packaging a guest executable is based on the following steps:
 
 1. Create the package directory structure.
 2. Add the application's code and configuration files.
@@ -194,7 +162,7 @@ The `Name` element is used to specify the name of the directory in the applicati
 ```
 The SetupEntrypoint element is used to specify any executable or batch file that should be executed before the service's code is launched. It is an optional element, so it does not need to be included if there is no initialization/setup required. The SetupEntryPoint is executed every time the service is restarted.
 
-There is only one SetupEntrypoint, so setup/config scripts need to be bundled in a single batch file if the application's setup/config requires multiple scripts. Like the Entrypoint element, SetupEntrypoint can execute any type of file--executable files, batch files, and PowerShell cmdlets. In the example above, the SetupEntrypoint is based on a batch file LaunchConfig.cmd that is located in the `scripts` subdirectory of the code directory (assuming the WorkingDirectory element is set to code).
+There is only one SetupEntrypoint, so setup/config scripts need to be bundled in a single batch file if the application's setup/config requires multiple scripts. Like the SetupEntryPoint element, SetupEntrypoint can execute any type of file--executable files, batch files, and PowerShell cmdlets. In the example above, the SetupEntrypoint is based on a batch file LaunchConfig.cmd that is located in the `scripts` subdirectory of the code directory (assuming the WorkingFolder element is set to code).
 
 ### Entrypoint
 
@@ -215,7 +183,7 @@ The `Entrypoint` element in the service manifest file is used to specify how to 
 - `WorkingFolder` specifies the working directory for the process that is going to be started. You can specify two values:
 	- `CodeBase` specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the structure shown below).
 	- `CodePackage` specifies that the working directory is going to be set to the root of the application package	(`MyServicePkg`).
-- `WorkingDirectory` is useful to set the correct working directory so that relative paths can be used by either the application or initialization scripts.
+- `WorkingFolder` is useful to set the correct working directory so that relative paths can be used by either the application or initialization scripts.
 
 ### Endpoints
 
@@ -300,6 +268,38 @@ The `InstanceCount` parameter of the `New-ServiceFabricService` cmdlet is used t
 
 This is a useful configuration for front-end applications (for example, a REST endpoint) because client applications just need to
 "connect" to any of the nodes in the cluster in order to use the endpoint. This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service that is running on all nodes in the cluster.
+
+### Check your running application
+
+In Service Fabric Explorer, identify the node where the service is running. In this example, it runs on Node1:
+
+![Node where service is running](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
+
+If you navigate to the node and browse to the application, you will see the essential node information, including its location on disk.
+
+![Location on disk](./media/service-fabric-deploy-existing-app/locationondisk2.png)
+
+If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder as shown below.
+
+![Location of log](./media/service-fabric-deploy-existing-app/loglocation.png)
+
+## Using Visual Studio to package an existing application
+
+Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
+You need to go through the following, to complete the publishing:
+
+1. Choose File -> New Project and create a new Service Fabric Application
+2. Choose Guest Executable as the Service Template
+3. Click Browse to select the folder with your executable and fill in the rest of the parameters to create the new service
+  - *Code Package Behavior* can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable will not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.
+  - *Program* choose the executable that should be executed in order to start the service.
+  - *Arguments* specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
+  - *WorkingFolder* choose the working directory for the process that is going to be started. You can specify two values:
+  	- *CodeBase* specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the structure shown below).
+    - *CodePackage* specifies that the working directory is going to be set to the root of the application package	(`MyServicePkg`).
+4. Give your service a name and click OK
+5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file (e.g.): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
+6. You can now try the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready you can publish the application to a remote cluster or check-in the solution to source control.
 
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. As a next step, you can check out additional content for this topic.
