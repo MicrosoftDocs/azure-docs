@@ -44,7 +44,7 @@ To view the AzureRmRecoveryServicesVault PowerShell cmdlet reference, see the [A
 
 To begin:
 
-1. [Download the latest version of PowerShell](https://github.com/Azure/azure-powershell/releases) (the minimum version required is : 1.0.0)
+1. [Download the latest version of PowerShell](https://github.com/Azure/azure-powershell/releases) (the minimum version required is : 1.4.0)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
