@@ -36,7 +36,7 @@ This article covers the following topics:
 
 ## Endpoints <a id="endpoints"></a>
 
-Azure IoT Hub is a multi-tenant service, that exposes its functionality to a variety of actors. The following diagram shows the various endpoints that IoT Hub exposes.
+Azure IoT Hub is a multi-tenant service that exposes its functionality to a variety of actors. The following diagram shows the various endpoints that IoT Hub exposes.
 
 ![IoT Hub endpoints][img-endpoints]
 
@@ -100,13 +100,13 @@ Device identities are represented as JSON documents with the following propertie
 
 | Property | Options | Description |
 | -------- | ------- | ----------- |
-| deviceId | required, read-only on updates | A case-sensitive string ( up to 128 char long) of ASCII 7-bit alphanumeric chars + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
-| generationId | required, read-only | A hub-generated case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId** when they have been deleted and recreated. |
+| deviceId | required, read-only on updates | A case-sensitive string ( up to 128 characters long) of ASCII 7-bit alphanumeric chars + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| generationId | required, read-only | A hub-generated case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId** when they have been deleted and re-created. |
 | etag | required, read-only | A string representing a weak etag for the device identity, as per [RFC7232][lnk-rfc7232].|
 | auth | optional | A composite object containing authentication information and security materials. |
 | auth.symkey | optional | A composite object containing a primary and a secondary key, stored in base64 format. |
 | status | required | Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
-| statusReason | optional | A 128 char-long string storing the reason for the device identity status. All UTF-8 characters are allowed. |
+| statusReason | optional | A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime | read-only | Date and time of the last status update. |
 | connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings) and it can have a delay of at most 5 minutes. For these reasons there can be false positives such as devices reported as connected but actually disconnected. |
 | connectionStateUpdatedTime | read-only | Date and last time the connection state was updated. |
@@ -149,7 +149,7 @@ You can disable devices by updating the **status** property of an identity in th
 
 ### Import and export device identities <a id="importexport"></a>
 
-You can export device identities in bulk from an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry: 
+You can export device identities in bulk from an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
 
 - For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
 - To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
@@ -176,15 +176,15 @@ You can grant permissions in the following ways:
 
 * **Hub-level shared access policies**. Shared access policies can grant any combination of the permissions listed in the previous section. You can define policies in the [Azure portal][lnk-management-portal] or programmatically using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
 
-    - *iothubowner*: Policy with all permissions
-    - *service*: Policy with **ServiceConnect** permission
-    - *device*: Policy with **DeviceConnect** permission
-    - *registryRead*: Policy with **RegistryRead** permission
-    - *registryReadWrite*: Policy with **RegistryRead** and **RegistryWrite** permissions
+    - **iothubowner**: Policy with all permissions
+    - **service**: Policy with **ServiceConnect** permission
+    - **device**: Policy with **DeviceConnect** permission
+    - **registryRead**: Policy with **RegistryRead** permission
+    - **registryReadWrite**: Policy with **RegistryRead** and **RegistryWrite** permissions
 
 * **Per-device security credentials**. Each IoT Hub contains a [device identity registry](#device-identity-registry). For each device in this registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
-**Example**. In a typical IoT solution:
+For example, in a typical IoT solution:
 - The device management component uses the *registryReadWrite* policy.
 - The event processor component uses the *service* policy.
 - The runtime device business logic component uses the *service* policy.
@@ -200,7 +200,7 @@ Security credentials, such as symmetric keys, are never sent over the wire.
 
 > [AZURE.NOTE] The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
 
-Refer to the [IoT Hub security tokens][lnk-sas-tokens] article, for more information about how to construct and use security tokens.
+For more information about how to construct and use security tokens, seee [IoT Hub security tokens][lnk-sas-tokens].
 
 #### Protocol specifics
 
@@ -230,7 +230,7 @@ Password (Generate SAS with Device Explorer): `SharedAccessSignature sr=iothubna
 
 > [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
 
-#### SASL PLAIN compared to CBS
+#### Special considerations for SASL PLAIN
 
 When using SASL PLAIN, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnect. This behavior, while not problematic for an application back-end component, is very damaging for a device-side application for the following reasons:
 
