@@ -51,11 +51,13 @@ docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_
 ## Choose a docker host with docker-machine
 Once you have an entry in docker-machine for your host, you can set the default host when running docker commands.
 ##Using PowerShell
+
 ```powershell
 docker-machine env MyDockerHost | Invoke-Expression 
 ```
 
 ##Using Bash
+
 ```bash
 eval $(docker-machine env MyDockerHost)
 ```
@@ -100,6 +102,7 @@ d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago  
 ```
 
 And check to see the running container, type `docker-machine ip <VM name>` to find the IP address to enter in the browser:
+
 ```
 PS C:\> docker-machine ip MyDockerHost
 191.237.46.90

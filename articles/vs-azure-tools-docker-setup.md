@@ -38,7 +38,7 @@ To configure a Docker client, simply open Windows PowerShell, and perform the fo
  
 1. Verify the default instance is configured and running. (You should see an instance named `default' running.
 
-		docker-machine ls 
+	docker-machine ls 
 		
 	![][0]
  
@@ -48,7 +48,7 @@ To configure a Docker client, simply open Windows PowerShell, and perform the fo
 
 1. Display the active Docker containers. The list should be empty.
 
-		docker ps
+	docker ps
 
 	![][1]
  

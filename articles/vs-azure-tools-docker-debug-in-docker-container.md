@@ -77,8 +77,10 @@ To quickly iterate changes, you can start your application within a container, a
 
 1. Append the following HTML content to the end of the file and save the changes. 
 
-		<h1>Hello from a Docker Container!</h1>
-
+    ```html
+    <h1>Hello from a Docker Container!</h1>
+    ```
+    
 1.	Viewing the output window, when the .NET build is completed and you see `Application started. Press Ctrl+C to shut down`, switch back to your browser and refresh the page.
 
 1.	You should see changes have been applied!
@@ -89,8 +91,11 @@ Often, changes will need further inspection, leveraging the debugging features o
 1.	Return to Visual Studio and open `Controllers\HomeController.cs`
 
 1.  Replace the contents of the About() method with the following:
-		string message = "Your application description page from wthin a Container";
-		ViewData["Message"] = message;
+
+    ```
+    string message = "Your application description page from wthin a Container";
+    ViewData["Message"] = message;
+    ```
 
 1.  Set a breakpoint to the left of the `string message`... line.
 

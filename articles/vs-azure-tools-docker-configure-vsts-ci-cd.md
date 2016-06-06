@@ -1,6 +1,7 @@
 <properties
    pageTitle="Deploy an ASP.NET Core Linux Docker container to a remote Docker host | Microsoft Azure"
-   description="Learn how to use Visual Studio Tools for Docker to deploy an ASP.NET Core web app to a Docker container running on an Azure Docker Host Linux VM"   
+   d
+   escription="Learn how to use Visual Studio Tools for Docker to deploy an ASP.NET Core web app to a Docker container running on an Azure Docker Host Linux VM"   
    services="azure-container-service"
    documentationCenter=".net"
    authors="allclark"
@@ -43,29 +44,35 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
 
 ## 4. Use the DockerTask.ps1 PowerShell Script 
 
-1.  Open a PowerShell prompt to the root directory of your project 
-```
-PS C:\Src\WebApplication1>
-```
+1.  Open a PowerShell prompt to the root directory of your project
+
+    ```
+    PS C:\Src\WebApplication1>
+    ```
+    
 1.  Validate the remote host is running. You should see state = Running 
-```
-docker-machine ls
-NAME         ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
-MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
-```
+
+    ```
+    docker-machine ls
+    NAME         ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
+    MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
+    ```
 
 1.  Build the app using the -Build parameter
-```
-PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
-```  
+
+    ```
+    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    ```  
 
 1.  Run the app, using the -Run parameter
-```
-PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
-```
+
+    ```
+    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    ```
+
 1.  Once docker completes, you should see results similar to the following:
 
-![View your app][3]
+    ![View your app][3]
 
 [0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
 [1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
