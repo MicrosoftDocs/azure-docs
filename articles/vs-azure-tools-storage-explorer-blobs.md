@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/19/2016"
+	ms.date="06/05/2016"
 	ms.author="tarcher" />
 
 # Manage Azure Blob Storage resources with Storage Explorer (Preview)
@@ -44,7 +44,7 @@ The following steps illustrate how to create a blob container within Storage Exp
 	![Create blob containers context menu][0]
 
 1.	A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See
-the [Container naming rules](./storage/storage-dotnet-how-to-use-blobs.md#container-naming-rules) section for a list of
+the [Container naming rules](./storage/storage-dotnet-how-to-use-blobs.md#create-a-container) section for a list of
 rules and restrictions on naming blob containers.
 
 	![Create Blob Containers text box][1]
@@ -86,7 +86,7 @@ You can also press **Delete** to delete the currently selected blob container.
 
 	![Delete blob container context menu][4]
 
-1.	Tap **Yes** to the confirmation dialog.
+1.	Select **Yes** to the confirmation dialog.
 
 	![Delete blob Container confirmation][5]
 
@@ -127,14 +127,14 @@ The following steps illustrate how to create a SAS for a blob container:
 
 	![Get SAS options][9]
 
-1.	When you're finished specifying the SAS options, tap **Create**.
+1.	When you're finished specifying the SAS options, select **Create**.
 
 1.	A second **Shared Access Signature** dialog will then display that lists the blob container along with the URL and QueryStrings you can use to access the storage resource.
-Tap **Copy** next to the URL you wish to copy to the clipboard.
+Select **Copy** next to the URL you wish to copy to the clipboard.
 
 	![Copy SAS URLs][10]
 
-1.	When done, tap **Close**.
+1.	When done, select **Close**.
 
 ## Manage Access Policies for a blob container
 
@@ -153,9 +153,9 @@ The following steps illustrate how to manage (add and remove) access policies fo
 
 1.	Follow these steps depending on the access policy management task:
 
-	- **Add a new access policy** - Tap **Add**. Once generated, the **Access Policies** dialog will display the newly added access policy (with default settings).
-	- **Edit an access policy** -  Make any desired edits, and tap **Save**.
-	- **Remove an access policy** - Tap **Remove** next to the access policy you wish to remove.
+	- **Add a new access policy** - Select **Add**. Once generated, the **Access Policies** dialog will display the newly added access policy (with default settings).
+	- **Edit an access policy** -  Make any desired edits, and select **Save**.
+	- **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
 
 ## Set the Public Access Level for a blob container
 
@@ -174,7 +174,7 @@ The following steps illustrate how to specify a public access level for a blob c
 
 	![Set public access level options][14]
 
-1.	Tap **Apply**.
+1.	Select **Apply**.
 
 ## Managing blobs in a blob container
 
@@ -197,11 +197,11 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 
 	- **Upload files to a blob container**
 
-		1.	On the main pane's toolbar, tap **Upload**, and then **Upload Files** from the drop-down menu.
+		1.	On the main pane's toolbar, select **Upload**, and then **Upload Files** from the drop-down menu.
 
 			![Upload files menu][15]
 
-		1.	In the **Upload files** dialog, tap the ellipsis (**…**) button on the right side of the **Files** text box to select the file(s) you wish to upload.
+		1.	In the **Upload files** dialog, select the ellipsis (**…**) button on the right side of the **Files** text box to select the file(s) you wish to upload.
 
 			![Upload files options][16]
 
@@ -209,15 +209,15 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 
 		1.	Optionally, specify a target folder into which the selected file(s) will be uploaded. If the target folder doesn’t exist, it will be created.
 
-		1.	Tap **Upload**.
+		1.	Select **Upload**.
 
 	- **Upload a folder to a blob container**
 
-		1.	On the main pane's toolbar, tap **Upload**, and then **Upload Folder** from the drop-down menu.
+		1.	On the main pane's toolbar, select **Upload**, and then **Upload Folder** from the drop-down menu.
 
 			![Upload folder menu][17]
 
-		1.	In the **Upload folder** dialog, tap the ellipsis (**…**) button on the right side of the **Folder** text box to select the folder whose contents you wish to upload.
+		1.	In the **Upload folder** dialog, select the ellipsis (**…**) button on the right side of the **Folder** text box to select the folder whose contents you wish to upload.
 
 			![Upload folder options][18]
 
@@ -225,23 +225,23 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 
 		1.	Optionally, specify a target folder into which the selected folder's contents will be uploaded. If the target folder doesn’t exist, it will be created.
 
-		1.	Tap **Upload**.
+		1.	Select **Upload**.
 
 	- **Download a blob to your local computer**
 
 		1.	Select the blob you wish to download.
 
-		1.	On the main pane's toolbar, tap **Download**.
+		1.	On the main pane's toolbar, select **Download**.
 
 		1.	In the **Specify where to save the downloaded blob** dialog, specify the location where you want the blob downloaded, and the name you wish to give it.  
 
-		1.	Tap **Save**.
+		1.	Select **Save**.
 
 	- **Open a blob on your local computer**
 
 		1.	Select the blob you wish to open.
 
-		1.	On the main pane's toolbar, tap **Open**.
+		1.	On the main pane's toolbar, select **Open**.
 
 		1.	The blob will be downloaded and opened using the application associated with the blob's underlying file type.
 
@@ -249,19 +249,19 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 
 		1.	Select the blob you wish to copy.
 
-		1.	On the main pane's toolbar, tap **Copy**.
+		1.	On the main pane's toolbar, select **Copy**.
 
 		1.	In the left pane, navigate to another blob container, and double-click it to view it in the main pane.
 
-		1.	On the main pane's toolbar, tap **Paste** to create a copy of the blob.
+		1.	On the main pane's toolbar, select **Paste** to create a copy of the blob.
 
 	- **Delete a blob**
 
 		1.	Select the blob you wish to delete.
 
-		1.	On the main pane's toolbar, tap **Delete**.
+		1.	On the main pane's toolbar, select **Delete**.
 
-		1.	Tap **Yes** to the confirmation dialog.
+		1.	Select **Yes** to the confirmation dialog.
 
 ## Next steps
 

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/19/2016"
+	ms.date="06/05/2016"
 	ms.author="tarcher" />
 
 # Getting started with Storage Explorer (Preview)
@@ -47,7 +47,7 @@ connected to an Azure account, you'll see an infobar that enables you to connect
 
 	![][0]
 	
-1. Tap **Connect to Microsoft Azure** and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
+1. Select **Connect to Microsoft Azure** and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
 
 Once you successfully sign in with a Microsoft account, the left pane of the Storage Explorer (Preview) will populate with all the storage accounts associated with all of the Azure subscriptions associated with the 
 Microsoft account.
@@ -56,7 +56,7 @@ Microsoft account.
 
 Storage Explorer (Preview) enables you to filter which Azure subscriptions associated with your signed-in Microsoft account(s) will have their storage accounts listed in the left-pane.
 
-1. Tap the **Settings** (gear) icon.
+1. Select the **Settings** (gear) icon.
 
 	![][1]   
 
@@ -64,7 +64,7 @@ Storage Explorer (Preview) enables you to filter which Azure subscriptions assoc
 
 	![][3]
 	 
-1.	Tap the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
+1.	Select the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
 
 	![][4]
 
@@ -77,13 +77,13 @@ listed Azure subscriptions.
 
 	![][2]  
 
-1.	When you have finished selecting the Azure subscriptions you want to manage, tap **Apply**. The left pane will update to list all the storage accounts for each selected Azure subscription for the current Microsoft account. 
+1.	When you have finished selecting the Azure subscriptions you want to manage, select **Apply**. The left pane will update to list all the storage accounts for each selected Azure subscription for the current Microsoft account. 
 
 ### Adding additional Microsoft accounts
 
 The following steps walk you through connecting to additional Microsoft accounts to view each account's Azure subscription(s) and storage accounts.
 
-1.	Tap the **Settings** (gear) icon.
+1.	Select the **Settings** (gear) icon.
 
 	![][1]   
 
@@ -91,17 +91,17 @@ The following steps walk you through connecting to additional Microsoft accounts
 
 	![][3]
 	 
-1.	Tap the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
+1.	Select the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
 
 	![][4]
 
-1.	Tap **Add an account** and follow the dialogs to sign into an account associated with at least one active Azure subscription.
+1.	Select **Add an account** and follow the dialogs to sign into an account associated with at least one active Azure subscription.
 
 1.	Select the check boxes for the Azure subscriptions you want to browse. 
 
 	![][2]  
 
-1.	Tap **Apply**.
+1.	Select **Apply**.
 
 ### Switch between Microsoft accounts
 
@@ -109,7 +109,7 @@ While you can connect to multiple Microsoft accounts, the left pane shows only t
 associated with the subscriptions for a single (current) Microsoft account. If you connect to multiple
 Microsoft accounts, you can switch between the accounts by performing the following steps:
 
-1.	Tap the **Settings** (gear) icon.
+1.	Select the **Settings** (gear) icon.
 
 	![][1]   
 
@@ -117,17 +117,17 @@ Microsoft accounts, you can switch between the accounts by performing the follow
 
 	![][3]
 	 
-1.	Tap the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
+1.	Select the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
 
 	![][4]
 
-1.	Tap the desired Microsoft account.
+1.	Select the desired Microsoft account.
 
 1.	Select the check boxes for the Azure subscriptions you want to browse. 
 
 	![][2]  
 
-1.	Tap **Apply**.
+1.	Select **Apply**.
   
 ## Connect to local storage
 
@@ -141,11 +141,11 @@ Storage Explorer (Preview) enables you to work against local storage using the A
 
 	![][21]
 
-1. If you have not yet installed the Azure Storage Emulator, you'll be prompted to do so via an infobar. If the infobar is displayed, tap **Download the latest version**, and install the emulator. 
+1. If you have not yet installed the Azure Storage Emulator, you'll be prompted to do so via an infobar. If the infobar is displayed, select **Download the latest version**, and install the emulator. 
 
 	![][22]
 
-1. Once the emulator is installed, you'll have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, click on the appropriate link below:
+1. Once the emulator is installed, you'll have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, select on the appropriate link below:
 
 	- [Manage Azure blob storage resources](./vs-azure-tools-storage-explorer-blobs.md)
 	- Manage Azure queue storage resources - *Coming soon*
@@ -163,10 +163,10 @@ person wanting to attach to that (external) account. Obtaining the storage accou
 can be done via the Azure portal by following these steps: 
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
-1.	Tap **Browse**.
-1.	Tap **Storage Accounts**.
-1.	In the **Storage Accounts** blade, tap the desired storage account.
-1.	In the **Settings** blade for the selected storage account, tap **Access keys**.
+1.	Select **Browse**.
+1.	Select **Storage Accounts**.
+1.	In the **Storage Accounts** blade, select the desired storage account.
+1.	In the **Settings** blade for the selected storage account, select **Access keys**.
 
 	![][5]
 	
@@ -182,7 +182,7 @@ can be done via the Azure portal by following these steps:
 	
 1.	The section, *Get the storage account credentials*, explains how to obtain the 
 storage account name and key 1 values. Those values will be used in this step. In 
-the **Attach External Storage** dialog, enter the storage account name in the **Account name** box and the Key 1 value in the **Account key** box. Tap **OK** when done. 
+the **Attach External Storage** dialog, enter the storage account name in the **Account name** box and the Key 1 value in the **Account key** box. Select **OK** when done. 
 
 	![][8]
 
@@ -197,7 +197,7 @@ select **Detach**.
 
 	![][10]
 
-1.	When the confirmation message box appears, tap **Yes** to confirm the detachment from the external storage account.
+1.	When the confirmation message box appears, select **Yes** to confirm the detachment from the external storage account.
 
 	![][12]
 
@@ -221,11 +221,11 @@ allow UserB to access a storage account for a limited time with certain permissi
 
 	![][13]
 
-1. On the **Shared Access Signature** dialog, specify the time frame and permissions you want for the account, and tap **Create**.
+1. On the **Shared Access Signature** dialog, specify the time frame and permissions you want for the account, and select **Create**.
 
 	![][14]
  
-1. A second **Shared Access Signature** dialog will appear displaying the SAS. Tap **Copy** next to the **Connection String** to copy it to the clipboard. Tap **Close** to dismiss the dialog.
+1. A second **Shared Access Signature** dialog will appear displaying the SAS. Select **Copy** next to the **Connection String** to copy it to the clipboard. Select **Close** to dismiss the dialog.
 
 ### Attach to the shared account using the SAS
 
@@ -237,7 +237,7 @@ allow UserB to access a storage account for a limited time with certain permissi
 
 	- **Account Name** - Enter the name that you want to associated with this account. **NOTE:** The account name does not have to match the original storage account name for which the SAS was generated. 
  	- **Connection String** - Paste the connection string you copied earlier.
- 	- Tap **OK** when done.
+ 	- Select **OK** when done.
 	
 	![][16]
 
@@ -265,7 +265,7 @@ explain how to generate the SAS for the listed service:
 1.	In the left pane, right-click **Storage Accounts**, and - from the context menu - select **Attach service using SAS**.
 	![][18]
 
-1. On the **Attach Account using SAS** dialog, paste in the SAS URI you copied earlier, and tap **OK**.
+1. On the **Attach Account using SAS** dialog, paste in the SAS URI you copied earlier, and select **OK**.
 
 	![][19]
 
@@ -282,7 +282,7 @@ search value you've entered up to that point. The following screen shot illustra
 
 ![][11]
 	
-To clear the search, tap the **x** button in the search box.
+To clear the search, select the **x** button in the search box.
 
 ## Next steps
 - [Manage Azure blob storage resources with Storage Explorer (Preview)](./vs-azure-tools-storage-explorer-blobs.md)
