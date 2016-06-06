@@ -50,6 +50,7 @@ Access control allows the cluster administrator to limit access to certain clust
 X.509 digital certificates are commonly used to authenticate clients and servers and to encrypt and digitally sign messages. For more details on these certificates, go to [Working with certificates](http://msdn.microsoft.com/library/ms731899.aspx).
 
 Some important things to consider:
+
 - Certificates used in clusters running production workloads should be created by using a correctly configured Windows Server certificate service or obtained from an approved [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
 - Never use any temporary or test certificates in production that are created with tools such as MakeCert.exe.
 - You can use a self-signed certificate, but should only do so for test clusters and not in production.
@@ -76,9 +77,11 @@ Client certificates are not typically issued by a third-party certificate author
 
 ## Next steps
 After your cluster is setup, learn about cluster upgrades:
+
 - [Service Fabric cluster upgrade process and expectations](service-fabric-cluster-upgrade.md)
 
 Learn more about application security:
+
 - [Application security and RunAs](service-fabric-application-runas-security.md)
 
 - [Secure service communications](service-fabric-reliable-services-secure-communication.md)
