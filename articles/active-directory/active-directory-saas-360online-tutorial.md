@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -86,6 +86,7 @@ To configure the integration of 360° Online into Azure AD, you need to add 360�
 	![Creating an Azure AD test user](./media/active-directory-saas-360online-tutorial/tutorial_360online_01.png)
 
 7. In the results pane, select **360° Online**, and then click **Complete** to add the application.
+ 
 	![Applications](./media/active-directory-saas-360online-tutorial/tutorial_360online_06.png)
 
 
@@ -123,7 +124,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 	![Configure Single Sign-On](./media/active-directory-saas-360online-tutorial/tutorial_360online_04.png)
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your 360° Online application (e.g.: https://\<company name\>.public360online.com).
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your 360° Online application using the following pattern: `https://<company name>.public360online.com`
 
     b. Click **Next**
 
@@ -136,7 +137,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your 360° Online support team via [support.community@software-innovation.com](mailto:360online@software-innovation.com) and attach the downloaded metadata file to your mail.
+5. To get SSO configured for your application, contact your 360° Online support team via [360online@software-innovation.com](mailto:360online@software-innovation.com) and attach the downloaded metadata file to your mail.
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
@@ -151,7 +152,6 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-In the Users list, select **Britta Simon**.
 
 ![Create Azure AD User][20]
 
@@ -216,7 +216,7 @@ In the Users list, select **Britta Simon**.
 
 The objective of this section is to create a user called Britta Simon in 360° Online. 
 
-To get a user in 360° Online created, you need to contact your 360° Online support team via [support.community@software-innovation.com](mailto:360online@software-innovation.com).
+To get a user in 360° Online created, you need to contact your 360° Online support team via [360online@software-innovation.com](mailto:360online@software-innovation.com).
 
 
 ### Assigning the Azure AD test user
