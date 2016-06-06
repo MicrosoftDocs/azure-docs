@@ -34,14 +34,11 @@ The following tools need to be installed.
 
 To run Docker containers locally, you'll need a local docker client.
 You can use the released [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) which requires Hyper-V to be disabled,
-or you can alternatively use [Docker for Windows Beta](https://beta.docker.com) which uses Hyper-V, and requires Windows 10.
+or you can use [Docker for Windows Beta](https://beta.docker.com) which uses Hyper-V, and requires Windows 10.
 
-If using Docker Toolbox, you'll need to [Configure the Docker client](./vs-azure-tools-docker-setup.md)
+If using Docker Toolbox, you'll need to [configure the Docker client](./vs-azure-tools-docker-setup.md)
 
-## Editing an app running in a local Docker container
-Visual Studio 2015 Tools for Docker enables ASP .NET Core RC2 Web app developers to test and run their application in a Docker container,
-make changes to the application in Visual Studio and refresh the browser to see changes applied to the app running inside of the container.
-With .NET Core and Visual Studio Tools for Docker version 0.20, you can also set breakpoints for the code running with the Docker Container.
+## 1. Create a web app
 
 1. From the Visual Studio menu, select **File > New > Project**.
 
@@ -55,22 +52,13 @@ With .NET Core and Visual Studio Tools for Docker version 0.20, you can also set
 
 1. Deselect **Host in the cloud** as you'll be using Docker as your deployment solution.
 
-1. From the Visual Studio Solution Explorer, right-click the project and select **Add > Docker Support**.
+## 2. Add Docker support
 
-	![][0]
+[AZURE.INCLUDE [Add docker support](../include/vs-azure-tools-docker-add-docker-support.md)]
 
-1. The following files are created under the project node:
 
-	![][1]
+## 3. Edit your code and refresh
 
-> [AZURE.NOTE] If using the [Docker for Windows Beta](https://beta.docker.com), open Properties\Docker.props, remove the default value
-> and restart Visaul Studio for the value to take affect.
-> 
-> ```
-> <DockerMachineName Condition="'$(DockerMachineName)'=="></DockerMachineName>
-> ```
-
-##Edit & Refresh
 To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
 
 1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally.
@@ -97,7 +85,8 @@ To quickly iterate changes, you can start your application within a container, a
 
 1.	Your changes have been applied!
 
-##Breakpoint Debugging
+## 4. Debug with breakpoints
+
 Often, changes will need further inspection, leveraging the debugging features of Visual Studio.
 
 1.	Return to Visual Studio and open `Controllers\HomeController.cs`
@@ -120,10 +109,12 @@ Often, changes will need further inspection, leveraging the debugging features o
 	![][2]
 
 ##Sumamry
+
 With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally,
 with the production realism of developing within a Docker container.
 
 ## Troubleshooting
+
 [Troubleshooting Visual Studio Docker Development](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## More about Docker with Visual Studio, Windows, and Azure
@@ -148,6 +139,4 @@ with the production realism of developing within a Docker container.
 - [Introduction to ASP.NET Core @ build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810)
 - [Developing .NET apps in containers, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
-[0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
-[1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
