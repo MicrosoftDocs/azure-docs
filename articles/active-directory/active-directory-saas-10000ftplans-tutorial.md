@@ -118,9 +118,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10000ftplans_04.png) 
 
 
-    a. In the **Sign On URL** textbox, type `https://<application name>.10000ft.com`.
+    a. In the **Sign On URL** textbox, type `https://app.10000ft.com`.
 
-	b. In the **Identifier** textbox, type `https://<application name>.10000ft.com/saml/metadata`.
+	b. In the **Identifier** textbox, type `https://app.10000ft.com/saml/metadata`.
+
+	> [AZURE.NOTE] The value for **Identifier** is different if you have a custom domain. If you need assistance, contact your [10,000ft Plans support team](mailto:support@10000ft.com).  
 
 	c. Click **Next**
 
@@ -134,7 +136,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your 10,000ft Plans support team at support@10000ft.com, attach the downloaded certificate and provide them with the Issuer URL, the SAML SSO URL and the Sign Out URL.
+5. To get SSO configured for your application, contact your [10,000ft Plans support team](mailto:support@10000ft.com), attach the downloaded certificate and provide them with the Issuer URL, the SAML SSO URL and the Sign Out URL.
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
