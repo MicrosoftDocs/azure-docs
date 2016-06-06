@@ -71,7 +71,7 @@ QPS|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per r
 
 Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
 
-Although rough estimates are provided above, actual queries-per-second (QPS) is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. The compute and storage resources backing the shared service are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time. 
+Although rough estimates are provided above, an actual rate is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. In the Free tier, compute and storage resources are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time. 
 
 At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads. 
 

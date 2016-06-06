@@ -19,35 +19,30 @@
 
 # Scale resource levels for query and indexing workloads in Azure Search
 
-In Azure Search, you can incrementally adjust computational resources by increasing partitions if you need more storage and IO, or replicas for higher query loads or better performance.
+In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and IO, or replicas for higher query loads or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). 
 
-Scalability becomes available when you provision a billable service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md).  
+Scale settings are available when you provision a billable service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md).  
 
 For all billable SKUs, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. Staying below the maximum limits uses fewer SUs, with a proportionally lower bill. Billing is in effect for as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreating it later when you need it.
 
-Billable tiers include the following:
+To increase or change the allocation of replicas and partitions, we recommend using the portal. The portal will enforce limits on allowable combinations that stay below maximum limits:
 
-- Basic provides up to 3 replicas per service.
-- Standard (S1 through S3) provides up to 36 SU per service that can be leveraged in multiple combinations of replicas and partitions.
-- S3 High Density (S3 HD) provides up to 12 replicas and 1 very large partition.
+1. Sign in to the [Azure Portal](https://portal.azure.com/) and select the search service.
+2. In Settings, open the Scale blade and use the sliders to increase or decrease the number of partitions and replicas.
 
-A single service must handle all workloads (indexing and queries). You can't provision multiple services for dedicated workloads. An index that's created on a service can only be queried via that service.
+As a general rule, search applications need more replicas than partitions, particularly when the service operations are biased towards query workloads. The section on [high availability](#HA) explains why.
 
-We recommend using the portal to adjust the mix of replicas and partitions. The portal will enforce limits on allowable combinations that stay below maximum limits.
-
-Once a service is provisioned, it can't be upgraded in place to a higher SKU. You will need to create a new Azure Search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on service provisioning.
-
-As a general rule, search applications need more replicas than partitions. The section on [high availability](#HA) explains why.
+> [AZURE.NOTE] Once a service is provisioned, it cannot be upgraded in place to a higher SKU. You will need to create a new search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for help with service provisioning.
 
 ## Terminology: partitions and replicas
 
 Partitions and replicas are the primary resources that back a search service.
 
-**Partitions** provide index storage and IO for write operations, for example when rebuilding or refreshing an index.
+**Partitions** provide index storage and IO for read-write operations (for example when rebuilding or refreshing an index).
 
-**Replicas** are instances of the search service, used for queries and along with partitions, used for refreshing the contents of an index. Each replica always hosts one copy of an index. Depending on the SKU, you most likely have two or more (up to 12) replicas that are active at any given time within a service. 
+**Replicas** are instances of the search service, used primarily to load balance query operations. Each replica always hosts one copy of an index. If you have 12 replicas, you will have 12 copies of every index loaded on the service. 
 
-There is no way to directly manipulate or manage which indexes run on a replica. Having one copy of each index on every replica is how the service is designed.
+> [AZURE.NOTE] There is no way to directly manipulate or manage which indexes run on a replica. One copy of each index on every replica is part of the service architecture.
 
 <a id="HA"></a>
 ## High availability
@@ -61,13 +56,17 @@ General recommendations for high availability are:
 - 2 replicas for high availability of read-only workloads (queries)
 - 3 or more replicas for high availability of read-write workloads (queries plus indexing as individual documents are added, updated, or deleted)
 
-Service Level Agreements (SLA) for Azure Search are for queries and updates to an index that do not include reindexing. Changing a data type, renaming a field, or adding or deleting a field are all actions that would require a rebuild, which consists of deleting the index, recreating the index, and reloading the data.
+Service Level Agreements (SLA) for Azure Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
+
+**Availability during an index rebuild**
+
+High availability for Azure Search are for queries and updates to an index that do not include reindexing. Changing a data type, renaming a field, or adding or deleting a field are all actions that would require a rebuild, which consists of deleting the index, recreating the index, and reloading the data. 
 
 To maintain index availability during a rebuild, you must have a second version of the index already in production on the same service or on a different service, and then provide redirection or fail over logic in your code.
 
 ## Disaster recovery
 
-Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. The most common approach is to add redundancy at the service level by provisioning a second search service in another region. As with availability during an index rebuild, the redirection or fail over logic must come from your code.
+Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. The most common approach is to add redundancy at the service level by provisioning a second search service in another region. As with availability during an index rebuild, the redirection or failover logic must come from your code.
 
 ## Increase query performance with replicas
 
@@ -85,7 +84,7 @@ Larger indexes take longer to query. As such, you might find that every incremen
 
 ## Basic tier: Partition and replica combinations
 
-A Basic service can have exactly 1 partition and up to 3 replicas, for a maximum limit of 3 SUs. 
+A Basic service can have exactly 1 partition and up to 3 replicas, for a maximum limit of 3 SUs. The only adjustable resource is replicas. As noted earlier, you need a minimum of 2 replicas for high availability on queries.
 
 <a id="chart"></a>
 ## Standard tier: Partition and replica combinations
@@ -109,7 +108,7 @@ Search units, pricing, and capacity are explained in detail on the Azure web sit
 
 ## S3 High Density: Partition and replica combinations
 
-S3 HD has 1 very large partition and up to 12 replicas, for a maximum limit of 12 SUs.
+S3 HD has 1 very large partition and up to 12 replicas, for a maximum limit of 12 SUs. The only adjustable resource is replicas.
 
 ## Calculate Search Units for Specific Resourcing Combinations: R X P = SU
 
