@@ -28,13 +28,13 @@ A logic app has three basic components:
 * **Workflow definition**. This is what is seen in Code view. It includes the definition of the steps of the flow and how the engine should execute. This is the `definition` property of the logic app resource.
 * **Connections**. These are separate resources that securely store metadata about any connector connections, such as a connection string and an access token. You reference these in a logic app in the `parameters` section of the logic app resource.
 
-You can view all of these pieces for existing logic apps by using tools like the [Azure Resource Explorer](http://resources.azure.com).
+You can view all of these pieces for existing logic apps by using a tool like [Azure Resource Explorer](http://resources.azure.com).
 
 To make a template for a logic app that can work with resource group deployments, you need to define the resources and parameterize as needed. For example, if deploying to a development, test, and production environment, it is likely that you will want to use different connection strings to a SQL database in each environment, or to deploy within different subscriptions or resource groups.  
 
 ## Create a logic app deployment template
 
-A few tools can assist you as you create a logic app deployment template. You can author by hand, that is, by using the resources already discussed here to create parameters as needed. Another option is to use a [logic app template creator](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell module. This open-source module works by evaluating the logic app and any connections that it is using. Then, it generates template resources with the necessary parameters for deployment. For example, if you had a logic app that received a message from an Azure Service Bus queue and added data to a SQL Azure database, the tool would preserve all of the orchestration logic and parameterize the SQL and Service Bus connection strings so that they could be set at deployment.
+A few tools can assist you as you create a logic app deployment template. You can author by hand, that is, by using the resources already discussed here to create parameters as needed. Another option is to use a [logic app template creator](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell module. This open-source module works by evaluating the logic app and any connections that it is using. Then, it generates template resources with the necessary parameters for deployment. For example, if you had a logic app that received a message from an Azure Service Bus queue and added data to an Azure SQL database, the tool would preserve all of the orchestration logic and parameterize the SQL and Service Bus connection strings so that they could be set at deployment.
 
 >[AZURE.NOTE] Connections must be within the same resource group as the logic app.
 
@@ -42,14 +42,14 @@ A few tools can assist you as you create a logic app deployment template. You ca
 
 The easiest way to install the module is via the [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), by using the command `Install-Module -Name LogicAppTemplate`.  
 
-You also can install the module manually:
+You also can install the PowerShell module manually:
 
 1. Download the latest release of the [logic app template creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
 1. Extract the folder in your PowerShell module folder (usually this is `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
 For the module to work with any tenant and subscription access token, we recommend that you use it with the [ARMClient](https://github.com/projectkudu/ARMClient) command line tool.  This [blog post ](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) contains more information about `ARMClient`.
 
-### Generate a logic app template through PowerShell
+### Generate a logic app template by using PowerShell
 
 After PowerShell is installed, you can generate a template by using the following command:
 
@@ -71,7 +71,7 @@ After deployment, the logic app will work end-to-end with valid parameters, but 
 
 ## Visual Studio Release Management
 
-A common scenario for deploying and managing an environment is to use a tool like Visual Studio Release Management, with a logic app deployment template. Visual Studio Team Services includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [Service Principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release definition.
+A common scenario for deploying and managing an environment is to use a tool like Visual Studio Release Management, with a logic app deployment template. Visual Studio Team Services includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release definition.
 
 1. In Release Management, to create a new definition, select **Empty**  to start with an empty definition.
 
