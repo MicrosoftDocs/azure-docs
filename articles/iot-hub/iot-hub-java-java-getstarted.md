@@ -166,7 +166,7 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.6.9</version> 
+        <version>0.7.1</version> 
     </dependency>
     ```
 
@@ -231,10 +231,11 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
                 {
                   for(EventData receivedEvent: receivedEvents)
                   {
-                    System.out.print(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s", 
+                    System.out.println(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s", 
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
