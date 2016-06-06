@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/06/2016"
 	ms.author="banders"/>
 
 # Use Log Analytics to collect data from Azure storage accounts
@@ -208,7 +208,7 @@ In the Azure portal, navigate to your Log Analytics workspace and perform the fo
 
 Repeat steps 2-6 for additional storage accounts and data types that you want Log Analytics to collect.
 
-In approximately 20 minutes you will be able to see data from the storage account in Log Analytics. You will only see data that is written to storage after the configuration is applied. Log Analytics does not read the pre-existing data from the storage account. 
+In approximately 30 minutes you will be able to see data from the storage account in Log Analytics. You will only see data that is written to storage after the configuration is applied. Log Analytics does not read the pre-existing data from the storage account. 
 
 >[AZURE.NOTE] The portal does not validate that the Source exists in the storage account or if new data is being written.
 
