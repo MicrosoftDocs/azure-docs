@@ -22,7 +22,7 @@
 
 This blog describes best practices and troubleshooting steps for [node applications](app-service-web-nodejs-get-started.md) running on Azure Webapps (with [iisnode](https://github.com/azure/iisnode)).
 
-# Sections
+## Sections
 
 
 1.  IISNODE configuration (details and recommendations)
@@ -51,7 +51,7 @@ This blog describes best practices and troubleshooting steps for [node applicati
 
 *NOTE:* Use Caution when using troubleshooting steps on your PRODUCTION site. Recommendation is to troubleshoot your app on a non-production setup for example your staging slot and when the issue is fixed, swap your staging slot with your production slot.
 
-# IISNODE Configuration
+## IISNODE Configuration
 
 <https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml> shows all the settings that can be configured for iisnode. Some of the settings that will be useful for your application are:
 
@@ -139,10 +139,10 @@ This blog describes best practices and troubleshooting steps for [node applicati
 
     Default value is 0 which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ milliseconds. To understand what page out means, please refer to <https://msdn.microsoft.com/en-us/library/windows/desktop/ms682606(v=vs.85).aspx>. This setting will be useful for applications that consume a lot of memory and want to pageout memory to disk occasionally to free up some RAM.
 
-# Scenarios
+## Scenarios
 
 
-## My node application is making too many outbound calls.
+### My node application is making too many outbound calls.
 
 Many applications would want to make outbound connections as part of their regular operation. For example, when a request comes in, your node app would want to contact a REST API elsewhere and get some information to process the request. You would want to use a keep alive agent when making http or https calls. For example, you could use the agentkeepalive module as your keep alive agent when making these outbound calls. This makes sure that the sockets are reused on your azure webapp VM and reducing the overhead of creating new sockets for every outbound request. Also, this makes sure that you are using less number of sockets to make many outbound requests and therefore you don’t exceed the maxSockets that are allocated per VM. Recommendation on Azure Webapps would be to set the agentKeepAlive maxSockets value to a total of 160 sockets per VM. This means that if you have 4 node.exe running on the VM, you would want to set the agentKeepAlive maxSockets to 40 per node.exe which is 160 total per VM.
 
@@ -159,14 +159,14 @@ var keepaliveAgent = new Agent({
 
 This example assumes you have 4 node.exe running on your VM. If you have a different number of node.exe running on the VM, you will have to modify the maxSockets setting accordingly.
 
-## My node application is consuming too much CPU.
+### My node application is consuming too much CPU.
 
 You will probably get a recommendation from Azure Webapps on your portal about high cpu consumption. You can also setup monitors to watch for certain metrics - <https://azure.microsoft.com/en-us/documentation/articles/web-sites-monitor/>. When checking the CPU usage on the Azure Portal Dashboard as shown here <https://azure.microsoft.com/en-us/documentation/articles/app-insights-web-monitor-performance/>, please check the MAX values for CPU so you don’t miss out the peak values.
 In cases where you think your application is consuming too much CPU and you cannot explain why, you will need to profile your node application.
 
 ### 
 
-### Profiling your node application on azure webapps with V8-Profiler
+#### Profiling your node application on azure webapps with V8-Profiler
 
 For example, lets say you have a hello world app that you want to profile as shown below:
 
@@ -234,16 +234,16 @@ Download this file and you will need to open this file with Chrome F12 Tools. Hi
 
 You will see that 95% of the time was consumed by WriteConsoleLog function as shown below. This also shows you the exact line numbers and source files that cause the issue.
 
-## My node application is consuming too much memory.
+### My node application is consuming too much memory.
 
 You will probably get a recommendation from Azure Webapps on your portal about high memory consumption. You can also setup monitors to watch for certain metrics - <https://azure.microsoft.com/en-us/documentation/articles/web-sites-monitor/>. When checking the memory usage on the Azure Portal Dashboard as shown here <https://azure.microsoft.com/en-us/documentation/articles/app-insights-web-monitor-performance/>, please check the MAX values for memory so you don’t miss out the peak values.
 
-### Leak detection and Heap Diffing for node.js 
+#### Leak detection and Heap Diffing for node.js 
 
 You could use <https://github.com/lloyd/node-memwatch> to help you identify memory leaks.
 You can install memwatch just like v8-profiler and edit your code to capture and diff heaps to identify the memory leaks in your application.
 
-## My node.exe’s are getting killed randomly 
+### My node.exe’s are getting killed randomly 
 
 There are a few reasons why this could be happening:
 
@@ -251,7 +251,7 @@ There are a few reasons why this could be happening:
 
 2.  Your application is consuming too much memory which is affecting other processes from getting started. If the total VM memory is close to 100%, your node.exe’s could be killed by the process manager to let other processes get a chance to do some work. To fix this, either make sure your application is not leaking memory OR if you application really needs to use a lot of memory, please scale up to a larger VM with a lot more RAM.
 
-## My node application does not start
+### My node application does not start
 
 If your application is returning 500 Errors at startup, there could be a few reasons:
 
@@ -263,11 +263,11 @@ If your application is returning 500 Errors at startup, there could be a few rea
 
 4.  Cold Start – Your application is taking too long to startup. If your application takes longer than (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000 seconds, iisnode will return 500 error. Increase the values of these settings to match your application start time to prevent iisnode from timing out and returning the 500 error.
 
-## My node application crashed
+### My node application crashed
 
 Your application is throwing uncaught exceptions – Please check d:\\home\\LogFiles\\Application\\logging-errors.txt file for the details on the exception thrown. This file has the stack trace so you can fix your application based on this.
 
-## My node application takes too much time to startup (Cold Start)
+### My node application takes too much time to startup (Cold Start)
 
 Most common reason for this is that the application has a lot of files in the node\_modules and the application tries to load most of these files during startup. By default, since your files reside on the network share on Azure Webapps, loading so many files can take some time.
 Some solutions to make this faster are:
@@ -278,7 +278,7 @@ Some solutions to make this faster are:
 
 3.  Azure Webapps offers a feature called local cache. This feature copies your content from the network share to the local disk on the VM. Since the files are local, the load time of node\_modules is much faster. - <https://azure.microsoft.com/en-us/documentation/articles/app-service-local-cache/> explains how to use Local Cache in more detail.
 
-# IISNODE http status and substatus
+## IISNODE http status and substatus
 
 <https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h> lists all the possible status/substatus combination iisnode can return in case of error.
 
