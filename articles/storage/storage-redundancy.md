@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/01/2016"
 	ms.author="tamram"/>
 
 # Azure Storage replication
@@ -36,6 +36,7 @@ The following table provides a quick overview of the differences between LRS, ZR
 | Data can be read from the secondary location as well as from the primary location. | No  | No  | No  | Yes    |
 | Number of copies of data maintained on separate nodes.                             | 3   | 3   | 6   | 6      |
 
+See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information for the different redundancy options.
 
 ## Locally redundant storage
 
@@ -101,8 +102,8 @@ When you enable read-only access to your data in the secondary region, your data
 
 ## Next steps
 
+- [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/)
 - [About Azure storage accounts](storage-create-storage-account.md)
 - [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md)
 - [Microsoft Azure Storage Redundancy Options and Read Access Geo Redundant Storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
-- [Microsoft Azure Storage Emulator 3.1 with RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  

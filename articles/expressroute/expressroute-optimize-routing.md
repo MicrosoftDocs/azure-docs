@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="charwen"/>
 
 # Optimize ExpressRoute Routing
