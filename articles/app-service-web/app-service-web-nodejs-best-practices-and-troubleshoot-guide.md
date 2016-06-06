@@ -16,8 +16,7 @@
 	ms.date="06/06/2016"
 	ms.author="ranjithr;wadeh"/>
     
-Best practices and troubleshooting guide for node applications on Azure Web Apps
-================================================================================
+# Best practices and troubleshooting guide for node applications on Azure Web Apps
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -57,56 +56,56 @@ IISNODE Configuration
 
 <https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml> shows all the settings that can be configured for iisnode. Some of the settings that will be useful for your application are:
 
-1.  ####nodeProcessCountPerApplication
+1.  #### nodeProcessCountPerApplication
 
     This setting controls the number of node processes that are launched per IIS application. Default value is 1. You can launch as many node.exe’s as your VM core count by setting this to 0. Recommended value is 0 for most application so you can utilize all of the cores on your machine. Node.exe is single threaded so one node.exe will consume a maximum of 1 core and to get maximum performance out of your node application you would want to utilize all cores.
 
-2.  ####nodeProcessCommandLine
+2.  #### nodeProcessCommandLine
 
     This setting controls the path to the node.exe. You can set this value to point to your node.exe version.
 
-3.  ####maxConcurrentRequestsPerProcess
+3.  #### maxConcurrentRequestsPerProcess
 
     This setting controls the maximum number of concurrent requests sent by iisnode to each node.exe. On azure webapps, the default value for this is Infinite. You will not have to worry about this setting. Outside azure webapps, the default value is 1024. You might want to configure this depending on how many requests your application gets and how fast your application processes each request.
 
-4.  ####maxNamedPipeConnectionRetry
+4.  #### maxNamedPipeConnectionRetry
 
     This setting controls the maximum number of times iisnode will retry making connection on the named pipe to send the request over to node.exe. This setting in combination with namedPipeConnectionRetryDelay determines the total timeout of each request within iisnode. Default value is 200 on Azure Webapps. Total Timeout in seconds = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
-5.  ####namedPipeConnectionRetryDelay
+5.  #### namedPipeConnectionRetryDelay
 
     This setting controls the amount of time (in ms) iisnode will wait for between each retry to send request to node.exe over the named pipe. Default value is 250ms.
     Total Timeout in seconds = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
     By default the total timeout in iisnode on azure webapps is 200 \* 250ms = 50 seconds.
 
-6.  ####logDirectory
+6.  #### logDirectory
 
     This setting controls the directory where iisnode will log stdout/stderr. Default value is iisnode which is relative to the main script directory (directory where main server.js is present)
 
-7.  ####debuggingEnabled (do not enable on live production site)
+7.  #### debuggingEnabled (do not enable on live production site)
 
     This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Once this setting is enabled, iisnode will layout the necessary node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to <http://yoursite/server.js/debug>. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default debuggerPathSegment=’debug’. You can set this to a GUID for example so that it is more difficult to be discovered by others.
 
     Check this link for more details on debugging - <https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html>
 
-8.  ####debuggerExtensionDll
+8.  #### debuggerExtensionDll
 
     This setting controls what version of node-inspector iisnode will use when debugging your node application. Currently iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only 2 valid values for this setting. Default value is iisnode-inspector-0.7.3.dll. iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses websockets, so you will need to enable websockets on your azure webapp to use this version. See <http://www.ranjithr.com/?p=98> for more details on how to configure iisnode to use the new node-inspector.
 
-9.  ####debugHeaderEnabled (do not enable on live production site)
+9.  #### debugHeaderEnabled (do not enable on live production site)
 
     The default value is false. If set to true, iisnode will add an HTTP response header iisnode-debug to every HTTP response it sends the iisnode-debug header value is a URL. Individual pieces of diagnostic information can be gleaned by looking at the URL fragment, but a much better visualization is achieved by opening the URL in the browser.
 
-10. ####loggingEnabled (try not to enable on live production site)
+10. #### loggingEnabled (try not to enable on live production site)
 
     This setting controls the logging of stdout and stderr by iisnode. Iisnode will capture stdout/stderr from node processes it launches and write to the directory specified in the ‘logDirectory’ setting.
 
-11. ####devErrorsEnabled (do not enable on live production site)
+11. #### devErrorsEnabled (do not enable on live production site)
 
     Default value is false. When set to true, iisnode will display the HTTP status code and Win32 error code on your browser. The win32 code will be helpful in debugging certain types of issues.
 
-12. ####flushResponse
+12. #### flushResponse
 
     The default behavior of IIS is that it buffers response data up to 4MB before flushing, or until the end of the response, whichever comes first. iisnode offers a configuration setting to override this behavior: to flush a fragment of the response entity body as soon as iisnode receives it from node.exe, you need to set the iisnode/@flushResponse attribute in web.config to 'true':
     
@@ -137,15 +136,15 @@ IISNODE Configuration
     &lt;/handlers&gt;
     </code>
 
-13. ####watchedFiles
+13. #### watchedFiles
 
     This is a semi-colon separated list of files that will be watched for changes. A change to a file causes the application to recycle. Each entry consists of an optional directory name plus required file name which are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. Default value is “\*.js;web.config”
 
-14. ####recycleSignalEnabled
+14. #### recycleSignalEnabled
 
     Default value is false. If enabled, your node application can connect to a named pipe (environment variable IISNODE\_CONTROL\_PIPE) and send a “recycle” message. This will cause the w3wp to recycle gracefully.
 
-15. ####idlePageOutTimePeriod
+15. #### idlePageOutTimePeriod
 
     Default value is 0 which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ milliseconds. To understand what page out means, please refer to <https://msdn.microsoft.com/en-us/library/windows/desktop/ms682606(v=vs.85).aspx>. This setting will be useful for applications that consume a lot of memory and want to pageout memory to disk occasionally to free up some RAM.
 
