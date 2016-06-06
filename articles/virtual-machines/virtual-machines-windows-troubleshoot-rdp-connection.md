@@ -20,36 +20,15 @@
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
 
-The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article will help you discover and correct the reasons for the failure.  
+The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article guides you through some of the most common methods to resolve RDP connection issues. You can also read more [detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md) if your issue isn't listed here or you still can't connect to your VM via RDP.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
 <a id="quickfixrdp"></a>
 
-## Fix common Remote Desktop errors
+## Troubleshoot VMs created by using the Resource Manager deployment model
 
-This section lists quick fixes for common Remote Desktop connection issues.
-
-### Troubleshoot VMs created by using the classic deployment model
-
-After each step, try reconnecting to the VM.
-
-- Reset the Remote Desktop service from the [Azure portal](https://portal.azure.com). Select **Browse** > **Virtual machines (classic)** > *your VM* > **Reset Remote...**.
-
-- Restart your VM to address other startup issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Restart**.
-
-- Redeploy your VM to a new Azure node. See [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
-
-	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
-
-- Review your VM’s console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your VM* > **Settings** > **Boot diagnostics**.
-
-- Check your VM's Resource Health for any platform issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Settings** > **Check Health**.
-
-
-### Troubleshoot VMs created by using the Resource Manager deployment model
-
-After each step, try reconnecting to the VM.
+After each troubleshooting step, try reconnecting to the VM.
 
 > [AZURE.TIP] If the 'Connect' button in the portal is greyed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
@@ -75,18 +54,45 @@ After each step, try reconnecting to the VM.
 
 - Restart your VM to address other startup issues. Select **Browse** > **Virtual machines** > *your VM* > **Restart**.
 
-- Redeploy your VM to a new Azure node. See [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
+- [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
 	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
+	
+- Verify your [Network Security Group rules](../virtual-network/virtual-networks-nsg.md) allow RDP traffic (TCP port 3389).
 
 - Review your VM's console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Support + Troubleshooting** > **Boot diagnostics**.
 
+- [Reset your VM's password](virtual-machines-windows-reset-rdp.md).
 
-Proceed to the next section if the previous steps didn't resolve your Remote Desktop connection failures.
+- If you are still encountering RDP issues, you can [open a support request](https://azure.microsoft.com/support/options/) or read more [detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+
+
+## Troubleshoot VMs created by using the Classic deployment model
+
+After each troubleshooting step, try reconnecting to the VM.
+
+- Reset the Remote Desktop service from the [Azure portal](https://portal.azure.com). Select **Browse** > **Virtual machines (classic)** > *your VM* > **Reset Remote...**.
+
+- Restart your VM to address other startup issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Restart**.
+
+- [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
+
+	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
+	
+- Verify your [Cloud Services endpoint allow RDP traffic](../cloud-services/cloud-services-role-enable-remote-desktop.md).
+
+- Review your VM’s console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your VM* > **Settings** > **Boot diagnostics**.
+
+- Check your VM's Resource Health for any platform issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Settings** > **Check Health**.
+
+- [Reset your VM's password](virtual-machines-windows-reset-rdp.md).
+
+- If you are still encountering RDP issues, you can [open a support request](https://azure.microsoft.com/support/options/) or read more [detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+
 
 ## Troubleshoot specific Remote Desktop connection errors
 
-The following are the most common errors you'll see when trying to use Remote Desktop to connect to your Azure virtual machine:
+You may receive a specific error when trying to connect to your VM via RDP. The following are the most common error messages you'll see:
 
 - [The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license](#rdplicense).
 
@@ -120,7 +126,7 @@ Possible solutions:
 
 - If you're on an organization's intranet, make sure that your computer has access to the proxy server and can send HTTPS traffic to it.
 
-- If you're using a locally stored RDP file, try using the one that's generated by the portal. This will ensure that you have the correct DNS name for the virtual machine, or the cloud service and the endpoint port of the virtual machine. Here is a sample RDP file generated by the portal:
+- If you're using a locally stored RDP file, try using the one that's generated by the portal. This will ensure that you have the correct DNS name for the virtual machine, or the cloud service and the endpoint port of the VM. Here is a sample RDP file generated by the portal:
 
 		full address:s:tailspin-azdatatier.cloudapp.net:55919
 		prompt for credentials:i:1
@@ -135,7 +141,7 @@ The address portion of this RDP file has:
 
 Cause: The target VM can't locate the security authority in the user name portion of your credentials.
 
-When your user name is in the form *SecurityAuthority*\\*UserName* (example: CORP\User1), the *SecurityAuthority* portion is either the virtual machine's computer name (for the local security authority) or an Active Directory domain name.
+When your user name is in the form *SecurityAuthority*\\*UserName* (example: CORP\User1), the *SecurityAuthority* portion is either the VM's computer name (for the local security authority) or an Active Directory domain name.
 
 Possible solutions:
 
