@@ -24,9 +24,9 @@
 	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
 -->
 7. On the next page, click **Go to Credentials**, and on the following page, select **Google Cloud Messaging** from the first dropdown box and **Web server** from the second one, and then click **What credentials do I need?**
-<!--
+
    	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
--->
+
 8. In **Add credentials to your project** page, click **Create API key**.
 <!--
    	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
