@@ -301,6 +301,8 @@ You need to go through the following, to complete the publishing:
 5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file (e.g.): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
 6. You can now try the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready you can publish the application to a remote cluster or check-in the solution to source control.
 
+>[AZURE.NOTE] You can use linked folders when creating the application project in Visual Studio. This will link to the source location from within the project, making it possible for you to update the guest executable in its source destination, having those updates become part of the application package on build.
+
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. As a next step, you can check out additional content for this topic.
 
