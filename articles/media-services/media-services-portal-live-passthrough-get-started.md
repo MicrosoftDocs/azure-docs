@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/31/2016" 
+ 	ms.date="06/05/2016" 
 	ms.author="juliako"/>
 
 
-#How to perform live streaming with on-premise encoders using the Azure portal (preview)
+#How to perform live streaming with on-premise encoders using the Azure portal
 
-This tutorial walks you through the steps of creating a **Channel** that is configured for a pass-through delivery. 
+This tutorial walks you through the steps of using the Azure portal to create a **Channel** that is configured for a pass-through delivery. 
+
+Azure Media Services in the Azure portal is currently in preview.   
 
 
 ##Prerequisites
@@ -95,8 +97,6 @@ To create and change the number of streaming reserved units, do the following:
 	
 ##Create and start pass-through channels and events
 
-###Overview
-
 A channel is associated with events/programs that enable you to control the publishing and storage of segments in a live stream. Channels manage events. 
 	
 You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Events can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
@@ -115,7 +115,7 @@ Even after you stop and delete the event, the users would be able to stream your
 
 If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
 
-###Create a channel 
+###To use the portal to create a channel 
 
 This sections shows how to use the **Quick Create** option to create a pass-through channel.
 

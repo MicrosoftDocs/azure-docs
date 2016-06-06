@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="06/05/2016"
 	ms.author="juliako"/>
 
 
 # Get started with delivering content on demand using the Azure Portal (preview)
 
 This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure Portal.
+
+Azure Media Services in the Azure portal is currently in preview. 
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -134,8 +136,6 @@ Once the upload completes, you will see the new asset listed in the **Assets** w
 
 ## Encode assets
 
-### Overview
-
 When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). To prepare your videos for adaptive bitrate streaming, you need to encode your source video into multi-bitrate files. You should use the **Media Encoder Standard** encoder to encode your videos.  
 
 Media Services also provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
@@ -145,7 +145,7 @@ To take advantage of dynamic packaging, you need to do the following:
 - Encode your source file into a set of multi-bitrate MP4 files (the encoding steps are demonstrated later in this section).
 - Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [configuring streaming endpoints](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
 
-### Encode
+### To use the portal to encode
 
 This section describes the steps you can take to encode your content with Media Encoder Standard.
 
@@ -166,8 +166,6 @@ To monitor the progress of the encoding job, click on **Settings** (at the top o
 ![Jobs](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## Publish content
-
-### Overview
 
 To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: 
 
@@ -196,7 +194,7 @@ A SAS URL has the following format.
 
 To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
-### Publish
+### To use the portal to publish an asset
 
 To use the portal to publish an asset, do the following:
 
