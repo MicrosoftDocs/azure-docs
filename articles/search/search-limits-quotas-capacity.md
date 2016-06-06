@@ -29,11 +29,11 @@ All tiers can be [provisioned in the portal](search-create-service-portal.md). A
 
 ## Per subscription limits
 
-[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-per=-subscription.md)]
+[AZURE.INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
 ## Per service limits ##
 
-[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-per-service.md)]
+[AZURE.INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
 ## Per index limits ##
 
