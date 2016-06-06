@@ -1,7 +1,7 @@
 <properties
    pageTitle="Debugging apps in a local Docker container | Microsoft Azure"
    description="Learn how to modify an app that is running in a local Docker container, refresh the container via Edit and Refresh and set debugging breakpoints"
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"

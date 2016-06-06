@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create Docker hosts in Azure with Docker Machine | Microsoft Azure"
    description="Describes use of Docker Machine to create docker hosts in Azure."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"

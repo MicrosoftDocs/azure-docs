@@ -1,7 +1,7 @@
 <properties
    pageTitle="Configure a Docker Host with VirtualBox | Microsoft Azure"
    description="Step-by-step instructions to configure a default Docker instance using Docker Machine and VirtualBox"
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"

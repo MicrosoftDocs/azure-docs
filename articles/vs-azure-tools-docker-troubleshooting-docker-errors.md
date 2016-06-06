@@ -1,7 +1,7 @@
 <properties
    pageTitle="Troubleshooting Docker Client Errors on Windows Using Visual Studio | Microsoft Azure"
    description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
