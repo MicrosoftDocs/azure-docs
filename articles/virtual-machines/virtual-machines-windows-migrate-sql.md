@@ -145,7 +145,7 @@ Use this method when you cannot use the Deploy a SQL Server Database to a Micros
 
 1.	Perform a full database backup to an on-premises location.
 2.	Create or upload a virtual machine with the version of SQL Server desired.
-3.	Provision the virtual machine using the steps in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
+3.	Setup connectivity based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
 4.	Copy your backup file(s) to your VM using remote desktop, Windows Explorer or the copy command from a command prompt.
 
 ## Backup to URL and restore
