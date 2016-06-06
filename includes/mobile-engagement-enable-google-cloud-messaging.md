@@ -28,9 +28,9 @@
    	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
 8. In **Add credentials to your project** page, click **Create API key**.
-<!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
 
+   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
+<!--
    	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
 -->
 9. Make a note of the **API KEY** value. You will use this API key value later to configure in the "Native Push" section. Now click **Done**.
