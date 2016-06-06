@@ -67,7 +67,7 @@ To create a contained database user in Azure SQL Database or SQL Data Warehouse 
 
 ## Azure AD features and limitations
 
-The following members of Azure Active Directory can be provisioned in Azure SQL Serve ror SQL Data Warehouse:
+The following members of Azure Active Directory can be provisioned in Azure SQL Serve or SQL Data Warehouse:
 - Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md).
 - Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 - Imported members from other Azure Active Directories who are native or federated domain members.
