@@ -1,9 +1,9 @@
-﻿<properties
+<properties
    pageTitle="Troubleshooting Docker Client Errors on Windows Using Visual Studio | Microsoft Azure"
    description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="allclark"
+   authors="TomArcher"
    manager="douge"
    editor="" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/02/2016"
-   ms.author="allclark" />
+   ms.date="05/15/2016"
+   ms.author="tarcher" />
 
 # Troubleshooting Visual Studio Docker Development
 
@@ -23,7 +23,6 @@ When working with Visual Studio Tools for Docker Preview, you may encounter some
 
 When adding docker support, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` must be added to the WebHostBuilder(). If Program.cs the Main() function or a new WebHostBuilder class wasn't found, a warning will be displayed. .UseUrls() is required to enable Kestrel to listen to incoming traffic, beyond localhost when run within a docker container.
 Upon completion, the typical code will look like the following:
-
 ```
 public class Program
 {
@@ -41,41 +40,32 @@ public class Program
     }
 }
 ```
-
 UseUrls() configured the WebHost to listen to incoming URL traffic. [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) will configure the environment variable in the dockerfile.debug/release mode as follows:
-
 ```
 # Configure the listening port to 80
 ENV ASPNETCORE_SERVER.URLS http://*:80
 ```
 
 ## Volume Mapping not functioning
-To enable Edit & Refresh capabilities, volume mapping is configured to share the source code of your project to the .app folder within the container. As files are changed on your host machine, the containers /app directdory uses the same directory. In docker-compose.debug.yml, the following configuration enables volume mapping:
-
+To enable Edit & Refresh capabilities, volume mapping is configured to share the source code of your project to the .app folder within the container. As files are changed on your host machine, the containers /app directory uses the same directory. In docker-compose.debug.yml, the following configuration enables volume mapping
 ```
     volumes:
       - ..:/app
 ```
-
 To test if volume mapping is functioning, try the following command:
 
 **From Windows**
-
 ```
-docker run -it -v /c/Users/Public:/wormhole busybox
+a
 cd wormhole
 / # ls
 ```
-
 You should see a directory listing from the Users/Public folder. If no files are displayed, and your /c/Users/Public folder isn't empty, volume mapping is not configured properly. 
-
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
-
 Change into the wormhole directory to see the contents of the `/c/Users/Public` directory:
-
 ```
 / # cd wormhole/
 /wormhole # ls
@@ -84,7 +74,6 @@ Desktop          Host             NuGet.Config     a.txt
 Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
-
 **Note:** *When working with Linux VMs, the container file system is case sensitive.*  
 
 If you're unable to see the contents, try the following:
@@ -113,10 +102,10 @@ If you are using the Microsoft Edge browser, the site might not open as Edge con
 6. Refresh the page in Edge, and you should see the site up and running. 
 7. For more information on this issue, visit Scott Hanselman's blog post, [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 
 
-##Troubleshooting version 0.15 or earlier
+#Troubleshooting version 0.15 or earlier
 
 
-###Running the app causes PowerShell to open, display an error, and then close. The browser page doesn’t open.
+##Running the app causes PowerShell to open, display an error, and then close. The browser page doesn’t open.
 
 This could be an error during `docker-compose-up`. To view the error, perform the following steps:
 
@@ -129,3 +118,4 @@ This could be an error during `docker-compose-up`. To view the error, perform th
 1. Add the `-noexit` parameter so that the line now resembles the following. This will keep PowerShell open so that you can view the error.
 
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+
