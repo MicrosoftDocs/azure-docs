@@ -20,7 +20,7 @@
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
 
-The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article guides you through some of the most common methods to resolve RDP connection issues. You can also read more [detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md) if your issue isn't listed here or you still can't connect to your VM via RDP.
+The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article guides you through some of the most common methods to resolve RDP connection issues. You can also read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md) if your issue isn't listed here or you still can't connect to your VM via RDP.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
@@ -50,11 +50,11 @@ After each troubleshooting step, try reconnecting to the VM.
 		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] In the preceding examples, `myVMAccessExtension` or `MyVMAccess` is a name that you specify for the new extension that will be installed as part of the process. Often this is simply set to the name of the VM. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` to check the properties of the VM. Then look under the 'Extensions' section of the output. Since only one VMAccessAgent can exist on a VM, you also need to add the `-ForceReRun` parameter when using `Set-AzureRmVMExtension.` to force the agent to be re-registered.
+	> [AZURE.NOTE] In the preceding examples, `myVMAccessExtension` or `MyVMAccess` is a name that you specify for the new extension that will be installed as part of the process. Often this is simply set to the name of the VM. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` to check the properties of the VM. Then look under the 'Extensions' section of the output. Since only one VMAccessAgent can exist on a VM, you also need to add the `-ForceReRun` parameter when using `Set-AzureRmVMExtension` to force the agent to be re-registered.
 
 - Restart your VM to address other startup issues. Select **Browse** > **Virtual machines** > *your VM* > **Restart**.
 
-- [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
+- [Redeploy VM to a new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
 	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 	
@@ -64,7 +64,7 @@ After each troubleshooting step, try reconnecting to the VM.
 
 - [Reset your VM's password](virtual-machines-windows-reset-rdp.md).
 
-- If you are still encountering RDP issues, you can [open a support request](https://azure.microsoft.com/support/options/) or read more [detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+- If you are still encountering RDP issues, you can [open a support request](https://azure.microsoft.com/support/options/) or read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 
 ## Troubleshoot VMs created by using the Classic deployment model
@@ -75,7 +75,7 @@ After each troubleshooting step, try reconnecting to the VM.
 
 - Restart your VM to address other startup issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Restart**.
 
-- [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
+- [Redeploy VM to a new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
 	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 	
@@ -87,7 +87,7 @@ After each troubleshooting step, try reconnecting to the VM.
 
 - [Reset your VM's password](virtual-machines-windows-reset-rdp.md).
 
-- If you are still encountering RDP issues, you can [open a support request](https://azure.microsoft.com/support/options/) or read more [detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+- If you are still encountering RDP issues, you can [open a support request](https://azure.microsoft.com/support/options/) or read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 
 ## Troubleshoot specific Remote Desktop connection errors
