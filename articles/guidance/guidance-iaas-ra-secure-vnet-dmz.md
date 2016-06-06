@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/03/2016"
+   ms.date="06/06/2016"
    ms.author="v-josha"/>
 
 # Implementing a secure hybrid network architecture with Internet access in Azure
@@ -33,29 +33,21 @@ Typical use cases for this architecture include:
 
 ## Architecture diagram
 
-The following diagram highlights the important components in this architecture (*click to zoom in*):
+The following diagram highlights the important components in this architecture (*click to zoom in*). For more information about the greyed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]:
 
 [![0]][0]
 
-- **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
+- **Public IP address (PIP).**. This is the IP address of the public endpoint. External users connected to the Internet can access the system through this address.
 
-- **Azure virtual network (VNet).** The VNet hosts the application and other resources running in the cloud.
+- **Azure load balancer.** All incoming requests pass through this load balancer which then distributes them to VMs running in the VNet.
 
-- **Network Security Groups (NSGs).** Each subnet uses [NSG rules][network-security-group] to protect the resources located in that subnet.
+- **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, WAN optimization (including network compression), custom routing, or a variety of other operations.
 
-- **Gateway.** The gateway provides the connectivity between routers in the on-premises network and the VNet.
+- **Public DMZ inbound network.** This network faces the Azure load balancer. Incoming requests received through this network pass to one of the NVAs.
 
-- **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, WAN optimization (including network compression), custom routing, or a variety of other operations. The NVAs are arranged in two sets constituting a private DMZ and a public DMZ:
+- **Public DMZ outbound network.** This network is on the application side of the NVAs. Requests that are approved by the NVA pass through this network to the internal load balancer for the web tier.
 
-	-  The NVAs in the private DMZ handle requests from the on-premises network through the **private DMZ inbound network**.
-
-	-  The NVAs in the public DMZ process requests received from the public Internet through the **public DMZ inbound network**. These requests enter the system through an Azure load balancer exposed by a **public IP address (PIP)**.
-
-	The NVAs can validate these requests and, if they're acceptable, the NVAs can forward them to the web tier through the **NVA DMZ outbound subnets** (private or public, depending on the source of the requests).
-
-- **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud. See [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details about this structure.
-
-- **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The optional monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authorized DevOps staff to log in, configure, and manage the network. Note that the jump box and monitoring functions can be combined into a single VM, depending on the monitoring workload.
+Taken together, the public DMZ inbound network, NVAs, and public DMZ outbound network constitute a security perimeter for handling all requests arriving from the Internet.
 
 ## Recommendations
 
@@ -69,29 +61,29 @@ For information and recommendations about the gateway, elements in the private D
 
 ### Public load balancer recommendations ###
 
-All requests from the Internet enter through a public IP address (PIP). To maintain scalability and availability, create the NVAs in an [availability set][availability-set] and use a public load balancer to handle traffic received through the PIP. Do not connect the PIP directly to an NVA, even if the NVA availability set only contains a single device. This approach enables you to more easily add NVAs in the future without the need to reconfigure the system.
+To maintain scalability and availability, create the NVAs in an [availability set][availability-set] and use a public load balancer to handle traffic received through the PIP. Do not connect the PIP directly to an NVA, even if the NVA availability set only contains a single device. This approach enables you to more easily add NVAs in the future without the need to reconfigure the system.
 
 Use the load balancer as a first layer of defence; do not open ports unnecessarily. For example, consider restricting inbound traffic for the web tier to port 80 (for HTTP requests), and optionally port 443 (for HTTPS requests).
 
 ### Public DMZ routing recommendations ###
 
-The web tier comprises VMs fronted by a internal load balancer. You should not expose any of these items directly to the Internet; all traffic should pass through the NVAs in the public DMZ. Configure the NVAs to route validated incoming requests to the internal load balancer for the web tier. This routing should be transparent to the users making the requests. For example, if the NVAs are Linux VMs, you can use the [iptables][iptables] command to filter incoming traffic and and implement NAT routing to direct it through the outbound DMZ network to the internal load balancer.
+The web tier comprises VMs fronted by a internal load balancer. You should not expose any of these items directly to the Internet; all traffic should pass through the NVAs in the security perimeter. Configure the NVAs to route validated incoming requests to the internal load balancer for the web tier. This routing should be transparent to the users making the requests. For example, if the NVAs are Linux VMs, you can use the [iptables][iptables] command to filter incoming traffic and and implement NAT routing to direct it through the public outbound DMZ network to the internal load balancer for the web tier.
 
 ## Solution components
 
 The solution provided for this architecture utilizes the same ARM templates as those for the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], with the following additions:
 
-- [azuredeploy.json][azuredeploy]. This is an extended version of the template that creates . It creates an additional subnets for the public DMZ (inbound and outbound).
+- [azuredeploy.json][azuredeploy]. This is an extended version of the template that creates . It creates the additional subnets for the public security perimeter (inbound and outbound).
 
-- [ibb-dmz.json][ibb-dmz]. This template creates the public IP address, load balancer, and NVAs for the public DMZ. Note that the public IP address is statically allocated.
+- [ibb-dmz.json][ibb-dmz]. This template creates the public IP address, load balancer, and NVAs for the public security perimeter. Note that the public IP address is statically allocated.
 
 The solution also includes a bash script named [azuredeploy.sh][azuredeploy-script] that invokes invokes the templates to construct the system.
 
 The following sections provide more details on the key resources created for this architecture by the templates.
 
-### Load balancing the NVAs in the public DMZ ###
+### Load balancing the NVAs in the public security perimeter ###
 
-The [ibb-dmz.json][ibb-dmz] template creates the NVAs for the public DMZ in an availability set. An Azure load balancer with a public IP address distributes requests to ports 80 and 443 across the availability set. The JSON snippet below shows how the template creates the load balancer. In this snippet, the publicIPAddressID parameter contains the public IP address of the load balancer, and the variable ilbBEName refers to the availability set containing the NVA VMs. The lbFEId and lbBEId variables referenced by the load balancing rules hold the internal IDs of these items.
+The [ibb-dmz.json][ibb-dmz] template creates the NVAs for the security perimeter in an availability set. An Azure load balancer with a public IP address distributes requests to ports 80 and 443 across the availability set. The JSON snippet below shows how the template creates the load balancer. In this snippet, the publicIPAddressID parameter contains the public IP address of the load balancer, and the variable ilbBEName refers to the availability set containing the NVA VMs. The lbFEId and lbBEId variables referenced by the load balancing rules hold the internal IDs of these items.
 
 ```
 "type": "Microsoft.Network/loadBalancers",
@@ -165,9 +157,9 @@ The next snippet shows how the template creates the public IP address for the lo
 }
 ```
 
-### Configuring routing in the NVAs for the public DMZ ###
+### Configuring routing in the NVAs for the public security perimeter ###
 
-The NVAs in the public DMZ are Linux (Ubuntu) VMs. The template runs the following bash script when it has created each VM:
+The NVAs in the public security perimeter are Linux (Ubuntu) VMs. The template runs the following bash script when it has created each VM:
 
 ``` bash
 #!/bin/bash
@@ -215,10 +207,8 @@ To run the script that deploys the solution:
 	## Command Arguments 
 	############################################################################ 
 	
-	
 	URI_BASE=https://raw.githubusercontent.com/mspnp/blueprints/master/ARMBuildingBlocks 
-	
-	
+		
 	# Default parameter values 
 	BASE_NAME= 
 	SUBSCRIPTION= 
@@ -226,6 +216,13 @@ To run the script that deploys the solution:
 	OS_TYPE=Windows 
 	ADMIN_USER_NAME=adminUser 
 	ADMIN_PASSWORD=adminP@ssw0rd 
+
+	NTWK_RESOURCE_GROUP=${BASE_NAME}-ntwk-rg
+
+	# VPN parameter defaults
+	INPUT_ON_PREMISES_PUBLIC_IP=
+	INPUT_ON_PREMISES_ADDRESS_SPACE=192.168.0.0/16
+	INPUT_VPN_IPSEC_SHARED_KEY=myipsecsharedkey123
 	...
 	``` 
 
@@ -233,11 +230,17 @@ To run the script that deploys the solution:
 
 4.	Set the SUBSCRIPTION variable to the subscription ID of the Azure account to use. By default, the script creates nine VMs that consume 36 CPU cores although you can customize the installation to use smaller VMs. Make sure that you have sufficient quota available before continuing.
 
-5.	Save the script and close the editor.
+5.	Set the INPUT-ON-PREMISES_PUBLIC_IP variable to the public IP address of the VPN device located in the on-premises network.
 
-6. Open a bash shell and move to the folder containing the azuredeploy.sh script.
+6.	Set the INPUT_ON_PREMISES_ADDRESS_SPACE variable to the internal address space of the on-premises network.
 
-7. Log in to your Azure account. In the bash shell enter the following command:
+7.	Set the INPUT_VPN_IPSEC_SHARED_KEY variable to the shared secret key to be used to connect from the VPN device to the Azure VPN gateway.
+
+8.	Save the script and close the editor.
+
+9. Open a bash shell and move to the folder containing the azuredeploy.sh script.
+
+10. Log in to your Azure account. In the bash shell enter the following command:
 
 	```cli
     azure login
@@ -245,48 +248,53 @@ To run the script that deploys the solution:
 
 	Follow the instructions to connect to Azure.
 
-8. Run the following command to set your current subscription to the value specified in step 4 above. Replace *nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn* with the subscription ID:
+11. Run the following command to set your current subscription to the value specified in step 4 above. Replace *nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn* with the subscription ID:
 
 	```cli
 	azure account set nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn
 	```
 
-9. Run the command `./azuredeploy.sh`. You must supply the following information as command line parameters:
+12. Run the command `./azuredeploy.sh`.
 
-10. Verify that the script completes successfully. You can simply re-run the script if an error occurs.
+13. Verify that the script completes successfully. You can simply re-run the script if an error occurs.
 
+14. Browse to the Azure portal and verify that the following resource groups have been created:
 
-***START HERE - NEED TO RUN SCRIPT BEFORE CONTINUING***
+	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDRs for forced tunneling for each application tier; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection.
 
-11. Browse to the Azure portal and verify that the following resource groups have been created:
-
-	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDRs for forced tunneling for each application tier; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection, as shown below (*click to zoom in*):
-
-		[![2]][2]
-
-		The following image shows the subnets created in the VNet (*click to zoom in*):
-
-		[![3]][3]
-
-	- ***myapp*-web-tier-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier by default), storage for each VM, the network interfaces, and the load balancer for this tier (*click to zoom in*):
-
-		[![4]][4]
+	- ***myapp*-web-tier-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier by default), storage for each VM, the network interfaces, and the load balancer for this tier.
 
 	- ***myapp*-biz-tier-rg.**. This resource group holds the VMs and resources for the business tier. The structure is the same as that of the web tier.
 
 	- ***myapp*-db-tier-rg.** This resource group holds the VMs and resources for the data access tier. The structure is the same as that of the web and business tiers.
 
-	- ***myapp*-mgmt-subnet-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs (with storage) and a load balancer for the NVA, and a separate VM (with storage) for the jump box. Each NVA VM has three network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs. This resource group also contains the UDR for the gateway subnet (*click to zoom in*):
+	- ***myapp*-mgmt-subnet-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs (with storage) and a load balancer for the NVA, and a separate VM (with storage) for the jump box. Each NVA VM has three network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs. This resource group also contains the UDR for the gateway subnet.
 
-	[![5]][5]
+		> [AZURE.NOTE] The article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] describes the contents of these resource groups in more detail.
 
-8. Configure the VPN appliance on the on-premises network to connect to the Azure VPN gateway. For more information, seer the article [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway].
+	- **myapp*-dmz-rg.** This resource group contains the resources used to implement the public security perimeter. The script creates a public IP address, Azure load balancer, the public DMZ inbound and public DMZ outbound subnets, and the NVAs (*click to expand*):
 
-**TBD**
+		[![1]][1]
+
+15. In the **myapp*-dmz-rg** resource group, click the **myapp*-dmz-pip** public IP address and make a note of the IP address. Open Internet Explorer, and navigate to this address. You should see the default page for the web server software deployed on the web tier (IIS for Windows, and Apache for Ubuntu). This indicates that the routing in the NVAs has been configured correctly:
+
+	[![2]][2]
+
+16. Configure the VPN appliance on the on-premises network to connect to the Azure VPN gateway. For more information, see the article [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway].
 
 ### Customizing the solution
 
-**TBD**
+Prior to invoking each template, the [azuredeploy.sh][azuredeploy-script] script creates an inline JSON object named *PARAMETERS* which is passed to the template. The template uses the values in this object to determine how to configure the resources created by the template. Most of the parameters are populated from variables defined in the script.
+
+> [AZURE.NOTE] Change the values of the variables rather than the PARAMETERS object. If you modify the PARAMETERS object directly, or try to add or remove parameters, the template mightn't run correctly. Also, do not modify parameters not specified in the following sections. 
+
+You can modify the following parameters referenced by the [ibb-dmz.json][ibb-dmz] template:
+
+- **ADMIN_USER_NAME** and **ADMIN_PASSWORD**. The login credentials to use for the NVAs.
+
+- **VM_SIZE**. The size of the VMs for the NVAs. The default is Standard_DS3.
+
+> [AZURE.NOTE] For information about customizing other aspects of the architecture, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
 
 ## Availability considerations
 
@@ -294,7 +302,7 @@ To run the script that deploys the solution:
 
 ## Security considerations
 
-**TBD**
+The NVAs for the public security perimeter passes all traffic directed towards port 80 and port 443 through to the web tier load balancer. All other requests are blocked. Additionally, traffic is not audited. You can modify the way in which the NVAs handle requests, and add request logging, by using the [iptables][iptables] command.
 
 ## Scalability considerations
 
@@ -320,14 +328,13 @@ To run the script that deploys the solution:
 [network-security-group]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [availability-set]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/
 [iptables]: https://help.ubuntu.com/community/IptablesHowTo
-
 [azuredeploy-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/azuredeploy.sh
 [azuredeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/Templates/ra-vnet-subnets-udr-nsg/azuredeploy.json
 [ibb-dmz]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/Templates/ibb-dmz.json
 
 [0]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure1.png "Secure hybrid network architecture"
-
-
+[1]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure2.png "Public DMZ resource group"
+[2]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure3.png "Default IIS page in Internet Explorer"
 
 <!-- Not currently referenced, but probably will be once content is added: -->
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
