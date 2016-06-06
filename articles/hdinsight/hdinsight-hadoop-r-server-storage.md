@@ -152,7 +152,7 @@ airDS <- RxTextData(file = inputFile, missingValueString = "M",
 model <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS)
 ````
 
-Note: Here are the commands used to configure the Azure Data Lake storage account with the RevoShare directory and add the sample CSV file for the above example: 
+> [AZURE.NOTE] Here are the commands used to configure the Azure Data Lake storage account with the RevoShare directory and add the sample CSV file for the above example: 
 
 ````
 hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user 
