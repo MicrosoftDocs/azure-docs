@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/02/2016"
+   ms.date="06/05/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Manage databases in Azure SQL Data Warehouse
@@ -89,15 +89,7 @@ To learn about managing security, head over to the [Security overview][].
 
 ## Backup and restore
 
-If you have corrupted some data in your data warehouse or made an error, you can restore a data warehouse from one of the automated snapshots. You can also restore an accidentally deleted data warehouse from the latest automated snapshot.
-
-SQL Data Warehouse automatically backs up your database at regular intervals.For the data backup schedule and retention policy, see [High reliability][]. 
-
-### Database Restore
-
-Database restore is designed to restore your database to an earlier point in time. SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic backup and restore features provide a zero-admin way to protect databases from accidental corruption or deletion. 
-
-To learn more about database restore, head over to [Restore from snapshot][].
+Having reliable backps of your data is an essential part of any production database. SQL Data Warehouse keeps your data safe by automatically backing up your active databases at regular intervals. These backups allow you to recover from scenarios where you've corrupted your data or accidentally dropped your data or database.  For the data backup schedule and retention policy, see [High reliability][]. To learn more about how to restore a database, see [Restore from snapshot][].
 
 ## Next steps
 Using good database design principles will make it easier to manage your databases in SQL Data Warehouse. To learn more, head over to the [Development overview][].
