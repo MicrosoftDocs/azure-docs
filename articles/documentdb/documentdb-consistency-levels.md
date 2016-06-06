@@ -95,7 +95,7 @@ Indexing Mode|	Reads|	Queries
 Consistent (default)|	Select from Strong, Bounded staleness, Session, or Eventual|	Select from Strong, Bounded staleness, Session, or Eventual|
 Lazy|	Select from Strong, Bounded staleness, Session, or Eventual|	Eventual  
 
-As with read requests, you can lower the consistency level of a specific query request by specifying the [x-ms-consistency-level](https://msdn.microsoft.com/en-us/library/azure/mt632096.aspx) request header.
+As with read requests, you can lower the consistency level of a specific query request by specifying the [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header.
 
 ## Next steps
 
