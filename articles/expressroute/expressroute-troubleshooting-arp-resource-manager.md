@@ -19,7 +19,7 @@
 
 > [AZURE.SELECTOR]
 [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resourcemanager.md)
-[PowerShell - Classic](expressroute--troubleshooting-arp-classic.md)
+[PowerShell - Classic](expressroute-troubleshooting-arp-classic.md)
 
 This article walks you through the steps to learn the ARP tables for your ExpressRoute circuit. 
 
