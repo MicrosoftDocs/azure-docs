@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Data Lake Store using Azure Data Factory

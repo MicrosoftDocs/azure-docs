@@ -61,7 +61,7 @@ Tablesample can be used for sampling as well as demonstrated below. This may be 
 
 ###<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
-You can directly  use the sample queries above in the Azure ML Reader module to down-sample the data on the fly and bring it into an Azure ML experiment. A screen shot of using the reader module to read the sampled data is shown below:
+You can directly  use the sample queries above in the Azure ML Import Data module to down-sample the data on the fly and bring it into an Azure ML experiment. A screen shot of using the reader module to read the sampled data is shown below:
    
 ![reader sql][1]
 
@@ -84,7 +84,7 @@ You can now work with the sampled data in the Pandas data frame.
 
 ###<a name="python-aml"></a>Connecting to Azure Machine Learning
 
-You can use the following sample code to save the down-sampled data to a file and upload it to an Azure blob. The data in the blob can be directly read into an Azure ML Experiment using the *Reader Module*. The steps are as follows: 
+You can use the following sample code to save the down-sampled data to a file and upload it to an Azure blob. The data in the blob can be directly read into an Azure ML Experiment using the *Import Data Module*. The steps are as follows: 
 
 1. Write the pandas data frame to a local file
 
@@ -112,7 +112,7 @@ You can use the following sample code to save the down-sampled data to a file an
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Read data from Azure blob using Azure ML *Reader Module* as shown in the screen grab below:
+3. Read data from Azure blob using Azure ML *Import Data Module* as shown in the screen grab below:
  
 ![reader blob][2]
 
