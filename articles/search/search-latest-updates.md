@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -24,8 +24,7 @@ Azure Search is cloud hosted search service on Microsoft Azure. It is generally 
 
 Feature|Released|Status|Details
 -------|--------|------|-------
-[SKU updates](search-limits-quotas-capacity.md) part 2|June 2016|Preview and GA|Basic and S2 SKUs transition from Preview to General Availability. New S3 and S3 HD are now in Preview. See [Choose a SKU or tier for Azure Search ](search-sku-tier.md) for a comparison.
-[SKU updates](search-limits-quotas-capacity.md) part 1|March 2016|Preview|New SKUs, Basic and Standard 2 (S2), are available at Preview pricing.
+[SKU updates](search-limits-quotas-capacity.md)|June 2016|Preview and GA|Basic and Standard 2 (S2) SKUs, which previewed in March 2016, are now in General Availability. <br/><br/>Preview versions of a new Standard 3 (S3) and S3 High Density (S3 HD) SKUs are introduced in this update. See [Choose a SKU or tier for Azure Search ](search-sku-tier.md) for a comparison.
 [.NET SDK 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|February 2016|GA|This is the first generally available release of the .NET client library, `Microsoft.Azure.Search.dll`. This version introduces breaking changes. See [Upgrading to the Azure Search .NET SDK version 1.1](search-dotnet-sdk-migration.md) for migration guidance.
 [Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx)|February 2016|[GA](search-api-2015-02-28-preview.md)|The Lucene query syntax is now generally available in both the REST API and .NET SDK. Set the `queryType` parameter to `full` in the REST API and the `SearchParameters.QueryType` property to `QueryType.Full` in the .NET SDK to enable the Lucene syntax.
 [Custom Analyzers](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|January 2016|[Preview](search-api-2015-02-28-preview.md)|User-defined configurations of tokenizers and token filters. See [Analysis in Azure Search](https://msdn.microsoft.com/library/azure/mt605304.aspx) on MSDN.

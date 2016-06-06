@@ -31,26 +31,28 @@ Capacity and costs of running the service go hand-in-hand. Information in this a
 
 Tier|Key characteristics|Designed for
 ----|-----------|-----------
-Free|Shared with other existing Azure subscribers, including trial subscriptions, at no extra charge|Evaluation, investigation, or small workloads. It has the lowest number of indexes (3) and documents (10,000) of all the tiers. Because it's shared with other subscribers,  query throughput and indexing will vary based on who else is using the service.
+Free|Shared, at no charge|Evaluation, investigation, or small workloads. It has the lowest number of indexes (3) and documents (10,000) of all the tiers. Because it's shared with other subscribers,  query throughput and indexing will vary based on who else is using the service.
 Basic|3 replicas and 1 partition|Small production workloads on dedicated hardware. High availability for queries, but not indexing. <br/><br/>At 3 replicas and 1 partition, all indexing operations are restricted to the single partition. You would need to take the service offline to rebuild an index.
 Standard 1 (S1)|Flexible combinations of partitions and replicas| Medium production workloads on dedicated hardware. Allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units. <br/><br/>Partitions are 25 GB each. Query throughput on replicas is about 15 queries per second on average.
 Standard 2 (S2)|Same configurations, at more capacity|Larger production workloads. <br/><br/>Partitions are 100 GB each. Query throughput on replicas is about 60 queries per second on average.
 Standard 3 (S3) Preview|Same configurations, at proportionally more capacity|Larger production workloads. <br/><br/>Partitions are 200 GB each. Query throughput on replicas is more than 60 queries per second on average.
-Standard 3 High Density (S3 HD) Preview|12 replicas and 1 partition|Designed for customers who have a large number of smaller indexes. <br/><br/>Partition size and query throughput are equivalent to S3, but with higher maximum limits for indexes and documents.
+Standard 3 High Density (S3 HD) Preview|12 replicas and 1 partition|Designed for customers who have a large number of smaller indexes. <br/><br/>Partition size and query throughput are equivalent to S3, but S3 HD comes with 1 partition instead of a maximum of 12, which speeds up indexing. Note the much higher limit for indexes (up to 1,000) for an S3 HD service.
 
 ## Decision path for choosing a SKU
 
 This chart is a subset of the limits from [Service limits in Azure Search](search-limits-quotas-capacity.md), highlighting the criteria most likely to narrow or redirect your choice on SKU.
 
-Resource|Free|Basic|S1|S2|S3 <sup>1</sup> <br/>(Preview) |S3 HD <sup>1</sup> <br/>(Preview) 
+Resource|Free|Basic|S1|S2|S3 <br/>(Preview) |S3 HD <br/>(Preview) 
 ---|---|---|---|----|---|----
-Service Level Agreement (SLA)|No |Yes |Yes  |Yes |No|No
+Service Level Agreement (SLA)|No <sup>1</sup> |Yes |Yes  |Yes |No <sup>1</sup> |No <sup>1</sup> 
 Indexes allowed per SKU|3|5|50|200|200|1000
 Maximum partitions|N/A |1 |12  |12 |12|1
 Documents limits|10,000 total|1 million per service|15 million per partition |60 million per partition|120 million per partition |1 million per index
 Partition size|50 MB total|2 GB per service|25 GB per partition |100 GB per partition (up to a maximum of 1.2 TB per service)|200 GB per partition (up to a maximum of 2.4 TB per service)|200 GB (for the 1 partition)
 Maximum replicas|N/A |3 |12 |12 |12|12
 Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
+
+<sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
 
 Replica and partition maximums are subject a combined maximum billing configuration of 36 units, which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
 
