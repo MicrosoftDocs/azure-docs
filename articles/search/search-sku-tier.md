@@ -19,9 +19,9 @@
 
 # Choose a SKU or tier for Azure Search
 
-Azure Search can be provisioned at these SKUs: Free, Basic, and Standard, where Standard is available in various resource configurations and capacities. Capacity and costs of running the service go hand-in-hand. Charts in this article can help you decide which SKU delivers the right balance.
+When creating a search service in Azure Search, one of the requirements is to choose the tier or SKU: Free, Basic, or Standard, where Standard is available in multiple resource configurations and capacities. Capacity and costs of running the service go hand-in-hand. Charts in this article can help you decide which SKU delivers the right balance.
 
-Review the SKU descriptions to get a basic familiarity of what is available, and then answer a series of questions to narrow your choice to the optimal SKU. Finally, validate the decision by reviewing hard limits on storage and pricing. If either one is out of range, you might want to refactor the workloads among multiple smaller services (for example). At more granular level, you might redesign indexes to be smaller, or use filters to make queries more efficient.
+Review the SKU descriptions below to become familiar with each one, and then answer a series of questions to narrow down your choice. Finally, validate the decision by reviewing hard limits on storage and pricing. 
 
 ## SKU descriptions
 
@@ -52,7 +52,9 @@ Replica and partition maximums are subject a combined maximum billing configurat
 
 **Service Level Agreement (SLA)** requirements narrow the SKU decision to Basic or non-preview Standard.
 
-**High availability** is built into every billable SKU beginning iwth Basic. But to get high availability on read-write operations to an index, you'll need a Standard SKU.
+**Resources used by you service** is adjustable depending on the number of partitions and replicas you sign up for. Minimum resource requirements are one partition and one replica. If you require high availability, you'll need more. If you expect query or indexing volumes to increase over time, choose a SKU with enough buffer to support additional volume.
+
+**High availability** is built into every billable SKU beginning with Basic (at 3 replicas for highly available query workloads). To get high availability on read-write operations to an index, you'll need a Standard SKU.
 
 **Index count and size** requirements are often the next criteria to consider. Compare the maximum number of indexes across SKUs and maximum index size.
 
@@ -60,5 +62,9 @@ You can rule specific SKUs in or out based on this criteria alone. In particular
 
 ## Decision validation: does the SKU offer sufficient storage and QPS
 
-As a last step, revisit the limits across the service itself, which will vary depending on whether you provisioned that service at Basic or a Standard SKU. 
+As a last step, revisit the storage limits across the service itself, which will vary depending on whether you provisioned that service at Basic or a Standard SKU. 
+
+Finally, validate the decision by reviewing hard limits on storage and pricing. 
+
+If either one is out of range, you might want to refactor the workloads among multiple smaller services (for example). At more granular level, you could redesign indexes to be smaller, or use filters to make queries more efficient.
 

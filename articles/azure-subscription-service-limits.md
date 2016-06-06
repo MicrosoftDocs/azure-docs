@@ -189,17 +189,17 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 - *Free* multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
 - *Basic* provides dedicated computing resources for production workloads at a smaller scale, with up to 3 replicas for highly available query workloads.
-- *Standard (S1, S2, S3, S3 High Density)* is for larger production workloads. Multiple levels within the standard tier allow you to choose an optimum resource configured suited for specific scenarios.
+- *Standard (S1, S2, S3, S3 High Density)* is for larger production workloads. Multiple levels  exist within the standard tier so that you can choose a resource configuration for specific scenarios.
 
-**Tier Limits**
+**Limits per subscription**
 
-[AZURE.INCLUDE [azure-search-limits-tier](../includes/azure-search-limits-tier.md)]
+[AZURE.INCLUDE [azure-search-limits-per-subscription](../includes/azure-search-limits-per-subscription.md)]
 
-**Storage Limits**
+**Limits per search service**
 
-[AZURE.INCLUDE [azure-search-limits-storage](../includes/azure-search-limits-storage.md)]
+[AZURE.INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-For information about other limits, including document size, queries per second, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+For more granular information about other limits, including document size, queries per second, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services limits
 
