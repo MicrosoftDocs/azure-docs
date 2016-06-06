@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Best practices and troubleshooting guide for node applications on Azure Web Apps"
+	description="Learn the best practices and troubleshooting steps for node applications on Azure Web Apps."
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="ranjithr"
+	manager="wadeh"
+	editor=""/>
+
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="06/06/2016"
+	ms.author="ranjithr;wadeh"/>
+    
 Best practices and troubleshooting guide for node applications on Azure Web Apps
 ================================================================================
 
