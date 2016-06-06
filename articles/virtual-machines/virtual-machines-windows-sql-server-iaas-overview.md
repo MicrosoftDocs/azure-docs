@@ -33,7 +33,7 @@ If you're moving other workloads to Azure, such as a enterprise application, it 
 
 > [AZURE.NOTE] When you're evaluating SQL Server on Azure VMs, also review the other storage and SQL options on Azure, such as [SQL Database](../sql-database/sql-database-technical-overview.md), [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md), and [SQL Server Stretch Databsae](../sql 	-server-stretch-database/sql-server-stretch-database-overview.md). For one detailed comparison, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
-After you decide to run SQL Server on Azure VMs, one of your first decisions is whether to use a VM image that includes the SQL Server licensing costs. Your other option is to bring your own license (BYOL) and only pay for the VM itself. The next two section describe these options.
+After you decide to run SQL Server on Azure VMs, one of your first decisions is whether to use a VM image that includes the SQL Server licensing costs. Your other option is to bring your own license (BYOL) and only pay for the VM itself. The next two sections describe these options.
 
 ## Option 1: Deploy a SQL VM (per-minute licensing)
 The following table provides a matrix of available SQL Server images in the virtual machine gallery. Click on any link to begin creating a new SQL VM with your specified version, edition, and operating system. All images include [SQL Server licensing costs](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
