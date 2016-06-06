@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Explore Azure SQL Database Tutorials"
+   pageTitle="Explore Azure SQL Database Tutorials | Microsoft Azure"
    description="Learn about SQL Database features and capabilities"
    keywords=""
    services="sql-database"
