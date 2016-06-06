@@ -60,11 +60,11 @@ General recommendations for high availability are:
 
 Service Level Agreements (SLA) for Azure Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
 
-**Availability during an index rebuild**
+**Index availability during a rebuild**
 
-High availability for Azure Search are for queries and updates to an index that do not include reindexing. Changing a data type, renaming a field, or adding or deleting a field are all actions that would require a rebuild, which consists of deleting the index, recreating the index, and reloading the data. 
+High availability for Azure Search pertains to queries and index updates that don't involve rebuilding an index. If the index requires a rebuild, for example if you add or deleting a field, change a data type, or rename a field, you would need to rebuild the index by doing the following: delete the index, recreate the index, and reload the data. 
 
-To maintain index availability during a rebuild, you must have a second version of the index already in production on the same service or on a different service, and then provide redirection or fail over logic in your code.
+To maintain index availability during a rebuild, you must have a second copy of the index already in production on the same service (with a different name) or a same-named index on a different service, and then provide redirection or fail over logic in your code.
 
 ## Disaster recovery
 
@@ -110,7 +110,7 @@ Search units, pricing, and capacity are explained in detail on the Azure web sit
 
 ## S3 High Density: Partition and replica combinations
 
-S3 HD has 1 very large partition and up to 12 replicas, for a maximum limit of 12 SUs. The only adjustable resource is replicas.
+S3 HD has 1 partition and up to 12 replicas, for a maximum limit of 12 SUs. The only adjustable resource is replicas.
 
 ## Calculate Search Units for Specific Resourcing Combinations: R X P = SU
 

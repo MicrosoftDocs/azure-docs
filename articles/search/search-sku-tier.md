@@ -23,24 +23,24 @@ Before you can [create a search service](search-create-service-portal.md) in Azu
 
 Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance.
 
-- Step 1: Review the SKU descriptions below to become familiar with each one.
-- Step 2: Answer a series of questions to narrow down your choice.
-- Step 3: Validate the decision by reviewing hard limits on storage and pricing. 
+- **Step 1** Review the SKU descriptions below to become familiar with each one.
+- **Step 2** Answer a series of questions to narrow down your choice.
+- **Step 3** Validate the decision by reviewing hard limits on storage and pricing. 
 
 ## SKU descriptions
 
 Tier|Key characteristics|Designed for
 ----|-----------|-----------
 Free|Shared, at no charge|Evaluation, investigation, or small workloads. It has the lowest number of indexes (3) and documents (10,000) of all the tiers. Because it's shared with other subscribers,  query throughput and indexing will vary based on who else is using the service.
-Basic|3 replicas and 1 partition|Small production workloads on dedicated hardware. High availability for queries, but not indexing. <br/><br/>At 3 replicas and 1 partition, all indexing operations are restricted to the single partition. You would need to take the service offline to rebuild an index.
-Standard 1 (S1)|Flexible combinations of partitions and replicas| Medium production workloads on dedicated hardware. Allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units. <br/><br/>Partitions are 25 GB each. Query throughput on replicas is about 15 queries per second on average.
+Basic|3 replicas and 1 partition|Small production workloads on dedicated hardware. Highly available for queries, but not index updates.
+Standard 1 (S1)|Flexible combinations of partitions and replicas| Medium production workloads on dedicated hardware. You can allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units. <br/><br/>Partitions are 25 GB each. Query throughput on replicas is about 15 queries per second on average.
 Standard 2 (S2)|Same configurations, at more capacity|Larger production workloads. <br/><br/>Partitions are 100 GB each. Query throughput on replicas is about 60 queries per second on average.
 Standard 3 (S3) Preview|Same configurations, at proportionally more capacity|Larger production workloads. <br/><br/>Partitions are 200 GB each. Query throughput on replicas is more than 60 queries per second on average.
-Standard 3 High Density (S3 HD) Preview|12 replicas and 1 partition|Designed for customers who have a large number of smaller indexes. <br/><br/>Partition size and query throughput are equivalent to S3, but S3 HD comes with 1 partition instead of a maximum of 12, which speeds up indexing. Note the much higher limit for indexes (up to 1,000) for an S3 HD service.
+Standard 3 High Density (S3 HD) Preview|12 replicas and 1 partition|Designed for customers who have a large number of smaller indexes.
 
 ## Decision path for choosing a SKU
 
-This chart is a subset of the limits from [Service limits in Azure Search](search-limits-quotas-capacity.md), highlighting the criteria most likely to narrow or redirect your choice on SKU.
+Refer to this chart, which is a subset of the limits from [Service limits in Azure Search](search-limits-quotas-capacity.md), for the factors most likely to impact a SKU decision.
 
 Resource|Free|Basic|S1|S2|S3 <br/>(Preview) |S3 HD <br/>(Preview) 
 ---|---|---|---|----|---|----
@@ -54,7 +54,9 @@ Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per re
 
 <sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
 
-Replica and partition maximums are subject a combined maximum billing configuration of 36 units, which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
+> [AZURE.NOTE] Replica and partition maximums are subject a combined maximum billing configuration of 36 units, which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
+
+### Review criteria for choosing a SKU
 
 The following questions can help you arrive at the right SKU decision for your workloads:
 
@@ -74,7 +76,7 @@ If either the price or storage requirements are out of bounds, you might want to
 
 ## Next step
 
-After choosing a SKU, follow up with these steps:
-- [Create a search service](search-create-service-portal.md)
-- [Optionally configure resources through partition and replica allocations](search-capacity-planning.md)
+Once you know which SKU is the right fit, continue on with these steps:
+- [Create a search service in the portal](search-create-service-portal.md)
+- [Change the allocation of partitions and replicas to scale your service](search-capacity-planning.md)
 
