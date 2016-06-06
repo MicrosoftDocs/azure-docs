@@ -30,7 +30,7 @@ to create new Linux VMs, configured with the Docker daemon, running in Azure.
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver. 
 
 The Azure driver will need your subscription id. You can use the [Azure CLI](xplat-cli-install.md)
-or the [Azure Portal](https:/portal.azure.com) to retrieve your Azure Subscription. 
+or the [Azure Portal](https://portal.azure.com) to retrieve your Azure Subscription. 
 
 **Using the Azure Portal**
 - Select Subscriptions from the left navigation page, and copy to subscription id.
