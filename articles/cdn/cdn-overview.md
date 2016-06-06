@@ -56,6 +56,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | HTTPS support | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Load balancing | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | DDOS protection | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| IPv4/IPv6 dual-stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Custom domain name support](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Query string caching](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Country filtering](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
@@ -66,7 +67,6 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
-| IPv4/IPv6 dual-stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 
 
 ## Next steps
