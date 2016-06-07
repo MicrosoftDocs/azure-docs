@@ -22,17 +22,21 @@
 ##Overview
 After configuring an Azure Application Gateway, one of the errors which users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This may happen due to the following main reasons - 
 
-1. Azure Application Gateway's backend pool is not configured or empty.
-2. None of the VMs or instances in VM Scale Set are healthy.
-3. Back-end VMs or instances of VM Scale Set are not responding to the default health probe.
-4. Invalid or improper configuration of custom health probes.
-5. Request time out or connectivity issues with user requests.
+- Azure Application Gateway's backend pool is not configured or empty.
+- None of the VMs or instances in VM Scale Set are healthy.
+- Back-end VMs or instances of VM Scale Set are not responding to the default health probe.
+- Invalid or improper configuration of custom health probes.
+- Request time out or connectivity issues with user requests.
 
 
 ![Troubleshooting](./media/application-gateway-troubleshooting/502.PNG)
 
 
 ##Empty BackendAddressPool
+###Cause
+If the Application Gateway has no VMs or VM Scale Set configured in the backend address pool, it cannot route any customer request and throws a bad gateway error.
+
+###Solution
 Ensure that the backend address pool is not empty. This can be done either via PowerShell, CLI or portal.
 
 	
@@ -65,12 +69,16 @@ The output from the above cmdlet should contain non-empty backend address pool. 
 	
 	
 ## Unhealthy instances in BackendAddressPool
+
+###Cause
 If all the instances of BackendAddressPool are unhealthy, then Application Gateway would not have any backend to route user request to. This could also be the case when backend instances are healthy but do not have the required application deployed.
 
+###Solution
 Ensure that the instances are healthy and the application is properly configured. Check if the backend instances are able to respond to a ping from another VM in the same VNet. If configured with a public end point,  ensure that a browser request to the web application is serviceable.
 
 
 ##Problems with Default Health Probe
+###Cause
 502 errors can also be frequent indicators that the default health probe is not able to reach backend VMs. When an Application Gateway instance is provisioned, it automatically configures a default health probe to each BackendAddressPool using properties of the BackendHttpSetting. No user input is required to set this probe. Specifically, when a load balancing rule is configured, an association is made between a BackendHttpSetting and BackendAddressPool. A default probe is configured for each of these associations and Application Gateway initiates a periodic health check connection to each instance in the BackendAddressPool at the port specified in the BackendHttpSetting element. Following table lists the values associated with the default health probe.
 
 
@@ -81,6 +89,7 @@ Ensure that the instances are healthy and the application is properly configured
 | Time-out  | 30 | Probe time-out in seconds |
 | Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
+###Solution
 - Ensure that a default site is configured and is listening at 127.0.0.1. 
 - If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port. 
 - The call to http://127.0.0.1:port should return a HTTP result code of 200. This should be returned within the 30 sec time-out period.
@@ -90,6 +99,7 @@ Ensure that the instances are healthy and the application is properly configured
 
 
 ##Problems with Custom Health Probe
+###Cause
 Custom health probes allow additional flexibility to the default probing behavior. When using custom probes, users can configure the probe interval, the URL and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy. The following additional properties are added.
 
 
@@ -104,7 +114,8 @@ Custom health probes allow additional flexibility to the default probing behavio
 | Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 
-In addition to the troubleshooting steps above, also ensure the following.
+###Solution
+Validate that the Custom Health Probe is configured correctly as per table below. In addition to the troubleshooting steps above, also ensure the following.
 
 - Ensure that the Protocol is set to HTTP only. HTTPS is not currently supported.
 - Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md). 
@@ -114,9 +125,14 @@ In addition to the troubleshooting steps above, also ensure the following.
 
 
 ##Request time out
-When a user request is received, Application Gateway applies the configured rules to the request and routes it to a backend pool instance. It waits for a configurable interval of time for a response from the backend instance. By default, this interval is **30 seconds**. If Application Gateway does not receive a response from backend application in this interval, user request would see a 502 error. Application Gateway allows users to configure this setting via BackendHttpSetting which can be then applied to different pools. Different backend pools can have different BackendHttpSetting and hence different request time out configured.
+###Cause
+When a user request is received, Application Gateway applies the configured rules to the request and routes it to a backend pool instance. It waits for a configurable interval of time for a response from the backend instance. By default, this interval is **30 seconds**. If Application Gateway does not receive a response from backend application in this interval, user request would see a 502 error. 
+
+###Solution
+Application Gateway allows users to configure this setting via BackendHttpSetting which can be then applied to different pools. Different backend pools can have different BackendHttpSetting and hence different request time out configured.
 
 	New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 
+##Next Steps
 
 If the above steps do not resolve the issue, please open a [support ticket](https://azure.microsoft.com/support/options/). 
