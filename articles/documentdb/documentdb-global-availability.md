@@ -48,7 +48,7 @@ You can decide to make your data locally or globally distributed by either assoc
 
 
 ## Additional References
-* [Provisioning throughput and storage for a collection] [througputandstorage]
+* [Provisioning throughput and storage for a collection] [throughputandstorage]
 * [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs] [developingwithmultipleregions]
 * [Consistency Levels in DocumentDB] [consistency]
 * [Availability SLAs] [sla]
@@ -68,7 +68,7 @@ You can decide to make your data locally or globally distributed by either assoc
 [manageaccount]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/
 [manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
 [manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
-[throughputandstorage]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-manage/
+[throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
 [arm]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-automation-resource-manager-cli/
 [regions]: https://azure.microsoft.com/regions/ 
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/

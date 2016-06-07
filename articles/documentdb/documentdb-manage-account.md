@@ -33,6 +33,8 @@ Selecting the right consistency level depends on the semantics of your applicati
 
 3.      In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
 
+![Default consistency session] [5]
+
 ![Default consistency session](./media/documentdb-manage-account/chooseandsaveconsistency.png)
 
 4.      In the **Default Consistency** blade, select the new consistency level and click **Save**.
@@ -48,6 +50,8 @@ DocumentDB is available in most [Azure regions] [azureregions]. After selecting 
 
 ![Alt text; Add regions under DocumentDB Account > Settings > Add/Remove Regions][1]
 
+![Alt text; Click on the regions in the map to add or remove them][2]
+
 ### Selecting regions
 
 When deploying to two or more regions, it is recommended that regions are selected based on the region pairs described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr].
@@ -58,7 +62,9 @@ Specifically, when deploying multiple regions, make sure to select the same numb
 
 With its [current standard offers] [offers], while all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. For denoting the active write region, click and drag regions to order the list of regions - the first region in the list of regions is the active write region. 
 
-![Alt text; Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][2]
+![Alt text; Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
+
+![Alt text; Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
 
 
 ## <a id="keys"></a>View, copy, and regenerate access keys
@@ -157,8 +163,11 @@ To learn more about DocumentDB, see the Azure DocumentDB
 
 
 <!--Image references-->
-[1]: ./media/documentdb-global-database/documentdb_add_region.png
-[2]: ./media/documentdb-global-database/documentdb_change_write_region.png
+[1]: ./media/documentdb-global-database/documentdb_add_region-1.png
+[2]: ./media/documentdb-global-database/documentdb_add_region-2.png
+[3]: ./media/documentdb-global-database/documentdb_change_write_region-1.png
+[4]: ./media/documentdb-global-database/documentdb_change_write_region-2.png
+[5]: ./media/documentdb-global-database/documentdb_change_consistency-1.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
