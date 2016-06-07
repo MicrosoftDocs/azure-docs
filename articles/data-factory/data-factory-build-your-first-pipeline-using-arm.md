@@ -264,6 +264,41 @@ You can also use Monitor and Manage App to monitor your data pipelines. See [Mon
 
 > [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
 
+## ARM template for creating a gateway
+Here is a sample ARM template for creating a logical gateway in the back. Note that you need to install a gateway on your on-premises computer or Azure IaaS VM and register the gateway with Data Factory service using a key. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for details.
+
+	{
+	    "contentVersion": "1.0.0.0",
+	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "parameters": {
+	    },
+	    "variables": {
+	        "dataFactoryName":  "GatewayUsingArmDF",
+	        "apiVersion": "2015-10-01",
+	        "singleQuote": "'"
+	    },
+	    "resources": [
+	        {
+	            "name": "[variables('dataFactoryName')]",
+	            "apiVersion": "[variables('apiVersion')]",
+	            "type": "Microsoft.DataFactory/datafactories",
+	            "location": "eastus",
+	            "resources": [
+	                {
+	                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
+	                    "type": "gateways",
+	                    "apiVersion": "[variables('apiVersion')]",
+	                    "name": "GatewayUsingARM",
+	                    "properties": {
+	                    	"description": "my gateway"
+						}
+	                }            
+				]
+	        }
+	    ]
+	}
+
+This template creates a data factory named GatewayUsingArmDF with a gateway named: GatewayUsingARM. 
 
 ## See Also
 | Topic | Description |

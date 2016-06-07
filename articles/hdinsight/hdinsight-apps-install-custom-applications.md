@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/24/2016"
+   	ms.date="06/07/2016"
    	ms.author="jgao"/>
 
 # Install custom HDInsight applications
@@ -90,6 +90,7 @@ You can check the application status on the Azure portal to validate the applica
 
 You can check the application installation status from the portal notification (Click the bell icon on the top of the portal). 
 
+
 If an application installation failed, you can see the error messages and debug information from 3 places:
 
 - HDInsight Applications: general error information.
@@ -132,6 +133,7 @@ See [Delete clusters by using Azure PowerShell](hdinsight-administer-use-powersh
 ### Use Azure CLI
 
 See [Delete clusters by using Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
+
 
 ## Next steps
 

@@ -54,6 +54,8 @@ PRMerger can accept your PR automatically, if:
 * No files are deleted or added.
 * No images are new, changed, or deleted.
 
+If your pull request does not meet these criteria, the "PRmerger cannot merge" label is automatically assigned so you know it requires review by a human PR reviewer.
+
 ### Need to make a lot of little changes?
 
 Take your cue from the PRMerger automation rules above, and do the following:

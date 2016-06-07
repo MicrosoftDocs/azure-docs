@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="06/06/2016" 
 	ms.author="spelluru"/>
 
 # Scheduling & Execution with Data Factory
@@ -290,7 +290,7 @@ Output: Dataset4
 
 When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
 
-- CopyActivity2 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
+- CopyActivity1 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
 - Dataset3 is available. This dataset represents the data that is copied to the destination.  
 
 

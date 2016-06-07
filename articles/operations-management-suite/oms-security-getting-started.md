@@ -9,7 +9,7 @@
 
 <tags
    ms.service="operations-management-suite"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
