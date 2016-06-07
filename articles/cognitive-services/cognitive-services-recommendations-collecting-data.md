@@ -70,7 +70,7 @@ If you upload several catalog files to the same model with several calls, we wil
 >   The maximum number of items in the catalog supported is 100,000 items.
 
 
-### Why add features to the catalog?
+## Why add features to the catalog?
 
 The recommendations engine creates a statistical model that tells you what items are likely to be liked or purchased by a customer. When you have a new product that has never been interacted with it is not possible to create a model on co-occurrences alone. Let's say you start offering a new "children's violin" in your store, since you have never sold that violin before you cannot tell what other items to recommend with that violin.
 
@@ -119,7 +119,7 @@ Note that you need to pass the content of the usage file as the body of the HTTP
 
 >  You need to upload a catalog file before you start adding usage data to your model. Only items in the catalog file will be used during the training phase. All other items will be ignored.
 
-#### How much data do you need?
+## How much data do you need?
 
 The quality of your model is heavily dependent on the quality and quantity of your data.
 The system learns when users buy different items (We call this co-occurrences). For FBT builds, it is also important to know which items are purchased in the same transactions. 
