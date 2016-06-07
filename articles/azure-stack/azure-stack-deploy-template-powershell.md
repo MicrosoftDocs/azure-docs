@@ -24,6 +24,33 @@ ARM templates deploy and provision all of the resources for your application in 
 
 > [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download](http://aka.ms/azStackPsh) the latest Azure PowerShell SDK. 
 
+### Turn off IE enhanced security and enable cookies
+
+Before authenticating PowerShell, you must allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user sign-ins.
+
+**To turn off IE enhanced security:**
+
+1. Sign in to the Azure Stack proof-of-concept (PoC) computer as an AzureStack/administrator, and then open Server Manager.
+
+2. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
+3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
+
+4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
+**To enable cookies:**
+
+1. On the Windows Start screen, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, point to **More**, and then click **Run as administrator**.
+
+2. If prompted, check **Use recommended security**, and then click **OK**.
+
+3. In Internet Explorer, click the **Tools (gear) icon** &gt; **Internet options** &gt; **Privacy** tab.
+
+4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again.
+
+5. Close Internet Explorer and restart PowerShell ISE as an Azure Stack user.
+
+
 ## Authenticate PowerShell with Microsoft Azure Stack (required)
 
 1. [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#turn-off-ie-enhanced-security-and-enable-cookies).
