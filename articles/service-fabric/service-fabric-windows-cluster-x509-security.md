@@ -22,7 +22,7 @@ This article describes how to secure the communication between the various nodes
 
 ## Which certificates will you need?
 
-To start with, [download the Windows cluster package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) to one of the nodes in your cluster. In the downloaded package, you will find a **ClusterConfig.X509.json** file. Open the file in *Edit* mode and review the section for **security** under the **properties** tab:
+To start with, [download the standalone cluster package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) to one of the nodes in your cluster. In the downloaded package, you will find a **ClusterConfig.X509.json** file. Open the file in *Edit* mode and review the section for **security** under the **properties** tab:
 
     "security": {
         "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
@@ -58,7 +58,7 @@ To start with, [download the Windows cluster package](service-fabric-cluster-cre
 
 This section describes all the certificates that you will need for securing your standalone Windows cluster. Enable certificate-based security by setting the values of **ClusterCredentialType** and **ServerCredentialType** to *X509*. 
 
-> [AZURE.NOTE] A [thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) is the primary identity of a certificate. Read [How to retrieve thumbprint of a certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) to find out the thumbprint of the certificates that you create. 
+>[AZURE.NOTE] A [thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) is the primary identity of a certificate. Read [How to retrieve thumbprint of a certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) to find out the thumbprint of the certificates that you create. 
 
 The following table lists out the actual certificates that you will need on your cluster setup:
 
