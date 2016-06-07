@@ -160,6 +160,8 @@ To persist the mount share:
 ## Update the Linux drivers
 You may have to eventually update the InfiniBand drivers of the Linux compute nodes. For more information, read the article [Update the Linux RDMA drivers for SLES 12](virtual-machines-linux-classic-rdma-cluster.md/#update-the-linux-rdma-drivers-for-sles-12).
 
+<!-- Loc Comment: The link above "Update the Linux RDMA drivers for SLES 12" is broken. Could you please help to fix it? -->
+
 ## Install STAR-CCM+
 Azure VM instances A8 and A9 provide InfiniBand support and RDMA capabilities. The kernel drivers that enable those capabilities are available for Windows Server 2012 R2, SUSE 12, CentOS 6.5, and CentOS 7.1 images in the Azure Marketplace. Microsoft MPI and Intel MPI (release 5.x) are the two MPI libraries that support those drivers in Azure.
 
