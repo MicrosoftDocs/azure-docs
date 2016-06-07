@@ -131,7 +131,7 @@ For instructions on changing your consistency level on the Azure Portal, see [Ho
 
 ## Global thoroughput
 
-DocumentDB Accounts can be configured to span many Azure regions and [regions can be added or removed] [[manageaccount-addregion] throughout the lifespan of a database account.
+DocumentDB Accounts can be configured to span many Azure regions and [regions can be added or removed] [manageaccount-addregion] throughout the lifespan of a database account.
 
 When a DocumentDB Account spans multiple regions, the throughput reservation for each collection in that account is set at a regional level i.e. the RUs set on a Collection is the number of RUs avaialbe for that collection in each region. For example, if you have a collection with 10,000 [RU/s](documentdb-request-units.md) provisioned, this collection is able to serve up to 10,000 RU/s in each of the configured regions for a global database. 
 
