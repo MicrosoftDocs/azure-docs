@@ -1436,7 +1436,7 @@ azure group create $rgName "North Europe"
 * Create a new storage account
 
 ```
-azure storage account create --resource-group $rgName --location "North Europe" --type LRS $rgNameLower
+azure storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku-name LRS $rgNameLower
 ```
 
 * Create a new virtual network for every training/demo landscape to enable the usage of the same hostname and IP addresses. The virtual network is protected by a Network Security Group that only allows traffic to port 3389 to enable Remote Desktop access and port 22 for SSH. 
