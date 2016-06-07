@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="06/03/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
-This topic will show you how to configure an Automation account from the Azure portal using the new Run As account feature (also referred to as a service principal) to access Azure Resource Manager (ARM) resources in your subscription with Automation runbooks.  When you create a new Automation account in the Azure portal, it automatically creates a new service principal and assigned to the Contributor role-based access control (RBAC) role in the subscription by default.  This simplifies the process for you and helps you quickly start building and deploying runbooks to support your automation needs.      
+This topic will show you how to configure an Automation account from the Azure portal using the new Run As account feature (also referred to as a service principal) to access Azure Resource Manager resources in your subscription with Automation runbooks.  When you create a new Automation account in the Azure portal, it automatically creates a new service principal and assigned to the Contributor role-based access control (RBAC) role in the subscription by default.  This simplifies the process for you and helps you quickly start building and deploying runbooks to support your automation needs.      
 
 Using a service principal, you can:
 
-* Provide a standardized way to authenticate with Azure when managing Azure ARM resources using runbooks
+* Provide a standardized way to authenticate with Azure when managing Azure Resource Manager resources using runbooks
 * Automate the use of global runbooks configured in Azure Alerts
 
 
@@ -45,7 +45,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 
     ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
-    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources.
+    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against Azure Resource Manager resources.
 
     ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
@@ -86,7 +86,7 @@ The PowerShell script will configure the following:
 1. Save the following script on your computer.  In this example, save it with the filename **New-AzureServicePrincipal.ps1**.  
 
     ```
-    #Requires - RunAsAdministrator
+    #Requires -RunAsAdministrator
     Param (
     [Parameter(Mandatory=$true)]
     [String] $ResourceGroup,
@@ -206,9 +206,9 @@ Next we will perform a small test to confirm you are able to successfully authen
 13. Close the **Edit PowerShell Runbook** blade.
 14. Close the **Test-SecPrin-Runbook** blade.
 
-## Sample code to authenticate with ARM resources
+## Sample code to authenticate with Resource Manager resources
 
-You can use the updated sample code below, taken from the AzureAutomationTutorial example runbook, to authenticate using the Run As account to manage ARM resources with your runbooks. 
+You can use the updated sample code below, taken from the AzureAutomationTutorial example runbook, to authenticate using the Run As account to manage Resource Manager resources with your runbooks. 
 
    ```
    $connectionName = "AzureRunAsConnection"

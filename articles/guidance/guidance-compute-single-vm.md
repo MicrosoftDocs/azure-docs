@@ -14,14 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
+   ms.date="06/06/2016"
    ms.author="mikewasson"/>
 
 # Running a Windows VM on Azure
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article outlines a set of proven practices for running a VM on Azure, paying attention to scalability, availability, manageability, and security. 
+> [AZURE.SELECTOR]
+- [Running a Linux VM on Azure](guidance-compute-single-vm-linux.md)
+- [Running a Windows VM on Azure](guidance-compute-single-vm.md)
+
+This article outlines a set of proven practices for running a Windows virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. 
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
@@ -29,7 +33,7 @@ We don't recommend using a single VM for production workloads, because there is 
 
 ## Architecture diagram
 
-Provisioning a virtual machine (VM) in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.  
+Provisioning VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.  
 
 ![IaaS: single VM](media/blueprints/compute-single-vm.png)
 
@@ -53,7 +57,9 @@ Provisioning a virtual machine (VM) in Azure involves more moving parts than jus
  
 - **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
-## VM recommendations
+## Recommendations
+
+### VM recommendations
 
 - We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
 
@@ -65,7 +71,7 @@ Provisioning a virtual machine (VM) in Azure involves more moving parts than jus
 
 - For information about choosing a published VM image, see [Navigate and select Azure virtual machine images][select-vm-image].
 
-## Disk and storage recommendations
+### Disk and storage recommendations
 
 - For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
@@ -77,7 +83,7 @@ Provisioning a virtual machine (VM) in Azure involves more moving parts than jus
 
 - When possible, install applications on a data disk, not the OS disk. However, some legacy applications might need to install components on the C: drive. In that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
 
-## Network recommendations
+### Network recommendations
 
 - The public IP address can be dynamic or static. The default is dynamic.
 
@@ -89,11 +95,13 @@ Provisioning a virtual machine (VM) in Azure involves more moving parts than jus
 
 - To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
-## Scalability
+## Scalability considerations
 
-You can scale a VM up or down by [changing the VM size][vm-resize]. 
+- You can scale a VM up or down by [changing the VM size][vm-resize]. 
 
-## Availability
+- To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple Windows VMs on Azure][multi-vm].
+
+## Availability considerations
 
 - As noted above, there is no SLA for a single VM. To get the SLA, you must deploy multiple VMs into an availability set.
 
@@ -103,21 +111,17 @@ You can scale a VM up or down by [changing the VM size][vm-resize].
 
 - To protect against accidental data loss during normal operations (e.g., because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
 
-## Manageability
+## Manageability considerations
 
-- **Resource groups.** Put tightly coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. (Deploy a set of resources to a test resource group, and then delete it when you're done.)
+- **Resource groups.** Put tightly coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-    - Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
+- **VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
 
-- **VM diagnostics.** Run the following CLI command to enable diagnostics:
+    The following CLI command enables diagnostics:
 
     ```text
     azure vm enable-diag <resource-group> <vm-name>
-    ```
-
-    This command enables basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
-
-    Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.
+     ```
 
 - **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated.
 
@@ -127,15 +131,15 @@ You can scale a VM up or down by [changing the VM size][vm-resize].
     azure vm deallocate <resource-group> <vm-name>
     ```
 
-    Note: The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down from inside Windows (via RDP), the VM is stopped but _not_ de-allocated, so you will still be charged.
+    The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but _not_ de-allocated, so you will still be charged.
 
 - **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
 
+  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
 
-- To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
 
 
-## Security
+## Security considerations
 
 - Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and provides a comprehensive picture of the security health of your deployment. **Note:** At the time of writing, Security Center is still in preview.
 
@@ -150,19 +154,16 @@ You can scale a VM up or down by [changing the VM size][vm-resize].
 
     > [AZURE.NOTE] RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 
-- Use [Azure Disk Encryption][disk-encryption] to encrypt the OS and data disks. **Note:** At the time of writing, Azure Disk Encryption is still in preview.
-
-## Troubleshooting
-
 - To reset the local administrator password, run the `vm reset-access` Azure CLI command.
 
     ```text
     azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
     ```
 
-- If your VM gets into a non-bootable state, use [Boot Diagnostics][boot-diagnostics] to diagnose boot failures.
+- Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-- Look at [audit logs][audit-logs] to see provisioning actions and other VM events.
+- Use [Azure Disk Encryption][disk-encryption] to encrypt the OS and data disks. **Note:** At the time of writing, Azure Disk Encryption is still in preview.
+
 
 ## Example deployment script
 

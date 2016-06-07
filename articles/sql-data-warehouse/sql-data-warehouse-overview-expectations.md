@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -45,15 +45,11 @@ We’re measuring some important performance enhancements and will soon share th
 
 ### Data Protection
 
-SQL Data Warehouse stores all data in Azure storage using geo-redundant blobs. Three synchronous copies of the data are maintained in the local Azure region to guarantee transparent data protection in case of localized failures (e.g. storage drive failures). In addition, three more asynchronous copies are maintained in a remote Azure region to guarantee data protection in case of regional failures (disaster recovery). Local and remote regions are paired to maintain acceptable synchronization latencies (e.g. East US and West US).
-
+SQL Data Warehouse stores all data in Azure storage using locally redundant storage. Three synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures (e.g. storage drive failures). 
 
 ### Backups
 
 Azure SQL Data Warehouse backs up all data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows restoring the data to at least 21 points in time within the past 7 days up to the time when the last snapshot was taken. You can restore data from a snapshot by using PowerShell or REST APIs.
-
-Snapshots are copied asynchronously to a remote Azure region for added recoverability in case of regional failures (disaster recovery).
-
 
 ### Query completion
 
