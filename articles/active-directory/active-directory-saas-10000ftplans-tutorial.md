@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -45,7 +45,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Scenario Description
+## Scenario description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -66,11 +66,11 @@ To configure the integration of 10,000ft Plans into Azure AD, you need to add 10
 
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-![Applications][2]
+	![Applications][2]
 
 4. Click **Add** at the bottom of the page.
 
-![Applications][3]
+	![Applications][3]
 
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
@@ -97,7 +97,7 @@ To configure and test Azure AD single sign-on with 10,000ft Plans, you need to c
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Azure AD single sign-on
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your 10,000ft Plans application.
 
@@ -158,7 +158,7 @@ The objective of this section is to create a test user in the Azure classic port
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-![Creating an Azure AD test user](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_09.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_09.png) 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
@@ -246,13 +246,13 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
 When you click the 10,000ft Plans tile in the Access Panel, you should get automatically signed-on to your 10,000ft Plans application.
 
 
-## Additional Resources
+## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
