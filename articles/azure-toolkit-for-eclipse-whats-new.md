@@ -24,6 +24,8 @@
 
 This article contains information on the various releases and latest updates to the Azure Toolkit for Eclipse.
 
+> [AZURE.NOTE] There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
+
 ### April 12, 2016
 
 The Azure Toolkit for Eclipse - April 2016 release includes the following enhancements:
@@ -297,22 +299,31 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 ## See Also ##
 
-[Azure Toolkit for Eclipse]
+For more information about the Azure Toolkits for Java IDEs, see the following links:
 
-[Installing the Azure Toolkit for Eclipse] 
-
-[Creating a Hello World Application for Azure in Eclipse]
+- [Azure Toolkit for Eclipse]
+  - [Installing the Azure Toolkit for Eclipse]
+  - [Create a Hello World Web App for Azure in Eclipse]
+  - *What's New in the Azure Toolkit for Eclipse* (This Article)
+- [Azure Toolkit for IntelliJ]
+  - [Installing the Azure Toolkit for IntelliJ]
+  - [Create a Hello World Web App for Azure in IntelliJ]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
 
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+
 [Azul Systems web page for the Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure Toolkit for IntelliJ]: https://plugins.jetbrains.com/plugin/8053
 [Components properties]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
