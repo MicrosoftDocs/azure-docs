@@ -522,6 +522,8 @@ You need to make sure the firewall rules are enabled properly on the corporate f
 
 For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, you need to allow outbound **TCP** communication on port **1433** for both Windows firewall and cooperate firewall, and you need to configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses. 
 
+Note that when loading data into SQL Data Warehouse, you can use the [Staged copy](data-factory-copy-activity-performance.md#staged-copy) feature to avoid opening additional ports on your corporate firewall. 
+
 ### Proxy server considerations
 By default, Data Management Gateway will leverage the proxy settings from Internet Explorer and use default credentials to access it. If it does not suit your case, you can further configure **proxy server settings** as shown below to ensure the gateway is able to connect to Azure Data Factory:
 
