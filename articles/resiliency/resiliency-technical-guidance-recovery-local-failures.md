@@ -20,8 +20,8 @@
 
 There are two primary threats to application availability:
 
-- The failure of devices, such as drives and servers
-- The exhaustion of critical resources, such as compute under peak load conditions
+* The failure of devices, such as drives and servers
+* The exhaustion of critical resources, such as compute under peak load conditions
 
 Azure provides a combination of resource management, elasticity, load balancing, and partitioning to enable high availability under these circumstances. Some of these features are performed automatically for all cloud services. However, in some cases, the application developer must do some additional work to benefit from them.
 
@@ -37,25 +37,25 @@ The requirement to store state externally to the roles has several implications.
 
 For example, consider a service that partitions data across multiple stores. If a worker role goes down while it's relocating a shard, the relocation of the shard might not finish. Or the relocation might be repeated from its inception by a different worker role, potentially causing orphaned data or data corruption. To prevent problems, long-running operations must be one or both of the following:
 
-  * *Idempotent*: Repeatable without side effects. To be idempotent, a long-running operation should have the same effect no matter how many times it's executed, even when it's interrupted during execution.
-  * *Incrementally restartable*: Able to continue from the most recent point of failure. To be incrementally restartable, a long-running operation should consist of a sequence of smaller atomic operations. It should also record its progress in durable storage, so that each subsequent invocation picks up where its predecessor stopped.
+ * *Idempotent*: Repeatable without side effects. To be idempotent, a long-running operation should have the same effect no matter how many times it's executed, even when it's interrupted during execution.
+ * *Incrementally restartable*: Able to continue from the most recent point of failure. To be incrementally restartable, a long-running operation should consist of a sequence of smaller atomic operations. It should also record its progress in durable storage, so that each subsequent invocation picks up where its predecessor stopped.
 
 Finally, all long-running operations should be invoked repeatedly until they succeed. For example, a provisioning operation might be placed in an Azure queue, and then removed from the queue by a worker role only when it succeeds. Garbage collection might be necessary to clean up data that interrupted operations create.
 
 ###Elasticity
 
-The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each of the roles to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to auto scale a cloud service](../cloud-services/cloud-services-how-to-scale.md).
+The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to auto scale a cloud service](../cloud-services/cloud-services-how-to-scale.md).
 
 ###Partitioning
 
 The Azure fabric controller uses two types of partitions:
 
-  * An *update domain* is used to upgrade a service’s role instances in groups. Azure deploys service instances into multiple update domains. For an in-place update, the fabric controller brings down all the instances in one update domain, updates them, and then restarts them before moving to the next update domain. This approach prevents the entire service from being unavailable during the update process.
-  * A *fault domain* defines potential points of hardware or network failure. For any role that has more than one instance, the fabric controller ensures that the instances are distributed across multiple fault domains, to prevent isolated hardware failures from disrupting service. Fault domains govern all exposure to server and cluster failures.
+* An *update domain* is used to upgrade a service’s role instances in groups. Azure deploys service instances into multiple update domains. For an in-place update, the fabric controller brings down all the instances in one update domain, updates them, and then restarts them before moving to the next update domain. This approach prevents the entire service from being unavailable during the update process.
+* A *fault domain* defines potential points of hardware or network failure. For any role that has more than one instance, the fabric controller ensures that the instances are distributed across multiple fault domains, to prevent isolated hardware failures from disrupting service. Fault domains govern all exposure to server and cluster failures.
 
-The [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), guarantees that when two or more web role instances are deployed to different fault and upgrade domains, they will have external connectivity at least 99.95 percent of the time. Unlike update domains, there is no way to control the number of fault domains. Azure automatically allocates fault domains and distributes role instances across them. At least the first two instances of every role are placed in different fault and upgrade domains to ensure that any role with at least two instances will satisfy the SLA. This is represented in the following diagram.
+The [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/) guarantees that when two or more web role instances are deployed to different fault and upgrade domains, they'll have external connectivity at least 99.95 percent of the time. Unlike update domains, there's no way to control the number of fault domains. Azure automatically allocates fault domains and distributes role instances across them. At least the first two instances of every role are placed in different fault and upgrade domains to ensure that any role with at least two instances will satisfy the SLA. This is represented in the following diagram.
 
-![Simplified view of fault domain isolation (Simplified View)](./media/resiliency-technical-guidance-recovery-local-failures/partitioning-1.png)
+![Simplified view of fault domain isolation](./media/resiliency-technical-guidance-recovery-local-failures/partitioning-1.png)
 
 ###Load balancing
 
@@ -67,11 +67,13 @@ Azure virtual machines differ from platform as a service (PaaS) compute roles in
 
 ###Disk durability
 
-Unlike PaaS role instances, data stored on virtual machine drives is persistent even when the virtual machine is relocated. Azure virtual machines use VM disks that exist as blobs in Azure Storage. Because of the availability characteristics of Azure Storage, the data stored on a virtual machine’s drives is also highly available. Note that drive D is the exception to this rule. Drive D is actually physical storage on the rack server that hosts the VM, and its data will be lost if the VM is recycled. Drive D is intended for temporary storage only.
+Unlike PaaS role instances, data stored on virtual machine drives is persistent even when the virtual machine is relocated. Azure virtual machines use VM disks that exist as blobs in Azure Storage. Because of the availability characteristics of Azure Storage, the data stored on a virtual machine’s drives is also highly available.
+
+Note that drive D is the exception to this rule. Drive D is actually physical storage on the rack server that hosts the VM, and its data will be lost if the VM is recycled. Drive D is intended for temporary storage only.
 
 ###Partitioning
 
-Azure natively understands the tiers in a PaaS application (web role and worker role) and thus can properly distribute them across fault and update domains. In contrast, the tiers in an infrastructure as a service (IaaS) applications must be manually defined through availability sets. Availability sets are required for an SLA under IaaS.
+Azure natively understands the tiers in a PaaS application (web role and worker role) and thus can properly distribute them across fault and update domains. In contrast, the tiers in an infrastructure as a service (IaaS) application must be manually defined through availability sets. Availability sets are required for an SLA under IaaS.
 
 ![Availability sets for Azure virtual machines](./media/resiliency-technical-guidance-recovery-local-failures/partitioning-2.png)
 
@@ -83,7 +85,10 @@ If the VMs should have traffic distributed across them, you must group the VMs i
 
 ##Storage
 
-Azure Storage is the baseline durable data service for Azure. It provides blob, table, queue, and VM disk storage. It uses a combination of replication and resource management to provide high availability within a single datacenter. The Azure Storage availability SLA guarantees that at least 99.9 percent of the time, correctly formatted requests to add, update, read, and delete data will be successfully and correctly processed, and that storage accounts will have connectivity to the Internet gateway.
+Azure Storage is the baseline durable data service for Azure. It provides blob, table, queue, and VM disk storage. It uses a combination of replication and resource management to provide high availability within a single datacenter. The Azure Storage availability SLA guarantees that at least 99.9 percent of the time:
+
+* Correctly formatted requests to add, update, read, and delete data will be successfully and correctly processed.
+* Storage accounts will have connectivity to the Internet gateway.
 
 ###Replication
 
@@ -97,15 +102,15 @@ Storage accounts created after June 7, 2012, can grow to up to 200 TB (the previ
 
 ###Virtual machine disks
 
-A virtual machine’s VM disk is stored as a page blob in Azure Storage, giving it all the same durability and scalability properties as blob storage. This design makes the data on a virtual machine’s disk persistent, even if the server running the VM fails and the VM must be restarted on another server.
+A virtual machine’s disk is stored as a page blob in Azure Storage, giving it all the same durability and scalability properties as Blob storage. This design makes the data on a virtual machine’s disk persistent, even if the server running the VM fails and the VM must be restarted on another server.
 
 ##Database
 
 ###SQL Database
 
-Microsoft Azure SQL Database provides database as a service. It allows applications to quickly provision, insert data into, and query relational databases. It provides many of the familiar SQL Server features and functionality, while abstracting the burden of hardware, configuration, patching, and resiliency.
+Azure SQL Database provides database as a service. It allows applications to quickly provision, insert data into, and query relational databases. It provides many of the familiar SQL Server features and functionality, while abstracting the burden of hardware, configuration, patching, and resiliency.
 
->[AZURE.NOTE] Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL Database (PaaS)or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+>[AZURE.NOTE] Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL Database (PaaS) or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
 ####Replication
 
@@ -115,7 +120,7 @@ Azure SQL Database provides built-in resiliency to node-level failure. All write
 
 Each database, when created, is configured with an upper size limit. The currently available maximum size is 150 GB. When a database hits its upper size limit, it rejects additional INSERT or UPDATE commands. (Querying and deleting data is still possible.)
 
-Within a database, Azure SQL Database uses a fabric to manage resources. However, instead of a fabric controller, it uses a ring topology to detect failures. Every replica in a cluster has two neighbors and is responsible for detecting when they go down. When a replica goes down, its neighbors trigger a reconfiguration agent to re-create it on another machine. Engine throttling is provided to ensure that a logical server does not use too many resources on a machine, or exceed the machine’s physical limits.
+Within a database, Azure SQL Database uses a fabric to manage resources. However, instead of a fabric controller, it uses a ring topology to detect failures. Every replica in a cluster has two neighbors and is responsible for detecting when they go down. When a replica goes down, its neighbors trigger a reconfiguration agent to re-create it on another machine. Engine throttling is provided to ensure that a logical server doesn't use too many resources on a machine or exceed the machine’s physical limits.
 
 ###Elasticity
 
@@ -127,9 +132,7 @@ By installing SQL Server (version 2014 or later) on Azure virtual machines, you 
 
 ###High-availability nodes in an availability set
 
-When you implement a high-availability solution in Azure, you can use the availability set in Azure to place the high-availability nodes into separate fault domains and upgrade domains. To be clear, the availability set is an Azure concept. It's a best practice that you should follow to make sure that your databases are indeed highly available, whether you're using AlwaysOn Availability Groups, database mirroring, or otherwise.
-
-If you don't follow this best practice, you might be under the false assumption that your system is highly available. But in reality, your nodes can all fail simultaneously because they happen to be placed in the same fault domain in the Azure datacenter.
+When you implement a high-availability solution in Azure, you can use the availability set in Azure to place the high-availability nodes into separate fault domains and upgrade domains. To be clear, the availability set is an Azure concept. It's a best practice that you should follow to make sure that your databases are indeed highly available, whether you're using AlwaysOn Availability Groups, database mirroring, or something else. If you don't follow this best practice, you might be under the false assumption that your system is highly available. But in reality, your nodes can all fail simultaneously because they happen to be placed in the same fault domain in the Azure datacenter.
 
 This recommendation is not as applicable with log shipping. As a disaster recovery feature, you should ensure that the servers are running in separate Azure datacenter locations (regions). By definition, these datacenter locations are separate fault domains.
 
@@ -153,25 +156,27 @@ The following diagram demonstrates the use of database mirroring on Azure virtua
 
 ##Other Azure platform services
 
-Azure cloud services are built on Azure, so they benefit from the platform capabilities previously described to recover from local failures. In some cases, there are specific actions that you can take to increase the availability for your specific scenario.
+Cloud services that are built on Azure benefit from platform capabilities to recover from local failures. In some cases, you can take specific actions to increase availability for your specific scenario.
 
 ###Service Bus
 
-To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best Practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md). For more information, see [Service Bus (Disaster Recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md). For more information, see [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
 
 ###Mobile Services
 
-There are two availability considerations for Azure Mobile Services. First, regularly back up the Azure SQL Database associated with your mobile service. Also back up the mobile service scripts. For more information, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md). If Mobile Services experiences a temporary outage, you might have to temporarily use an alternate Azure datacenter. For more information, see [Mobile Services (Disaster Recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
+There are two availability considerations for Azure Mobile Services. First, regularly back up the SQL database that's associated with your mobile service. Second, back up the mobile service scripts. For more information, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md).
+
+If Mobile Services experiences a temporary outage, you might have to temporarily use an alternate Azure datacenter. For more information, see [Mobile Services (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
 
 ###HDInsight
 
-The data associated with HDInsight is stored by default in Azure Blob Storage, which has high the availability and durability properties specified by Azure Storage. The multi-node processing associated with Hadoop MapReduce jobs is done on a transient Hadoop Distributed File System (HDFS) that is provisioned when needed by HDInsight. Results from a MapReduce job are also stored by default in Azure Blob Storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (Disaster Recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
+The data that's associated with Azure HDInsight is stored by default in Azure Blob storage. Azure Storage specifies high-availability and durability properties for Blob storage. The multiple-node processing that's associated with Hadoop MapReduce jobs occurs on a transient Hadoop Distributed File System (HDFS) that is provisioned when HDInsight needs it. Results from a MapReduce job are also stored by default in Azure Blob storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
 
 ##Checklists for local failures
 
 ###Cloud services
 
-  1. Review the [Cloud Services](#cloud-services) section of this document.
+  1. Review the [Cloud services](#cloud-services) section of this document.
   2. Configure at least two instances for each role.
   3. Persist state in durable storage, not on role instances.
   4. Correctly handle the StatusCheck event.
@@ -183,7 +188,7 @@ The data associated with HDInsight is stored by default in Azure Blob Storage, w
 ###Virtual machines
 
   1. Review the [Virtual machines](#virtual-machines) section of this document.
-  2. Do not use the D: drive for persistent storage.
+  2. Do not use drive D for persistent storage.
   3. Group machines in a service tier into an availability set.
   4. Configure load balancing and optional probes.
 
@@ -196,7 +201,7 @@ The data associated with HDInsight is stored by default in Azure Blob Storage, w
 
   1. Review the [SQL Database](#sql-database) section of this document.
   2. Implement a retry policy to handle transient errors.
-  3. Use partitioning/sharding as a scale out strategy.
+  3. Use partitioning/sharding as a scale-out strategy.
 
 ###SQL Server on virtual machines
 
@@ -212,8 +217,8 @@ The data associated with HDInsight is stored by default in Azure Blob Storage, w
 ###HDInsight
 
   1. Review the [HDInsight](#hdinsight) section of this document.
-  2. No additional availability steps required for local failures.
+  2. No additional availability steps are required for local failures.
 
 ##Next steps
 
-This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series focuses on [recovery from a region-wide service disruption](./resiliency-technical-guidance-recovery-loss-azure-region.md).
+This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series is [Recovery from a region-wide service disruption](./resiliency-technical-guidance-recovery-loss-azure-region.md).
