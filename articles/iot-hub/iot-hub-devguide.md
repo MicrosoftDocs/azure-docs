@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="05/29/2016" 
  ms.author="dobett"/>
 
 # Azure IoT Hub developer guide
@@ -47,11 +47,13 @@ The following is a description of the endpoints:
 * **Device endpoints**. For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
     - *Send device-to-cloud messages*. Use this endpoint to send device-to-cloud messages. For more information, see [Device to cloud messaging](#d2c).
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
+    - *Initiate file uploads*. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub in order to upload a file. For more information, see [File uploads](#fileupload). 
 
     These endpoints are exposed using HTTP 1.1, [MQTT v3.1.1][lnk-mqtt], and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
 * **Service endpoints**. Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
     - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
     - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
+    - *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
 
 The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways to access these endpoints.
 
@@ -247,6 +249,7 @@ IoT Hub provides messaging primitives to communicate:
 
 - [Cloud-to-device](#c2d) from an application back end (*service* or *cloud*).
 - [Device-to-cloud](#d2c) from a device to an application back end.
+- [File uploads](#fileupload) from a device to an associated Azure Storage account. 
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. This enables resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 
@@ -471,6 +474,67 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 
 For more information, see [Manage IoT hubs][lnk-manage].
 
+### File uploads <a id="fileupload"></a>
+
+As detailed in the [Endpoints](#endpoints) section, devices can initiate file uploads by sending a notification through a device-facing endpoint (**/devices/{deviceId}/files**).  When a device notifies IoT Hub of a completed upload, IoT Hub generates file upload notifications which you can receive through a service-facing endpoint (**/messages/servicebound/filenotifications**) as messages.
+
+Instead of brokering messages through IoT Hub itself, IoT Hub instead acts as a dispatcher to an associated Azure Storage account. A device requests a storage token from IoT Hub that is specific to the file the device wishes to upload. The device uses the SAS URI to upload the file to storage, and when the upload is complete the device sends a notification of completion to IoT Hub. IoT Hub verifies that the file was uploaded and then adds a file upload notification to the new service-facing file notification messaging endpoint.
+
+#### Associating an Azure Storage account with IoT Hub
+
+To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can do this either through the [Azure portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis]. Once you have associated a storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
+
+> [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
+
+#### Initialize a file upload
+
+IoT Hub has two REST endpoints to support file upload, one to get the SAS URI for storage and the other to notify the IoT hub of a completed upload. The device initiates the file upload process by sending a GET to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. The hub returns a SAS URI specific to the file to be uploaded, as well as a correlation ID to be used once the upload is completed.
+
+#### Notify IoT Hub of a completed file upload
+
+The device is responsible for uploading the file to storage using the Azure Storage SDKs. Once the upload is completed, the device sends a POST to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}` using the correlation ID received from the initial GET.
+
+#### File upload notifications
+
+When a device uploads a file and notifies IoT Hub of upload completion, the service optionally generates a notification message that contains the name and storage location of the file.
+
+As explained in [Endpoints](#endpoints), IoT Hub delivers file upload notifications through a service-facing endpoint (**/messages/servicebound/fileuploadnotifications**) as messages. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [Message lifecycle](#message lifecycle). Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
+
+| Property | Description |
+| -------- | ----------- |
+| EnqueuedTimeUtc | Timestamp indicating when the notification was created. |
+| DeviceId | **DeviceId** of the device which uploaded the file. |
+| BlobUri | URI of the uploaded file. |
+| BlobName | Name of the uploaded file. |
+| LastUpdatedTime | Timestamp indicating when the file was last updated. |
+| BlobSizeInBytes | Size of the uploaded file. |
+
+**Example**. This is an example body of a file upload notification message.
+
+```
+{
+	"deviceId":"mydevice",
+	"blobUri":"https://{storage account}.blob.core.windows.net/{container name}/mydevice/myfile.jpg",
+	"blobName":"mydevice/myfile.jpg",
+	"lastUpdatedTime":"2016-06-01T21:22:41+00:00",
+	"blobSizeInBytes":1234,
+	"enqueuedTimeUtc":"2016-06-01T21:22:43.7996883Z"
+}
+```
+
+#### File upload notification configuration options <a id="c2dconfiguration"></a>
+
+Each IoT hub exposes the following configuration options for file upload notifications:
+
+| Property | Description | Range and default |
+| -------- | ----------- | ----------------- |
+| **enableFileUploadNotifications** | Controls whether or not file upload notifications are written to the file notifications endpoint. | Bool. Default: True. |
+| **fileNotifications.ttlAsIso8601** | Default TTL for file upload notifications. | ISO_8601 interval up to 48H (minimum 1 minute). Default: 1 hour. |
+| **fileNotifications.lockDuration** | Lock duration for the file upload notifications queue. | 5 to 300 seconds (minimum 5 seconds). Default: 60 seconds. |
+| **fileNotifications.maxDeliveryCount** | Maximum delivery count for the file upload notification queue. | 1 to 100. Default: 100. |
+
+For further information, see [Manage IoT hubs][lnk-manage].
+
 ## Quotas and throttling <a id="throttling"></a>
 
 Each Azure subscription can have at most 10 IoT hubs.
@@ -492,6 +556,7 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units is 2\*12 = 24/sec, but you will have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
 | Cloud-to-device sends | 100/min/unit. |
 | Cloud-to-device receives | 1000/min/unit. |
+| File upload operations | 100 file upload notifications/min/unit <br/> 10000 SAS URIs can be out for a storage account at one time <br/> 10 SAS URIs/device can be out at one time | 
 
 It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle is dependent on the number of units that are provisioned for the hub.
 
