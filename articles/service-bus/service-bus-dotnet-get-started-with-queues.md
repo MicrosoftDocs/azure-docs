@@ -13,26 +13,32 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="dotnet"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="06/07/2016"
    ms.author="jotaub@microsoft.com"/>
 
 #Get started with Service Bus Queues
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 ##Prerequisites
-1. Visual Studio
+1. [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com)
 
 2. An Azure subscription
 
 ##What will be accomplished
 In this tutorial, we will complete the following:
 
-1. Create a Service Bus Messaging queue, using the Azure portal.
+1. Create a Service Bus namespace, using the Azure portal.
 
-2. Write a console application to send a message.
+2. Create a Service Bus Messaging queue, using the Azure portal.
 
-3. Write a console application to receive messages.
+3. Write a console application to send a message.
 
+4. Write a console application to receive messages.
+
+##Create a namespace with the Azure portal
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+##Create a queue with the Azure portal
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ##Sending messages to the queue

@@ -1,4 +1,3 @@
-##Creating a queue from the Azure portal
 Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
 
 1. Log on to the [Azure classic portal][classic-portal].
