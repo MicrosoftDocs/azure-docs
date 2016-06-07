@@ -44,7 +44,7 @@ Finally, all long-running operations should be invoked repeatedly until they suc
 
 ###Elasticity
 
-The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to auto scale a cloud service](../cloud-services/cloud-services-how-to-scale.md).
+The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to autoscale a cloud service](../cloud-services/cloud-services-how-to-scale.md).
 
 ###Partitioning
 
@@ -114,7 +114,7 @@ Azure SQL Database provides database as a service. It allows applications to qui
 
 ####Replication
 
-Azure SQL Database provides built-in resiliency to node-level failure. All writes into a database are automatically replicated to two or more background nodes through a quorum commit technique. (The primary and at least one secondary must confirm that the activity is written to the transaction log before the transaction is deemed successful and returns.) In the case of node failure, the database automatically fails over to one of the secondary replicas. This causes a transient connection interruption for client applications. For this reason, all Azure SQL Database clients must implement some form of transient connection handling. For more information, see [Retry service-specific guidance](../best-practices-retry-service-specific.md).
+Azure SQL Database provides built-in resiliency to node-level failure. All writes into a database are automatically replicated to two or more background nodes through a quorum commit technique. (The primary and at least one secondary must confirm that the activity is written to the transaction log before the transaction is deemed successful and returns.) In the case of node failure, the database automatically fails over to one of the secondary replicas. This causes a transient connection interruption for client applications. For this reason, all Azure SQL Database clients must implement some form of transient connection handling. For more information, see [Retry service specific guidance](../best-practices-retry-service-specific.md).
 
 ####Resource management
 
@@ -160,7 +160,7 @@ Cloud services that are built on Azure benefit from platform capabilities to rec
 
 ###Service Bus
 
-To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md). For more information, see [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md) and [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
 
 ###Mobile Services
 
