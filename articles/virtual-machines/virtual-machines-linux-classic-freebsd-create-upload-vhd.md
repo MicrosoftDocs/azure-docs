@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/12/2016"
+   ms.date="06/07/2016"
    ms.author="kyliel"/>
 
 # Create and Upload a FreeBSD VHD to Azure
@@ -68,39 +68,57 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
 		# pkg install sudo
 
-5. Prerequisites for Azure Agent
+5. **Prerequisites for Azure Agent**
 
-    5.1 **Install python**
-
-		# pkg install python27
-		# ln -s /usr/local/bin/python2.7 /usr/bin/python
-
-    5.2 **Install wget**
-
-		# pkg install wget
+		# pkg install python27  
+		# pkg install Py27-setuptools27   
+		# ln -s /usr/local/bin/python2.7 /usr/bin/python   
+		# pkg install git 
 
 6. **Install Azure Agent**
 
     The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). Version 2.0.10 and later officially supports FreeBSD 10 and later releases. The latest Azure Agent version for FreeBSD is 2.1.4.
 
-		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
-		# mv waagent /usr/sbin
-		# chmod 755 /usr/sbin/waagent
-		# /usr/sbin/waagent -install
+		# git clone https://github.com/Azure/WALinuxAgent.git  
+		# cd WALinuxAgent  
+		# git tag  
+		…
+		WALinuxAgent-2.0.16
+		…
+		v2.1.4
+		v2.1.4.rc0
+		v2.1.4.rc1
+   
+    For 2.0, let us use 2.0.16 as an example here.
+    
+		# git checkout WALinuxAgent-2.0.16
+		# python setup.py install  
+		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 
-    **Important**: After installation, please double check it is running.
+    For 2.1, let us use 2.1.4 as an example here.
+    
+		# git checkout v2.1.4
+		# python setup.py install  
+		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
+		# ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
+   
+    **Important**: After installation, you could double check the version and whether it is running.
 
+		# waagent -version
+		WALinuxAgent-2.1.4 running on freebsd 10.3
+		Python: 2.7.11
 		# service –e | grep waagent
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
-    Now you could **shut down** your VM. You also could execute step 7 before shut down but it is optional.
+7. **De-provision** 
 
-7. De-provision is optional. It is to clean the system and make it suitable for re-provisioning.
+    It is to clean the system and make it suitable for re-provisioning. Below command also deletes the last provisioned user account and associated data.
 
-    Below command also deletes the last provisioned user account and associated data.
-
-		# waagent –deprovision+user
+		# echo "y" |  /usr/local/sbin/waagent -deprovision+user  
+		# echo  'waagent_enable="YES"' >> /etc/rc.conf
+    
+    Now you could **shut down** your VM.
 
 ## Step 2: Create a storage account in Azure ##
 
