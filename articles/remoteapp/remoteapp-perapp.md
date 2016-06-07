@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="03/01/2016"
+   ms.date="05/31/2016"
    ms.author="piotrci"/>
 
 # Publish applications to individual users in an Azure RemoteApp collection (Preview)
