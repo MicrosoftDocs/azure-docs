@@ -7,15 +7,15 @@ Please ensure that you have already created a Service Bus namespace, as shown [h
 
 3. Select the namespace that you would like to create the queue in. In this case, it is “mytestns1.”
 
-    ![Selecting a namespace][1]
+    ![Selecting a namespace][select-namespace]
 
 4. Select **Queues**.
 
-    ![Select Queues][2]
+    ![Select Queues][select-queue]
 
 5. Select **New** in the bottom left corner.
 
-    ![Select New][3]
+    ![Select New][select-new]
 
 6. Select **Quick Create**.
 
@@ -23,12 +23,12 @@ Please ensure that you have already created a Service Bus namespace, as shown [h
 
 8. Select **Create a new queue**.
 
-    ![Create a queue][4]
+    ![Create a queue][create-queue]
 
-[1]: ./media/service-bus-create-queue-portal/select-namespace.png
-[2]: ./media/service-bus-create-queue-portal/select-queue.png
-[3]: ./media/service-bus-create-queue-portal/select-new.png
-[4]: ./media/service-bus-create-queue-portal/create-queue.png
+[select-namespace]: ./media/service-bus-create-queue-portal/select-namespace.png
+[select-queue]: ./media/service-bus-create-queue-portal/select-queue.png
+[select-new]: ./media/service-bus-create-queue-portal/select-new.png
+[create-queue]: ./media/service-bus-create-queue-portal/create-queue.png
 
 [namespace-how-to]: ./service-bus-create-namespace-portal.md
 [classic-portal]: https://manage.windowsazure.com
