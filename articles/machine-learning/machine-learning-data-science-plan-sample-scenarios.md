@@ -65,7 +65,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 6.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-7.  Read the data from Azure blobs using the [Reader][reader] module.
+7.  Read the data from Azure blobs using the [Import Data][import-data] module.
 
 8. Build an Azure Machine Learning experiment flow starting with ingested dataset(s).
 
@@ -91,7 +91,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 8. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data from Azure blobs using the [Reader][reader] module.
+9. Read the data from Azure blobs using the [Import Data][import-data] module.
 
 10. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -134,7 +134,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 9. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-10. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+10. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
 11. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -180,7 +180,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+8. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset
 
@@ -224,7 +224,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+8. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset.
 
@@ -289,7 +289,7 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
 8.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data directly from the `Hive Queries` using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+9. Read the data directly from the `Hive Queries` using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
 10. Simple Azure ML experiment flow starting with uploaded dataset.
 
@@ -321,4 +321,4 @@ For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Anal
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
