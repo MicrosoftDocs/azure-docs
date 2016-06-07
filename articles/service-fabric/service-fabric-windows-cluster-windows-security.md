@@ -17,9 +17,9 @@
    ms.author="dkshir"/>
 
 
-# Create an Azure Service Fabric cluster on-premises or in the cloud
+# Secure a standalone cluster on Windows using Windows security
 
-A Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource you must secure it, especially when it has production workloads running on it. This article describes how to configure node-to-node and client-to-node security using Windows security in the *ClusterConfig.JSON* file and corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information on how Service Fabric uses Windows Security, see [Cluster security scenarios](service-fabric-cluster-security.md).
+To prevent unauthorized access to a Service Fabric cluster you must secure it, especially when it has production workloads running on it. This article describes how to configure node-to-node and client-to-node security using Windows security in the *ClusterConfig.JSON* file and corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information on how Service Fabric uses Windows Security, see [Cluster security scenarios](service-fabric-cluster-security.md).
 
 >[AZURE.NOTE]
 You should consider your security selection for node-to-node security carefully, since there is no cluster upgrade from one security choice to another. Changing the security selection would require a full cluster rebuild.
