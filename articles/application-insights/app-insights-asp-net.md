@@ -28,6 +28,11 @@ You need:
 * Visual Studio 2013 update 3 or later. Later is better.
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com). 
 
+There are alternative articles to look at if you are interested in:
+
+* [Instrumenting a web app at run time](app-insights-monitor-performance-live-website-now.md)
+* [ASP.NET Core](app-insights-asp-net-core.md)
+* [Azure Cloud services](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. Add Application Insights SDK
 
