@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/02/2016"
+   ms.date="06/07/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Resource Manager REST API
@@ -27,7 +27,10 @@
 
 This article explains how to use the Resource Manager REST API with Resource Manager templates to deploy your resources to Azure.  
 
-If you have received an error during deployment, see [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-rest.md) to learn about getting information that will help you troubleshoot your error, and see [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors.
+> [AZURE.TIP] For help with debugging an error during deployment, see:
+>
+> [View deployment operations with REST API](resource-manager-troubleshoot-deployments-rest.md) to learn about getting information that will help you troubleshoot your error
+> [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 

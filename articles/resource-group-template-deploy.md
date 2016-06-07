@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/02/2016"
+   ms.date="06/07/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure PowerShell
@@ -28,7 +28,10 @@
 
 This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure.  
 
-If you have received an error during deployment, see [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) to learn about getting information that will help you troubleshoot your error, and see [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors.
+> [AZURE.TIP] For help with debugging an error during deployment, see:
+>
+> - [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) to learn about getting information that will help you troubleshoot your error
+> - [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
@@ -120,7 +123,7 @@ If you have received an error during deployment, see [View deployment operations
 
 You can add your templates to a storage account and link to them during deployment with a SAS token.
 
-> [AZURE.NOTE] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
+> [AZURE.IMPORTANT] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
 ### Add private template to storage account
 
@@ -161,6 +164,8 @@ To deploy a private template in a storage account, retrieve a SAS token and incl
 3. Deploy the template by providing the URI that includes the SAS token.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateuri
+
+For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 

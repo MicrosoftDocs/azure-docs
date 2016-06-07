@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/02/2016"
+   ms.date="06/07/2016"
    ms.author="tomfitz"/>
 
 # Using linked templates with Azure Resource Manager
@@ -51,7 +51,7 @@ The Resource Manager service must be able to access the linked template, which m
         "contentVersion": "1.0.0.0",
     }
 
-Although the linked template must be externally available, it does not need to be generally available to the public. When you add a template to a storage account, you can restrict access to only the storage account owner. To enable access, you create a shared access signature (SAS) token and add that SAS token to the URI for the linked template. For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). 
+Although the linked template must be externally available, it does not need to be generally available to the public. You can add your template to a private storage account, which is accessible to only the storage account owner, and then create a shared access signature (SAS) token to enable access during deployment. You add that SAS token to the URI for the linked template. For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). 
 
 The following example shows a parent template that links to another template. The nested template is accessed with a SAS token that is passed in as a parameter.
 
@@ -73,7 +73,7 @@ The following example shows a parent template that links to another template. Th
         }
     ],
 
-The URI of the linked template, including the SAS token, is logged in the deployment operations for that resource group. You will want to set an expiration for the token to prevent unintended users from using the token.
+Even though the token is passed in as a secure string, the URI of the linked template, including the SAS token, is logged in the deployment operations for that resource group. To limit exposure, set an expiration for the token.
 
 ## Linking to a parameter file
 
@@ -133,7 +133,7 @@ You can also use [deployment()](resource-group-template-functions.md#deployment)
 
 ## Complete example
 
-The following examples show a simplified arrangement of linked templates. It assumes the templates have been added to the same container in a storage account with public access turned off. The linked template passes a value back to the main template in the **outputs** section.
+The following example templates show a simplified arrangement of linked templates to illustrate several of the concepts in this article. It assumes the templates have been added to the same container in a storage account with public access turned off. The linked template passes a value back to the main template in the **outputs** section.
 
 The **parent.json** file consists of:
 
@@ -183,14 +183,9 @@ The **helloworld.json** file consists of:
     
 In PowerShell, you get a token for the container and deploy the templates with:
 
+    Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
     $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-    New-AzureRmResourceGroupDeployment -ResourceGroupName sasgroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
-
-In Azure CLI, you get a token for the container and deploy the templates with:
-
-    expiretime=$(date -I'minutes' --date "+30 minutes")
-    token=$(azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r)
-    
+    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
 
 ## Next steps
 - To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md)

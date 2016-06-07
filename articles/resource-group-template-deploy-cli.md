@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/02/2016"
+   ms.date="06/07/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure CLI
@@ -27,7 +27,10 @@
 
 This topic explains how to use Azure CLI with Resource Manager templates to deploy your resources to Azure.  
 
-If you have received an error during deployment, see [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-cli.md) to learn about getting information that will help you troubleshoot your error, and see [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors.
+> [AZURE.TIP] For help with debugging an error during deployment, see:
+>
+> [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md) to learn about getting information that will help you troubleshoot your error
+> [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
@@ -103,51 +106,6 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
 6. If you want to log additional information about the deployment that may help you troubleshoot any deployment errors, use the **debug-setting** parameter. You can specify that request content, response content, or both be logged with the deployment operation.
 
         azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
-
-## Deploy template from storage with SAS token
-
-You can add your templates to a storage account and link to them during deployment with a SAS token.
-
-> [AZURE.NOTE] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
-
-### Add private template to storage account
-
-The following steps set up a storage account for templates:
-
-1. Create a new resource group.
-
-        azure group create -n "ManageGroup" -l "westus"
-
-2. Create a new storage account. The storage account name must be unique across Azure, so provide your own name for the account.
-
-        azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
-
-3. Set variables for the storage account and key.
-
-        export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
-        export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
-
-4. Create a new container. The permission is set to **Off** which means the container is only accessible to the owner.
-
-        azure storage container create --container templates -p Off 
-        
-4. Add your template to the container.
-
-        azure storage blob upload --container templates -f c:\Azure\Templates\azuredeploy.json
-        
-### Provide SAS token during deployment
-
-To deploy a private template in a storage account, retrieve a SAS token and include it in the URI for the template.
-
-1. Create a SAS token with read permissions and an expiry time to limit access. Retrieve the full URI of the template including the SAS token.
-
-        expiretime=$(date -I'minutes' --date "+30 minutes")
-        azure storage blob sas create --container templates --blob azuredeploy.json --permissions r --expiry $expiretimetime --json  | jq ".url"
-
-2. Deploy the template by providing the URI that includes the SAS token.
-
-        azure group deployment create --template-uri {templateuri} -g ExampleResourceGroup
-
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
