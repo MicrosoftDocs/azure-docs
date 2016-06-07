@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="06/05/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -23,15 +23,15 @@ The tables in this article provide information on ExpressRoute connectivity prov
 
 ExpressRoute is supported across all Azure regions and locations. The following map provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
 
-![](./media/expressroute-locations/expressroute-locations-map.png)
+![Location map][0]
 
 You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|
-|**North America**|East US, West US, East US 2, Central US, South Central US, North Central US, Canada Central, Canada East|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Toronto|
+|**North America**|East US, West US, East US 2, Central US, South Central US, North Central US, Canada Central, Canada East|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**South America**|Brazil South|Sao Paulo|
-|**Europe**|North Europe, West Europe|Amsterdam, Dublin, London|
+|**Europe**|North Europe, West Europe|Amsterdam, Dublin, London, Newport(Wales)+, Paris+|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
 |**Japan**|Japan West, Japan East|Osaka, Tokyo|
 |**Australia**|Australia Southeast, Australia East|Melbourne, Sydney|
@@ -43,9 +43,9 @@ The table below provides information on regions and geopolitical boundaries for 
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|---|
-|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, New York+, Washington DC|
+|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Dallas+, New York, Washington DC|
 |**China**|China North, China East|Beijing, Shanghai|
-|**Germany**|Germany Central, Germany East|Berlin+, Frankfurt|
+|**Germany**|Germany Central, Germany East|Berlin, Frankfurt|
 
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
@@ -99,9 +99,9 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, New York+, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, New York, Washington DC |
 | **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Coming soon | Chicago, New York+, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, New York+, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, New York, Washington DC |
 
 #### China
 
@@ -114,7 +114,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 
 | **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Coming soon | Not Supported | Berlin+, Frankfurt+|
+| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supported | Not Supported | Berlin+, Frankfurt|
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Coming soon | Not Supported | Frankfurt+|
 | **e-shelter** | Coming soon | Not Supported | Berlin+|
 | **Interxion** | Supported | Not Supported | Frankfurt|
@@ -157,3 +157,6 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 - For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 - Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+
+<!--Image References-->
+[0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"
