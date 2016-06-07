@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/07/2016"
    ms.author="v-josha"/>
 
 # Implementing a secure hybrid network architecture with Internet access in Azure
@@ -57,13 +57,13 @@ This section summarizes recommendations for providing public access to the appli
 
 - Routing Internet traffic to the web tier through the NVAs in the public DMZ.
 
-For information and recommendations about the gateway, elements in the private DMZ, the management and monitoring subnet, and the application subnets, refer to the article [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure].
+For information and recommendations about the gateway, elements in the private DMZ, the management and monitoring subnet, and the application subnets, refer to the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
 
 ### Public load balancer recommendations ###
 
-To maintain scalability and availability, create the NVAs in an [availability set][availability-set] and use a public load balancer to handle traffic received through the PIP. Do not connect the PIP directly to an NVA, even if the NVA availability set only contains a single device. This approach enables you to more easily add NVAs in the future without the need to reconfigure the system.
+To maintain scalability and availability, create the NVAs in an [availability set][availability-set] and use a public load balancer to handle traffic received through the PIP.
 
-Use the load balancer as a first layer of defence; do not open ports unnecessarily. For example, consider restricting inbound traffic for the web tier to port 80 (for HTTP requests), and optionally port 443 (for HTTPS requests).
+Do not open ports in the load balancer unnecessarily. For example, consider restricting inbound traffic for the web tier to port 80 (for HTTP requests), and optionally port 443 (for HTTPS requests).
 
 ### Public DMZ routing recommendations ###
 
@@ -163,28 +163,30 @@ The NVAs in the public security perimeter are Linux (Ubuntu) VMs. The template r
 
 ``` bash
 #!/bin/bash
-sudo bash -c "echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf"
-sudo sysctl -p /etc/sysctl.conf
+#!/bin/bash
+bash -c "echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf"
+sysctl -p /etc/sysctl.conf
 
 PRIVATE_IP_ADDRESS=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
 PUBLIC_IP_ADDRESS=$(wget http://ipinfo.io/ip -qO -)
+iptables -F
+iptables -t nat -F
+iptables -X
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 10.0.1.254:80
+iptables -t nat -A POSTROUTING -p tcp -d 10.0.1.254 --dport 80 -j SNAT --to-source $PRIVATE_IP_ADDRESS
+iptables -t nat -A POSTROUTING -p tcp -d 10.0.1.254 --dport 80 -j SNAT --to-source $PUBLIC_IP_ADDRESS
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 10.0.1.254:443
+iptables -t nat -A POSTROUTING -p tcp -d 10.0.1.254 --dport 443 -j SNAT --to-source $PRIVATE_IP_ADDRESS
+iptables -t nat -A POSTROUTING -p tcp -d 10.0.1.254 --dport 443 -j SNAT --to-source $PUBLIC_IP_ADDRESS
+service ufw stop
+service ufw start
 
-sudo iptables -F
-sudo iptables -t nat -F
-sudo iptables -X
-sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 10.0.3.254:80
-sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.3.254 --dport 80 -j SNAT --to-source $PRIVATE_IP_ADDRESS
-sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.3.254 --dport 80 -j SNAT --to-source $PUBLIC_IP_ADDRESS
-
-sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 10.0.3.254:443
-sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.3.254 --dport 443 -j SNAT --to-source $PRIVATE_IP_ADDRESS
-sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.3.254 --dport 443 -j SNAT --to-source $PUBLIC_IP_ADDRESS
-
-sudo service ufw stop
-sudo service ufw start
+DEBIAN_FRONTEND=noninteractive aptitude install -y -q iptables-persistent
+/etc/init.d/iptables-persistent save
+update-rc.d iptables-persistent defaults
 ```
 
-The first two lines configure IP forwarding for the NICs; traffic received in the NIC associated with the public DMZ inbound subnet will be passed to the NIC attached to the public DMZ outbound subnet. The remaining lines configure NAT routing to direct incoming traffic on ports 80 and 443 to the internal load balancer for the web tier at address 10.0.3.254.
+The first two lines configure IP forwarding for the NICs; traffic received in the NIC associated with the public DMZ inbound subnet will be passed to the NIC attached to the public DMZ outbound subnet. The next block configures NAT routing to direct incoming traffic on ports 80 and 443 to the internal load balancer for the web tier at address 10.0.3.254. The final three lines save these changes using the iptables-persistent service and ensure that the configuration is restored whenever the machine restarts.
 
 ## Deploying the sample solution
 
@@ -298,17 +300,29 @@ You can modify the following parameters referenced by the [ibb-dmz.json][ibb-dmz
 
 ## Availability considerations
 
-**TBD**
+The load balancer requires each NVA to provide a health endpoint. An NVA that fails to respond on this endpoint is considered to be unavailable, and the load balancer will direct requests to other NVAs in the same availability set. If all NVAs fail to respond, the system becomes unavailable. Therefore, the more NVAs you deploy, the greater the availability of the system.
+
+You can implement simple health checking by installing a service such as Apache on each NVA; the default Apache configuration will respond to requests received on port 80. If necessary, you can implement a custom service that performs more comprehensive checking of the state of the NVA to establish that it is functioning correctly.
 
 ## Security considerations
 
-The NVAs for the public security perimeter passes all traffic directed towards port 80 and port 443 through to the web tier load balancer. All other requests are blocked. Additionally, traffic is not audited. You can modify the way in which the NVAs handle requests, and add request logging, by using the [iptables][iptables] command.
+This architecture provides three points of defence:
+
+- The load balancer. Incoming traffic from the Internet can only pass through ports specified by the load balancer rules. Only open ports required by the application.
+
+- The NSG rules with the public DMZ inbound and outbound networks. These rules enable you to add a further level of protection and help prevent the NVAs from being compromised. For example, you can restrict all incoming traffic to that received from the load balancer or management subnet.
+
+- The NVAs for the public security perimeter. The NAT routing configuration passes all traffic directed towards port 80 and port 443 through to the web tier load balancer. All other requests are blocked. Note that in the sample solution, traffic is not audited. You can modify the way in which the NVAs handle requests, and add request logging, by using the [iptables][iptables] command.
 
 ## Scalability considerations
 
-**TBD**
+Do not connect the PIP directly to an NVA, even if the NVA availability set only contains a single device and there is no immediate need for a load balancer. This approach enables you to more easily add NVAs in the future without the need to reconfigure the system. It can also provide increased protection.
 
 ## Monitoring considerations
+
+The NVAs in the public security perimeter should not be directly accessible to the outside world. Use the resources in the management subnet to connect to the NVAs and perform monitoring. The example in the [Architecture diagram][architecture] section depicts a jump box which provides access to DevOps staff, and a separate monitoring server. Depending on the size of the network and the monitoring workload, the jump box and monitoring server could be combined into a single machine, or monitoring functions could be spread across several VMs.
+
+If the NVAs are protected by using NSG rules, it may also be necessary to open port 22 (for SSH access), or any other ports used by management and monitoring tools to enable requests from the data management subnet.
 
 <!-- links -->
 
@@ -316,7 +330,7 @@ The NVAs for the public security perimeter passes all traffic directed towards p
 [guidance-vpn-gateway]: ./guidance-hybrid-network-vpn.md
 [script]: #sample-solution-script
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
-[architecture]: #architecture_blueprint
+[architecture]: #architecture_diagram
 [security]: #security
 [recommendations]: #recommendations
 [vpn-failover]: ./guidance-hybrid-network-expressroute-vpn-failover.md
@@ -331,11 +345,6 @@ The NVAs for the public security perimeter passes all traffic directed towards p
 [azuredeploy-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/azuredeploy.sh
 [azuredeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/Templates/ra-vnet-subnets-udr-nsg/azuredeploy.json
 [ibb-dmz]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/Templates/ibb-dmz.json
-
 [0]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure1.png "Secure hybrid network architecture"
 [1]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure2.png "Public DMZ resource group"
 [2]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure3.png "Default IIS page in Internet Explorer"
-
-<!-- Not currently referenced, but probably will be once content is added: -->
-[getting-started-with-azure-security]: ./../azure-security-getting-started.md
-[cloud-services-network-security]: https://azure.microsoft.com/documentation/articles/best-practices-network-security/
