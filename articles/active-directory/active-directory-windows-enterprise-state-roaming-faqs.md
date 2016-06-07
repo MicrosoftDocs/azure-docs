@@ -28,7 +28,7 @@ This topic answers some questions IT administrators might have about settings an
 - **Internet Explorer settings**: recently opened tabs, favorites, etc.
 - **Edge browser settings**: favorites, reading list
 - **Passwords**: Internet passwords, Wi-Fi profiles, etc.
-- **Language preferences**: keyboard layouts, system language, dateand time, etc.
+- **Language preferences**: keyboard layouts, system language, date and time, etc.
 - **Ease of access**: high contrast theme, Narrator, Magnifier, etc.
 - **Other Windows settings**: command prompt settings, application list, etc.
 
@@ -93,7 +93,7 @@ In the future, Microsoft may investigate ways to make UE-V deeply integrated int
 Enterprise State Roaming stores all synced data in the Azure cloud, while UE-V offers an on-premises roaming solution for enterprises that require an on-premises roaming solution.
 
 ## Who owns the data that’s being roamed?
-The enterprises own the data roamed via Enterprise State Roaming. Date is stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using Azure Rights Management (Azure RMS). This is an improvement compared to Microsoft account-based settings sync, where only certain sensitive data such as user credentials are encrypted before leaving the device. 
+The enterprises own the data roamed via Enterprise State Roaming. Data is stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using Azure Rights Management (Azure RMS). This is an improvement compared to Microsoft account-based settings sync, where only certain sensitive data such as user credentials are encrypted before leaving the device. 
 
 Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by Azure RMS before it leaves a Windows 10 device, so that another user cannot read this data. If your organization has a paid subscription for Azure RMS, you can use other Azure RMS features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how Azure RMS works, see [What is Azure Rights Management](https://technet.microsoft.com/jj585026.aspx).
 

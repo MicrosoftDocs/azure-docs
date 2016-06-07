@@ -66,7 +66,7 @@ Settings that don't roam or sync will not belong to a group.
 |**App data**: individual apps can sync data|sync backup   | sync backup|internal       |
 |**App list**: list of installed apps  |X         |backup  |Other  |
 |**Bluetooth**: all Bluetooth settings |X        |X        |       |
-|**Command prompt**: all command prompt settings |sync|    |X      |X
+|**Command prompt**: all command prompt settings |sync    |X      |    |
 |**Cortana**: on or off                |X        |X        |       |
 |**Cortana**: enable Cortana on the lock screen  |X        |X        |       |
 |**Cortana**: user name                |sync     |sync     |internal|
