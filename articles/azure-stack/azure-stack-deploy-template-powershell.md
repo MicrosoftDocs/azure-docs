@@ -32,7 +32,7 @@ Before authenticating PowerShell, you must allow cookies and JavaScript in the I
 
 1. Sign in to the Azure Stack proof-of-concept (PoC) computer as an AzureStack/administrator, and then open Server Manager.
 
-2. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+2. Turn off **IE Enhanced Security Configuration** for both admins and users.
 
 3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
 
