@@ -25,30 +25,30 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-| | | | | 
-|---|---|---|---|---
-|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[summarize op](#summarize-operator)
-|[ago](#ago)|[dayofyear](#dayofyear)|[join op](#join-operator)|[range](#range)|[take op](#take-operator)
-|[any](#any)|[dcount](#dcount)|[JSON Path expressions](#json-path-expressions)|[range op](#range-operator)|[todatetime](#todatetime)
-|[argmax](#argmax)|[dcountif](#dcountif)|[let clause](#let-clause)|[reduce op](#reduce-operator)|[todouble](#todouble)
-|[argmin](#argmin)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[limit op](#limit-operator)|[render directive](#render-directive)|[todynamic](#todynamic)
-|[Arithmetic ops](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
-|[Array and object literals](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[restrict clause](#restrict-clause)|[tolong](#tolong)
-|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Scalar comparisons](#scalar-comparisons)|[tolower](#tolower)
-|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[sort op](#sort-operator)|[top op](#top-operator)
-|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[top-nested op](#top-nested-operator)
-|[Boolean Literals](#boolean-literals)|[extend op](#extend-operator)|[mvexpand op](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
-|[Boolean ops](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Casts](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
-|[count](#count)|[getmonth](#getmonth)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[union op](#union-operator)
-|[count op](#count-operator)|[gettype](#gettype)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
-|[countif](#countif)|[getyear](#getyear)|[parse op](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
-|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[where op](#where-operator)
-|[Date and time expressions](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[String Literals](#string-literals)
-|[Date and time literals](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
-|[datepart](#datepart)|[isnotempty](#isnotempty)|[project op](#project-operator)|[substring](#substring)
-|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[project-away op](#project-away-operator)|[sum](#sum)
+|Queries and operators|Aggregations|Scalars|Numbers|Date and time|String|Arrays, objects and dynamic
+|---|---|---|---|---|---|---
+|[count](#count-operator)|[any](#any)|[Boolean Literals](#boolean-literals)|[Arithmetic operators](#arithmetic-operators)|[Date and time expressions](#date-and-time-expressions)|[GUIDs](#guids)|[Array and object literals](#array-and-object-literals)
+|[extend](#extend-operator)|[argmax](#argmax)|[Boolean operators](#boolean-operators)|[Numeric literals](#numeric-literals)|[Date and time literals](#date-and-time-literals)|[Obfuscated String Literals](#obfuscated-string-literals)|[Dynamic object functions](#dynamic-object-functions)
+|[join](#join-operator)|[argmin](#argmin)|[Casts](#casts)|[abs](#abs)|[ago](#ago)|[String Literals](#string-literals)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)
+|[let clause](#let-clause)|[avg](#avg)|[Scalar comparisons](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[String comparisons](#string-comparisons)|[JSON Path expressions](#json-path-expressions)
+|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Names](#names)
+|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
+|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
+|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
+|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
+|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
+|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
+|[render directive](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
+|[restrict clause](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
+|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
+|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
+|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
+|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
+|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
+|[union](#union-operator)||||[todatetime](#todatetime)||
+|[where](#where-operator)||||[totimespan](#totimespan)||
+|||||[weekofyear](#weekofyear)||
+
 
 
 
@@ -64,7 +64,7 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](##scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](#scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
 
 Queries may contain single line breaks, but are terminated by a blank line. They may contain comments between `//` and end of line.
 
@@ -1385,7 +1385,6 @@ The evaluated argument. If the argument is a table, returns the first column of 
 
 
 
-## Boolean 
 
 ### Boolean Literals
 
@@ -2126,7 +2125,7 @@ Converts a string to upper case.
 
 
 
-## GUIDs
+### GUIDs
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -2236,7 +2235,7 @@ T
 ```
 
 
-## Dynamic object functions
+### Dynamic object functions
 
 |||
 |---|---|
@@ -2445,7 +2444,7 @@ An array of path expressions.
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
 
-## Names
+### Names
 
 Names can be up to 1024 characters long. They are case-sensitive and may contain letters, digits and underscores (`_`). 
 
