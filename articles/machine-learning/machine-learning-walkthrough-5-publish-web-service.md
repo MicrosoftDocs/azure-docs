@@ -80,7 +80,7 @@ When you click **Deploy Web Service**, several things happen:
 
 We need to take one additional step with this particular experiment.
 We added two [Execute R Script][execute-r-script] modules to provide a weighting function to the data for training and testing. We don't need to do that in the final model.
-Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module, so now we can now remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
+Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module, so now we can now remove the other and connect [Edit Metadata][edit-metadata] directly to [Score Model][score-model].    
 
 Our experiment should now look like this:  
 
@@ -110,9 +110,9 @@ On the **DASHBOARD** page, click the **Test** button under **Default Endpoint**.
 
 Enter a set of data and then click **OK**.  
 
-In the web service, the data enters through the **Web service input** module, through the [Metadata Editor][metadata-editor] module, and to the [Score Model][score-model] module where it's scored. The results are then output from the web service through the **Web service output**.
+In the web service, the data enters through the **Web service input** module, through the [Edit Metadata][edit-metadata] module, and to the [Score Model][score-model] module where it's scored. The results are then output from the web service through the **Web service output**.
 
-> [AZURE.TIP] The way we have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. If you wanted to return something different - for example, only the credit risk value - then you could insert a [Project Columns][project-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
+> [AZURE.TIP] The way we have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. If you wanted to return something different - for example, only the credit risk value - then you could insert a [Select Columns in Dataset][select-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
 
 ## Manage the web service
 Once you've deployed your web service, you can manage it from the [Azure classic portal](https://manage.windowsazure.com).
@@ -148,11 +148,11 @@ For more details, see:
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
