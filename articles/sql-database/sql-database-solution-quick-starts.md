@@ -34,4 +34,4 @@ This Solution Quick Start provides a solution for a Softwware-as-a-Solution (Saa
 
 ## Next Steps
 
-[Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)
+[Explore Azure SQL Database Tutorials](sql-database-explore-tutorials.md)

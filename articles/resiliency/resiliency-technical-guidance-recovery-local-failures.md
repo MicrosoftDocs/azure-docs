@@ -109,7 +109,7 @@ Microsoft Azure SQL Database provides database as a service. It allows applicati
 
 ####Replication
 
-Azure SQL Database provides built-in resiliency to node-level failure. All writes into a database are automatically replicated to two or more background nodes through a quorum commit technique. (The primary and at least one secondary must confirm that the activity is written to the transaction log before the transaction is deemed successful and returns.) In the case of node failure, the database automatically fails over to one of the secondary replicas. This causes a transient connection interruption for client applications. For this reason, all Azure SQL Database clients must implement some form of transient connection handling. For more information, see [Using the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680899.aspx).
+Azure SQL Database provides built-in resiliency to node-level failure. All writes into a database are automatically replicated to two or more background nodes through a quorum commit technique. (The primary and at least one secondary must confirm that the activity is written to the transaction log before the transaction is deemed successful and returns.) In the case of node failure, the database automatically fails over to one of the secondary replicas. This causes a transient connection interruption for client applications. For this reason, all Azure SQL Database clients must implement some form of transient connection handling. For more information, see [Retry service-specific guidance](../best-practices-retry-service-specific.md).
 
 ####Resource management
 
