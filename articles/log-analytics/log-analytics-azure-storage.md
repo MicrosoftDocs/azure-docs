@@ -55,9 +55,9 @@ You can help us prioritize additional logs for OMS to analyze by voting on our [
 
 This functionality is currently in private preview. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
-## Azure diagnostics written to blob in JSON
+## JSON files in blob storage
 
-Log Analytics can read the logs for the following services write diagnostics to blob storage in JSON format:
+Log Analytics can read the logs for the following services that write diagnostics to blob storage in JSON format:
 
 + Automation (Preview)
 + Key Vault (Preview)
@@ -72,7 +72,7 @@ Before Log Analytics can collect data for these resources, Azure diagnostics mus
 + [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
  
 
-### Configure Log Analytics to collect Azure Diagnostics written to Blob in JSON format
+### Configure Log Analytics to collect Azure Diagnostics written to blob in JSON format
 
 Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
 
@@ -85,7 +85,7 @@ This documentation also includes details on:
 
 It is not currently possible to perform the above configuration from the portal. 
 
-## Diagnostics written to table storage / IIS Logs written to blob 
+## Diagnostics in table storage or IIS Logs in blob 
 
 Log Analytics can read the logs for the following services that write diagnostics to table storage or IIS Logs written to blob:
 
