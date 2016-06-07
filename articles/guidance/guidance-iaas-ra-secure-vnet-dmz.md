@@ -262,7 +262,11 @@ To run the script that deploys the solution:
 
 14. Browse to the Azure portal and verify that the following resource groups have been created:
 
-	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDRs for forced tunneling for each application tier; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection.
+	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDRs for forced tunneling for each application tier; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection. 
+
+		The following image shows the subnets created in the VNet, highlighting the subnets for the public security perimeter (*click to zoom in*):
+
+		[![1]][1]
 
 	- ***myapp*-web-tier-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier by default), storage for each VM, the network interfaces, and the load balancer for this tier.
 
@@ -274,13 +278,13 @@ To run the script that deploys the solution:
 
 		> [AZURE.NOTE] The article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] describes the contents of these resource groups in more detail.
 
-	- **myapp*-dmz-rg.** This resource group contains the resources used to implement the public security perimeter. The script creates a public IP address, Azure load balancer, the public DMZ inbound and public DMZ outbound subnets, and the NVAs (*click to expand*):
+	- **myapp*-dmz-rg.** This resource group contains the resources used to implement the public security perimeter. The script creates a public IP address, Azure load balancer, the public DMZ inbound and public DMZ outbound subnets, the NICs, and the NVAs in an availability set (*click to expand*):
 
-		[![1]][1]
+		[![2]][2]
 
 15. In the **myapp*-dmz-rg** resource group, click the **myapp*-dmz-pip** public IP address and make a note of the IP address. Open Internet Explorer, and navigate to this address. You should see the default page for the web server software deployed on the web tier (IIS for Windows, and Apache for Ubuntu). This indicates that the routing in the NVAs has been configured correctly:
 
-	[![2]][2]
+	[![3]][3]
 
 16. Configure the VPN appliance on the on-premises network to connect to the Azure VPN gateway. For more information, see the article [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway].
 
@@ -345,6 +349,7 @@ If the NVAs are protected by using NSG rules, it may also be necessary to open p
 [azuredeploy-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/azuredeploy.sh
 [azuredeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/Templates/ra-vnet-subnets-udr-nsg/azuredeploy.json
 [ibb-dmz]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/Templates/ibb-dmz.json
-[0]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure1.png "Secure hybrid network architecture"
-[1]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure2.png "Public DMZ resource group"
-[2]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure3.png "Default IIS page in Internet Explorer"
+[0]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure1.svg "Secure hybrid network architecture"
+[1]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure2.png "Subnets in the VNet"
+[2]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure3.png "Public DMZ resource group"
+[3]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure4.png "Default IIS page in Internet Explorer"
