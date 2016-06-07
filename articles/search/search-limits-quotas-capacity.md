@@ -25,7 +25,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 - **Basic** provides dedicated computing resources for production workloads at a smaller scale. ).
 - **Standard** runs on dedicated machines, with more storage and processing capacity at every level, including the minimum configuration. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD). S3 and S3 HD are currently in Preview and offered at a 50% reduced rate during the Preview period.
 
-All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica. You can increase and then change the allocation of resources. See [Choose a SKU or tier for Azure Search](search-sku-tier.md) for details.
+All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can change the resource allocation once the service is created. See [Scale resource levels for query and indexing workloads](search-capacity-planning.md) for details.
 
 ## Per subscription limits
 
