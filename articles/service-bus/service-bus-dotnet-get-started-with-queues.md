@@ -57,6 +57,9 @@ In order to send messages to the queue, we will write a C# console application u
     
 2. Add the following code to the Main method, and set the **connectionString** variable as the connection string that was obtained when creating the namespace, and the **queueName** as the queue name that used when creating the queue.
 
+    > [AZURE.NOTE]
+    > You can find directions to obtain your connection string [here](../../includes/service-bus-create-queue-portal.md/#obtain-the-credentials).
+
     ```
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
@@ -105,6 +108,9 @@ In order to send messages to the queue, we will write a C# console application u
     ```
   
 3. Add the following code to the Main method, and set the **connectionString** variable as the connection string that was obtained when creating the namespace, and the **queueName** as the queue name that used when creating the queue.
+
+    > [AZURE.NOTE]
+    > You can find directions to obtain your connection string [here](../../includes/service-bus-create-queue-portal.md/#obtain-the-credentials).
 
     ```
     var connectionString = "";
