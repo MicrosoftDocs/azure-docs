@@ -211,7 +211,13 @@ Notice that you can use `name=` to set the name of a result column, either in th
 
 ## Counting sampled data
 
-`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as a data point in Application Insights, so that for each data point you see, there are `itemCount` events. Summing up itemCount therefore gives a good estimate of the original number of events.
+`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as data points in Application Insights, so that for each data point you see, there are `itemCount` events. 
+
+For example, if sampling discards 75% of the original events, then itemCount==4 in the retained records - that is, for every retained record, there were four original records. 
+
+Adaptive sampling causes itemCount to be higher during periods when your application is being heavily used.
+
+Summing up itemCount therefore gives a good estimate of the original number of events.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
@@ -223,7 +229,6 @@ There's a range of [aggregation functions](app-insights-analytics-reference.md#a
 
 
 ## Charting the results
-
 
 
 ```AIQL
