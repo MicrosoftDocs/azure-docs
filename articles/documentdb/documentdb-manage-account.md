@@ -81,7 +81,7 @@ DocumentDB account.
 
 ![Azure Portal screenshot, Keys blade](./media/documentdb-manage-account/keys.png)
 
-Another option is to access the **Keys** entry from the **All Settings** blade,.
+Another option is to access the **Keys** entry from the **All Settings** blade.
 
 ![All Settings, Keys blade](./media/documentdb-manage-account/allsettingskeys.png)
 

@@ -62,7 +62,7 @@ You can decide to make your data locally or globally distributed by either assoc
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [pcolls]: https://azure.microsoft.com/documentation/articles/documentdb-partition-data/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[consistencytradeooffs]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/#consistency-tradeoffs
+[consistencytradeooffs]: ./documentdb-consistency-levels/#consistency-levels-and-tradeoffs
 [developingwithmultipleregions]: https://azure.microsoft.com/documentation/articles/documentdb-developing-with-multiple-regions/
 [createaccount]: https://azure.microsoft.com/documentation/articles/documentdb-create-account/
 [manageaccount]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/
