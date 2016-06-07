@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="07/06/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -24,6 +24,8 @@
 
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+
+## Index
 
 |Queries and operators|Aggregations|Scalars|Numbers|Date and time|String|Arrays, objects and dynamic
 |---|---|---|---|---|---|---
