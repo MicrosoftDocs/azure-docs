@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Deactivate and delete a StorSimple Virtual Array
