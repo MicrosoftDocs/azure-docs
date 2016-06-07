@@ -18,13 +18,18 @@
 
 #Release notes
 
+##3.2.3 (06/07/2016)
+
+-   Fixed the bug where delivery feedback is not reported when app is in the background.
+-   Optimized the sending of technical logs.
+
 ##3.2.2 (04/07/2016)
 
--   Fixed bug on HTTP request cancellation which sometimes leads to crash. 
+-   Fixed bug on HTTP request cancellation which sometimes leads to crash.
 
 ##3.2.1 (12/11/2015)
 
--   Fixed the delay when a new app instance is triggered by a notification with deep links 
+-   Fixed the delay when a new app instance is triggered by a notification with deep links
 
 ##3.2.0 (10/08/2015)
 
