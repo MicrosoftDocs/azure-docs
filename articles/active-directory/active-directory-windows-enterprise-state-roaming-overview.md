@@ -5,7 +5,7 @@
     keywords="what is Enterprise State Roaming, enterprise sync, windows cloud"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Enterprise State Roaming overview
@@ -23,7 +23,7 @@ With Windows 10, [Azure Active Directory (Azure AD)](active-directory-whatis.md)
 
 - **Separation of corporate and consumer data** – Organizations are in control of their data, and there is no mixing of corporate data in a consumer cloud account or consumer data in an enterprise cloud account.
 - **Enhanced security** – Data is automatically encrypted before leaving the user’s Windows 10 device by using Azure Rights Management (Azure RMS), and data stays encrypted at rest in the cloud. All content stays encrypted at rest in the cloud, except for the namespaces, like settings names and Windows app names.  
-- **Better management and monitoring services** – Provides control and visibility over who syncs settings in your organization and on which devices through the Azure AD portal integration. 
+- **Better management and monitoring** – Provides control and visibility over who syncs settings in your organization and on which devices through the Azure AD portal integration. 
 
 Enterprise State Roaming is available in multiple Azure regions. You can find the updated list of available regions on the [Azure Services by Regions](https://azure.microsoft.com/regions/#services) page under Azure Active Directory.
 

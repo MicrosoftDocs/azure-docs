@@ -5,7 +5,7 @@
     keywords="enterprise state roaming, windows cloud"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -66,7 +66,7 @@ Settings that don't roam or sync will not belong to a group.
 |**App data**: individual apps can sync data|sync backup   | sync backup|internal       |
 |**App list**: list of installed apps  |X         |backup  |Other  |
 |**Bluetooth**: all Bluetooth settings |X        |X        |       |
-|**Command prompt**: all command prompt settings |sync|    |X      |Other
+|**Command prompt**: all command prompt settings |sync|    |X      |X
 |**Cortana**: on or off                |X        |X        |       |
 |**Cortana**: enable Cortana on the lock screen  |X        |X        |       |
 |**Cortana**: user name                |sync     |sync     |internal|
@@ -114,7 +114,7 @@ Settings that don't roam or sync will not belong to a group.
 |**Language**: CHS QWERTY - char-set Traditional Chinese|sync     |X  |Language|
 |**Language**: CHS QWERTY - fuzzy pinyin|sync     |sync  |Language|
 |**Language**: CHS QWERTY - fuzzy pairs|sync     |sync  |Language|
-|**Language**: CHS QWERTY - full pinyin||sync     |X  |Language|
+|**Language**: CHS QWERTY - full pinyin|sync     |X  |Language|
 |**Language**: CHS QWERTY - double pinyin|sync     |X  |Language|
 |**Language**: CHS QWERTY - reading auto correction|sync     |X  |Language|
 |**Language**: CHS QWERTY - C/E switch key, shift|sync     |X  |Language|

@@ -5,7 +5,7 @@
     keywords="enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Settings and data roaming FAQ
@@ -40,11 +40,11 @@ In Windows 8 and Windows 8.1, settings sync always used consumer Microsoft accou
 The primary account is defined as the account used to log into Windows – this can be a Microsoft account, an Azure Active Directory (Azure AD) account, an on-premises Active Directory account, or a local account. In addition to the primary account, Windows 10 users can add one or more secondary cloud accounts to their device. These secondary accounts are generally a Microsoft account, Azure Active Directory account, or some other account such as Gmail or Facebook. These secondary accounts provide access to additional services such as single-sign-on and the Windows Store, but they are not capable of powering settings sync.
 
 In Windows 10, only the primary account for the device can be used for settings sync (see
-How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10? for exception).
+[How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#How-do-I-upgrade-from-Microsoft-account-settings-sync-in-Windows-8-to-Azure-AD-settings-sync-in Windows-10?)).
 
 Data is never mixed between the different user accounts on the device. There are two rules for settings sync:
 - Windows settings will always roam with the primary account.
-- App data will be tagged with the account used to acquire the app. Only apps tagged with the primary account will sync. App ownership tagging is determined when an app is installed through the Windows Store or when the app is side loaded through mobile device management (MDM).
+- App data will be tagged with the account used to acquire the app. Only apps tagged with the primary account will sync. App ownership tagging is determined when an app is side-loaded through the Windows Store or when the app is side loaded through mobile device management (MDM).
 
 If an app’s owner cannot be identified, it will roam with the primary account. If a device is upgraded from Windows 8 or Windows 8.1 to Windows 10, all the apps will be tagged as acquired by the Microsoft account because, in general, most apps were acquired via the Windows Store, and there was no Windows Store support for Azure AD accounts prior to Windows 10. If an app is installed via an offline license, the app will be tagged using the primary account on the device.
 
@@ -56,6 +56,7 @@ A user joined to the Active Directory domain running Windows 8 or Windows 8.1 wi
 If the on-premises Active Directory domain does connect with Azure AD, then the user’s device will begin attempting to sync settings using the connected Azure AD account. If the Azure AD administrator does not enable Enterprise State Roaming, then users with a connected Azure AD account will stop syncing settings. After settings sync via Azure AD has been enabled, Windows 10 users will immediately start syncing Windows settings using Azure AD if the user logs in with an Azure AD identity.
 
 Users who stored any personal data on their corporate device should be aware that Windows OS and application data will begin syncing to Azure AD. This has the following implications:
+
 - Personal Microsoft account users will slowly have their settings “drift apart” from the settings on organizational Azure AD accounts since the Microsoft account and Azure AD settings sync are now using separate accounts.
 - Personal data such as Wi-Fi passwords, web credentials, and Internet Explorer favorites and tabs that were previously synced via a connected Microsoft account will be synced via Azure AD.
 
@@ -77,10 +78,10 @@ From the <**tenant ID GUID**> key, create a new Multi-String Value (REG-MULTI-SZ
 ## What are the options for roaming settings for existing Windows desktop applications?
 Roaming only works for Universal Windows apps. There are two options available for enabling roaming on an existing Windows desktop application:
 
-- Using the Desktop Bridge, you can easily bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to be able to take advantage of Azure AD app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
-- Using the User Experience Virtualization (UE-V), you can create a custom settings template for existing Windows desktop apps and enable roaming just for Win32 apps. This option does not require the app developer to change code of the app. UE-V is limited to on-premises Active Directory roaming for customers who have purchased the Microsoft Desktop Optimization Package. 
+- Using the [Desktop Bridge](http://aka.ms/desktopbridge), you can easily bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to be able to take advantage of Azure AD app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
+- Using the [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx), you can create a custom settings template for existing Windows desktop apps and enable roaming just for Win32 apps. This option does not require the app developer to change code of the app. UE-V is limited to on-premises Active Directory roaming for customers who have purchased the Microsoft Desktop Optimization Package. 
 
-Admin can configure UEV to just roam Windows desktop app data by disabling roaming of Windows OS settings and Universal app data through UE-V group policies.
+Admin can configure UEV to just roam Windows desktop app data by disabling roaming of Windows OS settings and Universal app data through [UE-V group policies](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2).
 
 - Disable “Roam Windows settings” group policy
 - Enable “Do not synchronize Windows Apps” group policy
@@ -91,8 +92,8 @@ In the future, Microsoft may investigate ways to make UE-V deeply integrated int
 ## Can I store synced settings and data on-premises?
 Enterprise State Roaming stores all synced data in the Azure cloud, while UE-V offers an on-premises roaming solution for enterprises that require an on-premises roaming solution.
 
-## Who own the data that’s being roamed?
-The enterprises own the data roamed via Enterprise State Roaming. Date will be stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using Azure Rights Management (Azure RMS). This is an improvement compared to Microsoft account-based settings sync, where only certain sensitive data such as user credentials are encrypted before leaving the device. 
+## Who owns the data that’s being roamed?
+The enterprises own the data roamed via Enterprise State Roaming. Date is stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using Azure Rights Management (Azure RMS). This is an improvement compared to Microsoft account-based settings sync, where only certain sensitive data such as user credentials are encrypted before leaving the device. 
 
 Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by Azure RMS before it leaves a Windows 10 device, so that another user cannot read this data. If your organization has a paid subscription for Azure RMS, you can use other Azure RMS features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how Azure RMS works, see [What is Azure Rights Management](https://technet.microsoft.com/jj585026.aspx).
 
@@ -100,7 +101,7 @@ Microsoft is committed to safeguarding customer data. An enterprise user’s set
 In Windows 10, there is no MDM or Group Policy setting to disable roaming for an individual application. Tenant administrators can disable appdata sync for all apps on a managed device, but there is no finer control at a per app or within-app level. 
 
 ## What can an individual user do to enable/disable roaming?
-In the Settings app, go to Accounts -> Sync your settings. From this page, you can see which account is being used to roam settings, and you can enable or disable individual groups of settings to be roamed.
+In the **Settings** app, go to **Accounts** ->** Sync your settings**. From this page, you can see which account is being used to roam settings, and you can enable or disable individual groups of settings to be roamed.
 
 ##What is Microsoft’s recommendation for enabling roaming today in Windows 10?
 Microsoft has a few different settings roaming solutions available, including Roaming User Profiles, UE-V, and Enterprise State Roaming.  Microsoft is committed to making an investment in Enterprise State Roaming in future versions of Windows. If your organization is not ready or comfortable with moving data to the cloud, then Microsoft recommends that you use UE-V as your primary roaming technology. If your organization requires roaming support for existing Windows desktop applications, but is eager to move to the cloud, Microsoft recommends that you use both Enterprise State Roaming and UE-V. While UE-V and Enterprise State Roaming are very similar technologies, they are not mutually exclusive, and today they complement each other to ensure that your organization provides the roaming services that your users need.  
@@ -115,15 +116,15 @@ Enterprise State Roaming is supported only on Windows 10 client SKUs but not on 
 
 
 ## What happens when my organization purchases Azure RMS after using roaming for a while?
-If your organization is already using roaming in Windows 10 with the Azure RMS free subscription, purchasing a paid Azure RMS subscription will not have any impact on the functionality of the roaming feature and no configuration changes will be required by your IT administrator.
+If your organization is already using roaming in Windows 10 with the Azure RMS limited-use free subscription, purchasing a paid Azure RMS subscription will not have any impact on the functionality of the roaming feature and no configuration changes will be required by your IT administrator.
 
 ## Known Issues
 
 - Smart card or virtual smart card login to Windows causes settings sync to stop working. If you attempt to log into your device using a smart card or Virtual smart card, sync will stop working. Future updates to Windows 10 may resolve this issue.
 - IE favorites sync does not work for older versions Windows 10 build. You will need the May Cumulative Update for Windows 10 (build 10.0.10586.318 or higher) for IE favorites syncing to work.
 - Under certain conditions, Enterprise State Roaming can fail to sync data if multi-factor authentication (MFA) is configured. 
-    - If the user is configured to require Azure MFA on the Azure AD portal, the user may fail to sync settings while logging into a Windows 10 device using a password.  This type of MFA configuration is intended to protect an Azure administrator account. Admin users may still be able sync by logging into their Windows 10 devices using the Microsoft Passport for Work PIN or alternatively, completing multi-factor authentication while accessing other Azure services like Office 365. 
-    - Sync can fail, if the admin configures ADFS MFA conditional access policy and the access token on the device expires.  Ensure that you log off and log in using the Microsoft Passport for Work PIN or complete multi-factor authentication while accessing other Azure services like Office 365.
+    - If the user is configured to require [Azure MFA](multi-factor-authentication.md) on the Azure AD portal, the user may fail to sync settings while logging into a Windows 10 device using a password.  This type of MFA configuration is intended to protect an Azure administrator account. Admin users may still be able sync by logging into their Windows 10 devices using the [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN or alternatively, completing multi-factor authentication while accessing other Azure services like Office 365. 
+    - Sync can fail, if the admin configures AD FS MFA conditional access policy and the access token on the device expires.  Ensure that you log off and log in using the [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN or complete multi-factor authentication while accessing other Azure services like Office 365.
 
 
 
