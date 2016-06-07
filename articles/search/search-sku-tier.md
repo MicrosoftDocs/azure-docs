@@ -21,7 +21,7 @@
 
 Before you can [create a search service](search-create-service-portal.md) in Azure Search, you will need to decide which tier or SKU to provision the service at. SKUs include: Free, Basic, or Standard, where Standard is available in multiple resource configurations and capacities. 
 
-Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance.
+Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you will need at least rough estimates on the number and size of indexes you plan to create, and some idea of how many queries per second you will need to accommodate. With estimates in hand, the following steps should make the SKU decision a little easier:
 
 - **Step 1** Review the SKU descriptions below to become familiar with each one.
 - **Step 2** Answer a series of questions to narrow down your choice.
@@ -58,21 +58,23 @@ Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per re
 
 ### Review criteria for choosing a SKU
 
-The following questions can help you arrive at the right SKU decision for your workloads:
+The following questions can help you arrive at the right SKU decision for your workload.
 
 1. Do you have **Service Level Agreement (SLA)** requirements? Narrow the SKU decision to Basic or non-preview Standard.
-2. Do you need **High availability**? High availability is built into every billable SKU beginning with Basic (at 3 replicas for highly available query workloads). However, to get high availability on read-write operations to an index, you'll need a Standard SKU.
-3. **How many indexes** do you require? One of the biggest variables that factors into SKU decisions is the number of indexes supported by each one.
-4. What are the characteristics of the **documents** to be uploaded? Most documents are small, consisting only of searchable data or metadata. Binary data that can bloat a document should be stored separately (perhaps in Azure table or blob storage) with a field in the index for storing a reference to the external data. <br/>Limits on documents are size (under 16 MB per request) or count (per partition or per service).
-5. Once storage requirements are understood, consider query workloads. Both S2 and S3 SKUs offer the greatest throughput. If you require SLA, you will want to rule out the S3 SKUs that are in preview.
+2. Do you need **High availability**? High availability is built into every SKU if you configure multiple replicas. With two replicas you will get high availability for read operations. With three or more replicas you will get high availability for read and write operations.
+3. **How many indexes** do you require? One of the biggest variables that will factor into a SKU decision is the number of indexes supported by each SKU.
+4. **Number and size of documents** will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against partition size per SKU, extended by the number of partitions required to store an index of that size.
+5. Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput. Any SLA requirements will rule out the preview S3 SKU.
 
 Most customers can rule specific SKUs in or out based on their answers to these 5 questions. If you still aren't sure which SKU to go with, contact Azure Support for further guidance.
 
 ## Decision validation: does the SKU offer sufficient storage and QPS
 
-As a last step, revisit the [pricing page](https://azure.microsoft.com/pricing/details/search/) and the [per-service and per-index](search-limits-quotas-capacity.md) limits across the service itself, which will vary depending on whether you provisioned that service at Basic or a Standard SKU. 
+As a last step, revisit the [pricing page](https://azure.microsoft.com/pricing/details/search/) and the [per-service and per-index sections in Service Limits](search-limits-quotas-capacity.md) to double-check your estimates against subscription and service limits. 
 
-If either the price or storage requirements are out of bounds, you might want to refactor the workloads among multiple smaller services (for example). At more granular level, you could redesign indexes to be smaller, or use filters to make queries more efficient.
+If either the price or storage requirements are out of bounds, you might want to refactor the workloads among multiple smaller services (for example). On more granular level, you could redesign indexes to be smaller, or use filters to make queries more efficient.
+
+> [AZURE.NOTE] Storage requirements can be over-inflated if documents contain extraneous data. Ideally, documents consist only of searchable data or metadata. Binary data that can bloat a document should be stored separately (perhaps in an Azure table or blob storage) with a field in the index to hold a URL reference to the external data. The maximum size of an individual document is 16 MB (or less if you are bulk uploading multiple documents in one request). See [Service limits in Azure Search](search-limits-quotas-capacity.md) for more information.
 
 ## Next step
 

@@ -89,7 +89,7 @@ Larger indexes take longer to query. As such, you might find that every incremen
 A Basic service can have exactly 1 partition and up to 3 replicas, for a maximum limit of 3 SUs. The only adjustable resource is replicas. As noted earlier, you need a minimum of 2 replicas for high availability on queries.
 
 <a id="chart"></a>
-## Standard tier: Partition and replica combinations
+## Standard tiers: Partition and replica combinations
 
 This table shows the search units required to support combinations of replicas and partitions, subject to the 36 search unit (SU) limit (excludes Basic and S3 HD tiers). 
 
