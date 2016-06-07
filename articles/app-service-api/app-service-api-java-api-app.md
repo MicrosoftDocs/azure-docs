@@ -244,7 +244,7 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
 
         mvn package war:war
 
-1. Once the WAR file is built, it will be placed into the **target** folder. Navigate into the **target** folder and rename the WAR file to **ROOT.war**. (**Note**: Make sure the capitalization matches this format).
+1. Once the WAR file is built, it will be placed into the **target** folder. Navigate into the **target** folder and rename the WAR file to **ROOT.war**. (Make sure the capitalization matches this format).
 
          rename swagger-jaxrs-server-1.0.0.war ROOT.war
 
