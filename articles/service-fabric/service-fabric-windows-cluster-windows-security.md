@@ -3,7 +3,7 @@
    description="Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows using Windows Security."
    services="service-fabric"
    documentationCenter=".net"
-   authors="rwike77"
+   authors="dsk-2015"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/07/2016"
-   ms.author="ryanwi"/>
+   ms.author="dkshir"/>
 
 
 # Create an Azure Service Fabric cluster on-premises or in the cloud
