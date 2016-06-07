@@ -58,7 +58,7 @@ To start with, [download the on-premises cluster package](service-fabric-cluster
 
 This section describes all the certificates that you will need for securing your on-premises cluster. Enable certificate-based security by setting the values of **ClusterCredentialType** and **ServerCredentialType** to *X509*. 
 
->[Azure.NOTE] A [thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) is the primary identity of a certificate. Read [How to retrieve thumbprint of a certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) to find out the thumbprint of the certificates that you create. 
+> [AZURE.NOTE] A [thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) is the primary identity of a certificate. Read [How to retrieve thumbprint of a certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) to find out the thumbprint of the certificates that you create. 
 
 The following table lists out the actual certificates that you will need on your cluster setup:
 
@@ -72,7 +72,7 @@ The following table lists out the actual certificates that you will need on your
 
 ## Install the certificates
 
-To secure communication between the cluster, you will first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you will need to obtain and install certificates for these potential client machines. Read [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761(v=vs.110).aspx) for steps to obtain the X.509 certificates. We recommend using a **.pfx** format to save the certificate since that will allow you to store your private key. Once you have this certificate, you can install it on the cluster nodes by using the following steps. Note that the steps assume your nodes already have the latest Windows PowerShell 3.x installed on them. You will need to repeat these steps on each node, for both Cluster and Server certificates and any secondary certificates for each of them.
+To secure communication between the cluster, you will first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you will need to obtain and install certificates for these potential client machines. Read [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761(v=vs.110).aspx) for steps to obtain the X.509 certificates. We recommend using a **.pfx** format to save the certificate since that will allow you to store your private key. Alternatively, you can follow the section [Acquire the X.509 certificates](service-fabric-secure-azure-cluster-with-certs.md#acquirecerts) to create your certificates. Once you have this certificate, you can install it on the cluster nodes by using the following steps. Note that the steps assume your nodes already have the latest Windows PowerShell 3.x installed on them. You will need to repeat these steps on each node, for both Cluster and Server certificates and any secondary certificates for each of them.
 
 - Copy the .pfx file to the node.
 
