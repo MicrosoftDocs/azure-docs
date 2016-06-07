@@ -16,7 +16,7 @@
  ms.date="06/07/2016"
  ms.author="elioda"/>
 
-# Using IoT Hub security tokens and X.509 certificates
+# Use IoT Hub security tokens and X.509 certificates
 
 IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the AMQP, MQTT, or HTTP surfaces, or the implementation of the token service pattern, as explained in [IoT Hub guidance][lnk-guidance-security].
 
@@ -81,7 +81,7 @@ This is a Node function that computes the token from the inputs `resourceUri, si
 
 > [AZURE.NOTE] Since the time validity of the token is validated on IoT Hub machines, it is important that the drift on the clock of the machine that generates the token be minimal.
 
-## Using SAS tokens as a device
+## Use SAS tokens as a device
 
 There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: using a device identity key, or a shared access policy key.
 
@@ -96,7 +96,7 @@ The device-facing endpoints are (irrespective of the protocol):
 | `{iot hub host name}/devices/{deviceId}/messages/events` | Send device-to-cloud messages. |
 | `{iot hub host name}/devices/{deviceId}/devicebound` | Receive cloud-to-device messages. |
 
-### Using a symmetric key in the identity registry
+### Use a symmetric key in the identity registry
 
 When using a device identity's symmetric key to generate a token the policyName (`skn`) element of the token is omitted.
 
@@ -120,7 +120,7 @@ The result, which grants access to all functionality for device1, would be:
 
 > [AZURE.NOTE] It is possible to generate a secure token using the .NET tool [Device Explorer][lnk-device-explorer].
 
-### Using a shared access policy
+### Use a shared access policy
 
 When creating a token from a shared access policy, the policy name field `skn` must be set to the name of the policy used. It is also required that the policy grants the **DeviceConnect** permission.
 
@@ -152,7 +152,7 @@ The result, which grants access to all functionality for device1, would be:
 
 A protocol gateway could use the same token for all devices simply setting the resource URI to `myhub.azure-devices.net/devices`.
 
-## Using security tokens from service components
+## Use security tokens from service components
 
 Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained in the [security section of the IoT Hub developer guide][lnk-devguide-security].
 
@@ -194,7 +194,7 @@ You can use any X.509 certificate to authenticate a device with IoT Hub. This in
 
 A device may either use a X.509 certificate or a security token for authentication, but not both.
 
-## Registering an X.509 client certificate for a device
+## Register an X.509 client certificate for a device
 
 The [Azure IoT Service SDK for C#][lnk-service-sdk] (version 1.0.8+) supports registering a device which uses an X.509 client certificate for authentication. Other APIs such as import/export of devices also support X.509 client certificates.
 
@@ -221,7 +221,7 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString(dev
 await registryManager.AddDeviceAsync(device);
 ```
 
-## Using an X.509 client certificate during runtime operations
+## Use an X.509 client certificate during runtime operations
 
 The [Azure IoT device SDK for .NET][lnk-client-sdk] (version 1.0.11+) supports the use of X.509 client certificates.
 
