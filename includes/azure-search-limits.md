@@ -1,6 +1,6 @@
 Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2 <sup>7</sup>
 ---|---|---|---|----
-Maximum search services<sup>8</sup>|1 per subscription|12 per subscription|12 per subscription|1 per subscription
+Maximum search services <sup>8</sup>|1 per subscription|12 per subscription|12 per subscription|1 per subscription
 Maximum storage size <sup>1</sup>|50 MB or 10,000 documents|2 GB per service|25 GB per partition or 300 GB documents per service|100 GB per partition or 1.2 TB per service
 Maximum documents hosted|10,000 total|1 million per service|15 million per partition (up to 180 million documents per service)|60 million per partition (up to 720 million documents per service)
 Maximum indexes|3|5|50|200
