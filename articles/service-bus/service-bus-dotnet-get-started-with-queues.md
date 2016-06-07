@@ -33,28 +33,7 @@ In this tutorial, we will complete the following:
 
 3. Write a console application to receive messages.
 
-##Creating a queue from the Azure portal
-Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
-
-1. Log on to the [Azure classic portal][classic-portal].
-
-2. In the left navigation pane of the portal, click **Service Bus**.
-
-3. Select the namespace that you would like to create the queue in. In this case, it is “mytestns1.”
-
-    ![Selecting a namespace][1]
-
-4. Select **Queues**.
-
-5. Select **Create a new queue**.
-
-6. Select **Quick Create**.
-
-7. Enter the **Queue Name** and ensure the proper namespace is selected.
-
-8. Select **Create a new queue**.
-
-    ![Create a queue][2]
+[AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ##Sending messages to the queue
 In order to send messages to the queue, we will write a C# console application using Visual Studio.
@@ -67,7 +46,7 @@ In order to send messages to the queue, we will write a C# console application u
 
 2. Search for “Microsoft Azure Service Bus” and select the **Microsoft Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog box.
 
-    ![Select a NuGet package][3]
+    ![Select a NuGet package][1]
 
 ###Write some code to send a message to the queue
 1. Add the following using statement to the top of the Program.cs file.
@@ -114,7 +93,7 @@ In order to send messages to the queue, we will write a C# console application u
   
 3. Run the program, and check the Azure portal. Notice that the **Queue Length** should now be 1.
     
-      ![Queue length][4]
+      ![Queue length][2]
     
 ##Receiving messages from the queue
 1. Create a new Console application and add a reference to the Service Bus NuGet package as done for the sending application above.
@@ -173,7 +152,7 @@ In order to send messages to the queue, we will write a C# console application u
   
 4. Run the program, and check the Azure portal. Notice that the **Queue Length** should now be 0.
 
-    ![Queue length][5]
+    ![Queue length][3]
   
 Congratulations! You have now created a queue, sent a message, and received a message.
 
@@ -185,13 +164,11 @@ Chckout our GitHub repository with samples that show off some of the more advanc
 
 <!--Image references-->
 
-[1]: ./media/service-bus-dotnet-get-started-with-queues/select-namespace.png
-[2]: ./media/service-bus-dotnet-get-started-with-queues/create-queue.png
-[3]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[4]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[5]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[1]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
+[2]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
+[3]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [namespace-how-to]: ./service-bus-create-namespace-portal.md
-[classic-portal]: https://manage.windowsazure.com
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
