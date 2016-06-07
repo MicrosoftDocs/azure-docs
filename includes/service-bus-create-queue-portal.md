@@ -12,15 +12,13 @@ Please ensure that you have already created a Service Bus namespace, as shown [h
 
     ![Select Queues][select-queue]
 
-5. Select **New** in the bottom left corner.
+5. Select **New** in the bottom left corner, then select **Quick Create**.
 
     ![Select New][select-new]
 
-6. Select **Quick Create**.
+6. Enter the **Queue Name** and ensure the proper namespace is selected.
 
-7. Enter the **Queue Name** and ensure the proper namespace is selected.
-
-8. Select **Create a new queue**.
+7. Select **Create a new queue**.
 
     ![Create a queue][create-queue]
 
