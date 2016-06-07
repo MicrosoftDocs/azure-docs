@@ -61,12 +61,11 @@ Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per re
 The following questions can help you arrive at the right SKU decision for your workload.
 
 1. Do you have **Service Level Agreement (SLA)** requirements? Narrow the SKU decision to Basic or non-preview Standard.
-2. Do you need **High availability**? High availability is built into every SKU if you configure multiple replicas. With two replicas you will get high availability for read operations. With three or more replicas you will get high availability for read and write operations.
 3. **How many indexes** do you require? One of the biggest variables that will factor into a SKU decision is the number of indexes supported by each SKU.
-4. **Number and size of documents** will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against partition size per SKU, extended by the number of partitions required to store an index of that size.
-5. Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput. Any SLA requirements will rule out the preview S3 SKU.
+4. **How many documents** will be loaded? The number and size of documents will determine the eventual size of the index. Assuming you can estimate the projected size of the index, you can compare that number against the partition size per SKU, extended by the number of partitions required to store an index of that size.
+5. **What is the expected query load**? Once storage requirements are understood, consider query workloads. S2 and both S3 SKUs offer near-equivalent throughput, but SLA requirements will rule out any preview SKUs. 
 
-Most customers can rule specific SKUs in or out based on their answers to these 5 questions. If you still aren't sure which SKU to go with, contact Azure Support for further guidance.
+Most customers can rule specific SKUs in or out based on their answers to these four questions. If you still aren't sure which SKU to go with, contact Azure Support for further guidance.
 
 ## Decision validation: does the SKU offer sufficient storage and QPS
 
