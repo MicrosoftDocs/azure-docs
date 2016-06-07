@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher"/>
 
 # Deploy an ASP.NET container to a remote Docker host
@@ -55,19 +55,19 @@ run ```docker-machine ls``` at the Windows PowerShell prompt. Use the value list
 
 ## 5. Configure the Azure Docker Host endpoint
 Before deploying your app from Visual Studio to Azure, add endpoint 80 to your Docker Host Virtual Machine so you can view your app from the browser later.
-This can be done either via the classic Azure portal or via Windows PowerShell: 
+This can be done either via the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) or via Windows PowerShell: 
 
-- **Use the classic Azure portal to configure the Azure Docker Host endpoint**
+- **Use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) to configure the Azure Docker Host endpoint**
 
-    1.  Browse to the [classic Azure Portal](https://manage.windowsazure.com/). 
+    1.  Browse to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
-    1.  Tap **VIRTUAL MACHINES**.
+    1.  Select **VIRTUAL MACHINES**.
     
     1.  Select your Docker Host virtual machine.
     
-    1.  Tap the **ENDPOINTS** tab.
+    1.  Select the **ENDPOINTS** tab.
     
-    1.  Tap **ADD** (at the bottom of the page).
+    1.  Select **ADD** (at the bottom of the page).
     
     1.  Follow the instructions to expose port 80, which is used by the deployment script by default.
 
@@ -89,7 +89,7 @@ Follow these steps to run your app.
 
 1.  Change the launch target to **Docker**.
 
-1.  Tap the **Docker** icon to build and run the app.
+1.  Select the **Docker** icon to build and run the app.
 
 ![Launch app][2]
 

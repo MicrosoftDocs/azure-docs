@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to SQL Database by using Ruby"
+	pageTitle="Connect to SQL Database by using Ruby | Microsoft Azure"
 	description="Give a Ruby code sample you can run to connect to Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="04/16/2016"
+  ms.date="05/09/2016"
   ms.author="andrl"/>
 
 # Community portal
@@ -147,12 +147,8 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                     | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016)                                        | Leonard Lobel                                               | Orange, CA           | April 16, 2016           | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343)   | David Makogon                                               | Redmond, WA          | April 16, 2016           | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Integration User Group](http://www.integrationusergroup.com/#)                                                            | Howard Edidin                                               | Webinar              | April 25, 2016           | n/a |
-| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/)                            | Leonard Lobel                                               | New York City, NY    | April 21, 2016           | n/a |
-| [SQLBits XV](https://sqlbits.com/)                                                                                         | Andrew Liu, Aravind Ramachandran                            | Liverpool, UK        | May 4-7, 2016            | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 | [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/)                                    | Andrew Liu                                                  | London, UK           | May 12, 2016             | n/a |
+| [Meetup: ONETUG - Orlando .NET User Group ](http://www.meetup.com/ONETUG/events/230797164/) | Santosh Hari                                                | Orlando, FL          | May 12, 2016             | [#ONETUG](https://twitter.com/search?q=%23onetug&src=typd) |
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
 
@@ -160,6 +156,11 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQLBits XV](https://sqlbits.com/)                                                                                         | Andrew Liu, Aravind Ramachandran                            | Liverpool, UK        | May 4-7, 2016            | n/a
+| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/)                            | Leonard Lobel                                               | New York City, NY    | April 21, 2016           | n/a |
+| [Integration User Group](http://www.integrationusergroup.com/#)                                                            | Howard Edidin                                               | Webinar              | April 25, 2016           | n/a |
+| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016)                                        | Leonard Lobel                                               | Orange, CA           | April 16, 2016           | n/a |
+| [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343)   | David Makogon                                               | Redmond, WA          | April 16, 2016           | n/a |
 | [SQL Saturday #481 - Israel 2016](http://www.sqlsaturday.com/481/Sessions/Details.aspx?sid=40912)                          | Leonard Lobel                                               | HaMerkaz, Israel     | April 04, 2016         | n/a |
 | [Build 2016](https://build.microsoft.com/)                                                                                 | John Macintyre                                              | San Francisco, CA    | March 31, 2016         | [Delivering Applications at Scale with DocumentDB, Azure's NoSQL Document Database](https://channel9.msdn.com/Events/Build/2016/B840)
 | [SQL Saturday #505 - Belgium 2016](http://www.sqlsaturday.com/505/Sessions/Details.aspx?sid=44217)                         | Mihail Mateev                                               | Antwerp, Belgium     | March 19, 2016         | n/a |
@@ -305,4 +306,4 @@ DocumentDB Wizards are community leaders who’ve demonstrated an exemplary comm
 | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup)          | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel)          | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
 | [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) <br/> [Larry Maccherone](https://twitter.com/lmaccherone) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) <br/> [Howard Edidin](https://twitter.com/hsedidin)
 
-Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
+Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com)

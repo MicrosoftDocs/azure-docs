@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Use a filter predicate to select rows to migrate (Stretch Database)
@@ -24,7 +24,7 @@ If you store historical data in a separate table, you can configure Stretch Data
 
 If you don't specify a filter predicate, the entire table is migrated.
 
-In RC3, when you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
+When you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
 
 -   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate.
 

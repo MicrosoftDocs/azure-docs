@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="06/03/2016" 
 	ms.author="genemi"/>
 
 
 # Event File target code for extended events in SQL Database
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 You want a complete code sample for a robust way to capture and report information for an extended event.
 
@@ -587,7 +588,7 @@ The primary topic for extended events on Azure SQL Database is:
 
 For more info about accounts and containers in the Azure Storage service, see:
 
-- [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md/)
+- [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 - [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Working with the Root Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 

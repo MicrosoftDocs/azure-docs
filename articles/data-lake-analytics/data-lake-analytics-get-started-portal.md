@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="04/26/2016"
    ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using Azure Portal

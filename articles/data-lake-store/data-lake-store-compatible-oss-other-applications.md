@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/03/2016"
+   ms.date="05/27/2016"
    ms.author="nitinme"/>
 
 # Open Source Big Data applications that work with Azure Data Lake Store
@@ -23,17 +23,17 @@ This article lists the open source big data applications that work with Azure Da
 
 | Open Source Software | Distribution					   |
 |----------------------|---------------------------------|
-| [Apache Sqoop](http://sqoop.apache.org/)               | HDInsight 3.2                   |
-| [MapReduce](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html)| HDInsight 3.2                   |
-| [Apache Storm](https://storm.apache.org/)                | HDInsight 3.2		           |
-| [Apache Hive](http://hive.apache.org/)                  | HDInsight 3.2                   |
-| [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)            | HDInsight 3.2  |
-| [Apache Mahout](http://mahout.apache.org/)               | HDInsight 3.2                   |
-| [Apache Pig/Pig Latin](http://pig.apache.org/)       | HDInsight 3.2                   |
-| [Apache Oozie](http://oozie.apache.org/)               | HDInsight 3.2                   |
-| [Apache Zookeeper](http://zookeeper.apache.org/)           | HDInsight 3.2                   |
-| [Apache HBase](http://hbase.apache.org/)                | HDInsight 3.2                   |
-| [Apache Tez](http://tez.apache.org/)                 | HDInsight 3.2	  			   |
+| [Apache Sqoop](http://sqoop.apache.org/)               | HDInsight 3.2 and 3.4                   |
+| [MapReduce](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html)| HDInsight 3.2 and 3.4                   |
+| [Apache Storm](https://storm.apache.org/)                | HDInsight 3.2 and 3.4		           |
+| [Apache Hive](http://hive.apache.org/)                  | HDInsight 3.2 and 3.4                   |
+| [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)            | HDInsight 3.2 and 3.4  |
+| [Apache Mahout](http://mahout.apache.org/)               | HDInsight 3.2 and 3.4                   |
+| [Apache Pig/Pig Latin](http://pig.apache.org/)       | HDInsight 3.2 and 3.4                   |
+| [Apache Oozie](http://oozie.apache.org/)               | HDInsight 3.2 and 3.4                   |
+| [Apache Zookeeper](http://zookeeper.apache.org/)           | HDInsight 3.2 and 3.4                   |
+| [Apache HBase](http://hbase.apache.org/)                | HDInsight 3.2 and 3.4                   |
+| [Apache Tez](http://tez.apache.org/)                 | HDInsight 3.2 and 3.4	  			   |
 
 
 ## See also

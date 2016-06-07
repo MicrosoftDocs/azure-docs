@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/15/2016"
+   ms.date="04/25/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog prerequisites
@@ -26,7 +26,7 @@ There are a few things you’ll need to take care of before you can set up **Azu
 ## Azure Subscription
 To set up Azure Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.microsoft.com/library/azure/hh531793.aspx).
+Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles.md).
 
 ## Azure Active Directory
 To set up Azure Data Catalog, you must be logged in using an Azure Active Directory user account.

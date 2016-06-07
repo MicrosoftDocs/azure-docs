@@ -310,7 +310,7 @@ Azure Automation is a good choice to automate the manual, long-running, error-pr
 
 Creating and publishing Application Programmer Interfaces (APIs) on the internet is a common way to provide services to applications. If those services are resellable (for example, weather data), an organization can allow other third parties to access those same services for a fee. As you scale to more partners, you'll usually need to optimize and control access.  Some partners may even need the data in a different format.
 
-Azure API Management makes it easy for organizations to publish APIs to partners, employees and third-party developers securely and at scale. It provides a different API endpoint and acts as a proxy to call the actual endpoint whild providing services like caching, transformation, throttling, access control, and analytics aggregation.
+Azure API Management makes it easy for organizations to publish APIs to partners, employees and third-party developers securely and at scale. It provides a different API endpoint and acts as a proxy to call the actual endpoint while providing services like caching, transformation, throttling, access control, and analytics aggregation.
 
 **API Management Scenarios**
 
@@ -328,7 +328,7 @@ Working with identity is part of most applications. Knowing who a user is lets a
 
 Like most directory services, Azure Active Directory stores information about users and the organizations they belong to. It lets users log in, then supplies them with tokens they can present to applications to prove their identity. It also allows synchronizing user information with Windows Server Active Directory running on premises in your local network. While the mechanisms and data formats used by Azure Active Directory aren't identical with those used in Windows Server Active Directory, the functions it performs are quite similar.
 
-It's important to understand that Azure Active Directory is designed primarily for use by cloud applications. It can be used by applications running on Azure, for example, or on other cloud platforms. It's also used by Microsoft's own cloud applications, such as those in Office 365. If you want to extend your datacenter into the cloud using Azure Virtual Machines and Azure Virtual Network, however, Azure Active Directory isn't the right choice. Instead, you'll want to run Windows Server Active Directory in Virtual Machnes.
+It's important to understand that Azure Active Directory is designed primarily for use by cloud applications. It can be used by applications running on Azure, for example, or on other cloud platforms. It's also used by Microsoft's own cloud applications, such as those in Office 365. If you want to extend your datacenter into the cloud using Azure Virtual Machines and Azure Virtual Network, however, Azure Active Directory isn't the right choice. Instead, you'll want to run Windows Server Active Directory in Virtual Machines.
 
 To let applications access the information it contains, Azure Active Directory provides a RESTful API called Azure Active Directory Graph. This API lets applications running on any platform access directory objects and the relationships among them.  For example, an authorized application might use this API to learn about a user, the groups he belongs to, and other information. Applications can also see relationships between users-their social graph-letting them work more intelligently with the connections among people.
 

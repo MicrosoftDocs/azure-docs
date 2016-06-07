@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="05/26/2016"
 	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
@@ -382,6 +382,8 @@ The `/XO` and `/XN` parameters allow you to exclude older or newer source resour
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 
+Note: This is not supported when either the source or destination is a table.
+
 ### Use a response file to specify command-line parameters
 
 	AzCopy /@:"C:\responsefiles\copyoperation.txt"
@@ -583,7 +585,7 @@ AzCopy always sets the Content-MD5 property for an Azure blob or file after uplo
 
 Indicates whether to transfer snapshots. This option is only valid when the source is a blob.
 
-The transferred blob snapshots are renamed in this format: [blob-name] (snapshot-time)[extension].
+The transferred blob snapshots are renamed in this format: blob-name (snapshot-time).extension
 
 By default, snapshots are not copied.
 

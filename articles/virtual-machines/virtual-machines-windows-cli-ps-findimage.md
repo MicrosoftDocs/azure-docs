@@ -15,14 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="12/08/2015"
+   ms.date="06/06/2016"
    ms.author="rasquill"/>
 
 # Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI
 
 This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Windows VM images are:
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 ## Table of commonly used Windows images
 

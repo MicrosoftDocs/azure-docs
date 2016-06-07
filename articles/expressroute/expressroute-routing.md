@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="06/01/2016"
    ms.author="cherylmc"/>
 
 
@@ -37,7 +37,7 @@ You can use either private IP addresses or public IP addresses to configure the 
  - The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
  - If a /29 subnet is used, it will be split into two /30 subnets. 
 	 - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-	 - For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
+	 - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
 	 - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
 
 #### Example for private peering
@@ -78,7 +78,7 @@ Routing exchange will be over eBGP protocol. EBGP sessions are established betwe
 
 ## Autonomous System numbers
 
-Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved AS 65515 for internal use. Both 16 and 32 bit AS numbers are supported.
+Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
 
 There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
 
@@ -103,7 +103,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
 **Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
-## Support for BGP communities (Coming Soon)
+## Support for BGP communities (Preview)
 
 
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
@@ -116,7 +116,7 @@ Refer to the [ExpressRoute partners and peering locations](expressroute-location
 
 You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result,  you may experience sub-optimal connectivity experiences to different services. 
 
-Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.
+Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to customers](expressroute-optimize-routing.md).
 
 | **Geopolitical Region** | **Microsoft Azure region** | **BGP community value** |
 |---|---|---|
@@ -134,8 +134,6 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | **Europe** |    |  |
 |    | North Europe | 12076:51003 |
 |    | West Europe | 12076:51002 |
-|    | UK North    | 12076:51022 |
-|    | UK South 2 | 12076:51023 |
 | **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |
@@ -165,10 +163,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | **CRM Online** | 12076:5040 |
 | **Other Office 365 Services** | 12076:5100 |
 
-
-### Manipulating routing preferences
-
-Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the AS-PATH on route advertisements to influence traffic flow from Microsoft into your network.
+>[AZURE.NOTE] Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
 ## Next steps
 

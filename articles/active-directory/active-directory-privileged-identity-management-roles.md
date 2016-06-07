@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Roles in Azure AD Privileged Identity Management
@@ -32,7 +32,8 @@ Azure AD Privileged Identity Management (PIM) manages policies for privileged ac
 Privileged Identity Management lets you assign users to common administrator roles, including:
 
 
-- **Global administrator** (also known as Company Administrator) has access to all administrative features. You can have more than one global admin in your organization. The person who signs up to purchase Office 365 automatically becomes a global admin.
+- **Global administrator** (also known as Company administrator) has access to all administrative features. You can have more than one global admin in your organization. The person who signs up to purchase Office 365 automatically becomes a global admin.
+- **Privileged role administrator** manages Azure AD PIM and updates role assignments for other users.  
 - **Billing administrator** makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 - **Password administrator** resets passwords, manages service requests, and monitors service health. Password admins are limited to resetting passwords for users.
 - **Service administrator** manages service requests and monitors service health.
@@ -60,7 +61,7 @@ If you want to give another user access to manage in PIM itself, the roles which
 
 Roles within Exchange Online or SharePoint Online, except for those mentioned above, are not represented in Azure AD and so are not visible in PIM. For more information on changing fine-grained role assignments in these Office 365 services, see [Permissions in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator) and for more information on Azure RBAC see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and for more information on Azure RBAC see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

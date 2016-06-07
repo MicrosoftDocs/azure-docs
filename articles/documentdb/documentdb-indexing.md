@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="05/05/2016" 
 	ms.author="arramac"/>
 	
 # Automatic indexing in Azure DocumentDB
@@ -23,7 +23,7 @@ This article is excerpted from the ["Schema-Agnostic Indexing with Azure Documen
 After reading this, you will be answer the following questions:
 
 - How does DocumentDB infer the schema from a JSON document?
-- How does DocumentDB build an index across disparate docuemnts?
+- How does DocumentDB build an index across disparate documents?
 - How does DocumentDB perform automatic indexing at scale?
 
 ##<a id="HowDocumentDBIndexingWorks"></a> How DocumentDB indexing works

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
@@ -60,14 +60,19 @@ Use the following command to show details of a specific cluster in the current s
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Delete clusters
+
 Use the following command to delete a cluster:
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
+You can also delete a cluster by removing the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
+
+	Remove-AzureRmResourceGroup -Name <Resource Group Name>
+			
 ##Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
->[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [Get familiar with the cluster portal interface](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -85,7 +90,6 @@ The impact of changing the number of data nodes for each type of cluster support
 		>hbase shell
 		>balancer
 
-	For more information on using the HBase shell, see []
 - Storm
 
 	You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -163,7 +167,7 @@ The following Powershell script demonstrates how to get the default storage acco
 	$resourceGroupName = $cluster.ResourceGroup
 	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
 	$defaultBlobContainerName = $cluster.DefaultStorageContainer
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
 
 ##Find the resource group

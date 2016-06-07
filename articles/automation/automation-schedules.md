@@ -17,7 +17,7 @@
 
 # Schedules in Azure Automation
 
-Automation Schedules are used to schedule runbooks to run automatically.  This could be either a single date and time for the runbook to run once.  Or, it could be a recurring daily or hourly schedule to start the runbook multiple times.  Schedules are typically not accessed from runbooks.
+Automation Schedules are used to schedule runbooks to run automatically.  This could be either a single date and time for the runbook to run once.  Or, it could be a recurring hourly, daily, weekly, or monthly schedule to start the runbook multiple times.  Schedules are typically not accessed from runbooks.
 
 >[AZURE.NOTE]  Schedules do not currently support Azure Automation DSC configurations.
 

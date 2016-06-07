@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/18/2016"
+   ms.date="04/24/2016"
    ms.author="derrickv"/>
 
 # Get started with Microsoft Power BI Embedded Preview

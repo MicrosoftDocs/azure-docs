@@ -23,6 +23,8 @@ This article introduces you to a Azure Resource Manager template and shows you h
 
 It should take about 20 minutes to do the steps in this article.
 
+> [AZURE.IMPORTANT] If you want your VM to be part of an availability set, you need to add it to the set when you create the VM. There currently isn't a way to add a VM to an availability set after it has been created.
+
 ## Step 1: Create the template file
 
 You can create your own template using the information found in [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). You can also deploy templates that have been created for you from [Azure Quiskstarts Templates](https://azure.microsoft.com/documentation/templates/). The example used in this article is similar to the template described in [Deploy a simple Windows VM in West US](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/).

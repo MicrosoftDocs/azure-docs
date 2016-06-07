@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -50,7 +50,7 @@ Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.htm
 
 ####AES-encrypted with Token 
 
-[http://aestoken.azurewebsites.net]("http://aestoken.azurewebsites.net)
+[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ###Silverlight Players
 

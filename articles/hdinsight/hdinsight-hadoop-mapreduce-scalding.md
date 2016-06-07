@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="02/05/2016"
+ ms.date="05/18/2016"
  ms.author="larryfr"/>
 
 # Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight
@@ -201,15 +201,15 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
     > [AZURE.NOTE] If you used a password to secure your SSH account, you will be prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key. For example, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
-3. Once connected to the head node, use the following command to run the word cound job
+3. Once connected to the head node, use the following command to run the word count job
 
-        hadoop jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasb:///example/data/gutenberg/davinci.txt --output wasb:///example/wordcountout
+        yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasb:///example/data/gutenberg/davinci.txt --output wasb:///example/wordcountout
 
     This runs the WordCount class you implemented earlier. `--hdfs` instructs the job to use HDFS. `--input` specifies the input text file, while `--output` specifies the output location.
 
 4. After the job completes, use the following to view the output.
 
-        hadoop fs -text wasb:///example/wordcountout/part-00000
+        hdfs dfs -text wasb:///example/wordcountout/part-00000
 
     This will display information similar to the following:
 
@@ -261,10 +261,9 @@ The following steps use Windows PowerShell. For other methods of running MapRedu
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+            -ResourceGroupName $resourceGroup)[0].Value
         
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `

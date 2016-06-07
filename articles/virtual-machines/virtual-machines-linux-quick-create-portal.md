@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/12/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
@@ -66,7 +66,7 @@ This article shows how to use the [Azure Portal](https://portal.azure.com/) to c
 9. SSH into the public IP using your SSH public key
 
 ```
-ahmetL@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ```
 
 ## Next Steps

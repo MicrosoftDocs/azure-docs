@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Get started with Azure AD Privileged Identity Management
@@ -35,9 +35,9 @@ Before you use Azure AD Privileged Identity Management, you need to add the appl
 6. Check **Pin to dashboard** and then click the **Create** button. The Privileged Identity Management application will open.
 
 
-If you're the first person to use Azure AD Privileged Identity Management in your directory, then the [security wizard](active-directory-privileged-identity-management-security-wizard.md) will walk you through the initial assignment experience. After that, you will automatically become the first **Security administrator** of the directory. Only a security administrator can access this application to manage the access for other administrators.  
+If you're the first person to use Azure AD Privileged Identity Management in your directory, then the [security wizard](active-directory-privileged-identity-management-security-wizard.md) will walk you through the initial assignment experience. After that, you will automatically become the first **Security administrator** and **privileged role administrator** of the directory. Only a privileged role administrator can access this application to manage the access for other administrators.  
 
-Otherwise, if you've been assigned to one or more roles by another security administrator, you'll have a choice of which role to activate. If you are in a security administrator role yourself, you'll also see a choice to **Manage Identities**.  
+Otherwise, if you've been assigned to one or more roles by another privileged role administrator, you'll have a choice of which role to activate. If you are in a privileged role administrator role yourself, you'll also see a choice to **Manage Identities**.  
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

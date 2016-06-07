@@ -65,7 +65,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA"
+                    		 storeName="My"
                              permissionLevel="limitedOrElevated" />
                 <!-- IMPORTANT! Unless your certificate is either
                 self-signed or signed directly by the CA root, you

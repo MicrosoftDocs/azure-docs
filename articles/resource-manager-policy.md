@@ -118,15 +118,13 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 | In						| "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey	 | "containsKey" : "&lt;keyName&gt;" |
 
-### Fields and Sources
+### Fields
 
 Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
 
 The following fields and sources are supported:
 
 Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
-
-Sources: **action**. 
 
 ### Property aliases 
 Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and skus. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
@@ -373,8 +371,8 @@ The below example shows how to nest logical operators to require an application 
                 }
               },
               {
-                "source": "action",
-                "like": "Microsoft.Storage/*"
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
               }
             ]
         },

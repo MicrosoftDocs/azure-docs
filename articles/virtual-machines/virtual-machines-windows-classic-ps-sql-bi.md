@@ -3,8 +3,8 @@
 	description="This topic uses resources created with the classic deployment model, and describes the Business Intelligence (BI) features available for SQL Server running on Azure Virtual Machines (VMs)."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="guyinacube"
+	manager="mblythe"
 	editor="monicar"
 	tags="azure-service-management"/>
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.date="05/13/2016"
+	ms.author="asaxton" />
 
 # SQL Server Business Intelligence in Azure Virtual Machines
 
@@ -50,27 +50,29 @@ The Microsoft Azure Virtual Machine gallery includes several images that contain
 
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
 
+	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2016"
+	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2016*"} | select imagename,category, location, label, description
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-
-	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
-	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
 
 For more information on editions and features supported by SQL Server, see the following:
 
 - [SQL Server Editions](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 
-- [Features Supported by the Editions of SQL Server 2014](https://msdn.microsoft.com/library/cc645993.aspx)
+- [Features Supported by the Editions of SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### BI Features Installed on the SQL Server Virtual Machine Gallery Images
 
 The following table summarizes the Business Intelligence features installed on the common Microsoft Azure Virtual Machine gallery images for SQL Server”
 
-- SQL Server 2014 RTM Enterprise
+- SQL Server 2016 RC3
 
-- SQL Server 2014 Standard
+- SQL Server 2014 SP1 Enterprise
+
+- SQL Server 2014 SP1 Standard
 
 - SQL Server 2012 SP2 Enterprise
 
@@ -81,7 +83,7 @@ The following table summarizes the Business Intelligence features installed on t
 |**Reporting Services Native Mode**|Yes|Installed but requires configuration, including the report manager URL. See the section [Configure Reporting Services](#configure-reporting-services).|
 |**Reporting Services SharePoint Mode**|No|The Microsoft Azure Virtual Machine gallery image does not include SharePoint or SharePoint installation files. <sup>1</sup>|
 |**Analysis Services Multidimensional and Data mining (OLAP)**|Yes|Installed and configured as the default Analysis Services instance|
-|**Analysis Services Tabular**|No|Supported in SQL Server 2012 and 2014 images but it is not installed by default. Install another instance of Analysis Services. See the section Install other SQL Server Services and features in this topic.|
+|**Analysis Services Tabular**|No|Supported in SQL Server 2012, 2014 and 2016 images but it is not installed by default. Install another instance of Analysis Services. See the section Install other SQL Server Services and features in this topic.|
 |**Analysis Services Power Pivot for SharePoint**|No|The Microsoft Azure Virtual Machine gallery image does not include SharePoint or SharePoint installation files. <sup>1</sup>|
 
 <sup>1</sup> For additional information on SharePoint and Azure virtual machines, see [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) and [SharePoint Deployment on Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -184,7 +186,7 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 
 1. Click **Start**, and then click **ALL Programs**.
 
-1. Click **Microsoft SQL Server 2012**.
+1. Click **Microsoft SQL Server 2016**.
 
 1. Click **Configuration Tools**.
 
@@ -240,9 +242,9 @@ Or
 
 1. Click **Next** on the **Progress and Finish** page.
 
-**Report Manager URL:**
+**Web Portal URL, or Report Manager URL for 2012 and 2014:**
 
-1. Click **Report Manager URL** in the left pane.
+1. Click **Web Portal URL**, or **Report Manager URL** for 2014 and 2012, in the left pane.
 
 1. Click **Apply**.
 
@@ -260,32 +262,34 @@ To verify the configuration, browse to report manager on the VM.
 
 1. Browse to http://localhost/reports on the VM.
 
-### To Connect to Remote Report Manager
+### To Connect to Remote web portal, or Report Manager for 2014 and 2012
 
-If you want to connect to Report Manager on the virtual machine from a remote computer, create a new virtual machine TCP Endpoint. By default, the report server listens for HTTP requests on **port 80**. If you configure the report server URLs to use a different port, you must specify that port number in the following instructions.
+If you want to connect to the web portal, or Report Manager for 2014 and 2012, on the virtual machine from a remote computer, create a new virtual machine TCP Endpoint. By default, the report server listens for HTTP requests on **port 80**. If you configure the report server URLs to use a different port, you must specify that port number in the following instructions.
 
 1. Create an Endpoint for the Virtual Machine of TCP Port 80. For more information see, the [Virtual Machine Endpoints and Firewall Ports](#virtual-machine-endpoints-and-firewall-ports) section in this document.
 
 1. Open port 80 in the virtual machine’s firewall.
 
-1. Browse to report manager using Azure Virtual Machine **DNS Name** as the server name in the URL. For example:
+1. Browse to the web portal, or report manager, using Azure Virtual Machine **DNS Name** as the server name in the URL. For example:
 
-	**Report manager**: http://uebi.cloudapp.net/reportserver
-	**Report server**: http://uebi.cloudapp.net/reports
+	**Report server**: http://uebi.cloudapp.net/reportserver
+	**Web portal**: http://uebi.cloudapp.net/reports
 
-	[Configure a Firewall for Report Server Access](https://technet.microsoft.com/library/bb934283.aspx)
+	[Configure a Firewall for Report Server Access](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### To Create and Publish Reports to the Azure Virtual Machine
 
 The following table summarizes some of the options available to publish existing reports from an on-premises computer to the report server hosted on the Microsoft Azure Virtual Machine:
 
-- **Report Builder**: The virtual machine includes the click-once version of Microsoft SQL Server Report Builder. To start Report builder the first time on the virtual machine:
+- **Report Builder**: The virtual machine includes the click-once version of Microsoft SQL Server Report Builder for SQL 2014 and 2012. To start Report builder the first time on the virtual machine with SQL 2016:
 
 	1. Start your browser with administrative privileges.
 
-	1. Browse to report manager on the virtual machine and click **Report Builder** in the ribbon.
+	1. Browse to the web portal, on the virtual machine, and select the **Download** icon in the upper right.
+	
+	1. Select **Report Builder**.
 
-	For more information, see [Installing, Uninstalling, and Supporting Report Builder](https://technet.microsoft.com/library/dd207038.aspx).
+	For more information, see [Start Report Builder](https://msdn.microsoft.com/library/ms159221.aspx).
 
 - **SQL Server Data Tools**: VM:  SQL Server Data Tools is installed on the virtual machine and can be used to create **Report Server Projects** and reports on the virtual machine. SQL Server Data Tools can publish the reports to the report server on the virtual machine.
 
@@ -309,11 +313,11 @@ To install additional SQL Server services, such as Analysis Services in tabular 
 
 1. Click **Start** and then click **All Programs**.
 
-1. Click **Microsoft SQL Server 2014** or **Microsoft SQL Server 2012** and then click **Configuration Tools**.
+1. Click **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** or **Microsoft SQL Server 2012** and then click **Configuration Tools**.
 
 1. Click **SQL Server Installation Center**.
 
-Or run C:\SQLServer_12.0_full\setup.exe or C:\SQLServer_11.0_full\setup.exe
+Or run C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe or C:\SQLServer_11.0_full\setup.exe
 
 >[AZURE.NOTE] The first time you run SQL Server setup, more setup files may be downloaded and require a reboot of the virtual machine and a restart of SQL Server setup.
 >
@@ -325,13 +329,13 @@ The steps in this section **summarize** the installation of Analysis Services ta
 
 - [Install Analysis Services in Tabular Mode](https://msdn.microsoft.com/library/hh231722.aspx)
 
-- [Tabular Modeling (Adventure Works Tutorial)](https://technet.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
+- [Tabular Modeling (Adventure Works Tutorial)](https://msdn.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
 
 **To Install Analysis Services Tabular Mode:**
 
 1. In the SQL Server installation wizard, click **Installation** in the left pane and then click **New SQL server stand-alone installation or add features to an existing installation**.
 
-	- If you see the **Browse For Folder**, browse to c:\SQLServer_12.0_full or c:\SQLServer_11.0_full and then click **Ok**.
+	- If you see the **Browse For Folder**, browse to c:\SQLServer_13.0_full, c:\SQLServer_12.0_full or c:\SQLServer_11.0_full and then click **Ok**.
 
 1. Click **Next** on the product updates page.
 

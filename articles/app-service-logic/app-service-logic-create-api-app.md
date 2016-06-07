@@ -34,11 +34,11 @@ By default the Logic App engine will timeout a request after 1 minute.  However,
 
 When running a long step or task, the first thing you need to do is make sure the engine knows you haven’t timed out. You also need to communicate with the engine how it will know when you are finished with the task, and finally, you need to return relevant data to the engine so it can continue with the workflow. You can complete that via an API by following the flow below. These steps are from the point-of-view of the custom API:
 
-1.When a request is received, immediately return a response (before work is done). This response will be a `202 ACCEPTED` response, letting the engine know you got the data, accepted the payload, and are now processing. The 202 response should contain the following headers: 
+1. When a request is received, immediately return a response (before work is done). This response will be a `202 ACCEPTED` response, letting the engine know you got the data, accepted the payload, and are now processing. The 202 response should contain the following headers: 
  * `location` header (required): This is an absolute path to the URL Logic Apps can use to check the status of the job.
  * `retry-after` (optional, will default to 20 for actions). This is the number of seconds the engine should wait before polling the location header URL to check status.
 
-2.When a job status is checked, perform the following checks: 
+2. When a job status is checked, perform the following checks: 
  * If the job is done: return a `200 OK` response, with the response payload.
  * If the job is still processing: return another `202 ACCEPTED` response, with the same headers as the initial response
 

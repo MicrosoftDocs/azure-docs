@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/20/2016"
 	ms.author="maheshu"/>
 
 # Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
@@ -26,13 +26,13 @@ To perform the tasks listed in this article, you will need:
 
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
 
-3. **Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](./active-directory-ds-getting-started.md).
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](./active-directory-ds-getting-started.md).
 
 4. A **certificate to be used to enable secure LDAP**.
     - **Recommended** - Obtain a certificate from your enterprise CA or public certification authority. This is a much more secure configuration option.
-	- Alternately, you may also choose to [create a self-signed certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-1---obtain-a-certificate-for-secure-ldap) as shown later in this article.
+	- Alternately, you may also choose to [create a self-signed certificate](#task-1---obtain-a-certificate-for-secure-ldap) as shown later in this article.
 
-
+<br>
 
 ### Requirements for the secure LDAP certificate
 Acquire a valid certificate per the guidelines below, before you enable secure LDAP. You will encounter failures if you try to enable secure LDAP for your managed domain with an invalid/incorrect certificate.
@@ -60,7 +60,7 @@ The first task involves obtaining a certificate you will use for secure LDAP acc
 ### Option A (Recommended) - Obtain a secure LDAP certificate from a certification authority
 If your organization deploys an enterprise public key infrastructure (PKI), you will need to obtain a certificate from the enterprise certification authority (CA) for your organization. If your organization obtains its certificates from a public certification authority, you will need to obtain the secure LDAP certificate from that public certification authority.
 
-When requesting a certificate ensure that you follow the requirements outlined in [Requirement for the secure LDAP certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#requirements-for-the-secure-ldap-certificate).
+When requesting a certificate ensure that you follow the requirements outlined in [Requirement for the secure LDAP certificate](#requirements-for-the-secure-ldap-certificate).
 
 Note that client computers that need to connect to the managed domain using secure LDAP must trust the issuer of the LDAPS certificate.
 
@@ -147,7 +147,7 @@ Perform the following steps, in order to export the LDAPS certificate to a .PFX 
 
     ![Export certificate specify password](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
-	> [AZURE.NOTE] Make a note of this password. You will need it while enabling secure LDAP for this managed domain in [Task 3 - Enable secure LDAP for the managed domain](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain)
+	> [AZURE.NOTE] Make a note of this password. You will need it while enabling secure LDAP for this managed domain in [Task 3 - Enable secure LDAP for the managed domain](#task-3---enable-secure-ldap-for-the-managed-domain)
 
 15. On the **File to Export** page, specify the file name and location where you'd like to export the certificate.
 
@@ -195,11 +195,13 @@ Perform the following configuration steps in order to enable secure LDAP.
 
     ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-enabled.png)
 
+<br>
+
 
 ## Task 4 - Enable secure LDAP access over the internet
 **Optional task** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
 
-Before you begin gthis task, ensure you have completed the steps outlined in [Task 3](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain).
+Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain).
 
 1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This will be set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
 
@@ -218,11 +220,12 @@ Before you begin gthis task, ensure you have completed the steps outlined in [Ta
 
     ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-internet-access-enabled.png)
 
+<br>
 
 ## Task 5 - Configure DNS to access the managed domain from the internet
 **Optional task** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
 
-Before you begin this task, ensure you have completed the steps outlined in [Task 4](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-4---enable-secure-ldap-access-over-the-internet).
+Before you begin this task, ensure you have completed the steps outlined in [Task 4](#task-4---enable-secure-ldap-access-over-the-internet).
 
 Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 4, an external IP address is displayed on the **Configure** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
@@ -233,3 +236,9 @@ Configure your external DNS provider so that the DNS name of the managed domain 
 That's it - you are now ready to connect to the managed domain using secure LDAP over the internet.
 
 > [AZURE.WARNING] Remember that client computers must trust the issuer of the LDAPS certificate in order to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certification authority or a publicly trusted certification authority, this is not a problem since client computers will trust these certificate issuers. If you are using a self-signed certificate, you will need to install the public part of the self-signed certificate (i.e. exported without the private key) into the trusted certificate store on the client computer.
+
+<br>
+
+## Related Content
+
+- [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)

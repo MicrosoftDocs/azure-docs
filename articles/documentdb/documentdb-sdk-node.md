@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="04/26/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB SDK
@@ -37,12 +37,16 @@
 
 ##Release notes
 
+###<a name="1.7.0"/>1.7.0</a>
+
+- Added the support for Time To Live(TTL) feature for documents.
+
 ###<a name="1.6.0"/>1.6.0</a>
 - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
 ###<a name="1.5.6"/>1.5.6</a>
 
-- Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results
+- Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
 
 ###<a name="1.5.5"/>1.5.5</a>
 
@@ -58,15 +62,15 @@
 
 ###<a name="1.5.2"/>1.5.2</a>
 
-- Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning
+- Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning.
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Fixes issue [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - rename folder Hash to hash for case sensitive systems
+- Fixes issue [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - rename folder Hash to hash for case sensitive systems.
 
 ### <a name="1.5.0"/>1.5.0</a>
 
-- Implement sharding support by adding hash & range partition resolvers
+- Implement sharding support by adding hash & range partition resolvers.
 
 ### <a name="1.4.0"/>1.4.0</a>
 
@@ -74,17 +78,17 @@
 
 ### <a name="1.3.0"/>1.3.0</a>
 
-- Skipped to bring version numbers in alignment with other SDKs
+- Skipped to bring version numbers in alignment with other SDKs.
 
 ### <a name="1.2.2"/>1.2.2</a>
 
-- Split Q promises wrapper to new repository
-- Update to package file for npm registry
+- Split Q promises wrapper to new repository.
+- Update to package file for npm registry.
 
 ### <a name="1.2.1"/>1.2.1</a>
 
-- Implements ID Based Routing
-- Fixes Issue [#49](https://github.com/Azure/azure-documentdb-node/issues/49) - current property conflicts with method current()
+- Implements ID Based Routing.
+- Fixes Issue [#49](https://github.com/Azure/azure-documentdb-node/issues/49) - current property conflicts with method current().
 
 ### <a name="1.2.0"/>1.2.0</a>
 
@@ -94,11 +98,11 @@
 
 ### <a name="1.1.0"/>1.1.0</a>
 
-- Implements V2 indexing policy
+- Implements V2 indexing policy.
 
 ### <a name="1.0.3"/>1.0.3</a>
 
-- Issue [#40] (https://github.com/Azure/azure-documentdb-node/issues/40) - Implemented eslint and grunt configurations in the core and promise SDK
+- Issue [#40] (https://github.com/Azure/azure-documentdb-node/issues/40) - Implemented eslint and grunt configurations in the core and promise SDK.
 
 ### <a name="1.0.2"/>1.0.2</a>
 
@@ -106,13 +110,13 @@
 
 ### <a name="1.0.1"/>1.0.1</a>
 
-- Implemented ability to query for conflicts by adding readConflicts, readConflictAsync, and queryConflicts
-- Updated API documentation
-- Issue [#41](https://github.com/Azure/azure-documentdb-node/issues/41) - client.createDocumentAsync error  
+- Implemented ability to query for conflicts by adding readConflicts, readConflictAsync, and queryConflicts.
+- Updated API documentation.
+- Issue [#41](https://github.com/Azure/azure-documentdb-node/issues/41) - client.createDocumentAsync error.
 
 ### <a name="1.0.0"/>1.0.0</a>
 
-- GA SDK
+- GA SDK.
 
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
@@ -128,6 +132,7 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.7.0](#1.7.0) | April 26, 2016 |---
 | [1.6.0](#1.6.0) | March 29, 2016 |---
 | [1.5.6](#1.5.6) | March 08, 2016 |---
 | [1.5.5](#1.5.5) | February 02, 2016 |---

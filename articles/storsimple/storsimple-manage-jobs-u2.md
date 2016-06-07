@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to view and manage StorSimple jobs (Update 2)
@@ -21,9 +21,9 @@
 
 ## Overview
 
-The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, and failed jobs for multiple devices. Results are presented in a tabular format. 
+The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, canceled, and failed jobs for multiple devices. Results are presented in a tabular format. 
 
-![Jobs page](./media/storsimple-manage-jobs-u2/HCS_JobsPage.png)
+![Jobs page](./media/storsimple-manage-jobs-u2/jobs.png)
 
 You can quickly find the jobs you are interested in by filtering on fields such as:
 

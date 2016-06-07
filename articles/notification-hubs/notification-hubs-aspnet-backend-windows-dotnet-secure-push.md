@@ -19,7 +19,7 @@
 #Azure Notification Hubs Secure Push
 
 > [AZURE.SELECTOR]
-- [Windows Universal](notification-hubs-windows-dotnet-secure-push.md)
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
 - [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
 - [Android](notification-hubs-aspnet-backend-android-secure-push.md)
 

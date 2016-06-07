@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/07/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 
 
 
 # What is Azure Key Vault?
 
-Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](../../../../pricing/details/key-vault/).
+Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Introduction
 

@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="ggailey777"
+    manager="erikre"
     editor=""
     tags=""
     keywords="cordova,javascript,mobile,client" />
@@ -15,8 +15,8 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="02/09/2016"
-    ms.author="adrianha"/>
+    ms.date="05/02/2016"
+    ms.author="glenga"/>
 
 #Create an Apache Cordova app
 
@@ -24,8 +24,7 @@
 
 ## Overview
 
-This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using an Azure mobile app
-backend.  You will create both a new mobile app backend and a simple _Todo list_ Apache Cordova app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using an Azure mobile app backend.  You will create both a new mobile app backend and a simple _Todo list_ Apache Cordova app that stores app data in Azure.
 
 Completing this tutorial is a prerequisite for all other Apache Cordova tutorials about using the Mobile Apps feature in Azure App Service.
 
@@ -80,7 +79,7 @@ Learn how to use the SDKs.
 [Add Push Notifications]: app-service-mobile-cordova-get-started-push.md
 [Authentication]: app-service-mobile-auth.md
 [Push Notifications]: ../notification-hubs/notification-hubs-overview.md
-[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
