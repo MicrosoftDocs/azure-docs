@@ -85,7 +85,7 @@ This documentation also includes details on:
 
 It is not currently possible to perform the above configuration from the portal. 
 
-## Diagnostics in table storage or IIS Logs in blob 
+## Events in table storage or IIS Logs in blob 
 
 Log Analytics can read the logs for the following services that write diagnostics to table storage or IIS Logs written to blob:
 
