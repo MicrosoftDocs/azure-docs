@@ -77,13 +77,13 @@ If you want to provide a filter predicate to select rows to migrate, do the foll
 
 The filter function is created in SQL Server only when you finish the wizard. Until then, you can return to the **Select tables** page to change or rename the filter function.
 
-    ![Select Tables page after defining a filter predicate][StretchWizardImage2b]
+![Select Tables page after defining a filter predicate][StretchWizardImage2b]
 
-	If you want to use a different type of filter predicate to select rows to migrate, do one of the following things.  
+If you want to use a different type of filter predicate to select rows to migrate, do one of the following things.  
 
-	-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).  
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).  
 
-	-   Run the ALTER TABLE statement to specify a predicate after you exit the wizard. For the required steps, see [Add a filter predicate after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Run the ALTER TABLE statement to specify a predicate after you exit the wizard. For the required steps, see [Add a filter predicate after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
 ## <a name="Configure"></a>Configure Azure deployment
 
