@@ -75,7 +75,7 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [migrate]: sql-data-warehouse-overview-migrate.md
 [develop]: sql-data-warehouse-overview-develop.md
 [load]: sql-data-warehouse-load-with-bcp.md
-[loading sample data]: sql-data-warehouse-get-started-manually-load-samples.md
+[loading sample data]: sql-data-warehouse-get-started-load-sample-databases.md
 [PowerShell cmdlets and REST APIs]: sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: sql-database-configure-firewall-settings.md
 [How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md

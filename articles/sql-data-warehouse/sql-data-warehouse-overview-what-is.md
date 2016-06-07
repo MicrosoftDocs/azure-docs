@@ -162,7 +162,7 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 <!--Article references-->
 [Create Support Ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [data warehouse workload]: ./sql-data-warehouse-overview-workload.md
-[how to load sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[how to load sample data]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [how to provision]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->

@@ -66,7 +66,7 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 [migrate]: sql-data-warehouse-overview-migrate.md
 [develop]: sql-data-warehouse-overview-develop.md
 [load]: sql-data-warehouse-overview-load.md
-[load sample data]: sql-data-warehouse-get-started-manually-load-samples.md
+[load sample data]: sql-data-warehouse-get-started-load-sample-databasess.md
 
 <!--MSDN references--> 
 [CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
