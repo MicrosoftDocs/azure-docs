@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy LAMP on a Linux virtual machine | Microsoft Azure"
-	description="Learn how to install the LAMP stack on a Linux VM"
+	pageTitle="Install LAMP stack on a Linux VM | Microsoft Azure"
+	description="Learn how to install the LAMP stack on a Linux Virtual Machine."
 	services="virtual-machines-linux"
 	documentationCenter="virtual-machines"
 	authors="jluk"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="06/07/2016"
 	ms.author="jluk"/>
 
-# Deploy LAMP Stack on Azure
-This article will walk you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You will need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
+# Install the LAMP Stack on Azure
+This article will walk you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You will need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md) and in Azure Resource Manager mode (`azure config mode arm`).
 
 There are two methods for installing LAMP covered in this article:
 
@@ -43,12 +43,12 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 You can start by creating a new [resource group](../resource-group-overview.md) that will contain the VM:
 
-    $ azure group create uniqueResourceGroup westus
+    azure group create uniqueResourceGroup westus
     info:    Executing command group create
     info:    Getting resource group uniqueResourceGroup
     info:    Creating resource group uniqueResourceGroup
     info:    Created resource group uniqueResourceGroup
-    data:    Id:                  /subscriptions/########-####-####-####-############/resourceGroups/uniqueResourceGroup
+    data:    Id:                  /subscriptions/<guid />/resourceGroups/uniqueResourceGroup
     data:    Name:                uniqueResourceGroup
     data:    Location:            westus
     data:    Provisioning State:  Succeeded
@@ -58,7 +58,7 @@ You can start by creating a new [resource group](../resource-group-overview.md) 
 
 To create the VM itself, you can use an already written Azure Resource Manager template found [here on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app).
 
-    $ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
 
 You should see a response prompting some more inputs:
 
@@ -169,6 +169,6 @@ Check out the Ubuntu documentation on the LAMP stack:
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-[1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
-[2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
-[3]: ./media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
+[1]: ./media/virtual-machines-linux-create-lamp-stack/configmysqlpassword-small.png
+[2]: ./media/virtual-machines-linux-create-lamp-stack/phpsuccesspage.png
+[3]: ./media/virtual-machines-linux-create-lamp-stack/apachesuccesspage.png
