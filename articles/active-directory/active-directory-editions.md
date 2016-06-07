@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/07/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions
@@ -463,9 +463,11 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+| | | ![Check][12]| |
 
+**More details:**
 
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Azure AD preview features
