@@ -31,7 +31,7 @@ The granularity of consistency is of a single user request. A write request may 
  - Session consistency
  - Eventual consistency
 
-All of these consistency levels are backed by predictable performance, availability and consistency guarantees enabling you to ensure that your application can correctly and intuitively reason over the data in DocumentDB and the tradeoffs of consistency, availability and performance are clear..  
+All of these consistency levels are backed by predictable performance, availability and consistency guarantees enabling you to ensure that your application can correctly and intuitively reason over the data in DocumentDB and the tradeoffs of consistency, availability and performance are clear.  
 
 ## Consistency levels
 
@@ -41,7 +41,7 @@ You can configure a default consistency level on your database account that appl
 
 **Strong**: Strong consistency offers linearizability guarantee with the reads guaranteed to return the most recent version of a document. Strong consistency is only available within a single Azure region. Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries or it is aborted. A read is always acknowledged by the majority read quorum - a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
 
-**Bounded staleness**: BBounded staleness consistency guarantees the total order of propagation of writes with the possibility that reads lag behind writes by at most K prefixes. The read is always acknowledged by a majority quorum of replicas. The response of a read request specifies its relative freshness (in terms of K). With bounded staleness you can set configurable threshold of staleness (as prefixes or time) for reads to tradeoff latency and consistency in steady state. Bounded staleness offers total global order except within the “staleness window”. Bounded staleness provides a stronger consistency guarantee than session or eventual consistency.
+**Bounded staleness**: Bounded staleness consistency guarantees the total order of propagation of writes with the possibility that reads lag behind writes by at most K prefixes. The read is always acknowledged by a majority quorum of replicas. The response of a read request specifies its relative freshness (in terms of K). With bounded staleness you can set configurable threshold of staleness (as prefixes or time) for reads to tradeoff latency and consistency in steady state. Bounded staleness offers total global order except within the “staleness window”. Bounded staleness provides a stronger consistency guarantee than session or eventual consistency.
 
 Bounded staleness provides more predictable behavior for read consistency while offering the lowest latency writes. As reads are acknowledged by a majority quorum, read latency is not the lowest offered by the system. For globally distributed applications, Bounded Staleness is the only viable option for scenarios where you would like to have strong consistency. 
 

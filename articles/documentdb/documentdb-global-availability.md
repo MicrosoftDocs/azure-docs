@@ -43,8 +43,8 @@ Finally, since DocumentDB is completely [schema-agnostic] [vldb] - you never hav
 
 Enabling global distribution for your database account
 You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can decide to globally distribute your data or confine it to a single region by adding or removing regions to your database account at any time. Assuming you have already [created a database account] [createaccount], you need to perform the following steps for controlling how your data is distributed: 
-1.	[Select consistency level for your database account] [manageaccount-consistency]
-2.	[Add or remove Azure regions to your database account] [manageaccount-addregion]
+1. [Select consistency level for your database account] [manageaccount-consistency]
+2. [Add or remove Azure regions to your database account] [manageaccount-addregion]
 
 
 ## Additional References
