@@ -19,11 +19,6 @@
 #Get started with Service Bus Queues
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-##Prerequisites
-1. [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com)
-
-2. An Azure subscription
-
 ##What will be accomplished
 In this tutorial, we will complete the following:
 
@@ -35,13 +30,22 @@ In this tutorial, we will complete the following:
 
 4. Write a console application to receive messages.
 
-##Create a namespace with the Azure portal
+##Prerequisites
+1. [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com)
+
+2. An Azure subscription
+
+##1. Create a namespace using the Azure portal
+If you already have a Service Bus namspace created created jump to the [Create a queue using the Azure portal](#CreateQueue).
+
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-##Create a queue with the Azure portal
+##<a id="CreateQueue" /> 2. Create a queue using the Azure portal
+If you already have a Service Bus queue created created jump to the [Sending messages to the queue section](#WriteTheApp).
+
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-##Sending messages to the queue
+##<a id="WriteTheApp" /> 3. Sending messages to the queue
 In order to send messages to the queue, we will write a C# console application using Visual Studio.
 
 ###Create a console application
@@ -62,9 +66,6 @@ In order to send messages to the queue, we will write a C# console application u
     ```
     
 2. Add the following code to the Main method, and set the **connectionString** variable as the connection string that was obtained when creating the namespace, and the **queueName** as the queue name that used when creating the queue.
-
-    > [AZURE.NOTE]
-    > You can find directions to obtain your connection string [here](../../includes/service-bus-create-queue-portal.md/#obtain-the-credentials).
 
     ```
     var connectionString = "<Your connection string>";
@@ -104,7 +105,7 @@ In order to send messages to the queue, we will write a C# console application u
     
       ![Queue length][2]
     
-##Receiving messages from the queue
+##4. Receiving messages from the queue
 1. Create a new Console application and add a reference to the Service Bus NuGet package as done for the sending application above.
 
 2. Add the following using statement to the top of the Program.cs file.
@@ -114,9 +115,6 @@ In order to send messages to the queue, we will write a C# console application u
     ```
   
 3. Add the following code to the Main method, and set the **connectionString** variable as the connection string that was obtained when creating the namespace, and the **queueName** as the queue name that used when creating the queue.
-
-    > [AZURE.NOTE]
-    > You can find directions to obtain your connection string [here](../../includes/service-bus-create-queue-portal.md/#obtain-the-credentials).
 
     ```
     var connectionString = "";
