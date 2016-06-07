@@ -70,6 +70,11 @@ You can author/create data factories using one of the following:
 ### Can I rename a data factory?
 No. Like other Azure resources, the name of an Azure data factory cannot be changed. 
 
+### Can I move a data factory from one Azure subscription to another? 
+Yes. Use the **Move** button on your data factory blade as shown below: 
+
+![Move data factory](media/data-factory-faq/move-data-factory.png)
+
 ## Activities - FAQ
 ### What are the different types of activities you can use in a Data Factory pipeline? 
 
