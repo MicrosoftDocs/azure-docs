@@ -26,7 +26,7 @@ In order for successful federation between Azure AD and AD FS, the certificates 
 >[AZURE.IMPORTANT] Please be aware that authentication through your proxy may fail in Windows Server 2012 or Windows Server 2008 R2 after doing one of the following:
 >
 - Your proxy renews its trust token after certificates rollover in AD FS
-- You manually replaced your AD FS certificates
+- You manually replaced your AD FS certificates 
 >
 A hotfix is available to fix this issue.  See [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
 
