@@ -30,4 +30,5 @@ Please ensure that you have already created a Service Bus namespace, as shown [h
 [3]: ./media/service-bus-create-queue-portal/select-new.png
 [4]: ./media/service-bus-create-queue-portal/create-queue.png
 
+[namespace-how-to]: ./service-bus-create-namespace-portal.md
 [classic-portal]: https://manage.windowsazure.com

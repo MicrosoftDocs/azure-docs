@@ -170,5 +170,4 @@ Chckout our GitHub repository with samples that show off some of the more advanc
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[namespace-how-to]: ./service-bus-create-namespace-portal.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
