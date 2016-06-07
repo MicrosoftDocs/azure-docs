@@ -165,13 +165,13 @@ The PowerShell script will configure the following:
     ```
 <br>
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName*, and *-CertPlainPassword*.<br>
+3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
 
     ```
     .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
-     -SubscriptionName <SubscriptionName> `
+     -SubscriptionId <SubscriptionId> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
