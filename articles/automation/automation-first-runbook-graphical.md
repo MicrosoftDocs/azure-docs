@@ -198,15 +198,15 @@ We will now modify the runbook so that it will only attempt to start the virtual
 17. For the **Condition expression**, type *$ActivityOutput['Get Status'] -eq "Stopped"*.  **Start-AzureRmVM** will now only run if the virtual machine is stopped.
 18.	In the Library control, expand **Cmdlets** and then **Microsoft.PowerShell.Utility**.
 19.	Add **Write-Output** to the canvas twice.<br> ![Runbook with Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. On the first **Write-Output** control, click **Parameters** and change the **Label** value to *Notify VM Started*.
+20. On the first **Write-Output** control, change the **Label** value to *Notify VM Started*.
 21. For **InputObject**, change **Data source** to **PowerShell expression** and type in the expression *"$VMName successfully started."*.
-22. On the second **Write-Output** control, click **Parameters** and change the **Label** value to *Notify VM Start Failed*
+22. On the second **Write-Output** control, change the **Label** value to *Notify VM Start Failed*
 23. For **InputObject**, change **Data source** to **PowerShell expression** and type in the expression *"$VMName could not start."*.
 24. Create a link from **Start-AzureRmVM** to **Notify VM Started** and **Notify VM Start Failed**.
 25. Select the link to **Notify VM Started** and change **Apply condition** to **True**.
 26. For the **Condition expression**, type *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*.  This Write-Output control will now only run if the virtual machine is successfully started.
 27. Select the link to **Notify VM Start Failed** and change **Apply condition** to **True**.
-28. For the **Condition expression**, type *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  This Write-Output control will now only run if the virtual machine is not successfully started.
+28. For the **Condition expression**, type *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  This Write-Output control will now only run if the virtual machine is not successfully started. 
 29.	Save the runbook and open the Test pane.
 30.	Start the runbook with the virtual machine stopped, and it should start.
 
