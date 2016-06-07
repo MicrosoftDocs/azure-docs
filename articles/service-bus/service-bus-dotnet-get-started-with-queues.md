@@ -36,16 +36,16 @@ In this tutorial, we will complete the following:
 2. An Azure subscription
 
 ##1. Create a namespace using the Azure portal
-If you already have a Service Bus namspace created created jump to the [Create a queue using the Azure portal section](#CreateQueue).
+If you already have a Service Bus namspace created created jump to the [Create a queue using the Azure portal section](#2.-Create-a-queue-using-the-Azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-##<a id="CreateQueue" /> 2. Create a queue using the Azure portal
-If you already have a Service Bus queue created created jump to the [Sending messages to the queue section](#WriteTheApp).
+##2. Create a queue using the Azure portal
+If you already have a Service Bus queue created created jump to the [Sending messages to the queue section](#3.-Sending-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-##<a id="WriteTheApp" /> 3. Sending messages to the queue
+##3. Sending messages to the queue
 In order to send messages to the queue, we will write a C# console application using Visual Studio.
 
 ###Create a console application
