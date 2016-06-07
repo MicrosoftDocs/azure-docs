@@ -58,7 +58,7 @@ The following articles demonstrate using the Azure Toolkit for Eclipse to add Az
 
 For more information about the Azure Toolkits for Java IDEs, see the following links:
 
-- *Azure Toolkit for Eclipse* (This Article)
+- *Azure Toolkit for Eclipse (This Article)*
   - [Installing the Azure Toolkit for Eclipse]
   - [Create a Hello World Web App for Azure in Eclipse]
   - [What's New in the Azure Toolkit for Eclipse]

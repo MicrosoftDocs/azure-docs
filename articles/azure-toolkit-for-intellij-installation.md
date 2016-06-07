@@ -95,7 +95,7 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
   - [Create a Hello World Web App for Azure in Eclipse]
   - [What's New in the Azure Toolkit for Eclipse]
 - [Azure Toolkit for IntelliJ]
-  - *Installing the Azure Toolkit for IntelliJ* (This Article)
+  - *Installing the Azure Toolkit for IntelliJ (This Article)*
   - [Create a Hello World Web App for Azure in IntelliJ]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center].

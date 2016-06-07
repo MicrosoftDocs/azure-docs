@@ -77,7 +77,7 @@ The following steps show you how to install the Azure Toolkit for Eclipse.
 For more information about the Azure Toolkits for Java IDEs, see the following links:
 
 - [Azure Toolkit for Eclipse]
-  - *Installing the Azure Toolkit for Eclipse* (This Article)
+  - *Installing the Azure Toolkit for Eclipse (This Article)*
   - [Create a Hello World Web App for Azure in Eclipse]
   - [What's New in the Azure Toolkit for Eclipse]
 - [Azure Toolkit for IntelliJ]

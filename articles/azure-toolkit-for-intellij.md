@@ -39,7 +39,7 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
   - [Installing the Azure Toolkit for Eclipse]
   - [Create a Hello World Web App for Azure in Eclipse]
   - [What's New in the Azure Toolkit for Eclipse]
-- *Azure Toolkit for IntelliJ* (This Article)
+- *Azure Toolkit for IntelliJ (This Article)*
   - [Installing the Azure Toolkit for IntelliJ]
   - [Create a Hello World Web App for Azure in IntelliJ]
 
