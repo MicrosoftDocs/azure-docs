@@ -51,11 +51,11 @@ Log Analytics can collect data for the following Azure resources:
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 
-## Collect data from Application Insights (Preview)
+## Application Insights (Preview)
 
 This functionality is currently in private preview. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
-## Collect data using Azure diagnostics written to blob in JSON (Preview)
+## Azure diagnostics written to blob in JSON
 
 Log Analytics can read the logs for the following services write diagnostics to blob storage in JSON format:
 
@@ -85,7 +85,7 @@ This documentation also includes details on:
 
 It is not currently possible to perform the above configuration from the portal. 
 
-## Collect data using Azure diagnostics written to table storage or IIS Logs written to blob 
+## Diagnostics written to table storage / IIS Logs written to blob 
 
 Log Analytics can read the logs for the following services that write diagnostics to table storage or IIS Logs written to blob:
 
