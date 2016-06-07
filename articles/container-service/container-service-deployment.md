@@ -58,7 +58,7 @@ Click **OK** when you're ready to proceed.
 Enter the following information:
 
 - **Master count**: The number of masters in the cluster.
-- **Agent count**: For Docker Swarm, this will be the initial number of agents in the agent scale set. For DC/OS, this will be the initial number of agents in a private scale set. Additionally, a public scale set is created, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster, one public agent for one master, and two public agents for three or five masters.
+- **Agent count**: For Docker Swarm, this will be the initial number of agents in the agent scale set. For DC/OS, this will be the initial number of agents in a private scale set. Additionally, a public scale set is created, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster--one public agent for one master, and two public agents for three or five masters.
 - **Agent virtual machine size**: The size of the agent virtual machines.
 - **DNS prefix**: A world unique name that will be used to prefix key parts of the fully qualified domain names for the service.
 
@@ -110,7 +110,7 @@ Create an Azure resource group and Container Service cluster with the following 
 
 - **RESOURCE_GROUP** is the name of the resource group that you want to use for this service.
 - **LOCATION** is the Azure region where the resource group and Azure Container Service deployment will be created.
-- **TEMPLATE_URI** is the location of the deployment file. Note that this must be the RAW file, not a pointer to the GitHub UI. To find this URL, select the azuredeploy.json file in GitHub, and click the RAW button.
+- **TEMPLATE_URI** is the location of the deployment file. Note that this must be the Raw file, not a pointer to the GitHub UI. To find this URL, select the azuredeploy.json file in GitHub, and click the **Raw** button.
 
 > [AZURE.NOTE] When you run this command, the shell will prompt you for deployment parameter values.
 
