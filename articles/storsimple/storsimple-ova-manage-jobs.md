@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array
