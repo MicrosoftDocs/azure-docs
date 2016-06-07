@@ -228,6 +228,9 @@ You can also reprotect at a recovery plan level. If you have a replication group
 After reprotection the VM you can initiate a failover from Azure to On-premises. 
 
 1.	In the replicated items page select the virtual machine containing the right click to **Unplanned Failover**.
+
+<!-- Loc Comment: The phrase "select the virtual machine containing the right click to" does not seem correct. Could you please help to clarify the meaning of this sentence? -->
+
 2.	In **Confirm Failover** verify the failover direction (from Azure) and select the recovery point you want to use for the failover (latest, or the latest app consistent). App consistent point would be behind the latest point in time and will cause some data loss.
 3.	During failover Site Recovery will shut down the Azure VMs. After you check that failback has completed as expected you can you can check that the Azure VMs have been shut down as expected.
 
