@@ -36,7 +36,7 @@ In this tutorial, we will complete the following:
 2. An Azure subscription
 
 ##1. Create a namespace using the Azure portal
-If you already have a Service Bus namspace created created jump to the [Create a queue using the Azure portal section](#2-create-a-queue-using-the-Azure-portal).
+If you already have a Service Bus namspace created created jump to the [Create a queue using the Azure portal section](#2-create-a-queue-using-the-azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
