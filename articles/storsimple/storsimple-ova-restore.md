@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Restore from a backup of your StorSimple Virtual Array
 
 ## Overview 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release. This article describes step-by-step how to restore from a backup set of your shares or volumes for your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later. This article describes step-by-step how to restore from a backup set of your shares or volumes on your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
 
 
 ## Restore shares from a backup set
 
 
-Before you try to restore shares, ensure that you have sufficient space on the device to complete this operation. To restore from a backup, in the [Azure classic portal](https://manage.windowsazure.com/), perform the following steps.
+**Before you try to restore shares, ensure that you have sufficient space on the device to complete this operation.** To restore from a backup, in the [Azure classic portal](https://manage.windowsazure.com/), perform the following steps.
 
 #### To restore a share
 
@@ -107,7 +107,7 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 1.  When performing the ILR, you can view the backups through Windows Explorer. Click the specific share that you want to look at the backup for. You will see a *.backups* folder created under the share that stores all the backups. Expand the *.backups* folder to view the backups. The folder will then show the exploded view of the entire backup hierarchy. This view is created on-demand and usually takes only a couple of seconds to create.
 
-	The last 5 backups are displayed in this way. This includes both the default scheduled and the manual backups.
+	The last 5 backups are displayed in this way and can be used to perform an item-level recovery. The 5 recent backups include both the default scheduled and the manual backups.
 
 	
 	-   **Scheduled backups** named as &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
