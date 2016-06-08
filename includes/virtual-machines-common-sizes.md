@@ -1,7 +1,7 @@
 
 To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
 
-The standard sizes consist of several series: A, D, DS, G, and GS. Considerations for some of these sizes include:
+The standard sizes consist of several series: A, D, DS, F, G, and GS. Considerations for some of these sizes include:
 
 *   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
