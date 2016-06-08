@@ -13,17 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/08/2016" 
 	ms.author="spelluru"/>
 
 # Datasets in Azure Data Factory
 Datasets in Azure Data Factory are named references/pointers to the data that you want to use as an input or an output of an activity in a pipeline. Datasets identify data within different data stores including tables, files, folders, and documents. 
 
-When creating a data factory, you create linked services that link data stores to the data factory. A **linked service** defines the information needed for Azure Data Factory to **connect** to a data store, for example, Azure Storage Account and Azure SQL Database. The linked service defines the mechanism (address, protocol, authentication scheme, etc...) to access the data store. 
+A **linked service** defines the information needed for Azure Data Factory to **connect** to a **data store** (such as Azure Storage Account and Azure SQL Database) or a **compute** (such as Azure HDInsight and Azure Batch). The linked service defines the mechanism (address, protocol, authentication scheme, etc...) to access the data store or compute. 
 
-A **dataset** in Data Factory represents data structures (for example: blob container, SQL table) within this data store that can be used as input or output of an activity in a pipeline. After you create datasets, you can use them with activities in the pipeline. For example, you can have a dataset as an input/output dataset of a Copy Activity/HDInsightHive Activity. 
+For a list of supported data store linked services, see [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores). Click on a data source in the table to get to the topic that provides details on how to create/configure a linked service for that data store. 
+
+For a list of supported compute linked services, see [Compute linked services](data-factory-compute-linked-services.md). To understand the activities that use these linked services, see [Data Transformation Activities](data-factory-data-transformation-activities.md).
+
+A **dataset** in Data Factory represents data structures within a data store represented by a **data store linked service**, for example, a blob container in an Azure Storage Account, a table in an Azure SQL Database) . It can be used as input or output of an activity in a pipeline. After you create datasets, you can use them with activities in the pipeline. For example, you can have a dataset as an input/output dataset of a Copy Activity/HDInsightHive Activity. 
 
 > [AZURE.NOTE] If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service and [Build your first data factory](data-factory-build-your-first-pipeline.md) for a tutorial to create your first data factory. These two articles provide you background information you need to understand this article better. 
+
 
 ## Define datasets
 A dataset in Azure Data Factory is defined as follows: 
@@ -244,7 +249,7 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 
 | Name | Description | Required | Default Value  |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Time to delay the check on the availability of the external data for the given slice. For example, if the data is supposed to be available hourly, the check to see the external data is actually available and the corresponding slice is Ready can be delayed by dataDelay.<br/><br/>Only applies to the present time; for example, if it is 1:00 PM right now and this value is 10 minutes, the validation will start at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) will be processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it will be treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. | No | 0 |
+| dataDelay | Time to delay the check on the availability of the external data for the given slice. For example, if the data is supposed to be available hourly, the check to see the external data is actually available and the corresponding slice is Ready can be delayed by dataDelay.<br/><br/>Only applies to the present time; for example, if it is 1:00 PM right now and this value is 10 minutes, the validation will start at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) will be processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it will be treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1.04:00:00. | No | 0 |
 | retryInterval | The wait time between a failure and the next retry attempt. Applies to present time; if the previous try failed, we wait this long after the last try. <br/><br/>If it is 1:00pm right now, we will begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry will be at 1:00 + 1min (duration) + 1min (retry interval) = 1:02pm. <br/><br/>For slices in the past, there will be no delay. The retry will happen immediately. | No | 00:01:00 (1 minute) | 
 | retryTimeout | The timeout for each retry attempt.<br/><br/>If this is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry will time out.<br/><br/>If all attempts for the validation times out, the slice will be marked as TimedOut. | No | 00:10:00 (10 minutes) |
 | maximumRetry | Number of times to check for the availability of the external data. The allowed maximum value is 10. | No | 3 | 
