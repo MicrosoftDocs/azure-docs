@@ -16,7 +16,7 @@
  
     ![Created successfully][3]
 
-##Obtain the credentials
+###Obtain the credentials
 1. In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:
  
     ![Select service bus][4]
