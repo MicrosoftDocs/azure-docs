@@ -7,10 +7,15 @@ The standard sizes consist of several series: A, D, DS, G, and GS. Consideration
 
 *   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
+* F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per core. The F-series sizes range from 1 to 16 CPU cores with options for both standard and premium storage optimized sizes.
+
+* The F-series also introduces a new standard in VM size naming for Azure. For this series and VM sizes released in the future, the numeric value after the family name letter will match the number of CPU cores. Additional capabilities, such as optimized for premium storage, will be designated by letters following the numeric CPU core count. This naming format will be used for future VM sizes released but will not retroactively change the names of any existing VM sizes which have been released.
+
+
 *   G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
 
 
-*   DS-series, DSv2-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
+*   DS-series, DSv2-series, F-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
 *   The A-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
@@ -28,6 +33,8 @@ The following considerations might help you decide on a size:
 
 
 *	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
+
+* The F-series VMs are an excellent choice for workloads that demand faster CPUs but do not need as much memory or local SSD per CPU core.  Workloads such as gaming servers, web servers, and batch processing will benefit from the value of the F-series.
 
 *   Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
 
@@ -50,6 +57,8 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 |[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
 |[DS1-14](#standard-tier-ds-series)	|160 |
 |[DS1-15v2](#standard-tier-dsv2-series)	|210-250* |
+|[F1-F16](#  ) | 210-250*|
+|[F1s-F16s](#  ) | 210-250*|
 |[G1-5](#standard-tier-g-series)	|180 - 240 *|
 |[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
 
@@ -154,6 +163,31 @@ Note: For information and considerations about using these sizes, see [About the
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
+
+## Standard storage optimized F-series
+
+
+|Size	|CPU cores | Memory	| NICs (Max) |	Max. disk size |	Max. data disks (1023 GB each) | Max. IOPS (500 per disk) | Max network bandwidth|
+|Standard_F1 |	1	| 2 GB	| 1	| Temporary (SSD) =16 GB		| 2		| 2x500		| 500 Mbps|
+|Standard_F2 |	2	| 4 GB	| 2	| Temporary (SSD) =32 GB		| 4		| 4x500		| 1000 Mbps|
+|Standard_F4 |	4	| 8 GB	| 4	| Temporary (SSD) =64 GB		| 8		| 8x500		| 2000 Mbps|
+|Standard_F8 |	8	| 16 GB	| 8	| Temporary (SSD) =128 GB		| 16	| 16x500	| 4000 Mbps|
+|Standard_F16 |	16	| 32 GB	| 8	| Temporary (SSD) =256 GB		| 32	| 32x500	| 8000 Mbps|
+
+## Premium storage optimized F-series*
+
+| Size	| CPU cores	| Memory	| NICs (Max)	| Max. disk size	| Max. data disks (1023 GB each)	| Cache size (GB)	| Max. disk IOPS & bandwidth	| Max network bandwidth | 
+| Standard_F1s	| 1		| 2		| 1	| Local SSD disk = 4 GB		| 2		| 12	| 3,200 48 MB per second	| 500 Mbps |
+| Standard_F2s	| 2		| 4		| 2	| Local SSD disk = 8 GB		| 4		| 24	| 6,400 96 MB per second	| 1000 Mbps|
+| Standard_F4s	| 4		| 8		| 4	| Local SSD disk = 16 GB	| 8		| 48	| 12,800 192 MB per second	| 2000 Mbps|
+| Standard_F8s	| 8		| 16	| 8	| Local SSD disk = 32 GB	| 16	| 96	| 25,600 384 MB per second	| 4000 Mbps|
+| Standard_F16s	| 16	| 32	| 8	| Local SSD disk = 64 GB	| 32	| 192	| 51,200 768 MB per second	| 8000 Mbps|
+
+
+*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
+
+
+
 
 
 ## Standard tier: G-series
