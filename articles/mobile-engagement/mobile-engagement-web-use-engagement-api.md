@@ -181,7 +181,7 @@ This data can be any JSON object (not an array or primitive types).
 
 Each key in the object must match the following regular expression:
 
-`^[a-zA-Z][a-zA-Z_0-9]*`
+	^[a-zA-Z][a-zA-Z_0-9]*
 
 It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).
 
@@ -214,7 +214,7 @@ Here is a code sample to send user gender and birthdate:
 
 Each key in the object must match the following regular expression:
 
-`^[a-zA-Z][a-zA-Z_0-9]*`
+	^[a-zA-Z][a-zA-Z_0-9]*
 
 It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).
 
@@ -224,5 +224,5 @@ Application information are limited to **1024** characters per call (once encode
 
 In the previous example, the JSON sent to the server is 44 characters long:
 
-			{"birthdate":"1983-12-07","gender":"female"}
+	{"birthdate":"1983-12-07","gender":"female"}
  
