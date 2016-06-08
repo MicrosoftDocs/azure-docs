@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/07/2016"
+   ms.date="06/08/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure PowerShell
@@ -153,7 +153,7 @@ The following steps set up a storage account for templates:
 
 To deploy a private template in a storage account, retrieve a SAS token and include it in the URI for the template.
 
-1. Set the current storage account.
+1. If you have changed the current storage account, set the current storage account to the one containing your templates.
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
