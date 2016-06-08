@@ -112,8 +112,7 @@ GRANT ALTER ANY USER TO Mary;
 
 To give additional users full control of the database, make them a member of the **db_owner** fixed database role using the `ALTER ROLE` statement.
 
-     > [AZURE.NOTE] 
-     > The principal reason to create database users based on logins, is when you have SQL Server authentication users which need access to multiple databases. Users based on logins are tied to the login, and only one password that is maintained for that login. Contained database users in individual databases are each individual entities and each maintains its own password. This can confuse contained database users if they do not maintain their passwords as identical.
+> [AZURE.NOTE] The principal reason to create database users based on logins, is when you have SQL Server authentication users which need access to multiple databases. Users based on logins are tied to the login, and only one password that is maintained for that login. Contained database users in individual databases are each individual entities and each maintains its own password. This can confuse contained database users if they do not maintain their passwords as identical.
 
 ### Configuring the Database-Level Firewall
 
