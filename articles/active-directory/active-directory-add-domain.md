@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Add a custom domain name to Azure Active Directory | Microsoft Azure"
+	pageTitle="Add your custom domain name to Azure Active Directory | Microsoft Azure"
 	description="How to add your company's domain names to Azure Active Directory, and how to verify the domain name."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/03/2016"
+	ms.date="06/08/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Add a custom domain name to Azure Active Directory
@@ -81,7 +81,7 @@ If you can't verify a custom domain name, try the following. We'll start with th
 
 ## Add more custom domain names
 
-If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them up to a maximum of 900 domain names. Use the same steps in this article to add each of your domain names. 
+If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them up to a maximum of 900 domain names. Use the same steps in this article to add each of your domain names.
 
 ## Next steps
 

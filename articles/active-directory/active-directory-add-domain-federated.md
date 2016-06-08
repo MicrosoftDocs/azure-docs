@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Add your custom domain name to Azure Active Directory | Microsoft Azure"
-	description="How to add your company's domain names to Azure Active Directory, and how to verify the domain name."
+	pageTitle="Add your custom domain name and set up federated sign-on to Azure Active Directory | Microsoft Azure"
+	description="How to add your company's domain names to Azure Active Directory, and how set up federated sign-on between Azure Active Directory and your on-premises federation solution."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/20/2016"
+	ms.date="06/08/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Add your custom domain name to Azure Active Directory
@@ -34,7 +34,7 @@ If you do not have and do not plan to deploy AD FS or another federation server,
 
 5. Select **Add**.
 
-Run the Azure AD Connect tool to get the DNS entry that Azure AD will use to verify the domain. You will see the DNS entry in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can download it here.
+Run the Azure AD Connect tool to get the DNS entry that Azure AD will use to verify the domain. You will see the DNS entry in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## Add the DNS entry at the domain name registrar for the domain
 
