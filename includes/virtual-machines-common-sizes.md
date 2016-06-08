@@ -34,7 +34,7 @@ The following considerations might help you decide on a size:
 
 *	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
-* The F-series VMs are an excellent choice for workloads that demand faster CPUs but do not need as much memory or local SSD per CPU core.  Workloads such as gaming servers, web servers, and batch processing will benefit from the value of the F-series.
+* The F-series VMs are an excellent choice for workloads that demand faster CPUs but do not need as much memory or local SSD per CPU core.  Workloads such as analytics, gaming servers, web servers, and batch processing will benefit from the value of the F-series.
 
 *   Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
 
@@ -57,8 +57,8 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 |[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
 |[DS1-14](#standard-tier-ds-series)	|160 |
 |[DS1-15v2](#standard-tier-dsv2-series)	|210-250* |
-|[F1-F16](#  ) | 210-250*|
-|[F1s-F16s](#  ) | 210-250*|
+|[F1-F16](#standard-storage-optimized-f-series) | 210-250*|
+|[F1s-F16s](#premium-storage-optimized-f-series) | 210-250*|
 |[G1-5](#standard-tier-g-series)	|180 - 240 *|
 |[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
 
@@ -141,7 +141,7 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_DS11 |2|14|2|Local SSD disk = 28 GB |4|72| 6,400  64 MB per second | high |
 |Standard_DS12 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  128 MB per second | high |
 |Standard_DS13 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  256 MB per second | high |
-|Standard_DS14 |16|112|8|Local SSD disk = 224 GB |32|576| 50,000  512 MB per second | very high |
+|Standard_DS14 |16|112|8|Local SSD disk = 224 GB |32|576| 51,200  512 MB per second | very high |
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
@@ -154,12 +154,12 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_DS2_v2 |2|7|2|Local SSD disk = 14 GB |4|86| 6,400  96 MB per second | high |
 |Standard_DS3_v2 |4|14|4|Local SSD disk = 28 GB |8|172| 12,800  192 MB per second | high |
 |Standard_DS4_v2 |8|28|8|Local SSD disk = 56 GB |16|344| 25,600  384 MB per second | high |
-|Standard_DS5_v2 |16|56|8|Local SSD disk = 112 GB |32|688| 50,000  768 MB per second | high |
+|Standard_DS5_v2 |16|56|8|Local SSD disk = 112 GB |32|688| 51,200  768 MB per second | high |
 |Standard_DS11_v2 |2|14|2|Local SSD disk = 28 GB |4|72| 6,400  96 MB per second | high |
 |Standard_DS12_v2 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  192 MB per second | high |
 |Standard_DS13_v2 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  384 MB per second | high |
-|Standard_DS14_v2 |16|112|8|Local SSD disk = 224 GB |32|576| 50,000  768 MB per second | very high |
-|Standard_DS15_v2 |20|140 GB|10|Local SSD disk = 280 GB |40| 720|62,500 960 MB per second | very high |
+|Standard_DS14_v2 |16|112|8|Local SSD disk = 224 GB |32|576| 51,200  768 MB per second | very high |
+|Standard_DS15_v2 |20|140 GB|10|Local SSD disk = 280 GB |40| 720|64,000 960 MB per second | very high |
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
@@ -168,6 +168,7 @@ Note: For information and considerations about using these sizes, see [About the
 
 
 |Size	|CPU cores | Memory	| NICs (Max) |	Max. disk size |	Max. data disks (1023 GB each) | Max. IOPS (500 per disk) | Max network bandwidth|
+|---|---|---|---|---|---|---|---|
 |Standard_F1 |	1	| 2 GB	| 1	| Temporary (SSD) =16 GB		| 2		| 2x500		| 500 Mbps|
 |Standard_F2 |	2	| 4 GB	| 2	| Temporary (SSD) =32 GB		| 4		| 4x500		| 1000 Mbps|
 |Standard_F4 |	4	| 8 GB	| 4	| Temporary (SSD) =64 GB		| 8		| 8x500		| 2000 Mbps|
@@ -176,12 +177,13 @@ Note: For information and considerations about using these sizes, see [About the
 
 ## Premium storage optimized F-series*
 
-| Size	| CPU cores	| Memory	| NICs (Max)	| Max. disk size	| Max. data disks (1023 GB each)	| Cache size (GB)	| Max. disk IOPS & bandwidth	| Max network bandwidth | 
-| Standard_F1s	| 1		| 2		| 1	| Local SSD disk = 4 GB		| 2		| 12	| 3,200 48 MB per second	| 500 Mbps |
-| Standard_F2s	| 2		| 4		| 2	| Local SSD disk = 8 GB		| 4		| 24	| 6,400 96 MB per second	| 1000 Mbps|
-| Standard_F4s	| 4		| 8		| 4	| Local SSD disk = 16 GB	| 8		| 48	| 12,800 192 MB per second	| 2000 Mbps|
-| Standard_F8s	| 8		| 16	| 8	| Local SSD disk = 32 GB	| 16	| 96	| 25,600 384 MB per second	| 4000 Mbps|
-| Standard_F16s	| 16	| 32	| 8	| Local SSD disk = 64 GB	| 32	| 192	| 51,200 768 MB per second	| 8000 Mbps|
+|Size	| CPU cores	| Memory	| NICs (Max)	| Max. disk size	| Max. data disks (1023 GB each)	| Cache size (GB)	| Max. disk IOPS & bandwidth	| Max network bandwidth | 
+|---|---|---|---|---|---|---|---|---|
+|Standard_F1s	| 1		| 2		| 1	| Local SSD disk = 4 GB		| 2		| 12	| 3,200 48 MB per second	| 500 Mbps |
+|Standard_F2s	| 2		| 4		| 2	| Local SSD disk = 8 GB		| 4		| 24	| 6,400 96 MB per second	| 1000 Mbps|
+|Standard_F4s	| 4		| 8		| 4	| Local SSD disk = 16 GB	| 8		| 48	| 12,800 192 MB per second	| 2000 Mbps|
+|Standard_F8s	| 8		| 16	| 8	| Local SSD disk = 32 GB	| 16	| 96	| 25,600 384 MB per second	| 4000 Mbps|
+|Standard_F16s	| 16	| 32	| 8	| Local SSD disk = 64 GB	| 32	| 192	| 51,200 768 MB per second	| 8000 Mbps|
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
@@ -200,6 +202,17 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_G4 |16|224 GB|8|Local SSD disk = 3,072 GB |32|32 x 500| extremely high |
 |Standard_G5 |32|448 GB|8|Local SSD disk = 6,144 GB |64| 64 x 500 | extremely high |
 
+
+
+
+| Size         | CPU cores | Memory | NICs (Max) | Max. disk size          | Max. data disks (1023 GB each) | Max. IOPS (500 per disk) | Max network bandwidth |
+|--------------|-----------|--------|------------|-------------------------|--------------------------------|--------------------------|-----------------------|
+| Standard_F1  | 1         | 2 GB   | 1          | Temporary (SSD) =16 GB  | 2                              | 2x500                    | 500 Mbps              |
+| Standard_F2  | 2         | 4 GB   | 2          | Temporary (SSD) =32 GB  | 4                              | 4x500                    | 1000 Mbps             |
+| Standard_F4  | 4         | 8 GB   | 4          | Temporary (SSD) =64 GB  | 8                              | 8x500                    | 2000 Mbps             |
+| Standard_F8  | 8         | 16 GB  | 8          | Temporary (SSD) =128 GB | 16                             | 16x500                   | 4000 Mbps             |
+| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                             | 32x500                   | 8000 Mbps             |
+
 ## Standard tier: GS-series
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
@@ -209,6 +222,16 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_GS3|8|112|4|Local SSD disk = 224 GB |16|1056| 20,000  500 MB per second | very high |
 |Standard_GS4|16|224|8|Local SSD disk = 448 GB |32|2112| 40,000  1,000 MB per second | extremely high |
 |Standard_GS5|32|448|8|Local SSD disk = 896 GB |64|4224| 80,000  2,000 MB per second | extremely high |
+
+
+
+| Size          | CPU cores | Memory | NICs (Max) | Max. disk size         | Max. data disks (1023 GB each) | Cache size (GB) | Max. disk IOPS & bandwidth | Max network bandwidth |
+|---------------|-----------|--------|------------|------------------------|--------------------------------|-----------------|----------------------------|-----------------------|
+| Standard_F1s  | 1         | 2      | 1          | Local SSD disk = 4 GB  | 2                              | 12              | 3,200 48 MB per second     | 500 Mbps              |
+| Standard_F2s  | 2         | 4      | 2          | Local SSD disk = 8 GB  | 4                              | 24              | 6,400 96 MB per second     | 1000 Mbps             |
+| Standard_F4s  | 4         | 8      | 4          | Local SSD disk = 16 GB | 8                              | 48              | 12,800 192 MB per second   | 2000 Mbps             |
+| Standard_F8s  | 8         | 16     | 8          | Local SSD disk = 32 GB | 16                             | 96              | 25,600 384 MB per second   | 4000 Mbps             |
+| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32                             | 192             | 51,200 768 MB per second   | 8000 Mbps             |
 
 ## Notes: Standard A0 - A4 using CLI and Powershell 
 
