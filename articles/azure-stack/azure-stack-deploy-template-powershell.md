@@ -24,7 +24,7 @@ ARM templates deploy and provision all of the resources for your application in 
 
 > [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download](http://aka.ms/azStackPsh) the latest Azure PowerShell SDK. 
 
-### Turn off IE enhanced security and enable cookies
+## Turn off IE enhanced security and enable cookies
 
 Before authenticating PowerShell, you must allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user sign-ins. These configurations should be set on any Windows Server machine being used to execute Azure PowerShell against Azure Stack. In most cases this will be the ClientVM.
 
