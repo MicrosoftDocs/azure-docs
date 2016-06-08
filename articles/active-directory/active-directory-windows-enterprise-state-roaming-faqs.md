@@ -57,12 +57,12 @@ If the on-premises Active Directory domain does connect with Azure AD, then the 
 
 Users who stored any personal data on their corporate device should be aware that Windows OS and application data will begin syncing to Azure AD. This has the following implications:
 
-- Personal Microsoft account users will slowly have their settings “drift apart” from the settings on organizational Azure AD accounts since the Microsoft account and Azure AD settings sync are now using separate accounts.
+- Personal Microsoft account users will slowly have their settings “drift apart” from the settings on work or school Azure AD accounts since the Microsoft account and Azure AD settings sync are now using separate accounts.
 - Personal data such as Wi-Fi passwords, web credentials, and Internet Explorer favorites and tabs that were previously synced via a connected Microsoft account will be synced via Azure AD.
 
 
 ## How does Microsoft account and Azure AD Enterprise State Roaming interoperability work?
-In the Nov 2015 or later releases  of Windows 10, Enterprise State Roaming is only supported for a single account at a time. If the user signs in to Windows using an organizational Azure AD account, all data will sync via Azure AD. If the user signs in to Windows using a personal Microsoft account, all data will sync via Microsoft account. Universal appdata will roam using the primary sign-in account on the device only and only if the app’s license is owned by the primary account.  Universal appdata for the apps owned by any secondary accounts will not be synced. 
+In the Nov 2015 or later releases  of Windows 10, Enterprise State Roaming is only supported for a single account at a time. If the user signs in to Windows using a work or school Azure AD account, all data will sync via Azure AD. If the user signs in to Windows using a personal Microsoft account, all data will sync via Microsoft account. Universal appdata will roam using the primary sign-in account on the device only and only if the app’s license is owned by the primary account.  Universal appdata for the apps owned by any secondary accounts will not be synced. 
 
 ## Do settings sync for Azure AD accounts from multiple tenants?
 When multiple Azure AD accounts from different Azure AD tenants are on the same device, you must update the device's registry to communicate with the Azure Rights Management Service (RMS) service for each Azure AD tenant.  
