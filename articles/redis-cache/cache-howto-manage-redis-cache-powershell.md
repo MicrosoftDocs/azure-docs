@@ -580,7 +580,7 @@ In the following example, the cache named `myCache` is removed.
 <a name="classic"></a>
 ## Manage Azure Redis Cache instances with the PowerShell classic deployment model
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](cache-howto-manage-redis-cache-powershell.md) described at the beginning of this article.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](cache-howto-manage-redis-cache-powershell.md) described at the beginning of this article.
 
 The following script demonstrates how to create, update and delete an Azure Redis Cache using the classic deployment model.
 		

@@ -19,7 +19,7 @@
 
 # Azure CLI commands in Azure Service Management (asm) mode
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines/azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] You can also [read about all the Resource Manager model commands](virtual-machines/azure-cli-arm-commands.md).
 
 This article provides syntax and options for Azure CLI commands you'd commonly use to create and manage Azure resources in the classic deployment model. You access these commands by running the CLI in Azure Service Management (asm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. 
 

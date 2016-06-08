@@ -23,7 +23,7 @@
 
 Find all the documentation you need to create and manage Linux-based virtual machines in the classic deployment model.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Get Started
 - [Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md)

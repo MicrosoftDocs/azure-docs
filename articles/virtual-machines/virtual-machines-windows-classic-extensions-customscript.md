@@ -25,7 +25,7 @@ Virtual machine (VM) extensions are built by Microsoft and trusted third-party p
 [Azure VM extensions and features](virtual-machines-windows-extensions-features.md).
 
 Link:
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-classic-extensions-customscript.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](virtual-machines-windows-classic-extensions-customscript.md).
 
 
 ## Custom Script extension overview

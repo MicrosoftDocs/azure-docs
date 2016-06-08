@@ -19,7 +19,7 @@
 
 # Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 

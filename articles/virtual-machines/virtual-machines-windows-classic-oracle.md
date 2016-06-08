@@ -23,6 +23,6 @@
 
 Set up your first or next dev/test or production Oracle database to run on a Windows virtual machine in Azure infrastructure services. Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity. You can also set up Oracle software on [Linux virtual machines](virtual-machines-linux-classic-oracle.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-oracle](../../includes/virtual-machines-common-classic-oracle.md)]

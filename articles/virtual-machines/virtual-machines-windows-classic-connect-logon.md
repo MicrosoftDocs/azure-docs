@@ -24,7 +24,7 @@ In the Azure classic portal, you use the **Connect** button to start a Remote De
 
 Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-classic-log-on.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-connect-logon.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](virtual-machines-windows-connect-logon.md).
 
 
 ## Video walkthrough

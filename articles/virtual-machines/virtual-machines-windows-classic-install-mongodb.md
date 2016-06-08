@@ -19,7 +19,7 @@
 
 #Install MongoDB on a Windows VM
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 [MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database.  Using the [Azure classic portal][AzurePortal], you can create a virtual machine running Windows Server from the Image Gallery, using the classic deployment model. You can then install and configure a MongoDB database on the virtual machine.
