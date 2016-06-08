@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/25/2016" 
+	ms.date="06/08/2016" 
 	ms.author="awills"/>
 
 
@@ -31,7 +31,6 @@ You need:
 There are alternative articles to look at if you are interested in:
 
 * [Instrumenting a web app at run time](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
 * [Azure Cloud services](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. Add Application Insights SDK
