@@ -75,7 +75,9 @@ The solution provided for this architecture utilizes the same ARM templates as t
 
 - [azuredeploy.json][azuredeploy]. This is an extended version of the template that creates . It creates the additional subnets for the public security perimeter (inbound and outbound).
 
-- [ibb-dmz.json][ibb-dmz]. This template creates the public IP address, load balancer, and NVAs for the public security perimeter. Note that the public IP address is statically allocated, as are the IP addresses for the NVAs.
+- [ibb-dmz.json][ibb-dmz]. This template creates the public IP address, load balancer, and NVAs for the public security perimeter. Note that the public IP address is statically allocated, as are the IP addresses for the NVAs. 
+
+> [AZURE.NOTE] Best practice is to use static IP addresses for NVAs; using dynamic addresses can cause them to change if the VM is deprovisioned and restarted. 
 
 The solution also includes a bash script named [azuredeploy.sh][azuredeploy-script] that invokes invokes the templates to construct the system.
 
@@ -187,6 +189,8 @@ update-rc.d iptables-persistent defaults
 ```
 
 The first two lines configure IP forwarding for the NICs; traffic received in the NIC associated with the public DMZ inbound subnet will be passed to the NIC attached to the public DMZ outbound subnet. The next block configures NAT routing to direct incoming traffic on ports 80 and 443 to the internal load balancer for the web tier at address 10.0.3.254. The final three lines save these changes using the iptables-persistent service and ensure that the configuration is restored whenever the machine restarts.
+
+> [AZURE.NOTE] Remember that the IP addresses for the NVAs are allocated statically. This is important, as it means that the IP routing tables saved by using the iptables-persistent package will still be valid even if the VMs are de-provisioned and restarted.
 
 ## Deploying the sample solution
 
