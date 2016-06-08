@@ -19,6 +19,7 @@
 # Configure Always On Availability Groups in Azure VM (PowerShell)
 
 > [AZURE.SELECTOR]
+- [ARM - Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
