@@ -55,7 +55,7 @@ If you have an application that needs to use the D: drive letter, you can reassi
 
 On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
 
-## Can I add an existing VM to an availability group?
+## Can I add an existing VM to an availability set?
 
 No. If you want your VM to be part of an availability set, you need to create the VM within the set. There currently isn't a way to add a VM to an availability set after it has been created.
 
