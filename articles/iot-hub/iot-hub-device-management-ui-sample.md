@@ -38,7 +38,7 @@ The default home screen for the device management sample UI is the **Devices** v
 
 ![][1]
 
-1.  *Navigation button*: **Devices** view (selected), **Job History** view, and **Add a Device** view.
+1.  *Navigation buttons*: **Devices** view (selected), **Job History** view, and **Add a Device** view.
 
 2. *Device search*: Find and edit a single device by device ID.
 
