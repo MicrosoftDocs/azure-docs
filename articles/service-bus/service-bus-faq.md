@@ -3,7 +3,7 @@
     description="Answers some frequently-asked questions about Azure Service Bus."
     services="service-bus"
     documentationCenter="na"
-    authors="sethmanheim"
+    authors="justinconway"
     manager=""
     editor="" />
 <tags 
@@ -17,7 +17,7 @@
 
 # Service Bus FAQ
 
-This article answers some frequently-asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing  and support information. The following topics are included:
+This article answers some frequently-asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. The following topics are included:
 
 - [General questions about Azure Service Bus messaging](#general-questions-about-azure-service-bus-messaging)
 - [Service Bus best practices](#service-bus-best-practices)
@@ -119,7 +119,7 @@ Queue/Topic/Subscription - The number of concurrent TCP connections on a queue/t
 
 #### Number of concurrent listeners on a relay
 
-The number of concurrent netTcpRelay and netHttpRelay \*\* listeners on a relay is limited to 25 (1 for a \*\*NetOneway relay).
+The number of concurrent **netTcpRelay** and **netHttpRelay** listeners on a relay is limited to 25 (1 for a **NetOneway** relay).
 
 #### Number of concurrent relay listeners per namespace
 
