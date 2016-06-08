@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,8 +19,6 @@
 
 
 # Copy an Azure SQL Database
-
-**Single database**
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-copy.md)

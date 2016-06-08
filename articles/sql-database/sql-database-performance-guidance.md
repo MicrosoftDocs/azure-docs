@@ -126,7 +126,7 @@ The following sections provide more information on each area in the previous tab
 
 *Geo-restore* is available to all service tiers at no extra cost. In the event of an outage, you can use the most recent geo-redundant backup to restore your database to any Azure region.
 
-[Active Geo-Replication](sql-database-geo-replication-overview.md) provides similar disaster recovery features but with a much lower Recovery Point Objective (RPO). For example, with Geo-restore, the RPO is less than one hour (in other words, the backup might be from up to one hour ago). But for Active Geo-replication, the RPO is less than 5 seconds.
+[Active Geo-Replication](sql-database-geo-replication-overview.md) provides similar disaster recovery features but with a much lower Recovery Point Objective (RPO). For example, with Geo-restore, the RPO is less than one hour (in other words, the backup might be from up to one hour ago). But for Active Geo-Replication, the RPO is less than 5 seconds.
 
 For more information, see the [Business Continuity Overview](sql-database-business-continuity.md).
 

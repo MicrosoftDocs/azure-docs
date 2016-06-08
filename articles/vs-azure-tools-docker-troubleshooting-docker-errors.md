@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Troubleshooting Docker Client Errors on Windows Using Visual Studio | Microsoft Azure"
    description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio."
    services="visual-studio-online"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/15/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Troubleshooting Visual Studio Docker Development
@@ -79,7 +79,7 @@ If you're unable to see the contents, try the following:
 
 **Docker for Windows beta**
 - Verify the Docker for Windows desktop app is running by looking for the moby icon in system tray, and making sure it's white and functional.
-- Verify volume mapping is configured by right clicking the moby icon in the system tray, selecting settings and cliking **Manage shared drives...**
+- Verify volume mapping is configured by right-clicking the moby icon in the system tray, selecting settings and cliking **Manage shared drives...**
 
 **Docker Toolbox w/VirtualBox**
 
@@ -93,10 +93,10 @@ By default, VirtualBox shares `C:\Users` as `c:/Users`. If possible, move your p
 
 If you are using the Microsoft Edge browser, the site might not open as Edge considers the IP address to be unsecured. To remedy this, perform the following steps:
 1. From the Windows Run box, type `Internet Options`.
-2. Tap **Internet Options** when it appears. 
-2. Tap the **Security** tab.
+2. Select **Internet Options** when it appears. 
+2. Select the **Security** tab.
 3. Select the **Local Intranet** zone.
-4. Tap **Sites**. 
+4. Select **Sites**. 
 5. Add your virtual machine's IP (in this case, the Docker Host) in the list. 
 6. Refresh the page in Edge, and you should see the site up and running. 
 7. For more information on this issue, visit Scott Hanselman's blog post, [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 

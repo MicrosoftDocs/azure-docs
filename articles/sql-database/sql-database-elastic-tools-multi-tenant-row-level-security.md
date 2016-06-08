@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/02/2016" 
-	ms.author="thmullan;torsteng;sidneyh" />
+	ms.date="05/27/2016" 
+	ms.author="thmullan;torsteng" />
 
 # Multi-tenant applications with elastic database tools and row-level security 
 

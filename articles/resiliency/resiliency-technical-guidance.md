@@ -57,5 +57,8 @@ Technical guidance on how to backup and restore Microsoft SQL Server running on 
 ###[Failsafe: guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe)
 Guidance for building resilient cloud architectures, guidance for implementing those architectures on Microsoft technologies, and recipes for implementing these architectures for specific scenarios.
 
+###[Technical case study: Using cloud technologies to improve disaster recovery](https://www.microsoft.com/itshowcase/Article/Content/737/Using-cloud-technologies-to-improve-disaster-recovery)
+A technical case study showing how Microsoft IT used Azure to improve disaster recovery.
+
 ##Next steps
 This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). If you are interested in reading other articles in this series; please start with the next article titled [Recovery from local failures](./resiliency-technical-guidance-recovery-local-failures.md).
