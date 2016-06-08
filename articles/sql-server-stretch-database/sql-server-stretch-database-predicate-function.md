@@ -187,10 +187,10 @@ If you want use a predicate that you can't create in the **Enable Database for S
 
 1. Reverse the direction of migration and bring back the data already migrated. You can't cancel this operation after it starts. You also incur costs on Azure for outbound data transfers \(egress\). For more info, see [How Azure pricing works](https://azure.microsoft.com/pricing/details/data-transfers/).  
 
-```tsql  
-ALTER TABLE <table name>  
-     SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
-```  
+    ```tsql  
+    ALTER TABLE <table name>  
+         SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
+    ```  
 
 2. Wait for migration to finish. You can check the status in **Stretch Database Monitor** from SQL Server Management Studio, or you can query the **sys.dm_db_rda_migration_status** view. For more info, see [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md) or [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx).  
 
@@ -198,15 +198,15 @@ ALTER TABLE <table name>
 
 4. Add the predicate to the table and restart data migration to Azure.  
 
-```tsql  
-ALTER TABLE <table name>  
-    SET ( REMOTE_DATA_ARCHIVE  
-        (           
-            FILTER_PREDICATE = <predicate>,  
-            MIGRATION_STATE = OUTBOUND  
-        )  
-    );   
-```  
+    ```tsql  
+    ALTER TABLE <table name>  
+        SET ( REMOTE_DATA_ARCHIVE  
+            (           
+                FILTER_PREDICATE = <predicate>,  
+                MIGRATION_STATE = OUTBOUND  
+            )  
+        );   
+    ```  
 
 ## Filter rows by date
 The following example migrates rows where the **date** column contains a value earlier than January 1, 2016.
