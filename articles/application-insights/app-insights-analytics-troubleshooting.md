@@ -121,6 +121,9 @@ The URL is invalid.
 
 * Open the app resource in [Application Insights portal](https://portal.azure.com). Then use the Analytics button.
 
+## If all else fails    
+
+Open [a support ticket](app-insights-developer-analytics.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
