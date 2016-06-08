@@ -20,23 +20,19 @@
 
 # Navigate and select Windows virtual machine images in Azure with PowerShell or the CLI
 
-This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Windows VM images are:
+This topic describes how to find VM image publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Windows VM images are:
 
 ## Table of commonly used Windows images
 
 
 | PublisherName                        | Offer                                 | Sku                         |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| CoreOS                           | CoreOS                                     | Beta                             |
-| CoreOS                           | CoreOS                                     | Stable                           |
 | MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             |
 | MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             |
-| Microsoft                        | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         |
-| Microsoft                        | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    |
-| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  |
-| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter                  |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter               |
 | MicrosoftWindowsServer           | WindowsServer                              | 2008-R2-SP1 |
 | MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          |
