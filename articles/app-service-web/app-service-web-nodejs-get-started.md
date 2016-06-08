@@ -70,7 +70,7 @@ This tutorial shows how to create a simple [Node.js][NODEJS] application and dep
 
     Follow the prompt to select an Azure region to deploy to. If you've never set up Git/FTP deployment credentials for your Azure subscription, you'll also be prompted to create them.
 
-3. Open the ./config/config.js file from the root of your application and change the production port to `process.env.port`; your production JSON object should look like the following example. If this folder/file path does not exist in the root directory of your application, create a folder named **config** in the root directory of your application and copy the following JSON code into it.
+3. Open the ./config/config.js file from the root of your application and change the production port to `process.env.port`; your `production` object should look like the following example. If this folder/file path does not exist in the root directory of your application, create a folder named **config** in the root directory of your application and copy the following code into it.
 
         production: {
             root: rootPath,
