@@ -42,13 +42,13 @@ In this tutorial, we will complete the following:
 
 ## 1. Create a namespace using the Azure portal
 
-If you already have a Service Bus namespace created, created jump to the [Create a queue using the Azure portal section](#2-create-a-queue-using-the-azure-portal).
+If you already have a Service Bus namespace created, created jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## 2. Create a queue using the Azure portal
 
-If you already have a Service Bus queue created, jump to the [Send messages to the queue section](#3-send-messages-to-the-queue).
+If you already have a Service Bus queue created, jump to the [Send messages to the queue](#3-send-messages-to-the-queue) section.
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
