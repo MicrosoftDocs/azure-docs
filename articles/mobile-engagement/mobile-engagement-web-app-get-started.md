@@ -33,7 +33,7 @@ This Web SDK is in Preview and only supports Analytics at the moment and doesn't
 
 ##Setup Mobile Engagement for your Web app
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
