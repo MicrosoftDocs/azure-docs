@@ -51,7 +51,6 @@ If you don't have a support plan, our development team is happy to offer best ef
     AppInsights   
     ikey: <instrumentation key>   
     sdk: <SDK that you are using, including name and version>  
-    email: <email address that we should use to contact you. This is the most important field>  
     issue: <please describe the problem you are having>
 
     ```   
