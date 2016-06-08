@@ -19,7 +19,7 @@
 
 #Release notes
 
-##2.0.0 (TBA)
+##2.0.0 (06/07/2016)
 
 -   Initial Release of Azure Mobile Engagement.
 -   appId configuration is replaced by a connection string configuration.
