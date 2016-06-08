@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/07/2016"
+   ms.date="06/08/2016"
    ms.author="v-josha"/>
 
 # Implementing a secure hybrid network architecture with Internet access in Azure
@@ -75,7 +75,7 @@ The solution provided for this architecture utilizes the same ARM templates as t
 
 - [azuredeploy.json][azuredeploy]. This is an extended version of the template that creates . It creates the additional subnets for the public security perimeter (inbound and outbound).
 
-- [ibb-dmz.json][ibb-dmz]. This template creates the public IP address, load balancer, and NVAs for the public security perimeter. Note that the public IP address is statically allocated.
+- [ibb-dmz.json][ibb-dmz]. This template creates the public IP address, load balancer, and NVAs for the public security perimeter. Note that the public IP address is statically allocated, as are the IP addresses for the NVAs.
 
 The solution also includes a bash script named [azuredeploy.sh][azuredeploy-script] that invokes invokes the templates to construct the system.
 
@@ -196,7 +196,7 @@ The solution assumes the following prerequisites:
 
 - You have installed the latest version of the Azure CLI. [Follow these instructions for details][cli-install].
 
-- If you're deploying the solution from Windows, you must install a tool that provides a bash shell, such as [git for Windows][git-for-windows].
+- If you're deploying the solution from Windows, you must install a tool that provides a bash shell, such as [GitHub Desktop][github-desktop].
 
 To run the script that deploys the solution:
 
@@ -339,7 +339,7 @@ If the NVAs are protected by using NSG rules, it may also be necessary to open p
 [recommendations]: #recommendations
 [vpn-failover]: ./guidance-hybrid-network-expressroute-vpn-failover.md
 [cli-install]: https://azure.microsoft.com/documentation/articles/xplat-cli-install
-[git-for-windows]: https://git-for-windows.github.io
+[github-desktop]: https://desktop.github.com/
 [ra-vpn]: ./guidance-hybrid-network-vpn.md
 [ra-expressroute]: ./guidance-hybrid-network-expressroute.md
 [implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
