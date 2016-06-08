@@ -21,7 +21,10 @@
 <a name="TypeofBuilds"></a>
 ## What type of recommendations build should I use? ##
 
-Currently we support two build types: *Recommendation* and *FBT* builds. Each of them are built using different algorithms and have different strengths.
+Currently we support two build types: *Recommendation* and *FBT* builds. Each of them are built using different algorithms and have different strengths. This document describes each of these builds, as well as techniques for comparing the quality of the models generated.
+
+
+> If you have not done so already, we encourage you to complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
 ### Recommendation build type ###

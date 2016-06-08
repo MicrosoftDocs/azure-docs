@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/07/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions
@@ -454,6 +454,20 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 |  |  | ![Check][12]|  |
 
 
+#### Enterprise State Roaming
+
+**Type:** Azure Active Directory Join – Windows 10 only  related features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
+| :-: | :-: | :-: | :-: |
+| | | ![Check][12]| |
+
+**More details:**
+
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Azure AD preview features
@@ -465,7 +479,6 @@ In addition to the generally available features of the Free, Basic, and Premium 
 - [Administrative Units](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
-- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
