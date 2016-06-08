@@ -171,7 +171,7 @@ The exceptions that messaging APIs can generate fall into the following categori
 
 -   Other exceptions
 
-The [Service Bus messaging exceptions][Exceptions Overview] article describes some exceptions with suggested actions.
+The [Service Bus messaging exceptions][Exceptions overview] article describes some exceptions with suggested actions.
 
 ### What is a Shared Access Signature and which languages support generating a signature?
 
