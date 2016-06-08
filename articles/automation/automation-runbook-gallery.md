@@ -4,7 +4,7 @@
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
+	manager="jwhit"
 	editor="tysonn" />
 <tags
 	ms.service="automation"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="03/02/2016"
+	ms.date="06/08/2016"
 	ms.author="magoedte;bwren" />
 
 
@@ -134,7 +134,7 @@ When you drill into a specific module, you can view more information about the m
 
 You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
-## Related articles
+## Next Steps
 
-- [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
-- [Learning PowerShell workflow](automation-powershell-workflow.md)
+- To get started with runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+- To understand the differences between PowerShell and PowerShell Workflow with runbooks, see [Learning PowerShell workflow](automation-powershell-workflow.md)
