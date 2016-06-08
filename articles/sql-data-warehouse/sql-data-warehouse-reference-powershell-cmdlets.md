@@ -84,8 +84,7 @@ These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse.
 For more PowerShell examples, see:
 
 - [Create a SQL Data Warehouse using PowerShell][]
-- [Restore from snapshot][]
-- [Geo-restore from snapshot][]
+- [Database restore][]
 
 For a list of all tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][].  For a list of tasks which can be automated with REST, see [Operations for Azure SQL Databases][].
 
@@ -94,9 +93,8 @@ For a list of all tasks which can be automated with PowerShell, see [Azure SQL D
 <!--Article references-->
 [How to install and configure Azure PowerShell]: ./powershell-install-configure.md
 [Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Restore from snapshot]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Geo-restore from snapshot]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
-[Manage scalability with REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
+[Database restore]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx

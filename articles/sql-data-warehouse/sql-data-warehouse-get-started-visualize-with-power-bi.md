@@ -108,7 +108,7 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-overview-load.md
-[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[load sample data manually]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md

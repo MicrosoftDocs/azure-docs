@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/01/2016"
 	ms.author="stefsch"/>
 
 # Custom configuration settings for App Service Environments
@@ -86,7 +86,7 @@ Another question from customers is if they can modify the list of ciphers negoti
             }
         ],
 
-> Note: If incorrect values are set for the cipher suite that SChannel cannot understand, all TLS communication to your server might stop functioning. In such a case, you would need to re-deploy your App Service Environment causing significant down-time and possible data-loss. Please use this functionality with caution.
+> [AZURE.WARNING]  If incorrect values are set for the cipher suite that SChannel cannot understand, all TLS communication to your server might stop functioning. In such a case, you will need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated ARM template to revert back to the default cipher suite settings.  Please use this functionality with caution.
 
 ## Get started
 The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).

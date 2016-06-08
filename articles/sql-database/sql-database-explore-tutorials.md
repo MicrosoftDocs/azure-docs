@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Explore SQL Database Tutorials"
+   pageTitle="Explore Azure SQL Database Tutorials | Microsoft Azure"
    description="Learn about SQL Database features and capabilities"
    keywords=""
    services="sql-database"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="06/01/2016"
    ms.author="carlrab"/>
    
-# Explore SQL Database Tutorials
+# Explore Azure SQL Database Tutorials
 
-The links below take you to an overview of each listed feature area and a quick start tutorial for each area.
+The links below take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
 
 ## Using SQL Server Management Studio
 
@@ -151,7 +151,7 @@ In the following tutorials, you will learn about [securing Azure SQL Database da
 
 ## Business Continuity and Query Scale-Out
 
-In the following tutorials, you will learn about using [geo-restore and active geo-replication](sql-database-business-continuity.md) to reccover from errors, for business continuity and for query scale-out.
+In the following tutorials, you will learn about using [Geo-Restore and Active Geo-Replication](sql-database-business-continuity.md) to reccover from errors, for business continuity and for query scale-out.
 
 | Tutorial  | Description  |
 |---|---|---|
@@ -159,9 +159,9 @@ In the following tutorials, you will learn about using [geo-restore and active g
 | [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore-powershell.md) | In this tutorial, you learn how to restore your database to an earlier point in time using PowerShell|
 | [Restore a deleted Azure SQL database using the Azure Portal](sql-database-restore-deleted-database-portal.md) | In this tutorial, you learn how to restore a deleted database using the Azure portal.|
 | [Restore a deleted Azure SQL database using the PowerShell](sql-database-restore-deleted-database-powershell.md) | In this tutorial, you learn how to restore a deleted database using PowerShell.|
-| [Configure geo-replication for Azure SQL Database using the Azure portal](sql-database-geo-replication-portal.md)| In this tutorial, you learn how to configure active geo-replication using the Azure portal.|
-| [Configure geo-replication for Azure SQL Database using PowerShell](sql-database-geo-replication-powershell.md)| In this tutorial, you learn how to configure active geo-replication using PowerShell.|
-| [Configure geo-replication for Azure SQL Database using Transact-SQL](sql-database-geo-replication-transact-sql.md)| In this tutorial, you learn how to configure active geo-replication using Transact-SQL.|
+| [Configure Geo-Replication for Azure SQL Database using the Azure portal](sql-database-geo-replication-portal.md)| In this tutorial, you learn how to configure Active Geo-Replication using the Azure portal.|
+| [Configure Geo-Replication for Azure SQL Database using PowerShell](sql-database-geo-replication-powershell.md)| In this tutorial, you learn how to configure Active Geo-Replication using PowerShell.|
+| [Configure Geo-Replication for Azure SQL Database using Transact-SQL](sql-database-geo-replication-transact-sql.md)| In this tutorial, you learn how to configure Active Geo-Replication using Transact-SQL.|
 | [Initiate a planned or unplanned failover for Azure SQL Database using the Azure portal](sql-database-geo-replication-failover-portal.md) | In this tutorial, you learn how to failover to a geo-replicated secondary replica using the Azure portal.|
 | [Initiate a planned or unplanned failover for Azure SQL Database using PowerShell](sql-database-geo-replication-failover-powershell.md) | In this tutorial, you learn how to failover to a geo-replicated secondary replica using PowerShell.|
 | [Initiate a planned or unplanned failover for Azure SQL Database using Transact-SQL](sql-database-geo-replication-failover-transact-sql.md) | In this tutorial, you learn how to failover to a geo-replicated secondary replica using Transact-SQL.|
@@ -175,3 +175,7 @@ In this tutorial, you will learn about [Data Sync](http://download.microsoft.com
 |---|---|---| 
 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
 ||||
+
+## Next Steps
+
+[Explore Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)

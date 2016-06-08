@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrate to SQL Database using transactional replication"
+   pageTitle="Migrate to SQL Database using transactional replication | Microsoft Azure"
    description="Microsoft Azure SQL Database, database migration, import database, transactional replication"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Migrate SQL Server database to Azure SQL Database using transactional replication

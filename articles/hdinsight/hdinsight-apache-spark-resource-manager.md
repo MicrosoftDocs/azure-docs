@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# Manage resources for the Apache Spark cluster on HDInsight Linux (Preview)
+# Manage resources for the Apache Spark cluster on HDInsight Linux
 
 In this article you will learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You will also learn about how to tune the cluster configuration for optimal performance.
 
@@ -185,9 +185,19 @@ Since we use Spark dynamic allocation, the only resources that are consumed by t
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
+### Manage resources
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 
 

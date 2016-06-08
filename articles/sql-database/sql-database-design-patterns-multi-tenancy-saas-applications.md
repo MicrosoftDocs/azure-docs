@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database"
+   pageTitle="Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database | Microsoft Azure" 
    description="This article discusses the requirements and common data architecture patterns of multi-tenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database service with its elastic database pools and elastic tools help in addressing these requirements in a no-compromise fashion."
    keywords=""
    services="sql-database"
@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.workload="sqldb-design"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database
