@@ -47,7 +47,7 @@ The HockeyApp portal allows you to manage your application in various ways (invi
 
 More details on app management is available at the [Hockey App Knowledge Base](http://support.hockeyapp.net/kb/app-management-2).
 
-### Windows Forms apps
+### Windows Form apps
 The context menu for a Windows Form project node includes an option to upload your build to HockeyApp.
 
 ![Project context menu for Windows Forms apps](./media/app-insights-release-notes-vsix/WinFormContextMenu.png)
