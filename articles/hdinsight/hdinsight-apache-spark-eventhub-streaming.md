@@ -125,7 +125,6 @@ A sample Scala application to receive the event and route it to different destin
 
 	* **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. To include this jar, update the **pom.xml** to include the following under between `<repositories>..</repositories>` element. If the `<repositories>` element does not exist, create it at the same level as `<properties>`:
 
-			<repositories>
 			  <repository>
 			  	<id>spark-eventhubs</id>
 			  	<url>https://raw.github.com/hdinsight/spark-eventhubs/maven-repo/</url>
@@ -134,7 +133,7 @@ A sample Scala application to receive the event and route it to different destin
 					<updatePolicy>always</updatePolicy>
 			  	</snapshots>
 			  </repository>
-			</repositories>
+			
 
 		Also, add the following under `<dependencies>`.
 
