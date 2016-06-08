@@ -42,10 +42,10 @@ This script **MUST** be loaded **AFTER** a script or code snippet that you must 
 The Engagement Web SDK uses native JSON encoding/decoding and cross domain AJAX requests (relying on the W3C CORS specification).
 
 * Edge 12+
-* IE 8+
-* Firefox 3.5+
-* Chrome 3+
-* Safari 4+
+* IE 10+
+* Firefox 6+
+* Chrome 4+
+* Safari 6+
 * Opera 12+
 
 ## Configure Engagement
