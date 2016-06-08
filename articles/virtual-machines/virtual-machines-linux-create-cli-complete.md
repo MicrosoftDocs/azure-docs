@@ -38,7 +38,7 @@ azure group show TestRG --json | jq '.'
 Create the Storage Account
 
 ```bash
-azure storage account create -g TestRG -l westeurope --type GRS computeteststore
+azure storage account create -g TestRG -l westeurope --kind Storage --sku-name GRS computeteststore
 ```
 
 Verify the storage using the JSON parser
@@ -259,7 +259,7 @@ Here we use the `azure storage account create` command, passing the location of 
 azure storage account create \  
 --location westeurope \
 --resource-group TestRG \
---type GRS \
+--kind Storage --sku-name GRS \
 computeteststore
 ```
 

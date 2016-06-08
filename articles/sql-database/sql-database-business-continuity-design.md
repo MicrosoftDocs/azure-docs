@@ -43,13 +43,13 @@ To enable Geo-Restore, see [Geo-Restore an Azure SQL Database from a geo-redunda
 
 [Active Geo-Replication](sql-database-geo-replication-overview.md) enables the creation of readable (secondary) databases in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-disaster-recovery.md) section for using failover to recover your application.
 
-You should use the Geo-Replication if your application meets the following criteria:
+You should use Geo-Replication if your application meets the following criteria:
 
 1. It is mission critical. It has a binding SLA with aggressive RPO and RTO. Loss of data and availability will result in financial liability. 
 2. The rate of data change is high (e.g. transactions per minute or seconds). The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.
 3. The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.
 
-To enable Active Geo-Replication, see [Configure geo-replication for Azure SQL Database](sql-database-geo-replication-portal.md)
+To enable Active Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-portal.md)
 
 > [AZURE.NOTE] Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads. 
 
