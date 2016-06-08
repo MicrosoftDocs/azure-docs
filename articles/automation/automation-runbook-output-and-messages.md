@@ -4,7 +4,7 @@
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-   manager="stevenka"
+   manager="jwhit"
    editor="tysonn" />
 <tags
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="06/08/2016"
    ms.author="magoedte;bwren" />
 
 # Runbook output and messages in Azure Automation
@@ -102,7 +102,7 @@ Create a warning or error message using the [Write-Warning](https://technet.micr
 
 The Verbose message stream is for general information about the runbook operation. Since the [Debug Stream](#Debug) is not available in a runbook, verbose messages should be used for debug information. By default, verbose messages from published runbooks will not be stored in the job history. To store verbose messages, configure published runbooks to Log Verbose Records on the Configure tab of the runbook in the Azure Management Portal. In most cases, you should keep the default setting of not logging verbose records for a runbook for performance reasons. Turn on this option only to troubleshoot or debug a runbook.
 
-When [testing a runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx), verbose messages are not displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx), you must set the $VerbosePreference variable to Continue. With that variable set, verbose messages will be displayed in the Test Output Pane of the Azure Management Portal.
+When [testing a runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx), verbose messages are not displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx), you must set the $VerbosePreference variable to Continue. With that variable set, verbose messages will be displayed in the Test Output Pane of the Azure portal.
 
 Create a verbose message using the [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
@@ -116,7 +116,7 @@ The Debug stream is intended for use with an interactive user and should not be 
 
 ## Progress records
 
-If you configure a runbook to log progress records (on the Configure tab of the runbook in the Azure Management Portal), then a record will be written to the job history before and after each activity is run. In most cases, you should keep the default setting of not logging progress records for a runbook in order to maximize performance. Turn on this option only to troubleshoot or debug a runbook. When testing a runbook, progress messages are not displayed even if the runbook is configured to log progress records.
+If you configure a runbook to log progress records (on the Configure tab of the runbook in the Azure portal), then a record will be written to the job history before and after each activity is run. In most cases, you should keep the default setting of not logging progress records for a runbook in order to maximize performance. Turn on this option only to troubleshoot or debug a runbook. When testing a runbook, progress messages are not displayed even if the runbook is configured to log progress records.
 
 The [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) cmdlet is not valid in a runbook, since this is intended for use with an interactive user.
 
@@ -142,26 +142,29 @@ The following table lists the behavior for the preference variable values that a
 
 ## Retrieving runbook output and messages
 
-### Azure management portal
+### Azure portal
 
-You can view the details of a runbook job in the Azure Management Portal from the Jobs tab of a runbook. The Summary of the job will display the input parameters and the [Output Stream](#Output) in addition to general information about the job and any exceptions if they occurred. The History will include messages from the [Output Stream](#Output) and [Warning and Error Streams](#WarningError) in addition to the [Verbose Stream](#Verbose) and [Progress Records](#Progress) if the runbook is configured to log verbose and progress records.
+You can view the details of a runbook job in the Azure portal from the Jobs tab of a runbook. The Summary of the job will display the input parameters and the [Output Stream](#Output) in addition to general information about the job and any exceptions if they occurred. The History will include messages from the [Output Stream](#Output) and [Warning and Error Streams](#WarningError) in addition to the [Verbose Stream](#Verbose) and [Progress Records](#Progress) if the runbook is configured to log verbose and progress records.
 
 ### Windows PowerShell
 
-In Windows PowerShell, you can retrieve output and messages from a runbook using the [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx) cmdlet. This cmdlet requires the ID of the job and has a parameter called Stream where you specify which stream to return. You can specify Any to return all streams for the job.
+In Windows PowerShell, you can retrieve output and messages from a runbook using the [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) cmdlet. This cmdlet requires the ID of the job and has a parameter called Stream where you specify which stream to return. You can specify Any to return all streams for the job.
 
 The following example starts a sample runbook and then waits for it to complete. Once completed, its output stream is collected from the job.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+	$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 	$doLoop = $true
 	While ($doLoop) {
-	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+	   $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+       –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
 	   $status = $job.Status
 	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
 
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+	Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
 ### Graphical Authoring
 
@@ -186,7 +189,7 @@ The Trace records can be especially numerous.  With Graphical runbook tracing yo
 
     ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-## Related articles
+## Next Steps
 
-- [Track a runbook job](automation-runbook-execution.md)
-- [Child Runbooks](http://msdn.microsoft.com/library/azure/dn857355.aspx)
+- To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
+- To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
