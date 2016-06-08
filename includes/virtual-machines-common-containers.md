@@ -122,7 +122,7 @@ Also, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-ku
 
 [Deis](http://deis.io/overview/) is an open source "Platform-as-a-Service" (PaaS) that makes it easy to deploy and manage applications on your own servers. Deis builds upon Docker and CoreOS to provide a lightweight PaaS with a Heroku-inspired workflow. You can easily [create a 3-Node Azure VM group and install Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) on Azure and then [install a Hello World Go application](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-[CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](https://coreos.com/using-coreos/clustering/).
 
 Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports [Linux (LXC-style) clusters](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -174,11 +174,11 @@ Docker on Microsoft Azure:
 
 Linux distributions and Azure examples:
 
-- [CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)
+- [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 Configuration, cluster management, and container orchestration:
 
-- [Fleet on CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [Fleet on CoreOS](https://coreos.com/using-coreos/clustering/)
 
 -	Deis
 	- [Create a 3-Node Azure VM group, install Deis, and start a Hello World Go application](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)

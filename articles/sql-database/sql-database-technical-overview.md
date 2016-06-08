@@ -41,7 +41,7 @@ But how can you compare the relative performance of databases and database pools
 
 Azure's industry leading 99.99% availability service level agreement [(SLA)](http://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. With every SQL database, you take advantage of built-in data protection, fault tolerance, and data protection that you would otherwise have to design, buy, build, and manage. Even so, depending on the demands of your business, you may demand additional layers of protection to ensure your app and your business can recover quickly in the event of a disaster, an error, or something else. With SQL Database, each service tier offers a different menu of features you can use to get up and running and stay that way. You can use point-in-time restore to return a database to an earlier state, as far back as 35 days. In addition, if the datacenter hosting your databases experiences an outage, you can failover to database replicas in a different region. Or you can use replicas for upgrades or relocation to different regions.
 
-![SQL Database geo-replication](./media/sql-database-technical-overview/azure_sqldb_map.png)
+![SQL Database Geo-Replication](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 
 See [Business Continuity](sql-database-business-continuity.md) for details about the different business continuity features available for different service tiers.

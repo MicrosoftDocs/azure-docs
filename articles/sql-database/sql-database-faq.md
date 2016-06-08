@@ -80,7 +80,7 @@ We are currently supporting an RPO of 5 seconds and the replication lag has been
 ## What is an expected replication lag when geo-secondary is created in the same region as the primary database?  
 Based on empirical data, there is not too much difference between intra-region and inter-region replication lag when the Azure recommended paired region is used. 
 
-## If there is a network failure between two regions, how does the retry logic work when geo-replication is set up?  
+## If there is a network failure between two regions, how does the retry logic work when Geo-Replication is set up?  
 If there is a disconnect, we retry every 10 seconds to re-establish connections.
 
 ## What can I do to guarantee that a critical change on the primary database is replicated?
