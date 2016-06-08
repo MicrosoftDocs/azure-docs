@@ -9,7 +9,7 @@ The standard sizes consist of several series: A, D, DS, F, G, and GS. Considerat
 
 * F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per core. The F-series sizes range from 1 to 16 CPU cores with options for both standard and premium storage optimized sizes.
 
-* The F-series also introduces a new standard in VM size naming for Azure. For this series and VM sizes released in the future, the numeric value after the family name letter will match the number of CPU cores. Additional capabilities, such as optimized for premium storage, will be designated by letters following the numeric CPU core count. This naming format will be used for future VM sizes released but will not retroactively change the names of any existing VM sizes which have been released.
+ The F-series also introduces a new standard in VM size naming for Azure. For this series and VM sizes released in the future, the numeric value after the family name letter will match the number of CPU cores. Additional capabilities, such as optimized for premium storage, will be designated by letters following the numeric CPU core count. This naming format will be used for future VM sizes released but will not retroactively change the names of any existing VM sizes which have been released.
 
 
 *   G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
@@ -52,15 +52,15 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 |[Standard_A0](#standard-tier-a-series)	|50 |
 |[Standard_A1-4](#standard-tier-a-series)	|100 |
 |[Standard_A5-7](#standard-tier-a-series)	|100 |
-|[A8-A11](#standard-tier-a-series)	|225 *|
+|[A8-A11](#standard-tier-a-series)	|225*|
 |[D1-14](#standard-tier-d-series)	|160 |
-|[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
+|[D1-15v2](#standard-tier-dv2-series)	|210 - 250*|
 |[DS1-14](#standard-tier-ds-series)	|160 |
 |[DS1-15v2](#standard-tier-dsv2-series)	|210-250* |
 |[F1-F16](#standard-storage-optimized-f-series) | 210-250*|
 |[F1s-F16s](#premium-storage-optimized-f-series) | 210-250*|
-|[G1-5](#standard-tier-g-series)	|180 - 240 *|
-|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+|[G1-5](#standard-tier-g-series)	|180 - 240*|
+|[GS1-5](#standard-tier-gs-series)	|180 - 240*|
 
 
 ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
