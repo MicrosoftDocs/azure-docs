@@ -45,10 +45,10 @@ Make sure that Azure PowerShell 1.0+ is installed on your machine. If you have n
 Copy the *ServiceFabricRPHelpers* folder from this [Git repository](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers) to your computer.
 
 ### Step 2.3
-Open a PowerShell window and import the ServiceFabricRPHelpers.psm (change the path of the .psm1 to match the path on your machine).
+Open a PowerShell window and go to the directory where you downloaded the module.  Then import the module using the following command.
 
 ```powershell
-Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+Import-Module .\ServiceFabricRPHelpers.psm1
 ```
 
 ### Step 2.4
