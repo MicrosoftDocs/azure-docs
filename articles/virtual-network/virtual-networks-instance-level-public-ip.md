@@ -126,5 +126,5 @@ You can also associate an ILPIP to a VM by using a service configuration (CSCFG)
 
 - Understand how [IP addressing](virtual-network-ip-addresses-overview-classic.md) works in the classic deployment model.
 
-- Learn about [Reserved IPs](../virtual-networks-reserved-public-ip).
+- Learn about [Reserved IPs](virtual-networks-reserved-public-ip.md).
  

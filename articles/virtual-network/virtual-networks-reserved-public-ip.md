@@ -33,7 +33,7 @@ Make sure you understand how [IP addresses](virtual-network-ip-addresses-overvie
 1. Can I use a reserved IP for all Azure services?  
   - Reserved IPs can only be used for VMs and cloud service instance roles exposed through a VIP.
 1. How many reserved IPs can I have?  
-  - At this time, all Azure subscriptions are authorized to use 20 reserved IPs. However, you can request additional reserved IPs. See the [Subscription and Service Limits](../azure-subscription-service-limits/) page for more information.
+  - At this time, all Azure subscriptions are authorized to use 20 reserved IPs. However, you can request additional reserved IPs. See the [Subscription and Service Limits](../azure-subscription-service-limits.md) page for more information.
 1. Is there a charge for reserved IPs?
   - See [Reserved IP Address Pricing Details](http://go.microsoft.com/fwlink/?LinkID=398482) for pricing information.
 1. How do I reserve an IP address?
@@ -84,7 +84,7 @@ The script below creates a new reserved IP, then associates it to a new cloud se
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 	| New-AzureVM -ServiceName TestService -ReservedIPName MyReservedIP -Location "Central US"
 
->[AZURE.NOTE] When you create a reserved IP to use with a cloud service, you’ll still need to refer to the VM by using *VIP:&lt;port number>* for inbound communication. Reserving an IP does not mean you can connect to the VM directly. The reserved IP is assigned to the cloud service that the VM has been deployed to. If you want to connect to a VM by IP directly, you have to configure an instance-level public IP. An instance-level public IP is a type of public IP (called a ILPIP) that is assigned directly to your VM. It cannot be reserved. See [Instance-level Public IP (ILPIP)](../virtual-networks-instance-level-public-ip) for more information.
+>[AZURE.NOTE] When you create a reserved IP to use with a cloud service, you’ll still need to refer to the VM by using *VIP:&lt;port number>* for inbound communication. Reserving an IP does not mean you can connect to the VM directly. The reserved IP is assigned to the cloud service that the VM has been deployed to. If you want to connect to a VM by IP directly, you have to configure an instance-level public IP. An instance-level public IP is a type of public IP (called a ILPIP) that is assigned directly to your VM. It cannot be reserved. See [Instance-level Public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) for more information.
 
 ## How to remove a reserved IP from a running deployment
 To remove the reserved IP added to the new service created in the script above, run the following PowerShell command:
@@ -126,6 +126,6 @@ You can also associate a reserved IP to a cloud service by using a service confi
 
 - Understand how [IP addressing](virtual-network-ip-addresses-overview-classic.md) works in the classic deployment model.
 
-- Learn about [reserved private IP addresses](../virtual-networks-reserved-private-ip).
+- Learn about [reserved private IP addresses](virtual-networks-reserved-private-ip.md).
 
-- Learn about [Instance Level Public IP (ILPIP) addresses](../virtual-networks-instance-level-public-ip).
+- Learn about [Instance Level Public IP (ILPIP) addresses](virtual-networks-instance-level-public-ip.md).
