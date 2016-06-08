@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth"/>
 
 # Azure subscription and service limits, quotas, and constraints
@@ -177,6 +177,7 @@ The following table shows the limits for Azure Biztalk Services.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
+Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md).
 
 ### Mobile Engagement limits
 
