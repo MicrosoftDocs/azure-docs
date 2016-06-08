@@ -21,18 +21,19 @@
 [AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Introduction
-To get started with Azure IoT Hub device management, you need to create an Azure IoT Hub, provision devices in the IoT Hub, and start multiple simulated devices. This tutorial walks you through these steps.
+To get started with Azure IoT Hub device management, you need to create an Azure IoT Hub, provision devices in the IoT Hub, start multiple simulated devices, and view these devices in the device management sample UI. This tutorial walks you through these steps.
 
 > [AZURE.NOTE]  You need to create a new IoT Hub to enable device management capabilities even if you have an existing IoT Hub because existing IoT Hubs do not have device management capabilities yet. Once device management is generally available, all existing IoT Hubs will be upgraded to get device management capabilities.
 
 ## Prerequisites
 
+This tutorial assumes you are using a Linux development machine.
+
 You need the following installed to complete the steps:
 
 - Git
-- node
-- npm
 - CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. Make sure to check the box to add CMake to the current user PATH variable.
+- Node.js 6.1.0 or greater.  Install Node.js for your platform from <https://nodejs.org/>.
 - An active Azure subscription.
 
 	If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
@@ -91,7 +92,7 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory and run, replacing the placeholder value with your connection string from the previous section:
 
 	  ```
-	  setup.bat <IoT Hub Connection String>
+	  setup.sh <IoT Hub Connection String>
 	  ```
 
 This script does the following:
@@ -126,25 +127,73 @@ Below is output from the **iotdm\_simple\_sample** sample application. At the to
 
 ![][img-output]
 
-Make sure to leave all the simulated devices running as you complete the tutorials in "Next steps".
+Make sure to leave all the simulated devices running as you complete the following sections.
 
-## Next steps
+## Run the device management sample UI
 
-To learn more about the Azure IoT Hub device management features you can go through the tutorials:
+Now that you have provisioned an IoT Hub and have several simulated devices running and registered for management, you can deploy the device management sample UI. The device management sample UI provides you with a working example of how to utilize the device management APIs to build an interactive UI experience.  For more information about the device management sample UI, see the [Azure IoT device management UI][lnk-dm-github] GitHub repository.
 
+To retrieve, build, and run the device management sample UI, follow the steps below:
+
+1. Open a terminal.
+
+2. Confirm that you’ve installed Node.js 6.1.0 or greater according the prerequisites section by typing `node --version`.
+
+3. Clone the Azure IoT device management UI GitHub repository by running the following command:
+
+	```
+	git clone https://github.com/Azure/azure-iot-device-management.git
+	```
+	
+4. In the root folder of your cloned copy of the Azure IoT device management UI repository, run the following command to retrieve the dependent packages:
+
+	```
+	npm install
+	```
+
+5. When the npm install command has completed, run the following command to build the code:
+
+	```
+	npm run build
+	```
+
+6. Use a text editor to open the user-config.json file in root of the cloned folder. Replace the text "&lt;YOUR CONNECTION STRING HERE&gt;" with your IoT Hub connection string from the previous section and save the file.
+
+7. In the command prompt, run the following command to start the device management UX app:
+
+	```
+	npm run start
+	```
+
+8. When the command prompt has reported "Services have started", open a web browser and navigate to the device management app at the following URL to view your simulated devices: <http://127.0.0.1:3003>.
+
+	![][img-dm-ui]
+
+Leave the simulated devices and the device management app running as you proceed to the next device management tutorial.
+
+
+## Next step
+
+To continue learning about the Azure IoT Hub device management features, see the [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] tutorial.
+
+## Additional resources
+
+Other IoT Hub device management overviews, guides, and tutorials include:
+
+- [Overview of Azure IoT Hub device management][lnk-dm-overview]
 - [How to use the device twin][lnk-tutorial-twin]
-
 - [How to find device twins using queries][lnk-tutorial-queries]
-
 - [How to use device jobs to update device firmware][lnk-tutorial-jobs]
+- [Introducing the Azure IoT Hub device management client library][lnk-library-c]
 
 <!-- images and links -->
-[img-new-hub]: media/iot-hub-device-management-get-started/image1.png
-[img-configure-hub]: media/iot-hub-device-management-get-started/image2.png
-[img-monitor]: media/iot-hub-device-management-get-started/image3.png
-[img-keys]: media/iot-hub-device-management-get-started/image4.png
-[img-connection]: media/iot-hub-device-management-get-started/image5.png
-[img-output]: media/iot-hub-device-management-get-started/image6.png
+[img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png
+[img-configure-hub]: media/iot-hub-device-management-get-started-node/image2.png
+[img-monitor]: media/iot-hub-device-management-get-started-node/image3.png
+[img-keys]: media/iot-hub-device-management-get-started-node/image4.png
+[img-connection]: media/iot-hub-device-management-get-started-node/image5.png
+[img-output]: media/iot-hub-device-management-get-started-node/image6.png
+[img-dm-ui]: media/iot-hub-device-management-get-started-node/dmui.png
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure portal]: https://portal.azure.com/
@@ -152,3 +201,7 @@ To learn more about the Azure IoT Hub device management features you can go thro
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
+[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-dm-overview]: iot-hub-device-management-overview.md
+[lnk-library-c]: iot-hub-device-management-library.md
