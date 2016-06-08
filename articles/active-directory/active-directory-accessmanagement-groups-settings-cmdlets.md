@@ -134,3 +134,5 @@ name | type | defaultValue | description
 ## Next steps
 
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260).
+
+Additional instruction from Microsoft's Rob de Jong is available at [Rob's Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad).
