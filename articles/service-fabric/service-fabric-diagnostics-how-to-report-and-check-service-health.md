@@ -3,8 +3,8 @@
    description="Learn how to send health reports from your service code and how to check the health of your service by using the health monitoring tools that Azure Service Fabric provides."
    services="service-fabric"
    documentationCenter=".net"
-   authors="punewa"
-   manager="timlt"
+   authors="toddabel"
+   manager="mfussell"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/18/2016"
+   ms.date="06/7/2016"
    ms.author="toddabel"/>
 
 # Report and check service health
@@ -77,7 +77,7 @@ The Service Fabric project templates in Visual Studio contain sample code. The f
     using System.Fabric.Health;
     ```
 
-    b. Add the following code after the `myDictionary.TryGetValueAsync` call.
+    b. Add the following code after the `myDictionary.TryGetValueAsync` call
 
     ```csharp
     if (!result.HasValue)
@@ -88,7 +88,7 @@ The Service Fabric project templates in Visual Studio contain sample code. The f
     ```
     We report replica health because it's being reported from a stateful service. The `HealthInformation` parameter stores information about the health issue that's being reported.
 
-    For a stateless service, use the following code.
+    If you had created a stateless service, use the following code
 
     ```csharp
     if (!result.HasValue)
