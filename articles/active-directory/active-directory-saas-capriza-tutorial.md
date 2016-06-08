@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -74,7 +74,7 @@ To configure the integration of Capriza into Azure AD, you need to add Capriza f
 
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-![Applications][4]
+	![Applications][4]
 
 6. In the search box, type **Capriza**.
 
