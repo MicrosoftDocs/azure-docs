@@ -26,29 +26,27 @@ ARM templates deploy and provision all of the resources for your application in 
 
 ### Turn off IE enhanced security and enable cookies
 
-Before authenticating PowerShell, you must allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user sign-ins.
+Before authenticating PowerShell, you must allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user sign-ins. These configurations should be set on any Windows Server machine being used to execute Azure PowerShell against Azure Stack. In most cases this will be the ClientVM.
 
 **To turn off IE enhanced security:**
 
-1. Sign in to the Azure Stack proof-of-concept (PoC) computer as an AzureStack/administrator, and then open Server Manager.
+1. Sign in to the **ClientVM.AzureStack.local** virtual machine as an **azurestack\administrator**, and then open Server Manager.
 
 2. Turn off **IE Enhanced Security Configuration** for both admins and users.
 
-3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
-
-4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+3. Sign out of the **ClientVM.AzureStack.local** virtual machine.
 
 **To enable cookies:**
 
-1. On the Windows Start screen, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, point to **More**, and then click **Run as administrator**.
+1. Sign in to the **ClientVM.AzureStack.local** virtual machine as an **azurestack\azurestackuser**.
+
+2. On the Windows Start screen, click **All apps** &gt; **Windows accessories** &gt; **Internet Explorer**.
 
 2. If prompted, check **Use recommended security**, and then click **OK**.
 
 3. In Internet Explorer, click the **Tools (gear) icon** &gt; **Internet options** &gt; **Privacy** tab.
 
 4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again.
-
-5. Close Internet Explorer and restart PowerShell ISE as an Azure Stack user.
 
 
 ## Authenticate PowerShell with Microsoft Azure Stack (required)
