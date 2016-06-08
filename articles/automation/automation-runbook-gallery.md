@@ -32,7 +32,7 @@ You can only import directly from the Runbook Gallery using the Azure classic po
 
 ### To import a runbook from the Runbook Gallery with the Azure classic portal
 
-1. In the Azure Management portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
+1. In the Azure Portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
 2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.
 
     ![Runbook gallery](media/automation-runbook-gallery/runbook-gallery.png)
