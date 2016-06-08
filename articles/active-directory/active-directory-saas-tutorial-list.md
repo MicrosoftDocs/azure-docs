@@ -29,6 +29,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AtTask.jpg)| [@Task](https://go.microsoft.com/fwLink/?LinkID=522550&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_15five.jpg)| [15Five](https://go.microsoft.com/fwLink/?LinkID=510255&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_23video.jpg)| [23 Video](https://go.microsoft.com/fwLink/?LinkID=530248&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_360Online.jpg)| [360 Online](http://go.microsoft.com/fwlink/?LinkID=785277&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AbaSainsbury.jpg)| [ABa Sainsburys Connect](https://go.microsoft.com/fwLink/?LinkID=530227&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Abintegro.jpg)| [Abintegro](https://go.microsoft.com/fwLink/?LinkID=512738&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AdaptiveSuite.jpg)| [Adaptive Suite](https://go.microsoft.com/fwLink/?LinkID=512724&clcid=0x409)|
