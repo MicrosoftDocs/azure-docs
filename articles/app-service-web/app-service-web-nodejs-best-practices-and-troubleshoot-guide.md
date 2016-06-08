@@ -135,7 +135,7 @@ This example assumes you have 4 node.exe running on your VM. If you have a diffe
 
 ### My node application is consuming too much CPU.
 
-You will probably get a recommendation from Azure Webapps on your portal about high cpu consumption. You can also setup monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the [Azure Portal Dashboard](app-insights-web-monitor-performance.md), please check the MAX values for CPU so you don’t miss out the peak values.
+You will probably get a recommendation from Azure Webapps on your portal about high cpu consumption. You can also setup monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the [Azure Portal Dashboard](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance), please check the MAX values for CPU so you don’t miss out the peak values.
 In cases where you think your application is consuming too much CPU and you cannot explain why, you will need to profile your node application.
 
 ### 
@@ -210,7 +210,7 @@ You will see that 95% of the time was consumed by WriteConsoleLog function as sh
 
 ### My node application is consuming too much memory.
 
-You will probably get a recommendation from Azure Webapps on your portal about high memory consumption. You can also setup monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure Portal Dashboard](app-insights-web-monitor-performance.md), please check the MAX values for memory so you don’t miss out the peak values.
+You will probably get a recommendation from Azure Webapps on your portal about high memory consumption. You can also setup monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure Portal Dashboard](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance), please check the MAX values for memory so you don’t miss out the peak values.
 
 #### Leak detection and Heap Diffing for node.js 
 
@@ -250,7 +250,7 @@ Some solutions to make this faster are:
 
 2.  Try to lazy load your node\_modules and not load all of the modules at startup. This means that the call to require(‘module’) should be done when you actually need it within the function you try to use the module.
 
-3.  Azure Webapps offers a feature called local cache. This feature copies your content from the network share to the local disk on the VM. Since the files are local, the load time of node\_modules is much faster. - This [documentation](app-service-local-cache.md) explains how to use Local Cache in more detail.
+3.  Azure Webapps offers a feature called local cache. This feature copies your content from the network share to the local disk on the VM. Since the files are local, the load time of node\_modules is much faster. - This [documentation](https://azure.microsoft.com/documentation/articles/app-service-local-cache) explains how to use Local Cache in more detail.
 
 ## IISNODE http status and substatus
 
@@ -279,7 +279,7 @@ Follow these links to learn more about node.js applications on Azure App Service
 
 * [Get started with Node.js web apps in Azure App Service](app-service-web-nodejs-get-started.md)
 * [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md)
-* [Using Node.js Modules with Azure applications](nodejs-use-node-modules-azure-apps.md)
+* [Using Node.js Modules with Azure applications](https://azure.microsoft.com/documentation/articles/nodejs-use-node-modules-azure-apps/)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
