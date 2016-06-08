@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="03/14/2016"
+   ms.date="06/06/2016"
    ms.author="rasquill"/>
 
 # Navigate and select Linux virtual machine images in Azure with CLI or Powershell
@@ -27,10 +27,13 @@ This topic describes how to find publishers, offers, skus, and versions for each
 
 | PublisherName                        | Offer                                 | Sku                         |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic                        | CentOS                                     | 7                                |
+| RedHat                           | RHEL                                       | 7.2                              |
+| credativ                         | Debian                                     | 8                                | 
+| SUSE                             | openSUSE                                   | 13.2                             |
+| SUSE                             | SLES                                       | 12-SP1                           |
 | OpenLogic                        | CentOS                                     | 7.1                              |
-| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      |
-| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      |
+| Canonical                        | UbuntuServer                               | 14.04.4-LTS                      |
+| CoreOS                           | CoreOS                                     | Stable                           |
 
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]

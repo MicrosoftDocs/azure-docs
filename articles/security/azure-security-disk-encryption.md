@@ -263,23 +263,23 @@ Azure AD Client ID and secret can also be provisioned using the Azure Service Ma
 
 1.Click the Active Directory tab as shown in Figure below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2.Click Add Application and type the application name as shown below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3.Click the arrow button and configure the app's properties as shown below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4.Click the check mark in the lower left corner to finish. The app's configuration page appears. Notice the Azure AD Client ID is located in the bottom of the page as shown in figure below.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5.Save the Azure AD client secret by click in the Save button. Click the save button and note the secret from the keys text box, this is the Azure AD client secret. You should safeguard the Azure AD client secret appropriately.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Note:** this flow above is not supported in the Portal.

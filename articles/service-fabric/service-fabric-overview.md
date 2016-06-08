@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # Overview of Service Fabric
 Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications. By using Service Fabric, developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
@@ -26,7 +26,7 @@ Why is a microservices approach important? The two main reasons are:
 
 1. They enable you to scale different parts of your application depending on its needs
 
-2. Development teams are able to be more agile in rolling out changes and thereby provide features to your customers faster and more frequently. 
+2. Development teams are able to be more agile in rolling out changes and thereby provide features to your customers faster and more frequently.
 
 Service Fabric powers many Microsoft services today, including Azure SQL Database, Azure DocumentDB, Cortana, Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT, Skype for Business, and many core Azure services to name a few.
 
@@ -39,7 +39,7 @@ Service Fabric provides comprehensive runtime and lifecycle management capabilit
 For more on the microservices approach read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 
 ## Create Service Fabric clusters anywhere
-You can create Service Fabric clusters in many environments to deploy your applications to. This can be in Azure or on premises, on Windows Server or on Linux. In addition the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it will deploy to the same cluster in other environments. 
+You can create Service Fabric clusters in many environments to deploy your applications to. This can be in Azure or on premises, on Windows Server or on Linux. In addition the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it will deploy to the same cluster in other environments.
 
 For more information read [Deploy anywhere on Windows Server or Linux with Service Fabric](service-fabric-deploy-anywhere.md)
 

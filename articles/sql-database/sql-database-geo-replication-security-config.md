@@ -41,7 +41,7 @@ In order for the secondary database to be usable as a read-only secondary databa
 
 The specific permissions for each step are described later in this topic.
 
-Preparing user access to a Geo-Replication secondary should be performed as part configuring geo-replication. Preparing user access to the geo-restored databases should be performed at any time when the original server is online (e.g. as part of the DR drill).
+Preparing user access to a Geo-Replication secondary should be performed as part configuring Geo-Replication. Preparing user access to the geo-restored databases should be performed at any time when the original server is online (e.g. as part of the DR drill).
 
 >[AZURE.NOTE] If you failover or geo-restore to a server that does not have properly configured logins access to it will be limited to the server admin account.
 
