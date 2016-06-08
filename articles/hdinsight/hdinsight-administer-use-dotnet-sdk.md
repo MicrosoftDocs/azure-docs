@@ -57,7 +57,7 @@ The following code sample shows you how to connect to Azure before you can admin
 			private static HDInsightManagementClient _hdiManagementClient;
             // Replace with your AAD tenant ID if necessary
             private const string TenantId = UserTokenProvider.CommonTenantId; 
-			private static string SubscriptionId = "<Your Azure Subscription ID>";
+			private const string SubscriptionId = "<Your Azure Subscription ID>";
             // This is the GUID for the PowerShell client. Used for interactive logins in this example.
             private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
 
