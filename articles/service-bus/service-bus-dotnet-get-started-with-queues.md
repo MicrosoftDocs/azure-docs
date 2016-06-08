@@ -42,13 +42,13 @@ In this tutorial, we will complete the following:
 
 ## 1. Create a namespace using the Azure portal
 
-If you already have a Service Bus namspace created created jump to the [Create a queue using the Azure portal section](#2-create-a-queue-using-the-azure-portal).
+If you already have a Service Bus namespace created, created jump to the [Create a queue using the Azure portal section](#2-create-a-queue-using-the-azure-portal).
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## 2. Create a queue using the Azure portal
 
-If you already have a Service Bus queue created created jump to the [Sending messages to the queue section](#3-sending-messages-to-the-queue).
+If you already have a Service Bus queue created, jump to the [Send messages to the queue section](#3-send-messages-to-the-queue).
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
@@ -115,7 +115,7 @@ In order to send messages to the queue, we will write a C# console application u
     
       ![Queue length][2]
     
-## 4. Receiving messages from the queue
+## 4. Receive messages from the queue
 
 1. Create a new console application and add a reference to the Service Bus NuGet package, similar to the sending application above.
 
