@@ -36,7 +36,7 @@ Before you begin this article, you must have the following:
 You will need the following Nuget packages:
 
 	Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager -pre
+    Install-Package Microsoft.Azure.Management.ResourceManager -Pre
 	Install-Package Microsoft.Azure.Management.HDInsight
 
 The following code sample shows you how to connect to Azure before you can administer HDInsight clusters under your Azure subscription.

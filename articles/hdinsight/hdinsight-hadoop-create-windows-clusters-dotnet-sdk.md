@@ -46,7 +46,7 @@ The application requires an Azure resource group, and the default storage accoun
 2. Run the following Nuget command in the Nuget Package Management console.
 
 		Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.ResourceManager -pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
 
 6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:

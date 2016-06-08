@@ -196,7 +196,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 2. From the Nuget Package Manager Console, run the following command.
 
 		Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.ResourceManager -pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
 
 2. Use the following using statements in the Program.cs file:

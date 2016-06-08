@@ -50,7 +50,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 6. Run the following command in the console to install the packages:
 
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.ResourceManager -pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
 
     These commands add .NET libraries and references to them to the current Visual Studio project.
