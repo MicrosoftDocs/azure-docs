@@ -19,15 +19,15 @@
 
 # SQL Data Warehouse preview expectations
 
-This article describes SQL Data Warehouse preview capabilities, and our goals for the service for general availability (GA). We will continuously update this information as we enhance public preview capabilities.
+This article describes SQL Data Warehouse preview capabilities and our goals for the service for general availability (GA). We will continuously update this information as we enhance public preview capabilities.
 
 Our goals for SQL Data Warehouse:
 
-- Predictable performance and linear scalability up to petabytes of data.
+- Predictable performance and linear scalability up to petabytes of data
 - High reliability for all data warehouse operations
 - Short time from data loading to data insights across relational and non-relational data
 
-We will continuously work toward these goals before promoting SQL Data Warehouse to general availability.
+We will continuously work toward these goals during the preview of SQL Data Warehouse.
 
 ## Predictable and scalable performance
 
@@ -40,25 +40,22 @@ Any data warehouse has 2 fundamental performance metrics:
 
 We’re measuring some important performance enhancements and will soon share the expected rates. During preview we will make continuous enhancements (e.g. increasing compression and caching) to increase these rates and to ensure they scale predictably.  
 
+## Data Protection
 
-## High reliability
+SQL Data Warehouse stores all data in Azure storage using locally redundant storage. Multiple synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures. 
 
-### Data Protection
-
-SQL Data Warehouse stores all data in Azure storage using locally redundant storage. Three synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures (e.g. storage drive failures). 
-
-### Backups
+## Backups
 
 Azure SQL Data Warehouse backs up all data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows restoring the data to at least 21 points in time within the past 7 days up to the time when the last snapshot was taken. You can restore data from a snapshot by using PowerShell or REST APIs.
 
-### Query completion
+## Query reliability
 
-SQL Data Warehouse stores data across one or more computing nodes that each store some of the user data and control query execution on that data. As part of the massively parallel processing (MPP) architecture, the queries run in parallel across the Compute nodes. SQL Data Warehouse automatically detects and mitigates Compute node failures. However, during preview, an operation (e.g. data load or query) may fail due to individual node failures. During preview, we are making continuous enhancements to successfully complete operations despite node failures.
+SQL Data Warehouse is built on a massively parallel processing (MPP) architecture. SQL Data Warehouse automatically detects and migrates Compute and Control node failures. However an operation (e.g. data load or query) may fail as a result of a node failure or migration. During preview, we are making continuous enhancements to successfully complete operations despite node failures.
 
 
-### Upgrades and downtime
+## Upgrades and downtime
 
-During the preview, SQL Data Warehouse will periodically be upgraded in order to add new features and install critical fixes.  These upgrades can be disruptive and at this time upgrades are not done on a predictable schedule.  If you find that this process is too disruptive, we encourage you to [create a support ticket][] so that we can help you work around this process.
+SQL Data Warehouse will periodically be upgraded in order to add new features and install critical fixes.  These upgrades can be disruptive and at this time upgrades are not done on a predictable schedule.  If you find that this process is too disruptive, we encourage you to [create a support ticket][] so that we can help you work around this process.
 
 
 ## Next steps

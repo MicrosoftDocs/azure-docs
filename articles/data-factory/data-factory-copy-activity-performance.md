@@ -172,35 +172,36 @@ Refer to [sample use cases](#case-study---parallel-copy) here to better leverage
 It is **important** to remember that you will be charged based on the total time of the copy operation. Hence, if a copy job used to take 1 hour with 1 cloud unit and now it takes 15 minutes with 4 cloud units then the overall bill would be almost the same. Here is another scenario: suppose, you are using 4 cloud units and the 1st cloud unit spends 10 minutes, 2nd one spends 10 minutes, 3rd one spends 5 minutes, and 4th one spends 5 minutes with in a copy activity run, you will be charged for the total copy (data movement) time, which is 10 + 10 + 5 + 5 = 30 minutes. Usage of **parallelCopies**  has no impact on billing. 
 
 ## Staged copy
-When copying data from a source data store to a sink data store, you can use an Azure blob storage as an interim staging data store. The staging feature is especially useful in the following scenarios: 
+When copying data from a source data store to a sink data store, you may use an Azure Blob storage as interim stagingstore. This staging capability is especially useful in the following cases: 
 
-1.	It takes a long time to move data from an on-premises data store to a cloud data store over a slow network connection. To improve performance of this copy operation, you can compress data on-premises so that it takes less time to move data over the wire to the staging data store in the cloud and then decompress staged data before loading data into the destination data store. 
-2.	You do not want to open ports other than 80 and 443 in your corporate firewall. When copying data from an on-premises data store an Azure SQL Database sink or Azure SQL Data Warehouse sink, outbound TCP communication on port 1433 for both Windows firewall and corporate firewall needs to be enabled. You can have the Data Management Gateway copy data to a staging Azure Blob Storage, which happens through HTTP(S), and then load the data into SQL Database or SQL Data Warehouse from the staging blob storage.  
-3.	Ingest data from various sources (other than Azure Blob Storage) into Azure SQL Data Warehouse via PolyBase. Azure SQL Data Warehouse provides PolyBase as a high throughput mechanism to load huge amounts of data into SQL Data Warehouse. However, this mechanism requires the source data to be in an Azure Blob Storage and in one of the supported formats (DELIMITEDTEXT with restriction, RCFILE, ORC, PARQUET). When loading data from a data store other than Azure Blob Storage, you can enable copying data via an interim staging Azure blob storage, in which case Azure Data Factory will perform any transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See Use PolyBase to load data into Azure SQL Data Warehouse for more details and samples.
+1.	**Sometimes it takes a while to perform hybrid data movement (i.e. on-premises data store to a cloud data store or vice versa) over a slow network connection.** To improve performance of such data movement, you can compress data on-premises so that it takes less time to move data over the wire to the staging data store in the cloud and then decompress data in staging stoe before loading it into the destination data store. 
+2.	**You do not want to open ports other than 80 and 443 in your firewall due to IT policies.** For example, when copying data from an on-premises data store to an Azure SQL Database sink or Azure SQL Data Warehouse sink, outbound TCP communication on port 1433 for both Windows firewall and corporate firewall needs to be enabled. In such scenario, you can leverage the Data Management Gateway first copy data to a staging Azure Blob Storage, which happens over Http(s) i.e. over port 443, and then load the data into SQL Database or SQL Data Warehouse from the staging blob storage. In such a flow, port 1433 does not need to be enabled. 
+3.	**Ingest data from various data stores into Azure SQL Data Warehouse via PolyBase.** Azure SQL Data Warehouse provides PolyBase as a high throughput mechanism to load large amount of data into SQL Data Warehouse. However, this requires the source data to be in Azure Blob Storage and meets some additional criteria. When loading data from a data store other than Azure Blob Storage, you can enable copying data via an interim staging Azure blob storage, in which case Azure Data Factory will perform the required transformations on the data to ensure it meets the requirements of PolyBase, and then leverage PolyBase to load data into SQL Data Warehouse. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for more details and samples.
 
 ### How the staged copy works
-When you enable the staging feature, the data is first copied from source data store to staging data store (your own) and then copied from the staging data store to sink data store. Azure Data Factory will automatically manage the 2-stage flow for you and at last clean up the temp data from the staging storage.. 
+When you enable the staging feature, the data is first copied from source data store to staging data store (bring your own) and then copied from the staging data store to sink data store. Azure Data Factory will automatically manage the 2-stage flow for you and also clean up the temporary data from the staging storage after the data movement is complete. 
 
-In the **cloud copy scenario** where both source and sink data stores are in the cloud, the copy operations are performed by the **Data Factory service**.
+In the **cloud copy scenario** where both source and sink data stores are in the cloud and do not leveeage the Data Management Gateway, the copy operations are performed by **Azure Data Factory service**.
 
 ![Staged copy - cloud scenario](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
-Whereas, in the **hybrid copy scenario**, where source is on-premises and sink is in the cloud, the data movement from the source data store to staging data store is performed by the **Data Management Gateway** and data movement from the staging data store to the sink data store is performed by the **Data Factory service**.
+Whereas, in the **hybrid copy scenario**, where source is on-premises and sink is in the cloud, the data movement from the source data store to staging data store is performed by the **Data Management Gateway** and data movement from the staging data store to the sink data store is performed by **Azure Data Factory service**.
 
 ![Staged copy - hybrid scenario](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png) 
 
-When you enable the staging feature, you can also specify whether you want the data to be compressed before moving data from the source data store to interim/staging data store and decompressed before moving data from interim /staging data store to the sink data store.
+When you enable data movement using staging store, you can specify whether you want the data to be compressed prior to moving data from the source data store to interim/staging data store and decompressed before moving data from interim /staging data store to the sink data store.
 
-Copying data from a cloud data store to an on-prem data store or between two on-prem data stores with staging are not supported now.
+Copying data from a cloud data store to an on-prem data store or between two on-prem data stores with staging store is not supported at this point and would be ensbaled shortly. 
 
 ### Configuration
 You can configure **enableStaging** setting on Copy Activity to specify whether you want the data to be staged in an Azure blob storage before loading into a destination data store. When you set enableStaging to true, you need to  specify additional properties listed in the following table. And You need to create an Azure Storage or Azure Storage SAS linked service as staging if you don’t yet have one.
 
 Property | Description | Default value | Required
+--------- | ----------- | ------------ | --------
 enableStaging | Specify whether you want to copy data via an interim staging store. | False | No
-linkedServiceName | Specify the name of an AzureStoage or AzureStorageSas linked service, which refers to your Azure Storage that will be used as an interim staging store. <br/><br/> Note that an Azure Storage with SAS (Shared Access Signature) cannot be used for  loading data into Azure SQL Data Warehouse via PolyBase. It can be used in other scenarios. | N/A | Yes, when enableStaging is set to true. 
-path | Specify the path in the Azure blob storage that will contain the staged data. If you do not provide a path, the service will auto create a container to store the temp data. <br/><br/> You don’t need to specify path unless you are using Azure Storage with SAS or have strong requirement on where the temp data resides. | N/A | No
-enableCompression | Specify whether data need to be compressed when being moved from source data store to sink data store, to reduce the volume of data transferred on the wire as the scenario #1 introduced above. | False | No
+linkedServiceName | Specify the name of an [AzureStoage](data-factory-azure-blob-connector.md#azure-storage-linked-service) or [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) linked service, which refers to your Azure Storage that will be used as an interim staging store. <br/><br/> Note that an Azure Storage with SAS (Shared Access Signature) cannot be used for  loading data into Azure SQL Data Warehouse via PolyBase. It can be used in all other scenarios. | N/A | Yes, when enableStaging is set to true. 
+path | Specify the path in the Azure blob storage that will contain the staged data. If you do not provide a path, the service will  create a container to store the temp data. <br/><br/> You don’t need to specify path unless you are using Azure Storage with SAS or have strong requirement on where the temporary data should reside. | N/A | No
+enableCompression | Specify whether data should be compressed when being moved from source data store to sink data store, to reduce the volume of data being transferred on the wire. | False | No
 
 Here is a sample definition of a Copy Activity with the above properties: 
 
@@ -220,7 +221,7 @@ Here is a sample definition of a Copy Activity with the above properties:
 	    	"enableStaging": true,
 			"stagingSettings": {
 				"linkedServiceName": "MyStagingBlob",
-				"path”: "stagingcontainer/path",
+				"path": "stagingcontainer/path",
 				"enableCompression": true
 			}
 		}
@@ -230,8 +231,8 @@ Here is a sample definition of a Copy Activity with the above properties:
 ### Billing impact
 Note you will be charged based on the two stages of copy duration and its copy type respectively, which means:
 
-- When using staging during a cloud copy (copying data from a cloud data store to another cloud data store, for example, Azure Data Lake to Azure SQL Data Warehouse), you will be charged by [sum of copy duration for stage 1 and stage 2] x [cloud copy unit price]
-- When using staging during a hybrid copy (copying data from an on-premises data store to a cloud data store, for example, on-prem SQL Server database to Azure SQL Data Warehouse), you will be charged by [hybrid copy duration] x [hybrid copy unit price] + [cloud copy duration] x [cloud copy unit price]
+- When using staging during a cloud copy (copying data from a cloud data store to another cloud data store, for example, Azure Data Lake to Azure SQL Data Warehouse), you will be charged as [sum of copy duration for step 1 and step 2] x [cloud copy unit price]
+- When using staging during a hybrid copy (copying data from an on-premises data store to a cloud data store, for example, on-premise SQL Server database to Azure SQL Data Warehouse), you will be charged as [hybrid copy duration] x [hybrid copy unit price] + [cloud copy duration] x [cloud copy unit price]
 
 
 ## Considerations on Source
@@ -390,7 +391,7 @@ Here are some performance monitoring and tuning references for a few of the supp
 
 - Azure Storage (including Azure Blob and Azure Table): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage Performance and Scalability Checklist](../storage//storage-performance-checklist.md)
 - Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-service-tiers.md#monitoring-performance) and check the Database Transaction Unit (DTU) percentage.
-- Azure SQL Data Warehouse: Its capability is measured by Data Warehouse Units (DWUs). Refer to [Elastic performance and scale with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-scalability.md).
+- Azure SQL Data Warehouse: Its capability is measured by Data Warehouse Units (DWUs). Refer to [Elastic performance and scale with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 - Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - On-premises SQL Server: [Monitor and Tune for Performance](https://msdn.microsoft.com/library/ms189081.aspx).
 - On-premises File server: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)

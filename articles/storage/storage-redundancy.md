@@ -68,32 +68,8 @@ For a storage account with GRS enabled, an update is first committed to the prim
 
 > [AZURE.NOTE] With GRS, requests to write data are replicated asynchronously to the secondary region. It is important to note that opting for GRS does not impact latency of requests made against the primary region. However, since asychronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region may be lost if the data cannot be recovered from the primary region.
  
-When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
+When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. For up-to-date information about primary and secondary region pairings, see [Azure Regions](https://azure.microsoft.com/regions/).
  
-| Primary             | Secondary           |
-|---------------------|---------------------|
-| North Central US    | South Central US    |
-| South Central US    | North Central US    |
-| East US             | West US             |
-| West US             | East US             |
-| US East 2           | Central US          |
-| Central US          | US East 2           |
-| North Europe        | West Europe         |
-| West Europe         | North Europe        |
-| South East Asia     | East Asia           |
-| East Asia           | South East Asia     |
-| East China          | North China         |
-| North China         | East China          |
-| Japan East          | Japan West          |
-| Japan West          | Japan East          |
-| Brazil South        | South Central US    |
-| Australia East      | Australia Southeast |
-| Australia Southeast | Australia East      |
-| India South         | India Central       |
-| India Central       | India South         |
-| US Gov Iowa         | US Gov Virginia     |
-| US Gov Virginia     | US Gov Iowa         |
-
 ## Read-access geo-redundant storage
 
 Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS. In the event that data becomes unavailable in the primary region, your application can read data from the secondary region.

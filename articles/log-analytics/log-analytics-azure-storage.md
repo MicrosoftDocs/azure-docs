@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/07/2016"
 	ms.author="banders"/>
 
 # Use Log Analytics to collect data from Azure storage accounts
@@ -51,13 +51,13 @@ Log Analytics can collect data for the following Azure resources:
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 
-## Collect data from Application Insights (Preview)
+## Application Insights (Preview)
 
 This functionality is currently in private preview. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
-## Collect data using Azure diagnostics written to blob in JSON (Preview)
+## JSON files in blob storage
 
-Log Analytics can read the logs for the following services write diagnostics to blob storage in JSON format:
+Log Analytics can read the logs for the following services that write diagnostics to blob storage in JSON format:
 
 + Automation (Preview)
 + Key Vault (Preview)
@@ -72,7 +72,7 @@ Before Log Analytics can collect data for these resources, Azure diagnostics mus
 + [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
  
 
-### Configure Log Analytics to collect Azure Diagnostics written to Blob in JSON format
+### Configure Log Analytics to collect Azure Diagnostics written to blob in JSON format
 
 Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
 
@@ -85,7 +85,7 @@ This documentation also includes details on:
 
 It is not currently possible to perform the above configuration from the portal. 
 
-## Collect data using Azure diagnostics written to table storage or IIS Logs written to blob 
+## Events in table storage or IIS Logs in blob 
 
 Log Analytics can read the logs for the following services that write diagnostics to table storage or IIS Logs written to blob:
 
