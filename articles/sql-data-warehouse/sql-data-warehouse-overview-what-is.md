@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/07/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -51,16 +51,14 @@ The architecture is described in detail below.
 
 - **Compute Nodes:** The Compute nodes serve as the power behind SQL Data Warehouse. They are SQL Databases which store your data and process your query. When you add data, SQL Data Warehouse distributes the rows to your Compute nodes. The Compute nodes are the workers that run the parallel queries on your data. After processing, they pass the results back to the Control node. To finish the query, the Control node aggregates the results and returns the final result.
 
-
 - **Storage:** Your data is stored in Azure Storage Blobs. When Compute nodes interact with your data, they write and read directly to and from blob storage. Since Azure storage expands transparently and limitlessly, SQL Data Warehouse can do the same. Since compute and storage are independent, SQL Data Warehouse can automatically scale storage separately from scaling compute, and vice-versa.  Azure Storage is also fully fault tolerant and streamlines the backup and restore process.
-   
 
 - **Data Movement Service:** Data Movement Service (DMS) is our technology for moving data between the nodes. DMS gives the Compute nodes access to data they need for joins and aggregations. DMS is not an Azure service. It is a Windows service that runs alongside SQL Database on all the nodes. Since DMS runs behind the scenes, you won't interact with it directly. However, when you look at query plans you will notice they include some DMS operations since data movement is necessary in some shape or form to run each query in parallel.
 
 
 ## Optimized query performance
 
-In addition to the divide and conquer strategy, the MPP approach is aided by a number of data warehousing specific performance optimizations, including:
+The MPP approach is aided by a number of data warehousing specific performance optimizations, including:
 
 - A distributed query optimizer and set of complex statistics across all data. Using information on data size and distribution, the service is able to optimize queries by assessing the cost of specific distributed query operations.
 
@@ -74,19 +72,19 @@ The architecture of SQL Data Warehouse introduces separated storage and compute,
 
 Along with the ability to fully control the amount of compute independently of storage, SQL Data Warehouse allows you to fully pause your data warehouse. While keeping your storage in place all compute is released into Azure's main pool, saving you money immediately. When needed, simply resume the compute and have your data and compute available for your workload.
 
+## Data Warehouse Units
+
 Compute usage in SQL Data Warehouse is measured using SQL Data Warehouse Units (DWUs). DWUs are a measure of underlying power that your data warehouse has, and are designed to ensure that you have a standard amount of performance associated with your warehouse at any given time.  Specifically, we use DWUs to ensure that:
 
-- You are able to scale your data warehouse effectively without worrying about the underlying hardware or software.
+- You are able to scale your data warehouse easily without worrying about the underlying hardware or software.
 
-- You can understand the performance you will see at a DWU level before you change the size of you data warehouse.
+- You can predict performance improvement for a DWU level before you change the size of you data warehouse.
 
 - The underlying hardware and software of your instance can change or move without effecting your workload performance
 
 - We can make adjustments to the underlying architecture of the service without affecting the performance of your workload.
 
 - As we rapidly improve performance in SQL Data Warehouse, we can ensure we do so in a way the is scalable and evenly effects the system.
-
-## Data Warehouse Units
 
 Specifically, we look at Data Warehouse Units as a measure of three precise metrics that we find to be highly correlated with data warehousing workload performance. We aim that, for our general availability, these key workload metrics will scale linearly with the DWUs that you have chosen for your data warehouse.
 
@@ -96,11 +94,13 @@ Specifically, we look at Data Warehouse Units as a measure of three precise metr
 
 **CREATE TABLE AS SELECT (CTAS):** CTAS measures the ability to create copy of a table. This involves reading data from storage, distributing it across the nodes of the appliance, and writing it to storage again. It is a CPU and Network intensive operation.
 
-## Pause and scale with demand
+## Pause and scale on demand
 
-Overall, we want DWUs to be simple. When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need. Some times when you might think about changing your number of DWUs are:
+When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need. You might think about changing your DWUs in these sceanarios:
 
-- When you don't need to run queries, perhaps in the evenings or weekends, pause compute resources to cancel all running queries and remove all DWUs allocated to your data warehouse.
+- When you don't need to run queries, perhaps in the evenings or weekends, quiesce your quieres and then pause your compute resources to avoid paying for DWUs when you don't need them.
+
+- When your system has low demand, consider reducing DWU to a small size to allow users to access the data, but as a significant cost savings.
 
 - When performing a heavy data loading or transformation operation, you may want to scale-up so that your data is available more quickly.
 
@@ -124,11 +124,11 @@ With the Transact-SQL and feature commonality between SQL Server, SQL Data Wareh
 
 In addition to adopting the TSQL surface area of SQL Server, SQL Data Warehouse also integrates with many of the tools that SQL Server users may be familiar with. Specifically, we have focused on a few integrating a few categories of tools with SQL Data Warehouse including:
 
-**Traditional SQL Server Tools:** Full integration with SQL Server Analysis Services, Integration Services, and Reporting services is available with SQL Data Warehouse.
+**Traditional SQL Server Tools:** SQL Data Warehouse is fully integrated with SQL Server Analysis Services, Integration Services, and Reporting services.
 
-**Cloud-based Tools:** SQL Data Warehouse can be used alongside a number of new tools in Azure, and has deep integration with Azure's Data Factory, Stream Analytics, Machine Learning, and Power BI.
+**Cloud-based Tools:** SQL Data Warehouse can be used alongside a number of new tools in Azure, and has deep integration with Azure's Data Factory, Stream Analytics, Machine Learning, and Power BI.  See [Integrated Tools Overview][] for a list of Azure tools we are integrated with.
 
-**Third Party Tools:** A large number of third party tool providers have certified integration of their tools with SQL Data Warehouse. See the full list.
+**Third Party Tools:** A large number of third party tool providers have certified integration of their tools with SQL Data Warehouse. See [SQL Data Warehouse solution partners][] for a full list of partners.
 
 ## Hybrid scenarios
 
@@ -165,6 +165,8 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 [how to load sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [how to provision]: ./sql-data-warehouse-get-started-provision.md
 [migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-integrate-solution-partners.md
+[Integrated Tools Overview]: ./sql-data-warehouse-overview-integrate.
 
 <!--MSDN references-->
 
