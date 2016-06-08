@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Log Analytics log search API | Microsoft Azure"
-	description="This guide provides a basic tutorial describing how you can use the Log Analytics search API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands."
+	pageTitle="Log Analytics log search REST API | Microsoft Azure"
+	description="This guide provides a basic tutorial describing how you can use the Log Analytics search REST API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -17,21 +17,21 @@
 	ms.author="banders"/>
 
 
-# Log Analytics log search API
+# Log Analytics log search REST API
 
-This guide provides a basic tutorial describing how you can use the Log Analytics Search API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands. Some of the examples in this article reference Operational Insights, which is the name of the previous version of Log Analytics.
+This guide provides a basic tutorial describing how you can use the Log Analytics Search REST API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands. Some of the examples in this article reference Operational Insights, which is the name of the previous version of Log Analytics.
 
-## Overview of the Log Search API
+## Overview of the Log Search REST API
 
-The Log Analytics Search API for  is RESTful and can be accessed via the Azure Resource Manager API. In this document you will find examples where the API is accessed through the [ARMClient](https://github.com/projectkudu/ARMClient), an open source command line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools you can utilize the RESTful Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
+The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager API. In this document you will find examples where the API is accessed through the [ARMClient](https://github.com/projectkudu/ARMClient), an open source command line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. Another option is to use the Azure PowerShell module for OperationalInsights which includes cmdlets for accessing search. With these tools you can utilize the RESTful Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
 
-The Azure Resource Manager can be used via a [Library for .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) as well as a [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). Review the liked web pages to learn more.
+The Azure Resource Manager can be used via a [Library for .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) as well as a [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). Review the linked web pages to learn more.
 
-## Basic Log Analytics Search API tutorial
+## Basic Log Analytics Search REST API tutorial
 
 ### To use the ARM Client
 
-1. Install [Chocolatey](https://chocolatey.org/), which is an an Open Source Machine Package Manager for Windows. Open a command prompt window as administrator and then run the following command:
+1. Install [Chocolatey](https://chocolatey.org/), which is an Open Source Package Manager for Windows. Open a command prompt window as administrator and then run the following command:
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -51,7 +51,7 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
     armclient login
     ```
 
-    A successful login lists all subscriptions tied to the given account. For example:
+    A successful login lists all subscriptions tied to the given account:
 
     ```
     PS C:\Users\SampleUserName> armclient login
@@ -63,13 +63,13 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 
-2. Get the Operations Management Suite Workspaces. For example:
+2. Get the Operations Management Suite workspaces:
 
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
-    A successful Get call would output all workspaces tied to the subscription. For example:
+    A successful Get call would output all workspaces tied to the subscription:
 
     ```
     {
@@ -87,18 +87,18 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
        ]
     }
     ```
-3. Create your search variable. For example:
+3. Create your search variable:
 
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
-4. Search using your new search variable. For example:
+4. Search using your new search variable:
 
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
-## Log Analytics Search API reference examples
+## Log Analytics Search REST API reference examples
 The following examples show you how you can use the Search API.
 
 ### Search - Action/Read
@@ -197,7 +197,7 @@ The following table describes the properties that are available.
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
->[AZURE.NOTE] If the search returns with a ‘Pending’ status, then polling the updated results can be done through this API. After 6 min, the result of the search will be dropped from the cache and Http Gone will be returned. If the initial search request returned a ‘Successful’ status immediately, it will not be added to the cache causing this API to return Http Gone if queried. The contents of an Http 200 result will be in the same format as the initial search request just with updated values.
+>[AZURE.NOTE] If the search returns with a ‘Pending’ status, then polling the updated results can be done through this API. After 6 min, the result of the search will be dropped from the cache and HTTP Gone will be returned. If the initial search request returned a ‘Successful’ status immediately, it will not be added to the cache causing this API to return HTTP Gone if queried. The contents of an HTTP 200 result will be in the same format as the initial search request just with updated values.
 
 ### Saved searches - REST only
 
@@ -380,7 +380,7 @@ The query used for the group definition must return a set of computers for the g
 
 The definition of the saved search must include a tag named Group with a value of Computer for the search to be classified as a computer group.
 
-	$etag=get-date -f yyyy-MM-ddThh:mm:ss.msZ
+	$etag=Get-Date -Format yyyy-MM-ddThh:mm:ss.msZ
 	$groupName="My Computer Group"
 	$groupQuery = "Computer=srv* | Distinct Computer"
 	$groupCategory="My Computer Groups"

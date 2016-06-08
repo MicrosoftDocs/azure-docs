@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/08/2016" 
+	ms.date="05/26/2016" 
 	ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search using indexers
@@ -68,23 +68,7 @@ First, create the data source:
 
 You can get the connection string from the [Azure Classic Portal](https://portal.azure.com); use the `ADO.NET connection string` option.
 
-Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table. See the following table for the mapping between SQL and Azure search data types.
-
-**Mapping between SQL Data Types and Azure Search data types
-
-|SQL data type | Allowed target index field types |Notes 
-|------|-----|----|
-|bit|Edm.Boolean, Edm.String| |
-|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
-| bigint | Edm.Int64, Edm.String | |
-| real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric | Edm.String| Azure Search does not support converting decimal types into Edm.Double because this would lose precision |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#create-indexer) for details| 
-|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
-|uniqueidentifer | Edm.String | |
-|geography | Edm.GeographyPoint | Only geography instances of type POINT with SRID 4326 (which is the default) are supported | | 
-|rowversion| N/A |Row-version columns cannot be stored in the search index, but they can be used for change tracking | |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types | N/A |Not supported |
+Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure search data types](#TypeMapping) for details.
 
 Finally, create the indexer by giving it a name and referencing the data source and target index:
 
@@ -102,6 +86,8 @@ An indexer created in this way doesn’t have a schedule. It automatically runs 
 
 	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
 	api-key: admin-key
+
+You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution will be failed. For more details, see [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx).
  
 You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) for instructions on how to do that.
 
@@ -251,15 +237,32 @@ When using the soft-delete technique, you can specify the soft delete policy as 
 
 Note that the **softDeleteMarkerValue** must be a string – use the string representation of your actual value. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`; if you have a BIT column where deleted rows are marked with the Boolean true value, use `"True"`. 
 
-## Customize Azure SQL Indexer
- 
-You can customize certain aspects of indexer behavior (for example, batch size, how many documents can be skipped before an indexer execution will be failed, and so on). For more details, see [Azure Search Indexer Customization](search-indexers-customization.md). 
+<a name="TypeMapping"></a>
+## Mapping between SQL Data Types and Azure Search data types
+
+|SQL data type | Allowed target index field types |Notes 
+|------|-----|----|
+|bit|Edm.Boolean, Edm.String| |
+|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
+| bigint | Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, money decimal numeric | Edm.String| Azure Search does not support converting decimal types into Edm.Double because this would lose precision |
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#create-indexer) for details| 
+|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
+|uniqueidentifer | Edm.String | |
+|geography | Edm.GeographyPoint | Only geography instances of type POINT with SRID 4326 (which is the default) are supported | | 
+|rowversion| N/A |Row-version columns cannot be stored in the search index, but they can be used for change tracking | |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types | N/A |Not supported |
+
 
 ## Frequently asked questions
 
 **Q:** Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?
 
-A: Yes, as long as you allow Azure services to connect to your database by opening appropriate ports.
+A: Yes. However, you need to allow your search service to connect to your database: 
+
+1. Configure the firewall to allow access to the IP address of your search service. 
+2. You may also need to configure your database with a trusted certificate so that the search service can open SSL connections to the database.
 
 **Q:** Can I use Azure SQL indexer with SQL databases running on-premises? 
 

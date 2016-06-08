@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/25/2016"
 	ms.author="erikje"/>
 
 # Deploy templates in Azure Stack using PowerShell
@@ -40,10 +40,10 @@ ARM templates deploy and provision all of the resources for your application in 
 
 # Configure the environment with the Add-AzureRmEnvironment cmdlet
 		Add-AzureRmEnvironment -Name 'Azure Stack' `
-    		-ActiveDirectoryEndpoint ("https://login.windows.net/$AadTenantId/") `
+    		-ActiveDirectoryEndpoint "https://login.windows.net/$AadTenantId/" `
     		-ActiveDirectoryServiceEndpointResourceId "https://azurestack.local-api/"`
-    		-ResourceManagerEndpoint ("https://api.azurestack.local/") `
-    		-GalleryEndpoint ("https://gallery.azurestack.local/") `
+    		-ResourceManagerEndpoint "https://api.azurestack.local/" `
+    		-GalleryEndpoint "https://gallery.azurestack.local/" `
     		-GraphEndpoint "https://graph.windows.net/"
 
 		# Authenticate a user to the environment (you will be prompted during authentication)
@@ -91,7 +91,12 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -vmName "myVM$myNum" `
 		    -windowsOSVersion "2012-R2-Datacenter"
 ```
+
 3.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
+  
+## Video example: hybrid virtual machine deployment
+
+[AZURE.VIDEO microsoft-azure-stack-tp1-poc-hybrid-vm-deployment]
 
 ## Next steps
 

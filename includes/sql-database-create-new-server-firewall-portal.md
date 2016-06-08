@@ -9,16 +9,16 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Create a new Azure SQL Database server-level firewall
+## Create a new Azure SQL server-level firewall
 
-Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer) or an entire IP address range to a SQL Database logical server. 
+Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer) or an entire IP address range to a SQL logical server. 
 
 1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
 2. In the default blade, click **SQL Server**.
 
   	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 
-2. In the SQL Server blade, click the SQL Database server on which to create the firewall rule. 
+2. In the SQL Server blade, click the SQL server on which to create the firewall rule. 
 
  	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
            
@@ -30,9 +30,13 @@ Use the following steps in the Azure portal to create a server-level firewall ru
 
  	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
+
+ 	> [AZURE.IMPORTANT] If you do not see the option for **Firewall** on the blade you are looking at, go back and make sure that you are looking at the blade for the SQL Database logical server and not the blade for a SQL database.
+
 5. Click **Add Client IP** to have Azure create a rule for your client's IP address.
 
-      ![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
+      ![new server firewall]
+	  (./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 
 6. Optionally, click the IP address that was added to edit the firewall address to allow access to a range of IP addresses.
 

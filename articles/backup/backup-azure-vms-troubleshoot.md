@@ -13,37 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="05/16/2016"
 	ms.author="trinadhk;jimpark;"/>
 
 
 # Troubleshoot Azure virtual machine backup
+
+> [AZURE.SELECTOR]
+- [Recovery services vault](backup-azure-vms-troubleshoot.md)
+- [Backup vault](backup-azure-vms-troubleshoot-classic.md)
+
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
-
-## Discovery
-
-| Backup operation | Error details | Workaround |
-| -------- | -------- | -------|
-| Discovery | Failed to discover new items - Microsoft Azure Backup encountered and internal error. Wait for a few minutes and then try the operation again. | Retry the discovery process after 15 minutes.
-| Discovery | Failed to discover new items – Another Discovery operation is already in progress. Please wait until the current Discovery operation has completed. | None |
-
-## Register
-| Backup operation | Error details | Workaround |
-| -------- | -------- | -------|
-| Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup | None |
-| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configuration: <ul><li>Premium LRS </ul> |
-| Register | Registration failed with Install Agent operation timeout | Check if the OS version of the virtual machine is supported. |
-| Register | Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed | None |
-| Register | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
-| Register | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
 
 ## Backup
 
 | Backup operation | Error details | Workaround |
 | -------- | -------- | -------|
 | Backup | Copying VHDs from backup vault timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This happens when there is too much data to be copied. Please check if you have less than 16 data disks. |
-| Backup | Could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out. - Please see the troubleshooting guide on how to resolve this. | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. <ul> <li>Learn about [debugging up VM Agent issues](#vm-agent) <li>Learn about [debugging networking issues](#networking) <li>If VM agent is running fine, Learn about [troubleshooting VM Snapshot issues](#Troubleshoot-VM-Snapshot-Issues)</ul><br>If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state" |
-| Backup | Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support | You can get this error for 2 reasons: <ol><li> There is too much data to be copied. <li>The original VM has been deleted and therefore backup cannot be taken. In order to keep the backup data for a deleted VM but stop the backup errors, Unprotect the VM and choose the option to keep the data. This will stop the backup schedule and also the recurring error messages. |
+| Backup | Could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out. - Please see the troubleshooting guide on how to resolve this. | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. Learn more about [debugging up VM snapshot issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state" |
+| Backup | Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support | You can get this error for 2 reasons: <ol><li> There is a transient issue in accessing VM storage. Please check [Azure Status](https://azure.microsoft.com/en-us/status/) to see if there is any on-going issue related to compute/storage/network in the region. Please retry the backup post issue is mitigated. <li>The original VM has been deleted and therefore backup cannot be taken. In order to keep the backup data for a deleted VM but stop the backup errors, Unprotect the VM and choose the option to keep the data. This will stop the backup schedule and also the recurring error messages. |
 | Backup | Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a pre-requisite for Azure Recovery Services Extension. Please install the Azure VM agent and restart the registration operation | <ol> <li>Check if the VM agent has been installed correctly. <li>Ensure that the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about VM agent installation, and how to validate the VM agent installation. |
 | Backup | Command execution failed - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry | An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running. |
 | Backup | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
@@ -53,6 +41,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
 
 ## Jobs
+
 | Operation | Error details | Workaround |
 | -------- | -------- | -------|
 | Cancel job | Cancellation is not supported for this job type - Please wait until the job completes. | None |
@@ -128,8 +117,7 @@ VM backup relies on issuing snapshot command to underlying storage. Not having a
 	```
 3.  VM status reported incorrectly because VM is shutdown in RDP.  <br>
 	If you have Shut down the virtual machine in RDP, please check back in the portal that VM status is reflected correctly. If not, please shutdown the VM in portal using 'Shutdown' option in VM dashboard.
-4.  Many VMs from same cloud service are configured to backup at the same time.<br>
-	It is best practice to spread the VMs from same cloud service to have different backup schedules.
+4.  If more than four VM’s share the same cloud service, configure multiple backup policies to stage the backup times so no more than four VM backups are started at the same time. Try to spread the backup start times an hour apart between policies. 
 5.  VM is running at High CPU/Memory.<br>
 	If the virtual machine is running at High CPU usage(>90%) or memory, snapshot task is queued, delayed and wil eventually gets timed-out. Try on-demand backup in such situations.
 

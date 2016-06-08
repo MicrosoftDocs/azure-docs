@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mandia"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Overview of the Steps
 1. Create a Hybrid Connection by entering the host name or IP address of the on-premises resource in your private network.
-2. Link your Azure Web Apps or Azure Mobile Apps to the Hybrid Connection.
+2. Link your Azure web apps or Azure mobile apps to the Hybrid Connection.
 3. Install the Hybrid Connection Manager on your on-premises resource and connect to the specific Hybrid Connection. The Azure portal provides a single-click experience to install and connect.
 4. Manage Hybrid Connections and their connection keys.
 
@@ -33,7 +33,7 @@ This topic lists these steps.
 
 A Hybrid Connection can be created in the Azure portal using Web Apps **or** using BizTalk Services. 
 
-**To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md).
+**To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method. 
 
 **To create Hybrid Connections in BizTalk Services**:
 
@@ -69,7 +69,7 @@ To link the Azure Mobile Apps to an existing Hybrid Connection, select **add hyb
 
 ## <a name="InstallHCM"></a>Install the Hybrid Connection Manager on-premises
 
-After a Hybrid Connection is created, install the Hybrid Connection Manager on the on-premises resource. It can be downloaded from your Azure Web Apps or from your BizTalk Service. BizTalk Services steps: 
+After a Hybrid Connection is created, install the Hybrid Connection Manager on the on-premises resource. It can be downloaded from your Azure web apps or from your BizTalk Service. BizTalk Services steps: 
 
 1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services** and then select your BizTalk Service. 

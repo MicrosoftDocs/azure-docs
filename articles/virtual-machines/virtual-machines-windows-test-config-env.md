@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Base Configuration Test Environment with Azure Resource Manager"
 	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure."
 	documentationCenter=""
@@ -11,15 +11,13 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Base Configuration test environment
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Resource Manager.
 

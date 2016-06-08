@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/05/2016"
+    ms.date="05/10/2016"
     ms.author="sstein"/>
 
 # Import a BACPAC file to create a new Azure SQL database using PowerShell
@@ -39,10 +39,6 @@ To import a SQL database you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - A .bacpac file (BACPAC) of the database you want to import. The BACPAC needs to be in an [Azure Storage account (classic)](../storage/storage-create-storage-account.md) blob container.
-
-
-> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
-
 
 
 ## Configure your credentials and select your subscription

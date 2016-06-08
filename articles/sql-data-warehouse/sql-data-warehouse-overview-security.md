@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="05/02/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -86,7 +86,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-You can also enable Transparent Data Encryption from database settings in the [Azure Classic Portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
+You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Auditing
 
@@ -99,7 +99,7 @@ For details and examples on connecting to your SQL Data Warehouse with different
 
 <!--Article references-->
 [Connect to SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
-[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
+[Get started with SQL Database Auditing]: sql-database-auditing-overview.md
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -108,7 +108,7 @@ For details and examples on connecting to your SQL Data Warehouse with different
 [Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Azure Classic Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Role-based access control in Azure Portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx

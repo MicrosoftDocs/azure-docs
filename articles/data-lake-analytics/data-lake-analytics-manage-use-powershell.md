@@ -40,7 +40,7 @@ See the Prerequisite section of [Using Azure PowerShell with Azure Resource Mana
 ## Manage accounts
 
 Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not 
-running a job.  You only pay for the time when it is running a job.  For more informaiton, see 
+running a job.  You only pay for the time when it is running a job.  For more information, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 
 ###Create accounts
@@ -73,7 +73,7 @@ running a job.  You only pay for the time when it is running a job.  For more in
 		-ResourceGroupName $resourceGroupName `
 		-Name $dataLakeAnalyticsAccountName  
 
-You can also use an Azure Resource Group template. A tempalte for creating a Data Lake Analytics account and the dependent Data Lake Store account is in [Appendix A](#appendix-a). Save the template into a file with .json template, and then use the following PowerShell script to call it:
+You can also use an Azure Resource Group template. A template for creating a Data Lake Analytics account and the dependent Data Lake Store account is in [Appendix A](#appendix-a). Save the template into a file with .json template, and then use the following PowerShell script to call it:
 
 
 	$AzureSubscriptionID = "<Your Azure Subscription ID>"
@@ -134,7 +134,7 @@ The cmdlet will return either **True** or **False**.
 	
 	Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
-Delete a Analytics account will not delete the dependent Data Lake Storage account. The following example deletes the Data Lake Analytics account and the default Data Lake Store account
+Delete Data Lake Analytics account will not delete the dependent Data Lake Storage account. The following example deletes the Data Lake Analytics account and the default Data Lake Store account
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -194,7 +194,7 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
 <!-- ################################ -->
 ## Manage jobs
 
-You must have an Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
+You must have a Data Lake Analytics account before you can create a job.  For more information, see [Manage Data Lake Analytics accounts](#manage-data-lake-analytics-accounts).
 
 ### List jobs
 
@@ -325,7 +325,7 @@ template can work for different environments such as testing, staging and produc
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
 Resource Manager Overview](../resource-group-overview.md). 
 
-An Data Lake Analtyics service can include the following components:
+A Data Lake Analytics service can include the following components:
 
 - Azure Data Lake Analytics account
 - Required default Azure Data Lake Storage account
@@ -336,7 +336,7 @@ You can create all these components under one ARM group to make them easier to m
 
 ![Azure Data Lake Analytics account and storage](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-An Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
+A Data Lake Analytics account and the dependent storage accounts must be placed in the same Azure data center.
 The ARM group however can be located in a different data center.  
 
 ##See also 

@@ -86,7 +86,7 @@ The following modules are limited to datasets less than 10GB:
 - SMOTE module
 - Scripting modules: R, Python, SQL
 - Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
-- Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+- Cross-validation, Tune Model Hyperparameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
 
 For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
 
@@ -96,7 +96,7 @@ For datasets larger than a couple GB, upload data to Azure storage or Azure SQL 
 
 **Can I read data from Amazon S3?**
 
-If you have a small amount of data and want to expose it via an http URL, then you can use the [Reader][reader] module. For any larger amounts of data to transfer it to Azure Storage first and then use the [Reader][reader] module to bring it into your experiment.
+If you have a small amount of data and want to expose it via an http URL, then you can use the [Import Data][import-data] module. For any larger amounts of data to transfer it to Azure Storage first and then use the [Import Data][import-data] module to bring it into your experiment.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -230,7 +230,7 @@ Once a predictive model has been deployed, you can monitor it from the Azure cla
 
 **Is there a place where I can see the output of my RRS/BES?**
 
-For RRS, the web service response is typically where you see the result. You can also write it to Azure blob storage. For BES, the output is written to a blob by default. You can also write the output to a database or table using the [Export Data][writer] module.
+For RRS, the web service response is typically where you see the result. You can also write it to Azure blob storage. For BES, the output is written to a blob by default. You can also write the output to a database or table using the [Export Data][export-data] module.
 
 **Can I create web services only from models created in Machine Learning Studio?**
 
@@ -329,8 +329,8 @@ Azure Machine Learning also has a community forum on MSDN where you can ask ques
 [join]: https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/
 [machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
