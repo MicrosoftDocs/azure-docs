@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights API for custom events and metrics" 
+	pageTitle="Application Insights API for custom events and metrics | Microsoft Azure" 
 	description="Insert a few lines of code in your device or desktop app, web page or service, to track usage and diagnose issues." 
 	services="application-insights"
     documentationCenter="" 
