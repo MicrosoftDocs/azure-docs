@@ -1897,7 +1897,7 @@ This command supports the following additional options:
 + **-d** or **--description** &lt;description>:  The description storage account.
 + **-l** or **--location** &lt;name>: The geographic region in which to create the storage account.
 + **-a** or **--affinity-group** &lt;name>: The affinity group with which to associate the storage account.
-+ **--kind**: The account type: either Storage or Storage Blog 
++ **--kind**: The account type: either Storage or Storage Blob 
 + **--sku-name**:  Indicates the type of account to create: either Standard Storage with redundancy option (LRS/ZRS/GRS/RAGRS) or Premium Storage (PLRS).
 + **--access-tier**: Specifices the storage tier: either Hot or Cool
 
