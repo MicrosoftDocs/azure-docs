@@ -44,11 +44,11 @@
 |[restrict clause](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
 |[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
 |[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
-|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
-|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
-|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
-|[union](#union-operator)||||[todatetime](#todatetime)||
-|[where](#where-operator)||||[totimespan](#totimespan)||
+|[take](#take-operator)|[percentilesw](#percentilesw)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
+|[top](#top-operator)|[percentilew](#percentilew)|||[startofweek](#startofweek)||
+|[top-nested](#top-nested-operator)|[stdev](#stdev)|||[startofyear](#startofyear)||
+|[union](#union-operator)|[sum](#sum)|||[todatetime](#todatetime)||
+|[where](#where-operator)|[variance](#variance)|||[totimespan](#totimespan)||
 |||||[weekofyear](#weekofyear)||
 
 
@@ -1119,15 +1119,25 @@ Calculates the minimum of *Expr*.
 
 <a name="percentile"></a>
 <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentilew"></a>
+<a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
 Returns an estimate for *Expression* of the specified percentile in the group. The accuracy depends on the density of population in the region of the percentile.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Like `percentile()`, but calculates a number of percentile values (which is faster than calculating each percentile individually).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Weighted percentile. Use this for pre-aggregated data.  `WeightExpression` is an integer that indicates how many original rows are represented by each aggregated row.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Like `percentilew()`, but calculates a number of percentile values.
 
 **Examples**
 
@@ -1152,7 +1162,6 @@ Simultaneously calculate several percentiles for different request names:
 
 The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
 
-
 Calculate multiple statistics:
 
     requests 
@@ -1162,7 +1171,43 @@ Calculate multiple statistics:
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Estimation error in percentiles
+#### Weighted percentiles
+
+Use the weighted percentile functions in cases where the data has been pre-aggregated. 
+
+For example, suppose your app performs many thousands of operations per second, and you want to know their latency. The simple solution would be to generate an Application Insights request or custom event for each operation. This would create a lot of traffic, although adaptive sampling would take effect to reduce it. But you decide to implement an even better solution: you will write some code in your app to aggregate the data before sending it to Application Insights. The aggregated summary will be sent at regular intervals, reducing the data rate perhaps to a few points per minute.
+
+Your code takes a stream of latency measurements in milliseconds. For example:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+It counts the measurements in the following bins: `{ 10, 20, 30, 40, 50, 100 }`
+
+Periodically, it makes a series of TrackEvent calls, one for each bucket, with custom measurements in each call: 
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+In Analytics, you see one such group of events like this:
+
+`opCount` | `latency`| meaning
+---|---|---
+8 | 10 | = 8 operations in the 10ms bin
+6 | 20 | = 6 operations in the 20ms bin
+3 | 30 | = 3 operations in the 30ms bin
+1 | 40 | = 1 operations in the 40ms bin
+
+To get an accurate picture of the original distribution of event latencies, we use `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+The results are the same as if we had used plain `percentiles` on the original set of measurements.
+
+> [AZURE.NOTE] Weighted percentiles are not applicable to [sampled data](app-insights-sampling.md), where each sampled row represents a random sample of original rows, rather than a bin. The plain percentile functions are appropriate for sampled data.
+
+#### Estimation error in percentiles
 
 The percentiles aggregate provides an approximate value using [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf). 
 
