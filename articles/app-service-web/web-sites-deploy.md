@@ -153,8 +153,7 @@ In the [Azure Portal](https://portal.azure.com), you can configure local Git dep
 
 ## Deploy using an IDE
 If you are already using [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 
-with an [Azure SDK](https://azure.microsoft.com/downloads/), or other IDE suites like [Xcode](https://developer.apple.com/xcode/) 
-and [Eclipse](https://www.eclipse.org), you can deploy to Azure directly from within your IDE. This option is ideal for an individual developer.
+with an [Azure SDK](https://azure.microsoft.com/downloads/), or other IDE suites like [Xcode](https://developer.apple.com/xcode/), [Eclipse](https://www.eclipse.org), and [IntelliJ IDEA](https://www.jetbrains.com/idea/), you can deploy to Azure directly from within your IDE. This option is ideal for an individual developer.
 
 Visual Studio supports all three deployment processes (FTP, Git, and Web Deploy), depending on your preference, while other IDEs can 
 deploy to App Service if they have FTP or Git integration (see [Overview of deployment processes](#overview)).
@@ -194,6 +193,14 @@ features have been added since the tutorial was written, but notes added later e
 * [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). 
 Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to 
 the Git repository. Starting in Visual Studio 2013, Git support is built-in and doesn't require installation of a plug-in.
+
+###<a name="aztk"></a>How to deploy using the Azure Toolkits for Eclipse and IntelliJ IDEA
+
+Microsoft makes it possible to deploy Web Apps to Azure directly from Eclipse and IntelliJ via the [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md) and [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md). The following tutorials illustrate the steps that are involved in deploying simple a "Hello" world Web App to Azure using either IDE:
+
+*  [Create a Hello World Web App for Azure in Eclipse](./app-service-web-eclipse-create-hello-world-web-app.md). This tutorial shows you how to use the Azure Toolkit for Eclipse to create and deploy a Hello World Web App for Azure.
+*  [Create a Hello World Web App for Azure in IntelliJ](./app-service-web-intellij-create-hello-world-web-app.md). This tutorial shows you how to use the Azure Toolkit for IntelliJ to create and deploy a Hello World Web App for Azure.
+
 
 ## <a name="automate"></a>Automate deployment by using command-line tools
 

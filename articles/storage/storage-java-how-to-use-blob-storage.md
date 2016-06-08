@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Azure Blob storage from Java | Microsoft Azure"
+	pageTitle="How to use Azure Blob storage (object storage) from Java | Microsoft Azure"
 	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="java"
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
+
+Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
 
 This article will show you how to perform common scenarios using the Microsoft Azure Blob storage. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#Next-Steps) section.
 

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Backup and restore a database in Azure SQL Data Warehouse (PowerShell)
 
@@ -30,7 +30,6 @@ Tasks in this topic:
 
 - Restore a live database
 - Restore a deleted database
-- Restore an inaccessible database from a different Azure geographical region
 
 [AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
@@ -129,45 +128,6 @@ $RestoredDatabase.status
 >[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
 
 After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
-
-## Restore from an Azure geographical region
-
-To recover a database, use the [Restore-AzureRmSqlDatabase][] cmdlet.
-
-1. Open Windows PowerShell.
-2. Connect to your Azure account and list all the subscriptions associated with your account.
-3. Select the subscription that contains the database to be restored.
-4. Get the database you want to recover.
-5. Create the recovery request for the database.
-6. Verify the status of the geo-restored database.
-
-```Powershell
-
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
-
-# Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
-
-# Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
-
-# Verify that the geo-restored database is online
-$GeoRestoredDatabase.status
-
-```
-
-### Configure your database after performing a geo-restore
-This is a checklist to help get your recovered database production ready.
-
-1. **Update Connection Strings**: Verify connection strings of your client tools are pointing to the newly recovered database.
-2. **Modify Firewall Rules**: Verify the firewall rules on the target server and make sure connections from your client computers or Azure to the server and the newly recovered database are enabled.
-3. **Verify Server Logins and Database Users**: Verify if all the logins used by your application exist on the server which is hosting your recovered database. Re-create the missing logins and grant them appropriate permissions on the recovered database. 
-4. **Enable Auditing**: If auditing is required to access your database, you need to enable Auditing after the database recovery.
-
-The recovered database will be TDE-enabled if the source database is TDE-enabled.
-
 
 ## Next steps
 For more information, see [Azure SQL Database business continuity overview][], and [Management overview][].

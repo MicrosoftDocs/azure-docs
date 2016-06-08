@@ -25,9 +25,9 @@ size fits all" solution. To correctly scale your application there are 3 key
 areas that will contribute to your applications success:
 
 1. Understanding your application architecture and its weaknesses.
-	* Is your Application Statefull? Stateless?
+	* Is your Application Stateful? Stateless?
 	* What are all the components of your application?
-		* Where are the bottle necks in the application?
+		* Where are the bottlenecks in the application?
 	* When load is applied to your app, what will break first?
 2. Understanding the expected load and performance requirements.
 	* Does the application need to serve one thousand users? or one million?

@@ -3,7 +3,7 @@
    description="Learn how to use Visual Studio Tools for Docker to publish an ASP.NET 5 web app to a Docker container running on an Azure Docker Host machine"   
    services="visual-studio-online"
    documentationCenter=".net"
-   authors="tomarcher"
+   authors="allclark"
    manager="douge"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/08/2016"
-   ms.author="tarcher"/>
+   ms.date="06/08/2016"
+   ms.author="allclark"/>
 
 # Deploy an ASP.NET container to a remote Docker host
 
@@ -61,13 +61,13 @@ This can be done either via the [Azure classic portal](http://go.microsoft.com/f
 
     1.  Browse to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
-    1.  Tap **VIRTUAL MACHINES**.
+    1.  Select **VIRTUAL MACHINES**.
     
     1.  Select your Docker Host virtual machine.
     
-    1.  Tap the **ENDPOINTS** tab.
+    1.  Select the **ENDPOINTS** tab.
     
-    1.  Tap **ADD** (at the bottom of the page).
+    1.  Select **ADD** (at the bottom of the page).
     
     1.  Follow the instructions to expose port 80, which is used by the deployment script by default.
 
@@ -89,7 +89,7 @@ Follow these steps to run your app.
 
 1.  Change the launch target to **Docker**.
 
-1.  Tap the **Docker** icon to build and run the app.
+1.  Select the **Docker** icon to build and run the app.
 
 ![Launch app][2]
 

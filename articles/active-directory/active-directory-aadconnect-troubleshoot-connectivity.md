@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 # Troubleshoot connectivity issues with Azure AD Connect
@@ -34,14 +34,14 @@ The proxy server must also have the required URLs opened. The official list is d
 
 Of these, the following table is the absolute bare minimum to be able to connect to Azure AD at all. This list does not include any optional features, such as password writeback, or Azure AD Connect Health. It is documented here to help in troubleshooting for the initial configuration.
 
-| URL | Port | Description |
-| ---- | ---- | ---- |
-| mscrl.microsoft.com | HTTP/80 | Used to download CRL lists. |
-| *.verisign.com | HTTP/80 | Used to download CRL lists. |
-| *.entrust.com | HTTP/80 | Used to download CRL lists for MFA. |
-| *.windows.net | HTTPS/443 | Used to sign in to Azure AD. |
-| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Used for MFA. |
-| *.microsoftonline.com | HTTPS/443 | Used to configure your Azure AD directory and import/export data. |
+URL | Port | Description
+---- | ---- | ----
+mscrl.microsoft.com | HTTP/80 | Used to download CRL lists.
+\*.verisign.com | HTTP/80 | Used to download CRL lists.
+\*.entrust.com | HTTP/80 | Used to download CRL lists for MFA.
+\*.windows.net | HTTPS/443 | Used to sign in to Azure AD.
+secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Used for MFA.
+\*.microsoftonline.com | HTTPS/443 | Used to configure your Azure AD directory and import/export data.
 
 ## Errors in the wizard
 The installation wizard is using two different security contexts. On the page **Connect to Azure AD** it is using the currently signed in user. On the page **Configure** it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). The proxy configurations we make are global to the machine so if there is an issue, the issue will most likely appear already at the **Connect to Azure AD** page in the wizard.
@@ -82,10 +82,10 @@ If the proxy is not correctly configured, we will get an error:
 ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Error | Error Text | Comment |
-| ---- | ---- | ---- |
-| 403 | Forbidden | The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
-| 407 | Proxy Authentication Required | The proxy server required sign in and none was provided. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account. |
+Error | Error Text | Comment
+---- | ---- | ---- |
+403 | Forbidden | The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened.
+407 | Proxy Authentication Required | The proxy server required sign in and none was provided. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account.
 
 ## The communication pattern between Azure AD Connect and Azure AD
 If you have followed all these steps above and still cannot connect you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings which can be ignored if you are reading the network logs.
