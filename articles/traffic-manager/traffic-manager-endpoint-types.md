@@ -23,21 +23,21 @@ Each application deployment needs to be configured as an ‘endpoint’ in Traff
 
 This page describes how Traffic Manager supports endpoints of different types.
 
-## Types of Traffic Manager Endpoint
+## Types of Traffic Manager endpoint
 
 There are three types of endpoint supported by Traffic Manager:
 
-- **Azure Endpoints** are used for services hosted in Azure.  
-- **External Endpoints** are used for services hosted outside Azure, either on-premises or with a different hosting provider.
-- **Nested Endpoints** are used to combine Traffic Manager profiles to create more flexible traffic-routing schemes to support the needs of larger, more complex deployments.
+- **Azure endpoints** are used for services hosted in Azure.  
+- **External endpoints** are used for services hosted outside Azure, either on-premises or with a different hosting provider.
+- **Nested endpoints** are used to combine Traffic Manager profiles to create more flexible traffic-routing schemes to support the needs of larger, more complex deployments.
 
 There is no restriction on how endpoints of different types are combined in a single Traffic Manager profile.  Each profile can contain any mix of endpoint types.
 
 The following sections describe each endpoint type in greater depth.
 
-### Azure Endpoints
+### Azure endpoints
 
-Azure Endpoints are used to configure Azure-based services in Traffic Manager.  Azure endpoints currently support the following Azure resource types:
+Azure endpoints are used to configure Azure-based services in Traffic Manager.  Azure endpoints currently support the following Azure resource types:
 
 - ‘Classic’ IaaS VMs and PaaS cloud services.
 - Web Apps
@@ -45,47 +45,47 @@ Azure Endpoints are used to configure Azure-based services in Traffic Manager.  
 
 PublicIPAddress resources are Azure Resource Manager (ARM) resources, they do not exist in the Azure Service Management (ASM) APIs.  Thus they are only supported in Traffic Manager’s ARM experiences.  The other endpoint types are supported via both ARM and ASM experiences in Traffic Manager.
 
-When using Azure Endpoints, Traffic Manager will detect when a ‘Classic’ IaaS VM or PaaS cloud service or a Web App is stopped and started.  This is reflected in the endpoint status (see [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status) for details.)  When the underlying service is stopped, Traffic Manager will no longer bill for endpoint health checks and will not direct traffic to the endpoint; billing resumes and the endpoint becomes eligible to receive traffic when the service is restarted.  This does not apply to PublicIpAddress endpoints.
+When using Azure endpoints, Traffic Manager will detect when a ‘Classic’ IaaS VM or PaaS cloud service or a Web App is stopped and started.  This is reflected in the endpoint status (see [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status) for details.)  When the underlying service is stopped, Traffic Manager will no longer bill for endpoint health checks and will not direct traffic to the endpoint; billing resumes and the endpoint becomes eligible to receive traffic when the service is restarted.  This does not apply to PublicIpAddress endpoints.
 
-### External Endpoints
+### External endpoints
 
 External endpoints are used to configure Traffic Manager to direct traffic to services outside Azure, for example a service hosted on-premises or a service hosted with a different provider.
 
-External Endpoints can be used on their own, or combined with Azure Endpoints in the same Traffic Manager profile.  Combining Azure Endpoints with External Endpoints enables a variety of scenarios:
+External endpoints can be used on their own, or combined with Azure Endpoints in the same Traffic Manager profile.  Combining Azure endpoints with External endpoints enables a variety of scenarios:
 
 - Using Azure to provide increased redundancy for an existing on-premises application, in either an active-active or active-passive failover model.
-- Using Azure to extend an existing on-premises application to additional geographic locations, together with Traffic Manager ‘Performance’ traffic routing, to reduce application latency and improve performance for end users.
+- Using Azure to extend an existing on-premises application to additional geographic locations, together with [Traffic Manager ‘Performance’ traffic routing](traffic-manager-routing-methods.md#performance-traffic-routing-method), to reduce application latency and improve performance for end users.
 - Using Azure to provide additional capacity for an existing on-premises application, either continuously or as a ‘burst-to-cloud’ to handle a spike in demand.
 
-In certain cases, it can be useful to use External Endpoints to reference Azure services (for examples, see the [FAQ](#faq)).  In this case, billing for health checks is at the Azure Endpoints rate, not the External Endpoints rate.  However, unlike Azure Endpoints, if you stop or delete the underlying service you will continue to be billed for the corresponding health checks until you disable or delete the endpoint in Traffic Manager explicitly.
+In certain cases, it can be useful to use External endpoints to reference Azure services (for examples, see the [FAQ](#faq)).  In this case, billing for health checks is at the Azure endpoints rate, not the External Endpoints rate.  However, unlike Azure endpoints, if you stop or delete the underlying service you will continue to be billed for the corresponding health checks until you disable or delete the endpoint in Traffic Manager explicitly.
 
-### Nested Endpoints
+### Nested endpoints
 
 Nested endpoints are used to combine Traffic Manager profiles to create more flexible traffic-routing schemes to support the needs of larger, more complex deployments.
 
-With Nested Endpoints, a ‘child’ profile is added as an endpoint to a ‘parent’ profile, to create a hierarchy.  The both child and parent profiles can contain other endpoints of any type, including other nested profiles.
+With Nested endpoints, a ‘child’ profile is added as an endpoint to a ‘parent’ profile, to create a hierarchy.  The both child and parent profiles can contain other endpoints of any type, including other nested profiles.
 
 For further details, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
 ## Web Apps as endpoints
 
-Some additional considerations apply when configuring Web Apps as endpoints in Azure Traffic Manager:
+Some additional considerations apply when configuring Web Apps as endpoints in Traffic Manager:
 
 1. Only Web Apps at the ‘Standard’ SKU or above are eligible for use with Traffic Manager.  Calls to Traffic Manager to add a Web App of a lower SKU will fail.  Downgrading the SKU of an existing Web App will result in Traffic Manager no longer sending traffic to that Web App, and the endpoint may be removed from Traffic Manager.
 
-2. When an HTTP request is received by the Web Apps service, it uses the ‘host’ header in the request to determine which Web App should service the request.  The host header contains the DNS name used to initiate the request, for example ‘contosoapp.azurewebsites.net’.  To use a different DNS name with your Web App, the DNS name must be registered as a custom domain for the App.  When adding a Web App endpoint to a Traffic Manager profile, the Traffic Manager profile DNS name is automatically registered as a custom domain for the App.  This registration is automatically removed when the endpoint is deleted.
+2. When an HTTP request is received by the Web Apps service, it uses the ‘host’ header in the request to determine which Web App should service the request.  The host header contains the DNS name used to initiate the request, for example ‘contosoapp.azurewebsites.net’.  To use a different DNS name with your Web App, the DNS name must be registered as a custom domain for the App.  When adding a Web App endpoint to a Traffic Manager profile as an Azure endpoint, the Traffic Manager profile DNS name is automatically registered as a custom domain for the App.  This registration is automatically removed when the endpoint is deleted.
 
-3. Typically, a Web App will be configured as an Azure Endpoint.  However there are circumstances where it is useful to configure a Web App using an External Endpoint (for an example, see the next bullet).   Web Apps can only be configured as an External Endpoint in Traffic Manager when using the Traffic Manager ARM experiences, this is not supported via ASM.
+3. Typically, a Web App will be configured as an Azure endpoint.  However there are circumstances where it is useful to configure a Web App using an External endpoint (for an example, see the next item).   Web Apps can only be configured as an External endpoint in Traffic Manager when using the Traffic Manager ARM experiences, this is not supported via ASM.
 
 4. Each Traffic Manager profile can have at most one Web App endpoint from each Azure region.  A workaround for this constraint is given in the [FAQ](#faq).
 
-## Enabling and Disabling Endpoints
+## Enabling and disabling endpoints
 
 Disabling an endpoint in Traffic Manager is very useful for temporarily removing traffic from an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be re-enabled.
 
 Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, and is supported in both ARM and ASM.
 
->[AZURE.NOTE] Disabling an Azure Endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App) will remain running and able to receive traffic even when disabled in Traffic Manager, if traffic is addressed directly to that service rather than via the Traffic Manager profile DNS name.
+>[AZURE.NOTE] Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App) will remain running and able to receive traffic even when disabled in Traffic Manager, if traffic is addressed directly to that service rather than via the Traffic Manager profile DNS name.  For more information, see [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
 
 When an endpoint is disabled, it is no longer returned in DNS responses and hence no traffic is directed to the endpoint.  In addition, health checks to the endpoint are stopped and are no longer billed. Disabling an endpoint is equivalent to deleting an endpoint, except that it is easier to re-enable again.
 
@@ -102,14 +102,14 @@ Yes.  How you do this depends on whether you are using the legacy Azure Service 
 
 In ARM, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint.  These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-In ASM, the Traffic Manager requires that any Cloud Service or Web App configured as an Azure Endpoint resides in the same subscription as the Traffic Manager profile.  Cloud Service endpoints in other subscriptions can be added to Traffic Manager as ‘external’ endpoints (they will still be billed at the ‘Internal’ endpoint rate).  Web Apps from other subscriptions cannot be used.
+In ASM, the Traffic Manager requires that any Cloud Service or Web App configured as an Azure endpoint resides in the same subscription as the Traffic Manager profile.  Cloud Service endpoints in other subscriptions can be added to Traffic Manager as ‘external’ endpoints (they will still be billed at the ‘Internal’ endpoint rate).  Web Apps from other subscriptions cannot be used.
 
 ### Can I use Traffic Manager with Cloud Service ‘Staging’ slots?
-Yes.  Cloud Service ‘staging’ slots can be configured in Traffic Manager as External Endpoints.
+Yes.  Cloud Service ‘staging’ slots can be configured in Traffic Manager as External endpoints.
 
 Because the service referenced by the endpoint resides in Azure, health checks will still be charged at the rate used for Azure Endpoints.
 
-Because the External Endpoint type is in use, changes to the underlying service are not picked up automatically.  Therefore, if the Cloud Service is stopped or deleted the Traffic Manager endpoint will continue to be billed for health checks until the endpoint is disabled or deleted within Traffic Manager.
+Because the External endpoint type is in use, changes to the underlying service are not picked up automatically.  Therefore, if the Cloud Service is stopped or deleted the Traffic Manager endpoint will continue to be billed for health checks until the endpoint is disabled or deleted within Traffic Manager.
 
 ### Does Traffic Manager support IPv6 endpoints?
 
@@ -125,12 +125,12 @@ Note that for the Traffic Manager health checks to function correctly, the servi
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions.  However, it can also be used where an application has more than one deployment in the same region.
 
-In the case of Web Apps, the Traffic Manager ‘Azure Endpoints’ type does not permit more than one Web App endpoint from the same Azure region to be added to Traffic Manager.  The following steps provide a workaround to this constraint:
+In the case of Web Apps, the Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.  The following steps provide a workaround to this constraint:
 
 1.	Check that your Web Apps within the same region are in different web app 'scale units', i.e. different instances of the Web App service.  To do this, check the DNS path for the <...>.azurewebsites.net DNS entry, the scale unit will look something like ‘waws-prod-xyz-123.vip.azurewebsites.net’.  A given domain name must map to a single site in a given scale unit, and for this reason two Web Apps in the same scale unit cannot share a Traffic Manager profile. 
 2.	Assuming each Web App is in a different scale unit, add your vanity domain name as a custom hostname to each Web App.  This requires all Web Apps to belong to the same subscription.
-3.	Add one (and only one) Web App endpoint as you normally would to your Traffic Manager profile, as an Azure Endpoint.
-4.	Add each additional Web App endpoint to your Traffic Manager profile as an External Endpoint.  This requires you to use the ARM experience for Traffic Manager, not ASM.
+3.	Add one (and only one) Web App endpoint as you normally would to your Traffic Manager profile, as an Azure endpoint.
+4.	Add each additional Web App endpoint to your Traffic Manager profile as an External endpoint.  This requires you to use the ARM experience for Traffic Manager, not ASM.
 5.	Create a DNS CNAME record from your vanity domain (as used in step 2 above) to your Traffic Manager profile DNS name (<…>.trafficmanager.net).
 6.	Access your site via the vanity domain name, not the Traffic Manager profile DNS name.
 
