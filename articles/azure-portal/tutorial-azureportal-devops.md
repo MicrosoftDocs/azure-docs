@@ -30,13 +30,13 @@ The Azure platform is full of flexible DevOps workflows. In this tutorial, you l
 
 ## Creating a web app and enabling continuous deployment
 
-Create a Web app with [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/), which you’ll use in the rest of this tutorial. You’ll initially enable continuous deployment from your source code repository into our running Azure environment.
+Create a Web app with [Azure App Service](https://azure.microsoft.com/services/app-service/), which you’ll use in the rest of this tutorial. You’ll initially enable continuous deployment from your source code repository into our running Azure environment.
 
 1.  Sign into the Azure Portal
 
 2.  Choose App Services &gt; click the Add icon and enter a name, choose your subscription, and create a new resource group to serve as the container for the service.
 
-    Resource groups allow you to manage various aspects of the solution such as billing, deployments and monitoring all as a single group via [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/).
+    Resource groups allow you to manage various aspects of the solution such as billing, deployments and monitoring all as a single group via [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
 
 	![Image1][Image1]
 
@@ -153,7 +153,7 @@ Next, make some changes to the code base and rapidly deploy those changes. You w
 
     ![Image28][Image28]
 
-13. You need to set a team services account. See here for more details: [Create a Team Services Account](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+13. You need to set a team services account. See here for more details: [Create a Team Services Account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 
 14. Click on New to create a performance test.
 
