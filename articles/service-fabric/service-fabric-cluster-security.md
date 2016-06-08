@@ -16,7 +16,7 @@
    ms.date="06/01/2016"
    ms.author="chackdan"/>
 
-# Service Fabric Cluster security scenarios
+# Service Fabric cluster security scenarios
 
 A Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. This article provides an overview of the security scenarios for clusters running on Azure and Windows server and the various technologies used to implement those scenarios.  The cluster security scenarios are:
 
@@ -47,12 +47,13 @@ Access control allows the cluster administrator to limit access to certain clust
 
 
 ## X.509 certificates and Service Fabric
-X.509 digital certificates are commonly used to authenticate clients and servers and to encrypt and digitally sign messages. For more details on these certificates, go to [Working with certificates](http://msdn.microsoft.com/library/ms731899.aspx) in the MSDN library.
+X.509 digital certificates are commonly used to authenticate clients and servers and to encrypt and digitally sign messages. For more details on these certificates, go to [Working with certificates](http://msdn.microsoft.com/library/ms731899.aspx).
 
->[AZURE.NOTE]
-- Certificates used in clusters that are running production workloads should be either created by using a correctly configured Windows Server certificate service or obtained from an approved [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
-- Never use in production any temporary or test certificates that are created with tools such as MakeCert.exe.
-- For clusters that you use for test purposes only, you can choose to use a self-signed certificate.
+Some important things to consider:
+
+- Certificates used in clusters running production workloads should be created by using a correctly configured Windows Server certificate service or obtained from an approved [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
+- Never use any temporary or test certificates in production that are created with tools such as MakeCert.exe.
+- You can use a self-signed certificate, but should only do so for test clusters and not in production.
 
 ### Server X.509 certificates
 
@@ -61,7 +62,7 @@ Server certificates have the primary task of authenticating a server (node) to c
 The following article describe how to generate certificates with subject alternative names (SAN):
 [How to add a subject alternative name to a secure LDAP certificate](http://support.microsoft.com/kb/931351).
 
->[AZURE.NOTE] The Subject field can contain several values, each prefixed with an initialization to indicate the value type. Most commonly, the initialization is "CN" for common name; for example, "CN = www.contoso.com". It is also possible for the Subject field to be blank. If the optional Subject Alternative Name field is populated, it must contain both the common name of the certificate and one entry per subject alternative name. These are entered as DNS Name values.
+The Subject field can contain several values, each prefixed with an initialization to indicate the value type. Most commonly, the initialization is "CN" for common name; for example, "CN = www.contoso.com". It is also possible for the Subject field to be blank. If the optional Subject Alternative Name field is populated, it must contain both the common name of the certificate and one entry per subject alternative name. These are entered as DNS Name values.
 
 The value of the Intended Purposes field of the certificate should include an appropriate value, such as "Server Authentication" or "Client Authentication".
 
@@ -75,11 +76,15 @@ Client certificates are not typically issued by a third-party certificate author
 
 
 ## Next steps
+After your cluster is setup, learn about cluster upgrades:
 
-- [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
-- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Service Fabric Health model introduction](service-fabric-health-introduction.md)
-- [Application Security and RunAs](service-fabric-application-runas-security.md)
+- [Service Fabric cluster upgrade process and expectations](service-fabric-cluster-upgrade.md)
+
+Learn more about application security:
+
+- [Application security and RunAs](service-fabric-application-runas-security.md)
+
+- [Secure service communications](service-fabric-reliable-services-secure-communication.md)
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

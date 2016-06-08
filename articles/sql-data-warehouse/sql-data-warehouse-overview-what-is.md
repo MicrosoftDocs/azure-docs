@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
-   ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
+   ms.date="06/01/2016"
+   ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
 # What is Azure SQL Data Warehouse?
@@ -35,7 +35,7 @@ Read on to learn more about the key features of SQL Data Warehouse.
 
 SQL Data Warehouse uses Microsoft’s massively parallel processing (MPP) architecture, designed to run some of the world's largest on-premises data warehouses.
 
-Currently, our MPP architecture spreads your data across 60 shared-nothing storage and processing units. The data is stored in redundant, geo-replicated Azure Storage Blobs and linked to Compute nodes for query execution. With this architecture, we can take a divide and conquer approach to running complex T-SQL queries. When processing, the Control node parses the query, and then each Compute node "conquers" its portion of the data in parallel. 
+Currently, our MPP architecture spreads your data across 60 shared-nothing storage and processing units. The data is stored in Azure Storage Blobs within Premium Storage and linked to Compute nodes for query execution. With this architecture, we can take a divide and conquer approach to running complex T-SQL queries. When processing, the Control node parses the query, and then each Compute node "conquers" its portion of the data in parallel. 
 
 By combining our MPP architecture and Azure storage capabilities, SQL Data Warehouse can:
 
