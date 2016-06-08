@@ -28,7 +28,7 @@ Enabling Stretch Database on  a database or a table requires db\_owner permissio
 
 -   Before you configure a database for Stretch, we recommend that you run the Stretch Database Advisor to identify databases and tables that are eligible for Stretch. The Stretch Database Advisor also identifies blocking issues. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md).
 
--   Review [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md).
+-   Review [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 
 -   Stretch Database migrates data to Azure . Therefore you have to have an Azure account and a subscription for billing. To get an Azure account, [click here](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,7 +52,7 @@ GO
 For more info, see [Configure the remote data archive Server Configuration Option](https://msdn.microsoft.com/library/mt143175.aspx) and [sp_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
 
 ## <a name="Wizard"></a>Use the wizard to enable Stretch Database on a database
-For info about the Enable Database for Stretch Wizard, including the info that you have to enter and the choices that you have to make, see [Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
+For info about the Enable Database for Stretch Wizard, including the info that you have to enter and the choices that you have to make, see [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
 
 ## <a name="EnableTSQLDatabase"></a>Use Transact\-SQL to enable Stretch Database on a database
 Before you can enable Stretch Database on individual tables, you have to enable it on the database.
@@ -125,7 +125,7 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 
 -   [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
--   [Backup and restore Stretch-enabled databases](sql-server-stretch-database-backup.md)
+-   [Backup Stretch-enabled databases](sql-server-stretch-database-backup.md)
 
 ## See also
 
