@@ -1,10 +1,10 @@
 <properties
-   pageTitle="How to use an Azure PowerShell command to create an empty cloud service container | Microsoft Azure"
-   description="This article explains how to create a cloud service container and perform cloud service-related management operations by using a PowerShell script"
+   pageTitle="Create a cloud service container with PowerShell | Microsoft Azure"
+   description="This article explains how to create a cloud service container with PowerShell. The container hosts web and worker roles."
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="paulyuk"
+   manager="timlt"
    editor=""/>
 
 <tags

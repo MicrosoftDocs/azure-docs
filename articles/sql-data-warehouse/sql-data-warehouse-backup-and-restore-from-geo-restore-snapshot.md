@@ -30,7 +30,7 @@ The recovery operation requires changing the SQL connection string upon recovery
 Recovering a database creates a new database from the latest geo-redundant backup. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. See this blog post for more information on [how to view and increase DTU quota][].
 
 ### Azure Portal
-1. Log in to the [Azure Portal][]
+1. Log in to the [Azure portal][]
 2. On the left side of the screen select **+NEW**, then select **Data and Storage**, and then select **SQL Data Warehouse**
 3. Select **BACKUP** as the source and then select the geo-redundant backup you want to recover from
 4. Specify the rest of the database properties and click **Create**
@@ -92,9 +92,9 @@ To learn about the business continuity features of Azure SQL Database editions, 
 <!--Image references-->
 
 <!--Article references-->
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Azure SQL Database business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
+[How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md
+[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
@@ -107,5 +107,5 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [how to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

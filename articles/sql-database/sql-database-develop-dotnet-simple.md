@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to SQL Database by using .NET (C#)"
+	pageTitle="Connect to SQL Database by using .NET (C#) | Microsoft Azure"
 	description="Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""

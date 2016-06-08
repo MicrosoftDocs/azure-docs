@@ -22,12 +22,7 @@ This tutorial shows how to consume an API app from an ASP.NET web app hosted in 
 
 ## Prerequisites
 
-This tutorial builds upon the series from the API App tutorials:
-
-1. [Create an Azure API App](../app-service-dotnet-create-api-app)
-3. [Deploy an Azure API App](../app-service-dotnet-deploy-api-app)
-4. [Debug an Azure API App](../app-service-dotnet-remotely-debug-api-app)
-
+This tutorial builds upon [Create an Azure API App](../app-service-api/app-service-api-dotnet-get-started.md).
 
 ## Create an ASP.NET MVC Application in Visual Studio
 

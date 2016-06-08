@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
- 	ms.date="04/07/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -301,33 +301,30 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            return inputAsset;
 		        }
 		
-		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-		        {
-		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-		
-		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-		                                    inputAsset.Name,
-		                                    encodingPreset));
-		
-		            var mediaProcessors =
-		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-		
-		            var latestMediaProcessor =
-		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-		
-		
-		
-		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-		
-		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-		            job.Submit();
-		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
-		
-		            return job.OutputMediaAssets[0];
-		        }
+			    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
+			    {
+			        var encodingPreset = "H264 Multiple Bitrate 720p";
+			
+			        IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
+			                                inputAsset.Name,
+			                                encodingPreset));
+			
+			        var mediaProcessors =
+			            _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder Standard")).ToList();
+			
+			        var latestMediaProcessor =
+			            mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
+			
+			        ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
+			        encodeTask.InputAssets.Add(inputAsset);
+			        encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), 	AssetCreationOptions.StorageEncrypted);
+			
+			        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+			        job.Submit();
+			        job.GetExecutionProgressTask(CancellationToken.None).Wait();
+			
+			        return job.OutputMediaAssets[0];
+			    }
 		
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)

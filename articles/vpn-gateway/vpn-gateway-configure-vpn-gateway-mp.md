@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc" />
 
 # Configure a VPN gateway for the classic deployment model
@@ -161,8 +161,6 @@ Before changing your gateway VPN type, be sure to verify that your VPN device wi
 
 
 ## Next steps
-
-You can learn more about Virtual Network cross-premises connectivity in this article: [About secure cross-premises connections for virtual networks](vpn-gateway-cross-premises-options.md).
 
 You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 

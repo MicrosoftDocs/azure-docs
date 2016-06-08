@@ -17,7 +17,7 @@ Thank you for your interest in Azure documentation!
 * [More resources](#more-resources)
 * [Index of all contributors' guide articles](./contributor-guide/contributor-guide-index.md) (opens new page)
 
-## Ways to contribute
+## Ways to contribute 
 
 You can contribute to [Azure documentation](http://azure.microsoft.com/documentation/) in a few different ways:
 

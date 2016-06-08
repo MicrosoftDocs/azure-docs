@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Manage Azure Data Lake Analytics using Azure Portal
@@ -176,7 +176,7 @@ the following roles:
 |Contributor|Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor also need the read or write permission to the Data Lake Store accounts.|
 |DataLakeAnalyticsDeveloper | User can submit jobs, monitor all jobs, but can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts     | 
 |Reader|Lets you view everything, but not make any changes.|  
-|DevTest Lab User|Lets you view everything, and connect, start, restart, and shutdown virtual machines.|  
+|DevTest Labs User|Lets you view everything, and connect, start, restart, and shutdown virtual machines.|  
 |User Access Administrator|Lets you manage user access to Azure resources.|  
 
 For information on creating Azure Active Directory users and security groups, See [What is Azure Active Directory](../active-directory/active-directory-whatis.md).

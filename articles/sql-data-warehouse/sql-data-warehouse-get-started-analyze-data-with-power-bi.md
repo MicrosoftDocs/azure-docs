@@ -30,7 +30,7 @@ This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and
 
 To open Power BI and connect to your AdventureWorksDW database:
 
-1. Sign into the [Azure Portal][].
+1. Sign into the [Azure portal][].
 2. Click **SQL databases** and choose your AdventureWorks SQL Data Warehouse database.
 
     ![Find your database][1]
@@ -105,7 +105,7 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-overview-load.md
 [load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md

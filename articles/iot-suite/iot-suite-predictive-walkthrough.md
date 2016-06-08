@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/16/2016"
  ms.author="araguila"/>
 
 # Predictive maintenance preconfigured solution walkthrough
@@ -108,6 +108,8 @@ You can stop the simulation at any point, but clicking **Start Simulation** repl
 ## Next steps
 
 Now you've run the predictive maintenance preconfigured solution you may want to modify it, see [Guidance on customizing preconfigured solutions][lnk-customize].
+
+The [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet blog post provides additional detail about the predictive maintenance preconfigured solution.
 
   
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Configuring and managing access to IoT Hub
@@ -30,6 +30,7 @@ Devices can communicate with IoT Hub in Azure using a variety of protocols. Typi
 | AMQP     | 5671    |
 | AMQP over WebSockets | 443    |
 | MQTT | 8883 |
+| LWM2M (Device management) | 5684 |
 
 Once you have created an IoT hub in an Azure region, the hub will keep the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it will be assigned a new IP address.
 

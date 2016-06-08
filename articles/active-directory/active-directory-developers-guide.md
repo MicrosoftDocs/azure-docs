@@ -40,7 +40,7 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 
 ### Mobile and PC application quick-start guides
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Windows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
@@ -99,16 +99,15 @@ These articles provide a foundation reference for REST and authentication librar
 
 ### Authentication protocols
 
-- [SAML 2.0 protocol reference](https://msdn.microsoft.com/library/azure/dn195591.aspx): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
+- [Azure Active Directory authentication protocols](active-directory-protocols.md): Learn about the different authentication and authorization protocols supported by Azure Active Directory.
 
+- [SAML 2.0 protocol reference](active-directory-saml-protocol-reference.md): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
 
-- [OAuth 2.0 protocol reference](https://msdn.microsoft.com/library/azure/dn645545.aspx): You can use the OAuth 2.0 protocol to authorize access to web applications and web APIs in your Azure Active Directory tenant.
+- [OAuth 2.0 protocol reference](active-directory-protocols-oauth-code.md): You can use the OAuth 2.0 protocol to authorize access to web applications and web APIs in your Azure Active Directory tenant.
 
+- [OpenID Connect 1.0 protocol reference](active-directory-protocols-openid-connect-code.md): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol.
 
-- [OpenID Connect 1.0 protocol reference](https://msdn.microsoft.com/library/azure/dn645541.aspx): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol.
-
-
-- [WS-Federation 1.2 protocol reference](https://msdn.microsoft.com/library/azure/dn903702.aspx): The WS-Federation 1.2 protocol is specified in the Web Services Federation Version 1.2 Specification.
+- [WS-Federation 1.2 protocol](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory supports WS-Federation 1.2 as per the Web Services Federation Version 1.2 Specification.
 
 - [Supported token and claim types](active-directory-token-and-claims.md): You can use this guide to understand and evaluate the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
 

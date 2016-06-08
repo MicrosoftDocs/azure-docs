@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/15/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
@@ -34,6 +34,10 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
+
+## Do you learn fast with videos?
+
+[Watch this video](https://mix.office.com/watch/1q2mgzh9nn5lx) on how to secure data stored in Data Lake Store. 
 
 ## Create security groups in Azure Active Directory
 
@@ -98,8 +102,8 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 
 	![List standard and custom access](./media/data-lake-store-secure-data/adl.acl.2.png "List standard and custom access")
 
-	* Standard access is the UNIX-style access, where you specify read, write, execute (rwx) to three distinct user classes: owner, group, and others.
-	* Custom access corresponds to the POSIX ACLs that enables you to set permissions for specific named users or groups, and not only the file's owner or group.
+	* **Standard access** is the UNIX-style access, where you specify read, write, execute (rwx) to three distinct user classes: owner, group, and others.
+	* **Custom access** corresponds to the POSIX ACLs that enables you to set permissions for specific named users or groups, and not only the file's owner or group. 
 	
 	For more information, see [HDFS ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). 
 
@@ -111,8 +115,13 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 
 	![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.4.png "Assign permissions to group")
 
+	The permissions can be understood as follows:
 
-	>[AZURE.NOTE] The Execute permission is required for enumeration of directories and is often required when providing a user or group read-only access to data.
+	* **Read** - If this permission is set on a directory, it provides the ability to read the names of the files in the directory.
+	* **Write** - If this permission is set on a directory, it provides the ability to modify the entries in the directory such as create a file, delete a file, or rename a file.
+	* **Execute** - If this permission is set on a directory, it provides the ability to access the contents of the file in the directory. This also provides access to the metadata of the file, if the file name is known. However, this permission does not enable you to list files in the directory, unless the **Read** permission is also set.
+
+	>[AZURE.NOTE] **Read + Execute** permission is required for enumeration of directories and is often required when providing a user or group read-only access to data.
 
 
 6. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, will now be listed in the **Access** blade.

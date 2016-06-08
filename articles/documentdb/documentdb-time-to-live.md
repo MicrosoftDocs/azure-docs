@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2016"
+   ms.date="04/28/2016"
    ms.author="kipandya"/>
 
 # Expire data in DocumentDB collections automatically with time to live
@@ -52,29 +52,23 @@ The above logic can be shown in the following matrix:
 |  TTL = n on document | Nothing to override at the document level. TTL on a document in un-interpreted by the system. | The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. | The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
 
 
-### Configuring TTL
+## Configuring TTL
 
 By default, time to live is disabled by default in all DocumentDB collections and on all documents.
 
-### Enabling TTL
+## Enabling TTL
 
 To enable TTL on a collection, or the documents within a collection, you need to set the DefaultTTL property of a collection to either -1 or a non-zero positive number. Setting the DefaultTTL to -1 means that by default all documents in the collection will live forever but the DocumentDB service should monitor this collection for documents that have overridden this default.
- 
-The code snippet above enables the TTL feature on this collection. All documents in this collection will however live indefinitely, unless this has been explicitly overridden at an individual document level.
 
-
-### Configuring default TTL on a collection
+## Configuring default TTL on a collection
 
 You are able to configure a default time to live at a collection level. 
 
-To set the TTL on a collection, you need to provide a non-zero positive number which indicates the period, in seconds, to expire all documents in the collection after the last modified timestamp of the document (_ts).
+To set the TTL on a collection, you need to provide a non-zero positive number that indicates the period, in seconds, to expire all documents in the collection after the last modified timestamp of the document (_ts).
 
 Or, you can set the default to -1, which implies that all documents inserted in to the collection will live indefinitely by default.
 
-This code will set the default time to live for all documents in this collection to 60 seconds from when they were last modified, unless a particular documents overrides this default
-
-
-### Setting TTL on a document
+## Setting TTL on a document
 
 In addition to setting a default TTL on a collection you can set specific TTL at a document level. Doing this will override the default of the collection.
 
@@ -87,14 +81,14 @@ If a document has no TTL field, then the default of the collection will apply.
 If TTL is disabled at the collection level, the TTL field on the document will be ignored until TTL is enabled again on the collection.
 
 
-### Extending TTL on an existing document
+## Extending TTL on an existing document
 
 You can reset the TTL on a document by doing any write operation on the document. Doing this will set the _ts to the current time, and the countdown to the document expiry, as set by the ttl, will begin again.
 
 If you wish to change the ttl of a document, you can update the field as you can do with any other settable field.
 
 
-### Removing TTL from a document
+## Removing TTL from a document
 
 If a TTL has been set on a document and you no longer want that document to expire, then you can retrieve the document, remove the TTL field and replace the document on the server.
 
@@ -103,7 +97,7 @@ When the TTL field is removed from the document, the default of the collection w
 To stop a document from expiring and not inherit from the collection then you need to set the TTL value to -1.
 
 
-### Disabling TTL
+## Disabling TTL
 
 To disable TTL entirely on a collection and stop the background process from looking for expired documents the DefaultTTL property on the collection should be deleted.
 

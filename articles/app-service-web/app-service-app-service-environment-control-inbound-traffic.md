@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="05/26/2016" 
 	ms.author="stefsch"/>	
 
 # How To Control Inbound Traffic to an App Service Environment
@@ -41,7 +41,7 @@ The following is a list of ports used by an App Service Environment:
 - 80:  Default port for inbound HTTP traffic to apps running in App Service Plans in an App Service Environment
 - 443: Default port for inbound SSL traffic to apps running in App Service Plans in an App Service Environment
 - 21:  Control channel for FTP.  This port can be safely blocked if FTP is not being used.
-- 10001-10020: Data channels for FTP.  As with the control channel, these ports can be safely blocked if FTP is not being used   (**Note:** the FTP data channels may change during preview.)
+- 10001-10020: Data channels for FTP.  As with the control channel, these ports can be safely blocked if FTP is not being used   
 - 4016: Used for remote debugging with Visual Studio 2012.  This port can be safely blocked if the feature is not being used.
 - 4018: Used for remote debugging with Visual Studio 2013.  This port can be safely blocked if the feature is not being used.
 - 4020: Used for remote debugging with Visual Studio 2015.  This port can be safely blocked if the feature is not being used.
@@ -67,7 +67,7 @@ It is also recommended that any custom DNS servers on the vnet be setup ahead of
 ## Creating a Network Security Group ##
 For full details on how network security groups work see the following [information][NetworkSecurityGroups].  The details below touch on highlights of network security groups, with a focus on configuring and applying a network security group to a subnet that contains an App Service Environment.
 
-**Note:** Network security groups can only be configured using the Powershell cmdlets described below.  Network security groups cannot be configured graphically using the [Azure Portal](portal.azure.com) because the Azure Portal only allows graphical configuration of NSGs associated with "v2" virtual networks.  However, App Service Environments currently only work with classic "v1" virtual networks.  As a result only Powershell cmdlets can be used to configure network security groups associated with "v1" virtual networks.
+**Note:** Network security groups can only be configured using the Powershell cmdlets described below.  Network security groups cannot be configured graphically using the [Azure Portal](https://portal.azure.com) because the Azure Portal only allows graphical configuration of NSGs associated with "v2" virtual networks.  However, App Service Environments currently only work with classic "v1" virtual networks.  As a result only Powershell cmdlets can be used to configure network security groups associated with "v1" virtual networks.
 
 Network security groups are first created as a standalone entity associated with a subscription. Since network security groups are created in an Azure region, ensure that the network security group is created in the same region as the App Service Environment.
 

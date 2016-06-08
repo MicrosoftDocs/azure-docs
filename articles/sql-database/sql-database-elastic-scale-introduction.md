@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/25/2016"
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="ddove"/>
 
 # Scaling out with Azure SQL Database
 
@@ -28,7 +28,7 @@ You can easily scale out Azure SQL databases using the **Elastic Database** tool
 
 The graphic below shows an architecture that includes the **Elastic Database features** in relation to a collection of databases.
 
-In this [graphic]((http://aka.ms/axmybc)), colors of the database represent schemas. Databases with the same color share the same schemas.
+In this graphic, colors of the database represent schemas. Databases with the same color share the same schema.
 
 1. A set of **Azure SQL databases** are hosted on Azure using sharding architecture.
 2. The **Elastic Database client library** is used to manage a shard set.
@@ -36,6 +36,7 @@ In this [graphic]((http://aka.ms/axmybc)), colors of the database represent sche
 4. An **Elastic Database job** runs T-SQL scripts against all databases.
 5. The **split-merge tool** is used to move data from one shard to another.
 6. The **Elastic Database query** allows you to write a query that spans all databases in the shard set.
+7. **Elastic transactions** allows you to run transactions that span several databases. 
 
 
 ![Elastic Database tools][1]
@@ -85,7 +86,7 @@ Some applications use the simplest approach of creating a separate database for 
 
 ![Single tenant versus multi-tenant][4]
 
-Others scenarios pack multiple tenants together into databases, rather than isolating them into separate databases. This is a typical **multi-tenant sharding pattern** – and it may be driven by the fact that an application manages large numbers of very small tenants. In multi-tenant sharding, the rows in the database tables are all designed to carry a key identifying the tenant ID or sharding key. Again, the application tier is responsible for routing a tenant’s request to the appropriate database, and this can be supported by the elastic database client library. In addition, row-level security can be used to filter which rows each tenant can access – for details, see [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistributing data among databases may be needed with the multi-tenant sharding pattern, and this is facilitated by the elastic database split-merge tool.
+Others scenarios pack multiple tenants together into databases, rather than isolating them into separate databases. This is a typical **multi-tenant sharding pattern** – and it may be driven by the fact that an application manages large numbers of very small tenants. In multi-tenant sharding, the rows in the database tables are all designed to carry a key identifying the tenant ID or sharding key. Again, the application tier is responsible for routing a tenant’s request to the appropriate database, and this can be supported by the elastic database client library. In addition, row-level security can be used to filter which rows each tenant can access – for details, see [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistributing data among databases may be needed with the multi-tenant sharding pattern, and this is facilitated by the elastic database split-merge tool. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ### Move data from multiple to single-tenancy databases
 
@@ -93,9 +94,9 @@ When creating a SaaS application, it is typical to offer prospective customers a
 
 ## Next steps
 
-For a sample app that demonstrates the client library, see [Get started with Elastic Datbabase tools](sql-database-elastic-scale-get-started.md).
+For a sample app that demonstrates the client library, see [Get started with Elastic Datababase tools](sql-database-elastic-scale-get-started.md).
 
-To use the split-merge tool, you must [configure security](sql-database-elastic-scale-split-merge-security-configuration.md).
+To convert existing databases to use the tools, see [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 To see the specifics of the Elastic Database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-create-portal.md).  
 

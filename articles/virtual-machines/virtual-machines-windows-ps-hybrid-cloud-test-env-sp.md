@@ -11,15 +11,13 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Set up a SharePoint intranet farm in a hybrid cloud for testing
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 This topic steps you through creating a hybrid cloud environment for testing an intranet SharePoint farm hosted in Microsoft Azure. Here is the resulting configuration.
 
@@ -222,6 +220,6 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 
 ## Next step
 
-- Deploy the [production workload](virtual-machines-windows-sp-intranet-overview.md).
+- [Configure](https://technet.microsoft.com/library/ee836142.aspx) your SharePoint farm.
 
 

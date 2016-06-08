@@ -3,11 +3,9 @@
 	description="Create SQL Table and load data to SQL Table" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="fashah" 
-	manager="jacob.spoelstra" 
-	editor="" 
-	videoId=""
-	scriptId="" />
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -15,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016"
 	ms.author="fashah;bradsev" /> 
 
 # Move data to an Azure SQL Database for Azure Machine Learning
 
-## Introduction
-**In this topic** we outline the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premise SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Cortana Analytics Process provided by Azure.
+This topic outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premise SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Cortana Analytics Process provided by Azure.
 
 For a topic that outlines the options for moving data to an on-premise SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
@@ -49,6 +46,7 @@ This procedures outlined here require that you have:
  
 You can either adapt the procedures described here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premise SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premise SQL Server is the same.
 
+
 ## <a name="file-to-azure-sql-database"></a> Moving data from a flat file source to an Azure SQL database
 
 Data in flat files (CSV or TSV formatted) can be moved to an Azure SQL database using a Bulk Insert SQL Query.
@@ -56,6 +54,7 @@ Data in flat files (CSV or TSV formatted) can be moved to an Azure SQL database 
 ### <a name="bulk-insert-sql-query"></a> Bulk Insert SQL Query
 
 The steps for the procedure using the Bulk Insert SQL Query are similar to those covered in the sections for moving data from a flat file source to SQL Server on an Azure VM. For details, see [Bulk Insert SQL Query](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery).
+
 
 ##<a name="sql-on-prem-to-sazure-sql-database"></a> Moving Data from on-premise SQL Server to an Azure SQL database
 

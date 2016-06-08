@@ -43,6 +43,9 @@ The following table covers the SQL error codes for connection loss errors, and o
 
 ### Most common database connection errors and transient fault errors
 
+The Azure infrastructure has the ability to dynamically reconfigure servers when heavy workloads arise in the SQL Database service.  This dynamic behavior might cause your client program to lose its connection to SQL Database. This kind of error condition is called a *transient fault*.
+
+If your client program has retry logic, it can try to reestablish a connection after giving the transient fault time to correct itself.  We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
 
 Transient fault errors typically manifest as one of the following error messages from your client programs:
 
@@ -54,13 +57,13 @@ Transient fault errors typically manifest as one of the following error messages
 
 - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
 
-Transient fault errors should prompt your client program to run *retry logic* that you design for retrying the operation. For code examples of retry logic, see:
-
+For code examples of retry logic, see:
 
 - [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 - [Actions to fix connection errors and transient errors in SQL Database](sql-database-connectivity-issues.md)
 
+A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### Transient fault error codes
 

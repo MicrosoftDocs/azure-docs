@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # The Azure AD Privileged Identity Management security wizard
@@ -26,14 +26,14 @@ Before your organization starts using PIM, all role assignments are permanent: t
 
 The second step of the wizard gives you an opportunity to change administrator's role assignments.  
 
-> [AZURE.WARNING] It is important that you have at least one global administrator, and more than one security administrator with an organizational account (not a Microsoft account). If there is only one security administrator, the organization will not be able to manage PIM if that account is deleted.
+> [AZURE.WARNING] It is important that you have at least one global administrator, and more than one privileged role administrator with an organizational account (not a Microsoft account). If there is only one privileged role administrator, the organization will not be able to manage PIM if that account is deleted.
 > Also, don't change role assignments to temporary if a user has a Microsoft account. If you plan to require MFA for activation for that role, that user will be locked out of the role.
 
 
-After you have made changes, the wizard will no longer show up. The next time you or another security administrator use PIM, you will see the PIM dashboard.  
+After you have made changes, the wizard will no longer show up. The next time you or another privileged role administrator use PIM, you will see the PIM dashboard.  
 
-- If you would like to add or remove users from roles or change assignments from permanent to temporary, read more at [how to add or remove a user's role](active-directory-privileged-identity-management-how-to-add-role-to-user).
-- If you would like to give more users access to manage PIM, read more at [how to give access to manage in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim).
+- If you would like to add or remove users from roles or change assignments from permanent to temporary, read more at [how to add or remove a user's role](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
+- If you would like to give more users access to manage PIM, read more at [how to give access to manage in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 
 

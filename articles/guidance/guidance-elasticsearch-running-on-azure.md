@@ -19,6 +19,8 @@
 
 # Running Elasticsearch on Azure
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series](guidance-elasticsearch.md). 
 
 ## Overview
@@ -554,7 +556,7 @@ If you are hosting an Elasticsearch cluster by using Azure VMs, each node can co
 limit of vertical scalability for a node is largely governed by the SKU of the VM and the overall
 restrictions applied to individual storage accounts and Azure subscriptions. 
 
-The page [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits/) 
+The page [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md) 
 describes these limits in detail, but as far as building an Elasticsearch cluster is concerned, the items
 in the following list are the most pertinent. 
 
@@ -814,7 +816,7 @@ Avoid Search requests that attempt to load very large fields into memory (if a q
 
 - Searches that query multiple indexes at the same time.
 
-- Searches that retrieve a large number of fields. These searches can exhaust memory by causing a vast amount of field data to be cached. By default, the field data cache is unlimited in size, but you can set the [indices.fielddata.cache.*](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-fielddata.html) properties in the elasticsearch.yml configuration file to limit the resources available. You can also configure the [field data circuit breaker][] to help prevent the cached data from a single field from exhausting memory, and the [request circuit breaker][] to stop individual queries from monopolizing memory. The cost of setting these parameters is the increased likelihood of some queries failing or timing out.
+- Searches that retrieve a large number of fields. These searches can exhaust memory by causing a vast amount of field data to be cached. By default, the field data cache is unlimited in size, but you can set the [indices.fielddata.cache.*](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html) properties in the elasticsearch.yml configuration file to limit the resources available. You can also configure the [field data circuit breaker][] to help prevent the cached data from a single field from exhausting memory, and the [request circuit breaker][] to stop individual queries from monopolizing memory. The cost of setting these parameters is the increased likelihood of some queries failing or timing out.
  
 > [AZURE.NOTE] Using [Doc Values][] can reduce the memory requirements of indexes by saving fielddata to
 > disk rather than loading it into memory. This can help to reduce the chances of memory exhaustion on a
@@ -1015,12 +1017,12 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 
 [Apache JMeter]: http://jmeter.apache.org/
 [Apache Lucene]: https://lucene.apache.org/
-[Automatically scale machines in a Virtual Machine Scale Set]: virtual-machines-vmss-walkthrough/
-[Azure Disk Encryption for Windows and Linux IaaS VMs Preview]: azure-security-disk-encryption/
-[Azure Load Balancer]: load-balancer-overview/
-[ExpressRoute]: expressroute-introduction/
-[internal load balancer]: load-balancer-internal-overview/
-[Sizes for Virtual Machines]: virtual-machines-linux-sizes/
+[Automatically scale machines in a Virtual Machine Scale Set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create.md
+[Azure Disk Encryption for Windows and Linux IaaS VMs Preview]: ../azure-security-disk-encryption.md
+[Azure Load Balancer]: ../load-balancer/load-balancer-overview.md
+[ExpressRoute]: ../expressroute/expressroute-introduction.md
+[internal load balancer]:  ../load-balancer/load-balancer-internal-overview.md
+[Sizes for Virtual Machines]: ../virtual-machines/virtual-machines-linux-sizes.md
 
 [Memory Requirements]: #memory-requirements
 [Network Requirements]: #network-requirements
@@ -1042,7 +1044,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Elasticsearch.Net & NEST]: http://nest.azurewebsites.net/
 [Elasticsearch Snapshot and Restore module]: https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html
 [Faking Index per User with Aliases]: https://www.elastic.co/guide/en/elasticsearch/guide/current/faking-it.html
-[field data circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-fielddata.html#fielddata-circuit-breaker
+[field data circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/circuit-breaker.html#fielddata-circuit-breaker
 [Force Merge]: https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-forcemerge.html
 [gossiping]: https://en.wikipedia.org/wiki/Gossip_protocol
 [Kibana]: https://www.elastic.co/downloads/kibana
@@ -1053,10 +1055,10 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Microsoft Azure Diagnostics with ELK]: https://github.com/mspnp/semantic-logging/tree/elk
 [Monitoring Individual Nodes]: https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_monitoring_individual_nodes
 [nginx]: http://nginx.org/en/
-[Node Client API]: https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/node-client.html
+[Node Client API]: https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/client.html
 [Optimize]: https://www.elastic.co/guide/en/elasticsearch/reference/1.7/indices-optimize.html
 [PubNub Changes Plugin]: http://www.pubnub.com/blog/quick-start-realtime-geo-replication-for-elasticsearch/
-[request circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-fielddata.html#request-circuit-breaker
+[request circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/circuit-breaker.html#request-circuit-breaker
 [Search Guard]: https://github.com/floragunncom/search-guard
 [Shield]: https://www.elastic.co/products/shield
 [Transport Client API]: https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/transport-client.html

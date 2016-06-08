@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #How to Use the Engagement API on Windows Universal
 
-This document is an add-on to the document [How to Integrate Engagement on Windows Universal](../mobile-engagement-windows-store-integrate-engagement/): it provides in depth details about how to use the Engagement API to report your application statistics.
+This document is an add-on to the document [How to Integrate Engagement on Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): it provides in depth details about how to use the Engagement API to report your application statistics.
 
 Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `Page` sub-classes inherit from the `EngagementPage` class.
 
@@ -30,7 +30,7 @@ Even if the agent module has not been initialized, each call to the API is defer
 
 ##Engagement concepts
 
-The following parts refine the common [Mobile Engagement Concepts](../mobile-engagement-concepts/) for the Windows Universal platform.
+The following parts refine the common [Mobile Engagement Concepts](mobile-engagement-concepts.md) for the Windows Universal platform.
 
 ### `Session` and `Activity`
 

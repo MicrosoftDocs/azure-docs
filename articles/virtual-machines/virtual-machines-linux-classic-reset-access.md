@@ -31,7 +31,6 @@ If you can't connect to a Linux virtual machine on Azure because of a forgotten 
 
 You will need the following:
 
-- Microsoft Azure Linux agent version 2.0.5 or later. Most Linux images in the Azure Marketplace include at least version 2.0.5. To find out which version is installed, run **waagent -version**. To update the agent, follow the instructions in the [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md).
 - Azure Command-Line Interface (CLI). You will need to [install the Azure CLI](../xplat-cli-install.md) and [connect to your subscription](../xplat-cli-connect.md) to use Azure resources associated with your account.
 - A new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration.
 

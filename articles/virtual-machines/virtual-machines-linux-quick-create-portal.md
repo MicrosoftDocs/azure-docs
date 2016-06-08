@@ -15,13 +15,15 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/12/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
 # Create a Linux VM on Azure using the Portal
 
 This article shows how to use the [Azure Portal](https://portal.azure.com/) to create a Linux Virtual Machine quickly. The only requirements are [an Azure account](https://azure.microsoft.com/pricing/free-trial/) and [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md).
+
+[AZURE.NOTE] If you choose to use a password to secure access to your VM, the password must be greater than 12 characters, and have at least one upper case character, at least one lowercase character, at least one special character, and at least one number. 
 
 
 1. Signed into the Azure Portal with your Azure account identity, click **+ New** in the upper left corner:
@@ -66,7 +68,7 @@ This article shows how to use the [Azure Portal](https://portal.azure.com/) to c
 9. SSH into the public IP using your SSH public key
 
 ```
-ahmetL@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ```
 
 ## Next Steps
