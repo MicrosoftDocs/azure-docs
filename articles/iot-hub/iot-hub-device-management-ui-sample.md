@@ -26,7 +26,7 @@ Developers looking to build their own device management interactive experience c
 
 Before starting this tutorial, you should complete the steps in the [Get started with Azure IoT Hub device management][lnk-get-started] article. If you have not done so, please return and complete all steps in this article before proceeding.
 
-When you have completed of the "Get started" article, you will have the following running on your test system:
+When you have completed the "Get started" tutorial, you will have the following running on your test system:
 
 - Six **iotdm\_simple\_sample** simulated devices running in console/terminal windows, each with a successful "REGISTERED" message.
 
@@ -96,7 +96,7 @@ As you learned in the device management overview, device jobs enable you to orch
 
     ![][6]
 
-2.  Click the **Reboot** button in the device actions toolbar to create the reboot job. After confirming **Yes**, click the **Job History** hyperlink in the resulting **Job for Device has started** dialogue to navigate to the Device Jobs view.
+2.  Click the **Reboot** button in the device jobs toolbar to create the reboot job. After confirming **Yes**, click the **Job History** hyperlink in the resulting **Job for Device has started** dialogue to navigate to the Device Jobs view.
 
     ![][7]
 
