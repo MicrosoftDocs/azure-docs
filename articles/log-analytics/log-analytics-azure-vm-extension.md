@@ -43,7 +43,7 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
 ### To install the Log Analytics agent and connect the virtual machine to a Log Analytics workspace
 
 1.	Sign into the [Azure portal](http://portal.azure.com).
-2.	Go to **Log Analytics (OMS)**, and then select it.
+2.	Select **Browse** on the left side of the portal, and then go to **Log Analytics (OMS)** and select it.
 3.	In your list of Log Analytics workspaces, select the one that you want to use with the Azure VM.  
     ![OMS workspaces](./media/log-analytics-azure-storage/oms-connect-azure-01.png)
 4.	Under **Log analytics management**, select **Virtual machines**.  
