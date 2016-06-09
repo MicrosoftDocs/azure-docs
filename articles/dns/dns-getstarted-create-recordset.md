@@ -83,7 +83,7 @@ In this example, you specify the zone by using the zone name and resource group 
 
 ### 3. Add a record
 
-To use the newly created "www" record set, you need to add records to it. You can add IPv4 *A* records to the "www" record set by using the folllowing example. This example relies on the variable *$rs* that you set in the previous step.
+To use the newly created "www" record set, you need to add records to it. You can add IPv4 *A* records to the "www" record set by using the following example. This example relies on the variable *$rs* that you set in the previous step.
 
 Adding records to a record set by using `Add-AzureRmDnsRecordConfig` is an offline operation. Only the local variable *$rs* is updated.
 

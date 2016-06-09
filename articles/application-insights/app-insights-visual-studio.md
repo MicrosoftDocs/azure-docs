@@ -65,7 +65,11 @@ If you have [set up exception monitoring](app-insights-asp-net-exceptions.md), e
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Exception stack trace](./media/app-insights-visual-studio/17.png)
+
+In addition, in the Code Lens line above each method, you'll see a count of the exceptions logged by Application Insights in the past 24h.
+
+![Exception stack trace](./media/app-insights-visual-studio/21.png)
 
 
 ## Local monitoring
@@ -83,8 +87,6 @@ It's also useful if you have some [custom telemetry](app-insights-api-custom-eve
 
  * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
  * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
-
-
 
 
 

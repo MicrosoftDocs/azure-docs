@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="A tour through Analytics in Application Insights" 
+	pageTitle="A tour through Analytics in Application Insights | Microsoft Azure" 
 	description="Short samples of all the main queries in Analytics, 
 	             the powerful search tool of Application Insights." 
 	services="application-insights" 
