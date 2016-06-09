@@ -66,7 +66,7 @@ In order to send messages to the queue, we will write a C# console application u
 
 2. Click the **Browse** tab, then search for “Microsoft Azure Service Bus” and select the **Microsoft Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog box.
 
-    ![Select a NuGet package][1]
+    ![Select a NuGet package][nuget-pkg]
 
 ### Write some code to send a message to the queue
 
@@ -113,7 +113,7 @@ In order to send messages to the queue, we will write a C# console application u
   
 3. Run the program, and check the Azure classic portal. Notice that the **Queue Length** value should now be 1.
     
-      ![Queue length][2]
+      ![Queue length][queue-length-send]
     
 ## 4. Receive messages from the queue
 
@@ -173,7 +173,7 @@ In order to send messages to the queue, we will write a C# console application u
   
 4. Run the program, and check the portal. Notice that the **Queue Length** value should now be 0.
 
-    ![Queue length][3]
+    ![Queue length][queue-length-receive]
   
 Congratulations! You have now created a queue, sent a message, and received a message.
 
@@ -183,9 +183,9 @@ Check out our [GitHub repository with samples](https://github.com/Azure-Samples/
 
 <!--Image references-->
 
-[1]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[2]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[3]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
+[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
+[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
