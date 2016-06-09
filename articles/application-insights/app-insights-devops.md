@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Deep diagnostics for web apps and services with Application Insights"
+	pageTitle="Deep diagnostics for web apps and services with Application Insights | Microsoft Azure"
 	description="How Application Insights fits into the devOps cycle"
 	services="application-insights"
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/03/2016"
+	ms.date="06/09/2016"
 	ms.author="awills"/>
 
 # Deep diagnostics for web apps and services with Application Insights
