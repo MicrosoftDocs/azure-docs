@@ -20,7 +20,7 @@
 
 As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
 
-If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default value. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
+If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
 
 >[AZURE.NOTE] A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
 
@@ -50,7 +50,7 @@ View your Batch account quotas in the [Azure portal][portal].
 
 2. On the account blade, click **All settings** > **Properties**.
 
- ![Batch account quotas][account_quotas]
+	![Batch account quotas][account_quotas]
 
 3. The **Properties** blade displays the quotas currently applied to the Batch account.
 
