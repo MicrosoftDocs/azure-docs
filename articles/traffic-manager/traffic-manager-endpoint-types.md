@@ -43,7 +43,7 @@ Azure endpoints are used to configure Azure-based services in Traffic Manager.  
 - Web Apps
 - PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer)
 
-PublicIPAddress resources are Azure Resource Manager (ARM) resources, they do not exist in the Azure Service Management (ASM) APIs.  Thus they are only supported in Traffic Manager’s Azure Resource Manager experiences.  The other endpoint types are supported via both Azure Resource Manager and Azure Service Management experiences in Traffic Manager.
+PublicIPAddress resources are Azure Resource Manager resources, they do not exist in the Azure Service Management APIs.  Thus they are only supported in Traffic Manager’s Azure Resource Manager experiences.  The other endpoint types are supported via both Resource Manager and Service Management experiences in Traffic Manager.
 
 When using Azure endpoints, Traffic Manager will detect when a ‘Classic’ IaaS VM or PaaS cloud service or a Web App is stopped and started.  This is reflected in the endpoint status (see [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status) for details.)  When the underlying service is stopped, Traffic Manager will no longer bill for endpoint health checks and will not direct traffic to the endpoint; billing resumes and the endpoint becomes eligible to receive traffic when the service is restarted.  This does not apply to PublicIpAddress endpoints.
 
@@ -75,7 +75,7 @@ Some additional considerations apply when configuring Web Apps as endpoints in T
 
 2. When an HTTP request is received by the Web Apps service, it uses the ‘host’ header in the request to determine which Web App should service the request.  The host header contains the DNS name used to initiate the request, for example ‘contosoapp.azurewebsites.net’.  To use a different DNS name with your Web App, the DNS name must be registered as a custom domain for the App.  When adding a Web App endpoint to a Traffic Manager profile as an Azure endpoint, the Traffic Manager profile DNS name is automatically registered as a custom domain for the App.  This registration is automatically removed when the endpoint is deleted.
 
-3. Typically, a Web App will be configured as an Azure endpoint.  However there are circumstances where it is useful to configure a Web App using an External endpoint (for an example, see the next item).   Web Apps can only be configured as an External endpoint in Traffic Manager when using the Azure Resource Manager (ARM) Traffic Manager experiences, this is not supported via the Azure Service Management (ASM) experiences.
+3. Typically, a Web App will be configured as an Azure endpoint.  However there are circumstances where it is useful to configure a Web App using an External endpoint (for an example, see the next item).   Web Apps can only be configured as an External endpoint in Traffic Manager when using the Resource Manager Traffic Manager experiences, this is not supported via the Service Management experiences.
 
 4. Each Traffic Manager profile can have at most one Web App endpoint from each Azure region.  A workaround for this constraint is given in the [FAQ](#faq).
 
@@ -83,7 +83,7 @@ Some additional considerations apply when configuring Web Apps as endpoints in T
 
 Disabling an endpoint in Traffic Manager is very useful for temporarily removing traffic from an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be re-enabled.
 
-Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, and is supported in both Azure Resource Manager (ARM) and Azure Service Management (ASM) experiences.
+Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, all of which are supported in both Resource Manager and Service Management experiences.
 
 >[AZURE.NOTE] Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App) will remain running and able to receive traffic even when disabled in Traffic Manager, if traffic is addressed directly to that service rather than via the Traffic Manager profile DNS name.  For more information, see [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
 
@@ -98,11 +98,11 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 ## FAQ
 
 ### Can I use Traffic Manager with endpoints from multiple subscriptions?
-Yes.  How you do this depends on whether you are using the Azure Service Management (ASM) APIs or the newer Azure Resource Manager (ARM) APIs for Traffic Manager.  The [Azure portal](https://portal.azure.com) uses Azure Resource Manager, the ['classic' portal](https://manage.windowsazure.com) uses Azure Service Management.
+Yes.  How you do this depends on whether you are using the Service Management APIs or the Resource Manager APIs for Traffic Manager.  The [Azure portal](https://portal.azure.com) uses Resource Manager, the ['classic' portal](https://manage.windowsazure.com) uses Service Management.
 
-In Azure Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint.  These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
+In Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint.  These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-In Azure Service Management, the Traffic Manager requires that any Cloud Service or Web App configured as an Azure endpoint resides in the same subscription as the Traffic Manager profile.  Cloud Service endpoints in other subscriptions can be added to Traffic Manager as ‘external’ endpoints (they will still be billed at the ‘Internal’ endpoint rate).  Web Apps from other subscriptions cannot be used.
+In Service Management, the Traffic Manager requires that any Cloud Service or Web App configured as an Azure endpoint resides in the same subscription as the Traffic Manager profile.  Cloud Service endpoints in other subscriptions can be added to Traffic Manager as ‘external’ endpoints (they will still be billed at the ‘Internal’ endpoint rate).  Web Apps from other subscriptions cannot be used.
 
 ### Can I use Traffic Manager with Cloud Service ‘Staging’ slots?
 Yes.  Cloud Service ‘staging’ slots can be configured in Traffic Manager as External endpoints.
@@ -130,7 +130,7 @@ In the case of Web Apps, the Traffic Manager Azure endpoints do not permit more 
 1.	Check that your Web Apps within the same region are in different web app 'scale units', i.e. different instances of the Web App service.  To do this, check the DNS path for the <...>.azurewebsites.net DNS entry, the scale unit will look something like ‘waws-prod-xyz-123.vip.azurewebsites.net’.  A given domain name must map to a single site in a given scale unit, and for this reason two Web Apps in the same scale unit cannot share a Traffic Manager profile. 
 2.	Assuming each Web App is in a different scale unit, add your vanity domain name as a custom hostname to each Web App.  This requires all Web Apps to belong to the same subscription.
 3.	Add one (and only one) Web App endpoint as you normally would to your Traffic Manager profile, as an Azure endpoint.
-4.	Add each additional Web App endpoint to your Traffic Manager profile as an External endpoint.  This requires you to use the Azure Resource Manager (ARM) experience for Traffic Manager, not the Azure Service Management (ASM) experience.
+4.	Add each additional Web App endpoint to your Traffic Manager profile as an External endpoint.  This requires you to use the Resource Manager experience for Traffic Manager, not the Service Management experience.
 5.	Create a DNS CNAME record from your vanity domain (as used in step 2 above) to your Traffic Manager profile DNS name (<…>.trafficmanager.net).
 6.	Access your site via the vanity domain name, not the Traffic Manager profile DNS name.
 
