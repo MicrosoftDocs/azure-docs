@@ -17,7 +17,16 @@
 	ms.author="maroche"/>
 
 # Tutorial: Get started with Azure Data Catalog
-Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md). This tutorial walks you through registering data assets with Data Catalog, discovering and annotating registered data assets, and connecting to data assets.    
+Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md). 
+
+This tutorial helps you get started with Azure Data Catalog. You will perform the following steps in this tutorial: 
+
+- [Register data assets](#register-data-assets) 
+- [Discover data assets](#discover-data-assets) 
+- [Annotate data assets](#annotate-data-assets)
+- [Connect to data assets](#connect-to-data-assets)
+- [Manage data assets](#manage-data-assets)
+- [Remove data assets](#remove-data-assets)   
  
 ## Tutorial prerequisites
 
@@ -208,6 +217,27 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to a 
 
 In this exercise you connected to data assets discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
 
+## Manage data assets
+
+In this exercise you will use the management capabilities of **Azure Data Catalog** to take ownership of data assets and to control what users can discover and how users manage those assets.
+
+> [AZURE.NOTE] The management capabilities described in this exercise are available only in the **Standard Edition of Azure Data Catalog**, and not in the **Free Edition**.
+In **Azure Data Catalog**, you can take ownership of data assets, add co-owners to data assets, and set the visibility of data assets.
+
+### Here’s how to take ownership of data assets and restrict visibility
+
+1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+2. In the Search text box, enter **(**tags:description AND timestamp > "5/22/2016"**)** and press **ENTER**. 
+	
+	> [AZURE.NOTE] Replace the date with the yesterday's date.
+3. Select an item in the result list, for example, **Product** by clicking the check box in the top-right corner and click Take Ownership on the toolbar as shown in the following image. 
+4. In the **Properties** panel, **Management** section, click **Take Ownership** under **Management** section in the right pane. 
+
+	![Azure Data Catalog - Take ownership](media/data-catalog-get-started/data-catalog-take-ownership.png)
+5. To restrict visibility, click **Owners & These Users** in the **Visibility** section and click **Add**. Enter user email address in the text box and press ENTER. 
+
+    ![](media/data-catalog-get-started/data-catalog-ownership.png)
+
 ## Remove data assets
 
 In this exercise you will use the **Azure Data Catalog** portal to remove preview data from registered data assets, and to delete data assets from the catalog.
@@ -230,27 +260,6 @@ In **Azure Data Catalog**, you can delete an individual asset or delete multiple
 
 
 > [AZURE.NOTE] The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered. The management capabilities included in the **Standard Edition of Azure Data Catalog** provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.
-
-## Manage data assets
-
-In this exercise you will use the management capabilities of **Azure Data Catalog** to take ownership of data assets and to control what users can discover and how users manage those assets.
-
-> [AZURE.NOTE] The management capabilities described in this exercise are available only in the **Standard Edition of Azure Data Catalog**, and not in the **Free Edition**.
-In **Azure Data Catalog**, you can take ownership of data assets, add co-owners to data assets, and set the visibility of data assets.
-
-### Here’s how to take ownership of data assets and restrict visibility
-
-1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-2. In the Search text box, enter **(**tags:description AND timestamp > "5/22/2016"**)** and press **ENTER**. 
-	
-	> [AZURE.NOTE] Replace the date with the yesterday's date.
-3. Select an item in the result list, for example, **Product** by clicking the check box in the top-right corner and click Take Ownership on the toolbar as shown in the following image. 
-4. In the **Properties** panel, **Management** section, click **Take Ownership** under **Management** section in the right pane. 
-
-	![Azure Data Catalog - Take ownership](media/data-catalog-get-started/data-catalog-take-ownership.png)
-5. To restrict visibility, click **Owners & These Users** in the **Visibility** section and click **Add**. Enter user email address in the text box and press ENTER. 
-
-    ![](media/data-catalog-get-started/data-catalog-ownership.png)
 
 
 ## Summary
