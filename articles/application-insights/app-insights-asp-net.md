@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/25/2016" 
+	ms.date="06/08/2016" 
 	ms.author="awills"/>
 
 
@@ -31,7 +31,6 @@ You need:
 There are alternative articles to look at if you are interested in:
 
 * [Instrumenting a web app at run time](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
 * [Azure Cloud services](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. Add Application Insights SDK
@@ -51,6 +50,7 @@ Right click the project in Solution Explorer, and choose **Add Application Insig
 
 ![Choose Add Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
+* ASP.NET Core project? - [Follow these instructions to fix a few lines of code](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
 
 
 
@@ -106,7 +106,7 @@ So the command did three things:
 2. Create an Application Insights resource in [the Azure portal](https://portal.azure.com/). This is where you'll see your data. It retrieves the *instrumentation key,* which identifies the resource.
 3. Inserts the instrumentation key in `ApplicationInsights.config`, so that the SDK can send telemetry to the portal.
 
-If you want, you can [do these steps manually](app-insights-asp-net-manual.md).
+If you want, you can do these steps manually for [ASP.NET 4](app-insights-asp-net-manual.md) or [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 
 ## What's next?
