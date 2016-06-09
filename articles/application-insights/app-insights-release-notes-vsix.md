@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/09/2016"
 	ms.author="acearun"/>
 
 # Release Notes - Developer Analytics Tools
@@ -26,6 +26,7 @@ ASP.NET 5 RC1 and ASP.NET Core RC2 projects also have new support in the Diagnos
 ![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
 
 Other new features:
+
 * We've made the Application Insights Search experience faster and more intuitive by automatically applying time ranges and detail filters as you select them
 * In Application Insights Search, there's now an option to Go to Code from request telemetry
 * We've made improvements to the HockeyApp sign-in experience.
