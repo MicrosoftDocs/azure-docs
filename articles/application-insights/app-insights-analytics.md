@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analytics - the powerful search tool of Application Insights" 
+	pageTitle="Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
 	description="Overview of Analytics, 
 	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 

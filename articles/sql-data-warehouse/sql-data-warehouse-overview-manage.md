@@ -106,7 +106,7 @@ Using good database design principles will make it easier to manage your databas
 [High reliability]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
 [Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
 [Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
 [Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
 [Security overview]: sql-data-warehouse-overview-security.md
