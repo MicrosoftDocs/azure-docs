@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,16 +19,10 @@
 
 # Restore a deleted Azure SQL database using the Azure Portal
 
-
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-restore-deleted-database-portal.md)
+- [Overview](sql-database-restore-deleted-database.md)
+- [Azure portal](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
-
-This article shows you how to restore a deleted Azure SQL database.
-
-In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion. Azure SQL Database stores the deleted database backup for the retention period of the database.
-
-The retention period of a deleted database is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less. To learn more about database retention read our [Business Continuity Overview](sql-database-business-continuity.md).
 
 ## Select the database to restore 
 
@@ -47,13 +41,17 @@ To restore a database in the Azure Portal do the following:
 ## Next steps
 
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
+- [Restore a deleted database](sql-database-restore-deleted-database.md)
+- [Restore a deleted database using PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Restore a deleted database using the REST API]((https://msdn.microsoft.com/library/azure/mt163685.aspx))
+- [SQL Database automated backups](sql-database-automated-backups.md)
 
-
-
-## Additional resources
+## Additional Resources
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Geo-Restore](sql-database-geo-restore.md)
+- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
+- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Point-in-time restore](sql-database-point-in-time-restore.md)
 
 
