@@ -110,6 +110,8 @@ Managed agent code requires Microsoft .NET Framework 4.5
 
 **Certified for IoT** devices have tested compatibility with the Azure IoT SDKs and are ready to be used in your IoT application. Specifically, we identify compatibility based on operating system platform and code language.
 
+Can’t find the device you are looking for in the list? Not a problem, our Azure IoT SDK is open sourced and designed to be portable. Please visit our client library GitHub [repository](https://github.com/Azure/azure-iot-sdks) to get started and let us know if you run into any trouble connecting your device in the [Issues](https://github.com/Azure/azure-iot-sdks/issues) section.
+
 #### Devices list
 
 Each device has been certified to work with our SDK in the OS and language chosen by the device manufacturer. For example, BeagleBone Black works on Debian using our C, Javascript and Java language. This means that developers can build applications in any of those languages and OS combinations on the specific devices.
