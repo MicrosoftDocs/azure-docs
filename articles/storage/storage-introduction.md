@@ -134,7 +134,7 @@ See [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-share
 
 The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [SLA for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of transient hardware failures. 
 
-See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
+See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in each region.
 
 When you create a storage account, you must select one of the following replication options:  
 
