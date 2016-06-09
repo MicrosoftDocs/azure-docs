@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
 # Configure Always On availability group in Azure VM - Resource Manager (GUI)
@@ -67,7 +67,7 @@ In this tutorial you will use the Azure portal to:
 
 - Connect to one of the domain controllers and then to one of the SQL Servers
 
-## Provision an availability group from the gallery with the resource manager deployment model
+## Provision the cluster from the gallery
 
 Azure provides a gallery image for the entire solution. In order to locate the template:
 
