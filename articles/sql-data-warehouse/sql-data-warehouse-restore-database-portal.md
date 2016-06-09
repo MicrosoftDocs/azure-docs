@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/07/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Restore a database in Azure SQL Data Warehouse (Portal)
@@ -22,7 +22,7 @@
 - [Overview](sql-data-warehouse-restore-database-overview.md)
 - [Portal](sql-data-warehouse-restore-database-portal.md)
 - [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 PowerShell tasks for restoring a live or deleted database in Azure SQL Data Warehouse. 
 
