@@ -25,6 +25,8 @@ Traffic Manager works by using the Domain Name System (DNS) to direct end-user r
 
 Traffic Manager supports a [range of traffic-routing methods](traffic-manager-routing-methods.md) to suit different application needs.  Traffic Manager provides [endpoint health checks and automatic endpoint failover](traffic-manager-monitoring.md), enabling you to build high-availability applications that are resilient to failure, including the failure of an entire Azure region.
 
+## Traffic Manager benefits
+
 Traffic Manager can help you:
 
 - **Improve availability of critical applications** – Traffic Manager allows you to deliver high availability for your critical applications by monitoring your endpoints in Azure and providing automatic failover when an endpoint goes down.
