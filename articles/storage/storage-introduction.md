@@ -133,6 +133,9 @@ See [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-share
 ## Replication for Durability and High Availability
 
 The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [SLA for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of transient hardware failures. 
+
+See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
+
 When you create a storage account, you must select one of the following replication options:  
 
 - **Locally redundant storage (LRS).** Locally redundant storage maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single facility.  
@@ -150,6 +153,7 @@ When you create a storage account, you must select one of the following replicat
 
 - **Geo-redundant storage (GRS)**. Geo-redundant storage is enabled for your storage account by default when you create it. GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, Azure Storage will failover to the secondary region. GRS ensures that your data is durable in two separate regions.
 
+For up-to-date information about primary and secondary region pairings, see [Azure Regions](https://azure.microsoft.com/regions/).
 
 - **Read access geo-redundant storage (RA-GRS)**. Read access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
 
