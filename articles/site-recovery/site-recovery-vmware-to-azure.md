@@ -154,7 +154,7 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 ## Create a Recovery Services vault
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **New** > **Hybrid Integration** > **Recovery Services**. Alternatively you can click **Browse** > **Recovery Services** vaults > **Add**.
+2. Click **New** > **Management** > **Backup and Site Recovery (OMS)**. Alternatively you can click **Browse** > **Recovery Services Vault** > **Add**.
 
 	![New vault](./media/site-recovery-vmware-to-azure/new-vault3.png)
 

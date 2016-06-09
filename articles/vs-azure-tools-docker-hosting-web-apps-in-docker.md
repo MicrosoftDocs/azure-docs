@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/06/2016"
+   ms.date="06/08/2016"
    ms.author="allclark;stevelas"/>
 
 # Deploy an ASP.NET container to a remote Docker host

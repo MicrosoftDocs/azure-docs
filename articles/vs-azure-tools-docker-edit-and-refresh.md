@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/06/2016"
+   ms.date="06/08/2016"
    ms.author="allclark" />
 
 # Debugging apps in a local Docker container
@@ -21,7 +21,8 @@
 The Visual Studio Tools for Docker provides a consistent way to develop in a and validate your application locally in a Linux Docker container.
 You don't have to restart the container each time you make a code change.
 This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container,
-make any necessary changes, and then refresh the browser to see those changes. It will also show you how to set breakpoints for debugging.
+make any necessary changes, and then refresh the browser to see those changes.
+It will also show you how to set breakpoints for debugging.
 
 > [AZURE.NOTE] Windows Container support will be coming in a future release
 
