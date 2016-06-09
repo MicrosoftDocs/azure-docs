@@ -57,7 +57,7 @@ For more information, see [What is Azure Backup?](../backup/backup-introduction-
 
 You can have a disaster recovery solution for your SQL Server databases in a hybrid-IT environment by using AlwaysOn Availability Groups, database mirroring, log shipping, and backup and restore with Azure Blob storage. All of these solutions use SQL Server running on Azure virtual machines.
 
-AlwaysOn Availability Groups can be used in a hybrid-IT environment where database replicas exist both on-premises and in the cloud. This is shown in the following diagram, taken from the in-depth topic [High availability and disaster recovery for SQL Server in Azure virtual machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+AlwaysOn Availability Groups can be used in a hybrid-IT environment where database replicas exist both on-premises and in the cloud. This is shown in the following diagram.
 
 ![SQL Server AlwaysOn Availability Groups in a hybrid cloud architecture](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-3.png)
 
@@ -103,4 +103,4 @@ For more information, see [High availability and disaster recovery for SQL Serve
 
 ##Next steps
 
-This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series is [Recovery from data corruption](./resiliency-technical-guidance-recovery-data-corruption.md).
+This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series is [Recovery from data corruption or accidental deletion](./resiliency-technical-guidance-recovery-data-corruption.md).
