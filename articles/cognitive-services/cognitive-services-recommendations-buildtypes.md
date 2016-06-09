@@ -21,7 +21,10 @@
 <a name="TypeofBuilds"></a>
 ## What type of recommendations build should I use? ##
 
-Currently we support two build types: *Recommendation* and *FBT* builds. Each of them are built using different algorithms and have different strengths.
+Currently we support two build types: *Recommendation* and *FBT* builds. Each of them are built using different algorithms and have different strengths. This document describes each of these builds, as well as techniques for comparing the quality of the models generated.
+
+
+> If you have not done so already, we encourage you to complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
 ### Recommendation build type ###
@@ -41,8 +44,11 @@ The recommendation build has two capabilities that make it attractive:
  this is what the first few lines of your catalog may look like (note the key=value format for the features):
 
 > 6CX-00001,Surface Pro2, Surface, Type=Hardware,  Storage=128GB,  Memory=4G, Manufacturer=Microsoft
+
 > 73H-00013,Wake Xbox 360,Gaming, Type=Software, Language=English, Rating=Mature
+
 > WAH-0F05,Minecraft Xbox 360,Gaming, * Type=Software, Language=Spanish, Rating=Youth
+
 > ...
 
  In addition, as part of the build parameters, you need to set the following build parameters:
@@ -106,7 +112,7 @@ The table below represents the output of the precision-at-k offline evaluation.
 |Percentage |	13.75 |	18.04	| 21 |	24.31 |	26.61
 |Users in Test |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
 |Users Considered |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
-|Users Not Considered |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
+|Users Not Considered |	0 |	0 |	0 |	0 |	0
 
 #### K
 In the table above, *K* represents the number of recommendations shown to the customer.  So the table reads as follows: “If during the test period, only one recommendations would have been shown to the customers, only 13.75 of the users would have actually purchased that recommendation”. (Assuming the model was trained with purchase data). Another way to says this is that the “precision at 1” is 13.75.

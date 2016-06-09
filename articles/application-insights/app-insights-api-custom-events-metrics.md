@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights API for custom events and metrics" 
+	pageTitle="Application Insights API for custom events and metrics | Microsoft Azure" 
 	description="Insert a few lines of code in your device or desktop app, web page or service, to track usage and diagnose issues." 
 	services="application-insights"
     documentationCenter="" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -366,7 +366,9 @@ In an ASP.NET web MVC application, for example:
         @if (Request.IsAuthenticated)
         {
             <script>
-                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name
+                   .Replace("\\", "\\\\")"
+                   .replace(/[,;=| ]+/g, "_"));
             </script>
         }
 

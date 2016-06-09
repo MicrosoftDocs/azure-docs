@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Dashboards in the Application Insights portal"
-	description="Display telemetry from multiple components of your application in a dashboard."
+	pageTitle="Using the Application Insights portal"
+	description="Metrics, search, dashboards and settings in the Application Insights portal."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/25/2016"
+	ms.date="06/03/2016"
 	ms.author="awills"/>
 
 # Navigation and Dashboards in the Application Insights portal
@@ -35,11 +35,12 @@ The overview blade (page) for your app shows a summary of the key diagnostic met
 
 Click:
 
-* **Any chart or tile** to see more detail.
-* **Settings** to get to predefined pages of other metrics.
+* **Any chart or tile** to see more detail about what's displayed on the chart.
+* **Settings** to get to predefined blades of other metrics, as well as configuration pages.
 * [**Metrics Explorer**](app-insights-metrics-explorer.md) to create metrics pages of your own choice.
 * [**Search**](app-insights-diagnostic-search.md) to investigate specific instances of events such as requests, exceptions or log traces.
 * [**Analytics**](app-insights-analytics.md) for powerful queries over your telemetry.
+* [**Live Stream**](app-insights-metrics-explorer.md#live-stream) for a fixed set of near-instant metrics, useful when deploying a new build or debugging.
 
 
 ![Major routes to view your telemetry](./media/app-insights-dashboards/010-oview.png)
@@ -109,6 +110,14 @@ When you've created a dashboard, you can share it with other users.
 ![In the dashboard header, click Share](./media/app-insights-dashboards/41.png)
 
 Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
+
+## What's next?
+
+||
+|---|---
+|[Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics|![Search example](./media/app-insights-dashboards/64.png)
+|[Diagnostic search](app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png)
+|[Analytics](app-insights-analytics.md)<br/>Powerful query language| ![Search example](./media/app-insights-dashboards/63.png)
 
 
 

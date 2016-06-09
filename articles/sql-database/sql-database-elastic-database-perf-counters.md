@@ -36,6 +36,7 @@ To create the counters, call the CreatePeformanceCategoryAndCounters method of t
 
 	ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
+You can also use [this](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) PowerShell script to execute the method. 
 The method creates the following performance counters:  
 
 * **Cached mappings**: Number of mappings cached for the shard map.
