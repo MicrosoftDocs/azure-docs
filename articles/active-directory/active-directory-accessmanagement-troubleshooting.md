@@ -19,7 +19,7 @@
 	ms.author="curtand"/>
 
 
-# Troubleshooting dynamic memberships to groups
+# Troubleshooting dynamic memberships for groups
 
 **I configured a rule on a group but no memberships get updated in the group**<br/>Verify that the **Enable delegated group management** setting is set to **Yes** in the **Configure** tab. You will see this setting only if you are signed in as a user to whom an Azure Active Directory Premium license is assigned. Verify the values for user attributes on the rule: are there users that satisfy the rule?
 
