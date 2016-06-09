@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Mobile Engagement for Web Apps"
+	pageTitle="Get started with Azure Mobile Engagement for Web Apps | Microsoft Azure"
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Web Apps."
 	services="mobile-engagement"
 	documentationCenter="Mobile"
