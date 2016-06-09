@@ -112,16 +112,11 @@ Now that you have an application, you can try running it.
 
 ## Cleaning up
 
-  Before wrapping up, it's important to remember that the local cluster is very real. Stopping the debugger will remove your application instance and unregister the application type.  If you deployed an app using PowerShell, however, you will need to remove the app yourself.  Depending on the nature of your apps, a running app can take up significant resources on your machine. You have several options to manage this:
+  Before wrapping up, it's important to remember that the local cluster is very real. Stopping the debugger will remove your application instance and unregister the application type.  The cluster will continue to run in the background, however. You have several options to manage this:
 
-  1. To remove an individual application and all of its data, use the **Delete application** action in Service Fabric Explorer either with the **ACTIONS** menu or the context menu in the application list view in the left hand pane.
+  1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
 
-    ![Delete an application is Service Fabric Explorer][sfe-delete-application]
-
-  2. After deleting the application from the cluster you can then choose to **Unprovision Type** for the application which removes the application's package, including its code and configuration, from the cluster's image store.
-  3. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
-
-  4. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Use this only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
+  2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Use this only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
 
 ## Next steps
 
