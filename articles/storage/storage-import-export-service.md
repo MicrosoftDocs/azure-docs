@@ -25,7 +25,7 @@ Azure Import/Export Service allows you to securely transfer large amounts of dat
 
 The service requires that hard disk drives should be bit locker encrypted for the security of your data. The service supports classic storage accounts present in all the regions of Public Azure. You must ship hard disk drives to one of the supported locations specified later in this article.
  
-In this article, you will learn more about Azure Import/Export service and how to ship drives for copying your data to and from Azure blob storage.
+In this article, you will learn more about the Azure Import/Export service and how to ship drives for copying your data to and from Azure Blob storage.
 
 > [AZURE.IMPORTANT] You can create and manage import and export jobs for classic storage using the Classic portal or the [Import/Export service REST APIs](http://go.microsoft.com/fwlink/?LinkID=329099). ARM storage accounts are not supported at this time.
 
@@ -33,7 +33,7 @@ In this article, you will learn more about Azure Import/Export service and how t
 
 You can consider using Azure Import/Export service when uploading or downloading data over the network is too slow or getting additional network bandwidth is cost prohibitive.
 
-You can use this service in scenarios such as,
+You can use this service in scenarios such as:
 
 - Migrating data to the cloud: Move large amounts of data to Azure quickly and cost effectively.
 - Content distribution: Quickly send data to your customer sites.
@@ -66,7 +66,7 @@ When you create a job, you notify the Import/Export service that you will be shi
 - For an export job, you will be shipping empty hard drives. 
 - You can ship up to 10 hard disk drives per job.
 
-You can create an import or export job using the [Classic portal](https://manage.windowsazure.com/) or the [Azure Storage Import/Export REST API](http://go.microsoft.com/fwlink/?LinkID=329099)
+You can create an import or export job using the [Classic portal](https://manage.windowsazure.com/) or the [Azure Storage Import/Export REST API](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ### Client tool
 
@@ -76,7 +76,7 @@ The journal files store basic information about your job and drive, like drive s
 
 The client tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
-Download the latest version of the client tool from [Azure Import/Export client tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409). For more details about using the Azure Import/Export Tool, see the [Azure Import/Export Tool Reference](http://go.microsoft.com/fwlink/?LinkId=329032).
+Download the latest version of the [Azure Import/Export client tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409). For more details about using the Azure Import/Export Tool, see the [Azure Import/Export Tool Reference](http://go.microsoft.com/fwlink/?LinkId=329032).
 
 ### Hard disk drives
 
@@ -91,13 +91,13 @@ When copying data to your hard drive, you can attach it directly using a SATA co
 
 If you have a converter which is not listed above, you can try running the Azure Import/Export Tool using your converter to prepare the drive and see if it works before purchasing a supported converter.
 
-> [AZURE.IMPORTANT] External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not send an external HDD. The disk inside the casing of an external HDD also cannot be used. USB drives are also not supported.
+> [AZURE.IMPORTANT] External hard disk drives that come with an built-in USB adaptor are not supported by this service. USB drives are not supporte0d. Also, the disk inside the casing of an external HDD cannot be used. Please do not send external HDDs. 
 
 ### Encryption
 
 The data on the drive must be encrypted using BitLocker Drive Encryption. This protects your data while it is in transit. 
 
-For import jobs, you must encrypt the drives using BitLocker Drive Encryption. There are two ways to do this. The first way is to use the /encrypt parameter when running the client tool during drive preparation. The second way is to enable BitLocker encryption manually on the drive and specify the encryption key in the client tool command line during drive preparation. 
+For import jobs, there are two ways to perform the encryption. The first way is to use the /encrypt parameter when running the client tool during drive preparation. The second way is to enable BitLocker encryption manually on the drive and specify the encryption key in the client tool command line during drive preparation. 
 
 For export jobs, after your data is copied to the drives, the service will encrypt the drive using BitLocker before shipping it back to you. The encryption key will be provided to you via the Classic portal.  
 
@@ -154,19 +154,19 @@ When creating an import or export job, you will be provided a shipping address o
 
 You can use carriers like FedEx, DHL, UPS, or the US Postal Service to ship your drives to the shipping address. 
 
-**Return shipping drives from data center:**
+**Shipping drives from the data center:**
 
-When creating an import or export job, you must provide a return address for return shipping drives after your job is complete. Please make sure you provide a valid return address to avoid delays in processing.
+When creating an import or export job, you must provide a return address for Microsoft to use when shipping the drives back after your job is complete. Please make sure you provide a valid return address to avoid delays in processing.
 
-You must also provide a valid FedEx or DHL carrier account number for return shipping drives. A FedEx account number is required for return shipping drives from US and Europe locations. A DHL account number is required for return shipping drives from Asia and Australia locations. You can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account if you do not have one. If you already have a carrier account number, please verify that it is valid.
+You must also provide a valid FedEx or DHL carrier account number to be used by Microsoft for shipping the drives back. A FedEx account number is required for shipping drives back from the US and Europe locations. A DHL account number is required for shipping drives back from Asia and Australia locations. You can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account if you do not have one. If you already have a carrier account number, please verify that it is valid.
 
 In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 
-> [AZURE.IMPORTANT] Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+> [AZURE.IMPORTANT] Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
 
 ## How does the Azure Import/Export service work?
 
-You can transfer data between your on-premises site and Azure blob storage using the Azure Import/Export service by creating “jobs” and shipping hard disk drives to an Azure data center. Each hard disk drive you ship is associated with a single job. Each job is associated with a single storage account. Review the [pre-requisites section](#pre-requisites) carefully to learn about the specifics of this service such as supported blob types, disk types, locations, and shipping. 
+You can transfer data between your on-premises site and Azure blob storage using the Azure Import/Export service by creating jobs and shipping hard disk drives to an Azure data center. Each hard disk drive you ship is associated with a single job. Each job is associated with a single storage account. Review the [pre-requisites section](#pre-requisites) carefully to learn about the specifics of this service such as supported blob types, disk types, locations, and shipping. 
 
 In this section, we will describe at a high level the steps involved in import and export jobs. Later in the [Quick Start section](#quick-start), we will provide step-by-step instructions to create an import and export job.
 
@@ -178,11 +178,11 @@ At a high level, an import job involves the following steps:
 - Identify the destination blobs for your data in Blob storage.
 - Use the Azure Import/Export Tool to copy your data to one or more hard disk drives and encrypt them with BitLocker.  
 - Create an import job in your target classic storage account using the Classic portal or the Import/Export REST API. If using the Classic portal, upload the drive journal files.
-- Provide return address and carrier account number for return shipping.
+- Provide the return address and carrier account number to be used for shipping the drives back to you.
 - Ship the hard disk drives to the shipping address provided during job creation.
 - Update the delivery tracking number in the import job details and submit the import job.
 - Drives are received and processed at the Azure data center. 
-- Drives are return shipped using your carrier account to the return address provided in import job.
+- Drives are shipped using your carrier account to the return address provided in the import job.
 
 <!-- save this until you have usable images -->
 <!--	![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png) -->
@@ -196,12 +196,12 @@ At a high level, an export job involves the following steps:
 - Identify the source blobs or container paths of your data in Blob storage.
 - Create an export job in your source storage account using the Classic portal or the Import/Export REST API.
 - Specify the source blobs or container paths of your data in the export job.
-- Provide return address and carrier account number for return shipping.
+- Provide the return address and carrier account number for to be used for shipping the drives back to you.
 - Ship the hard disk drives to the shipping address provided during job creation.
 - Update the delivery tracking number in the export job details and submit the export job.
-- Drives are received and processed at the Azure data center. 
-- Drives are encrypted with BitLocker; the keys are available via the Classic portal.  
-- Drives are return shipped using your carrier account to the return address provided in import job.
+- The drives are received and processed at the Azure data center. 
+- The drives are encrypted with BitLocker; the keys are available via the Classic portal.  
+- The drives are shipped using your carrier account to the return address provided in the import job.
 
 <!-- save this until you have usable images -->
 <!--	![Figure 1:Export job flow](./media/storage-import-export-service/exportjob.png) -->
@@ -232,7 +232,7 @@ There is a drive handling fee for each drive processed as part of your import or
 
 **Shipping costs**
 
-When you ship drives to Azure, you pay the shipping cost to the shipping carrier. When Azure returns the drives back to you, the return shipping cost is charged to the carrier account which you provided at the time of job creation.
+When you ship drives to Azure, you pay the shipping cost to the shipping carrier. When Microsoft returns the drives to you, the shipping cost is charged to the carrier account which you provided at the time of job creation.
 
 **Transaction costs**
 
@@ -323,7 +323,7 @@ Also, refer to the [Sample Workflow to Prepare Hard Drives for an Import Job](ht
 
 	Next, select your data center region from the list. The data center region will indicate the data center and address to which you must ship your package. See the FAQ below for more information.
 
-5. 	In Step 4, select your return carrier from the list and enter your carrier account number. Microsoft will use this account to ship your drives back to you once your import job is complete.
+5. 	In Step 4, select your return carrier from the list and enter your carrier account number. Microsoft will use this account to ship the drives back to you once your import job is complete.
 
 	If you have your tracking number, select your delivery carrier from the list and enter your tracking number.
 
@@ -475,7 +475,7 @@ Please ship only your hard drives. Do not include items like power supply cables
 
 **Do I have to ship my drives using FedEx or DHL?**
 
-You can ship drives to the data center using any known carrier like FedEx, DHL, UPS, or US Postal Service. However, for return shipping drives from data center, you must provide a FedEx account number in US and EU, or a DHL account number in Asia and Australia regions.
+You can ship drives to the data center using any known carrier like FedEx, DHL, UPS, or US Postal Service. However, for shipping the drives back to you from the data center, you must provide a FedEx account number in US and EU, or a DHL account number in Asia and Australia regions.
 
 **Are there any restrictions with shipping my drive internationally?**
 
