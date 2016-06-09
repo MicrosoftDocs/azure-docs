@@ -71,7 +71,7 @@ These features are provided to address the scenarios listed earlier. Please refe
 > [AZURE.NOTE] The ERT and RPO values are engineering goals and provide guidance only. They are not part of [SLA for SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
-###Point In Time Restore
+###Point-in-time restore
 
 [Point In Time Restore](sql-database-point-in-time-restore.md) is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 14 days with Standard, and 35 days with Premium. Refer to [Recover from human error](sql-database-user-error-recovery.md) for details of how to use Point In Time Restore.
 
@@ -83,7 +83,7 @@ These features are provided to address the scenarios listed earlier. Please refe
 
 [Active Geo-Replication](sql-database-geo-replication-overview.md) is available for all database tiers. It’s designed for applications that have more aggressive recovery requirements than Geo-Restore can offer. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries.  In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to [configure Geo-Replication](sql-database-geo-replication-portal.md) and to [failover to the secondary database](sql-database-geo-replication-failover-portal.md). Refer to [Application upgrade without downtime](sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.
 
-## Next Steps
+## Next steps
 
 - [Design for business continuity](sql-database-business-continuity-design.md)
 - [Point In Time Restore](sql-database-point-in-time-restore.md)
@@ -91,7 +91,7 @@ These features are provided to address the scenarios listed earlier. Please refe
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
 
 
-## Additional Resources
+## Additional resources
 
 - [SQL Database automated backups](sql-database-automated-backups.md)
 - [Application upgrade without downtime](sql-database-business-continuity-application-upgrade.md)

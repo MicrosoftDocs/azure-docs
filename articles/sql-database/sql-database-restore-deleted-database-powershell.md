@@ -55,7 +55,7 @@
 - [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 - [SQL Database automated backups](sql-database-automated-backups.md)
 
-## Additional Resources
+## Additional resources
 
 - [Point-in-time restore](sql-database-point-in-time-restore.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
