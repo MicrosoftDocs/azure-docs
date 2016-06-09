@@ -17,7 +17,7 @@
    	ms.date="06/03/2016"
    	ms.author="jgao"/>
 
-# Configure Secure HDInsight
+# Introduce Secure HDInsight
 
 [a short intro here]
 
