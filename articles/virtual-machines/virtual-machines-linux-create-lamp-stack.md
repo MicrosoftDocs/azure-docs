@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="06/07/2016"
 	ms.author="jluk"/>
 
 # Deploy LAMP Stack on Azure
