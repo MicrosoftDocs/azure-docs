@@ -171,7 +171,7 @@ Here is a summary of the configuration settings for the virtual network and both
 | **Resource Group** | **SQL-HA-RG** |
 | **Location** | Specify the same location that you chose for the resource group. |
 
-## Create Availability Sets
+## Create availability sets
 
 Before creating virtual machines, you need to create availability sets. Availablity sets reduce downtime for planned or unplanned maintenance events. An Azure availablity set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availablity set have separate power and network resouces. An update domain ensures that members of the availabilty set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
 
