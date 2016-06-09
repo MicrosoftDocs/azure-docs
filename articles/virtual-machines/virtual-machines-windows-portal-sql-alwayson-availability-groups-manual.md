@@ -16,7 +16,7 @@
 	ms.date="04/22/2016"
 	ms.author="MikeRayMSFT" />
 
-# Manually Configure Always On availability groups in Azure VM - Resource Manager (GUI)
+# Manually configure Always On availability group in Azure VM - Resource Manager (GUI)
 
 > [AZURE.SELECTOR]
 - [Resource Manager: Template (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
