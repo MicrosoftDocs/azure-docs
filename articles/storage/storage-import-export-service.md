@@ -72,7 +72,7 @@ You can create an import or export job using the [Classic portal](https://manage
 
 The first step in creating an **import** job is to prepare your drive that will be shipped for import. To prepare your drive, you must connect it to a local server and run the Azure Import/Export Client Tool on the local server. This client tool facilitates copying your data to the drive, encrypting the data on the drive with BitLocker, and generating the drive journal files. 
 
-The journal files store basic information about your job and drive, like drive serial number, and storage account name. This journal file is not stored on the drive. It is used during import job creation. Step by step details about job creation are provided later in this article. 
+The journal files store basic information about your job and drive such as drive serial number and storage account name. This journal file is not stored on the drive. It is used during import job creation. Step by step details about job creation are provided later in this article. 
 
 The client tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
@@ -91,7 +91,7 @@ When copying data to your hard drive, you can attach it directly using a SATA co
 
 If you have a converter which is not listed above, you can try running the Azure Import/Export Tool using your converter to prepare the drive and see if it works before purchasing a supported converter.
 
-> [AZURE.IMPORTANT] External hard disk drives that come with an built-in USB adaptor are not supported by this service. USB drives are not supporte0d. Also, the disk inside the casing of an external HDD cannot be used. Please do not send external HDDs. 
+> [AZURE.IMPORTANT] External hard disk drives that come with an built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs. 
 
 ### Encryption
 
@@ -111,7 +111,7 @@ Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, W
 
 ### Locations
 
-The Azure Import/Export service supports copying data to and from all Public Azure storage accounts. You can ship hard disk drives to one of the following locations. If your storage account is in a public Azure location which is not specified here, an alternate shipping location will be provided when you are creating the job on the Classic portal or via the REST API.
+The Azure Import/Export service supports copying data to and from all Public Azure storage accounts. You can ship hard disk drives to one of the following locations. If your storage account is in a public Azure location which is not specified here, an alternate shipping location will be provided when you are creating the job using the Classic portal or the Import/Export REST API.
 
 Supported shipping locations:
 
@@ -475,7 +475,7 @@ Please ship only your hard drives. Do not include items like power supply cables
 
 **Do I have to ship my drives using FedEx or DHL?**
 
-You can ship drives to the data center using any known carrier like FedEx, DHL, UPS, or US Postal Service. However, for shipping the drives back to you from the data center, you must provide a FedEx account number in US and EU, or a DHL account number in Asia and Australia regions.
+You can ship drives to the data center using any known carrier like FedEx, DHL, UPS, or US Postal Service. However, for shipping the drives back to you from the data center, you must provide a FedEx account number in the US and EU, or a DHL account number in the Asia and Australia regions.
 
 **Are there any restrictions with shipping my drive internationally?**
 
@@ -485,7 +485,7 @@ Please note that the physical media that you are shipping may need to cross inte
 
 Some storage account locations are mapped to alternate shipping locations. Previously available shipping locations can also be temporarily mapped to alternate locations. Always check the shipping address provided during job creation before shipping your drives. 
 
-**Why does my job status on the Classic portal say “Shipping” when the Carrier website shows my package is delivered?**
+**Why does my job status in the Classic portal say “Shipping” when the Carrier website shows my package is delivered?**
 
 The status in the Classic portal changes from Shipping to Transferring when the drive processing starts. If your drive has reached the facility, but has not started processing, your job status will show as Shipping.
 
