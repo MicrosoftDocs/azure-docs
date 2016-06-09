@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure Always On availability groups Azure Resource Manager | Microsoft Azure"
+	pageTitle="Configure Always On availability group in Azure VM with Resource Manager (GUI) | Microsoft Azure"
 	description="Create an Always On availability group with Azure virtual machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -16,17 +16,18 @@
 	ms.date="05/10/2016"
 	ms.author="mikeray" />
 
-# Configure an Always On availability group in Azure Resource Manager virtual machines (GUI)
+# Configure Always On availability group in Azure VM - Resource Manager (GUI)
 
 > [AZURE.SELECTOR]
-- [Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Resource Manager: Template (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: Manual (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classic: Manual (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classic: Manual (PowerShell)](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
 This end-to-end tutorial shows you how to create a SQL Server availability group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
 
->[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for Always On availability groups with a Listener. This configures everything you need for availability groups automatically. For more information, see [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 At the end of the tutorial, your SQL Server availability group solution in Azure will consist of the following elements:
 

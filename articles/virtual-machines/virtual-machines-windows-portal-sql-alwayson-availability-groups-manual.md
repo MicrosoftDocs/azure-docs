@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manually Configure AlwaysOn availability groups ARM (GUI) | Microsoft Azure"
-	description="Create an AlwaysOn Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
+	pageTitle="Manually Configure Always On availability group in Azure VM with Resource Manager (GUI) | Microsoft Azure"
+	description="Create an Always On Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -16,17 +16,19 @@
 	ms.date="04/22/2016"
 	ms.author="MikeRayMSFT" />
 
-# Configure AlwaysOn Availability Groups in Azure VM (GUI)
+# Manually configure Always On availability group in Azure VM - Resource Manager (GUI)
 
 > [AZURE.SELECTOR]
-- [Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Resource Manager: Template (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: Manual (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classic: Manual (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classic: Manual (PowerShell)](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-This end-to-end tutorial shows you how to implement availability groups using SQL Server AlwaysOn running on Azure resource manager virtual machines. 
+This end-to-end tutorial shows you how to implement SQL Server availability groups on Azure resource manager virtual machines. 
 
-At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
+At the end of the tutorial, your solution will consist of the following elements:
 
 - A virtual network containing two subnets, including a front-end and a back-end subnet
 
@@ -36,7 +38,7 @@ At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will cons
 
 - A 3-node WSFC cluster with the Node Majority quorum model
 
-- An internal load balancer to provide an IP address to the AlwaysOn availabiltiy groups
+- An internal load balancer to provide an IP address to the availabiltiy groups
 
 - An availability group with two synchronous-commit replicas of an availability database
 
@@ -46,7 +48,7 @@ The figure below is a graphical representation of the solution.
 
 Note that this is one possible configuration. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster. This method reduces the VM count by one from the above configuration.
 
->[AZURE.NOTE] Completing this tutorial takes a significant amount of time. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
+>[AZURE.NOTE] Completing this tutorial takes a significant amount of time. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for Always On availability groups with a listener. This configures everything you need for availability groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
 
 This tutorial assumes the following:
 
@@ -54,9 +56,9 @@ This tutorial assumes the following:
 
 - You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
-- You already have a solid understanding of AlwaysOn Availability Groups. For more information, see [AlwaysOn Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+- You already have a solid understanding of availability groups. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
 ## Create resource group, network, and availability sets
 
@@ -571,7 +573,7 @@ Now that you have created the cluster, verify the configuration and add the rema
 
 1. Log out of the remote desktop session.
 
-## Configure AlwaysOn Availability Groups
+## Configure availability groups
 
 In this section, you will do the following on both **sqlserver-0** and **sqlserver-1**:
 
@@ -579,7 +581,7 @@ In this section, you will do the following on both **sqlserver-0** and **sqlserv
 
 - Open the firewall for remote access to SQL Server for the SQL Server process and the probe port 
 
-- Enable the AlwaysOn Availability Groups feature
+- Enable the availability groups feature
 
 - Change the SQL Server service account to **CORP\SQLSvc1** and **CORP\SQLSvc2**, respectively
 
@@ -619,7 +621,7 @@ This solution requires two firewall rules on each SQL Server. The first rule pro
 
 Complete all steps on both SQL Servers.
 
-### Enable AlwaysOn Availability Groups feature on each SQL Server
+### Enable availability groups feature on each SQL Server
 
 Do these steps on both SQL Servers. 
 
