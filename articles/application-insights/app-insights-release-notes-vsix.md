@@ -3,7 +3,7 @@
 	description="The latest updates for Visual Studio tools for Developer Analytics."
 	services="application-insights"
     documentationCenter=""
-	authors="aruna"
+	authors="acearun"
 	manager="douge"/>
 <tags
 	ms.service="application-insights"
