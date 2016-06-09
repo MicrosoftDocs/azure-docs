@@ -46,9 +46,7 @@ When you visit a service with non-tenant specific URLs (e.g.: https://mail.offic
 
 > [AZURE.NOTE]
 >
-
 - Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure classic portal where you have configured branding.
-
 - Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a personal Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
 
 
