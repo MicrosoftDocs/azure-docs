@@ -27,7 +27,7 @@ The service requires that hard disk drives should be bit locker encrypted for th
  
 In this article, you will learn more about the Azure Import/Export service and how to ship drives for copying your data to and from Azure Blob storage.
 
-> [AZURE.IMPORTANT] You can create and manage import and export jobs for classic storage using the Classic portal or the [Import/Export service REST APIs](http://go.microsoft.com/fwlink/?LinkID=329099). ARM storage accounts are not supported at this time.
+> [AZURE.IMPORTANT] You can create and manage import and export jobs for classic storage using the Classic portal or the [Import/Export service REST APIs](http://go.microsoft.com/fwlink/?LinkID=329099). Resource Manager storage accounts are not supported at this time.
 
 ## When should I use the Azure Import/Export service?
 
@@ -410,9 +410,9 @@ Please go through the FAQ section below as it covers the most common questions c
 
 The time to copy varies depending on different factors like job type, type and size of data being copied, size of disks provided, and existing workload. It can vary from a couple of days to a couple of weeks, depending on these factors. Therefore, it is difficult to provide a general estimate. The service tries to optimize your job by copying multiple drives in parallel when possible. If you have a time critical import/export job, reach out to us for an estimate.
 
-**Can I use the Azure Import/Export service with an ARM storage account?**
+**Can I use the Azure Import/Export service with a Resource Manager storage account?**
 
-No, you cannot copy data to or from an ARM storage account directly using the Azure Import/Export service. The service only supports classic storage accounts. ARM storage account support will be coming soon. As an alternative, you can import data into a classic storage account, and migrate it to your ARM storage account using [AzCopy](storage-use-azcopy.md) or CopyBlob.
+No, you cannot copy data to or from a Resource Manager storage account directly using the Azure Import/Export service. The service only supports classic storage accounts. Resource Manager storage account support will be coming soon. As an alternative, you can import data into a classic storage account, and migrate it to your Resource Manager storage account using [AzCopy](storage-use-azcopy.md) or CopyBlob.
 
 **Can I copy Azure Files using the Azure Import/Export service?**
 
