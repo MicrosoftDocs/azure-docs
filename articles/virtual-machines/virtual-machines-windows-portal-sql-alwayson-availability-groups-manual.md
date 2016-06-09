@@ -190,7 +190,7 @@ Configure two availablity sets according to the parameters in the following tabl
 
 After you create the availability sets, return to the resource group in the Azure portal.
 
-## Create and configure domain controllers
+## Create domain controllers
 
 At this point you have created the network, subnets, availablity sets and an internet facing load balancer. You are ready to create the virtual machines for the domain controllers.
 
@@ -376,7 +376,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 Now that you have finished configuring Active Directory and the user objects, you will create two SQL Server VMs, and a witness server VM, and join all three to this domain.
 
-## Create the SQL Servers and configure clustering
+## Create SQL Servers
 
 ###Create and configure the SQL Server VMs
 
@@ -474,6 +474,8 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 1. Click **OK** to close the **Administrator Properties** dialog.
 
 1. Repeat the above steps on **sqlserver-1**, and **cluster-fsw**.
+
+## Create the cluster
 
 ### Add the **Failover Clustering** feature to each cluster VM.
 
