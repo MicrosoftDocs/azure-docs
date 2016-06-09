@@ -43,15 +43,16 @@ To restore a database in the Azure Portal do the following:
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
 - [Restore a deleted database](sql-database-restore-deleted-database.md)
 - [Restore a deleted database using PowerShell](sql-database-restore-deleted-database-powershell.md)
-- [Restore a deleted database using the REST API]((https://msdn.microsoft.com/library/azure/mt163685.aspx))
+- [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 - [SQL Database automated backups](sql-database-automated-backups.md)
 
 ## Additional Resources
 
+- [Point-in-time restore](sql-database-point-in-time-restore.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Point-in-time restore](sql-database-point-in-time-restore.md)
+
 
 

@@ -52,7 +52,7 @@
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
 - [Restore a deleted database](sql-database-restore-deleted-database.md)
 - [Restore a deleted database using the Azure Portal](sql-database-restore-deleted-database-portal.md)
-- [Restore a deleted database using the REST API]((https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 - [SQL Database automated backups](sql-database-automated-backups.md)
 
 ## Additional Resources
