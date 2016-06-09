@@ -120,14 +120,9 @@ Now that you have an application, you can try running it.
 
 ## Next steps
 
-<!--
-Temporarily removing this link because we have removed the ASP.NET template.
-
- - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
--->
-- [Learn how to create a cluster in Azure](service-fabric-cluster-creation-via-portal.md)
-- [Learn more about Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Try creating a service using the Reliable Actors programming model](service-fabric-reliable-actors-get-started.md)
+- Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
+- Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
+- Learn how you can expose your services to the Internet with a [web service front end](service-fabric-add-a-web-frontend.md).
 
 <!-- Image References -->
 
