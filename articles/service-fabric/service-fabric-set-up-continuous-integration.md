@@ -404,7 +404,7 @@ If a previous build did not clean up after itself (for example, if the build was
 
 >[AZURE.NOTE] An easy way to create a working publish profile xml file, is to create it in Visual Studio, as shown here: https://azure.microsoft.com/en-us/documentation/articles/service-fabric-publish-app-remote-cluster
 
->[AZURE.NOTE] If you want to support deployment of the Application to an existing cluster, without updating its version manifest for every build, add this Powershell Argument: "-OverwriteBehavior SameAppTypeAndVersion". This will first remove any existing ApplicationType before installing the newer build.
+>[AZURE.NOTE] If you want to support deployment of the application to a cluster by overwriting the existing application instead of upgrading it, add this Powershell Argument: '-OverwriteBehavior SameAppTypeAndVersion'. In addition, be sure that the selected publish profile is not configured to enable an upgrade. This will first remove any existing ApplicationType before installing the newer build.
 
 5.	Save the build definition.
 
