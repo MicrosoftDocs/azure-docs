@@ -42,7 +42,7 @@ The default home screen for the device management sample UI is the **Devices** v
 
 2. *Device search*: Find and edit a single device by device ID.
 
-3.  *Device twin actions*: **Edit** action, **Delete** action, and **Export** action.
+3.  *Device actions*: **Edit** action, **Delete** action, and **Export** action.
 
 4.  *Device jobs*: **Reboot** device, **Firmware Update**, and **Factory Reset**.
 
@@ -52,23 +52,25 @@ The default home screen for the device management sample UI is the **Devices** v
 
 The [device management overview][lnk-dm-overview] introduced the *device twin* concept which represents a physical (or simulated) device in the Azure IoT hub. From the device grid you can select any registered device from the device list to view and edit the device twin for that device.
 
-Enter this detailed view on your first simulateddevice, **Device11-7ce4a850**, by selecting the corresponding device row and then clicking the **Edit** button (you can also double-click the row or enter the device ID in the search box).
+Enter this detailed view on your first simulated device, **Device11-7ce4a850**, by selecting the corresponding device row and then clicking the **Edit** button (you can also double-click the row or enter the device ID in the search box).
 
 You are now viewing the full representation of the device twin components where you can update writeable properties and run other device operations as detailed below:
 
 ![][2]
 
-1.  **Edit a Device**: This includes **Enable** and **Disable** buttons for the device.
+1.  **Edit a Device Twin**: This includes an **Enabled/Disabled** toggle for the device.
 
 2.  **Service Properties**: This includes device **Tags**.
 
 3.  **Device Properties**: Click to expand this section.
 
-4.  **Refresh** button: Retrieve the most recent device twin property values.
+4.  **Refresh** button: Retrieve the most recent device twin properties and values.
+
+To proceed, click **Cancel** in the bottom-right corner of this view to return to the default device list page.
 
 ## Use device queries to filter the device view
 
-Device queries are a powerful way to quickly locate a device or a group of devices with a particular device or service property (such as room location). The sample UI uses device queries to populate the device listing on the default device list page. The sample UI enables you to add and remove service properties in the table and filter on some of these properties.
+Device queries are a powerful way to quickly locate a device or a group of devices with a particular property (such as a particular tag). The sample UI uses device queries to populate the device listing on the default device list page. The sample UI enables you to add and remove service properties in the table and filter on some of these properties.
 
 Perform the following steps to create a customer filter on the "bacon" service property tag:
 
@@ -98,14 +100,14 @@ As you learned in the device management overview, device jobs enable you to orch
 
     ![][7]
 
-You have now created a single parent job that spawns three children jobs, each one performs the reboot operation on one of the three "bacon" tagged devices:
+You have now created a single parent job that spawns three child jobs, each one performs the reboot operation on one of the three "bacon" tagged devices:
 
 ![][8]
 
-Refreshing this screen after a few moments changes the status of the parent job and the three children jobs to **completed**, indicating that the reboot operations were successful and confirmed by the simulated device. Use the **Device ID** column to determine which jobs are associated with which devices.
+Refreshing this screen after a few moments changes the status of the parent job and the three child jobs to **completed**, indicating that the reboot operations were successful and confirmed by the simulated devices. Use the **Device ID** column to determine which jobs are associated with which devices.
 
 
-> [AZURE.NOTE] If your children jobs return the status "failed", check that your simulated devices are still running on your test system. If not, run the simulate.bat or simulate.sh script again and repeat the reboot device job steps above.
+> [AZURE.NOTE] If your child jobs return the status "failed", check that your simulated devices are still running on your test system. If not, run the simulate.bat or simulate.sh script again and repeat the reboot device job steps above.
 
 ## Next steps
 
