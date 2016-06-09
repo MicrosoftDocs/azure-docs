@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/07/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -23,7 +23,7 @@
 - [Overview](sql-data-warehouse-restore-database-overview.md)
 - [Portal](sql-data-warehouse-restore-database-portal.md)
 - [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 Describes the options for restoring a database in Azure SQL Data Warehouse. These include restoring a live data warehouse and a deleted data warehouse. Live and deleted data warehouses are restored from the automatic snapshots created from all data warehouses. 
 
