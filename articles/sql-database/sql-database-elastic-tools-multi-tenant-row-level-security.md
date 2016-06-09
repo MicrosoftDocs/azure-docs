@@ -18,7 +18,9 @@
 
 # Multi-tenant applications with elastic database tools and row-level security 
 
-[Elastic database tools](sql-database-elastic-scale-get-started.md) and [row-level security (RLS)](https://msdn.microsoft.com/library/dn765131) offer a powerful set of capabilities for flexibly and efficiently scaling the data tier of a multi-tenant application with Azure SQL Database. This article illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multi-tenant shards, using **ADO.NET SqlClient** and/or **Entity Framework**. 
+[Elastic database tools](sql-database-elastic-scale-get-started.md) and [row-level security (RLS)](https://msdn.microsoft.com/library/dn765131) offer a powerful set of capabilities for flexibly and efficiently scaling the data tier of a multi-tenant application with Azure SQL Database. See [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md) for more information. 
+
+This article illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multi-tenant shards, using **ADO.NET SqlClient** and/or **Entity Framework**.  
 
 * **Elastic database tools** enables developers to scale out the data tier of an application via industry-standard sharding practices using a set of .NET libraries and Azure service templates. Managing shards with using the Elastic Database Client Library helps automate and streamline many of the infrastructural tasks typically associated with sharding. 
 
@@ -304,7 +306,18 @@ GO
 
 Elastic database tools and row-level security can be used together to scale out an application’s data tier with support for both multi-tenant and single-tenant shards. Multi-tenant shards can be used to store data more efficiently (particularly in cases where a large number of tenants have only a few rows of data), while single-tenant shards can be used to support premium tenants with stricter performance and isolation requirements.  For more information, see [Row-Level Security reference](https://msdn.microsoft.com/library/dn765131). 
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## Learn More
+
+- [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance-multitenant-identity-authenticate.md)
+- [Tailspin Surveys application](../guidance-multitenant-identity-tailspin.md)
+
+## Questions and Feature Requests
+
+For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
