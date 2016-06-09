@@ -18,7 +18,7 @@
 
 # Quotas and limits for the Azure Batch service
 
-As with other Azure services, there are limits on certain resources that you can create within your Batch account. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
+As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
 
 If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default value. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
 
@@ -62,19 +62,19 @@ Follow the steps below to request a quota increase using the [Azure portal][port
 
 2. Select **New support request** > **Basics**.
 
-3. On the **Basics** blade, do the following:
+3. On the **Basics** blade:
 
-	a. In **Issue Type**, select **Quota**.
+	a. **Issue Type** > **Quota**
 
 	b. Select your subscription.
 
-	c. In **Quota type**, select **Batch**.
+	c. **Quota type** > **Batch**
 
-	d. In **Support plan**, select **Quota support - Included**.
+	d. **Support plan** > **Quota support - Included**
 
 	Click **Next**.
 
-4. On the **Problem** blade, do the following:
+4. On the **Problem** blade:
 
 	a. Select a **Severity** according to your [business impact][support_sev].
 
@@ -88,7 +88,7 @@ Follow the steps below to request a quota increase using the [Azure portal][port
 
 	b. Verify and enter the required contact details.
 
-	c. Click **Create** to submit the new support request.
+	Click **Create** to submit the support request.
 
 Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
 
