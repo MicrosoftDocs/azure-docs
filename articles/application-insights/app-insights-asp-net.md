@@ -50,6 +50,7 @@ Right click the project in Solution Explorer, and choose **Add Application Insig
 
 ![Choose Add Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
+* ASP.NET Core project? - Also  
 
 
 
@@ -105,7 +106,7 @@ So the command did three things:
 2. Create an Application Insights resource in [the Azure portal](https://portal.azure.com/). This is where you'll see your data. It retrieves the *instrumentation key,* which identifies the resource.
 3. Inserts the instrumentation key in `ApplicationInsights.config`, so that the SDK can send telemetry to the portal.
 
-If you want, you can [do these steps manually](app-insights-asp-net-manual.md).
+If you want, you can do these steps manually for [ASP.NET 4](app-insights-asp-net-manual.md) or [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 
 ## What's next?
