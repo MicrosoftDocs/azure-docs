@@ -114,7 +114,7 @@ For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluste
 
 ## Use .NET SDK
 
-See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk#use-bootstrap).
+See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
 ## Use Azure ARM template
 
