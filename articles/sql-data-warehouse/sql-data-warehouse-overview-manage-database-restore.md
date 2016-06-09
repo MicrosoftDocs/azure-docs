@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Database restore in Azure SQL Data Warehouse (Overview) | Microsoft Azure"
+   pageTitle="Restoring a database in Azure SQL Data Warehouse (Overview) | Microsoft Azure"
    description="Overview of the database restore options for recovering a database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -17,7 +17,7 @@
    ms.author="elfish;barbkess;sonyama"/>
 
 
-# Database restore in Azure SQL Data Warehouse (Overview)
+# Restoring a database in Azure SQL Data Warehouse (Overview)
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-manage-database-restore.md)
@@ -25,13 +25,13 @@
 - [PowerShell](sql-data-warehouse-manage-database-restore-powershell.md)
 - [REST](sql-data-warehouse-manage-database-restore-rest-api.md)
 
-This article describes the options for restoring a database in Azure SQL Data Warehouse. These include restoring a live data warehouse and a deleted data warehouse. Live and deleted data warehouses are restored from the automatic snapshots created from all data warehouses. 
+This article describes the options for restoring a database in Azure SQL Data Warehouse. These options include restoring a live data warehouse and a deleted data warehouse. You can restore live and deleted data warehouses from the automatic snapshots that are created from all data warehouses.
 
 ## Recovery scenarios
 
-**Recovering from infrastructure failures:** This scenario refers to recovering from infrastructure issues such as disk failures etc. A customer would like to ensure business continuity with a fault tolerant and highly available infrastructure.
+**Recovering from infrastructure failures:** This scenario refers to recovering from infrastructure issues, such as disk failures. You want to ensure business continuity with a fault-tolerant and highly available infrastructure.
 
-**Recovering from user errors:** This scenario refers to recovering from unintentional or incidental Data Corruption or Deletion. In the event that a user unintentionally or incidentally modifies or deletes data, a customer would like to ensure business continuity by restoring the database to an earlier point in time.
+**Recovering from user errors:** This scenario refers to recovering from unintentional or incidental data corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you want to ensure business continuity by restoring the database to an earlier point in time.
 
 ## Snapshot policies
 
@@ -40,16 +40,16 @@ This article describes the options for restoring a database in Azure SQL Data Wa
 
 ## Database restore capabilities
 
-Let us take a look at how SQL Data Warehouse enhances the reliability of your database and allows for recoverability and continuous operation in the aforementioned scenarios.
+Let's take a look at how SQL Data Warehouse enhances the reliability of your database and allows for recoverability and continuous operation in the scenarios referred to earlier.
 
 
 ### Data redundancy
 
-SQL Data Warehouse stores all data on [locally redundant (LRS)](../storage/storage-redundancy.md) Azure Premium Storage keeping 3 copies of your data. 
+SQL Data Warehouse stores all data on [locally redundant](../storage/storage-redundancy.md) Azure Premium Storage and keeps three copies of your data.
 
-### Database Restore
+### Database restore
 
-Database restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic snapshot and restore features provide a zero-admin way to protect databases from accidental corruption or deletion. To learn more about database restore, refer to [Database restore tasks][].
+The database restore feature is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic snapshot and restore features provide a way to protect databases from accidental corruption or deletion, with no administrative overhead. To learn more about how to restore your database, see [Database restore tasks][].
 
 ## Next steps
 For other important management tasks, see [Management overview][].
