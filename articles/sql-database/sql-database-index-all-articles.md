@@ -211,7 +211,7 @@ This topic lists every topic that applies directly to the SQL Database service o
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
 | 105 | [Business Continuity FAQ](sql-database-bcdr-faq.md) | Common questions and answers that customers ask about built-in and optional features for business continuity and disaster recovery with Azure SQL Database. |
-| 106 | [Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Learn how to design cloud disaster recovery solutions for business continuity planning using geo-replication for app data backup with Azure SQL Database. |
+| 106 | [Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Learn how to design cloud disaster recovery solutions for business continuity planning using Geo-Replication for app data backup with Azure SQL Database. |
 | 107 | [Design for business continuity](sql-database-business-continuity-design.md) | Guidance for choosing In this section, guidance will be provided for how to choose which BCDR features should be used and when. This will include descriptions of what you automatically get by using SQL DB. |
 | 108 | [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md) | Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Classic Portal, Azure Classic Portal |
 | 109 | [How to restore a single table from an Azure SQL Database backup](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Learn how to restore a single table from Azure SQL Database backup. |
@@ -302,14 +302,14 @@ This topic lists every topic that applies directly to the SQL Database service o
 | 159 | [Ring Buffer target code for extended events in SQL Database](sql-database-xevent-code-ring-buffer.md) | Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database. |
 
 
-## Geo replication
+## Geo-Replication
 
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 160 | [Configure geo-replication for Azure SQL Database with PowerShell](sql-database-geo-replication-powershell.md) | geo-replication for Azure SQL Database using PowerShell |
-| 161 | [Configure geo-replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md) | Configure geo-replication for Azure SQL Database using the Azure portal |
-| 162 | [Configure geo-replication for Azure SQL Database with Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configure geo-replication for Azure SQL Database using Transact-SQL |
+| 160 | [Configure Geo-Replication for Azure SQL Database with PowerShell](sql-database-geo-replication-powershell.md) | Geo-Replication for Azure SQL Database using PowerShell |
+| 161 | [ConfigureGeo-Replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md) | Configure Geo-Replication for Azure SQL Database using the Azure portal |
+| 162 | [Configure Geo-Replication for Azure SQL Database with Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configure Geo-Replication for Azure SQL Database using Transact-SQL |
 | 163 | [How to manage security after disaster recovery](sql-database-geo-replication-security-config.md) | This topic explains security considerations for managing Active Geo-Replication scenarios for SQL Database. |
 | 164 | [Overview: SQL Database Active Geo-Replication](sql-database-geo-replication-overview.md) | Active Geo-Replication enables you to setup 4 replicas of your database in any of the Azure datacenters. |
 

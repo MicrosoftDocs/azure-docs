@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/07/2016"
 	ms.author="genemi"/>
 
 
@@ -37,6 +37,12 @@ This topic explains how the implementation of extended events in Azure SQL Datab
 > [AZURE.NOTE] As of October 2015, the extended event session feature is activated in Azure SQL Database at the Preview level. The General Availability (GA) date is not yet set.
 >
 > The Azure [Service Updates](https://azure.microsoft.com/updates/?service=sql-database) page has posts when GA announcements are made.
+
+
+Additional information about extended events, for Azure SQL Database and Microsoft SQL Server, is available at:
+
+- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
+- [Extended Events](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
 ## Prerequisites
