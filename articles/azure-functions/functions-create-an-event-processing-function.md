@@ -77,7 +77,7 @@ A function app hosts the execution of your functions in Azure. Before you can cr
 
 9. Go back to the **Integrate** tab and change the schedule field to `0 0 * * * *`. The function now runs once every hour. 
 
-This is a very simplified example of both a timer trigger and a storage queue output binding. For more information, see both the [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md) and the [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md) topics.
+This is a very simplified example of both a timer trigger and a storage queue output binding. For more information, see both the [Azure Functions timer trigger](functions-bindings-timer.md) and the [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md) topics.
 
 ##Next steps
 
