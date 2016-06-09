@@ -85,7 +85,7 @@ Consider a scenario in which a previously healthy endpoint fails. Traffic Manage
 >- Timeout (the timeout threshold is 10 seconds)
 >- Unable to connect
 
->For more information about troubleshooting failed checks, see [Troubleshooting degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+>For more information about troubleshooting failed checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
 The following timeline describes in detail the sequence of steps that occur.
 
@@ -122,7 +122,7 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 
 >A consequence of this behavior is that if Traffic Manager health checks are not configured correctly, it might appear from the traffic routing as though Traffic Manager *is* working properly. However, in this case, endpoint failover will not happen if an endpoint fails, and this affects overall application availability. To ensure that this does not occur, it is important to check that the profile shows an Online status, and not a Degraded status. An Online status shows that the Traffic Manager health checks are working as expected.
 
-For more details about troubleshooting failed health checks, see [Troubleshooting degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+For more details about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
 ## FAQ
 
@@ -146,7 +146,7 @@ All Traffic Manager profiles use **global** as their location. Because this is t
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the [Traffic Monitor REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../xplat-cli-install.md).
+The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../xplat-cli-install.md).
 
 It is not possible to view historical information about past endpoint health, nor is it possible to configure alerts about changes to endpoint health.
 
