@@ -35,7 +35,7 @@ Batch accounts per region per subscription | 1 | 50
 ## Other limits
 **Resource**|**Maximum Limit**
 ---|---
-[Tasks per compute node](batch-parallel-node-tasks.md) | 4 x number of node cores
+[Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores
 [Applications](batch-application-packages.md) per Batch account        | 20
 Application packages per application  | 40
 Application package size (each)       | Approx. 195GB<sup>1</sup>
