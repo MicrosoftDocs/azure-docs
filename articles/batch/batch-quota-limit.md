@@ -18,7 +18,7 @@
 
 # Quotas and limits for the Azure Batch service
 
-As with other Azure services, there are limits on certain resources that you can create within your Batch account. Many of these limits are quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
+As with other Azure services, there are limits on certain resources that you can create within your Batch account. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
 
 If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default value. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
 
