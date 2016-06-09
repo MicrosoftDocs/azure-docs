@@ -64,6 +64,8 @@ If your app generates a lot of telemetry (and you are using the ASP.NET SDK vers
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
 
+![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/10-detail.png)
+
 To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
 ## Create work item
