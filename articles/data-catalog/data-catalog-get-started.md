@@ -17,7 +17,7 @@
 	ms.author="maroche"/>
 
 # Tutorial: Get started with Azure Data Catalog
-Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md). This article provides a tutorial that walks you through registering data assets with Data Catalog, discovering and annotating registered data assets, and connecting to data assets.    
+Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md). This tutorial walks you through registering data assets with Data Catalog, discovering and annotating registered data assets, and connecting to data assets.    
  
 ## Tutorial prerequisites
 
