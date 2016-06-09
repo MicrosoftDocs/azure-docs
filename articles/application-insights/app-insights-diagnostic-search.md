@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using Diagnostic Search" 
+	pageTitle="Using Diagnostic Search | Microsoft Azure" 
 	description="Search and filter individual events, requests, and log traces." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="06/09/2016" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -63,9 +63,20 @@ If your app generates a lot of telemetry (and you are using the ASP.NET SDK vers
 
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
 
 To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
+
+## Create work item
+
+You can create a bug in Visual Studio Team Services with  the details from any telemetry item. 
+
+![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
+
+The first time you do this, you are asked to configure a link to your Team Services account and project.
+
+![Fill the URL of your Team Services server and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
+
+(You can also get to the configuration blade from Settings > Work Items.)
 
 ## Filter event types
 
