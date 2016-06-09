@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/06/2016"
 	ms.author="priyamo"/>
 
 # Active Directory Authentication Protocols
@@ -22,7 +22,8 @@ Azure Active Directory (Azure AD) supports several of the most widely used authe
 
 In this set of articles, we'll look at the supported protocols and their implementation in Azure AD. We'll have sample requests and responses, and since we're integrating directly with the protocols, these articles are largely language-independent.
 
-- [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md): Learn about the OAuth2.0 authorization grant flow and its implementation in Azure AD.
+- [OAuth 2.0 authorization code grant](active-directory-protocols-oauth-code.md): Learn about the OAuth2.0 "authorization code" authorization grant and its implementation in Azure AD.
+- [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) : Learn about the OAuth 2.0 "implicit" authorization grant, and whether it's right for your application.
 - [Open ID Connect 1.0](active-directory-protocols-openid-connect-code.md): Learn how to use OpenID Connect authentication protocol in Azure AD.
 - [SAML Protocol Reference](active-directory-saml-protocol-reference.md): Learn how to use the SAML protocol to support [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) and [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) in Azure AD.
 
