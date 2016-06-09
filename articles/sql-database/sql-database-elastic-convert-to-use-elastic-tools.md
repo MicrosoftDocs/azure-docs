@@ -175,7 +175,7 @@ Use the split-merge tool to move data to or from a multi-tenant model to a singl
 
 ## Learn More
 
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md).
+For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## Questions and Feature Requests
 

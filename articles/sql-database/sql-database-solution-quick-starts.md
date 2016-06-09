@@ -34,7 +34,7 @@ This Solution Quick Start provides a solution for a Softwware-as-a-Solution (Saa
 
 ## Creating an Azure SQL Database using the Entity Framework and COde First Development
 
-This video and sample provides an introduction to Code First development targeting a new database. This scenario includes targeting a database that doesn’t exist and Code First will create, or an empty database that Code First will add new tables too. Code First allows you to define your model using C# or VB.Net classes. Additional configuration can optionally be performed using attributes on your classes and properties or by using a fluent API. See [Code First to a New Database](https://msdn.microsoft.com/en-us/data/jj193542.aspx). 
+This video and sample provides an introduction to Code First development targeting a new database. This scenario includes targeting a database that doesn’t exist and Code First will create, or an empty database that Code First will add new tables too. Code First allows you to define your model using C# or VB.Net classes. Additional configuration can optionally be performed using attributes on your classes and properties or by using a fluent API. See [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx). 
 
 ## Integrate Elastic Database Tools into an Entity Framework Application
 
