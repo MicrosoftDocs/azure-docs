@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure Redis Cache samples" 
+	pageTitle="Azure Redis Cache samples | Microsoft Azure" 
 	description="Learn how to use Azure Redis Cache" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/22/2016" 
+	ms.date="06/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache samples 
