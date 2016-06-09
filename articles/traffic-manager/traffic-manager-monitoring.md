@@ -80,7 +80,7 @@ Consider a scenario in which a previously healthy endpoint fails. Traffic Manage
 
 >[AZURE.NOTE] Traffic Manager only considers an endpoint to be online if the return message is 200 OK. If any of the following occur, Traffic Manager considers this a failed endpoint health check:
 
->- A non-200 response is received (including a different 2'xx' code, or a 301/302 redirect)
+>- A non-200 response is received (including a different 2xx code, or a 301/302 redirect)
 >- Request for client authentication
 >- Timeout (the timeout threshold is 10 seconds)
 >- Unable to connect
@@ -146,7 +146,7 @@ All Traffic Manager profiles use **global** as their location. Because this is t
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via Traffic Manager, the [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../xplat-cli-install.md).
+The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the [Traffic Monitor REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../xplat-cli-install.md).
 
 It is not possible to view historical information about past endpoint health, nor is it possible to configure alerts about changes to endpoint health.
 
