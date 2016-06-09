@@ -16,7 +16,7 @@
    ms.date="06/09/2016"
    ms.author="sstein"/>
 
-# Overview: SQL Database Built-in Backups
+# Overview: SQL Database automated backups
 
 The Azure SQL Database service protects all databases with an automated backup that is retained for 7 days for Basic, 14 days for Standard, and 35 days for Premium. You can use these automated backup to perform point-in-time restores and to restore a deleted database after accidental data corruption or deletion.
 
@@ -26,7 +26,7 @@ The database backups are taken automatically with no need to opt-in and no addit
 
 All Basic, Standard, and Premium databases are protected by automatic backups. Full backups are taken every week, differential backups every day, and log backups every 5 minutes. The first full backup is scheduled immediately after a database is created. Normally this completes within 30 minutes but it can take longer. If a database is already big, for example if it is created as the result of a database copy or restore from a large database, then the first full backup may take longer to complete. After the first full backup all further backups are scheduled automatically and managed silently in the background. Exact timing of full and differential backups is determined by the system to balance overall load. Backup files are stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes.
 
-## Additional Resources
+## Additional resources
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [Geo-Restore](sql-database-geo-restore.md)
