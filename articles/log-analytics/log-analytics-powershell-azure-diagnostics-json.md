@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="powershell"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/06/2016"
 	ms.author="richrund"/>
 
 # Configure Log Analytics to collect data from Azure Diagnostics storage
@@ -58,8 +58,8 @@ We have provided a PowerShell script module that exports two cmdlets to assist w
   - [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
   - [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
 3. A [Log Analytics](https://portal.azure.com/#create/Microsoft.LogAnalyticsOMS) workspace  
-4. The Add-AzureDiagnosticsToLogAnalytics PowerShell module
-  - Download the module from PowerShell gallery 
+4. The AzureDiagnosticsAndLogAnalytics PowerShell module
+  - Download the [AzureDiagnosticsAndLogAnalytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/) module from PowerShell gallery 
 
 #### Option 1: Run the Interactive Configuration Scripts
 
@@ -72,7 +72,7 @@ Login-AzureRmAccount
 Add-AzureAccount
 
 # Import the module
-Import-Module ./Add-AzureDiagnosticsToLogAnalytics.psm1
+Install-Module -Name AzureDiagnosticsAndLogAnalytics
 
 # Run the UI configuration script
 Add-AzureDiagnosticsToLogAnalyticsUI
@@ -107,7 +107,7 @@ Login-AzureRmAccount
 Add-AzureAccount
 
 # Import the module
-Import-Module Add-AzureDiagnosticsToLogAnalytics.psm1
+Install-Module -Name AzureDiagnosticsAndLogAnalytics
 
 # Update the values below with the name of the resource that has Azure diagnostics enabled and the name of your Log Analytics workspace
 $resourceName = "***example-resource***"
@@ -150,17 +150,6 @@ Parameter name: id
 *Resolution*
 
 Login to the service management API with `Add-AzureAccount`
-
-*Issue*
-
-When attempting to import the module, you get an error of ‘\<Script Name\>’ is not digitally signed. 
-You cannot run this script on the current system. 
-
-*Resolution*
-
-To enable importing the module on your machine, right click on the file in a file explorer and choose *properties*. 
-On the properties screen, check the *unblock* button in the file security section to enable the file to run on your machine, click *apply* and try importing it again . 
-
 
 ### Troubleshooting data collection for Azure Diagnostics written to blob in JSON
 
