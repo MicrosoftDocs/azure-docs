@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Mobile Engagement Web SDK Integration"
+	pageTitle="Azure Mobile Engagement Web SDK Integration | Microsoft Azure"
 	description="Latest updates and procedures for Web SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"

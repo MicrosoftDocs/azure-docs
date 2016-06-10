@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Mobile Engagement Web SDK content"
+	pageTitle="Azure Mobile Engagement Web SDK content | Microsoft Azure"
 	description="Latest updates and procedures for Web SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="web"
 	ms.devlang="js"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/07/2016"
 	ms.author="piyushjo" />
 
-# SDK Content
+# Azure Mobile Engagement Web SDK Content
 
 This document lists and describes the content of the SDK archive.
 

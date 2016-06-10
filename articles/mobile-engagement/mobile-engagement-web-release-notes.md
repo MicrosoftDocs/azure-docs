@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Mobile Engagement Web SDK Release notes"
+	pageTitle="Azure Mobile Engagement Web SDK Release notes | Microsoft Azure"
 	description="Latest updates and procedures for Web SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="web"
 	ms.devlang="js"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/07/2016"
 	ms.author="piyushjo" />
 
 
-#Release notes
+#Azure Mobile Engagement Web SDK release notes
 
 ##2.0.1 (06/10/2016)
 
