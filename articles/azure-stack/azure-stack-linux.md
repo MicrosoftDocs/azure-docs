@@ -27,24 +27,24 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
   - [CentOS](http://olstacks.cloudapp.net/latest/)
   - [SuSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~)
   
- 1. Extract the image VHD if necessary and [add the image to the PIR](azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
+ 1. Extract the image VHD if necessary and [add the image to the PIR](../azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
  
  1. After you've added the image to the PIR, a Marketplace item is created and you can deploy a Linux virtual machine.
   
 ## Prepare your own image
 
 1. Prepare your own Linux image using one of the following instructions:
- - [CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md)
- - [Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)
- - [Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)
- - [Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)
- - [SLES & openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)
- - [Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)
+ - [CentOS-based Distributions](../virtual-machines-linux-create-upload-centos.md)
+ - [Debian Linux](../virtual-machines-linux-debian-create-upload-vhd.md)
+ - [Oracle Linux](../virtual-machines-linux-oracle-create-upload-vhd.md)
+ - [Red Hat Enterprise Linux](../virtual-machines-linux-redhat-create-upload-vhd.md)
+ - [SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse.md)
+ - [Ubuntu](../virtual-machines-linux-create-upload-ubuntu.md)
 
-2. [Add the image to the PIR](azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
+2. [Add the image to the PIR](../azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
 
 3. After you've added the image to the PIR, a Marketplace item is created and you can deploy a Linux virtual machine.
 
 ## Next steps
 
-[Frequently asked questions for Azure Stack](azure-stack-faq.md)
+[Frequently asked questions for Azure Stack](../azure-stack-faq.md)
