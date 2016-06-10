@@ -24,7 +24,7 @@ We understand your interest and to that end we’ve created a collection of docu
 
 In these best practices and patterns articles we discuss a collection of best practices and useful patterns for specific topics. These best practices and patterns are derived from our experiences with these technologies and the experiences of customers like yourself.
 
-For each best practice we strive to explain:
+For each best practice we strive to explain: 
 
 - What the best practice is
 - Why you want to enable that best practice
