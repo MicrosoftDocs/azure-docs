@@ -50,7 +50,9 @@ If you type a different name than the current account, the following VMAccess ex
 
 Use the VM access extension to set the new credentials as follows:
 
-	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
+	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" `
+		-Location WestUS -UserName $cred.GetNetworkCredential().Username `
+		-Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 
 
 Replace `myRG`, `myVM`, `myVMAccess` and location with values relevant to your setup.
@@ -60,11 +62,14 @@ Replace `myRG`, `myVM`, `myVMAccess` and location with values relevant to your s
 
 You can reset remote access to your VM by using either [Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) or [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx), as follows. (Replace the `myRG`, `myVM`, `myVMAccess` and location with your own values.)
 
-	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -ExtensionType "VMAccessAgent" -Location WestUS -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0"
+	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" `
+		-Name "myVMAccess" -ExtensionType "VMAccessAgent" -Location WestUS `
+		-Publisher "Microsoft.Compute" -typeHandlerVersion "2.0"
 
 Or:<br>
 
-	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0
+	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" `
+		-Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0
 
 
 > [AZURE.TIP] Both commands add a new named VM access agent to the virtual machine. At any point, a VM can have only a single VM access agent. To set the VM access agent properties successfully, remove the access agent set previously by using either `Remove-AzureRmVMAccessExtension` or `Remove-AzureRmVMExtension`. Starting from Azure PowerShell version 1.2.2, you can avoid this step when using `Set-AzureRmVMExtension` with a `-ForceRerun` option. When using `-ForceRerun`, make sure to use the same name for the VM access agent as set by the previous command.
@@ -106,7 +111,8 @@ This command prevents the following error when you're running the **Set-AzureVME
 Create a sign-in credential with the current local administrator account name and a new password, and then run the `Set-AzureVMAccessExtension` as follows.
 
 	$cred=Get-Credential
-	Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
+	Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().Username `
+		-Password $cred.GetNetworkCredential().Password  | Update-AzureVM
 
 If you type a different name than the current account, the VMAccess extension renames the local administrator account, assigns the password to that account, and issues a Remote Desktop sign-out. If the local administrator account is disabled, the VMAccess extension enables it.
 
