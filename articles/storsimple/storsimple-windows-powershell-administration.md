@@ -136,8 +136,8 @@ The display language is independent of the language that you set by using the **
 
 You can use HTTP or HTTPS to connect via Windows PowerShell remoting. Use the instructions in the following tutorials:
 
-- [Connect remotely using http](storsimple-remote-connect.md#connect-through-http)
-- [Connect remotely using https](storsimple-remote-connect.md#connect-through-https)
+- [Connect remotely using HTTP](storsimple-remote-connect.md#connect-through-http)
+- [Connect remotely using HTTPS](storsimple-remote-connect.md#connect-through-https)
 
 ## Connection security considerations
 
@@ -181,7 +181,7 @@ The following is a brief description of the types of Help for this Windows Power
 
 - To get online Help for any cmdlet, use the previous cmdlet with the `-Online` parameter: `Get-Help <cmdlet-name> -Online`
 
-- For full Help, you can use the –Full parameter, and for examples, use the `–Examples` parameter.
+- For full Help, you can use the `–Full` parameter, and for examples, use the `–Examples` parameter.
 
 #### To update Help
 

@@ -50,6 +50,6 @@ For recovery from outage - Use the [Get Recoverable Database](https://msdn.micro
 
 There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task. 
 
-## 8.	What is the replication delay when using active geo-replication?
+## 8.	What is the replication delay when using Geo-Replication?
 
 Use the [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx) dynamic management view (DMVs) to get the last replication time, last replication lag and other information about the replication link.

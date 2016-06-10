@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Reference in Analytics in Application Insights" 
+	pageTitle="Reference in Analytics in Application Insights | Microsoft Azure" 
 	description="Reference for statements in Analytics, 
 	             the powerful search tool of Application Insights. " 
 	services="application-insights" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -25,30 +25,32 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-| | | | | 
-|---|---|---|---|---
-|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[summarize op](#summarize-operator)
-|[ago](#ago)|[dayofyear](#dayofyear)|[join op](#join-operator)|[range](#range)|[take op](#take-operator)
-|[any](#any)|[dcount](#dcount)|[JSON Path expressions](#json-path-expressions)|[range op](#range-operator)|[todatetime](#todatetime)
-|[argmax](#argmax)|[dcountif](#dcountif)|[let clause](#let-clause)|[reduce op](#reduce-operator)|[todouble](#todouble)
-|[argmin](#argmin)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[limit op](#limit-operator)|[render directive](#render-directive)|[todynamic](#todynamic)
-|[Arithmetic ops](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
-|[Array and object literals](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[restrict clause](#restrict-clause)|[tolong](#tolong)
-|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Scalar comparisons](#scalar-comparisons)|[tolower](#tolower)
-|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[sort op](#sort-operator)|[top op](#top-operator)
-|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[top-nested op](#top-nested-operator)
-|[Boolean Literals](#boolean-literals)|[extend op](#extend-operator)|[mvexpand op](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
-|[Boolean ops](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Casts](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
-|[count](#count)|[getmonth](#getmonth)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[union op](#union-operator)
-|[count op](#count-operator)|[gettype](#gettype)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
-|[countif](#countif)|[getyear](#getyear)|[parse op](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
-|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[where op](#where-operator)
-|[Date and time expressions](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[String Literals](#string-literals)
-|[Date and time literals](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
-|[datepart](#datepart)|[isnotempty](#isnotempty)|[project op](#project-operator)|[substring](#substring)
-|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[project-away op](#project-away-operator)|[sum](#sum)
+## Index
+
+|Queries and operators|Aggregations|Scalars|Numbers|Date and time|String|Arrays, objects and dynamic
+|---|---|---|---|---|---|---
+|[count](#count-operator)|[any](#any)|[Boolean Literals](#boolean-literals)|[Arithmetic operators](#arithmetic-operators)|[Date and time expressions](#date-and-time-expressions)|[GUIDs](#guids)|[Array and object literals](#array-and-object-literals)
+|[extend](#extend-operator)|[argmax](#argmax)|[Boolean operators](#boolean-operators)|[Numeric literals](#numeric-literals)|[Date and time literals](#date-and-time-literals)|[Obfuscated String Literals](#obfuscated-string-literals)|[Dynamic object functions](#dynamic-object-functions)
+|[join](#join-operator)|[argmin](#argmin)|[Casts](#casts)|[abs](#abs)|[ago](#ago)|[String Literals](#string-literals)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)
+|[let clause](#let-clause)|[avg](#avg)|[Scalar comparisons](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[String comparisons](#string-comparisons)|[JSON Path expressions](#json-path-expressions)
+|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Names](#names)
+|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
+|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
+|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
+|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
+|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
+|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
+|[render directive](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
+|[restrict clause](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
+|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
+|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
+|[take](#take-operator)|[percentilesw](#percentilesw)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
+|[top](#top-operator)|[percentilew](#percentilew)|||[startofweek](#startofweek)||
+|[top-nested](#top-nested-operator)|[stdev](#stdev)|||[startofyear](#startofyear)||
+|[union](#union-operator)|[sum](#sum)|||[todatetime](#todatetime)||
+|[where](#where-operator)|[variance](#variance)|||[totimespan](#totimespan)||
+|||||[weekofyear](#weekofyear)||
+
 
 
 
@@ -64,7 +66,7 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](##scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](#scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
 
 Queries may contain single line breaks, but are terminated by a blank line. They may contain comments between `//` and end of line.
 
@@ -1023,7 +1025,7 @@ Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predic
 
 **Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
 
-> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
+> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points retained in Application Insights will be less than the number of original events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
 
 ### countif
 
@@ -1117,15 +1119,25 @@ Calculates the minimum of *Expr*.
 
 <a name="percentile"></a>
 <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentilew"></a>
+<a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
 Returns an estimate for *Expression* of the specified percentile in the group. The accuracy depends on the density of population in the region of the percentile.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Like `percentile()`, but calculates a number of percentile values (which is faster than calculating each percentile individually).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Weighted percentile. Use this for pre-aggregated data.  `WeightExpression` is an integer that indicates how many original rows are represented by each aggregated row.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Like `percentilew()`, but calculates a number of percentile values.
 
 **Examples**
 
@@ -1150,7 +1162,6 @@ Simultaneously calculate several percentiles for different request names:
 
 The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
 
-
 Calculate multiple statistics:
 
     requests 
@@ -1160,7 +1171,43 @@ Calculate multiple statistics:
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Estimation error in percentiles
+#### Weighted percentiles
+
+Use the weighted percentile functions in cases where the data has been pre-aggregated. 
+
+For example, suppose your app performs many thousands of operations per second, and you want to know their latency. The simple solution would be to generate an Application Insights request or custom event for each operation. This would create a lot of traffic, although adaptive sampling would take effect to reduce it. But you decide to implement an even better solution: you will write some code in your app to aggregate the data before sending it to Application Insights. The aggregated summary will be sent at regular intervals, reducing the data rate perhaps to a few points per minute.
+
+Your code takes a stream of latency measurements in milliseconds. For example:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+It counts the measurements in the following bins: `{ 10, 20, 30, 40, 50, 100 }`
+
+Periodically, it makes a series of TrackEvent calls, one for each bucket, with custom measurements in each call: 
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+In Analytics, you see one such group of events like this:
+
+`opCount` | `latency`| meaning
+---|---|---
+8 | 10 | = 8 operations in the 10ms bin
+6 | 20 | = 6 operations in the 20ms bin
+3 | 30 | = 3 operations in the 30ms bin
+1 | 40 | = 1 operations in the 40ms bin
+
+To get an accurate picture of the original distribution of event latencies, we use `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+The results are the same as if we had used plain `percentiles` on the original set of measurements.
+
+> [AZURE.NOTE] Weighted percentiles are not applicable to [sampled data](app-insights-sampling.md), where each sampled row represents a random sample of original rows, rather than a bin. The plain percentile functions are appropriate for sampled data.
+
+#### Estimation error in percentiles
 
 The percentiles aggregate provides an approximate value using [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf). 
 
@@ -1385,7 +1432,6 @@ The evaluated argument. If the argument is a table, returns the first column of 
 
 
 
-## Boolean 
 
 ### Boolean Literals
 
@@ -2126,7 +2172,7 @@ Converts a string to upper case.
 
 
 
-## GUIDs
+### GUIDs
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -2236,7 +2282,7 @@ T
 ```
 
 
-## Dynamic object functions
+### Dynamic object functions
 
 |||
 |---|---|
@@ -2445,7 +2491,7 @@ An array of path expressions.
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
 
-## Names
+### Names
 
 Names can be up to 1024 characters long. They are case-sensitive and may contain letters, digits and underscores (`_`). 
 

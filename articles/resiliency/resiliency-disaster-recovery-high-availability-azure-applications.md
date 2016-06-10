@@ -113,11 +113,11 @@ When creating your application’s availability and disaster recovery plan, cons
 
 ##Additional resources
 
-[High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md)
+[High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md)
 
-[Disaster recovery for applications built on Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md)
+[Disaster recovery for applications built on Microsoft Azure](resiliency-disaster-recovery-azure-applications.md)
 
-[Azure resiliency technical guidance](./resiliency-technical-guidance.md)
+[Azure resiliency technical guidance](resiliency-technical-guidance.md)
 
 [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md)
 
@@ -129,4 +129,4 @@ When creating your application’s availability and disaster recovery plan, cons
 
 ##Next steps
 
-This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md).
+This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
