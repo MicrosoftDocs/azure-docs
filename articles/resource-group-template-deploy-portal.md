@@ -115,7 +115,7 @@ For more information about working with these saved templates, [Get started with
 
 - To view audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 - To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure Portal](resource-manager-troubleshoot-deployments-portal.md).
-- To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template/).
+- To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
 
 

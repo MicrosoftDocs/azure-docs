@@ -105,7 +105,7 @@ After setting up your resource group, you may want to view the Resource Manager 
 
 2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
-For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](../resource-manager-export-template/).
+For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](../resource-manager-export-template.md).
 
 ## Delete resource group or resources
 
