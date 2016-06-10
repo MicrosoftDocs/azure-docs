@@ -111,6 +111,34 @@ When you've created a dashboard, you can share it with other users.
 
 Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
 
+## Settings
+
+The Settings button on the overview blade is not only about configuration, but also provides a way into several types of chart.
+
+* **Audit logs** - Review alerts and actions that have been performed on your app resource.
+* [New support request](app-insights-get-dev-support.md) - Options for help with any aspect of Azure. For Application Insights, you can also get help by using the smiley button at top right of the window.
+* [Application map](app-insights-dependencies.md#application-map) - Active map showing the components of your application, derived from the dependency information.
+* [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) - Key metrics with a latency of about 1s, for monitoring a new release.
+* **Failures** - Failed requests, failed dependency calls, and exceptions. [Editable metrics blade](app-insights-metrics-explorer.md).
+* **Performance** - Response time, dependency response times. [Editable metrics blade](app-insights-metrics-explorer.md).
+* [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](app-insights-javascript.md).
+* **Usage** - Page view, user and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
+* **Getting started** - inline tutorial.
+* **Properties** - instrumentation key, subscription and resource id.
+* [Availability](app-insights-monitor-web-app-availability.md) - web test configuration and results.
+* [Alerts](app-insights-alerts.md) - metric alert configuration.
+* [Continuous export](app-insights-export-telemetry.md) - configure export of telemetry to Azure storage.
+* [Performance testing](app-insights-monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
+* [Quota and pricing](app-insights-pricing.md) and [ingestion sampling](app-insights-sampling.md).
+* **API Access** - currently used to create [release annotations](app-insights-annotations.md) and for the Data Access API.
+* [**Work Items**](app-insights-diagnostic-search.md#create-work-item) - connect to a work tracking system so that you can create bugs while inspecting telemetry.
+* [**Users**](app-insights-resources-roles-access-control.md) - Manage who has access to your app resource.
+* [**Roles**](app-insights-resources-roles-access-control.md) - manage what users can do.
+* [**Tags**](..\resource-group-using-tags.md) - organize Azure resources.
+* [**Locks**](..\resource-group-lock-resources.md) - lock Azure resources
+* [**Export template**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
+
 ## What's next?
 
 ||
