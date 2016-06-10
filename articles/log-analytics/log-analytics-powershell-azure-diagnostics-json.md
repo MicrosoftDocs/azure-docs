@@ -26,7 +26,7 @@ Refer to [Use Log Analytics to collect data from Azure storage accounts](log-ana
 
 >[AZURE.NOTE] You'll be charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
 
-## Collect JSON logs from Azure blob storage (Preview)
+## JSON logs in Azure blob storage (Preview)
 
 Log Analytics can read the JSON logs written to blob storage for the following services:
 
@@ -211,7 +211,7 @@ You can update the Log Analytics configuration with a new key using the followin
 
 To find the Storage Insight Name, use the `Get-AzureRmOperationalInsightsStorageInsight` cmdlet, as shown in earlier examples.
 
-## Collect data using Azure diagnostics written to table storage or IIS Logs written to blob 
+## Events in table storage or IIS Logs in blob storage
 
 Log Analytics can read the logs for the following services that write diagnostics to table storage or IIS Logs written to blob:
 
