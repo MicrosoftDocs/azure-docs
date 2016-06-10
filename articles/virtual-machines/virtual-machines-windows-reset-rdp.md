@@ -58,7 +58,7 @@ Replace `myRG`, `myVM`, `myVMAccess` and location with values relevant to your s
 
 #### **Reset the Remote Desktop service configuration**
 
-You can reset remote access to your VM by using either [Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) or [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/en-us/library/mt619447.aspx), as follows. (Replace the `myRG`, `myVM`, `myVMAccess` and location with your own values.)
+You can reset remote access to your VM by using either [Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) or [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx), as follows. (Replace the `myRG`, `myVM`, `myVMAccess` and location with your own values.)
 
 	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -ExtensionType "VMAccessAgent" -Location WestUS -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0"
 
