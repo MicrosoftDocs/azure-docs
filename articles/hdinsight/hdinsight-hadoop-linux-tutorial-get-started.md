@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/16/2016"
+   	ms.date="06/10/2016"
    	ms.author="jgao"/>
 
 # Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight
