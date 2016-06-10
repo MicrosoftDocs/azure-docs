@@ -3,7 +3,7 @@
 	description="Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
-	authors="nisoneji"
+	authors="nsoneji"
 	manager="jwhit"
 	editor=""/>
 
