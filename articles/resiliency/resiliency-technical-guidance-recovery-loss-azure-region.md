@@ -103,17 +103,17 @@ Azure SQL Database provides two types of recovery: Geo-Restore and Active Geo-Re
 
 ####Geo-Restore
 
-[Geo-Restore](../sql-database/sql-database-geo-restore.md) is also available with Basic, Standard, and Premium databases. It provides the default recovery option when also database is unavailable because of an incident in the region where your database is hosted. Similar to Point In Time Restore, Geo-Restore relies on database backups in geo-redundant Azure storage. It restores from the geo-replicated backup copy and therefore is resilient to the storage outages in the primary region. Refer to [Recover from an outage](../sql-database/sql-database-disaster-recovery.md) for details of how to use Geo-Restore.
+[Geo-Restore](../sql-database/sql-database-geo-restore.md) is also available with Basic, Standard, and Premium databases. It provides the default recovery option when the database is unavailable because of an incident in the region where your database is hosted. Similar to Point-In-Time Restore, Geo-Restore relies on database backups in geo-redundant Azure storage. It restores from the geo-replicated backup copy, and therefore is resilient to the storage outages in the primary region. For more details, see [Recover from an outage](../sql-database/sql-database-disaster-recovery.md).
 
 ####Active Geo-Replication
 
-[Active Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) is available for all database tiers. It’s designed for applications that have more aggressive recovery requirements than Geo-Restore can offer. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries. In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](../sql-database/sql-database-business-continuity-design.md) for details on how to [configure Geo-Replication](../sql-database/sql-database-geo-replication-portal.md) and to [failover to the secondary database](../sql-database/sql-database-geo-replication-failover-portal.md). Refer to [Application upgrade without downtime](../sql-database/sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.
+[Active Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) is available for all database tiers. It’s designed for applications that have more aggressive recovery requirements than Geo-Restore can offer. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries. In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](../sql-database/sql-database-business-continuity-design.md) for details on how to [configure Geo-Replication](../sql-database/sql-database-geo-replication-portal.md) and to [fail over to the secondary database](../sql-database/sql-database-geo-replication-failover-portal.md). Refer to [Application upgrade without downtime](../sql-database/sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.
 
 ###SQL Server on Virtual Machines
 
-A variety of options are available for recovery and high availability for SQL Server  2012 (and later) running in an Azure Virtual Machines. For detailed information see For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+A variety of options are available for recovery and high availability for SQL Server 2012 (and later) running in Azure Virtual Machines. For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
-##Other Azure Platform Services
+##Other Azure platform services
 
 When attempting to run your cloud service in multiple Azure regions, you must consider the implications for each of your dependencies. In the following sections, the service-specific guidance assumes that you must use the same Azure service in an alternate Azure datacenter. This involves both configuration and data-replication tasks.
 
@@ -127,9 +127,9 @@ Azure Service Bus uses a unique namespace that does not span Azure regions. So t
 
 To migrate an Azure Web App to a secondary Azure region, you must have a backup of the website available for publishing. If the outage does not involve the entire Azure datacenter, it might be possible to use FTP to download a recent backup of the site content. Then create a new Web App in the alternate region, unless you have previously done this to reserve capacity. Publish the site to the new region, and make any necessary configuration changes. These changes could include database connection strings or other region-specific settings. If necessary, add the site’s SSL certificate and change the DNS CNAME record so that the custom domain name points to the redeployed Azure Web App URL.
 
-###Mobile Services
+###Mobile services
 
-In the secondary Azure region, create a backup mobile service for your application. Restore the Azure SQL Database to the alternate region as well. Then use Azure command-line tools to move the mobile service to the alternate region. Then configure the mobile service to use the restored database. For more information on this process, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md). For other availability considerations, see [Mobile Services (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#mobile-services).
+In the secondary Azure region, create a backup mobile service for your application. Restore the Azure SQL Database to the alternate region as well. Then use Azure command-line tools to move the mobile service to the alternate region. Finally, configure the mobile service to use the restored database. For more information on this process, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md). For other availability considerations, see [Mobile Services (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#mobile-services).
 
 ###HDInsight
 
@@ -143,73 +143,73 @@ At this time, recovering from the loss of an Azure region requires multiple SQL 
 
 Azure Media Services has a different recovery approach for encoding and streaming. Typically, streaming is more critical during a regional outage. To prepare for this, you should have a Media Services account in two different Azure regions. The encoded content should be located in both regions. During a failure, you can redirect the streaming traffic to the alternate region. Encoding can be performed in any Azure region. If encoding is time-sensitive, for example during live event processing, you must be prepared to submit jobs to an alternate datacenter during failures.
 
-###Virtual Network
+###Virtual network
 
-Configuration files provide the quickest way to setup a virtual network in an alternate Azure region. After configuring the virtual network in the primary Azure region, [export the virtual network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md) for the current network to a network configuration file. In the event of an outage in the primary region, [restore the virtual network](../virtual-network/virtual-networks-create-vnet-classic-portal.md) from the stored configuration file. Then configure other cloud services, virtual machines, or cross-premises settings to work with the new virtual network.
+Configuration files provide the quickest way to set up a virtual network in an alternate Azure region. After configuring the virtual network in the primary Azure region, [export the virtual network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md) for the current network to a network configuration file. In the event of an outage in the primary region, [restore the virtual network](../virtual-network/virtual-networks-create-vnet-classic-portal.md) from the stored configuration file. Then configure other cloud services, virtual machines, or cross-premises settings to work with the new virtual network.
 
 ##Checklists for disaster recovery
 
-##Cloud Services Checklist
-  1. Review the [Cloud Services](#cloud-services) section of this document
-  2. Create a cross-region disaster recovery strategy
-  3. Understand trade-offs in reserving capacity in alternate regions
-  4. Use traffic routing tools, such as Azure Traffic Manager
+##Cloud Services checklist
+  1. Review the [Cloud Services](#cloud-services) section of this document.
+  2. Create a cross-region disaster recovery strategy.
+  3. Understand trade-offs in reserving capacity in alternate regions.
+  4. Use traffic routing tools, such as Azure Traffic Manager.
 
-##Virtual Machines Checklist
-  1. Review the [Virtual Machines](#virtual-machines) section of this document
-  2. Use [Azure Backup](https://azure.microsoft.com/services/backup/) to create application consistent backups across regions
+##Virtual Machines checklist
+  1. Review the [Virtual Machines](#virtual-machines) section of this document.
+  2. Use [Azure Backup](https://azure.microsoft.com/services/backup/) to create application consistent backups across regions.
 
-##Storage Checklist
-  1. Review the [Storage](#storage) section of this document
-  2. Do not disable geo-replication of storage resources
-  3. Understand alternate region for geo-replication in the event of failover
-  4. Create custom backup strategies for user-controlled failover strategies
+##Storage checklist
+  1. Review the [Storage](#storage) section of this document.
+  2. Do not disable geo-replication of storage resources.
+  3. Understand alternate region for geo-replication in the event of failover.
+  4. Create custom backup strategies for user-controlled failover strategies.
 
-##SQL Database Checklist
-  1. Review the [SQL Database](#sql-database) section of this document
-  2. Use [Geo-Restore](../sql-database/sql-database-geo-restore.md) or [Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) as appropriate
+##SQL Database checklist
+  1. Review the [SQL Database](#sql-database) section of this document.
+  2. Use [Geo-Restore](../sql-database/sql-database-geo-restore.md) or [Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) as appropriate.
 
-##SQL Server on Virtual Machines Checklist
-  1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document
-  2. Use cross-region AlwaysOn Availability Groups or database mirroring
-  3. Alternately use backup and restore to blob storage
+##SQL Server on Virtual Machines checklist
+  1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document.
+  2. Use cross-region AlwaysOn Availability Groups or database mirroring.
+  3. Alternately use backup and restore to blob storage.
 
-##Service Bus Checklist
-  1. Review the [Service Bus](#service-bus) section of this document
-  2. Configure a Service Bus namespace in an alternate region
-  3. Consider custom replication strategies for messages across regions
+##Service Bus checklist
+  1. Review the [Service Bus](#service-bus) section of this document.
+  2. Configure a Service Bus namespace in an alternate region.
+  3. Consider custom replication strategies for messages across regions.
 
-##Web Apps Checklist
-  1. Review the [Web Apps](#web-apps) section of this document
-  2. Maintain web site backups outside of the primary region
-  3. If outage is partial, attempt to retrieve current site with FTP
-  4. Plan to deploy web site to new or existing web site in an alternate region
-  5. Plan configuration changes for both application and DNS CNAME records
+##Web Apps checklist
+  1. Review the [Web Apps](#web-apps) section of this document.
+  2. Maintain website backups outside of the primary region.
+  3. If outage is partial, attempt to retrieve current site with FTP.
+  4. Plan to deploy website to new or existing website in an alternate region.
+  5. Plan configuration changes for both application and DNS CNAME records.
 
-##Mobile Services Checklist
-  1. Review the [Mobile Services](#mobile-services) section of this document
-  2. Create a backup mobile service in an alternate region
-  3. Manage backups of the associated Azure SQL Database to restore during failover
-  4. Use Azure command-line tools to move mobile service
+##Mobile services checklist
+  1. Review the [Mobile services](#mobile-services) section of this document.
+  2. Create a backup mobile service in an alternate region.
+  3. Manage backups of the associated Azure SQL Database to restore during failover.
+  4. Use Azure command-line tools to move mobile service.
 
-##HDInsight Checklist
-  1. Review the [HDInsight](#hdinsight) section of this document
-  2. Create a new Hadoop cluster in the region with replicated data
+##HDInsight checklist
+  1. Review the [HDInsight](#hdinsight) section of this document.
+  2. Create a new Hadoop cluster in the region with replicated data.
 
-##SQL Reporting Checklist
-  1. Review the [SQL Reporting](#sql-reporting) section of this document
-  2. Maintain an alternate SQL Reporting instance in a different region
-  3. Maintain a separate plan to replicate the target to that region
+##SQL Reporting checklist
+  1. Review the [SQL Reporting](#sql-reporting) section of this document.
+  2. Maintain an alternate SQL Reporting instance in a different region.
+  3. Maintain a separate plan to replicate the target to that region.
 
-##Media Services Checklist
-  1. Review the [Media Services](#media-services) section of this document
-  2. Create a Media Services account in an alternate region
-  3. Encode the same content in both regions to support streaming failover
-  4. Submit encoding jobs to an alternate region in the event of an outage
+##Media Services checklist
+  1. Review the [Media Services](#media-services) section of this document.
+  2. Create a Media Services account in an alternate region.
+  3. Encode the same content in both regions to support streaming failover.
+  4. Submit encoding jobs to an alternate region in the event of an outage.
 
-##Virtual Network Checklist
-  1. Review the [Virtual Network](#virtual-network) section of this document
-  2. Use exported virtual network settings to recreate it in another region
+##Virtual Network checklist
+  1. Review the [Virtual Network](#virtual-network) section of this document.
+  2. Use exported virtual network settings to re-create it in another region.
 
 ##Next steps
 
