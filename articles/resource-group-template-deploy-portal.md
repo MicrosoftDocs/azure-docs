@@ -18,8 +18,6 @@
 
 # Deploy resources with Resource Manager templates and Azure portal
 
-## Introduction
-
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-template-deploy.md)
 - [Azure CLI](resource-group-template-deploy-cli.md)
@@ -35,7 +33,7 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
 ## Create resource group
 
-1. To create an empty resource group, select **New**, **Management**, and **Resource Group**.
+1. To create an empty resource group, select **New** > **Management** > **Resource Group**.
 
     ![create empty resource group](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
@@ -45,11 +43,11 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
 ## Deploy resources from Marketplace
 
-1. After you create a resource group, you can deploy resources to it from the Marketplace. To start a deployment, simply select **New** and the type of resource you would like to deploy. Then, select the particular option you would like.
+1. After you create a resource group, you can deploy resources to it from the Marketplace. To start a deployment, simply select **New** and the type of resource you would like to deploy. Then, look for the particular version of the resource you would like to deploy.
 
     ![deploy resource](./media/resource-group-template-deploy-portal/deploy-resource.png)
 
-2. If you do not see the type of resource you would like to deploy, you can search the marketplace for it.
+2. If you do not see the type of resource you would like to deploy, you can search the Marketplace for it.
 
     ![search marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
@@ -57,7 +55,7 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
     ![create resource group](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-    Alternatively, you can decide to create a new resource group when deploying your resources. Instead of selecting one of the existing resource groups in your subscription, select **New** and give the resource group a name.
+    Alternatively, you can decide to create a new resource group when deploying your resources. Instead of selecting one of the existing resource groups in your subscription, select **Create new** and give the resource group a name.
 
     ![create new resource group](./media/resource-group-template-deploy-portal/select-new-group.png)
 
@@ -71,7 +69,7 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
 ## Deploy resources from custom template
 
-If you want to execute a deployment but not use any of the templates in the Marketplace, you can create customized template that defines the infrastructure for your solution. For more information about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. For more information about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 1. To deploy a customized template through the portal, select **New**, and start searching for **Template Deployment** until you can select it from the options.
 
@@ -85,7 +83,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     ![create template](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    Simply add the resources you want to deploy into the editor, and select **Save** when done.
+    In the editor, add the JSON syntax that defines the resources you want to deploy. Select **Save** when done. For guidance on writing the JSON syntax, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).
 
     ![edit template](./media/resource-group-template-deploy-portal/edit-template.png)
 
