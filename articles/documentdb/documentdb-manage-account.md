@@ -82,7 +82,7 @@ With the [current standard pricing offers] [offers], while all regions associate
 
 3.		In the **All Settings** blade, click **Write Region Priority**
 
-	> [AZURE.Note] At this time, only DocumentDB accounts created on or after June 10th, 2016 can replicate data in multiple regions. Accounts created prior to June 10th will be enabled for global availability in the near future. 
+> [AZURE.NOTE] At this time, only DocumentDB accounts created on or after June 10th, 2016 can replicate data in multiple regions. Accounts created prior to June 10th will be enabled for global availability in the near future. 
 
 	![Alt text; Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
 
