@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Create a Windows Virtual Machine Scale Set using Azure PowerShell
@@ -84,7 +84,7 @@ A virtual machine scale set must be contained in a resource group.
 
 ### Storage account
 
-Virtual machines created in a scale set require a storage account to store the associated disks.
+A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. When possible, it is best practice to have a storage account for each virtual machine created in a scale set. If not possible, plan for no more than 20 VMs per storage account. The example in this article shows 3 storage accounts being created for 3 virtual machines in a scale set.
 
 1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
 
@@ -126,6 +126,8 @@ Virtual machines created in a scale set require a storage account to store the a
         StatusOfSecondary   :
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
+
+5. Repeat steps 1 through 4 to create 3 storage accounts, for example myst1, myst2, and myst3.
 
 ### Virtual network
 
@@ -256,13 +258,13 @@ You have all the resources that you need for the scale set configuration, so let
         
     Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
         
-3. Replace the value of **$vhdContainer** with the path where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
+3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
        
-        $vhdContainer = "URI of storage container"
+        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
 4. Create the storage profile:
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Virtual machine scale set
 
@@ -299,6 +301,11 @@ Use these resources to explore the virtual machine scale set that you just creat
 - Azure Powershell - Use this command to get information:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or 
+        
+        Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
 
 ## Next steps
 
