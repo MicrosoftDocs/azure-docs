@@ -74,6 +74,8 @@ The following properties of a queue and topic are immutable. Please take this in
 
 -   Duplicate detection
 
+-   Express entity
+
 ## Service Bus pricing
 
 This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
