@@ -95,7 +95,9 @@ You will need to give your application permission to create resources in Azure f
 5. Open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.
 
 	This code goes through the process of creating Data Lake Store and Data Lake Analytics accounts, creating files in the store, running a job, getting job status, downloading job output, and finally deleting the account.
- 
+
+>[AZURE.NOTE] There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) guide will get you started.
+
 
 		package com.company;
 
@@ -255,6 +257,8 @@ You will need to give your application permission to create resources in Azure f
 		        adlaParameters.setName(_adlaAccountName);
 		        adlaParameters.setProperties(adlaProperties);
 		
+				/* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+ 
 		        _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
 		    }
 		
