@@ -49,7 +49,7 @@ SQL Data Warehouse stores all data on [locally redundant](../storage/storage-red
 
 ### Database restore
 
-The database restore feature is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic snapshot and restore features provide a way to protect databases from accidental corruption or deletion, with no administrative overhead. To learn more about how to restore your database, see [Database restore tasks][].
+The database restore features are designed to restore your database to an earlier point in time. Azure SQL Data Warehouse protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic snapshot and restore features provide a way to protect databases from accidental corruption or deletion, with no administrative overhead. To learn more about how to restore your database, see [Database restore tasks][].
 
 ## Next steps
 For other important management tasks, see [Management overview][].
@@ -59,7 +59,7 @@ For other important management tasks, see [Management overview][].
 <!--Article references-->
 [Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Management overview]: sql-data-warehouse-overview-management.md
+[Management overview]: sql-data-warehouse-overview-manage.md 
 [Database restore tasks]: sql-data-warehouse-manage-database-restore-portal.md
 
 <!--MSDN references-->
