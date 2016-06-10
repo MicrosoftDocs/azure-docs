@@ -1,24 +1,20 @@
-<properties 
-	pageTitle="How to Use Twilio for Voice and SMS (.NET) | Microsoft Azure" 
-	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." 
-	services="" 
-	documentationCenter=".net" 
-	authors="devinrader" 
-	manager="twilio" 
+<properties
+	pageTitle="How to Use Twilio for Voice and SMS (.NET) | Microsoft Azure"
+	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET."
+	services=""
+	documentationCenter=".net"
+	authors="devinrader"
+	manager="twilio"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="devinrader"/>
-
-
-
-
 
 # How to use Twilio for voice and SMS capabilities from Azure
 
@@ -40,7 +36,7 @@ The Twilio API is a RESTful API that provides voice and SMS functionality for ap
 Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML).
 
 ### <a id="Verbs"></a>Twilio verbs
-The API makes use of Twilio verbs; for example, the **&lt;Say&gt;** verb instructs Twilio to audibly deliver a message on a call. 
+The API makes use of Twilio verbs; for example, the **&lt;Say&gt;** verb instructs Twilio to audibly deliver a message on a call.
 
 The following is a list of Twilio verbs.  Learn about the other verbs and capabilities via [Twilio Markup Language documentation](http://www.twilio.com/docs/api/twiml).
 
@@ -167,7 +163,7 @@ The following screenshot shows how to send an SMS message using the **TwilioRest
         }
 
 ## <a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own website
-When your application initiates a call to the Twilio API - for example, via the **client.InitiateOutboundCall** method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in [How to: Make an outgoing call](#howto_make_call) uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url] to return the response. 
+When your application initiates a call to the Twilio API - for example, via the **client.InitiateOutboundCall** method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in [How to: Make an outgoing call](#howto_make_call) uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url] to return the response.
 
 > [AZURE.NOTE] While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message](twimlet_message_url) to see an empty &lt;Response&gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.
 
@@ -260,7 +256,7 @@ Once you have set up a way to provide TwiML responses, you can pass that URL int
 
 For additional information about using Twilio on Azure with ASP.NET, see [How to make a phone call using Twilio in a web role on Azure][howto_phonecall_dotnet].
 
-[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../includes/twilio-additional-services-and-next-steps.md)]
 
 
 

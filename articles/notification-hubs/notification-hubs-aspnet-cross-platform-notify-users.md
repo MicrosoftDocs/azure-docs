@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/11/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # Send cross-platform notifications to users with Notification Hubs

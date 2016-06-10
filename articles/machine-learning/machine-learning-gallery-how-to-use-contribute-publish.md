@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cortana Analytics Gallery | Microsoft Azure"
-	description="Share and discover analytics solutions and more in the Cortana Analytics Gallery. Learn from others and make your own contributions to the community."
+	pageTitle="Cortana Intelligence Gallery | Microsoft Azure"
+	description="Share and discover analytics solutions and more in the Cortana Intelligence Gallery. Learn from others and make your own contributions to the community."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -17,11 +17,11 @@
 	ms.author="chhavib;cgronlun;garye"/>
 
 
-# Share and discover solutions in the Cortana Analytics Gallery
+# Share and discover solutions in the Cortana Intelligence Gallery
 
-The Cortana Analytics Gallery is a community driven site for discovering and sharing solutions built with the Cortana Analytics Suite set of products. It is a destination for users looking to learn from others, to get started developing their own solutions, or to contribute their own work to the advanced analytics community.
+The Cortana Intelligence Gallery is a community driven site for discovering and sharing solutions built with the Cortana Intelligence Suite set of products. It is a destination for users looking to learn from others, to get started developing their own solutions, or to contribute their own work to the advanced analytics community.
 
-**[TAKE ME TO THE GALLERY >>](http://gallery.cortanaanalytics.com)**
+**[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -47,7 +47,7 @@ You can even share a solution of interest with friends or colleagues using the s
 You may also email links to these solutions to invite other users to view the pages.
 
 ## Download experiments
-The Cortana Analytics Gallery allows you to easily copy predictive analytics experiments to your Machine Learning Studio workspace with a single click and immediately start using it for your purpose.
+The Cortana Intelligence Gallery allows you to easily copy predictive analytics experiments to your Machine Learning Studio workspace with a single click and immediately start using it for your purpose.
 If you're not already signed in while browsing, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace.
 
 ## Contribute
@@ -57,7 +57,7 @@ When you sign-in you become a member of the Gallery community, which allows you 
 
 An *experiment* is a canvas in Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
-Follow these steps to contribute an experiment to the Cortana Analytics Gallery:
+Follow these steps to contribute an experiment to the Cortana Intelligence Gallery:
 
 - Sign in to the Machine Learning Studio using your Microsoft account
 - Create your experiment and run it
@@ -65,13 +65,13 @@ Follow these steps to contribute an experiment to the Cortana Analytics Gallery:
 
 ### Contribute collections
 
-A *collection* is a list of related items from Cortana Analytics Gallery that are grouped together for later reference, use, or sharing.
+A *collection* is a list of related items from Cortana Intelligence Gallery that are grouped together for later reference, use, or sharing.
 Your collection can contain items that you own or items that have been contributed by the community.
 
 For example, you can use a collection to group together items on a specific topic, or you can group together a multi-step experiment that solves a complex problem.
 The initial collections contributed by Microsoft consist of multi-step machine learning experiment templates for solving real world problems, such as online fraud detection, text classification, retail forecasting, and predictive maintenance.
 
-Follow these steps to create and contribute a collection to the Cortana Analytics Gallery:
+Follow these steps to create and contribute a collection to the Cortana Intelligence Gallery:
 
 - Sign in to the Gallery using your Microsoft account
 - Click your image at the top of the window and click your name
@@ -80,7 +80,7 @@ Follow these steps to create and contribute a collection to the Cortana Analytic
 - Add an image to identify the collection
 - Click **Create**
 
-Your collection is now part of the Cortana Analytics Gallery.
+Your collection is now part of the Cortana Intelligence Gallery.
 
 You can add items to your collection by opening the collection, clicking **Edit**, and then clicking **Add Item**. Or, if you find an item while browsing through the Gallery that you want to include, just open the item, click **Add to collection**, and specify the collection you want to add it to.
 
@@ -129,7 +129,7 @@ The images you submit along with your experiment will be used to create an exper
 
 If your dataset is part of your experiment and not being imported through a reader module, it's part of your experiment and gets published to the Gallery with your experiment. For this reason ensure that the dataset you're publishing with the experiment has the appropriate licensing terms that allow sharing and downloading by anyone.
 
-**I have an experiment that uses a Reader module to pull data from HDInsight or SQL. It uses my credentials to retrieve the data. How can I publish such an experiment and be assured that my credentials will not be shared?**
+**I have an experiment that uses an Import Data module to pull data from HDInsight or SQL. It uses my credentials to retrieve the data. How can I publish such an experiment and be assured that my credentials will not be shared?**
 
 At this time we do not allow publishing of experiments that use credentials.
 
@@ -141,4 +141,4 @@ You can use tab to de-limit tags.
 
 Rich description rendering is not available to all Gallery users widely. We're actively working on making this capability available by supporting markdown rendering.
 
-**[TAKE ME TO THE GALLERY >>](http://gallery.cortanaanalytics.com)**
+**[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**

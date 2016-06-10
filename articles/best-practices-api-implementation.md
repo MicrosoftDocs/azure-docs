@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -14,13 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # API implementation guidance
 
-![](media/best-practices-api-implementation/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 Some topics in this guidance are under discussion and may change in the future. We welcome your feedback!
 
@@ -641,7 +640,7 @@ In a distributed environment such as that involving a web server and client appl
 
 	```HTTP
 	PUT http://adventure-works.com/orders/1 HTTP/1.1
-	If-None-Match: "2282343857"
+	If-Match: "2282343857"
 	Content-Type: application/x-www-form-urlencoded
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
@@ -937,7 +936,7 @@ The same web API might be utilized by many client applications running anywhere 
 
 	A request that might take a long time to process should be performed without blocking the client that submitted the request. The web API can perform some initial checking to validate the request, initiate a separate task to perform the work, and then return a response message with HTTP code 202 (Accepted). The task could run asynchronously as part of the web API processing, or it could be offloaded to an Azure WebJob (if the web API is hosted by an Azure Website) or a worker role (if the web API is implemented as an Azure cloud service).
 
-	> [AZURE.NOTE] For more information about using WebJobs with Azure Website, visit the page [Use WebJobs to run background tasks in Microsoft Azure Websites](web-sites-create-web-jobs.md) on the Microsoft website.
+	> [AZURE.NOTE] For more information about using WebJobs with Azure Website, visit the page [Use WebJobs to run background tasks in Microsoft Azure Websites](../articles/app-service-web/web-sites-create-web-jobs.md) on the Microsoft website.
 
 	The web API should also provide a mechanism to return the results of the processing to the client application. You can achieve this by providing a polling mechanism for client applications to periodically query whether the processing has finished and obtain the result, or enabling the web API to send a notification when the operation has completed.
 
@@ -959,7 +958,7 @@ The same web API might be utilized by many client applications running anywhere 
 
 	If you prefer to implement notifications, the options available include:
 
-	- Using an Azure Notification Hub to push asynchronous responses to client applications. The page [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) on the Microsoft website provides further details.
+	- Using an Azure Notification Hub to push asynchronous responses to client applications. The page [Azure Notification Hubs Notify Users](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) on the Microsoft website provides further details.
 
 	- Using the Comet model to retain a persistent network connection between the client and the server hosting the web API, and using this connection to push messages from the server back to the client. The MSDN magazine article [Building a Simple Comet Application in the Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx) describes an example solution.
 
@@ -1061,7 +1060,7 @@ Azure provides the [API Management Service](https://azure.microsoft.com/document
 
 You can find full details describing how to perform these tasks on the [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website. The Azure API Management Service also provides its own REST interface, enabling you to build a custom interface for simplifying the process of configuring a web API. For more information, visit the [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website.
 
-> [AZURE.TIP] Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, visit the [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md) page on the Microsoft website.
+> [AZURE.TIP] Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, visit the [Traffic Manager routing Methods](../articles/traffic-manager/traffic-manager-routing-methods.md) page on the Microsoft website.
 
 > In this structure, if you are using custom DNS names for your web sites, you should configure the appropriate CNAME record for each web site to point to the DNS name of the Azure Traffic Manager web site.
 
@@ -1111,7 +1110,7 @@ If you have implemented your web API by using the ASP.NET Web API template (eith
 
 You can view this data in real time from the Azure Management portal. You can also create webtests that monitor the health of the web API. A webtest sends a periodic request to a specified URI in the web API and captures the response. You can specify the definition of a successful response (such as HTTP status code 200), and if the request does not return this response you can arrange for an alert to be sent to an administrator. If necessary, the administrator can restart the server hosting the web API if it has failed.
 
-The [Application Insights - Start monitoring your app's health and usage](app-insights-start-monitoring-app-health-usage/) page on the Microsoft website provides more information.
+The [Application Insights - Start monitoring your app's health and usage](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides more information.
 
 ### Monitoring a web API through the API Management Service
 
@@ -1143,11 +1142,11 @@ You can use this information to determine whether a particular web API or operat
 - The [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website contains a full list of HTTP status codes and their descriptions.
 - For detailed information on handling HTTP exceptions with the ASP.NET Web API, visit the [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling) page on the Microsoft website.
 - The article [Web API Global Error Handling](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) on the Microsoft website describes how to implement a global error handling and logging strategy for a web API.
-- The page [Use WebJobs to run background tasks in Microsoft Azure Websites](web-sites-create-web-jobs.md) on the Microsoft website provides information and examples on using WebJobs to perform background operations on an Azure Website.
-- The page [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) on the Microsoft website shows how you can use an Azure Notification Hub to push asynchronous responses to client applications.
+- The page [Run background tasks with WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md) on the Microsoft website provides information and examples on using WebJobs to perform background operations on an Azure Website.
+- The page [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) on the Microsoft website shows how you can use an Azure Notification Hub to push asynchronous responses to client applications.
 - The [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website describes how to publish a product that provides controlled and secure access to a web API.
 - The [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website describes how to use the API Management REST API to build custom management applications.
-- The [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
-- The [Application Insights - Start monitoring your app's health and usage](app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
+- The [Traffic Manager Routing Methods](../articles/traffic-manager/traffic-manager-routing-methods.md) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
+- The [Application Insights - Start monitoring your app's health and usage](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
 - The page [Verifying Code by Using Unit Tests](https://msdn.microsoft.com/library/dd264975.aspx) on the Microsoft website provides detailed information on creating and managing unit tests by using Visual Studio.
 - The page [Run performance tests on an application before a release](https://msdn.microsoft.com/library/dn250793.aspx) on the Microsoft website describes how to use Visual Studio Ultimate to create a web performance and load test project.

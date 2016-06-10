@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Manage Azure Cloud Services using Azure Automation"
+	pageTitle="Manage Azure Cloud Services using Azure Automation | Microsoft Azure"
 	description="Learn about how the Azure Automation service can be used to manage Azure cloud services at scale."
 	services="cloud-services, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="eamono"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/22/2016"
 	ms.author="jolevy"/>
 
 
@@ -35,6 +35,10 @@ Lower operational overhead and free up IT / DevOps staff to focus on work that a
 
 Azure cloud services can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these cloud service PowerShell cmdlets available out of the box, so that you can perform all of your cloud service management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
+Some example uses of Azure Automation to manage Azure Cloud Services include:
+
+- [Continous deployment of a Cloud Service whenever cscfg or cspkg is updated in Azure Blob storage](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+- [Rebooting Cloud Service instances in parallel, one upgrade domain at a time](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## Next Steps
 

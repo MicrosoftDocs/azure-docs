@@ -188,6 +188,14 @@ The following example initializes a table controller that uses Entity Framework 
 
 For an example of a table controller that uses Entity Framework to access data from an Azure SQL Database, see the **TodoItemController** class in the quickstart server project download from the Azure portal.
 
+### How to: Adjust the table paging size
+
+By default, Azure Mobile Apps returns 50 records per request.  This ensures that the client does not tie up their UI thread nor the server for too long, ensuring a good user experience. You must increase the server side "allowed query size" and the client side page size to effect a change in the table paging size. To increase the paging size, adjust your table controller with this line:
+
+    [EnableQuery(PageSize = 500)]
+
+Ensure the PageSize is the same or bigger than the size that will be requested by the client.  Refer to the specific client HOWTO documentation for details on changing the client page size.
+
 ## How to: Define a custom API controller
 
 The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the [MobileAppController] attribute. This attribute registers the route and also sets up the Mobile Apps JSON serializer.
@@ -283,7 +291,7 @@ In the above, LoginResult and LoginResultUser are just simple objects exposing t
 			}
 		}
 
-The `MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
+The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
 You also need to provide a lifetime for the issued token, as well as any claims you would like included. It is required that you provide a subject claim, as shown in the example code.
 
@@ -291,7 +299,7 @@ You can also simplify the client code to use the `loginAsync()` method (naming m
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
 
-Replace the string "CustomAuth" above with the name of the contoller hosting your login action.
+Replace the string "CustomAuth" above with the name of the controller hosting your login action.
 
 >[AZURE.TIP] Using the loginAsync() approach ensures that the authentication token is attached to every subsequent call to the service.
 
@@ -304,7 +312,7 @@ user ID for a logged-in user:
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-The SID is derived from the provider-specific user ID and is static for a given user and login provider.
+The SID is derived from the provider-specific user ID and is static for a given user and login provider. When a user accesses an endpoint anonymously, the User property returns null.
 
 App Service also lets you request specific claims from your login provider. This lets you request more information from the provider, such as by using the Facebook Graph APIs. You can specify claims in the provider blade in the portal. Some claims require additional configuration with the provider.
 
@@ -334,9 +342,18 @@ The following code calls the **GetAppServiceIdentityAsync** extension method to 
 
 Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method  work.
 
-###<a name="authorize"></a>How to: Restrict data access for authorized users
+### <a name="authorize"></a>How to: Restrict data access for authorized users
 
-It is often desired to restrict the data that is returned to a specific authenticated user. This kind of data partitioning is done by including a userId column on the table and storing the SID of the user when the data is inserted 
+In the previous section, we showed how to retrieve the user ID of an authenticated user. You can restrict access to data and other resources based on this value. For example, adding a userId column to tables and filtering a user's query results by the user ID is a simple way to limit returned data only to authorized users. The following code returns data rows only when the ID of the current user matches the value in the UserId column on the TodoItem table: 
+
+    // Get the SID of the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    
+    // Only return data rows that belong to the current user.
+    return Query().Where(t => t.UserId == sid);
+
+Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access. 
 
 ## How to: Add push notifications to a server project
 

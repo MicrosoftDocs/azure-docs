@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Troubleshoot Azure SQL database permissions and access"
-	description="Quick steps to troubleshoot common permissions, access, user, and login issues"
+	pageTitle="How to perform common administrative tasks in Azure SQL Database"
+	description="Describes how to perform common administrative tasks"
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
-#Troubleshoot common Azure SQL database permissions and access issues
+# How to perform common administrative tasks in Azure SQL Database
 Use this topic for quick steps to grant and remove access to an Azure SQL database. For more comprehensive information, see:
 
 - [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
 - [Securing your SQL database](sql-database-security.md)
 - [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ##To change the administrative password for a logical server
 - In the [Azure Portal](https://portal.azure.com) click **SQL Servers**, select the server from the list, and then click **Reset Password**.

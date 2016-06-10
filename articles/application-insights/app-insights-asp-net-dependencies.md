@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,7 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 ### If your app runs on your IIS server
 
-If your web app runs on .NET 4.6 or later, you'll get dependency tracking automatically if you [install the Application Insights SDK](app-insights-asp-net.md) in your app. You don't need anything else.
+If your web app runs on .NET 4.6 or later, you can either [install the Application Insights SDK](app-insights-asp-net.md) in your app, or install Application Insights Status Monitor. You don't need both.
 
 Otherwise, install Application Insights Status Monitor on the server:
 
@@ -170,11 +170,17 @@ For example, if you build your code with an assembly that you didn't write yours
 
 If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
+## Troubleshooting
+
+*Dependency success flag always shows either true or false.*
+
+* Upgrade to the latest version of the SDK. If your .NET version is less than 4.6, install [Status monitor](app-insights-monitor-performance-live-website-now.md).
+
 ## Next steps
 
-- [Exceptions](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
-- [User & page data](../article/application-insights/app-insights-asp-net-client.md#selector1)
-- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Exceptions](app-insights-asp-net-exception-mvc.md#selector1)
+- [User & page data](app-insights-asp-net-client.md#selector1)
+- [Availability](app-insights-monitor-web-app-availability.md#selector1)
 
 
 

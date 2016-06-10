@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/17/2015"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 
@@ -208,7 +208,7 @@ These are nested under the same client ID / application ID and looked up based o
 
 Enabling keychain sharing is beyond the scope of this document and covered by Apple in their document [Adding Capabilities](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html). What is important is that you decide what you want your keychain to be called and add that capability across all your applications. 
 
-When you do have entitlements set up correctly you should see a file in your project directly  entitled `entitlements.plist` that contains something that looks like the following:
+When you do have entitlements set up correctly you should see a file in your project directory entitled `entitlements.plist` that contains something that looks like the following:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -224,7 +224,7 @@ When you do have entitlements set up correctly you should see a file in your pro
 </plist>
 ```
 
-Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, tell the Microsoft Identity SDK about your keychian by using the following setting in your `ADAuthenticationSettings` with the following setting:
+Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, tell the Microsoft Identity SDK about your keychain by using the following setting in your `ADAuthenticationSettings` with the following setting:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -282,7 +282,7 @@ Below is an example of how this appears in your project configuration. You may a
 
 #### Step 3: Establish a new redirect URI with your URL Scheme
 
-In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the iOS operating system can verify. The iOS operating system reports to the Microsoft broker applications the Bundle ID of the application calling it. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the redirect URI you created in *Step 2* to ensure that require you to establish a unique redirect URI that you both set in your application and set as a Redirect URI in our portal. 
+In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the iOS operating system can verify. The iOS operating system reports to the Microsoft broker applications the Bundle ID of the application calling it. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the URI of our broker application to ensure that the tokens are returned to the correct application. We require you to establish this unique redirect URI both in your application and set as a Redirect URI in our developer portal. 
 
 Your redirect URI must be in the proper form of:
 
@@ -295,7 +295,7 @@ This Redirect URI needs to be specified in your app registration using the [Azur
 
 ##### Step 3a: Add a redirect URI in your app and dev portal to support certificate based authentication
 
-If you wish  a second "msauth" form needs to be registered to handle certificate authentication if you wish to add that support in your application.
+To support cert based authentication a second "msauth"  needs to be registered in your application and the [Azure classic portal](https://manage.windowsazure.com/) to handle certificate authentication if you wish to add that support in your application.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 

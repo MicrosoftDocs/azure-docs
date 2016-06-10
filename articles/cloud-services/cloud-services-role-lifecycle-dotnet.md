@@ -12,12 +12,12 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="06/07/2016" 
 ms.author="adegeo"/>
 
 # Customize the Lifecycle of a Web or Worker role in .NET
 
-When you create a worker role, you extend the [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) class which provides methods for you to override that let you respond to lifecycle events. For web roles this class is optional, so you much use it to respond to lifecycle events.
+When you create a worker role, you extend the [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) class which provides methods for you to override that let you respond to lifecycle events. For web roles this class is optional, so you must use it to respond to lifecycle events.
 
 ## Extend the RoleEntryPoint class
 

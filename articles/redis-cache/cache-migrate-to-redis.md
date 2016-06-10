@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Cache Migrate to Redis"
+    pageTitle="Cache Migrate to Redis | Microsoft Azure"
     description="Learn how to migrate Managed Cache Service applications to Azure Redis Cache"
     services="redis-cache"
     documentationCenter="na"
     authors="steved0x"
-    manager="erikre"
+    manager="douge"
     editor="tysonn" />
 <tags 
     ms.service="cache"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="03/17/2016"
+    ms.date="06/09/2016"
     ms.author="sdanie" />
 
 # Migrate from Managed Cache Service to Azure Redis Cache
@@ -41,7 +41,7 @@ Azure Managed Cache Service and Azure Redis Cache are similar but implement some
 
 |Managed Cache Service feature|Managed Cache Service support|Azure Redis Cache support|
 |---|---|---|
-|Named caches|A default cache is configured, and in the Standard and Premium cache offerings, up to nine additional named caches can be configured if desired.|Azure Redis caches have 16 databases that can be used to implement a similar functionality to named caches. For more information, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).|
+|Named caches|A default cache is configured, and in the Standard and Premium cache offerings, up to nine additional named caches can be configured if desired.|Azure Redis caches have a configurable number of databases (default of 16) that can be used to implement a similar functionality to named caches. For more information, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).|
 |High Availability|Provides high availability for items in the cache in the Standard and Premium cache offerings. If items are lost due to a failure, backup copies of the items in the cache are still available. Writes to the secondary cache are made synchronously.|High availability is available in the Standard and Premium cache offerings, which have a two node Primary/Replica configuration (each shard in a Premium cache has a primary/replica pair). Writes to the replica are made asynchronously. For more information, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/).|
 |Notifications|Allows clients to receive asynchronous notifications when a variety of cache operations occur on a named cache.|Client applications can use Redis pub/sub or [Keyspace notifications](cache-configure.md#keyspace-notifications-advanced-settings) to achieve a similar functionality to notifications.|
 |Local cache|Stores a copy of cached objects locally on the client for extra-fast access.|Client applications would need to implement this functionality using a dictionary or similar data structure.|
@@ -65,14 +65,7 @@ A starting point for migration is to pick the size that matches the size of your
 
 ## Create a Cache
 
-Caches in Azure Redis Cache can be created in the [Azure Portal](https://portal.azure.com), or by using ARM templates, PowerShell, or Azure CLI.
-
--	To create a cache in the Azure Portal, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
--	To create a cache using ARM templates, see [Create a Redis cache using a template](cache-redis-cache-arm-provision.md).
--	To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
--	To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](cache-manage-cli.md).
-
->[AZURE.NOTE] To use Azure Redis Cache, you need an Azure account. If you don’t have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 ## Configure the Cache Clients
 
@@ -118,17 +111,7 @@ Once the Managed Cache Service configuration is removed, you can configure the c
 
 ### Configure a cache client using the StackExchange.Redis NuGet Package
 
-.NET applications developed in Visual Studio can use the StackExchange.Redis cache client to access their caches. To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**.
-
-![Azure Redis Cache Manage NuGet Packages](./media/cache-migrate-to-redis/IC729541.png)
-
-Type **StackExchange.Redis** into the **Search Online** text box, select it from the results, and click **Install**.
-
-![Azure Redis Cache StackExchange.Redis NuGet Packag](./media/cache-migrate-to-redis/IC746253.png)
-
-The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client.
-
-For more information, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 ## Migrate Managed Cache Service code
 
@@ -190,7 +173,7 @@ Azure Redis Cache can work with .NET objects as well as primitive data types, bu
 
 ## Migrate ASP.NET Session State and Output caching to Azure Redis Cache
 
-Azure Redis Cache has providers for both ASP.NET Session State and Page Output caching. To migrate your application that uses the Managed Cache Service versions of these providers, first remove the existing sections from your web.config, and then configure the Azure Redis Cache versions of the providers. For instructions on using the Azure Redis Cache ASP.NET providers, see [ASP.NET Session State Provider for Azure Redis Cache](cache-asp.net-session-state-provider.md) and [ASP.NET Output Cache Provider for Azure Redis Cache](cache-asp.net-output-cache-provider.md).
+Azure Redis Cache has providers for both ASP.NET Session State and Page Output caching. To migrate your application that uses the Managed Cache Service versions of these providers, first remove the existing sections from your web.config, and then configure the Azure Redis Cache versions of the providers. For instructions on using the Azure Redis Cache ASP.NET providers, see [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md) and [ASP.NET Output Cache Provider for Azure Redis Cache](cache-aspnet-output-cache-provider.md).
 
 ## Next steps
 

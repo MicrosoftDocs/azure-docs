@@ -1,5 +1,5 @@
 > [AZURE.SELECTOR]
-- [NET](../articles/service-bus/service-bus-dotnet-how-to-use-queues.md)
+- [NET](../articles/service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [Java](../articles/service-bus/service-bus-java-how-to-use-queues.md)
 - [Node.js](../articles/service-bus/service-bus-nodejs-how-to-use-queues.md)
 - [PHP](../articles/service-bus/service-bus-php-how-to-use-queues.md)

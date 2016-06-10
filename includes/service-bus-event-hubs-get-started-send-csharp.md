@@ -4,29 +4,27 @@ In this section, you'll write a Windows console app that sends events to your Ev
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
 
-   ![][7]
+	![][7]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**. 
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**. 
 
-	This displays the Manage NuGet Packages dialog box.
-
-3. Search for `Microsoft Azure Service Bus`, click **Install**, and accept the terms of use. 
+3. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Ensure that the project name (**Sender**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use. 
 
 	![][8]
 
 	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus library NuGet package</a>.
 
-4. Add the following `using` statement at the top of the **Program.cs** file:
+4. Add the following `using` statements at the top of the **Program.cs** file:
 
 	```
 	using System.Threading;
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the connection string with **Send** rights:
+5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the namespace-level connection string you saved previously.
 
 	```
-	static string eventHubName = "{event hub name}";
+	static string eventHubName = "{Event Hub name}";
 	static string connectionString = "{send connection string}";
 	```
 

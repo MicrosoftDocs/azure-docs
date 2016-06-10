@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016"  
+	ms.date="06/06/2016"  
 	ms.author="xpouyat"/>
 
 #Licensing Microsoft® Smooth Streaming Client Porting Kit
@@ -89,23 +89,21 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Albis Technologies Ltd.
 - Alticast Corporation
 - Amazon Digital Services, Inc.
-- Amlogic, Co., Ltd.
 - AVC Multimedia Software Co., Ltd.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
-- Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- Fluendo S.A.
 - HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
-- Inside Secure
 - Irdeto USA Inc.
 - Liberty Global Services BV
 - MediaTek Inc.
 - MStar Co, Ltd
 - Nintendo Co., Ltd.
 - OpenTV, Inc.
-- Research In Motion Limited
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
+- SoftAtHome
 - Tatung Technology Inc.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
@@ -127,7 +125,8 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Filmflex Movies Limited
-- Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- Fluendo S.A.
+- Gibson Innovations Limited
 - HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
 - Homecast Co.,Ltd
@@ -137,10 +136,8 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - KDDI Corporation
 - Nintendo Co., Ltd.
 - Orange SA
-- PIXELA Corporation
 - Saffron Digital Limited
 - Sagemcom Broadband SAS
-- Sharp Corporation
 - Shenzhen Coship Electronics CO., LTD
 - Shenzhen Jiuzhou Electric Co.,Ltd
 - Shenzhen Skyworth Digital Technology Co., Ltd
@@ -151,10 +148,9 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - TCL Overseas Marketing (Macao Commercial Offshore) Limited
 - Technicolor Delivery Technologies, SAS
 - Toshiba Lifestyle Products & Services Corporation
-- Virgin Media Limited
+- Universal Media Corporation /Slovakia/ s.r.o.
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOX Innovations Limited
 - ZTE Corporation
 
 ##Media Services learning paths

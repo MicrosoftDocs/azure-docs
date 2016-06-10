@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Identify databases and tables for Stretch Database by running Stretch Database Advisor
@@ -47,7 +47,7 @@ Download and install Upgrade Advisor from [here](http://go.microsoft.com/fwlink/
 
 2.  In the list of recommended tables on the **Analysis results** blade, select one of the recommended tables to display the **Table results** blade.
 
-    The **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md).
+    The **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 
 3.  In the list of blocking issues on the **Table results** blade, select one of the issues to display the **Rule result** blade.
 
@@ -62,7 +62,7 @@ Enable Stretch Database.
 
 ## See also
 
-[Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md)
+[Limitations for Stretch Database](sql-server-stretch-database-limitations.md)
 
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 

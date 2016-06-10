@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma"/>
 
 
@@ -81,7 +81,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 	- **name**. Name for the resource. Notice the use of **[parameters('applicationGatewayName')]**, which means that the name will be provided as input by the user or by a parameter file during deployment.
 	- **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
-7. Navigate back to https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
+7. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
 9. Save the file to a a local folder on your computer.
 10. Open the file that you just saved and edit the values for the parameters. Use the values below to deploy the application gateway described in our scenario.

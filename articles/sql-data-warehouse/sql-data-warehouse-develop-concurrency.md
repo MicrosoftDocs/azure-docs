@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/04/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Concurrency and workload management in SQL Data Warehouse
@@ -227,7 +227,7 @@ So, for example, if DW500 is the current DWU setting for your SQL Data Warehouse
 
 To look at the differences in memory resource allocation in detail from the perspective of the resource governor use the following query:
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -282,7 +282,7 @@ To grant access to a user to the SQL Data Warehouse they will first need a login
 
 Open a connection to the master database for your SQL Data Warehouse and execute the following commands:
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -294,19 +294,19 @@ Once the login has been created then a user account now needs to be added.
 
 Open a connection to the SQL Data Warehouse database and execute the following command:
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 Once complete permissions will need to be granted to the user. The example below grants `CONTROL` on the SQL Data Warehouse database. `CONTROL` at the database level is the equivalent of db_owner in SQL Server.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 To see the workload management roles use the following query:
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -316,13 +316,13 @@ AND     ro.[is_fixed_role]  = 0
 
 To add a user to an increase workload management role use the following query:
 
-```
+```sql
 EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 To remove a user from an workload management role use the following query:
 
-```
+```sql
 EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
@@ -330,7 +330,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 
 To see which users are members of a given role use the following query:
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -343,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### Queued query detection
 To identify queries that are held in a concurrency queue you can always refer to the `sys.dm_pdw_exec_requests` DMV.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -374,7 +374,7 @@ The BackupConcurrencyResourceType can be seen when a database is being backed up
 
 To perform analysis of currently queued queries to find out what resources a request is waiting for please refer to the `sys.dm_pdw_waits` DMV.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -411,7 +411,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 To view just the resource waits consumed by a given query you can refer to the `sys.dm_pdw_resource_waits` DMV. Resource wait time only measures the time waiting for resources to be provided as opposed to signal wait time which is the time it takes for the underlying SQL Server's to schedule the query onto the CPU.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -430,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 Finally, for historic trend analysis of waits then SQL Datawarehouse provides the `sys.dm_pdw_wait_stats` DMV.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]

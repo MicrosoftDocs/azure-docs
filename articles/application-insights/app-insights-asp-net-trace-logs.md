@@ -12,12 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="03/30/2016" 
 	ms.author="awills"/>
  
 # Explore .NET trace logs in Application Insights  
 
 If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in your ASP.NET application, you can have your logs sent to [Visual Studio Application Insights][start], where you can explore and search them. Your logs will be merged with the other telemetry coming from your application, so that you can identify the traces associated with servicing each user request, and correlate them with other events and exception reports.
+
+
+
 
 > [AZURE.NOTE] Do you need the log capture module? It's a useful adapter for 3rd-party loggers, but if you aren't already using NLog, log4Net or System.Diagnostics.Trace, consider just calling [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) directly.
 
@@ -26,7 +29,23 @@ If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in y
 
 Install your chosen logging framework in your project. This should result in an entry in app.config or web.config.
 
-> You need to add an entry to web.config if you're using System.Diagnostics.Trace.
+If you're using System.Diagnostics.Trace, you need to add an entry to web.config:
+
+```XML
+
+    <configuration>
+     <system.diagnostics>
+       <trace autoflush="false" indentsize="4">
+         <listeners>
+           <add name="myListener" 
+             type="System.Diagnostics.TextWriterTraceListener" 
+             initializeData="TextWriterOutput.log" />
+           <remove name="Default" />
+         </listeners>
+       </trace>
+     </system.diagnostics>
+   </configuration>
+```
 
 ## Configure Application Insights to collect logs
 

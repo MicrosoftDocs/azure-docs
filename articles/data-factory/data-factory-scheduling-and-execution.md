@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="06/06/2016" 
 	ms.author="spelluru"/>
 
 # Scheduling & Execution with Data Factory
@@ -33,11 +33,13 @@ With the **scheduler** section in the activity JSON, you can specify a recurring
 
 As shown above, specifying a schedule for the activity creates a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**.
  
-For the currently executing activity window, the time interval associated with the activity window can be accessed with **WindowStart** and **WindowEnd** system variables in the activity JSON. You can use these variables for different purposes in your activity JSON and scripts associated with the activity including selecting data from input, output datasets representing time series data.
+For the currently executing activity window, the time interval associated with the activity window can be accessed with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. You can use these variables for different purposes in your activity JSON and scripts associated with the activity including selecting data from input, output datasets representing time series data.
 
 The **scheduler** property supports the same sub-properties as the **availability** property in a dataset. For more information on different properties available for scheduler including scheduling at a specific time offset, setting the mode to align processing at the beginning of interval for the activity window or at the end please refer to the [Dataset availability](data-factory-create-datasets.md#Availability) article. 
 
-## Time series Datasets and Data Slices
+Specifying scheduler properties for an activity is optional at this time. If you do specify, it must match the cadence you specify in the output dataset definition. At this time, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. 
+
+## Time series datasets and data Slices
 
 Time series data is a continuous sequence of data points typically consisting of successive measurements made over a time interval. Common examples of time series data include sensor data, application telemetry data etc.
 
@@ -52,9 +54,11 @@ Each unit of data consumed and produced by an activity run is called a data **sl
 
 ![Availability scheduler](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-The hourly data slices for the input and output dataset are shown in the diagram above. The diagram shows 3 input slices that are ready for processing and the 10-11AM activity run in progress producing the 10-11AM output slice. 
+The hourly data slices for the input and output dataset are shown in the diagram above. The diagram shows 3 input slices that are ready for processing and the 10-11 AM activity run in progress producing the 10-11 AM output slice. 
 
-The time interval associated with the current slice being produced can be accessed in the dataset JSON with variables **SliceStart** and **SliceEnd**.
+The time interval associated with the current slice being produced can be accessed in the dataset JSON with variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) and [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
+
+Currently data factory requires that the schedule specified in the activity exactly match the schedule specified in availability of the output dataset. This means WindowStart, WindowEnd and SliceStart and SliceEnd always map to the same time period and a single output slice.
 
 For more information on different properties available for availability section please refer to the [Creating Datasets](data-factory-create-datasets.md) article.
 
@@ -220,11 +224,11 @@ The [Creating Pipelines](data-factory-create-pipelines.md) article introduced th
  
 You can set the start date for the pipeline active period in the past and data factory will automatically calculate (back fill) all data slices in the past and will begin processing them.
 
-With back filled data slices, it is possible to configure them to be run in parallel. You can do that by setting the concurrency property in **policy** section of the activity JSON as shown in the [Creating Pipelines](data-factory-create-pipelines.md) article.
+With back filled data slices, it is possible to configure them to be run in parallel. You can do that by setting the **concurrency** property in **policy** section of the activity JSON as shown in the [Creating Pipelines](data-factory-create-pipelines.md) article.
 
 ## Rerunning Failed Data Slices and Automatic Data Dependency Tracking
 
-You can monitor execution of slices in a rich visual way. See [Monitoring and managing pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
+You can monitor execution of slices in a rich visual way. See **Monitoring and managing pipelines using** [Azure portal blades](data-factory-monitor-manage-pipelines.md) (or) [Monitor and Manage app](data-factory-monitor-manage-app.md) for details. 
 
 Consider the following example which shows two activities. Activity1 produces a time series dataset with slices as output that is consumed as input by Activity2 to produce the final output time series dataset.
 
@@ -235,9 +239,9 @@ Consider the following example which shows two activities. Activity1 produces a 
 The above diagram shows that out of 3 recent slices there was a failure producing the 9-10 AM slice for **Dataset2**. Data factory automatically tracks dependency for time series dataset and as a result holds off kicking off the activity run for 9-10 AM downstream slice.
 
 
-Data factory monitoring & management tools allow you to drill into the diagnostic logs for the failed slice easily find the root cause for the issue and fix it. Once you have fixed the issue you can also easily kick off the activity run to produce the failed slice. For more details on how to kick off reruns, understand state transitions for data slices please refer to the [monitoring & management](data-factory-monitor-manage-pipelines.md) article.
+Data factory monitoring & management tools allow you to drill into the diagnostic logs for the failed slice easily find the root cause for the issue and fix it. Once you have fixed the issue you can also easily kick off the activity run to produce the failed slice. For more details on how to kick off reruns, understand state transitions for data slices please see **Monitoring and managing pipelines using** [Azure portal blades](data-factory-monitor-manage-pipelines.md) (or) [Monitor and Manage app](data-factory-monitor-manage-app.md) for details. 
 
-Once you kick off the rerun and the 9-10AM slice for dataset2 is ready, data factory kicks off the run for the 9-10 AM dependent slice on final dataset as shown in the diagram below.
+Once you kick off the rerun and the 9-10 AM slice for dataset2 is ready, data factory kicks off the run for the 9-10 AM dependent slice on final dataset as shown in the diagram below.
 
 ![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
@@ -286,7 +290,7 @@ Output: Dataset4
 
 When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
 
-- CopyActivity2 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
+- CopyActivity1 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
 - Dataset3 is available. This dataset represents the data that is copied to the destination.  
 
 
@@ -629,6 +633,51 @@ Similar to datasets that are produced by data factory the data slices for extern
 	} 
 
 
+## Onetime pipeline
+You can create and schedule a pipeline to run periodically (hourly, daily, etc...) within the start and end times you specify in the pipeline definition. See [Scheduling activities](#scheduling-and-execution) for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the JSON sample below. The default value for this property is **scheduled**. 
+
+	{
+	    "name": "CopyPipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset"
+	                    }
+	                ]
+	                "name": "CopyActivity-0"
+	            }
+	        ]
+	        "pipelineMode": "OneTime"
+	    }
+	}
+
+Note the following:
+ 
+- You do not need to specify **start** and **end** times for the pipeline. 
+- You need to specify availability of input and output datasets (frequency and interval) at this time even though the values are not used by Data Factory.  
+- Diagram view does not show one-time pipelines. This is by design. 
+- One time pipelines cannot be updated. You can clone a one-time pipeline, rename it, update properties, and deploy it to create another one. 
+
+  
 
 
 

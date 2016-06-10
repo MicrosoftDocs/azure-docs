@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 
@@ -31,7 +31,7 @@ You initiate the connection between your on-premise service and the relay servic
 
 ## Next steps
 
-For in-depth details about Service Bus relay, see the following topics.
+For details about the Service Bus relay, see the following topics.
 
 - [Azure Service Bus Architectural Overview](service-bus-fundamentals-hybrid-solutions.md)
 - [How to Use the Service Bus Relay Service](service-bus-dotnet-how-to-use-relay.md)

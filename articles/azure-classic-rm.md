@@ -60,7 +60,7 @@ With [PowerShell](powershell-install-configure.md) you can use a command line or
 - **PowerShell cmdlets with an Azure Resource Manager template:** You can use PowerShell to create Azure resources using an Azure Resource Manager template. Templates can be saved and versioned. Learn more by reading the [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md) article. Several [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) exist for common solutions that can be downloaded and modified too.
 
 ## CLI
-You can create and configure Azure resources from Windows, OS X, or Linux computers using the CLI.  Read the [Install the Azure CLI](xplat-cli-install.md) article to install the CLI on your operating system of choice. Like PowerShell, there are different commands that must be used depending on whether you're creating resources using [Resource Manager](xplat-cli-azure-resource-manager.md) or the [Classic (Service Management)](virtual-machines/virtual-machines-command-line-tools.md) deployment models.
+You can create and configure Azure resources from Windows, OS X, or Linux computers using the CLI.  Read the [Install the Azure CLI](xplat-cli-install.md) article to install the CLI on your operating system of choice. Like PowerShell, there are different commands that must be used depending on whether you're creating resources using [Resource Manager](xplat-cli-azure-resource-manager.md) or the [Classic (Service Management)](./virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md) deployment models.
 
 ## Next steps
 

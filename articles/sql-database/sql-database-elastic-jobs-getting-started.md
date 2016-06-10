@@ -3,8 +3,8 @@
 	description="how to use elastic database jobs"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
-	authors="sidneyh"/>
+	manager="jhubbard"
+	authors="ddove"/>
 
 <tags
 	ms.service="sql-database"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
-	ms.author="sidneyh; ddove" />
+	ms.date="05/23/2016"
+	ms.author="ddove" />
 
 # Getting started with Elastic Database jobs
 

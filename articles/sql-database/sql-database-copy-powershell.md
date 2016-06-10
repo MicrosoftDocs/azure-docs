@@ -1,30 +1,29 @@
 <properties 
-    pageTitle="Create a copy of an Azure SQL database using PowerShell | Microsoft Azure" 
+    pageTitle="Copy an Azure SQL database using PowerShell | Microsoft Azure" 
     description="Create copy of an Azure SQL database using PowerShell" 
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a copy of an Azure SQL database using PowerShell
+# Copy an Azure SQL database using PowerShell
 
-**Single database**
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 
@@ -42,33 +41,13 @@ To complete this article you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
 
-## Configure your credentials and select your subscription
+## Copy your SQL database
 
-First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure Classic Portal.
-
-	Add-AzureAccount
-
-After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
-
-
-### Select your Azure subscription
-
-To select the subscription you need your subscription Id or subscription name (**-SubscriptionName**). You can copy the subscription Id from the information displayed from previous step, or if you have multiple subscriptions and need more details you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
-
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
-
-
-## Setup the variables for for your specific environment
-
-There are a few variables where you need to replace the example values with the specific values for your database and servers.
-
-Replace the placeholder values with the values for your environment:
+There are a few variables where you need to replace the example values with the specific values for your database and servers. Replace the placeholder values with the values for your environment:
 
     # The name of the server on which the source database resides.
     $ServerName = "sourceServerName"
@@ -86,14 +65,14 @@ Replace the placeholder values with the values for your environment:
 
 
 
-## Copy a SQL database to the same server
+### Copy a SQL database to the same server
 
 This command submits the copy database request to the service. Depending on the size of your database the copy operation may take some time to complete.
 
     # Copy a database to the same server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerDatabase $PartnerDatabaseName
 
-## Copy a SQL database to a different server
+### Copy a SQL database to a different server
 
 This command submits the copy database request to the service. Depending on the size of your database the copy operation may take some time to complete.
 
@@ -109,7 +88,7 @@ After running **Start-AzureSqlDatabaseCopy** you can check the status of the cop
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
 
-## Copy SQL database PowerShell script
+## Example PowerShell script
 
     # The name of the server where the source database resides
     $ServerName = "sourceServerName"

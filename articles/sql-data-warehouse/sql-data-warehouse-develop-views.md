@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -28,7 +28,7 @@ A very common application pattern is to re-create tables using CREATE TABLE AS S
 
 The example below adds new date records to a date dimension. Note how a new object, DimDate_New, is first created and then renamed to replace the original version of the object.
 
-```
+```sql
 CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)

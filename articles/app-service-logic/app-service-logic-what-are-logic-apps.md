@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/01/2016"
+	ms.date="04/07/2016"
 	ms.author="klam"/>
 
 #What are Logic Apps?
@@ -21,8 +21,8 @@
 | Quick Reference |
 | --------------- |
 | [Logic Apps Definition Language](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [Logic Apps Managed API Documentation](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
+| [Logic Apps Connector Documentation](../connectors/apis-list.md) |
+| [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
 
 Azure App Service is a fully managed PaaS (Platform as a Service) for developers that makes it easier to build web, mobile, and integration apps. Logic Apps are a part of this suite and allow any technical user or developer to automate business process execution and workflow using an easy-to-use visual designer.
 
@@ -65,11 +65,13 @@ The following are some of the key pieces that comprise the Logic Apps experience
 -  **Actions** - Each step after the trigger in a workflow is called an action. Each action typically maps to an operation on your managed or custom API apps.
 - **BizTalk** - For more advanced integration scenarios, Logic Apps includes capabilities from Biztalk. Biztalk is Microsoft's industry leading integration platform. The BizTalk API apps allow you to easily include validation, transformation, rules, and more in to your Logic App workflows. Find out more in [what are BizTalk API apps][biztalk].
 
-## Getting Started
+## Getting Started  
 
-To get started with Logic Apps, follow the [create a Logic App][create] tutorial.
-
-For more information on Azure App Service platform, see [Azure App Service][appservice].
+ - To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
+ - [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
+ - [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
+ - [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+- For more information on Azure App Service platform, see [Azure App Service][appservice].
 
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md

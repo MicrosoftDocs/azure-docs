@@ -13,43 +13,45 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/03/2016"
+     ms.date="04/29/2016"
      ms.author="dobett"/>
 
 # Tutorial: How to process IoT Hub device-to-cloud messages
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Other tutorials - [Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub] - show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial and shows two scalable patterns you can use to process device-to-cloud messages:
+This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows two scalable patterns that you can use to process device-to-cloud messages:
 
-- The reliable storage of device-to-cloud messages in [Azure Blob storage]. A very common scenario is when you implement *cold path* analytics, where you store data in blobs to use as input into analytics processes driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
+- The reliable storage of device-to-cloud messages in [Azure Blob storage]. A very common scenario is *cold path* analytics, in which you store telemetry data in blobs to use as input into analytics processes. These processes can be driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
 
-- The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application back end, as compared to *data point* messages that feed into an analytics engine. For instance, an alarm coming from a device that must trigger inserting a ticket into a CRM system is an interactive device-to-cloud message, as compared to telemetry such as temperature samples which is a data point device-to-cloud message.
+- The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, *data point* messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data point message.
 
-Because IoT Hub exposes an Event Hubs-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance, which:
+Because IoT Hub exposes an [Event Hubs][lnk-event-hubs]-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance. This instance:
 
-* Reliably stores *data point* messages in Azure Blobs.
-* Forwards *interactive* device-to-cloud messages to a [Service Bus queue] for immediate processing.
+* Reliably stores *data point* messages in Azure blob storage.
+* Forwards *interactive* device-to-cloud messages to an [Azure Service Bus queue] for immediate processing.
 
-Service Bus is a great way to ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based deduplication.
+Service Bus helps ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based de-duplication.
 
-At the end of this tutorial you will run three Windows console applications:
+> [AZURE.NOTE] An **EventProcessorHost** instance is only one way to process interactive messages. Other options include [Azure Service Fabric][lnk-service-fabric] and [Azure Stream Analytics][lnk-stream-analytics].
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, which sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds.
-* **ProcessDeviceToCloudMessages**, which uses the [EventProcessorHost] class to retrieve messages from the Event Hub-compatible endpoint and then reliably store data point messages in an Azure blob and forward interactive messages to a Service Bus queue.
-* **ProcessD2CInteractiveMessages**, which dequeues the interactive messages from the Service Bus queue.
+At the end of this tutorial, you will run three Windows console apps:
 
-> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages including C, Java, and JavaScript. Refer to the [Azure IoT Developer Center] for step by step instructions on how to replace the simulated device in this tutorial with a physical device, and generally how to connect devices to Azure IoT Hub.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQPS protocol to communicate with IoT Hub.
+* **ProcessDeviceToCloudMessages** uses the [EventProcessorHost] class to retrieve messages from the Event Hubs-compatible endpoint. It then reliably stores data point messages in  Azure Blob storage, and forwards interactive messages to a Service Bus queue.
+* **ProcessD2CInteractiveMessages** de-queues the interactive messages from the Service Bus queue.
 
-This tutorial is directly applicable to other ways to consume Event Hubs-compatible messages such as [HDInsight (Hadoop)] projects. Refer to [Azure IoT Hub developer guide - Device to cloud] for more information.
+> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For step-by-step instructions on how to replace the simulated device in this tutorial with a physical device, and generally how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
 
-In order to complete this tutorial you'll need the following:
+This tutorial is directly applicable to other ways to consume Event Hubs-compatible messages, such as [HDInsight (Hadoop)] projects. For more information, see [Azure IoT Hub developer guide - Device to cloud].
+
+To complete this tutorial, you'll need the following:
 
 + Microsoft Visual Studio 2015.
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="_blank").
++ An active Azure account. <br/>If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
@@ -67,15 +69,15 @@ Now you are ready to run the applications.
 
 2.	Press **F5** to start the three console applications. The **ProcessD2CInteractiveMessages** application should process every interactive message sent from the **SimulatedDevice** application.
 
-  ![][50]
+  ![Three console applicatons][50]
 
-> [AZURE.NOTE] In order to see updates in your blob file, you may need to reduce the **MAX_BLOCK_SIZE** constant in the **StoreEventProcessor** class to a smaller value such as **1024**. This is because it takes some time to reach the block size limit with the data sent by the simulated device. With a smaller block size, you will not need to wait so long to see the blob being created and updated. However, using a larger block size makes the application more scalable.
+> [AZURE.NOTE] In order to see updates in your blob file, you may need to reduce the **MAX_BLOCK_SIZE** constant in the **StoreEventProcessor** class to a smaller value, such as **1024**. This is because it takes some time to reach the block size limit with the data sent by the simulated device. With a smaller block size, you will not need to wait so long to see the blob being created and updated. However, using a larger block size makes the application more scalable.
 
 ## Next steps
 
-In this tutorial, you learned how to reliably process data point and interactive device-to-cloud messages using the [EventProcessorHost] class. 
+In this tutorial, you learned how to reliably process data point and interactive device-to-cloud messages by using the [EventProcessorHost] class.
 
-The [Uploading files from devices] tutorial builds on this tutorial using analagous message processing logic and describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices
+The [Uploading files from devices] tutorial builds on this tutorial by using analagous message processing logic. It also describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
 
 Additional information on IoT Hub:
 
@@ -94,7 +96,7 @@ Additional information on IoT Hub:
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues/
+[Service Bus Queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
@@ -115,3 +117,6 @@ Additional information on IoT Hub:
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: iot-hub-tested-configurations.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
+[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
+[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/18/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -40,7 +40,7 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 
 ### Mobile and PC application quick-start guides
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Windows Store](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
@@ -89,6 +89,7 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [Azure Active Directory samples](https://github.com/azure-samples?query=active-directory): The easiest way to navigate the list of samples is by using the [index of code samples](active-directory-code-samples.md).
 
+- [ADAL for .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): Documentation for the .NET authentication library.
 
 ### Graph API
 
@@ -96,31 +97,29 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [Graph API permission scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0 permission scopes that are used to control the access that an app has to directory data in a tenant.
 
-### Authentication libraries
+### Authentication and authorization protocols
 
-- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): Documentation for the .NET authentication libary.
+- [Azure Active Directory authentication and authorization protocols](active-directory-protocols.md): Learn about the different authentication and authorization protocols supported by Azure Active Directory.
 
-### Authentication protocols
+- [OAuth 2.0 protocol: Using the authorization code grant](active-directory-protocols-oauth-code.md): You can use the OAuth 2.0 protocol's authorization code grant, to authorize access to Web applications and Web APIs in your Azure Active Directory tenant.
 
-- [SAML 2.0 protocol reference](https://msdn.microsoft.com/library/azure/dn195591.aspx): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
+- [OAuth 2.0 protocol: Understanding the implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) : Learn more about the implicit authorization grant, and whether it's right for your application.
 
+- [OpenID Connect 1.0 protocol: Sign-in and authentication](active-directory-protocols-openid-connect-code.md): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol. A client application can receive an id_token to manage the sign-in process, or augment the authorization code flow to receive both an id_token and authorization code.
 
-- [OAuth 2.0 protocol reference](https://msdn.microsoft.com/library/azure/dn645545.aspx): You can use the OAuth 2.0 protocol to authorize access to web applications and web APIs in your Azure Active Directory tenant.
+- [SAML 2.0 protocol reference](active-directory-saml-protocol-reference.md): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
 
-
-- [OpenID Connect 1.0 protocol reference](https://msdn.microsoft.com/library/azure/dn645541.aspx): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol.
-
-
-- [WS-Federation 1.2 protocol reference](https://msdn.microsoft.com/library/azure/dn903702.aspx): The WS-Federation 1.2 protocol is specified in the Web Services Federation Version 1.2 Specification.
+- [WS-Federation 1.2 protocol](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory supports WS-Federation 1.2 as per the Web Services Federation Version 1.2 Specification.
 
 - [Supported token and claim types](active-directory-token-and-claims.md): You can use this guide to understand and evaluate the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
 
 ## Videos
 
-### Build 2015
+### Build
 
 These overview presentations on developing apps by using Azure Active Directory feature speakers who work directly in the engineering team. The presentations cover fundamental topics, including IDMaaS, authentication, identity federation, and single sign-on.
 
+- [Microsoft Identity: State of the Union and Future Direction](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
 - [Azure Active Directory: Identity management as a service for modern applications](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
 - [Develop modern web applications with Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
 - [Develop modern native applications with Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)

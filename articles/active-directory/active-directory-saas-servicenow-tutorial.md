@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/26/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with ServiceNow
@@ -20,7 +20,8 @@ The objective of this tutorial is to show the integration of Azure and ServiceNo
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 -   A valid Azure subscription
--   A tenant in ServiceNow
+-   A tenant in ServiceNow, Calgary version or higher
+-   ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. This can be done by submitting a service request at https://hi.service-now.com/ 
   
 After completing this tutorial, the Azure AD users you have assigned to ServiceNow will be able to single sign into the application at your ServiceNow company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
   
@@ -89,13 +90,13 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
     c. Click **Next**
 
-4.  On the **Auto configure single sign-on** page, click **Manually configure the application for single sign-on**, and then click **Next**.
+4.  To have Azure AD automatically configure ServiceNow for SAML-based authentication, enter your ServiceNow instance name, admin username, and admin password in the **Auto configure single sign-on** form and click *Configure*. Note that the admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML identity provider, click **Manually configure the application for single sign-on**, then click **Next** and complete the following steps.
 
     ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
 
 
 
-4.  On the **Configure single sign-on at ServiceNow** page, click **Download certificate**, save the certificate file locally on your computer, and then click **Next**.
+5.  On the **Configure single sign-on at ServiceNow** page, click **Download certificate**, save the certificate file locally on your computer, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
 
@@ -173,7 +174,9 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
     a. in the **Name** textbox, type a name for your configuration (e.g.: **SAML 2.0**).
 
-    b. In the **User Field** textbox, type **email**. 
+    b. In the **User Field** textbox, type **email** or **user_id**, depending on which field is used to uniquely identify users in your ServiceNow deployment. 
+    
+    **Note:** You can configue Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token by going to the **ServiceNow > Attributes > Single Sign-On** section of the Azure classic portal and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (e.g. user principal name) must match the value stored in ServiceNow for the entered field (e.g. user_id)
 
     c. In the Azure AD classic portal, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL** textbox.
 

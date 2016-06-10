@@ -13,43 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/28/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Rename in SQL Data Warehouse
-While SQL Server supports database renaming via the stored procedure ```sp_renamedb```, SQL Data Warehouse uses DDL syntax to achieve the same goal.  The DDL command is ```RENAME OBJECT```.
+SQL Data Warehouse uses the [RENAME][] statement to rename tables.  This is different than SQL Server, which uses `sp_rename`.  Currently, only user tables can be renamed.  Databases and external tables cannot be renamed.
 
 ## Rename table
 
-Currently, only tables can be renamed.  The syntax to rename a table is:
+When renaming a table, all objects and properties associated with the table are updated to reference the new table name. For example, table definitions, indexes, constraints, and permissions are updated. Views are not updated.
 
-```
+The syntax to rename a table is:
+
+```sql
 RENAME OBJECT dbo.Customer TO NewCustomer;
 ```
 
-When renaming a table, all objects and properties associated with the table are updated to reference the new table name. For example, table definitions, indexes, constraints, and permissions are updated. Views are not updated.
-
-## Rename external table
-
-Renaming an external table changes the table name within SQL Data Warehouse. It does not effect the location of the external data for the table.
-
 ## Change a table schema
-If the intent is to change the schema that an object belongs to then that is achieved via ALTER SCHEMA:
 
-```
+To change the schema that an object belongs use ALTER SCHEMA:
+
+```sql
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 ```
 
 ## Table rename requires exclusive table lock
 
-It is important to remember that you cannot rename a table while it is in use.  A rename of a table requires an exclusive lock on the table.  If the table is in use, you may need to terminate the session using the table.  To terminate a session you need to use the [KILL](https://msdn.microsoft.com/library/ms173730.aspx) command.  Take care when using ```KILL``` as when a session is terminated and any uncommitted work will be rolled back.  Sessions in SQL Data Warehouse are prefixed by 'SID'.  You will need to include this and the session number when invoking the KILL command.  For example ```KILL 'SID1234'```. Refer to the connections article for more information on [sessions]
+You cannot rename a table while it is in use.  A rename of a table requires an exclusive lock on the table.  If the table is in use, you may need to terminate the session using the table.  Use the [KILL][] command to terminate a session.  For example `KILL 'SID1234'`.  Use caution when using KILL, as as any uncommitted transactional work will be rolled back when a session is terminated.  See the connections article for more information on [sessions and requests][].  See [Optimizing transactions for SQL Data Warehouse][] for more information on the impact of killing a transactional query and the effect of a roll back.
 
 
 ## Next steps
-For more development tips, see [development overview][].
+For more T-SQL references, see [T-SQL references][].
 
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-[sessions]: sql-data-warehouse-develop-connections.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[sessions and requests]: ./sql-data-warehouse-develop-connections.md#sessions-and-requests
+[T-SQL references]: ./sql-data-warehouse-reference-tsql-statements.md
+[Optimizing transactions for SQL Data Warehouse]: ./sql-data-warehouse-develop-best-practices-transactions.md
+
+<!--MSDN references-->
+[KILL]: https://msdn.microsoft.com/library/ms173730.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx

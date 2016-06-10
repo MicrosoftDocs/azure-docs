@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="ryancrawcour"
+    authors="aliuy"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="01/05/2016"
-    ms.author="ryancraw"/>
+    ms.date="04/18/2016"
+    ms.author="andrl"/>
 
 # Python Flask Web Application Development with DocumentDB
 
@@ -89,7 +89,7 @@ We will now walk through how to create a new Python Flask web application from t
 
 	![Screen shot of the database tutorial - Python Tools for Visual Studio window](./media/documentdb-python-application/image10_A.png)
 
-    The output window displays `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.3 itsdangerous-0.24 'requirements.txt' was installed successfully.` when the environment is successfully installed.
+    The output window displays `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` when the environment is successfully installed.
 
 ## Step 3: Modify the Python Flask web application
 
@@ -97,7 +97,7 @@ We will now walk through how to create a new Python Flask web application from t
 
 After your project is set up, you'll need to add the required Flask packages to your project, including pydocumentdb, the Python package for DocumentDB.
 
-1. In Solution Explorer, open the file named **requirements.txt** and replace the contents with the following, then save the file:
+1. In Solution Explorer, open the file named **requirements.txt** and replace the contents with the following:
 
     	flask==0.9
     	flask-mail==0.7.6
@@ -111,13 +111,14 @@ After your project is set up, you'll need to add the required Flask packages to 
     	flup
     	pydocumentdb>=1.0.0
 
-2. In Solution Explorer, right-click **env** and click **Install from requirements.txt**.
+2. Save the **requirements.txt** file. 
+3. In Solution Explorer, right-click **env** and click **Install from requirements.txt**.
 
 	![Screen shot showing env (Python 2.7) selected with Install from requirements.txt highlighted in the list](./media/documentdb-python-application/image11.png)
 
     After successful installation, the output window displays the following:
 
-        Successfully installed Babel-2.1.1 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.0 blinker-1.4 decorator-4.0.6 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.4.2 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
+        Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
     > [AZURE.NOTE] In rare cases, you might see a failure in the output window. If this happens, check if the error is related to cleanup. Sometimes the cleanup fails, but the installation will still be successful (scroll up in the output window to verify this). You can check your installation by [Verifying the virtual environment](#verify-the-virtual-environment). If the installation failed but the verification is successful, it's OK to continue.
 
@@ -130,7 +131,7 @@ Let's make sure that everything is installed correctly.
 
 	![The empty Python Flask web development project displayed in a browser](./media/documentdb-python-application/image12.png)
 
-3. Stop debugging the website by pressing **Shift**+**F5**.
+3. Stop debugging the website by pressing **Shift**+**F5** in Visual Studio.
 
 ### Create database, collection, and document definitions
 
@@ -262,7 +263,7 @@ def vote():
 1. In Solution Explorer, in the **tutorial** folder, right click the **templates** folder, click **Add**, and then click **New Item**. 
 2. Select **HTML Page**, and then in the name box type **create.html**. 
 3. Repeat steps 1 and 2 to create two additional HTML files: results.html and vote.html.
-4. Add the following code to **create.html** in the <body> element. It displays a message stating that we created a new database, collection, and document.
+4. Add the following code to **create.html** in the `<body>` element. It displays a message stating that we created a new database, collection, and document.
 
 	```html
 	{% extends "layout.html" %}
@@ -273,7 +274,7 @@ def vote():
 	{% endblock %}
 	```
 
-5. Add the following code to **results.html** in the <body> element. It displays the results of the poll.
+5. Add the following code to **results.html** in the `<body`> element. It displays the results of the poll.
 
 	```html
 	{% extends "layout.html" %}
@@ -299,7 +300,7 @@ def vote():
 	{% endblock %}
 	```
 
-6. Add the following code to **vote.html** in the <body> element. It displays the poll and accepts the votes. On registering the votes, the control is passed over to views.py where we will recognize the vote cast and append the document accordingly.
+6. Add the following code to **vote.html** in the `<body`> element. It displays the poll and accepts the votes. On registering the votes, the control is passed over to views.py where we will recognize the vote cast and append the document accordingly.
 
 	```html
 	{% extends "layout.html" %}
@@ -344,7 +345,7 @@ serves as the landing page for your application.
 	DOCUMENTDB_DOCUMENT = 'voting document'
 	```
 
-3. In the [Azure portal](https://portal.azure.com/), navigate to the **Keys** blade by clicking **Browse**, **DocumentDB Accounts**, double-click the name of the account to use, and then click **Keys**. In the **Keys** blade, copy the **URI** value and paste it into the **config.py** file, as the value for the **DOCUMENTDB\_HOST** property. 
+3. In the [Azure portal](https://portal.azure.com/), navigate to the **Keys** blade by clicking **Browse**, **DocumentDB Accounts**, double-click the name of the account to use, and then click the **Keys** button in the **Essentials** area. In the **Keys** blade, copy the **URI** value and paste it into the **config.py** file, as the value for the **DOCUMENTDB\_HOST** property. 
 4. Back in the Azure portal, in the **Keys** blade, copy the value of the **Primary Key** or the **Secondary Key**, and paste it into the **config.py** file, as the value for the **DOCUMENTDB\_KEY** property.
 5. In the **\_\_init\_\_.py** file, add the following line. 
 
@@ -395,15 +396,15 @@ DocumentDB, we're going to deploy this to Azure Websites.
 
  	![Screen shot of the tutorial selected in Solution Explorer, with the Publish option highlighted](./media/documentdb-python-application/image20.png)
 
-2. In the **Publish Web** window, select **Microsoft Azure Websites**.
+2. In the **Publish Web** window, select **Microsoft Azure Web Apps**, and then click **Next**.
 
-	![Screen shot of the Publish Web window](./media/documentdb-python-application/image21.png)
+	![Screen shot of the Publish Web window with Microsoft Azure Web Apps highlighted](./media/documentdb-python-application/image21.png)
 
-3. In the **Select Existing Website** window, click **New**.
+3. In the **Microsoft Azure Web Apps Window** window, click **New**.
 
-	![Screen shot of the Select Existing Website window](./media/documentdb-python-application/select-existing-website.png)
+	![Screen shot of the Microsoft Azure Web Apps Window window](./media/documentdb-python-application/select-existing-website.png)
 
-4. In the **Create site on Microsoft Azure** window, enter a **Site name**, select a **Region**, then click **Create**.
+4. In the **Create site on Microsoft Azure** window, enter a **Web app name**, **App Service plan**, **Resource group**, and **Region**, then click **Create**.
 
 	![Screen shot of the Create site on Microsoft Azure window](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
 

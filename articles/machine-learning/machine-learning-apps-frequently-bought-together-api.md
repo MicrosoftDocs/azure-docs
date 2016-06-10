@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="05/31/2016" 
 	ms.author="luisca"/> 
 
 # Machine Learning example app: Frequently Bought Together
@@ -21,7 +21,7 @@
 
 ## IMPORTANT: THIS SERVICE HAS BEEN DEPRECATED
 
-**The Frequently Bought Together functionality that this service provides has now been integrated into our more broad [Recommendations API] (http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c). We encourage you to use Recommendations instead of this service.**
+**The Frequently Bought Together functionality that this service provides has now been integrated into our more broad [Recommendations API] (http://gallery.cortanaintelligence.com/MachineLearningAPI/3574432384684cac9cc766e57729ea4c). We encourage you to use Recommendations instead of this service.**
 
 ##Overview
 

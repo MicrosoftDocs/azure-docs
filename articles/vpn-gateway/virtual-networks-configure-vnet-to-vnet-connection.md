@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 
@@ -223,6 +224,7 @@ Wait for the connections to initialize. Once the gateway has initialized, the ga
 ## Next steps
 
 Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more information.
+
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md

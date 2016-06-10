@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/02/2016"
 	ms.author="garye"/>
 
 
@@ -208,7 +208,7 @@ start up again.
 Here’s an example: Suppose your predictive experiment returns the entire
 row of input data with the predicted result. You may decide that you
 want the web service to just return the result. So you can add a
-**Project Columns** module in the predictive experiment, right before
+**Select Columns in Dataset** module in the predictive experiment, right before
 the output port, to exclude columns other than the result. When you
 click **Deploy Web Service** again, the web service is updated.
 

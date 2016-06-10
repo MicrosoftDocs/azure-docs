@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations API documentation for a recommendations engine available in the Microsoft Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/05/2016" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -48,7 +48,6 @@ The Azure Machine Learning Recommendations API can be divided into the following
 - The maximum number of items that a catalog can hold is 100,000.
 - The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
 - The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
-- The number of transactions per second for a recommendation model build that is not active is ~2TPS. A recommendation model build that is active can hold up to 20TPS.
 - The maximum number of items that can be asked for when getting recommendations is 150.
 
 ##3. APIs - general information
@@ -899,7 +898,7 @@ OData XML
 <ins>To add a FeatureBlockList rule:</ins><br>
 <br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-To add an Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
+To add an Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
 <ins>To add a WhiteList rule:</ins><br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>To add a FeatureWhiteList rule:</ins><br>
@@ -1049,6 +1048,7 @@ OData XML
 
 ###8.2.	Get Catalog
 Retrieves all catalog items.
+The catalog will be retrieved one page at a time. If you want to get items at a particular index, you can use the $skip odata parameter. For instance if you want to get items starting at position 100, add the parameter $skip=100 to the request.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1372,6 +1372,7 @@ HTTP Status code: 200
 
 ###9.2.	List Model Usage Files
 Retrieves metadata of all model usage files.
+The usage files will be retrieved one page at a time. Each page containes 100 items. If you want to get items at a particular index, you can use the $skip odata parameter. For instance if you want to get items starting at position 100, add the parameter $skip=100 to the request.
 
 | HTTP Method | URI |
 |:--------|:--------|

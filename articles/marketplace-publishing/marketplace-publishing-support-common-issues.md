@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="05/03/2016"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # How to troubleshoot common Azure Marketplace publisher issues

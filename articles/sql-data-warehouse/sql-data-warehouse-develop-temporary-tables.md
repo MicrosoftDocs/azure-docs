@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="mausher;jrj;barbkess;sonyama"/>
+   ms.date="06/06/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Temporary tables in SQL Data Warehouse
 Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse temporary tables exist at the session level.  However, they are still defined as local temporary tables but unlike SQL Server tables they can be accessed from anywhere inside the session.
@@ -24,7 +24,7 @@ This article contains some essential guidance for using temporary tables and hig
 ## Creating temporary tables
 Creating a temporary table is very straight forward. All you need to do is simply prefix the table name with # as in the example below:
 
-```
+```sql
 CREATE TABLE #stats_ddl
 (
 	[schema_name]			NVARCHAR(128) NOT NULL
@@ -44,7 +44,7 @@ WITH
 
 Temporary tables can also be created using `CTAS` using exactly the same approach.   
 
-```
+```sql
 CREATE TABLE #stats_ddl
 WITH
 (
@@ -102,7 +102,7 @@ FROM    t1
 
 To ensure that your `CREATE TABLE` statements are successful it is important to ensure that the table doesn't already exist in the session. This can be handled with a simple pre-existence check using the pattern below: 
 
-```
+```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
 	DROP TABLE #stats_ddl
@@ -113,7 +113,7 @@ END
 
 It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them in your code.  
 
-```
+```sql
 DROP TABLE #stats_ddl
 ```
 
@@ -127,7 +127,7 @@ Lets make a working example.
 
 The stored procedure below brings together the examples mentioned above. The code can be used to generate the DDL required to update the statistics on every column in the database:
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
 	,@sample_pct     tinyint
@@ -209,7 +209,7 @@ In SQL Data Warehouse it is possible to use the temporary table outside of the p
 
 This can lead to more modular and manageable code. Look at the example below:
 
-```
+```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
 
 DECLARE @i INT              = 1
@@ -248,7 +248,7 @@ For more development tips, see [development overview][].
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

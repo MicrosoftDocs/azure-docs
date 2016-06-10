@@ -174,7 +174,7 @@ This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work 
 * [Add push notifications to your app](mobile-services-javascript-backend-windows-phone-get-started-push.md)
   <br/>Learn how to send a very basic push notification to your app with Mobile Services.
 
-* [Mobile Services C# How-to Conceptual Reference](mobile-services-windows-dotnet-how-to-use-client-library.md)
+* [Mobile Services C# How-to Conceptual Reference](mobile-services-dotnet-how-to-use-client-library.md)
   <br/>Learn more about how to use Mobile Services with .NET.
 
 <!-- Anchors. -->
@@ -197,4 +197,3 @@ This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work 
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
-

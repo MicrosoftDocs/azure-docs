@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/13/2016"
+   ms.date="04/05/2016"
    ms.author="seanmck"/>
 
 # Visualize your cluster with Service Fabric Explorer
@@ -63,6 +63,8 @@ Service Fabric Explorer offers a quick way to invoke actions on nodes, applicati
 For example, to delete an application instance, simply choose the application from the tree on the left, and then choose **Actions** > **Delete Application**.
 
 ![Deleting an application in Service Fabric Explorer][sfx-delete-application]
+
+>[AZURE.TIP] The same actions can be performed from the tree view by clicking on the ellipsis next to each element.
 
 The following table lists the actions available for each entity:
 

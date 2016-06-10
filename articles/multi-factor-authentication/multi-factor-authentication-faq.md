@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
@@ -153,13 +153,18 @@ If you are using the Azure MFA Server, third-party OATH TOTP tokens can be impor
 
 So, if the ActiveIdentity tokens are OATH TOTP tokens and you can get the secret key file into a CSV file that can be imported into the Azure MFA Server, then you will be able to use them. OATH tokens can be used with AD FS, with RADIUS when the client system can process Access Challenge responses and with IIS Forms-based authentication.
 
-**Q: Can I use the Azure MFA Server to secure Terminal Services**
+**Q: Can I use the Azure MFA Server to secure Terminal Services?**
 
 Yes, but if you are using Windows Server 2012 R2 or later than this can only be done using a RD Gateway.
 
 The way that the Azure MFA Server hooked into the LSA security package on Windows Server 2012 and earlier versions no longer works on Windows Server 2012 R2 due to some security changes.  So for versions of Terminal Services on Windows 2012 or earlier, you can simply follow [To secure an application with Windows Authentication](multi-factor-authentication-get-started-server-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure)
 
 However, if you are using Windows Server 2012 R2, then you will need an RD Gateway.
+
+**Q: Why am I receiving an MFA call from an anonymous caller after setting up caller ID?**
+
+Sometimes, when MFA calls are placed through the public telephone network, they are routed through a carrier that doesn't support caller ID.  Therefore, caller ID is not guaranteed even though the MFA system always sends it.
+
 
 ## Errors
 

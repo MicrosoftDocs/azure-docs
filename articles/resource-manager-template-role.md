@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Role assignments template schema
@@ -26,7 +26,7 @@ To create a role assignment, add the following schema to the resources section o
     
     {
         "type": "Microsoft.Authorization/roleAssignments",
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2014-10-01-preview",
         "name": string,
         "dependsOn": [ array values ],
         "properties":
@@ -41,21 +41,22 @@ To create a role assignment, add the following schema to the resources section o
 
 The following tables describe the values you need to set in the schema.
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | **Microsoft.Authorization/roleAssignments** | The resource type to create. |
-| apiVersion | enum | Yes | **2015-07-01** | The API version to use for creating the resource. |  
-| name | string | Yes | Globally-unique identifier | An identifier for the new role assignment. |
-| dependsOn | array | No |  A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this role assignment depends on. If assigning a role that scoped to a resource and that resource is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
-| properties | object | Yes | (shown below)  | An object that identifies the role definition, princial, and scope. |  
+| Name | Value |
+| ---- | ---- |
+| type | Enum<br />Required<br />**Microsoft.Authorization/roleAssignments**<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2014-10-01-preview**<br /><br />The API version to use for creating the resource. |  
+| name | String<br />Required<br />**Globally-unique identifier**<br /><br />An identifier for the new role assignment. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this role assignment depends on. If assigning a role that scoped to a resource and that resource is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the role definition, princial, and scope. |  
 
+<a id="properties" />
 ### properties object
 
-| Name | Type | Required | Permitted Values | Description |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| roleDefinitionId   | string | Yes | **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**  | The identifier of an existing role definition to be used in the role assignment. |
-| principalId   | string | Yes | Globally-unique identifier | The identifier of an existing principal. This maps to the id inside the directory and can point to a user, service principal, or security group. |
-| scope | string | Yes | For resource group:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br /><br />For resource:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | The scope at which this role assignment applies to. |
+| Name | Value |
+| ------- | ---- |
+| roleDefinitionId   | String<br />Required<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**<br /><br />The identifier of an existing role definition to be used in the role assignment. |
+| principalId   | String<br />Required<br />**Globally-unique identifier**<br /><br />The identifier of an existing principal. This maps to the id inside the directory and can point to a user, service principal, or security group. |
+| scope | String<br />Required<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}** (for resource groups) or<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** (for resources)<br /><br />The scope at which this role assignment applies to. |
 
 
 ## How to use the role assignment resource
@@ -124,9 +125,9 @@ The following example assigns a group to a role for the resource group.
 
 The following templates show how to use the role assignment resource:
 
-- [Assign built-in role to resource group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)
-- [Assign built-in role to existing VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
-- [Assign built-in role to multiple existing VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
+- [Assign built-in role to resource group](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
+- [Assign built-in role to existing VM](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
+- [Assign built-in role to multiple existing VMs](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
 
 ## Next steps
 

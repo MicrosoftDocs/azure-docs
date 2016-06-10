@@ -3,7 +3,7 @@
 	description="Find NoSQL Node.js examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases." 
 	keywords="node.js examples"
 	services="documentdb" 
-	authors="mimig1" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter="nodejs"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
-	ms.author="mimig"/>
+	ms.date="04/18/2016" 
+	ms.author="andrl"/>
 
 
 # DocumentDB Node.js examples
@@ -23,6 +23,7 @@
 > [AZURE.SELECTOR]
 - [.NET Examples](documentdb-dotnet-samples.md)
 - [Node.js Examples](documentdb-nodejs-samples.md)
+- [Python Examples](documentdb-python-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Sample solutions that perform CRUD operations and other common operations on DocumentDB resources are included in the [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub repository. This article provides:

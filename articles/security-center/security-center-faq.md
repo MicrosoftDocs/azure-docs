@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="06/01/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -96,6 +96,11 @@ Azure Security Center automatically collects, analyzes and fuses log data from y
 - Brute force attacks against virtual machines
 - Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
 
+### What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
+The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contact(s) specified in Azure Security Center or the Azure subscription owner if a security contact is not specified.
+
+Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard. In the future, email notification of security alerts will be sent to security contact(s) as well.
+
 ### How are permissions handled in Azure Security Center?
 Azure Security Center supports role based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
@@ -103,10 +108,21 @@ When a user opens Azure Security Center, only recommendations and alerts that ar
 
 To edit a security policy, you must be an Owner or Contributor of the subscription.
 
+## Virtual Machines
+
 ### What types of virtual machines will be supported?
 Virtual machines created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md) are supported, including virtual machines that are part of Azure Service Fabric clusters.
 
-Access Control List recommendations currently apply to virtual machines (classic). Network Security Groups currently only apply to virtual machines (Resource Manager).
+Supported Windows virtual machines:
 
-### Are Linux virtual machines supported?
-Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu versions 12.04, 14.04, 14.10, and 15.04 only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
+
+Supported Linux virtual machines:
+
+- Ubuntu versions 12.04, 14.04, 15.10, 16.04
+- Debian versions 7, 8
+- CentOS versions 6.\*, 7.*
+- Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
+- SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*

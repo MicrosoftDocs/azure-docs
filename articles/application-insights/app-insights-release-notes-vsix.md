@@ -1,21 +1,81 @@
-<properties 
-	pageTitle="Release notes for Visual Studio Extension for Application Insights" 
-	description="The latest updates for Visual Studio tools for Application Insights." 
-	services="application-insights" 
+<properties
+	pageTitle="Release notes for Visual Studio Extension for Developer Analytics"
+	description="The latest updates for Visual Studio tools for Developer Analytics."
+	services="application-insights"
     documentationCenter=""
-	authors="aruna" 
+	authors="acearun"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/26/2016" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/09/2016"
 	ms.author="acearun"/>
- 
-# Release Notes for Application Insights Tools for Visual Studio
 
+# Release Notes - Developer Analytics Tools
+##### Application Insights and HockeyApp analytics in Visual Studio
+## Version 7.0.1
+Application Insights now supports ASP.NET Core RC2 projects in Visual Studio. You can add Application Insights to new ASP.NET Core RC2 projects from the New Project dialog, or to an existing project by right-clicking the project in the Solution Explorer and choosing "Add Application Insights Telemetry..."
+
+![.NET Core Support](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
+
+ASP.NET 5 RC1 and ASP.NET Core RC2 projects also have new support in the Diagnostic Tools window. You'll see Application Insights events like requests and exceptions from your ASP.NET app while debugging locally on your PC. From each event, you can drill down for more information by clicking "Search."
+
+![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
+
+Other new features:
+
+* We've made the Application Insights Search experience faster and more intuitive by automatically applying time ranges and detail filters as you select them
+* In Application Insights Search, there's now an option to Go to Code from request telemetry
+* We've made improvements to the HockeyApp sign-in experience.
+
+## Version 5.2
+We are happy to announce the introduction of HockeyApp scenarios in Visual Studio. The first integration we have enabled is beta distribution of Universal Windows and Windows Forms apps within VS.
+
+Beta distribution allows you to upload early versions of your apps to HockeyApp for distribution to a chosen subset of customers or testers. Beta distribution, combined with HockeyApp crash collection and user feedback features, can provide valuable information about your app before a broad release. You can use this information to address issues with your app before it becomes a big deal (low ratings, poor feedback, etc.).
+
+Check out how simple it is to upload builds for beta distribution from within VS…
+### Universal Windows apps
+The context menu for an UWP project node now includes an option to upload your build to HockeyApp.
+
+![Project context menu for Universal Apps](./media/app-insights-release-notes-vsix/UniversalContextMenu.png)
+
+Choose the item and see the HockeyApp upload dialog. You will need a HockeyApp account to upload your build. Don't worry if you are a new user - creating an account is a simple process.
+
+Once you are connected, you will see the upload form in the dialog.
+
+![Upload Dialog for Universal apps](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
+
+Select the content to upload (appxbundle or appx) and choose release options in the wizard. You can optionally add release notes on the next page. Choose ‘Finish’ to begin upload.
+
+When the upload is complete, you will see a HockeyApp toast with confirmation and a link to the app in the HockeyApp portal.
+
+![Upload complete toast](./media/app-insights-release-notes-vsix/UploadComplete.png)
+
+That’s it - you just uploaded a build for Beta distribution with a few clicks.
+
+The HockeyApp portal allows you to manage your application in various ways (invite users, view crash reports and feedback, change details, etc.).
+
+![HockeyApp portal](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
+
+More details on app management is available at the [Hockey App Knowledge Base](http://support.hockeyapp.net/kb/app-management-2).
+
+### Windows Forms apps
+The context menu for a Windows Form project node includes an option to upload your build to HockeyApp.
+
+![Project context menu for Windows Forms apps](./media/app-insights-release-notes-vsix/WinFormContextMenu.png)
+
+This brings up the HockeyApp upload dialog similar to the one for Universal apps.
+
+![Upload Dialog for Windows Form apps](./media/app-insights-release-notes-vsix/WinFormsUploadDialog.png)
+
+Notice an extra field in this wizard – for specifying the version of the app. For Universal apps, the information is populated from the manifest – Win Forms unfortunately don’t have an equivalent and hence need to be manually specified.
+
+The rest of the flow is similar to Universal apps – pick build, release options, add release notes, upload, and manage in the HockeyApp portal.
+
+It’s as simple as that. Give it a try and let us know what you think.
 ## Version 4.3
 ### Search telemetry from local debug sessions
 With this release, we are introducing the ability to search for Application Insights telemetry generated in the Visual Studio debug session. Search was previously only possible if you had registered your app with Application Insights. With this release, your app only needs the Application Insights SDK installed to search for local telemetry.
@@ -37,14 +97,14 @@ With this release, we are introducing the ability to search for Application Insi
 ##Version 4.2
 In this release we've added features to make searching data easier in context of events, the ability to jump to code from more data events and an effortless experience to send your logging data to Application Insights. This extension is updated monthly, if you have feedback or feature reuests send it to aidevtools@microsoft.com
 ###- 0-click logging experience
-If you're already using NLog, Log4Net or System.Diagnostics tracing then you don't have to worry about moving all your traces to AI, now we're integrating the Application Insights Logging adapters with the normal configuration experience. 
+If you're already using NLog, Log4Net or System.Diagnostics tracing then you don't have to worry about moving all your traces to AI, now we're integrating the Application Insights Logging adapters with the normal configuration experience.
 If you already have one of these logging frameworks configured here's how you get it:
 ####If you already have Application Insights added
-- Right-click on the Project Node->Application Insights->Configure Application Insights. Make sure you see the the option to add the right adapter in the configuration window. 
+- Right-click on the Project Node->Application Insights->Configure Application Insights. Make sure you see the the option to add the right adapter in the configuration window.
 - Or when you build the solution, notice the pop-up that appears on the top right of your screen and click on configure.
 ![Loggin Toast](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
-Once you have the Logging adapter installed, you can run your application and make sure you see the data in the diagnostic tools tab as the following: 
+Once you have the Logging adapter installed, you can run your application and make sure you see the data in the diagnostic tools tab as the following:
 ![Traces](./media/app-insights-release-notes-vsix/Traces.png)
 ###- User can jump/find to the code where the telemetry event property is emitted
 With the new release user can click on any value in the event detail and this will search for a matching string in the current open solution. Results will show up in Visual Studio "Find Results" list as shown below:
@@ -76,7 +136,7 @@ Clicking on the hyperlink will take you to the where the selected method is in y
 
 ![Clicking on Exception](./media/app-insights-release-notes-vsix/jumptocode.png)
 
-###New entry points to the Search Experience in Solution Explorer 
+###New entry points to the Search Experience in Solution Explorer
 
 ![Entry Point in Solution Explorer](./media/app-insights-release-notes-vsix/searchentry.png)
 
@@ -107,9 +167,7 @@ You no longer have to sign in to Azure in order to add Application Insights pack
 
 ###Devices support
 
-At *Connect();* 2015 we [announced](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) that our Mobile DevOps experience for devices is HockeyApp. HockeyApp helps you to distribute beta builds to your testers, collect and analyze all crashes from your app, and collect feedback directly from your customers. 
+At *Connect();* 2015 we [announced](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) that our Mobile DevOps experience for devices is HockeyApp. HockeyApp helps you to distribute beta builds to your testers, collect and analyze all crashes from your app, and collect feedback directly from your customers.
 HockeyApp supports you on whatever platform you are building your mobile application, be it iOS, Android, or Windows or a cross-platform solution like Xamarin, Cordova, or Unity.
 
-In future releases of the Application Insights extension we’ll be introducing new functionalities to enable a more integrated experience between HockeyApp and Visual Studio. For now you can start with HockeyApp by simply adding the NuGet reference: see the [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) for more information. 
-
- 
+In future releases of the Application Insights extension we’ll be introducing new functionalities to enable a more integrated experience between HockeyApp and Visual Studio. For now you can start with HockeyApp by simply adding the NuGet reference: see the [documentation](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) for more information.

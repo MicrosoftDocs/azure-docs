@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/17/2016"
+   ms.date="06/09/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight
@@ -22,6 +22,8 @@
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 A Hadoop cluster consists of several virtual machines (nodes) which are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you will learn these configuration settings. 
+
+>[AZURE.NOTE] the information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Cluster types
 
@@ -92,7 +94,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 - **Data source**
 
-	The original HDFS uses of many local disks on the cluster. HDInsight uses Azure Blob storage instead for data storage. Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage. Storing data in Blob storage enables you to safely delete the HDInsight clusters that are used for computation without losing user data.
+	The original HDFS uses many local disks on the cluster. HDInsight uses Azure Blob storage instead for data storage. Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage. Storing data in Blob storage enables you to safely delete the HDInsight clusters that are used for computation without losing user data.
 
 	During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation process requires the Azure storage account and the Blob storage container created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that will be accessible by the cluster. In addition, the cluster can also access any Blob containers that are configured with full public read access or public read access for blobs only.  For more information on the restrict access, see [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md).
 
@@ -102,7 +104,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 	![Azure blob storage](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-    It is not recommended to use default Blob container for storing business data.  It is a good practice to delete default Blob container after each use to reduce storage cost.  Please note default container contains application and system logs.  Make sure to retrieve the logs before deleting the container. 
+    It is not recommended to use the default Blob container for storing business data.  It is a good practice to delete thedefault Blob container after each use to reduce storage cost.  Please note that the default container contains application and system logs.  Make sure to retrieve the logs before deleting the container. 
     
 	>[AZURE.WARNING] Sharing one Blob storage container for multiple clusters is not supported. 
 
@@ -112,7 +114,7 @@ The following are the basic configuration options for creating an HDInsight clus
     
 - **Location (Region)**
 
-	HDInsight cluster and its default storage account must be located on the same Azure location.
+	The HDInsight cluster and its default storage account must be located on the same Azure location.
 	
 	![Azure regions](./media/hdinsight-provision-clusters/Azure.regions.png)
 
@@ -186,6 +188,8 @@ For more information on using secondary blob stores, see [Using Azure Blob stora
 
 ## Use Hive/Oozie metastore
 
+We strongly recommend to use a custom metastore if you want to keep your Hive tables after you delete your HDInsight cluster, for purposes of attaching that metastore to another HDInsight cluster in the future. 
+
 The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. Using the metastore helps you to retain your Hive and Oozie metadata, so that you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, you have a cluster created with a Hive metastore. You created some Hive tables. After you delete the cluster, and recreate the cluster using the same Hive metastore, you will be able to see the Hive tables you created in the original cluster.
 
 > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
@@ -204,24 +208,34 @@ An [Azure Virtual Network](https://azure.microsoft.com/documentation/services/vi
     | -------------------------- | --------------------------- |
     | Site-to-site configuration allows you to connect multiple resources from your data center to the Azure virtual network by using a hardware VPN or the Routing and Remote Access Service.<br />![diagram of site-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | Point-to-site configuration allows you to connect a specific resource to the Azure virtual network by using a software VPN.<br />![diagram of point-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
+Windows-based clusters require a v1 (Classic) Virtual Network, while Linux-based clusters require a v2 (Azure Resource Manager,) Virtual Network. If you do not have the correct type of network, it will not be usable when you create the cluster.
+
 For more information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Customize clusters using HDInsight cluster customization (bootstrap)
 
 Sometimes, you want to configure the configuration files:
 
+- clusterIdentity.xml
 - core-site.xml
+- gateway.xml
+- hbase-env.xml
+- hbase-site.xml
 - hdfs-site.xml
-- mapred-site.xml
-- yarn-site.xml
+- hive-env.xml
 - hive-site.xml
+- mapred-site
 - oozie-site.xml
+- oozie-env.xml
+- storm-site.xml
+- tez-site.xml
+- webhcat-site.xml
+- yarn-site.xml
 
-The clusters can't retain the changes due to re-image. For more information, 
-see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). 
-To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. This is the recommended way to change configurations of a cluster and persist across these Azure reimage reboot restart events. These configuration changes are applied before service start, so services needn’t be restarted.  
+To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process, or you can use Ambari in Linux-based clusters saely. For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+>[AZURE.NOTE] The Windows-based clusters can't retain the changes due to re-image. For more information, 
+see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).  To keep the changes through the clusters' lifetime, you must use HDInsight cluster customization during the creation process.
 
 ## Customize clusters using Script action
 

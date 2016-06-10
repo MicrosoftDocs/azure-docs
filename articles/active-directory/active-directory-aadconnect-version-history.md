@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure AD Connect: Version Release History | Microsoft Azure"
    description="This topic lists all releases of Azure AD Connect and Azure AD Sync"
    services="active-directory"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/15/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -22,11 +22,47 @@ The Azure Active Directory team regularly updates Azure AD Connect with new feat
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
-Related links:
+This is list of related topics:
 
-- Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
-- For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
-- [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+Topic |  
+--------- | --------- |
+Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
+Required permissions | For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
+Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.1.189.0
+Released: 2016 June
+
+**Fixed issues and improvements:**
+
+- Azure AD Connect can now be installed on a FIPS compliant server.
+    - For password synchronization, see [Password Sync and FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)
+- Fixed an issue where a NetBIOS name could not be resolved to the FQDN in the Active Directory Connector.
+
+## 1.1.180.0
+Released: 2016 May
+
+**New features:**
+
+- Warns and helps you verifying domains if you didn’t do it before running Azure AD Connect.
+- Added support for [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
+- Added support for the latest [Microsoft Azure Government cloud](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) infrastructure with new URL requirements.
+
+**Fixed issues and improvements:**
+
+- Added filtering to the Sync Rule Editor to make it easy to find sync rules.
+- Improved performance when deleting a connector space.
+- Fixed an issues when the same object was both deleted and added in the same run (called delete/add).
+- A disabled Sync Rule will no longer re-enable included objects and attributes on upgrade or directory schema refresh.
+
+## 1.1.130.0
+Released: 2016 April
+
+**New features:**
+
+- Added support for multi-valued attributes to [Directory Extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
+- Added support for more configuration variations for [automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) to be considered eligible for upgrade.
+- Added some cmdlets for [custom scheduler](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1.1.119.0
 Released: 2016 March

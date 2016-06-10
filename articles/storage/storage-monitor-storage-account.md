@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 # Monitor a storage account in the Azure Portal
@@ -25,6 +25,8 @@ You can monitor your storage account from the [Azure Portal](https://portal.azur
 > [AZURE.NOTE] Additional costs are associated with examining monitoring data in the [Azure Portal](https://portal.azure.com). For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
 
 > Azure File storage currently supports Storage Analytics metrics, but does not yet support logging. You can enable metrics for Azure File storage via the [Azure Portal](https://portal.azure.com).
+
+> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. 
 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 

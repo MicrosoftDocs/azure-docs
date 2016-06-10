@@ -1,6 +1,6 @@
 <properties
  pageTitle="Plans and Billing in Azure Scheduler"
- description=""
+ description="Plans and Billing in Azure Scheduler"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"

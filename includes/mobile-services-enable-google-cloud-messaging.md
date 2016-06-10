@@ -7,11 +7,18 @@
 
 	 Type in your new **Project name** and click **Create project**.
 
-3. Make a note of the project number in the **Projects** section. You will need to set this value as the *PROJECT_ID* variable in the client.
+3. Click the **Utilities and More** button and then click **Project Information**. Make a note of the **Project Number**. You will need to set this value as the `SenderId` variable in the client app.
 
-4. In the project dashboard, click **Use Google APIs** > **Cloud Messaging for Android**, then on the next page click **Enable API**. 
+   	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
-5. In the API Manager, Click **Credentials** > **Add Credential** > **API Key**. 
+
+4. In the project dashboard, under **Mobile APIs**, click **Google Cloud Messaging**, then on the next page click **Enable API** and accept the terms of service. 
+
+	![Enabling GCM](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+
+	![Enabling GCM](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
+
+5. In the project dashboard, Click **Credentials** > **Create Credential** > **API Key**. 
 
    	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
 

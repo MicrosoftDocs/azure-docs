@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Service Bus and Java with AMQP 1.0 | Microsoft Azure"
-   description="Using Service Bus from Java with AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Service Bus and Java with AMQP 1.0 | Microsoft Azure"
+    description="Using Service Bus from Java with AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Use Service Bus from Java with AMQP 1.0
 

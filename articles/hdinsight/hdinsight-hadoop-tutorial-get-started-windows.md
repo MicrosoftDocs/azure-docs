@@ -22,8 +22,8 @@
 # Hadoop tutorial: Get started using Hadoop in HDInsight on Windows
 
 > [AZURE.SELECTOR]
-- [Windows-based](../hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux-based](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Windows-based](../hdinsight-hadoop-tutorial-get-started-windows.md)
 
 To help you learn Hadoop on Windows and start using HDInsight, this tutorial shows you 
 how to run a Hive query on unstructured data in a Hadoop cluster and then analyze the 
@@ -209,7 +209,6 @@ In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows i
 - [Use Hive with HDInsight][hdinsight-use-hive]
 - [Use Pig with HDInsight][hdinsight-use-pig]
 - [Use Oozie with HDInsight][hdinsight-use-oozie]
-- [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -227,8 +226,7 @@ In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows i
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
 [hdinsight-sensor-data-sample]: hdinsight-hive-analyze-sensor-data.md

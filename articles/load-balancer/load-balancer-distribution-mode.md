@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 
@@ -43,7 +43,7 @@ Add an Azure endpoint to a Virtual Machine and set load balancer distribution mo
 
 	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE] LoadBalancerDistribution can be set to sourceIP for 2-tuple (source IP, Destination IP) load balancing, sourceIPProtocol for 3-tuple (source IP, DestinaDestination IP, protocol) load balancing or none if you want the default behavior of 5-tuple load balancing
+>[AZURE.NOTE] LoadBalancerDistribution can be set to sourceIP for 2-tuple (Source IP, Destination IP) load balancing, sourceIPProtocol for 3-tuple (Source IP, Destination IP, protocol) load balancing or none if you want the default behavior of 5-tuple load balancing
 
 
 Retrieve an endpoint load balancer distribution mode configuration
@@ -149,6 +149,6 @@ The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sour
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started Configuring an Internet facing load balancer](load-balancer-internet-getstarted.md)
+[Get started Configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) 

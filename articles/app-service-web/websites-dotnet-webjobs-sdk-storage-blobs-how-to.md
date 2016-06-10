@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="06/01/2016" 
 	ms.author="tdykstra"/>
 
 # How to use Azure blob storage with the WebJobs SDK
@@ -149,6 +149,21 @@ The `WebImage` binding code is provided in a `WebImageBinder` class that derives
 		        return output.WriteAsync(bytes, 0, bytes.Length, cancellationToken);
 		    }
 		}
+
+## Getting the blob path for the triggering blob
+
+To get the container name and blob name of the blob that has triggered the function, include a `blobTrigger` string parameter in the function signature.
+
+		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
+		    string name,
+		    string blobTrigger,
+		    TextWriter logger)
+		{
+		     logger.WriteLine("Full blob path: {0}", blobTrigger);
+		     logger.WriteLine("Content:");
+		     logger.WriteLine(logMessage);
+		}
+
 
 ## <a id="poison"></a> How to handle poison blobs
 

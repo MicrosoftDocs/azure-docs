@@ -3,8 +3,8 @@
    description="How to create host records for Azure DNS.Setting up record sets and records using CLI"
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
+   authors="cherylmc"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,111 +13,55 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
-   ms.author="joaoma"/>
+   ms.date="05/06/2016"
+   ms.author="cherylmc"/>
 
-
-# Create DNS records using CLI
+# Create DNS record sets and records by using CLI
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Azure Portal](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 
+This article walks you through the process of creating records and records sets by using CLI. After creating your DNS zone, you need to add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
 
-After creating your DNS Zone, you need to add the DNS records for your domain.  To do this, you first need to understand DNS records and record sets.
+[AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
+## Create a record set and record
 
-## Understanding record sets and records
-Each DNS record has a name and a type.
+In this section, we'll show you how to create a record set and records. In this example, you'll create a record set that has the relative name "www" in the DNS zone "contoso.com". The fully-qualified name of the records is "www.contoso.com". The record type is "A", and the time to live (TTL) is 60 seconds. After completing this step, you will have created an empty record set.
 
-A _fully qualified_ name includes the zone name, whereas a _relative_ name does not.  For example, the relative record name ‘www’ in the zone ‘contoso.com’ gives the fully qualified record name ‘www.contoso.com’.
+To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "@", including the quotation marks. This is a common DNS convention.
 
->[AZURE.NOTE] In Azure DNS, records are specified using relative names.
+### 1. Create a record set
 
-Records come in various types according to the data they contain.  The most common type is an ‘A’ record, which maps a name to an IPv4 address.  Another type is an ‘MX’ record, which maps a name to a mail server.
+To create record set, use `azure network dns record-set create`. Specify the resource group, zone name, record set relative name, the record type, and the TTL. If the `--ttl` parameter is not defined, the value defaults to four (in seconds). After completing this step, you will have an empty "www" record set.
 
-Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT.  (Note that [SPF records should be created using the TXT record type](http://tools.ietf.org/html/rfc7208#section-3.1).)
-
-Sometimes, you need to create more than one DNS record with a given name and type.  For example, suppose the www.contoso.com web site is hosted on two different IP addresses.  This requires two different A records, one for each IP address:
-
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
-
-This is an example of a record set.  A record set is the collection of DNS records in a zone with the same name and the same type.  Most record sets contain a single record, but examples like the one above in which a record set contains more than one record are not uncommon.  (Records sets of type SOA and CNAME are an exception, the DNS standards do not permit multiple records with the same name for these types.)
-
-The Time-to-Live, or TTL, specifies how long each record is cached by clients before being re-queried.  In the above example, the TTL is 3600 seconds or 1 hour.  The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
-
->[AZURE.NOTE] Azure DNS manages DNS records using record sets.
-
-
-
-## Create record sets and records 
-
-In the following example we will show how to create a record set and records.  We'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets-cli.md)
-
-
-### Step 1
-
-Create record set:
-
-	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+*Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
-The record set has relative name ‘www’ in the DNS Zone ‘contoso.com’, so the fully-qualified name of the records will be ‘www.contoso.com’.  The record type is ‘A’ and the TTL is 60 seconds.
+### 2. Add records
 
->[AZURE.NOTE] To create a record set in the apex of the zone (in this case, 'contoso.com'), use the record name "@", including the quotation marks. This is a common DNS convention.
+To use the newly created "www" record set, you need to add records to it. You add records to record sets by using `azure network dns record-set add-record`.
 
-The record set is empty and we have to add records to be able to use the newly created "www" record set.<BR>
+The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type "A", you will only be able to specify records with the parameter `-a <IPv4 address>`.
 
-### Step 2
+You can add IPv4 *A* records to the "www" record set by using the following command:
 
-Add IPv4 A records to the "www" record set using the following command:
-
-	Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+*Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
-	
 
-The changes are complete.  You can retrieve the record set from Azure DNS using "azure network dns-record-set show" :
+## Additional record type examples
 
+The following examples show how to create a record set of each record type. Each record set contains a single record.
 
-	azure network dns record-set show myresourcegroup "contoso.com" www A
-	
-	info:    Executing command network dns-record-set show
-	+ Looking up the DNS record set "www"
-	data:    Id                              : /subscriptions/########################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
-	data:    Name                            : www
-	data:    Type                            : Microsoft.Network/dnszones/A
-	data:    Location                        : global
-	data:    TTL                             : 300
-	data:    A records:
-	data:        IPv4 address                : 134.170.185.46
-	data:
-	info:    network dns record-set show command OK
+[AZURE.INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
 
+## Next steps
 
-You can also use nslookup or other DNS tools to query the new record set.  
+To manage your record set and records, see [Manage DNS records and record sets by using CLI](dns-operations-recordsets-portal.md).
 
->[AZURE.NOTE] As when creating the zone, if you have not yet delegated the domain to the Azure DNS name servers you will need to specify the name server address for your zone explicitly.
-
-
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
-
-	Server: ns1-01.azure-dns.com
-	Address:  208.76.47.1
-
-	Name:    www.contoso.com
-	Addresses:  134.170.185.46
-    	        
-
-
-
-## Next Steps
-[How to manage DNS zones](dns-operations-dnszones-cli.md)
-
-[How to manage DNS records](dns-operations-recordsets-cli.md)<BR>
-
-[Automate Azure Operations with .NET SDK](dns-sdk.md)
- 
+For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md).

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Publishing a Cloud Service using the Azure Tools
 
 By using the Azure Tools for Microsoft Visual Studio, you can publish your Azure application directly from Visual Studio. Visual Studio supports integrated publishing to either the Staging or the Production environment of a cloud service.
 
-Before you can publish an Azure application, you must have an Azure subscription. You must also set up a cloud service and storage account to be used by your application. You can set these up at the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+Before you can publish an Azure application, you must have an Azure subscription. You must also set up a cloud service and storage account to be used by your application. You can set these up at the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.IMPORTANT] When you publish, you can select the deployment environment for your cloud service. You must also select a storage account that is used to store the application package for deployment. After deployment, the application package is removed from the storage account.
 
@@ -35,7 +35,7 @@ Use the following procedures to publish your Azure application and to update a w
 
 When you publish your Azure application, you can do one of the following tasks:
 
-- Create a service package: You can use this package and the service configuration file to publish your application to a deployment environment from the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+- Create a service package: You can use this package and the service configuration file to publish your application to a deployment environment from the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 - Publish your Azure project from Visual Studio: To publish your application directly to Azure, you use the Publish Wizard. For information, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
 
@@ -49,19 +49,19 @@ When you publish your Azure application, you can do one of the following tasks:
 
   1. In the **Package Azure Application** dialog box, choose the service configuration for which you want to create a package, and then choose the build configuration.
 
-  1. (optional) To turn on Remote Desktop for the cloud service after you publish it, select the **Enable Remote Desktop for all Roles** check box, and then click **Settings** to configure Remote Desktop. If you want to debug your cloud service after you publish it, turn on remote debugging by selecting **Enable Remote Debugger for all Roles**.
+  1. (optional) To turn on Remote Desktop for the cloud service after you publish it, select the **Enable Remote Desktop for all Roles** check box, and then select **Settings** to configure Remote Desktop. If you want to debug your cloud service after you publish it, turn on remote debugging by selecting **Enable Remote Debugger for all Roles**.
 
       For more information, see [Using Remote Desktop with Azure Roles](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
 
   1. To create the package, choose the **Package** link.
 
-      File Explorer shows the file location of the newly created package. You can copy this location so that you can use it from the Azure Management Portal.
+      File Explorer shows the file location of the newly created package. You can copy this location so that you can use it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-  1. To publish this package to a deployment environment, you must use this location as the Package location when you create a cloud service and deploy this package to an environment with the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+  1. To publish this package to a deployment environment, you must use this location as the Package location when you create a cloud service and deploy this package to an environment with the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Optional) To cancel the deployment process, on the shortcut menu for the line item in the activity log, choose **Cancel and remove**. This stops the deployment process and deletes the deployment environment from Azure.
 
-    >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the Azure Management Portal.
+    >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Cloud Services** node in Server Explorer. From here you can see the status of the individual role instances. See [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).The following illustration shows the role instances while they are still in the Initializing state:
 
@@ -97,7 +97,7 @@ The following procedure assumes that you are using the **Publish Azure Applicati
 
     The cloud service is published. The virtual machine that is created has remote connections enabled for IIS so that Web Deploy can be used to update your web roles without republishing them.
 
-    >[AZURE.NOTE] If you have more than one instance configured for a web role, a warning message appears, stating that each web role will be limited to one instance only in the package that’s created to publish your application. Click OK to continue. As stated in the Requirements section, you can have more than one web role but only one instance of each role.
+    >[AZURE.NOTE] If you have more than one instance configured for a web role, a warning message appears, stating that each web role will be limited to one instance only in the package that’s created to publish your application. Select **OK** to continue. As stated in the Requirements section, you can have more than one web role but only one instance of each role.
 
 ### To Update Your Web Role by Using Web Deploy
 
@@ -121,15 +121,15 @@ The following procedure assumes that you are using the **Publish Azure Applicati
 
 1. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate, which you obtain from a certificate authority (CA).
 
-    To make Web Deploy secure for each virtual machine for each of your web roles, you must upload the trusted certificate that you want to use for web deploy to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885). This makes sure that the certificate is added to the virtual machine that is created for the web role when you publish your application.
+    To make Web Deploy secure for each virtual machine for each of your web roles, you must upload the trusted certificate that you want to use for web deploy to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). This makes sure that the certificate is added to the virtual machine that is created for the web role when you publish your application.
 
 1. To add a trusted SSL certificate to IIS to use for remote connections, follow these steps:
 
-  1. To connect to the virtual machine that is running the web role, click the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
+  1. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
 
       Your browser will prompt you to download an .RDP file.
 
-  1. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** dropdown list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the Azure management portal. For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
+  1. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** dropdown list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
 
       >[AZURE.NOTE] If you add a trusted SSL certificate, the yellow warning triangle no longer appears in the **Publish Wizard**.
 

@@ -27,7 +27,7 @@ Typically you'll use collectd if you have already [instrumented your Java web se
 
 ## Get your instrumentation key
 
-In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](start) resource where you want the data to appear. (Or [create a new resource](app-insights-create-new-resource.md).)
+In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](app-insights-create-new-resource.md).)
 
 Take a copy of the instrumentation key, which identifies the resource.
 

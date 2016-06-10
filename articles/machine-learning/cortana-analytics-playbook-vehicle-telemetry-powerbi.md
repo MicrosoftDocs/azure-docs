@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Vehicle telemetry analytics solution template PowerBI Dashboard setup instructions | Microsoft Azure" 
-	description="Use the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits." 
+	description="Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
@@ -24,7 +24,7 @@ This **menu** links to the chapters in this playbook.
 [AZURE.INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 
-The Vehicle Telemetry Analytics solution showcases how car dealerships, automobile manufacturers and insurance companies can leverage the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits to drive improvements in the area of customer experience, R&D and marketing campaigns. 
+The Vehicle Telemetry Analytics solution showcases how car dealerships, automobile manufacturers and insurance companies can leverage the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits to drive improvements in the area of customer experience, R&D and marketing campaigns. 
 This document contains step by step instructions on how you can configure the PowerBI reports and dashboard once the solution is deployed in your subscription. 
 
 
@@ -35,8 +35,8 @@ This document contains step by step instructions on how you can configure the Po
 4.	Microsoft PowerBI account
 	
 
-## Cortana Analytics Suite Components
-As part of the Vehicle Telemetry Analytics solution template, the following Cortana Analytics services are deployed in your subscription.
+## Cortana Intelligence Suite Components
+As part of the Vehicle Telemetry Analytics solution template, the following Cortana Intelligence services are deployed in your subscription.
 
 - **Event Hubs** for ingesting millions of vehicle telemetry events into Azure.
 - **Stream Analytic**s for gaining real-time insights on vehicle health and persists that data into long-term storage for richer batch analytics.
@@ -333,15 +333,15 @@ It should take about 10 to 15 minutes to complete the below steps.
 Note: It takes about 2 hours (from the successful completion of the deployment)  for the end to end batch processing pipeline to finish execution and process a year worth of generated data. Please wait before proceeding with the next steps. 
 
 **Download the PowerBI designer file**
-•	A pre-configured  PowerBI designer file is included as part of the deployment
-•	Click on the PowerBI node on the diagram view and click 'Download the PowerBI designer' file link on the properties pane ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+-	A pre-configured  PowerBI designer file is included as part of the deployment
+-	Click on the PowerBI node on the diagram view and click 'Download the PowerBI designer' file link on the properties pane ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
-•	Save locally
+-	Save locally
 
 **Configure PowerBI reports**
-•	Open the designer file ‘VehicleTelemetryAnalytics - Desktop Report.pbix’ using PowerBI Desktop. If you do not already have, install the PowerBI Desktop from [PowerBI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331). 
+-	Open the designer file ‘VehicleTelemetryAnalytics - Desktop Report.pbix’ using PowerBI Desktop. If you do not already have, install the PowerBI Desktop from [PowerBI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331). 
 
-•	Click on the **Edit Queries**.
+-	Click on the **Edit Queries**.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
 

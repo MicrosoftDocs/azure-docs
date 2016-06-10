@@ -14,19 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="06/09/2016"
 	ms.author="jgao"/>
 
 # Customize HDInsight clusters using Bootstrap
 
 Sometimes, you want to configure the configuration files which include:
 
+- clusterIdentity.xml
 - core-site.xml
+- gateway.xml
+- hbase-env.xml
+- hbase-site.xml
 - hdfs-site.xml
-- mapred-site.xml
-- yarn-site.xml
+- hive-env.xml
 - hive-site.xml
+- mapred-site
 - oozie-site.xml
+- oozie-env.xml
+- storm-site.xml
+- tez-site.xml
+- webhcat-site.xml
+- yarn-site.xml
 
 The clusters can't retain the changes due to re-imaging. For more information on re-imaging, 
 see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). 
@@ -35,6 +44,9 @@ To keep the changes through the clusters' lifetime, you can use HDInsight cluste
 There are 3 methods to use bootstrap:
 
 - Use Azure PowerShell
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    
 - Use .NET SDK
 - Use ARM template
 
@@ -102,7 +114,7 @@ For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluste
 
 ## Use .NET SDK
 
-See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk#use-bootstrap).
+See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
 ## Use Azure ARM template
 
@@ -201,9 +213,9 @@ This PowerShell script creates an HDInsight cluster and customizes a Hive settin
         -Location $location `
         -Type Standard_GRS
 
-    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
     $defaultStorageContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey

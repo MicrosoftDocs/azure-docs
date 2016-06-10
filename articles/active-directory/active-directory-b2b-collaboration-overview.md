@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="curtand"/>
 
-# Azure Active Directory  (Azure AD) B2B collaboration
+# Azure Active Directory B2B collaboration
 
-Azure AD B2B collaboration lets you enable access to your corporate applications from partner-managed identities. You can create cross-company relationships by inviting and authorizing users from partner companies to access your resources. Complexity is reduced because each company federates once with Azure Active Directory and each user is represented by a single Azure AD account. Security is increased because access is revoked when partner users are terminated from their organizations, and unintended access via membership in internal directories is prevented. For business partners who don't already have Azure AD, B2B collaboration has a streamlined sign-up experience to provide Azure AD accounts to your business partners.
+Azure Active Directory (Azure AD) B2B collaboration lets you enable access to your corporate applications from partner-managed identities. You can create cross-company relationships by inviting and authorizing users from partner companies to access your resources. Complexity is reduced because each company federates once with Azure Active Directory and each user is represented by a single Azure AD account. Security is increased if your business partners manage their accounts in Azure AD because access is revoked when partner users are terminated from their organizations, and unintended access via membership in internal directories is prevented. For business partners who don't already have Azure AD, B2B collaboration has a streamlined sign-up experience to provide Azure AD accounts to your business partners.
 
 -   Your business partners use their own sign-in credentials, which frees you from managing an external partner directory, and from the need to remove access when users leave the partner organization.
 
@@ -30,7 +30,7 @@ B2B collaboration simplifies management and improves security of partner access 
 
 Azure Active Directory B2B collaboration is easy to configure with simplified sign-up for partners of all sizes even if they don’t have their own Azure Active Directory via an email-verified process. It is also easy to maintain with no external directories or per partner federation configurations.
 
-The process:
+## B2B collaboration process
 
 1. Azure AD B2B collaboration allows a company administrator to invite and authorize a set of external users by uploading a comma-separated values (CSV) file of no more than 2000 lines to the B2B collaboration portal.
 
@@ -46,29 +46,8 @@ Invitations to consumer email addresses (for example, Gmail or [*comcast.net*](
 
 For more on how B2B collaboration works, check out [this video](http://aka.ms/aadshowb2b).
 
-## CSV File Format
-
-The CSV file follows the format below. Add all required commas even if you don't specify one or more options.
-
-**Email:** Email address for invited user.<br/>
-**DisplayName:** Display name for invited user (typically, first and last name).<br/>
-**InviteAppID:**  The ID for the application to use for branding the email invite and acceptance pages.<br/>
-**InviteReplyURL:** URL to which to direct an invited user after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). If this optional field is not specified, the inviting company's Access Panel URL is generated (this URL is of the form  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/>
-**InviteAppResources:** AppIDs to which applications can assign users. AppIDs are retrievable by calling `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
-**InviteGroupResources:** ObjectIDs for groups to add user to. ObjectIDs are retrievable by calling `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
-**InviteContactUsUrl:** "Contact Us" URL to include in email invitations in case the invited user wants to contact your organization.<br/>
-
-## Sample CSV file
-Here is a sample CSV you can modify for your purposes. Save it to any file name you prefer, but ensure that it has a '.csv' file extension.
-
-```
-Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
-wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-```
 ## Next steps
-Browse our other articles on Azure B2B collaboration
+Browse our other articles on Azure AD B2B collaboration.
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [How it works](active-directory-b2b-how-it-works.md)

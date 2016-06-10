@@ -4,17 +4,19 @@ This guidance is for SMEs who are listed as the author of an article that needs 
 
 If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the Disqus comment stream for the article to let the author know something is wrong with the article.
 
-SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Deleting the article or changing it’s name should be the last thing that happens!
+SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Deleting the article or changing its name should be the last thing that happens!
 
-## Step 1: Set the article to no-index/no-follow and republish it
+## Step 1: Set the article to no-index/no-follow and republish it (recommended)
 
-The first thing you should do is republish the article as no-index/no-follow a few weeks before you actually delete it. Doing this removes the article from search engine indexes so people won't find the article in search. [See the internal wiki for details.](https://microsoft.sharepoint.com/teams/azurecontentguidance/wiki/Pages/Remove%20published%20pages%20and%20request%20redirects.aspx)
+The first thing you should do is republish the article as no-index/no-follow a few weeks before you actually delete it. This is considered the best practice "pre-work" for retiring content. Doing this removes the article from search engine indexes so people won't find the article in search. [See the internal wiki for details.](https://microsoft.sharepoint.com/teams/azurecontentguidance/wiki/Pages/Remove%20published%20pages%20and%20request%20redirects.aspx)
 
-## Step 2: Manage inbound links
+## Step 2: Manage inbound links (required)
 
 Determine if there are any non-Microsoft inbound links to your content. Frequently, blogs, forums, and other content on the web points to articles. Frequently, you can work with blog owners to change these links, and you can remove or update links from forum posts. Web analytics tools can tell you if there are any high traffic inbound links you might need to manage in this way.
 
-## Step 3: Remove all crosslinks to the article from the technical content repository
+## Step 3: Remove all crosslinks to the article from the technical content repository (required)
+
+Do not rely on redirects to take care of crosslinks from other articles. Update or remove the cross references to the article you are deleting or renaming, including in articles owned by other people.
 
 1. Ensure you are working in an up-to-date local branch – run `git pull upstream master` (or the appropriate variation on this command.
 
@@ -36,11 +38,11 @@ Determine if there are any non-Microsoft inbound links to your content. Frequent
 
 3. Add and commit all your changes, push them to your fork, and create a pull request to move your changes from your fork to the master branch of the main repository.
 
-## Step 4: Update the FWLink tool
+## Step 4: Update the FWLink tool (required)
 
 Check the FWLink tool for any FWLinks that might point to the article. Point any FWLinks at replacement content; if you are not on the alias that owns the link, join it. If the owners won't update the link, file a ticket with MSCOM to have the link changed. More info - [internal wiki](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Manage%20inbound%20links%20to%20retired%20topics.aspx).
 
-## Step 5: Remove all crosslinks to the article from other pages on azure.microsoft.com and create a redirect for the retired page, if appropriate
+## Step 5: Remove all crosslinks to the article from other pages on azure.microsoft.com and create a redirect for the retired page, if appropriate (required)
 
 You'll have to work with the person who maintains and updates the documentation landing page for your service for this part. Contact your content team partner if you don't know who that person is. The person who maintains and updates the doc landing page will need to do two things:
 
@@ -52,13 +54,15 @@ You'll have to work with the person who maintains and updates the documentation 
 
 ## Step 6: Retire the article
 
-After you've completed the prior steps and those changes are live, you can delete the article from the repository.
+After you've completed the prior steps and those changes are live, you can delete the article from the repository. 
 
-## Step 7: Remove links from MSDN
+**Important:** When you delete files, you must use the `git add --all` command.
+
+## Step 7: Remove links from MSDN (required)
 
 Review the content QA tool for broken links to the retired or renamed topic and remove/fix the links in all MSDN topics affected.
 
-## Step 8: Remove cached pages from search engines
+## Step 8: Remove cached pages from search engines (only if absolutely necessary)
 
 Do this ONLY if the content needs to be removed quickly due to legal or severe customer issues. Per best practices from Google, normal priority page deletions should just be handled by natural search engine processes. Go to these web pages to remove cached web pages from search engines:
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Stretch Database overview
@@ -67,11 +67,11 @@ Stretch Database targets transactional databases with large amounts of historica
 
 If you use the temporal table feature of SQL Server 2016, use Stretch Database to migrate all or part of the associated history table to cost\-effective storage in Azure. For more info, see [Manage Retention of Historical Data in System-Versioned Temporal Tables](https://msdn.microsoft.com/library/mt637341.aspx).
 
-Use Stretch Database Advisor, a feature of SQL Server 2016 Upgrade Advisor, to identify databases and tables for Stretch Database. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md). To learn more about potential blocking issues, see [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md).
+Use Stretch Database Advisor, a feature of SQL Server 2016 Upgrade Advisor, to identify databases and tables for Stretch Database. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md). To learn more about potential blocking issues, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 
 ## <a name="FAQ"></a>Frequently asked questions about Stretch Database
 **Does Stretch Database work with &lt;SQL Server feature name&gt;?**
--   For a list of SQL Server features that make a table ineligible for Stretch, see [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md).
+-   For a list of SQL Server features that make a table ineligible for Stretch, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 
 -   Optionally, download SQL Server 2016 Upgrade Advisor and run the Stretch Database Advisor to identify databases and tables that are candidates for Stretch Database. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md).
 
