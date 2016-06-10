@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search Management REST API
@@ -38,7 +38,7 @@ You will need an Azure account to complete this tutorial.
 
 This tutorial is based on a Windows console application written in C#, which you can edit and run in either Visual Studio 2012 or 2013
 
-You can find the client application on Codeplex at [Azure Search Management API Demo](https://github.com/Azure-Samples/search-dotnet-management-api/).
+You can find the client application on Github at [Azure Search .NET Management API Demo](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 
 ##Configure the application

@@ -109,7 +109,7 @@ First, you'll need to attach the data disk to the virtual machine.
 
 
 ## Next steps
-- You can increase the storage available to your virtual machine by [attaching a additonal data disk](virtual-machines-windows-attach-disk-portal.md).
+- You can increase the storage available to your virtual machine by [attaching a additional data disk](virtual-machines-windows-attach-disk-portal.md).
 
 
 
