@@ -140,16 +140,16 @@ Finally, you must update the script registered to the insert operation on the To
 
 This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
 
-+ [Send broadcast notifications to subscribers](../notification-hubs/notification-hubs-windows-phone-send-breaking-news.md)
++ [Send broadcast notifications to subscribers](../notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Send platform-agnostic notifications to subscribers](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md)
++ [Send platform-agnostic notifications to subscribers](../notification-hubs/notification-hubs-aspnet-push-to-user-cross-platform-notification.md)
 	<br/>Learn how to use templates to send push notifications from your mobile service, without having to craft platform-specific payloads in your back-end.
 
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Azure Notification Hubs - Diagnosis guidelines](../notification-hubs/notification-hubs-diagnosing.md)
+* [Azure Notification Hubs - Diagnosis guidelines](../notification-hubs/notification-hubs-push-notification-fixer.md)
 	<br/>Learn how to troubleshoot your push notification issues.
 
 * [Get started with authentication]
