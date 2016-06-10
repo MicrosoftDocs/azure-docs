@@ -958,7 +958,7 @@ The same web API might be utilized by many client applications running anywhere 
 
 	If you prefer to implement notifications, the options available include:
 
-	- Using an Azure Notification Hub to push asynchronous responses to client applications. The page [Azure Notification Hubs Notify Users](/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) on the Microsoft website provides further details.
+	- Using an Azure Notification Hub to push asynchronous responses to client applications. The page [Azure Notification Hubs Notify Users](./notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) on the Microsoft website provides further details.
 
 	- Using the Comet model to retain a persistent network connection between the client and the server hosting the web API, and using this connection to push messages from the server back to the client. The MSDN magazine article [Building a Simple Comet Application in the Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx) describes an example solution.
 
