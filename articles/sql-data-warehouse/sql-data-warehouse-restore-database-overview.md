@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="06/10/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
 # Restore a database in Azure SQL Data Warehouse (Overview)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-restore-database-overview.md)
-- [Portal](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-restore-database-rest-api.md)
+- [Overview][]
+- [Portal][]
+- [PowerShell][]
+- [REST][]
 
 Describes the options for restoring a database in Azure SQL Data Warehouse. These include restoring a live data warehouse and a deleted data warehouse. Live and deleted data warehouses are restored from the automatic snapshots created from all data warehouses. 
 
@@ -45,11 +45,11 @@ Let us take a look at how SQL Data Warehouse enhances the reliability of your da
 
 ### Data redundancy
 
-SQL Data Warehouse stores all data on [locally redundant (LRS)](../storage/storage-redundancy.md) Azure Premium Storage keeping 3 copies of your data. 
+SQL Data Warehouse stores all data on [locally redundant (LRS)][] Azure Premium Storage keeping 3 copies of your data. 
 
 ### Database Restore
 
-Database restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic snapshot and restore features provide a zero-admin way to protect databases from accidental corruption or deletion. To learn more about database restore, refer to [Database restore tasks][].
+Database restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all active (unpaused) databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic snapshot and restore features provide a zero-admin way to protect databases from accidental corruption or deletion.
 
 ## Next steps
 For other important management tasks, see [Management overview][].
@@ -58,9 +58,12 @@ For other important management tasks, see [Management overview][].
 
 <!--Article references-->
 [Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
-[Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Management overview]: sql-data-warehouse-overview-management.md
-[Database restore tasks]: sql-data-warehouse-manage-database-restore-portal.md
+[locally redundant (LRS)]: ../storage/storage-redundancy.md
+[Management overview]: ./sql-data-warehouse-overview-management.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
