@@ -30,20 +30,14 @@ Click to see the [SDK Content](mobile-engagement-web-sdk-content.md).
 
 ## Release notes
 
-### 2.0.0 (06/07/2016)
+### 2.0.1 (06/10/2016)
 
--   Initial Release of Azure Mobile Engagement
--   appId configuration is replaced by a connection string configuration.
--   Added APIs to enable/disable the Agent.
--   Security improvements.
--   Use native JSON APIs from browsers.
--   Removed API to send and receive messages between devices.
--   Removed callbacks related to the deprecated XMPP connection.
--   This version doesn't support the Reach feature.
+-   SDK disabled on IE8 and IE9.
+-   Fixed Opera web browser detection.
 
 For all versions, please see the [complete release notes](mobile-engagement-web-release-notes.md).
 
-##Upgrade procedures
+## Upgrade procedures
 
 ### From 1.2.1 to 2.0.0
 

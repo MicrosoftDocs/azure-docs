@@ -43,7 +43,7 @@ The Engagement Web SDK uses native JSON encoding/decoding and cross domain AJAX 
 
 * Edge 12+
 * IE 10+
-* Firefox 6+
+* Firefox 3.5+
 * Chrome 4+
 * Safari 6+
 * Opera 12+

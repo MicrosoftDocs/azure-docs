@@ -19,6 +19,11 @@
 
 #Release notes
 
+##2.0.1 (06/10/2016)
+
+-   SDK disabled on IE8 and IE9.
+-   Fixed Opera web browser detection.
+
 ##2.0.0 (06/07/2016)
 
 -   Initial Release of Azure Mobile Engagement.
