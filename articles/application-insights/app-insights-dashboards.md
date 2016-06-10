@@ -111,7 +111,13 @@ When you've created a dashboard, you can share it with other users.
 
 Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
 
+## What's next?
 
+||
+|---|---
+|[Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics|![Search example](./media/app-insights-dashboards/64.png)
+|[Diagnostic search](app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png)
+|[Analytics](app-insights-analytics.md)<br/>Powerful query language| ![Search example](./media/app-insights-dashboards/63.png)
 
 
 
