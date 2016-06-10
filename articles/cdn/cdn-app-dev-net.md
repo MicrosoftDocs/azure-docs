@@ -48,13 +48,13 @@ The first thing we're going to do is create a resource group to contain the CDN 
 
 After the resource group is created, we need to create a service principal.  This is the identity that we will give permission to carry out our CDN tasks within Azure.
 
-Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](./resource-group-create-service-principal-portal/).
+Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](./resource-group-create-service-principal-portal.md).
 
 > [AZURE.IMPORTANT] Be sure to follow all the steps in the linked tutorial.  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **client ID**, and **client authentication key**, as we will need these later.
 > 	
-> When you get to the step named [Configure multi-tenant application](./resource-group-create-service-principal-portal/#configure-multi-tenant-application), select **No**.
+> When you get to the step named [Configure multi-tenant application](./resource-group-create-service-principal-portal.md#configure-multi-tenant-application), select **No**.
 > 
-> When you get to the step [Assign application to role](./resource-group-create-service-principal-portal/#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role instead.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
+> When you get to the step [Assign application to role](./resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role instead.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
 
 Once you've created your service princpal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
 
