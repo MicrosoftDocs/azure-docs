@@ -31,8 +31,6 @@
 
 This end-to-end tutorial shows you how to implement Availability Groups using SQL Server Always On running on Azure virtual machines.
 
->[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for Always On Availability Groups with a Listener. This configures everything you need for Always On Availability Groups automatically. For more information, see [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). To use PowerShell, see the tutorial of the same scenario at [Configure Always On Availability Groups in Azure with PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md).
-
 At the end of the tutorial, your SQL Server Always On solution in Azure will consist of the following elements:
 
 - A virtual network containing multiple subnets, including a front-end and a back-end subnet
