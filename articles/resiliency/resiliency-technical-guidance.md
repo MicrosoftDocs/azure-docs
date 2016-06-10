@@ -23,7 +23,7 @@ Meeting high availability and disaster recovery requirements requires two types 
 - Detailed technical understanding of a cloud platform’s capabilities
 - Knowledge of how to properly architect a distributed service
 
-This series of articles covers the former: the capabilities and limitations of the Azure platform with respect to resiliency (sometimes called business continuity). If you're interested in the latter, please see the article series focused on [Disaster recovery and high availability for Azure applications](https://aka.ms/drtechguide).
+This series of articles covers the former: the capabilities and limitations of the Azure platform with respect to resiliency (sometimes called business continuity). If you're interested in the latter, please see the article series focused on [disaster recovery and high availability for Azure applications](https://aka.ms/drtechguide).
 
 Although this article series touches on architecture and design patterns, that's not the focus of the series. For design guidance, you can consult the material in the [Additional resources](#additional-resources) section.
 
