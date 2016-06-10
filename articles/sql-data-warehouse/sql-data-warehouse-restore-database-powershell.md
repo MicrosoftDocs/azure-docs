@@ -13,27 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="06/10/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Backup and restore a database in Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-restore-database-overview.md)
-- [Portal](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-restore-database-rest-api.md)
+- [Overview][]
+- [Portal][]
+- [PowerShell][]
+- [REST][]
 
 PowerShell tasks for restoring a live, deleted, or inaccessible database in SQL Data Warehouse. 
-
-Tasks in this topic:
-
-- Restore a live database
-- Restore a deleted database
-- Restore an inaccessible database from a different Azure geographical region
-
-[AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
-
 
 ## Before you begin
 
@@ -88,8 +79,6 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
-
 After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
 ## Restore a deleted database
@@ -125,8 +114,6 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 $RestoredDatabase.status
 
 ```
-
->[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
 
 After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
@@ -179,6 +166,10 @@ For more information, see [Azure SQL Database business continuity overview][], a
 [Finalize a recovered database]: sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
 [Management overview]: sql-data-warehouse-overview-manage.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx

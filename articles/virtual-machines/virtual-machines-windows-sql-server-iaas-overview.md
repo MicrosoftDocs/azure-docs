@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/03/2016"
+	ms.date="06/10/2016"
 	ms.author="jroth"/>
 
 # Get started with SQL Server on Azure Virtual Machines
@@ -78,9 +78,10 @@ If you require high availability, consider configuring SQL Server Availability G
 For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
 ### Backup your data
-Store database backups directly in Azure using Blob storage. For more information, see [Use Azure Storage for SQL Server Backup and Restore](../sql-database/storage-use-storage-sql-server-backup-restore.md). Although this works well for SQL VMs, it also works for on-premises SQL Server databases. For an overview of backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+Azure VMs can take advantage of [Automated Backup](virtual-machines-windows-sql-automated-backup.md), which regularly creates backups of your database to blob storage. You can also manually use this technique. For more information, see [Use Azure Storage for SQL Server Backup and Restore](../sql-database/storage-use-storage-sql-server-backup-restore.md). For an overview of all backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
-Azure VMs can also take advantage of [Automated Backup](virtual-machines-windows-sql-automated-backup.md) and [Automated Patching](virtual-machines-windows-sql-automated-patching.md) for SQL Server.
+### Automate updates
+Azure VMs can use [Automated Patching](virtual-machines-windows-sql-automated-patching.md) to schedule a maintenance window for installing important windows and SQL Server updates automatically.
 
 ### Customer experience improvement program (CEIP)
 The Customer Experience Improvement Program (CEIP) is enabled by default. This is not a management task, unless you want to disable CEIP after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting.

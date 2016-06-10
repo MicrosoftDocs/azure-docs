@@ -1,21 +1,21 @@
 
 To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
 
-The standard sizes consist of several series: A, D, DS, F, G, and GS. Considerations for some of these sizes include:
+The standard sizes consist of several series: A, D, DS, F, Fs, G, and GS. Considerations for some of these sizes include:
 
 *   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
 *   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
-* F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per core. The F-series sizes range from 1 to 16 CPU cores with options for both standard and premium storage optimized sizes.
+* F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per core. 
 
- The F-series also introduces a new standard in VM size naming for Azure. For this series and VM sizes released in the future, the numeric value after the family name letter will match the number of CPU cores. Additional capabilities, such as optimized for premium storage, will be designated by letters following the numeric CPU core count. This naming format will be used for future VM sizes released but will not retroactively change the names of any existing VM sizes which have been released.
+	The F-series also introduces a new standard in VM size naming for Azure. For this series and VM sizes released in the future, the numeric value after the family name letter will match the number of CPU cores. Additional capabilities, such as optimized for premium storage, will be designated by letters following the numeric CPU core count. This naming format will be used for future VM sizes released but will not retroactively change the names of any existing VM sizes which have been released.
 
 
 *   G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
 
 
-*   DS-series, DSv2-series, F-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
+*   DS-series, DSv2-series, Fs-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
 *   The A-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
@@ -49,18 +49,18 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 |SKU Family	|ACU/Core |
 |---|---|
-|[Standard_A0](#standard-tier-a-series)	|50 |
-|[Standard_A1-4](#standard-tier-a-series)	|100 |
-|[Standard_A5-7](#standard-tier-a-series)	|100 |
-|[A8-A11](#standard-tier-a-series)	|225*|
-|[D1-14](#standard-tier-d-series)	|160 |
-|[D1-15v2](#standard-tier-dv2-series)	|210 - 250*|
-|[DS1-14](#standard-tier-ds-series)	|160 |
-|[DS1-15v2](#standard-tier-dsv2-series)	|210-250* |
-|[F1-F16](#standard-storage-optimized-f-series) | 210-250*|
-|[F1s-F16s](#premium-storage-optimized-f-series) | 210-250*|
-|[G1-5](#standard-tier-g-series)	|180 - 240*|
-|[GS1-5](#standard-tier-gs-series)	|180 - 240*|
+|[Standard_A0](#a-series)	|50 |
+|[Standard_A1-4](#a-series)	|100 |
+|[Standard_A5-7](#a-series)	|100 |
+|[A8-A11](#a-series)	|225*|
+|[D1-14](#d-series)	|160 |
+|[D1-15v2](#dv2-series)	|210 - 250*|
+|[DS1-14](#ds-series)	|160 |
+|[DS1-15v2](#dsv2-series)	|210-250* |
+|[F1-F16](#f-series) | 210-250*|
+|[F1s-F16s](#fs-series) | 210-250*|
+|[G1-5](#g-series)	|180 - 240*|
+|[GS1-5](#gs-series)	|180 - 240*|
 
 
 ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
@@ -74,7 +74,7 @@ The following tables show the sizes and the capacities they provide.
 * Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput will increase accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
 
 
-## Standard tier: A-series
+## A-series
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
 |---|---|---|---|---|---|---|---|
@@ -89,7 +89,7 @@ The following tables show the sizes and the capacities they provide.
 
 
 
-## Standard tier: A-series - compute-intensive instances
+## A-series - compute-intensive instances
 
 Note: For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
@@ -100,7 +100,7 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_A10|8|56 GB|2| Temporary = 382 GB  |16|16x500| high |
 |Standard_A11|16|112 GB|4| Temporary = 382 GB  |16|16x500| very high |
 
-## Standard tier: D-series
+## D-series
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
 |---|---|---|---|---|---|---|---|
@@ -114,7 +114,7 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
 
 
-## Standard tier: Dv2-series
+## Dv2-series
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
 |---|---|---|---|---|---|---|---|
@@ -130,7 +130,7 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_D15_v2 |20|140 GB|10|Temporary (SSD) =1 TB |40|40x500| very high |
 
 
-## Standard tier: DS-series*
+## DS-series*
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
 |---|---|---|---|---|---|---|---|---|
@@ -146,7 +146,7 @@ Note: For information and considerations about using these sizes, see [About the
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
-## Standard tier: DSv2-series*
+## DSv2-series*
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
 |---|---|---|---|---|---|---|---|---|
@@ -165,38 +165,38 @@ Note: For information and considerations about using these sizes, see [About the
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
-## Standard storage optimized F-series
+## F-series
 
 
 | Size         | CPU cores | Memory | NICs (Max) | Disk size          | Max data disks (1023 GB each) | Max IOPS (500 per disk) | Max network bandwidth |
-|--------------|-----------|--------|------------|-------------------------|--------------------------------|--------------------------|-----------------------|
-| Standard_F1  | 1         | 2 GB   | 1          | Temporary (SSD) =16 GB  | 2                              | 2x500                    | 500 Mbps              |
-| Standard_F2  | 2         | 4 GB   | 2          | Temporary (SSD) =32 GB  | 4                              | 4x500                    | 1000 Mbps             |
-| Standard_F4  | 4         | 8 GB   | 4          | Temporary (SSD) =64 GB  | 8                              | 8x500                    | 2000 Mbps             |
-| Standard_F8  | 8         | 16 GB  | 8          | Temporary (SSD) =128 GB | 16                             | 16x500                   | 4000 Mbps             |
-| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                             | 32x500                   | 8000 Mbps             |
+|--------------|-----------|--------|------------|-------------------------|--------------------------|--------------------------|-------------|
+| Standard_F1  | 1         | 2 GB   | 1          | Temporary (SSD) =16 GB  | 2                        | 2x500                    | moderate    |
+| Standard_F2  | 2         | 4 GB   | 2          | Temporary (SSD) =32 GB  | 4                        | 4x500                    | high        |
+| Standard_F4  | 4         | 8 GB   | 4          | Temporary (SSD) =64 GB  | 8                        | 8x500                    | high        |
+| Standard_F8  | 8         | 16 GB  | 8          | Temporary (SSD) =128 GB | 16                       | 16x500                   | high        |
+| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                       | 32x500                   | very high   |
 
 
 
-## Premium storage optimized F-series*
+## Fs-series*
 
 | Size          | CPU cores | Memory | NICs (Max) | Disk size         | Max data disks (1023 GB each) | Cache size (GB) | Max disk IOPS & bandwidth | Max network bandwidth |
-|---------------|-----------|--------|------------|------------------------|--------------------------------|-----------------|----------------------------|-----------------------|
-| Standard_F1s  | 1         | 2      | 1          | Local SSD disk = 4 GB  | 2                              | 12              | 3,200 48 MB per second     | 500 Mbps              |
-| Standard_F2s  | 2         | 4      | 2          | Local SSD disk = 8 GB  | 4                              | 24              | 6,400 96 MB per second     | 1000 Mbps             |
-| Standard_F4s  | 4         | 8      | 4          | Local SSD disk = 16 GB | 8                              | 48              | 12,800 192 MB per second   | 2000 Mbps             |
-| Standard_F8s  | 8         | 16     | 8          | Local SSD disk = 32 GB | 16                             | 96              | 25,600 384 MB per second   | 4000 Mbps             |
-| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32                             | 192             | 51,200 768 MB per second   | 8000 Mbps             |
+|---------------|-----------|--------|------------|------------------------|-----------|-----------|----------------------------|------------|
+| Standard_F1s  | 1         | 2      | 1          | Local SSD disk = 4 GB  | 2         | 12        | 3,200 48 MB per second     | moderate   |
+| Standard_F2s  | 2         | 4      | 2          | Local SSD disk = 8 GB  | 4         | 24        | 6,400 96 MB per second     | high       |
+| Standard_F4s  | 4         | 8      | 4          | Local SSD disk = 16 GB | 8         | 48        | 12,800 192 MB per second   | high       |
+| Standard_F8s  | 8         | 16     | 8          | Local SSD disk = 32 GB | 16        | 96        | 25,600 384 MB per second   | high       |
+| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32        | 192       | 51,200 768 MB per second   | very high  |
 
 
 
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
+*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a Fs series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
 
 
 
-## Standard tier: G-series
+## G-series
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
 |---|---|---|---|---|---|---|---|
@@ -209,7 +209,7 @@ Note: For information and considerations about using these sizes, see [About the
 
 
 
-## Standard tier: GS-series
+## GS-series
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
 |---|---|---|---|---|---|---|---|---|

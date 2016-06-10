@@ -16,7 +16,7 @@
    ms.date="05/10/2016"
    ms.author="sstein"/>
 
-# Overview: SQL Database Point-in-Time Restore
+# Overview: SQL Database point-in-time restore
 
 > [AZURE.SELECTOR]
 - [Overview](sql-database-point-in-time-restore.md)
@@ -41,7 +41,7 @@ Point-in-time restore is the recommended approach for recovering Basic, Standard
 Automatic backups and point-in-time restore protect your databases from accidental data corruption or data deletion. This zero-cost zero-admin solution is available with all SQL databases. Backup and restore provides a significant improvement over the alternative copy/export/import solution for short term recovery needs. We encourage you to use point-in-time restore as part of your business continuity strategy, and only to use export as needed for longer term archival or data migration purposes.
 
 
-## Next Steps
+## Next steps
 
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
 - [Point-in-time restore using the Azure portal](sql-database-point-in-time-restore-portal.md)
@@ -50,7 +50,7 @@ Automatic backups and point-in-time restore protect your databases from accident
 - [SQL Database automated backups](sql-database-automated-backups.md)
 
 
-## Additional Resources
+## Additional resources
 
 - [Restore a deleted database](sql-database-restore-deleted-database.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
