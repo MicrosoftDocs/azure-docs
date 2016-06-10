@@ -19,6 +19,8 @@
 
 # Common PowerShell commands for creating and managing VMs
 
+## Common cmdlets
+
 This article covers some of the Azure PowerShell commands that you can use to create and manage virtual machines in your Azure subscription.  For more detailed help with specific command line switches and options, you can use **Get-Help** *command*.
 
 See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
