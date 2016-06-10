@@ -19,7 +19,7 @@
 
 # Web SDK for Azure Mobile Engagement
 
-Start here to get all the details on how to integrate Azure Mobile Engagement in an Web App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-web-get-started.md).
+Start here to get all the details on how to integrate Azure Mobile Engagement in an Web App.
 
 Click to see the [SDK Content](mobile-engagement-web-sdk-content.md).
 
