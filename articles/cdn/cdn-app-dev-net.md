@@ -24,9 +24,9 @@ You will need Visual Studio 2015 to complete this tutorial.  [Visual Studio Comm
 
 A completed example of this tutorial can be found [here](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-## Create a resource group and service principal
+## Preparation
 
-The first thing we're going to do is create a resource group to contain the CDN profile we create in this tutorial.  This resource group will also be the security boundary for the service principal we are going to create next.
+Before we can write CDN management code, we need to do some preparation.  The first thing we're going to do is create a resource group to contain the CDN profile we create in this tutorial.  We will then setup Azure Active Directory to provide authentication for our application.  After that's done, we'll apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile.
 
 ### Creating the resource group
 
@@ -44,21 +44,38 @@ The first thing we're going to do is create a resource group to contain the CDN 
 
 	 ![Naming the resource group](./media/cdn-app-dev-net/cdn-subscription-id.png)
 
-### Creating the service principal
+### Creating the Azure AD application
 
-After the resource group is created, we need to create a service principal.  This is the identity that we will give permission to carry out our CDN tasks within Azure.
+There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
+
+>[AZURE.IMPORTANT] Be very careful to guard your service principal's **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal.  
 
 Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](../resource-group-create-service-principal-portal.md).
 
-> [AZURE.IMPORTANT] Be sure to follow all the steps in the linked tutorial.  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **client ID**, and **client authentication key**, as we will need these later.
+> [AZURE.IMPORTANT] Be sure to follow all the steps in the [linked tutorial](../resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.
 > 	
 > When you get to the step named [Configure multi-tenant application](../resource-group-create-service-principal-portal.md#configure-multi-tenant-application), select **No**.
 > 
-> When you get to the step [Assign application to role](../resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role instead.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
+> When you get to the step [Assign application to role](../resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
 
 Once you've created your service principal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
 
 ![Users blade](./media/cdn-app-dev-net/cdn-service-principal.png)
+
+>[AZURE.TIP] If you'd rather have interactive user logins, the process is very similar to that for a service principal.  In fact, we're going to follow the same procedure, but we're going to do make a few minor changes.
+>
+>1. When creating your application, instead of **Web App**, choose **Native application**. 
+>	
+>	![Native application](./media/cdn-app-dev-net/cdn-native-application.png)
+>	
+>2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later. 
+>
+>3. There is no need to create a **client authentication key**.
+>
+>4. Instead of assigning a service principal to the **CDN Profile Contributor**, we're going to assign individual users or groups.  In this example, you can see that I've give **CDN Profile Contributor** permission to *cdndemo@camthegeek.onmicrosoft.com*.  
+>	
+>	![Individual user access](./media/cdn-app-dev-net/cdn-aad-user.png)
+
 
 ## Create your project and add Nuget packages
 
@@ -105,7 +122,7 @@ Let's get the basic structure of our program written.
 	//Tenant app constants
 	private const string clientID = "<YOUR CLIENT ID>";
 	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>";
-	private const string authority = "https://login.microsoftonline.com/<YOUR TENANT ID>";
+	private const string authority = "https://login.microsoftonline.com/<YOUR TENANT ID>/<YOUR TENANT DOMAIN NAME>";
 
 	//Application constants
 	private const string subscriptionId = "<YOUR SUBSCRIPTION ID>";
@@ -198,7 +215,20 @@ private static AuthenticationResult GetAccessToken()
 
 	return authResult;
 }
-``` 
+```
+
+>[AZURE.TIP] If you are using individual user authentication, the `GetAccessToken` method will look slightly different.
+>	```
+>private static AuthenticationResult GetAccessToken()
+>{
+>	AuthenticationContext authContext = new AuthenticationContext(authority);
+>	AuthenticationResult authResult = authContext.AcquireTokenAsync("https://management.core.windows.net/",
+>		clientID, new Uri("http://<redirect URI>"), new PlatformParameters(PromptBehavior.RefreshSession)).Result;
+>
+>	return authResult;
+>}
+>```
+> Be sure to replace `<redirect URI>` with the redirect URI you entered when you registered the application in Azure AD.
 
 ## List CDN profiles and endpoints
 
@@ -300,7 +330,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] In the example above, the string `/*`, denotes that I want to purge everything in the root of the endpoint path.  This is equivalent to checking **Purge All** in the Azure Portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Verizon** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.  However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need to include specific paths to purge.
+>[AZURE.NOTE] In the example above, the string `/*` denotes that I want to purge everything in the root of the endpoint path.  This is equivalent to checking **Purge All** in the Azure Portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Verizon** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.  However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need to include specific paths to purge.
 
 ## Delete CDN profiles and endpoints
 
@@ -343,7 +373,6 @@ When the program reaches the above prompt, you should be able to return to your 
 We can then confirm the prompts to run the rest of the program.
 
 ![Program completing](./media/cdn-app-dev-net/cdn-program-running-2.png)
-
 
 ## Additional information
 
