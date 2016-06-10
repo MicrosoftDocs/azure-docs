@@ -33,7 +33,7 @@ Selecting the right consistency level depends on the semantics of your applicati
 
 3.      In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
 
-![Default consistency session] [5]
+![Default consistency session][5]
 
 ![Default consistency session](./media/documentdb-manage-account/chooseandsaveconsistency.png)
 
@@ -48,7 +48,7 @@ consistency setting takes effect across your DocumentDB account.*
 
 DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
-> [AZURE.Note] At this time, only DocumentDB accounts created on or after June 10th, 2016 can replicate data in multiple regions. Accounts created prior to June 10th will be enabled for global availability in the near future. 
+> [AZURE.NOTE] At this time, only DocumentDB accounts created on or after June 10th, 2016 can replicate data in multiple regions. Accounts created prior to June 10th will be enabled for global availability in the near future. 
 
 1.      In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 
