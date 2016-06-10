@@ -63,7 +63,7 @@ Once you've created your service principal and assigned the **CDN Profile Contri
 
 ### Interactive user authentication
 
-If, instead of a service principal you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
+If, instead of a service principal, you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
 
 >[AZURE.IMPORTANT] Only follow these next steps if you are choosing to have individual user authentication instead of a service principal.
 
