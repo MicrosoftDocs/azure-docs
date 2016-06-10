@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/16/2016"
+	ms.date="06/10/2016"
 	ms.author="bsiva"/>
 
 # Replicate between on-premises Hyper-V virtual machines and Azure by using PowerShell and Azure Resource Manager
@@ -260,3 +260,9 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 3. Complete the test failover, as follows:
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
+
+
+##Next Steps
+
+[Read more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
+
