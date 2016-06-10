@@ -27,7 +27,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
 
 ## Data collection
 
-Security Center collects data from your virtual machines in order to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning off data collection in the Security Center policy following the steps below.
+Security Center collects data from your virtual machines in order to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning off data collection in the Security Center policy. The following steps show you how to turn off data collection.
 
 ## Prerequisites
 
