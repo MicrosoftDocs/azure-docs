@@ -18,6 +18,8 @@
 
 #Azure resiliency technical guidance
 
+##Introduction
+
 Meeting high availability and disaster recovery requirements requires two types of knowledge:
 
 - Detailed technical understanding of a cloud platform’s capabilities
