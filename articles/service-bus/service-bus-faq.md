@@ -62,6 +62,8 @@ Please keep in mind that ordering is not ensured when using partitioning entitie
 
 -   [Best practices for insulating applications against Service Bus outages and disasters][] – this article discusses how best to protect relay endpoints, queues and topics, and active and passive replication against datacenter outages.
 
+-   Immutable entity properties - Queue / topic size is immutable, as well as partitioning. Please take this into account when you provision your entities as this cannot be changed at a later date, without creating a new replacement entity.
+
 ## Service Bus pricing
 
 This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
