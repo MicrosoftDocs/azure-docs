@@ -32,13 +32,11 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
 			"ClusterCertificate": {
                 "Thumbprint": "[Thumbprint]",
                 "ThumbprintSecondary": "[Thumbprint]",
-                "X509FindValue": "ThumbprintB",
                 "X509StoreName": "My"
             },
             "ServerCertificate": {
                 "Thumbprint": "[Thumbprint]",
                 "ThumbprintSecondary": "[Thumbprint]",
-                "X509FindValue": "ThumbprintB",
                 "X509StoreName": "My"
             },
             "ClientCertificateThumbprints": [{
