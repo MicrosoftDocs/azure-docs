@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="06/10/2016"
 	ms.author="banders"/>
 
 # Use Log Analytics to collect data from Azure storage accounts
@@ -64,9 +64,27 @@ Log Analytics can read the logs for the following services that write diagnostic
 + Application Gateway (Preview)
 + Network Security Group (Preview)
 
-Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. Refer to the following articles for how to enable diagnostic logging:
+Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. You can use the  `Set-AzureRmDiagnosticSetting` cmdlet to enable logging.
 
-+ Automation (details coming)
+The example below will enable logging on all supported resources
+
+```
+# update to be the storage account that logs will be written to. Storage account must be in the same region as the resource to monitor
+# format is similar to "/subscriptions/ec11ca60-ab12-345e-678d-0ea07bbae25c/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+$storageAccountId = ""
+
+$supportedResourceTypes = ("Microsoft.Automation/AutomationAccounts", "Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
+
+# update location to match your storage account location
+$resources = (Get-AzureRmResource).Where({$_.ResourceType -in $supportedResourceTypes -and $_.Location -eq "westus"})
+
+foreach ($resource in $resources) {
+    Set-AzureRmDiagnosticSetting -ResourceId $resource.ResourceId -StorageAccountId $storageAccountId -Enabled $true -RetentionEnabled $true -RetentionInDays 1
+}
+```
+
+Refer to the following articles for more information on how to enable diagnostic logging:
+
 + [Key Vault](../key-vault/key-vault-logging.md)
 + [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 + [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)

@@ -53,6 +53,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [Event Hubs](#event-hubs-limits)
 - [IoT Hub](#iot-hub-limits)
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
@@ -218,6 +219,9 @@ For more granular information about other limits, including document size, queri
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
+### Event Hubs limits
+
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### Service Bus limits
 
