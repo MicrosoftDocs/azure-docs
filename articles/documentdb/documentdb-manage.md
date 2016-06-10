@@ -129,7 +129,7 @@ The choice of default consistency level has an impact on the throughput and late
 For instructions on changing your consistency level on the Azure Portal, see [How to Manage a DocumentDB Account](documentdb-manage-account.md#consistency). Or, for more information on consistency levels, see [Using consistency levels](documentdb-consistency-levels.md).
 
 
-## How Throughput works with multiple regions
+## How throughput works with multiple regions
 
 DocumentDB accounts can be configured to be available in many Azure regions and [regions can be added or removed] [manageaccount-addregion] throughout the lifespan of a database account.
 
