@@ -68,6 +68,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
 
+>[AZURE.TIP] Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
 
 ## Next steps
 
@@ -78,5 +79,3 @@ If you are an existing CDN customer, you can now manage your CDN endpoints throu
 To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
 For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).
-
-Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
