@@ -51,25 +51,6 @@ To restore a deleted database:
 
 >[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
-## Restore from an Azure geographical region
-
-To perform a geo-restore:
-
-1. Get your list of recoverable databases using the [List Recoverable Databases][] operation.
-2. Get the database you want to recover using the [Get Recoverable Database][] operation.
-3. Create the recovery request using the [Create Database Recovery Request][] operation.
-4. Track the status of the recovery using the [Database Operation Status][] operation.
-
-### Configure your database after performing a geo-restore
-This is a checklist to help get your recovered database production ready.
-
-1. **Update Connection Strings**: Verify connection strings of your client tools are pointing to the newly recovered database.
-2. **Modify Firewall Rules**: Verify the firewall rules on the target server and make sure connections from your client computers or Azure to the server and the newly recovered database are enabled.
-3. **Verify Server Logins and Database Users**: Verify if all the logins used by your application exist on the server which is hosting your recovered database. Re-create the missing logins and grant them appropriate permissions on the recovered database. 
-4. **Enable Auditing**: If auditing is required to access your database, you need to enable Auditing after the database recovery.
-
-The recovered database will be TDE-enabled if the source database is TDE-enabled.
-
 
 ## Next steps
 To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
@@ -91,6 +72,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
 [List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
+
 
 <!--Blog references-->
 [how to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
