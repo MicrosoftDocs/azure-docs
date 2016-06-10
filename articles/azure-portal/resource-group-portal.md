@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2016" 
+	ms.date="06/10/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -24,20 +24,22 @@ This topic shows how to use the [Azure portal](https://portal.azure.com) with [A
 Currently, not every service supports the portal or Resource Manager. For those services, you will need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
 <a id="access-control-for-azure-dashboards" />
-## Use dashboard to manage and monitor your resources
+## Customize dashboard to monitor resources
 
-The portal provides a dashboard which you can use for monitoring and managing your resources. The dashboard is completely customizable, and you can create multiple dashboards to easily provide different views of subscription. After configuring a dashboard, you can publish it and share it with other users in your organization.
+The portal provides a dashboard which you can use for monitoring and managing your resources. The dashboard is completely customizable, and you can create multiple dashboards to easily provide different views of subscription.
+
+![dashboard](./media/resource-group-portal/dashboard.png)
 
 > [AZURE.TIP] The best way to learn about working with dashboards is to view the [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) video.
 
 ### Sharing Azure dashboards and access control
-Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md) governs access to the information displayed by tiles in the portal. All published dashboards are implemented as Azure resources.  From an access control perspective, dashboards are no different than a virtual machine or a storage account.
+After configuring a dashboard, you can publish it and share it with other users in your organization. Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md) governs access to the information displayed by tiles in the portal. All published dashboards are implemented as Azure resources.  From an access control perspective, dashboards are no different than a virtual machine or a storage account.
 
 Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a published dashboard (e.g. when troubleshooting an issue), but are not able to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves.
 
 Individual tiles on the dashboard enforce their own access control requirements based on the resources they display.  Therefore, you can design a dashboard that is shared broadly while still protecting the data on individual tiles.
 
-## Manage resource group
+## Manage resource groups
 
 1. To see all of the resource groups in your subscription, select **Resource groups**.
 

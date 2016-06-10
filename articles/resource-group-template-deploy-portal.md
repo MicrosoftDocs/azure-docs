@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2016" 
+	ms.date="06/10/2016" 
 	ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure portal
@@ -26,7 +26,7 @@
 - [REST API](resource-group-template-deploy-rest.md)
 
 
-This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources.
+This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](./azure-portal/resource-group-portal.md).
 
 Currently, not every service supports the portal or Resource Manager. For those services, you will need to use
 the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
@@ -43,11 +43,13 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
 ## Deploy resources from Marketplace
 
-1. After you create a resource group, you can deploy resources to it from the Marketplace. To start a deployment, simply select **New** and the type of resource you would like to deploy. Then, look for the particular version of the resource you would like to deploy.
+After you create a resource group, you can deploy resources to it from the Marketplace. The Marketplace provides pre-defined solutions for common scenatios.
+
+1. To start a deployment, select **New** and the type of resource you would like to deploy. Then, look for the particular version of the resource you would like to deploy.
 
     ![deploy resource](./media/resource-group-template-deploy-portal/deploy-resource.png)
 
-2. If you do not see the type of resource you would like to deploy, you can search the Marketplace for it.
+2. If you do not see the particular solution you would like to deploy, you can search the Marketplace for it.
 
     ![search marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
@@ -55,7 +57,7 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
     ![create resource group](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-    Alternatively, you can decide to create a new resource group when deploying your resources. Instead of selecting one of the existing resource groups in your subscription, select **Create new** and give the resource group a name.
+    Alternatively, you can decide to create a new resource group when deploying your resources. Select **Create new** and give the resource group a name.
 
     ![create new resource group](./media/resource-group-template-deploy-portal/select-new-group.png)
 
@@ -63,13 +65,13 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
     ![view notification](./media/resource-group-template-deploy-portal/view-notification.png)
 
-5. After deploying your resources, you may decide that you need to add more resources to the group. You can add resources to a resource group by using the **Add** command on the resource group blade.
+5. After deploying your resources, you can add more resources to the resource group by using the **Add** command on the resource group blade.
 
     ![add resource](./media/resource-group-template-deploy-portal/add-resource.png)
 
 ## Deploy resources from custom template
 
-If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. For more information about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 1. To deploy a customized template through the portal, select **New**, and start searching for **Template Deployment** until you can select it from the options.
 
@@ -79,7 +81,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     ![select template deployment](./media/resource-group-template-deploy-portal/select-template.png)
 
-3. After launching the template deployment, you can open the blank template that is available for customizing.
+3. After launching the template deployment, open the blank template that is available for customizing.
 
     ![create template](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
@@ -93,21 +95,25 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     You can view the selected template in the editor.
 
-5. After providing all of the other values, select **Create** to deploy the template.
+5. After providing all of the other values, select **Create** to deploy the template. 
 
     ![deploy template](./media/resource-group-template-deploy-portal/create-custom-deploy.png)
 
 ## Deploy resources from a template saved to your account
 
-1. After deploying a template, you can save it to your Azure account and later re-deploy it through the portal. You can find your saved templates, by selecting **Browse** and **Templates**.
+The portal enables you to save a template to your Azure account, and re-deploy it later. For more information about working with these saved templates, [Get started with private Templates on the Azure Portal](./marketplace-consumer/mytemplates-getstarted.md).
+
+1. To find your saved templates, select **Browse** > **Templates**.
 
     ![browse templates](./media/resource-group-template-deploy-portal/browse-templates.png)
 
-2. You see a list of the templates saved to your account.
+2. From the list of templates saved to your account, select the one you wish to work on.
 
     ![saved templates](./media/resource-group-template-deploy-portal/saved-templates.png)
 
-For more information about working with these saved templates, [Get started with private Templates on the Azure Portal](./marketplace-consumer/mytemplates-getstarted.md).
+3. Select **Deploy** to re-deploy this saved template.
+
+    ![deploy saved template](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## Next Steps
 
