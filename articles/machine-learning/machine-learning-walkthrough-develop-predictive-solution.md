@@ -28,6 +28,8 @@ In this detailed walkthrough, we'll follow the process of developing a predictiv
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+<!-- -->
+
 >[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 
 To create a credit risk assessment solution, we'll follow these steps:  
