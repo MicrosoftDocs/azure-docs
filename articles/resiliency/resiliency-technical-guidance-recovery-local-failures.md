@@ -63,7 +63,7 @@ All inbound traffic to a web role passes through a stateless load balancer, whic
 
 ##Virtual Machines
 
-Azure virtual machines differ from platform as a service (PaaS) compute roles in several respects in relation to high availability. In some instances, you must do additional work to ensure high availability.
+Azure Virtual Machines differs from platform as a service (PaaS) compute roles in several respects in relation to high availability. In some instances, you must do additional work to ensure high availability.
 
 ###Disk durability
 
@@ -142,13 +142,13 @@ For Azure VMs to be placed in the same availability set, you must deploy them in
 
 You can have a high-availability solution for your SQL Server databases in Azure by using AlwaysOn Availability Groups or database mirroring.
 
-The following diagram demonstrates the architecture of AlwaysOn Availability Groups running in Azure virtual machines. This diagram was taken from the in-depth article on this subject, [High availability and disaster recovery for SQL Server in Azure virtual machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+The following diagram demonstrates the architecture of AlwaysOn Availability Groups running on Azure Virtual Machines. This diagram was taken from the in-depth article on this subject, [High availability and disaster recovery for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![AlwaysOn Availability Groups in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 You can also automatically provision an AlwaysOn Availability Groups deployment end-to-end on Azure VMs by using the AlwaysOn template in the Azure portal. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure Portal Gallery](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-The following diagram demonstrates the use of database mirroring on Azure virtual machines. It was also taken from the in-depth topic [High availability and disaster recovery for SQL Server in Azure virtual machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+The following diagram demonstrates the use of database mirroring on Azure Virtual Machines. It was also taken from the in-depth topic [High availability and disaster recovery for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Database mirroring in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -187,7 +187,7 @@ The data that's associated with Azure HDInsight is stored by default in Azure Bl
 
 ###Virtual Machines
 
-  1. Review the [Virtual machines](#virtual-machines) section of this document.
+  1. Review the [Virtual Machines](#virtual-machines) section of this document.
   2. Do not use drive D for persistent storage.
   3. Group machines in a service tier into an availability set.
   4. Configure load balancing and optional probes.
@@ -206,7 +206,7 @@ The data that's associated with Azure HDInsight is stored by default in Azure Bl
 ###SQL Server on Virtual Machines
 
   1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document.
-  2. Follow the previous recommendations for virtual machines.
+  2. Follow the previous recommendations for Virtual Machines.
   3. Use SQL Server high availability features, such as AlwaysOn.
 
 ###Service Bus
