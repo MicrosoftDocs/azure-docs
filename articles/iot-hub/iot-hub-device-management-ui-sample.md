@@ -118,14 +118,6 @@ You’ve now completed a guided exploration of the device management concepts as
 - [How to use device jobs to update device firmware][lnk-tutorial-jobs]
 - [Introducing the Azure IoT Hub device management client library][lnk-library-c]
 
-## Additional information
-
-Other IoT Hub device management overviews, guides, and tutorials include:
-
--   [Overview of Azure IoT Hub device management][lnk-dm-overview]
--   [Get started with Azure IoT Hub device management][lnk-get-started]
--   [Introducing the Azure IoT Hub device management client library][lnk-library-c]
-
 [1]: media/iot-hub-device-management-ui-sample/image1.png
 [2]: media/iot-hub-device-management-ui-sample/image2.png
 [3]: media/iot-hub-device-management-ui-sample/image3.png

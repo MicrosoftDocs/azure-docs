@@ -179,16 +179,6 @@ Leave the simulated devices and the device management app running as you proceed
 
 To continue learning about the Azure IoT Hub device management features, see the [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] tutorial.
 
-## Additional resources
-
-Other IoT Hub device management overviews, guides, and tutorials include:
-
-- [Overview of Azure IoT Hub device management][lnk-dm-overview]
-- [How to use the device twin][lnk-tutorial-twin]
-- [How to find device twins using queries][lnk-tutorial-queries]
-- [How to use device jobs to update device firmware][lnk-tutorial-jobs]
-- [Introducing the Azure IoT Hub device management client library][lnk-library-c]
-
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
 [img-configure-hub]: media/iot-hub-device-management-get-started/image2.png
@@ -201,10 +191,5 @@ Other IoT Hub device management overviews, guides, and tutorials include:
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
-[lnk-dm-overview]: iot-hub-device-management-overview.md
-[lnk-library-c]: iot-hub-device-management-library.md
