@@ -36,7 +36,7 @@ In order to complete this tutorial, you’ll need:
 
 1. Ensure that Node.js version 0.12.x or later is installed on your development machine. Run `node --version` at the command line to check the version. For information about using a package manager to install Node.js on Linux, see [Installing Node.js via package manager][node-linux].
 
-2. When you have installed Node.js, clone the latest version of the [azure-iot-sdks](https://github.com/Azure/azure-iot-sdks) repository to your development machine. You should always use the **master** branch for the latest version of the libraries and samples.
+2. When you have installed Node.js, clone the latest version of the [azure-iot-sdks][lnk-github-repo]repository to your development machine. You should always use the **master** branch for the latest version of the libraries and samples.
 
 3. From your local copy of the [azure-iot-sdks][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to an empty folder on your development machine:
 
@@ -234,3 +234,4 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-node]: http://nodejs.org
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
+[lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
