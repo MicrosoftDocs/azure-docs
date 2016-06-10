@@ -34,7 +34,7 @@ The environment will contain:
 To create this custom environment you'll need the latest [Azure CLI](../xplat-cli-install.md) installed and in resource manager mode (`azure config mode arm`). You'll also need a JSON parsing tool - this example uses [jq](https://stedolan.github.io/jq/).
 
 ## Quick Commands
-The following quick commands are used to build out your custom environment. For much more understanding and overview as to what each command is doing as you build out the environment, read through the [#detailed-walkthrough](detailed walkthrough steps below).
+The following quick commands are used to build out your custom environment. For much more understanding and overview as to what each command is doing as you build out the environment, read through the [detailed walkthrough steps below](#detailed-walkthrough).
 
 Create the Resource Group
 
@@ -1245,20 +1245,22 @@ info:    vm show command OK
 ```
 
 
-### Export the environment as a template
-Now that you have built out this environment, what if you want to create an additional development environment using the same parameters, or if you want to now create a production environment that matches? Resource Manager uses JSON templates that define all the parameters for your environment, allowing to you build out entire environments by referencing this JSON template. You can [../resource-group-authoring-templates.md](build JSON templates manually), or simply export an existing environment to create the JSON template for you:
+## Export the environment as a template
+Now that you have built out this environment, what if you want to create an additional development environment using the same parameters, or if you want to now create a production environment that matches? Resource Manager uses JSON templates that define all the parameters for your environment, allowing to you build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md), or simply export an existing environment to create the JSON template for you:
 
 ```bash
 azure group export TestRG
 ```
 
-This creates the `TestRG.json` file in your current working directory. Note that when you then create a new environment from this template, you will prompted for all of the resource names such as for the load balancer, network interfaces, VMs, etc. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown above, editing your JSON template to specify the resource names, or by [../resource-group-authoring-templates.md/#parameters](creating a parameters.json file) that just specifies the resource names. To deploy your template:
+This creates the `TestRG.json` file in your current working directory. When you then create a new environment from this template, you will prompted for all of the resource names such as for the load balancer, network interfaces, VMs, etc. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown above, editing your JSON template to specify the resource names, or by [creating a parameters.json file](../resource-group-authoring-templates.md/#parameters) that just specifies the resource names. 
+
+To create a new environment from your template:
 
 ```bash
 azure group deployment create -f TestRG.json -g NewRGFromTemplate
 ```
 
-You can also read [../resource-group-template-deploy-cli.md](more details on deploying from templates), including how to incrementally update environments, use the parameters file, access templates from a single storage location, etc.
+You may want to read [more details on deploying from templates](../resource-group-template-deploy-cli.md), including how to incrementally update environments, use the parameters file, access templates from a single storage location, etc.
 
 
 ## Next steps
