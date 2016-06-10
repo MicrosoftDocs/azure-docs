@@ -141,7 +141,7 @@ Make sure to leave all the simulated devices running as you complete the followi
 
 ## Run the device management sample UI
 
-Now that you have provisioned an IoT Hub and have several simulated devices running and registered for management, you can deploy the device management sample UI. The device management sample UI provides you with a working example of how to utilize the device management APIs to build an interactive UI experience.  For more information about the device management sample UI, see the [Azure IoT device management UI][lnk-dm-github] GitHub repository.
+Now that you have provisioned an IoT Hub and have several simulated devices running and registered for management, you can deploy the device management sample UI. The device management sample UI provides you with a working example of how to utilize the device management APIs to build an interactive UI experience.  For more information about the device management sample UI, including [known issues](https://github.com/Azure/azure-iot-device-management/blob/dev-readme/README.md#knownissues), see the [Azure IoT device management UI][lnk-dm-github] GitHub repository.
 
 To retrieve, build, and run the device management sample UI, follow the steps below:
 
