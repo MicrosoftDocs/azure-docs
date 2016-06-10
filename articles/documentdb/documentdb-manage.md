@@ -22,7 +22,7 @@ DocumentDB is a fully managed, scalable document oriented NoSQL database service
 
 You can get started with DocumentDB by [creating a database account](documentdb-create-account.md) through the [Azure Portal](https://portal.azure.com/). DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput. These units are provisioned by creating database collections within your database account. Each collection with reserved throughput. If the throughput requirements of your application change, you dynamically change this by setting the [performance level](documentdb-performance-levels.md) for each collection.  
 
-When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
+When incoming requests from your application exceed performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
 This article provides an overview of the resources and metrics available to manage capacity and plan data storage. 
 
@@ -129,15 +129,19 @@ The choice of default consistency level has an impact on the throughput and late
 For instructions on changing your consistency level on the Azure Portal, see [How to Manage a DocumentDB Account](documentdb-manage-account.md#consistency). Or, for more information on consistency levels, see [Using consistency levels](documentdb-consistency-levels.md).
 
 
-## Global throughput
+## Throughput with multiple regions
 
-DocumentDB Accounts can be configured to span many Azure regions and [regions can be added or removed] [manageaccount-addregion] throughout the lifespan of a database account.
+DocumentDB accounts can be configured to be available in many Azure regions and [regions can be added or removed] [manageaccount-addregion] throughout the lifespan of a database account.
 
-When a DocumentDB Account spans multiple regions, the throughput reservation for each collection in that account is set at a regional level i.e. the RUs set on a Collection is the number of RUs available for that collection in each region. For example, if you have a collection with 10,000 [RU/s](documentdb-request-units.md) provisioned, this collection is able to serve up to 10,000 RU/s in each of the configured regions for a global database. 
+> [AZURE.Note] At this time, only DocumentDB accounts created on or after June 10th, 2016 can replicate data in multiple regions. Accounts created prior to June 10th will be enabled for global availability in the near future. 
 
-When a read or write operation is performed on a collection in a region, it will consume RUs from that collection's budget in that specific region only. Unlike other distributed database systems, the RU charge for write operations does not increase as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
+When a DocumentDB account is availabe in multiple regions, each collection in that account will be assigned its full user-provisioned througput in each region. This means that the avaialbe throughput is multiplied by the number of regions in which the data is replicated. 
 
-The above behavior ensures that that application code running in each region has reserved and predictable database throughput regardless of region additions or removals. This enables you to massively scale up your application without having to worry about capacity planning or impact to performance.
+For example, if you have a collection with 10,000 [RU/s](documentdb-request-units.md) provisioned, this collection is able to serve up to 10,000 RU/s in each region it is available in.
+
+The cost of a given request remains the same regardless of the number of replicated regions. When a read or write operation is performed on a collection in a region, it will consume RUs from that collection's budget in that specific region only. Unlike other distributed database systems, the RU charge for write operations does not increase as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
+
+The above behavior ensures that that application code running in each region has reserved and predictable database throughput regardless of region additions or removals. This enables you to massively scale out your application without worrying about increasing replication costs.
 
 ## Next steps
 For instructions on monitoring performance levels on the Azure Portal, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md).
