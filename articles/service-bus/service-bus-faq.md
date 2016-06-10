@@ -65,9 +65,13 @@ Please keep in mind that ordering is not ensured when using partitioning entitie
 ###What should I know before creating messaging entities?   
 
 The following properties of a queue and topic are immutable. Please take this into account when you provision your entities as this cannot be modified, without creating a new replacement entity.
+
 -   Size
+
 -   Partitioning
+
 -   Sessions
+
 -   Duplicate detection
 
 ## Service Bus pricing
