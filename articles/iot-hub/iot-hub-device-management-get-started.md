@@ -3,7 +3,7 @@
 	description="Azure IoT Hub for device management with C# getting started tutorial. Use Azure IoT Hub and C# with the Microsoft Azure IoT SDKs to implement device management."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Get started with Azure IoT Hub device management using C# (preview)
 
@@ -27,15 +27,19 @@ To get started with Azure IoT Hub device management, you need to create an Azure
 
 ## Prerequisites
 
+This tutorial assumes you are using a Windows development machine.
+
 You need the following installed to complete the steps:
 
 - Microsoft Visual Studio 2015
-- Git
-- CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. For a Windows PC, please choose the Windows Installer (.msi) option. Make sure to check the box to add CMake to the current user PATH variable.
-- Node.js 6.1.0 or greater.  Install Node.js for your platform from <https://nodejs.org/>.
-- An active Azure subscription
 
-	If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+- Git
+
+- CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. For a Windows PC, please choose the Windows Installer (.msi) option. Make sure to check the box to add CMake to the current user PATH variable.
+
+- Node.js 6.1.0 or greater.  Install Node.js for your platform from <https://nodejs.org/>.
+
+- An active Azure subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 
 ## Create a device management enabled IoT Hub
 

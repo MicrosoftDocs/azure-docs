@@ -3,7 +3,7 @@
 	description="Azure IoT Hub for device management with C# getting started tutorial. Use Azure IoT Hub and C# with the Microsoft Azure IoT SDKs to implement device management."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Get started with Azure IoT Hub device management using node.js (preview)
 
@@ -27,16 +27,19 @@ To get started with Azure IoT Hub device management, you need to create an Azure
 
 ## Prerequisites
 
-This tutorial assumes you are using a Linux development machine.
+This tutorial assumes you are using an Ubuntu Linux development machine.
 
-You need the following installed to complete the steps:
+You need the following software installed to complete the steps:
 
 - Git
-- CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. Make sure to check the box to add CMake to the current user PATH variable.
-- Node.js 6.1.0 or greater.  Install Node.js for your platform from <https://nodejs.org/>.
-- An active Azure subscription.
 
-	If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+- gcc (version 4.9 or later). You can verify the current version installed in your environment using the  `gcc --version`  command. For information about how to upgrade your version of gcc on Ubuntu 14.04, see <http://askubuntu.com/questions/466651/how-do-i-use-the-latest-gcc-4-9-on-ubuntu-14-04>.
+
+- [CMake](https://cmake.org/download/) (version 2.8 or later). You can verify the current version installed in your environment using the `cmake --version` command.
+
+- Node.js 6.1.0 or greater.  Install Node.js for your platform from <https://nodejs.org/>.
+
+- An active Azure subscription. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 
 ## Create a device management enabled IoT Hub
 
@@ -81,7 +84,7 @@ In this section, you will run a script that builds the simulated device and the 
 
 To build the samples and provision devices in you IoT Hub, follow the steps below:
 
-1.  Open terminal.
+1.  Open a shell.
 
 2.  Clone the github repository. **Make sure to clone in a directory that does not have any spaces.**
 
@@ -89,7 +92,7 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
 	  ```
 
-3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory and run, replacing the placeholder value with your connection string from the previous section:
+3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory and execute the following command replacing the placeholder value with your connection string from the previous section:
 
 	  ```
 	  setup.sh <IoT Hub Connection String>
@@ -101,15 +104,15 @@ This script does the following:
 
 2.  Builds the simulated device executable **iotdm\_simple\_sample**.
 
-3.  Runs ``` npm install ``` to install the necessary packages.
+3.  Runs `npm install` to install the necessary packages.
 
-4.  Runs ```node generate_devices.js``` to provision device identities in your IoT Hub. The devices are described in **sampledevices.json**. After the devices are provisioned, the credentials are stored in the **devicecreds.txt** file (located in the **azure-iot-sdks/node/service/samples** directory).
+4.  Runs `node generate_devices.js` to provision device identities in your IoT Hub. The devices are described in **sampledevices.json**. After the devices are provisioned, the credentials are stored in the **devicecreds.txt** file (located in the **azure-iot-sdks/node/service/samples** directory).
 
 ## Start your simulated devices
 
 Now that the devices have been added to the device registry, you can start simulated managed devices. One simulated device needs to be started for each device identity provisioned in the Azure IoT Hub.
 
-Using terminal, in the **azure-iot-sdks/node/service/samples** directory, run:
+Using a shell, navigate to the **azure-iot-sdks/node/service/samples** directory and run:
 
   ```
   simulate.sh
@@ -135,11 +138,11 @@ Now that you have provisioned an IoT Hub and have several simulated devices runn
 
 To retrieve, build, and run the device management sample UI, follow the steps below:
 
-1. Open a terminal.
+1. Open a shell.
 
 2. Confirm that you’ve installed Node.js 6.1.0 or greater according the prerequisites section by typing `node --version`.
 
-3. Clone the Azure IoT device management UI GitHub repository by running the following command:
+3. Clone the Azure IoT device management UI GitHub repository by running the following command in the shell:
 
 	```
 	git clone https://github.com/Azure/azure-iot-device-management.git
@@ -151,7 +154,7 @@ To retrieve, build, and run the device management sample UI, follow the steps be
 	npm install
 	```
 
-5. When the npm install command has completed, run the following command to build the code:
+5. When the npm install command has completed, run the following command in the shell to build the code:
 
 	```
 	npm run build
@@ -159,7 +162,7 @@ To retrieve, build, and run the device management sample UI, follow the steps be
 
 6. Use a text editor to open the user-config.json file in root of the cloned folder. Replace the text "&lt;YOUR CONNECTION STRING HERE&gt;" with your IoT Hub connection string from the previous section and save the file.
 
-7. In the command prompt, run the following command to start the device management UX app:
+7. In the shell, run the following command to start the device management UX app:
 
 	```
 	npm run start

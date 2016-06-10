@@ -86,7 +86,7 @@ Perform the following steps to create a customer filter on the "bacon" service p
 
     ![][5]
 
-4.  Click the funnel icon to exit the device query editor and return to the full devices view.
+4.  Click the funnel icon to exit the device query editor.
 
 ## Use a device job to simulate device reboots 
 

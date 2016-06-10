@@ -3,7 +3,7 @@
  description="Overview of Azure IoT Hub device management: device twins, device queries, device jobs"
  services="iot-hub"
  documentationCenter=""
- authors="ellenfosborne"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Overview of Azure IoT Hub device management (preview)
 
