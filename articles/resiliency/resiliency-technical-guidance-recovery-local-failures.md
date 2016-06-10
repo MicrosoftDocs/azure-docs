@@ -23,11 +23,11 @@ There are two primary threats to application availability:
 * The failure of devices, such as drives and servers
 * The exhaustion of critical resources, such as compute under peak load conditions
 
-Azure provides a combination of resource management, elasticity, load balancing, and partitioning to enable high availability under these circumstances. Some of these features are performed automatically for all cloud services. However, in some cases, the application developer must do some additional work to benefit from them.
+Azure provides a combination of resource management, elasticity, load balancing, and partitioning to enable high availability under these circumstances. Some of these features are performed automatically for all Azure services. However, in some cases, the application developer must do some additional work to benefit from them.
 
-##Cloud services
+##Cloud Services
 
-All cloud services hosted by Azure are collections of one or more web or worker roles. One or more instances of a role can run concurrently. The configuration determines the number of instances. Role instances are monitored and managed through a component called the fabric controller. The fabric controller detects and responds to both software and hardware failures automatically.
+Azure Cloud Services consists of collections of one or more web or worker roles. One or more instances of a role can run concurrently. The configuration determines the number of instances. Role instances are monitored and managed through a component called the fabric controller. The fabric controller detects and responds to both software and hardware failures automatically.
 
 Every role instance runs in its own virtual machine (VM) and communicates with its fabric controller through a guest agent. The guest agent collects resource and node metrics, including VM usage, status, logs, resource usage, exceptions, and failure conditions. The fabric controller queries the guest agent at configurable intervals, and it restarts the VM if the guest agent fails to respond. In the event of hardware failure, the associated fabric controller moves all affected role instances to a new hardware node and reconfigures the network to route traffic there.
 
@@ -44,7 +44,7 @@ Finally, all long-running operations should be invoked repeatedly until they suc
 
 ###Elasticity
 
-The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to autoscale a cloud service](../cloud-services/cloud-services-how-to-scale.md).
+The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to autoscale an application](../cloud-services/cloud-services-how-to-scale.md).
 
 ###Partitioning
 
@@ -61,7 +61,7 @@ The [Azure service-level agreement (SLA)](https://azure.microsoft.com/support/le
 
 All inbound traffic to a web role passes through a stateless load balancer, which distributes client requests among the role instances. Individual role instances do not have public IP addresses, and they are not directly addressable from the Internet. Web roles are stateless so that any client request can be routed to any role instance. A [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck.aspx) event is raised every 15 seconds. You can use this to indicate whether the role is ready to receive traffic, or whether it's busy and should be taken out of the load-balancer rotation.
 
-##Virtual machines
+##Virtual Machines
 
 Azure virtual machines differ from platform as a service (PaaS) compute roles in several respects in relation to high availability. In some instances, you must do additional work to ensure high availability.
 
@@ -81,7 +81,7 @@ In the preceding diagram, the Internet Information Services (IIS) tier (which wo
 
 ###Load balancing
 
-If the VMs should have traffic distributed across them, you must group the VMs in a cloud service and load balance across a specific TCP or UDP endpoint. For more information, see [Load balancing virtual machines](../virtual-machines/virtual-machines-linux-load-balance.md). If the VMs receive input from another source (for example, a queuing mechanism), a load balancer is not required. The load balancer uses a basic health check to determine whether traffic should be sent to the node. It's also possible to create your own probes to implement application-specific health metrics that determine whether the VM should receive traffic.
+If the VMs should have traffic distributed across them, you must group the VMs in an application and load balance across a specific TCP or UDP endpoint. For more information, see [Load balancing virtual machines](../virtual-machines/virtual-machines-linux-load-balance.md). If the VMs receive input from another source (for example, a queuing mechanism), a load balancer is not required. The load balancer uses a basic health check to determine whether traffic should be sent to the node. It's also possible to create your own probes to implement application-specific health metrics that determine whether the VM should receive traffic.
 
 ##Storage
 
@@ -156,7 +156,7 @@ The following diagram demonstrates the use of database mirroring on Azure virtua
 
 ##Other Azure platform services
 
-Cloud services that are built on Azure benefit from platform capabilities to recover from local failures. In some cases, you can take specific actions to increase availability for your specific scenario.
+Applications that are built on Azure benefit from platform capabilities to recover from local failures. In some cases, you can take specific actions to increase availability for your specific scenario.
 
 ###Service Bus
 
@@ -174,9 +174,9 @@ The data that's associated with Azure HDInsight is stored by default in Azure Bl
 
 ##Checklists for local failures
 
-###Cloud services
+###Cloud Services
 
-  1. Review the [Cloud services](#cloud-services) section of this document.
+  1. Review the [Cloud Services](#cloud-services) section of this document.
   2. Configure at least two instances for each role.
   3. Persist state in durable storage, not on role instances.
   4. Correctly handle the StatusCheck event.
@@ -185,7 +185,7 @@ The data that's associated with Azure HDInsight is stored by default in Azure Bl
   7. Continue to invoke operations until they succeed.
   8. Consider autoscaling strategies.
 
-###Virtual machines
+###Virtual Machines
 
   1. Review the [Virtual machines](#virtual-machines) section of this document.
   2. Do not use drive D for persistent storage.
@@ -203,9 +203,9 @@ The data that's associated with Azure HDInsight is stored by default in Azure Bl
   2. Implement a retry policy to handle transient errors.
   3. Use partitioning/sharding as a scale-out strategy.
 
-###SQL Server on virtual machines
+###SQL Server on Virtual Machines
 
-  1. Review the [SQL Server on virtual machines](#sql-server-on-virtual-machines) section of this document.
+  1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document.
   2. Follow the previous recommendations for virtual machines.
   3. Use SQL Server high availability features, such as AlwaysOn.
 
