@@ -126,9 +126,9 @@ Within a database, Azure SQL Database uses a fabric to manage resources. However
 
 If the application requires more than the 150-GB database limit, it must implement a scale-out approach. You scale out with Azure SQL Database by manually partitioning, also known as sharding, data across multiple SQL databases. This scale-out approach provides the opportunity to achieve nearly linear cost growth with scale. Elastic growth or capacity on demand can grow with incremental costs as needed because databases are billed based on the average actual size used per day, not based on maximum possible size.
 
-##SQL Server on virtual machines
+##SQL Server on Virtual Machines
 
-By installing SQL Server (version 2014 or later) on Azure virtual machines, you can take advantage of the traditional availability features of SQL Server. These features include AlwaysOn Availability Groups and database mirroring. Note that Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure. A successful implementation of a high availability/disaster recovery (HA/DR) SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.
+By installing SQL Server (version 2014 or later) on Azure Virtual Machines, you can take advantage of the traditional availability features of SQL Server. These features include AlwaysOn Availability Groups and database mirroring. Note that Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure. A successful implementation of a high availability/disaster recovery (HA/DR) SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.
 
 ###High-availability nodes in an availability set
 
