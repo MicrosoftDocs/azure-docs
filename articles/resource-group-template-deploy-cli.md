@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-template-deploy.md)
 - [Azure CLI](resource-group-template-deploy-cli.md)
-- [Portal](resource-group-portal.md)
+- [Portal](resource-group-template-deploy-portal.md)
 - [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [REST API](resource-group-template-deploy-rest.md)
 
