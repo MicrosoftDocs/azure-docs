@@ -62,7 +62,13 @@ Please keep in mind that ordering is not ensured when using partitioning entitie
 
 -   [Best practices for insulating applications against Service Bus outages and disasters][] – this article discusses how best to protect relay endpoints, queues and topics, and active and passive replication against datacenter outages.
 
--   Immutable entity properties - Queue / topic size is immutable, as well as partitioning. Please take this into account when you provision your entities as this cannot be changed at a later date, without creating a new replacement entity.
+###What should I know before creating messaging entities?   
+
+The following properties of a queue and topic are immutable. Please take this into account when you provision your entities as this cannot be modified, without creating a new replacement entity.
+-   Size
+-   Partitioning
+-   Sessions
+-   Duplicate detection
 
 ## Service Bus pricing
 
