@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-template-deploy.md)
 - [Azure CLI](resource-group-template-deploy-cli.md)
-- [Portal](resource-group-portal.md)
+- [Portal](resource-group-template-deploy-portal.md)
 - [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [REST API](resource-group-template-deploy-rest.md)
 
@@ -99,7 +99,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
         ...
         info:    group deployment create command OK
 
-     To run a complete deployment, set **mode** to **Complete**.
+     To run a complete deployment, set **mode** to **Complete**. Be careful when using this mode as you can inadvertently delete resources that are not in your template.
 
         azure group deployment create --mode Complete -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 

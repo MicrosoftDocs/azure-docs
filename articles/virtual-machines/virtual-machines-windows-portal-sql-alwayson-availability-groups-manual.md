@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manually Configure Always On availability group in Azure VM with Resource Manager (GUI) | Microsoft Azure"
+	pageTitle="Configure Always On availability group in Azure VM manually - Resource Manager"
 	description="Create an Always On Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="06/09/2016"
 	ms.author="MikeRayMSFT" />
 
-# Manually configure Always On availability group in Azure VM - Resource Manager (GUI)
+# Configure Always On availability group in Azure VM manually - Resource Manager
 
 > [AZURE.SELECTOR]
-- [Resource Manager: Template (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Resource Manager: Manual (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-- [Classic: Manual (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [Classic: Manual (PowerShell)](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Resource Manager: Portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: UI](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
@@ -60,19 +60,17 @@ This tutorial assumes the following:
 
 >[AZURE.NOTE] If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-## Create resource group, network, and availability sets
-
-### Connect to your Azure subscription and create a resource group
+## Create resource group
 
 1. Sign in to the [Azure portal](http://portal.azure.com). 
 
 1. Click **+New** and then type **Resource group** in the **Marketplace** search window.
 
- ![Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
+    ![Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
 
 1. Click **Resource group** 
 
- ![New Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
+    ![New Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
 
 1. Click **Create**. 
 
@@ -88,7 +86,7 @@ This tutorial assumes the following:
 
 Azure will create the new resource group and pin a shortcut to the resource group in the portal.
 
-### Create network and subnets
+## Create network and subnets
 
 The next step is to create the networks and subnets in the Azure resource group.
 
@@ -98,17 +96,17 @@ To create the virtual network:
 
 1. On the Azure portal click click on the new resource group and click **+** to add a new item to the resource group. Azure opens the **Everything** blade. 
 
- ![New Item](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
+    ![New Item](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 
 1. Search for **virtual network**.
 
- ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+    ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 
 1. Click **Virtual network**.
 
 1. In the **Virtual network** blade, click the **Resource Manager**  deployment model and click **Create**.
 
- ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+    ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
  
 
  
@@ -129,7 +127,7 @@ Note that your address space and subnet address range may be different from the 
 
 Click **Create** 
 
-   ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
 Azure will return you to the portal dashboard and notify you when the new network is created.
 
@@ -147,9 +145,9 @@ At this point your virtual network contains one subnet, named Subnet-1. The doma
 
 1. On the **Settings** blade, click **Subnets**.
 
-   Notice the subnet that you already created. 
+    Notice the subnet that you already created. 
 
-   ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
 
 1. Create a second subnet. Click **+ Subnet**. 
 
@@ -157,7 +155,7 @@ At this point your virtual network contains one subnet, named Subnet-1. The doma
 
 Click **OK**. 
 
-   ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
+    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
    
 Here is a summary of the configuration settings for the virtual network and both subnets.
 
@@ -173,7 +171,7 @@ Here is a summary of the configuration settings for the virtual network and both
 | **Resource Group** | **SQL-HA-RG** |
 | **Location** | Specify the same location that you chose for the resource group. |
 
-### Create Availability Sets
+## Create availability sets
 
 Before creating virtual machines, you need to create availability sets. Availablity sets reduce downtime for planned or unplanned maintenance events. An Azure availablity set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availablity set have separate power and network resouces. An update domain ensures that members of the availabilty set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
 
@@ -192,7 +190,7 @@ Configure two availablity sets according to the parameters in the following tabl
 
 After you create the availability sets, return to the resource group in the Azure portal.
 
-## Create and configure domain controllers
+## Create domain controllers
 
 At this point you have created the network, subnets, availablity sets and an internet facing load balancer. You are ready to create the virtual machines for the domain controllers.
 
@@ -378,7 +376,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 Now that you have finished configuring Active Directory and the user objects, you will create two SQL Server VMs, and a witness server VM, and join all three to this domain.
 
-## Create the SQL Servers and configure clustering
+## Create SQL Servers
 
 ###Create and configure the SQL Server VMs
 
@@ -476,6 +474,8 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 1. Click **OK** to close the **Administrator Properties** dialog.
 
 1. Repeat the above steps on **sqlserver-1**, and **cluster-fsw**.
+
+## Create the cluster
 
 ### Add the **Failover Clustering** feature to each cluster VM.
 
@@ -759,7 +759,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 >[AZURE.WARNING] Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The WSFC Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
 
-## Configure an internal load balancer in Azure and an availablity group listener in the cluster
+## Configure internal load balancer
 
 In order to connect to the availability group directly, you need to configure an internal load balancer in Azure and then create the listener on the cluster. This section provides a high level overview of those steps. For detailed instructions, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).  
 

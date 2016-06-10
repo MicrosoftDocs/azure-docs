@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure Always On availability group in Azure VM | Microsoft Azure"
+	pageTitle="Configure Always On availability group in Azure VM with PowerShell"
 	description="This tutorial uses resources created with  the classic deployment model, and uses PowerShell to create an Always On Availability Group in Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Configure Always On availability group in Azure VM (PowerShell)
+# Configure Always On availability group in Azure VM with PowerShell
 
 > [AZURE.SELECTOR]
-- [Resource Manager: Template (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Resource Manager: Manual (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-- [Classic: Manual (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [Classic: Manual (PowerShell)](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Resource Manager: Portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: UI](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 

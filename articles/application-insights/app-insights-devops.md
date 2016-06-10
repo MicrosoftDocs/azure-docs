@@ -113,9 +113,9 @@ In both cases, the alert not only tells you the symptoms it's discovered, but al
 
 Customer Samtec said: "During a recent feature cutover, we found an under-scaled database that was hitting its resource limits and causing timeouts. Proactive detection alerts came through literally as we were triaging the issue, very near real time as advertised. This alert coupled with the Azure platform alerts helped us almost instantly fix the issue. Total downtime < 10 minutes.zs"
 
-## Live Stream
+## Live Metrics Stream
 
-Deploying the latest build can be an anxious experience. If there are any problems, you want to know about them right away, so that you can back out if necessary. Live Stream gives you key metrics with a latency of about 1 second.
+Deploying the latest build can be an anxious experience. If there are any problems, you want to know about them right away, so that you can back out if necessary. Live Metrics Stream gives you key metrics with a latency of about 1 second.
 
 ![](./media/app-insights-devops/040.png)
 
