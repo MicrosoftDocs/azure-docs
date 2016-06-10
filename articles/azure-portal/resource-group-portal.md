@@ -23,7 +23,7 @@ This topic shows how to use the [Azure portal](https://portal.azure.com) with [A
 
 Currently, not every service supports the portal or Resource Manager. For those services, you will need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
-<a id="access-control-for-azure-dashboards />
+<a id="access-control-for-azure-dashboards" />
 ## Use dashboard to manage and monitor your resources
 
 The portal provides a dashboard which you can use for monitoring and managing your resources. The dashboard is completely customizable, and you can create multiple dashboards to easily provide different views of subscription. After configuring a dashboard, you can publish it and share it with other users in your organization.
