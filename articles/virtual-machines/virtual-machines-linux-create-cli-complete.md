@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="iainfoulds"
-   manager="squillace"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,14 +14,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/29/2016"
+   ms.date="06/10/2016"
    ms.author="iainfou"/>
 
 # Create a Linux VM from the ground up using the Azure CLI
 
-To create a Linux VM you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`) and a JSON parsing tool, we are using [jq](https://stedolan.github.io/jq/) for this document.
+Let's build a simple network with a load balancer and a pair of VMs useful to development and simple compute. You'll walk through the entire environment imperatively, command by command, until you have working, secure Linux VMs to which you can connect from anywhere on the internet. Then you'll be able to move on to more complex networks and environment.
+
+Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your environment fit together, creating templates to automate them becomes easier.
+
+The environment will contain:
+
+- Two VMs inside an availability set
+- A load balancer with load balancing rule on port 80
+- Network security group rules to protect your VM from unwanted traffic
+
+![Basic environment overview](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
+
+To create this custom environment you'll need the latest [Azure CLI](../xplat-cli-install.md) installed and in resource manager mode (`azure config mode arm`). You'll also need a JSON parsing tool - this example uses [jq](https://stedolan.github.io/jq/).
 
 ## Quick Commands
+The following quick commands are used to build out your custom environment. For much more understanding and overview as to what each command is doing as you build out the environment, read through the [#detailed-walkthrough](detailed walkthrough steps below).
 
 Create the Resource Group
 
@@ -118,16 +131,16 @@ azure network lb show -g TestRG -n TestLB --json | jq '.'
 Create the first NIC
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
 ```
 
 Create the second NIC
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
 ```
 
@@ -175,7 +188,7 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 Create the first Linux VM
 
 ```bash
-azure vm create \            
+azure vm create \
     --resource-group TestRG \
     --name TestVM1 \
     --location westeurope \
@@ -193,7 +206,7 @@ azure vm create \
 Create the second Linux VM
 
 ```bash
-azure vm create \            
+azure vm create \
     --resource-group TestRG \
     --name TestVM2 \
     --location westeurope \
@@ -215,15 +228,14 @@ azure vm show -g TestRG -n TestVM1 --json | jq '.'
 azure vm show -g TestRG -n TestVM2 --json | jq '.'
 ```
 
+Export the environment you have built to a template to quickly re-create new instances:
+
+```bash
+azure resource export TestRG
+```
+
 ## Detailed Walkthrough
-
-### Introduction
-
-This article builds a deployment with two Linux VMs behind a load balancer. It walks through the entire basic deployment imperatively, command by command, until you have working, secure Linux VMs to which you can connect from anywhere on the internet.
-
-Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using more direct Azure CLI commands (see [this](virtual-machines-linux-quick-create-cli.md) for roughly the same deployment using the `azure vm quick-create` command), or you can move on to master how to design and automate entire network and application deployments and update them using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your deployment fit together, creating templates to automate them becomes easier.
-
-Let's build a simple network and load balancer with a pair of VMs useful to development and simple compute, and we'll explain it as we go. Then you'll be able to move on to more complex networks and deployments.
+These more detailed steps explain what each command is doing as you build out your environment, helping you take these concepts as you thhen go on to build your own custom environments for development or production workloads.
 
 ## Create resource group and choose deployment locations
 
@@ -926,13 +938,14 @@ Output
 Even NICs are programmatically available, as you may apply rules to their use and have more than one. Note that in the following `azure network nic create` command, you hook up our NIC to the load back-end IP pool and associated with our NAT rule to permit SSH traffic. To do this, you need to specify the subscription ID of your Azure subscription in place of `<GUID>`:
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+     -d /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
+     -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 ```
 
 Output
 
 ```bash 
-/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 info:    Executing command network nic create
 + Looking up the subnet "FrontEnd"
 + Looking up the network interface "LB-NIC1"
@@ -1008,13 +1021,9 @@ Output
 Let's go ahead and create the second NIC, hooking in to our back-end IP pool again, and this time the second of our NAT rules to permit SSH traffic:
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
-```
-
-Output
-
-```bash
- /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d  /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
+    -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
 ```
 
 ## Create your Network Security Group and rules
@@ -1234,6 +1243,23 @@ data:
 data:      Diagnostics Instance View:
 info:    vm show command OK
 ```
+
+
+### Export the environment as a template
+Now that you have built out this environment, what if you want to create an additional development environment using the same parameters, or if you want to now create a production environment that matches? Resource Manager uses JSON templates that define all the parameters for your environment, allowing to you build out entire environments by referencing this JSON template. You can [../resource-group-authoring-templates.md](build JSON templates manually), or simply export an existing environment to create the JSON template for you:
+
+```bash
+azure group export TestRG
+```
+
+This creates the `TestRG.json` file in your current working directory. Note that when you then create a new environment from this template, you will prompted for all of the resource names such as for the load balancer, network interfaces, VMs, etc. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown above, editing your JSON template to specify the resource names, or by [../resource-group-authoring-templates.md/#parameters](creating a parameters.json file) that just specifies the resource names. To deploy your template:
+
+```bash
+azure group deployment create -f TestRG.json -g NewRGFromTemplate
+```
+
+You can also read [../resource-group-template-deploy-cli.md](more details on deploying from templates), including how to incrementally update environments, use the parameters file, access templates from a single storage location, etc.
+
 
 ## Next steps
 
