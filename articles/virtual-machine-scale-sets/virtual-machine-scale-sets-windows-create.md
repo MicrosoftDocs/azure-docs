@@ -207,7 +207,7 @@ You have all the resources that you need for the scale set configuration, so let
 
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](..\virtual-machines\virtual-machines-windows-sizes.md) to find a size that meets your needs.
+    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) to find a size that meets your needs.
     
 4. Add the network interface configuration to the scale set configuration:
         
@@ -256,7 +256,7 @@ You have all the resources that you need for the scale set configuration, so let
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
         
 3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
        

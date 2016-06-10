@@ -37,7 +37,7 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 	![Settings](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
 
-1. On the **Settings** blade, there is a grouping of settings called **VM Polocies**. 
+1. On the **Settings** blade, there is a grouping of settings called **VM Policies**. 
 
 	![Settings](./media/devtest-lab-set-lab-policy/policies.png)
 
