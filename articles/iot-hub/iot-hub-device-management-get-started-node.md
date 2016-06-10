@@ -92,10 +92,17 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
 	  ```
 
-3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory and execute the following command replacing the placeholder value with your connection string from the previous section:
+3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/c/build_all/linux** directory and execute the following command to install the prerequisite packages and the dependent libraries:
 
 	  ```
-	  setup.sh <IoT Hub Connection String>
+	  ./setup.sh
+	  ```
+
+
+4.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory and execute the following command replacing the placeholder value with your connection string from the previous section:
+
+	  ```
+	  ./setup.sh <IoT Hub Connection String>
 	  ```
 
 This script does the following:
@@ -115,7 +122,7 @@ Now that the devices have been added to the device registry, you can start simul
 Using a shell, navigate to the **azure-iot-sdks/node/service/samples** directory and run:
 
   ```
-  simulate.sh
+  ./simulate.sh
   ```
 
 This script outputs the commands you need to run to start **iotdm\_simple\_sample** for each device listed in the **devicecreds.txt** file. Please run the commands individually from a separate terminal window for each simulated device. The simulated device will continue to run until you close the command window.
