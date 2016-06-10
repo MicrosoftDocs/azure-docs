@@ -48,11 +48,9 @@ Before we can write CDN management code, we need to do some preparation.  The fi
 
 There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
 
->[AZURE.IMPORTANT] Be very careful to guard your service principal's **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal.  
-
 Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](../resource-group-create-service-principal-portal.md).
 
-> [AZURE.IMPORTANT] Be sure to follow all the steps in the [linked tutorial](../resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.
+> [AZURE.IMPORTANT] Be sure to follow all the steps in the [linked tutorial](../resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.  Be very careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal. 
 > 	
 > When you get to the step named [Configure multi-tenant application](../resource-group-create-service-principal-portal.md#configure-multi-tenant-application), select **No**.
 > 
@@ -63,11 +61,11 @@ Once you've created your service principal and assigned the **CDN Profile Contri
 ![Users blade](./media/cdn-app-dev-net/cdn-service-principal.png)
 
 
-### Interactive user logins
+### Interactive user authentication
 
-If, instead of a service principal you'd rather have interactive user logins, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
+If, instead of a service principal you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
 
->[AZURE.IMPORTANT] Only follow these next steps if you are choosing to have individual user logins instead of a service principal.
+>[AZURE.IMPORTANT] Only follow these next steps if you are choosing to have individual user authentication instead of a service principal.
 
 1. When creating your application, instead of **Web App**, choose **Native application**. 
 	
@@ -223,6 +221,8 @@ private static AuthenticationResult GetAccessToken()
 ```
 
 If you are using individual user authentication, the `GetAccessToken` method will look slightly different.
+
+>[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.
 
 ```
 private static AuthenticationResult GetAccessToken()
