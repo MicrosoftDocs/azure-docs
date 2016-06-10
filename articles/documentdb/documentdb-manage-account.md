@@ -54,16 +54,15 @@ DocumentDB is available in most [Azure regions] [azureregions]. After selecting 
 
 2.      In the **DocumentDB Account** blade, select the database account to modify
 
-3.		In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
+3.      In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
 
-4.		In the **All Settings** blade, click on **Add / Remove Regions**
+4.      In the **All Settings** blade, click on **Add / Remove Regions**
 
 	![Alt text; Add regions under DocumentDB Account > Settings > Add/Remove Regions][1]
 
-5.		In the Add/Remove Regions blade, select the regions to add or remove, and then click OK. There is a cost to adding regions, see the pricing page for more information.
+5.      In the Add/Remove Regions blade, select the regions to add or remove, and then click OK. There is a cost to adding regions, see the pricing page for more information.
 		
-
-![Alt text; Click on the regions in the map to add or remove them][2]
+	![Alt text; Click on the regions in the map to add or remove them][2]
 
 ### Selecting regions
 
@@ -78,17 +77,15 @@ With the [current standard pricing offers] [offers], while all regions associate
 
 1.      In the **DocumentDB Account** blade, select the database account to modify
 
-2.		In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
+2.      In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
 
-3.		In the **All Settings** blade, click **Write Region Priority**
-
-> [AZURE.NOTE] At this time, only DocumentDB accounts created on or after June 10th, 2016 can replicate data in multiple regions. Accounts created prior to June 10th will be enabled for global availability in the near future. 
+3.      In the **All Settings** blade, click **Write Region Priority**
 
 	![Alt text; Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
 
-4.	Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
+4.      Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
 
-![Alt text; Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
+	![Alt text; Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
 
 
 ## <a id="keys"></a>View, copy, and regenerate access keys
