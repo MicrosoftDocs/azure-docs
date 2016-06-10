@@ -75,7 +75,7 @@ If, instead of a service principal you'd rather have interactive individual user
 
 3. There is no need to create a **client authentication key**.
 
-4. Instead of assigning a service principal to the **CDN Profile Contributor**, we're going to assign individual users or groups.  In this example, you can see that I've give **CDN Profile Contributor** permission to *cdndemo@camthegeek.onmicrosoft.com*.  
+4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *cdndemo@camthegeek.onmicrosoft.com* to the **CDN Profile Contributor** role.  
 	
 	![Individual user access](./media/cdn-app-dev-net/cdn-aad-user.png)
 
