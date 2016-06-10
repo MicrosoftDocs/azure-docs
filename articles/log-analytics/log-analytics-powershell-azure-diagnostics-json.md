@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="powershell"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/10/2016"
 	ms.author="richrund"/>
 
 # Configure Log Analytics to collect data from Azure Diagnostics storage
@@ -22,7 +22,7 @@ Many Azure resources use Azure diagnostics to write logs and metrics to an Azure
 
 This article describes how to use PowerShell to configure Log Analytics to collect data from Azure diagnostics storage.
 
-Refer to [Use Log Analytics to collect data from Azure storage accounts](log-analytics-azure-storage.md) for more information on using Log Analytics with Azure diagnostics.
+Refer to [Use Log Analytics to collect data from Azure storage accounts](log-analytics-azure-storage.md) for more information on using Log Analytics with Azure diagnostics, including how to enable diagnostics on Azure resources.
 
 >[AZURE.NOTE] You'll be charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
 
@@ -52,11 +52,7 @@ We have provided a PowerShell script module that exports two cmdlets to assist w
 1. Azure PowerShell with version 1.0.8 or newer of the Operational Insights cmdlets.
   - [How to install and configure Azure PowerShell](../powershell-install-configure.md)
   - Verify your version of cmdlets: `Import-Module AzureRM.OperationalInsights -MinimumVersion 1.0.8 `
-2. Diagnostic logging is configured for the Azure resource you want to monitor. Refer to the following articles for configuring diagnostics:
-  - Automation (details coming)
-  - [Key Vault](../key-vault/key-vault-logging.md)
-  - [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
-  - [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
+2. Diagnostic logging is configured for the Azure resource you want to monitor. Use `Set-AzureRmDiagnosticSetting` or refer to [Use Log Analytics to collect data from Azure storage accounts](log-analytics-azure-storage.md) for how to enable diagnostics.
 3. A [Log Analytics](https://portal.azure.com/#create/Microsoft.LogAnalyticsOMS) workspace  
 4. The AzureDiagnosticsAndLogAnalytics PowerShell module
   - Download the [AzureDiagnosticsAndLogAnalytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/) module from PowerShell gallery 
