@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="06/09/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -61,6 +61,7 @@ Most Azure services are supported over ExpressRoute.
 	- CDN
 	- Visual Studio Team Services Load Testing
 	- Multi-factor Authentication
+	- Traffic Manager
 
 ## Data and connections
 
@@ -177,7 +178,7 @@ You can update the bandwidth of the ExpressRoute circuit using the update dedica
 ### What is ExpressRoute premium?
 ExpressRoute premium is a collection of features listed below.
 
- - Increased routing table limit from 4000 routes to 10,000 routes for public peering and private peering.
+ - Increased routing table limit from 4000 routes to 10,000 routes for private peering.
  - Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
  - Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.
  - Connectivity to Office 365 services and CRM Online.

@@ -299,7 +299,7 @@ In this section, you'll write a Windows console app that receives the interactiv
 [Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://manage.windowsazure.com/
-[Service Bus Queue]: ../articles/service-bus/service-bus-dotnet-how-to-use-queues.md
+[Service Bus Queue]: ../articles/service-bus/service-bus-dotnet-get-started-with-queues.md
 [Build multi-tier applications with Service Bus]: ../articles/service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [Get started with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 [Service Bus documentation]: https://azure.microsoft.com/documentation/services/service-bus/

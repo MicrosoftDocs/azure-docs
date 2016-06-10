@@ -58,7 +58,7 @@ You can import the Azure Storage iOS library into your application by doing the 
 You will need to include the following import statement in the file where you want to invoke the Azure Storage API.
 
     // Include the following import statement to use blob APIs.
-    #import <Azure Storage Client Library/Azure_Storage_Client_Library.h>
+    #import <AZSClient/AZSClient.h>
 
 ## Configure your application to access Blob storage
 

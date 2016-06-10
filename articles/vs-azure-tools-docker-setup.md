@@ -3,7 +3,7 @@
    description="Step-by-step instructions to configure a default Docker instance using Docker Machine and VirtualBox"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
-   ms.author="tarcher" />
+   ms.date="06/08/2016"
+   ms.author="allclark" />
 
 # Configure a Docker Host with VirtualBox
 
