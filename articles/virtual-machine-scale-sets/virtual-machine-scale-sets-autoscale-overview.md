@@ -83,7 +83,7 @@ This example shows the definition of the extension in the template:
 
 When the diagnostics extension runs, the data is collected in a table that is located in the storage account that you specify. In the WADPerformanceCounters table, you can find the collected data. For example, this is the thread count collected when the virtual machines were first created in a scale set:
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
 ### Configure the autoScaleSettings resource
 
