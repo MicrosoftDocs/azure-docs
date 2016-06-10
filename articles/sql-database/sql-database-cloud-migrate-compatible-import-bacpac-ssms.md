@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrating a SQL Server database to Azure SQL Database"
+   pageTitle="Migrating a SQL Server database to Azure SQL Database | Microsoft Azure"
    description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Import from BACPAC to SQL Database using SSMS

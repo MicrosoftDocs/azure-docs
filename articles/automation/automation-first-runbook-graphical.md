@@ -118,7 +118,7 @@ Now that we have a variable to hold our subscription ID, we can configure our ru
 13.  Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbrprint**, and then click **OK**. 
 14.  Click **SERVICEPRINCIPAL**, and in the Parameter Value blade, select **ConstantValue** for the **Data source**, click the option **True**, and then click **OK**.
 15.  Click **TENANTID**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **TenantId**, and then click **OK** twice.  
-16.  In the Library control, type **Get-AzureRmContext** in the search textbox.
+16.  In the Library control, type **Set-AzureRmContext** in the search textbox.
 17.	 Add **Set-AzureRmContext** to the canvas.
 18.	 On the canvas, select **Set-AzureRmContext** and in the Configuration control pane type **Specify Subscription Id** in the **Label** textbox.
 19.	 Click **Parameters** and the Activity Parameter Configuration blade appears. 
@@ -135,7 +135,7 @@ Your runbook should look like the following at this point: <br>![Runbook authent
 We'll now add a **Start-AzureRmVM** activity to start a virtual machine.  You can pick any virtual machine in your Azure subscription, and for now we'll be hardcoding that name into the cmdlet.
 
 1. In the Library control, type **Start-AzureRm** in the search textbox.
-2. Add **Start-AzureRmVM** to the canvas and then click and drag it underneath **Connect to Azure**.
+2. Add **Start-AzureRmVM** to the canvas and then click and drag it underneath **Specify Subscription Id**.
 3. Hover over **Specify Subscription Id** until a circle appears on the bottom of the shape.  Click the circle and drag the arrow to **Start-AzureRmVM**. 
 4.	Select **Start-AzureRmVM**.  Click **Parameters** and then **Parameter Set** to view the sets for **Start-AzureRmVM**.  Select the **ResourceGroupNameParameterSetName** parameter set. Note that **ResourceGroupName** and **Name** have exclamation points next them.  This indicates that they are required parameters.  Also note both expect string values.
 5.	Select **Name**.  Select **PowerShell expression** for the **Data source** and type in the name of the virtual machine surrounded with double quotes that we will start with this runbook.  Click **OK**.<br>![Start-AzureRmVM Name Parameter Value](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -198,15 +198,15 @@ We will now modify the runbook so that it will only attempt to start the virtual
 17. For the **Condition expression**, type *$ActivityOutput['Get Status'] -eq "Stopped"*.  **Start-AzureRmVM** will now only run if the virtual machine is stopped.
 18.	In the Library control, expand **Cmdlets** and then **Microsoft.PowerShell.Utility**.
 19.	Add **Write-Output** to the canvas twice.<br> ![Runbook with Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
-20. On the first **Write-Output** control, click **Parameters** and change the **Label** value to *Notify VM Started*.
+20. On the first **Write-Output** control, change the **Label** value to *Notify VM Started*.
 21. For **InputObject**, change **Data source** to **PowerShell expression** and type in the expression *"$VMName successfully started."*.
-22. On the second **Write-Output** control, click **Parameters** and change the **Label** value to *Notify VM Start Failed*
+22. On the second **Write-Output** control, change the **Label** value to *Notify VM Start Failed*
 23. For **InputObject**, change **Data source** to **PowerShell expression** and type in the expression *"$VMName could not start."*.
 24. Create a link from **Start-AzureRmVM** to **Notify VM Started** and **Notify VM Start Failed**.
 25. Select the link to **Notify VM Started** and change **Apply condition** to **True**.
 26. For the **Condition expression**, type *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*.  This Write-Output control will now only run if the virtual machine is successfully started.
 27. Select the link to **Notify VM Start Failed** and change **Apply condition** to **True**.
-28. For the **Condition expression**, type *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  This Write-Output control will now only run if the virtual machine is not successfully started.
+28. For the **Condition expression**, type *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*.  This Write-Output control will now only run if the virtual machine is not successfully started. 
 29.	Save the runbook and open the Test pane.
 30.	Start the runbook with the virtual machine stopped, and it should start.
 
