@@ -62,24 +62,29 @@ Once you've created your service principal and assigned the **CDN Profile Contri
 
 ![Users blade](./media/cdn-app-dev-net/cdn-service-principal.png)
 
->[AZURE.TIP] If you'd rather have interactive user logins, the process is very similar to that for a service principal.  In fact, we're going to follow the same procedure, but we're going to do make a few minor changes.
->
->1. When creating your application, instead of **Web App**, choose **Native application**. 
->	
->	![Native application](./media/cdn-app-dev-net/cdn-native-application.png)
->	
->2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later. 
->
->3. There is no need to create a **client authentication key**.
->
->4. Instead of assigning a service principal to the **CDN Profile Contributor**, we're going to assign individual users or groups.  In this example, you can see that I've give **CDN Profile Contributor** permission to *cdndemo@camthegeek.onmicrosoft.com*.  
->	
->	![Individual user access](./media/cdn-app-dev-net/cdn-aad-user.png)
+
+### Interactive user logins
+
+If, instead of a service principal you'd rather have interactive user logins, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
+
+>[AZURE.IMPORTANT] Only follow these next steps if you are choosing to have individual user logins instead of a service principal.
+
+1. When creating your application, instead of **Web App**, choose **Native application**. 
+	
+	![Native application](./media/cdn-app-dev-net/cdn-native-application.png)
+	
+2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later. 
+
+3. There is no need to create a **client authentication key**.
+
+4. Instead of assigning a service principal to the **CDN Profile Contributor**, we're going to assign individual users or groups.  In this example, you can see that I've give **CDN Profile Contributor** permission to *cdndemo@camthegeek.onmicrosoft.com*.  
+	
+	![Individual user access](./media/cdn-app-dev-net/cdn-aad-user.png)
 
 
 ## Create your project and add Nuget packages
 
-Now that we've created a resource group for our CDN profiles and given our service principal permission to manage CDN profiles and endpoints within that group, we can start creating our application.
+Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
 
 From within Visual Studio 2015, click **File**, **New**, **Project...** to open the new project dialog.  Expand **Visual C#**, then select **Windows** in the pane on the left.  Click **Console Application** in the center pane.  Name your project, then click **OK**.  
 
@@ -121,7 +126,7 @@ Let's get the basic structure of our program written.
 	```
 	//Tenant app constants
 	private const string clientID = "<YOUR CLIENT ID>";
-	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>";
+	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
 	private const string authority = "https://login.microsoftonline.com/<YOUR TENANT ID>/<YOUR TENANT DOMAIN NAME>";
 
 	//Application constants
@@ -217,18 +222,20 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
->[AZURE.TIP] If you are using individual user authentication, the `GetAccessToken` method will look slightly different.
->	```
->private static AuthenticationResult GetAccessToken()
->{
->	AuthenticationContext authContext = new AuthenticationContext(authority);
->	AuthenticationResult authResult = authContext.AcquireTokenAsync("https://management.core.windows.net/",
->		clientID, new Uri("http://<redirect URI>"), new PlatformParameters(PromptBehavior.RefreshSession)).Result;
->
->	return authResult;
->}
->```
-> Be sure to replace `<redirect URI>` with the redirect URI you entered when you registered the application in Azure AD.
+If you are using individual user authentication, the `GetAccessToken` method will look slightly different.
+
+```
+private static AuthenticationResult GetAccessToken()
+{
+	AuthenticationContext authContext = new AuthenticationContext(authority);
+	AuthenticationResult authResult = authContext.AcquireTokenAsync("https://management.core.windows.net/",
+		clientID, new Uri("http://<redirect URI>"), new PlatformParameters(PromptBehavior.RefreshSession)).Result;
+
+	return authResult;
+}
+```
+
+Be sure to replace `<redirect URI>` with the redirect URI you entered when you registered the application in Azure AD.
 
 ## List CDN profiles and endpoints
 
