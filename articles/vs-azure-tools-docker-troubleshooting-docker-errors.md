@@ -69,7 +69,6 @@ To test if volume mapping is functioning, try the following command:
 
 ```
 a
-cd wormhole
 / # ls
 ```
 
