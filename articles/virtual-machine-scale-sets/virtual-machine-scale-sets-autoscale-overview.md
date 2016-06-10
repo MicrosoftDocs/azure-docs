@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Automatic scaling and virtual machine scale sets | Microsoft Azure"
-	description="Learn about using diagnostics and autoscale resources to automatically scale virtual machines in a scale set.
+	description="Learn about using diagnostics and autoscale resources to automatically scale virtual machines in a scale set."
+    services="virtual-machine-scale-sets"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
@@ -42,7 +43,7 @@ Automatically change the capacity of your scale set by using a combination of th
 
 ### Configure the Azure Diagnostics extension
 
-Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template. [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md) provides more information about using the extension.
+Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template.
 
 This example shows the variables that are used in the template to configure the diagnostics extension:
 
@@ -226,5 +227,5 @@ subscriptions > {your subscription} > resourceGroups > {your resource group} > p
 ## Next Steps
 
 - Take a look at [Automatically scale machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md) to see an example of how to create a scale set with automatic scaling configured.
-- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples)
+- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
 - Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) and [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
