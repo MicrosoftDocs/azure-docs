@@ -127,7 +127,7 @@ Events also appear in the diagnostics and output windows.
 
 Return to your application blade in the Azure portal.
 
-The first events will appear in the Live Stream window.
+The first events will appear in the [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
 
 
 ## Persistence Channel 
