@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/07/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Backup and restore a database in Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-database-restore.md)
-- [Portal](sql-data-warehouse-manage-database-restore-portal.md)
-- [PowerShell](sql-data-warehouse-manage-database-restore-powershell.md)
-- [REST](sql-data-warehouse-manage-database-restore-rest-api.md)
+- [Overview](sql-data-warehouse-restore-database-overview.md)
+- [Portal](sql-data-warehouse-restore-database-portal.md)
+- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+- [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 PowerShell tasks for restoring a live, deleted, or inaccessible database in SQL Data Warehouse. 
 
