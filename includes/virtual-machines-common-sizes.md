@@ -169,28 +169,28 @@ Note: For information and considerations about using these sizes, see [About the
 
 
 | Size         | CPU cores | Memory | NICs (Max) | Disk size          | Max data disks (1023 GB each) | Max IOPS (500 per disk) | Max network bandwidth |
-|--------------|-----------|--------|------------|-------------------------|--------------------------------|--------------------------|-----------------------|
-| Standard_F1  | 1         | 2 GB   | 1          | Temporary (SSD) =16 GB  | 2                              | 2x500                    | 500 Mbps              |
-| Standard_F2  | 2         | 4 GB   | 2          | Temporary (SSD) =32 GB  | 4                              | 4x500                    | 1000 Mbps             |
-| Standard_F4  | 4         | 8 GB   | 4          | Temporary (SSD) =64 GB  | 8                              | 8x500                    | 2000 Mbps             |
-| Standard_F8  | 8         | 16 GB  | 8          | Temporary (SSD) =128 GB | 16                             | 16x500                   | 4000 Mbps             |
-| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                             | 32x500                   | 8000 Mbps             |
+|--------------|-----------|--------|------------|-------------------------|--------------------------|--------------------------|-------------|
+| Standard_F1  | 1         | 2 GB   | 1          | Temporary (SSD) =16 GB  | 2                        | 2x500                    | moderate    |
+| Standard_F2  | 2         | 4 GB   | 2          | Temporary (SSD) =32 GB  | 4                        | 4x500                    | high        |
+| Standard_F4  | 4         | 8 GB   | 4          | Temporary (SSD) =64 GB  | 8                        | 8x500                    | high        |
+| Standard_F8  | 8         | 16 GB  | 8          | Temporary (SSD) =128 GB | 16                       | 16x500                   | high        |
+| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                       | 32x500                   | very high   |
 
 
 
 ## Fs-series*
 
 | Size          | CPU cores | Memory | NICs (Max) | Disk size         | Max data disks (1023 GB each) | Cache size (GB) | Max disk IOPS & bandwidth | Max network bandwidth |
-|---------------|-----------|--------|------------|------------------------|--------------------------------|-----------------|----------------------------|-----------------------|
-| Standard_F1s  | 1         | 2      | 1          | Local SSD disk = 4 GB  | 2                              | 12              | 3,200 48 MB per second     | 500 Mbps              |
-| Standard_F2s  | 2         | 4      | 2          | Local SSD disk = 8 GB  | 4                              | 24              | 6,400 96 MB per second     | 1000 Mbps             |
-| Standard_F4s  | 4         | 8      | 4          | Local SSD disk = 16 GB | 8                              | 48              | 12,800 192 MB per second   | 2000 Mbps             |
-| Standard_F8s  | 8         | 16     | 8          | Local SSD disk = 32 GB | 16                             | 96              | 25,600 384 MB per second   | 4000 Mbps             |
-| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32                             | 192             | 51,200 768 MB per second   | 8000 Mbps             |
+|---------------|-----------|--------|------------|------------------------|-----------|-----------|----------------------------|------------|
+| Standard_F1s  | 1         | 2      | 1          | Local SSD disk = 4 GB  | 2         | 12        | 3,200 48 MB per second     | moderate   |
+| Standard_F2s  | 2         | 4      | 2          | Local SSD disk = 8 GB  | 4         | 24        | 6,400 96 MB per second     | high       |
+| Standard_F4s  | 4         | 8      | 4          | Local SSD disk = 16 GB | 8         | 48        | 12,800 192 MB per second   | high       |
+| Standard_F8s  | 8         | 16     | 8          | Local SSD disk = 32 GB | 16        | 96        | 25,600 384 MB per second   | high       |
+| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32        | 192       | 51,200 768 MB per second   | very high  |
 
 
 
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
+*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a Fs series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
 
