@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/01/2016"
+   ms.date="06/10/2016"
    ms.author="seanmck"/>
 
 
@@ -23,10 +23,11 @@ By default, Azure Service Fabric services do not provide a public interface to t
 
 In this tutorial, we will pick up where we left off in the [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) tutorial and add a web service in front of the stateful counter service. If you have not already done so, you should go back and step through that tutorial first.
 
-
 ## Add an ASP.NET Core service to your application
 
 ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. Let's add an ASP.NET Web API project to our existing application.
+
+>[AZURE.NOTE] To complete this tutorial, you will need to [install .NET Core RC2][dotnetcore-install].
 
 1. In Solution Explorer, right-click **Services** within the application project and choose **Add > New Service Fabric Service**.
 
@@ -236,3 +237,6 @@ To learn how to configure different values for different environment, see [Manag
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
+
+<!-- external links -->
+[dotnetcore-install]: https://www.microsoft.com/net/core#windows
