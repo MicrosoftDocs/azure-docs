@@ -69,7 +69,7 @@ Each ExpressRoute circuit consists of two connections to two Microsoft Enterpris
 
 ### Connectivity to Microsoft cloud services
 
-[AZURE.INCLUDE [expressroute-office365-include](../includes/expressroute-office365-include.md)]
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ExpressRoute connections enable access to the following services:
 

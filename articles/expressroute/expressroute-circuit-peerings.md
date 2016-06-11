@@ -61,7 +61,7 @@ See the [FAQ page](expressroute-faqs.md) for more information on services suppor
  
 ### Microsoft peering
 
-[AZURE.INCLUDE [expressroute-office365-include](../includes/expressroute-office365-include.md)]
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 Connectivity to all other Microsoft online services (such as Office 365 services) will be through the Microsoft peering. We enable bi-directional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain. You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and you must adhere to all the defined rules. See the [ExpressRoute prerequisites](expressroute-prerequisites.md) page for more information.
 

@@ -218,7 +218,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 
 ## ExpressRoute and Office 365 Services and CRM Online
 
-[AZURE.INCLUDE [expressroute-office365-include](../includes/expressroute-office365-include.md)]
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ### How do I create an ExpressRoute circuit to connect to Office 365 services and CRM Online?
 
