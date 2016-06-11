@@ -56,7 +56,7 @@ created your Mobile App backend in the Azure Portal using the QuickStart, you ca
 
 ###How to: Install the managed client SDK package
 
-Use one of the following methods to install the managed client SDK package for Mobile Apps from NuGet:
+Use one of the following methods to install the managed client SDK package for Mobile Apps from [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/):
 
 + **Visual Studio**  
 Right-click your project, click **Manage NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, then click **Install**.
