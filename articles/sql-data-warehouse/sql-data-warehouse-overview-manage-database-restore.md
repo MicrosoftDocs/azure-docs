@@ -16,7 +16,6 @@
    ms.date="06/02/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-
 # Restoring a database in Azure SQL Data Warehouse (Overview)
 
 > [AZURE.SELECTOR]
@@ -36,7 +35,6 @@ This article describes the options for restoring a database in Azure SQL Data Wa
 ## Snapshot policies
 
 [AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
-
 
 ## Database restore capabilities
 
@@ -59,7 +57,7 @@ For other important management tasks, see [Management overview][].
 <!--Article references-->
 [Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Management overview]: sql-data-warehouse-overview-manage.md 
+[Management overview]: sql-data-warehouse-overview-manage.md
 [Database restore tasks]: sql-data-warehouse-manage-database-restore-portal.md
 
 <!--MSDN references-->
