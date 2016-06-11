@@ -25,7 +25,7 @@ This topic will discuss design considerations for Virtual Machine Scale Sets. Fo
 
 ## Storage
 
-A scale set uses storage accounts to store the OS disks of the VMs in the set. We recommend a ratio of 20 VMs per storage account or less. We also recommend that you spread across the alphabet the beginning characters of the storage account names. This helps spread load across different internal systems. For instance, in the following template, we use the uniqueString ARM Template funciton to generate prefix hashes that are prepended to storage account names: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
+A scale set uses storage accounts to store the OS disks of the VMs in the set. We recommend a ratio of 20 VMs per storage account or less. We also recommend that you spread across the alphabet the beginning characters of the storage account names. This helps spread load across different internal systems. For instance, in the following template, we use the uniqueString ARM Template function to generate prefix hashes that are prepended to storage account names: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
 
 
 ## Overprovisioning
@@ -38,7 +38,7 @@ If you turn off overprovisioning, you can get away with a larger ratio of VMs pe
 
 
 ## Limits
-A scale set built on a custom image (one built by you) must create all OS disk vhds within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image is 20. If you turn off overprovisioning, you can go up to 40.
+A scale set built on a custom image (one built by you) must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image is 20. If you turn off overprovisioning, you can go up to 40.
 
 A scale set built on a platform image is limited to 100 VMs (we recommend 5 storage accounts for this scale).
 
