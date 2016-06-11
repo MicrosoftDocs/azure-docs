@@ -24,12 +24,13 @@ In this article, we'll set up a web front end, which you can scale up to deliver
 
 ## Prerequisites
 
-[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DC/OS, [ensure that your client can connect to your cluster](container-service-connect.md), and [AZURE.INCLUDE [install the DC/OS command-line interface (CLI)](../../includes/container-service-install-dcos-cli-include.md)].
+[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DC/OS and [ensure that your client can connect to your cluster](container-service-connect.md). Also, do the following steps.
+[AZURE.INCLUDE [install the DC/OS command-line interface (CLI)](../../includes/container-service-install-dcos-cli-include.md)].
 
 
 ## Load balancing
 
-There are two load-balancing layers in a Container Service cluster: Azure Load Balancer for the public entry points (the ones that end users will hit), and the underlying Marathon Load Balancer (marathon-lb) that routes inbound requests to container instances servicing requests. As we scale the containers that provide the service, marathon-lb dynamically adapts.
+There are two load-balancing layers in a Container Service cluster: Azure Load Balancer for the public entry points (the ones that end users will hit), and the underlying Marathon Load Balancer (marathon-lb) that routes inbound requests to container instances that service requests. As we scale the containers that provide the service, marathon-lb dynamically adapts.
 
 ## Marathon Load Balancer
 
@@ -80,10 +81,10 @@ Now that we have the marathon-lb package, we can deploy a simple web server by u
 ```
 
 The key parts of this are:
-  * Set the value of HAProxy_0_VHOST to the FQDN of the load balancer for your agents. This is in the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if you create a Container Service cluster with name `myacs` in region `West US`, the FQDN would be `myacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when you're looking through the resources in the resource group that you created for your container service in the [Azure portal](https://portal.azure.com).
+  * Set the value of HAProxy_0_VHOST to the FQDN of the load balancer for your agents. This is in the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if you create a Container Service cluster with name `myacs` in region `West US`, the FQDN would be `myacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when you're looking through the resources in the resource group that you created for Container Service in the [Azure portal](https://portal.azure.com).
   * Set the servicePort to a port >= 10,000. This identifies the service that is being run in this container--marathon-lb uses this to identify services that it should balance across.
   * Set the HAPROXY_GROUP label to "external".
-  * Set hostPort to 0. This means that marathon-lb will arbitrarily allocate an available port.
+  * Set hostPort to 0. This means that Marathon will arbitrarily allocate an available port.
 
 Copy this JSON into a file called `hello-web.json`, and use it to deploy a container:
 
