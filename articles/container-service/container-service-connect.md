@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -34,24 +34,27 @@ The first thing that you do when you create an SSH tunnel on Linux or OS X is to
 
 Now open a shell and run the following command where:
 
-**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For DC/OS, use port 80.   
+**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For DC/OS, use port 80.  
 **USERNAME** is the user name that was provided when you deployed the cluster.  
 **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
 **REGION** is the region in which your resource group is located.  
+**PATH_TO_PRIVATE_KEY** [OPTIONAL] is the path to the private key corresponding to the public key you provided when creating the container service cluster. Use this option with the -i flag.
 
 ```bash
 # ssh sample
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
-```
 
-### DC/OS tunnel
+ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+```
+> The SSH connection port is 2200 and not the standard 22.
+
+## DC/OS tunnel
 
 To open a tunnel to the DC/OS-related endpoints, execute a command that is similar to the following:
 
 ```bash
 # ssh sample
 
-ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 You can now access the DC/OS-related endpoints at:
@@ -62,14 +65,14 @@ You can now access the DC/OS-related endpoints at:
 
 Similarly, you can reach the rest APIs for each application through this tunnel.
 
-### Swarm tunnel
+## Swarm tunnel
 
 To open a tunnel to the Swarm endpoint, execute a command that looks similar to the following:
 
 ```bash
 # ssh sample
 
-ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Now you can set your DOCKER_HOST environment variable as follows and continue to use your Docker command-line interface (CLI) as normal.
@@ -118,5 +121,5 @@ When you have configured the tunnel for Docker Swarm, you can access the Swarm c
 
 Deploy and manage containers with DC/OS or Swarm.
 
-[Working with Azure Container Service and DC/OS](./container-service-mesos-marathon-rest.md)
-[Working with the Azure Container Service and Docker Swarm](./container-service-docker-swarm.md)
+[Working with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
+[Working with the Azure Container Service and Docker Swarm](container-service-docker-swarm.md)

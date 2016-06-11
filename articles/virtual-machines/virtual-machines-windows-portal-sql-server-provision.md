@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/06/2016"
+	ms.date="05/16/2016"
 	ms.author="jroth" />
 
 # Provision a SQL Server virtual machine in the Azure Portal
@@ -76,7 +76,9 @@ On the **Basics** blade, provide the following information:
 * Provide a strong **Password**.
 * If you have multiple subscriptions, verify the subscription is correct for the VM that you are about to build.
 * In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Select existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.).
->[AZURE.NOTE] Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. Once you finish with your test, you can delete the entire resource group. This deletes all resources associated with that resource group, including the SQL VM. For more information about resource groups see [Azure Resource Manager Overview](../resource-group-overview.md).
+	
+	>[AZURE.NOTE] Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. Once you finish with your test, you can delete the entire resource group. This deletes all resources associated with that resource group, including the SQL VM. For more information about resource groups see [Azure Resource Manager Overview](../resource-group-overview.md).
+
 * Select a **Location** for this deployment.
 * Click **OK** to save the settings.
 

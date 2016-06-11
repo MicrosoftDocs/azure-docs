@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo" />
 
 
 #Release notes
+
+##4.2.2 (05/17/2016)
+
+- Stability improvements.
 
 ##4.2.1 (05/10/2016)
 
