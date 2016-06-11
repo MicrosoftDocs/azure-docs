@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/10/2016"
+   ms.date="06/11/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -42,7 +42,7 @@ We’re measuring some important performance enhancements and will soon share th
 
 ## Data Protection
 
-SQL Data Warehouse stores all data in Asure locally redundant storage. Multiple synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures. In addition, SQL Data Warehouse automatically backs up active (unpaused) databases at regular intervals using Azure Storage Snapshots.  To learn more about how backup and restore works, see the [Backup and Restore Overview][].
+SQL Data Warehouse stores all data in Azure locally redundant storage. Multiple synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures. In addition, SQL Data Warehouse automatically backs up active (unpaused) databases at regular intervals using Azure Storage Snapshots.  To learn more about how backup and restore works, see the [Backup and Restore Overview][].
 
 ## Query reliability
 
