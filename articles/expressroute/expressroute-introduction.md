@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/02/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute technical overview
@@ -68,6 +68,8 @@ Microsoft uses industry standard dynamic routing protocol (BGP) to exchange rout
 Each ExpressRoute circuit consists of two connections to two Microsoft Enterprise edge routers (MSEEs) from the connectivity provider / your network edge. Microsoft will require dual BGP connection from the connectivity provider / your side – one to each MSEE. You may choose not to deploy redundant devices / Ethernet circuits at your end. However, connectivity providers use redundant devices to ensure that your connections are handed off to Microsoft in a redundant manner. A redundant Layer 3 connectivity configuration is a requirement for our [SLA](https://azure.microsoft.com/support/legal/sla/) to be valid. 
 
 ### Connectivity to Microsoft cloud services
+
+[AZURE.INCLUDE [expressroute-office365-include](../includes/expressroute-office365-include.md)]
 
 ExpressRoute connections enable access to the following services:
 
