@@ -25,9 +25,9 @@
 - [PowerShell][]
 - [REST][]
 
-## Backup policies
+Azure SQL Data Warehouse provides an automatic backup feature, giving you a zero-admin way to protect your databases from accidental corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you can ensure business continuity by restoring your database to an earlier point in time. SQL Data Warehouse uses Azure Storage Snapshots to backup your database seemlessly without the need for any downtime.
 
-Azure SQL Data Warehouse provides an automatic backup feature, giving you a zero-admin way to protect your databases from accidental corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you can ensure business continuity by restoring your database to an earlier point in time.  SQL Data Warehouse uses Azure Storage Snapshots to backup your database.
+## Backup policies
 
 Your **active** databases will automatically be backed up at a minimum of every 8 hours and kept for 7 days. This allows you to restore your active database to one of several restore points in the past 7 days.
 
@@ -36,7 +36,7 @@ When a database is paused, new snapshots will stop and previous snapshots will r
 
 When a database is dropped, a snapshot will be taken before the database is dropped.  Only the last snapshot is saved for a dropped database and that snapshot will be retained for 7 days.
 
-If you have a need to maintain a backup for longer than 7 days, you can simply restore one of your snapshots to a new database and then pause that database so that you only pay for the storage space of that backup.  
+If you need to retain a backup for longer than 7 days, you can simply restore one of your restore points to a new database and then optionally pause that database so that you only pay for the storage space of that backup.  
 
 ## Data redundancy
 
