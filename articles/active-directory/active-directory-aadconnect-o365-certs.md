@@ -21,7 +21,51 @@
 
 ##Overview
 
-In order for successful federation between Azure AD and AD FS, the certificates used by the RP trust should always be valid. Any mismatch can lead to the trust between AD FS and AAD be broken and therefore, it is important to ensure that Azure AD and AD FS are in sync with valid certificates for the trust. Office 365 will notify you via an email or a portal notification asking you to renew your certificate for Office 365 when your token signing certificates are nearing expiry. This article provides you the information required to ensure you to update your token signing certificates for O365 and Azure AD.
+In order for successful federation between Azure AD and AD FS, the certificates used by AD FS to sign security tokens to Azure AD should match what is configured in Azure AD. Any mismatch can lead to the trust between AD FS and AAD be broken. Azure AD ensures that this information is kept in sync when deploying AD FS and Web Application Proxy (for extranet access). 
+
+This article provides you additional information to manage your token signing certificates and keep them in sync with Azure AD in the cases of: 
+
+* You are not deploying the Web Application Proxy and therefore the federation metadata is not available in extranet
+* You are not using the default configuration of AD FS for token signing certificates
+
+## How does default configuration of AD FSfor token signing certificates work?
+
+The token signing and token decrypting certificates are usually self-signed certificates and are good for one year. Default configuration of the AD FS regarding token signing and token decrypting certificates includes an auto-renewal process called **AutoCertificateRollover**. If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically update your certificate before it expires. 
+
+### Renewal notification - O365 portal and email notification
+
+Azure AD attempts to monitor the federation metadata and update the token signing certificates as indicated by the federation metadata. 30 days before the expiry of the token signing certificates, Azure AD will check if new certificates are available by polling the federation metadata.
+
+* If it can successfully poll the federation metadata and retrieve the new certificates, then there is no email notification or O365 portal warning given to the user
+* If it cannot retrieve the new token signing certificates, either because the federation metdata is not reachable or automatic certificate rollover is not enabled - then it will issue an email notification and an warning would be shown in the O365 portal
+
+>[Azure.Note] If you received an email or a portal notification asking you to renew your certificate for Office please you can follow the steps mentioned below in [Managing changes to token signing certificates](#managing-changes-to-toke-signing-certificates) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications being given to user for certificate renewal even when no action is required.
+
+## How to check if the certificates need update?
+
+### Step 1: Confirm that AD FS and Azure AD are in sync
+
+On your AD FS Server, Open the Azure Powershell prompt and connect to Msol
+
+	Connect-MsolService
+
+Check the certificate in Azure AD configured for your federated domain
+
+	Get-MsolFederationProperty -DomainName <domain name>
+
+![Get-MsolFederationProperty Output](./media/active-directory-aadconnect-o365-certs/getazurecertinfo.png)
+
+Check the certificate configured for token signing at your AD FS server
+
+	Get-AdfsCertificate -CertificateType Token-Signing
+
+![Get-MsolFederationProperty Output](./media/active-directory-aadconnect-o365-certs/getadfscertinfo.png)
+
+If the thumbprints in both the outputs match, then it confirms that your certificates are in sync with Azure AD.
+
+### Step 2: Check if your certificate is about to expire
+
+In the output of either Get-MsolFederationProperty or Get-AdfsCertificate check for the date against "Not after". If the date is less than 30 days away, then you need to take action.
 
 >[AZURE.IMPORTANT] Please be aware that authentication through your proxy may fail in Windows Server 2012 or Windows Server 2008 R2 after doing one of the following:
 >
@@ -29,17 +73,10 @@ In order for successful federation between Azure AD and AD FS, the certificates 
 - You manually replaced your AD FS certificates 
 >
 A hotfix is available to fix this issue.  See [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
-
-## Renewal notification - O365 portal and email notification
-
-Azure AD attempts to monitor the federation metadata and update the token signing certificates as indicated by the federation metadata. 30 days before the expiry of the token signing certificates, Azure AD will check if new certificates are available by polling the federation metadata.
-
-* If it can successfully poll the federation metadata and retrieve the new certificates, then there is no email notification or O365 portal warning given to the user
-* If it cannot retrieve the new token signing certificates, either because the federation metdata is not reachable or automatic certificate rollover is not enabled - then it will issue an email notification and an warning would be shown in the O365 portal
  
 ## Renew token signing certificate automatically (Recommended)
 
-The token signing and token decrypting certificates are usually self-signed certificates and are good for one year. Default configuration of the AD FS regarding token signing and token decrypting certificates includes an auto-renewal process called **AutoCertificateRollover**. If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically update your certificate before it expires.  **You do not need to perform any manual steps or run a script as a scheduled task.**  For this to work, both of the following default AD FS configuration settings must be in effect:
+If you have deployed Web Application Proxy which can enable acecess to the federation metadata from extranet and you are using AD FS default configuration, i.e. AutoCertificateRollover is enabled, then **you do not need to perform any manual steps.**  Check the following to confirm that automatic update of the certificate can happen:
 
 **#1 The AD FS property AutoCertificateRollover must be set to True**
 
