@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Disable, enable, or delete a Traffic Manager profile | Microsoft Azure"
    description="This article will help you work with your Traffic Manager profiles."
    services="traffic-manager"
@@ -12,7 +12,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+   
+   ms.date="06/10/2016"
+
    ms.author="joaoma" />
 
 # Disable, Enable, or Delete a Profile

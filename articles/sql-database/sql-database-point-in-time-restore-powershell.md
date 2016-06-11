@@ -13,18 +13,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.date="06/09/2016"
     ms.author="sstein"/>
 
 # Restore an Azure SQL Database to a previous point in time with PowerShell
 
-> [AZURE.SELECTOR]
-- [Azure Portal](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
-
-This article shows you how to restore your database to an earlier point in time using PowerShell.
-
-[**Point-in-Time Restore**](sql-database-point-in-time-restore.md) is a self-service capability, allowing you to restore a database from the automatic backups we take for all databases to any point within your database's retention period. To learn more about automatic backups and database retention periods, see [Business Continuity Overview](sql-database-business-continuity.md).
+This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using PowerShell.
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -52,10 +46,15 @@ This article shows you how to restore your database to an earlier point in time 
 ## Next steps
 
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
-
+- [Point-in-time restore](sql-database-point-in-time-restore.md)
+- [Point-in-time restore using the Azure portal](sql-database-point-in-time-restore-portal.md)
+- [Point-in-time restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [SQL Database automated backups](sql-database-automated-backups.md)
 
 ## Additional resources
 
+- [Restore a deleted database](sql-database-restore-deleted-database.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Geo-Restore](sql-database-geo-restore.md)
+- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
+- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
