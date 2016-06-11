@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/11/2016"
 	ms.author="glenga"/>
 
 # How to use the managed client for Azure Mobile Apps
@@ -50,9 +50,23 @@ The corresponding typed client-side type in C# is the following:
 
 Note that the [JsonPropertyAttribute] is used to define the *PropertyName* mapping between the client type and the table.
 
-To learn how to create new tables in your Mobile Apps backend, see the information in the [.NET Server SDK HOWTO](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller)
-or the [Node.js Server SDK HOWTO](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If you
+To learn how to create new tables in your Mobile Apps backend, see the information in the [.NET Server SDK topic](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller)
+or the [Node.js Server SDK topic](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If you
 created your Mobile App backend in the Azure Portal using the QuickStart, you can also use the **Easy tables** setting in the [Azure portal].
+
+###How to: Install the managed client SDK package
+
+Use one of the following methods to install the managed client SDK package for Mobile Apps from NuGet:
+
++ **Visual Studio**  
+Right-click your project, click **Manage NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, then click **Install**.
+
++ **Xamarin Studio**  
+Right-click your project, click **Add** > **Add NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client `package, and then click **Add Package**.
+
+In your main activity file, remember to add the following **using** statement:
+
+	using Microsoft.WindowsAzure.MobileServices;
 
 ###<a name="symbolsource"></a>How to: Work with debug symbols in Visual Studio
 
