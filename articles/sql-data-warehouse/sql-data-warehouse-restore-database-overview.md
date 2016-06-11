@@ -25,9 +25,9 @@
 - [PowerShell][]
 - [REST][]
 
-Azure SQL Data Warehouse provides an automatic backup feature, giving you a zero-admin way to protect your databases from accidental corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you can ensure business continuity by restoring your database to an earlier point in time. SQL Data Warehouse uses Azure Storage Snapshots to backup your database seemlessly without the need for any downtime.
+Azure SQL Data Warehouse protects your data with both locally redundant storage and automated backups. Automated backups give you a zero-admin way to protect your databases from accidental corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you can ensure business continuity by restoring your database to an earlier point in time. SQL Data Warehouse uses Azure Storage Snapshots to backup your database seemlessly without the need for any downtime.
 
-## Backup policies
+## Automated backups
 
 Your **active** databases will automatically be backed up at a minimum of every 8 hours and kept for 7 days. This allows you to restore your active database to one of several restore points in the past 7 days.
 
@@ -41,6 +41,10 @@ If you need to retain a backup for longer than 7 days, you can simply restore on
 ## Data redundancy
 
 In addition to backups, SQL Data Warehouse also protects your data with [locally redundant (LRS)][] Azure Premium Storage.  Multiple synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures. Data redundancy ensures that your data can survive infrastructure issues such as disk failures etc.  Data redundancy ensures business continuity with a fault tolerant and highly available infrastructure.
+
+## Restore a database
+
+Restoring a SQL Data Warehouse is a simple opertaion which can be done in the Azure portal, or automated using PowerShell or REST APIs.
 
 
 ## Next steps
