@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Restore a database in Azure SQL Data Warehouse (Portal) | Microsoft Azure"
-   description="Azure portal tasks for restoring a live or deleted database in Azure SQL Data Warehouse."
+   pageTitle="Restore an Azure SQL Data Warehouse (Portal) | Microsoft Azure"
+   description="Azure portal tasks for restoring an Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/10/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Restore a database in Azure SQL Data Warehouse (Portal)
+# Restore an Azure SQL Data Warehouse (Portal)
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -24,7 +24,7 @@
 - [PowerShell][]
 - [REST][]
 
-PowerShell tasks for restoring a live or deleted database in Azure SQL Data Warehouse. 
+In this article you will learn how to restore an Azure SQL Data Warehouse using the Azure Portal.
 
 ## Before you begin
 
