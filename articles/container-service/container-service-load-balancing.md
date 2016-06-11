@@ -25,7 +25,7 @@ In this article, we'll set up a web front end, which you can scale up to deliver
 ## Prerequisites
 
 [Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DC/OS and [ensure that your client can connect to your cluster](container-service-connect.md). Also, do the following steps.
-[AZURE.INCLUDE [install the DC/OS command-line interface (CLI)](../../includes/container-service-install-dcos-cli-include.md)].
+[AZURE.INCLUDE [install the DC/OS command-line interface (CLI)](../../includes/container-service-install-dcos-cli-include.md)]
 
 
 ## Load balancing
