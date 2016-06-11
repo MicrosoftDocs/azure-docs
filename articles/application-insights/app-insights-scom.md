@@ -29,7 +29,7 @@ We'll assume:
 * You have already installed on your servers a web application that you want to monitor with Application Insights.
 * App framework version is .NET 4.5 or later.
 * [It doesn't matter whether the app was built with the Application Insights SDK](#sdk).
-* You have access to a subscription in [Microsoft Azure](https://azure.com) and can sign in to the [Azure portal](https:/portal.azure.com). Your organization may have an subscription, and can add your Microsoft account to it.
+* You have access to a subscription in [Microsoft Azure](https://azure.com) and can sign in to the [Azure portal](https://portal.azure.com). Your organization may have an subscription, and can add your Microsoft account to it.
 
 
 ## (One time) Install Application Insights management pack
