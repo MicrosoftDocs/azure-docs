@@ -176,15 +176,16 @@ If you edit a blade but then you'd like to get back to the original saved set, j
 
 ![In the buttons at the top of Metric Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
-## Live Stream: instant metrics for close monitoring
+<a name="live-metrics-stream"></a>
+## Live Metrics Stream: instant metrics for close monitoring
 
-Live Stream shows you your application metrics right at this very moment, with a near real time latency of 1 second. This is extremely useful when you’re releasing a new build and want to make sure that everything is working as expected, or investigating an incident in real time.
+Live Metrics Stream shows you your application metrics right at this very moment, with a near real time latency of 1 second. This is extremely useful when you’re releasing a new build and want to make sure that everything is working as expected, or investigating an incident in real time.
 
 ![In the Overview blade, click Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
 
-Unlike Metrics Explorer, Live Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded. 
+Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded. 
 
-Live Stream is available with Application Insights SDK for ASP.NET, version 2.1.0 or later.
+Live Metrics Stream is available with Application Insights SDK for ASP.NET, version 2.1.0 or later.
 
 ## Set alerts
 

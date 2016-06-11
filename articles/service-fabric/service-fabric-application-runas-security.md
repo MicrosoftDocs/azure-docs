@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # RunAs: Run a Service Fabric application with different security permissions
 Azure Service Fabric provides the ability to secure applications running in the cluster under different user accounts, known as **RunAs**. Service Fabric also secures the resources used by the applications with the user account such as files, directories, and certificates.
@@ -155,14 +155,14 @@ In the PowerShell file, add the following to set a system environment variable:
 ~~~
 
 **Note:** By default when the batch file runs it looks at the application folder called **work** for files. In this case when MySetup.bat runs we want this to find the MySetup.ps1 in the same folder, which is the application **code package** folder. To change this folder, set the working folder as shown below.
-    
+
 ~~~
 <SetupEntryPoint>
     <ExeHost>
     <Program>MySetup.bat</Program>
     <WorkingFolder>CodePackage</WorkingFolder>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 ## Using console redirection policy for local debugging of entry points
@@ -170,7 +170,7 @@ Occassional it is useful to see the console output from running a script for deb
 
 **Note: Never** use the console redirection policy in an application deployed in production since this can impact the application failover. **ONLY** use this for local development and debugging purposes.  
 
-The example below shows setting the console redirection with a FileRetentionCount value. 
+The example below shows setting the console redirection with a FileRetentionCount value.
 
 ~~~
 <SetupEntryPoint>
@@ -179,13 +179,13 @@ The example below shows setting the console redirection with a FileRetentionCoun
     <WorkingFolder>CodePackage</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="10"/>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
-If you now change the the MySetup.ps1 file to write an **Echo** command, this will write to the output file for debugging purposes. 
+If you now change the the MySetup.ps1 file to write an **Echo** command, this will write to the output file for debugging purposes.
 
 ~~~
-Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
 **Once you have debugged your script, immediately remove this console redirection policy**
