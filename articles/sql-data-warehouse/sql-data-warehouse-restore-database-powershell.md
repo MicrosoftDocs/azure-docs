@@ -159,7 +159,7 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 
 
 ## Next steps
-For more information, see [Azure SQL Database business continuity overview][], and [Management overview][].
+To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
 
 <!--Image references-->
 
@@ -167,17 +167,12 @@ For more information, see [Azure SQL Database business continuity overview][], a
 [Azure SQL Database business continuity overview]: sql-database-business-continuity.md
 [Finalize a recovered database]: sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Management overview]: sql-data-warehouse-overview-manage.md
 [Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
-[Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
-[Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
-[List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Blog references-->
