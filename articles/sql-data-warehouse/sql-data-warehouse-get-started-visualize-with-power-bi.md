@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/09/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualize data with Power BI
@@ -21,6 +21,7 @@
 > [AZURE.SELECTOR]
 - [Power BI][]
 - [Azure Machine Learning][]
+- [SQLCMD][] 
 
 This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
@@ -108,11 +109,12 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-overview-load.md
-[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[load sample data manually]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other-->
 [Azure Portal]: https://portal.azure.com/

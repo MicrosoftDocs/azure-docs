@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 # Known issues for Apache Spark cluster on HDInsight Linux
@@ -65,15 +65,6 @@ When hdiuser submits a job with spark-submit, there is an error java.io.FileNotF
 
 Following are some known issues related to Jupyter notebooks.
 
-### Cannot download Jupyter notebooks in .ipynb format
-
-If you are running the latest version of Jupyter notebooks for HDInsight Spark and you attempt to download a copy of the notebook as a **.ipynb** file from the Jupyter notebook user interface, you might see an internal server error.
-
-**Mitigation:**
-
-1.	Downloading the notebook in another format besides .ipynb (e.g. .txt) will succeed.  
-2.	If you need the .ipynb file, you can download it from your cluster container in your storage account at **/HdiNotebooks**. This only applies for the latest version of Jupyter notebooks for HDInsight, which supports notebook backups in the storage account. That said, previous versions of Jupyter notebooks for HDInsight Spark do not have this issue.
-
 
 ### Notebooks with non-ASCII characters in filenames
 
@@ -113,10 +104,6 @@ When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jup
 
 2. Restart the notebook you were trying to start up. Enough resources should be available for you to create a session now.
 
-### Reverting to checkpoint might fail
-
-You can create checkpoints in Jupyter notebooks in case you need to revert to an earlier version of the notebook. However, if the current state of notebooks has a SQL query with automatic visualization, reverting to a previously stored checkpoint might result in an error. 
-
 ##See also
 
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -142,6 +129,8 @@ You can create checkpoints in Jupyter notebooks in case you need to revert to an
 ### Tools and extensions
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 

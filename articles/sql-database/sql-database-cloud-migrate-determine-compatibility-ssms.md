@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Determine SQL Database compatibility using SSMS"
+   pageTitle="Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database | Microsoft Azure"
    description="Microsoft Azure SQL Database, database migration, SQL Database compatibility, Export Data Tier Application Wizard"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database

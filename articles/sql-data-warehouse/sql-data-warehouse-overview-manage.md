@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/10/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Manage databases in Azure SQL Data Warehouse
@@ -89,7 +89,7 @@ To learn about managing security, head over to the [Security overview][].
 
 ## Backup and restore
 
-Having reliable backps of your data is an essential part of any production database. SQL Data Warehouse keeps your data safe by automatically backing up your active databases at regular intervals. These backups allow you to recover from scenarios where you've corrupted your data or accidentally dropped your data or database.  For the data backup schedule and retention policy, see [High reliability][]. To learn more about how to restore a database, see [Restore from snapshot][].
+Having reliable backps of your data is an essential part of any production database. SQL Data Warehouse keeps your data safe by automatically backing up your active databases at regular intervals. These backups allow you to recover from scenarios where you've corrupted your data or accidentally dropped your data or database.  For the data backup schedule, retention policy and how to restore a database, see [Restore from snapshot][].
 
 ## Next steps
 Using good database design principles will make it easier to manage your databases in SQL Data Warehouse. To learn more, head over to the [Development overview][].
@@ -103,12 +103,11 @@ Using good database design principles will make it easier to manage your databas
 [Connect to Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-development.md
-[High reliability]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
-[Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Resume compute]: sql-data-warehouse-overview-scalability.md#resume-compute-performance-bk
-[Scale performance]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
+[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
+[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
+[Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
 [Security overview]: sql-data-warehouse-overview-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md
