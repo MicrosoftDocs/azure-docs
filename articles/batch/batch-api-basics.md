@@ -26,7 +26,7 @@ This article provides a basic overview of the core API features of the Azure Bat
 
 The following high-level workflow is typical of nearly all applications and services that use the Batch service for processing parallel workloads:
 
-1. Upload the **data files** that you want to process to an [Azure Storage][azure_storage] account. Batch includes built-in support for accessing Azure Blob storage, and your tasks can download these files to [compute nodes](#compute-node) when they are run.
+1. Upload the **data files** that you want to process to an [Azure Storage][azure_storage] account. Batch includes built-in support for accessing Azure Blob storage, and your tasks can download these files to [compute nodes](#compute-node) when the tasks are run.
 
 2. Upload the **application files** that your tasks will run. These files can be binaries or scripts and their dependencies, and are executed by the tasks in your jobs. These files can be retrieved from your Storage account and downloaded to the compute nodes by the tasks, or you can use the [application packages](#application-packages) feature of Batch for application management and deployment.
 
@@ -34,7 +34,7 @@ The following high-level workflow is typical of nearly all applications and serv
 
 4. Create a [Job](#job). A job manages a collection of tasks, and you associate each job to a specific pool where that job's tasks will run.
 
-5. Add [Tasks](#task) to the job. Each task runs the application or script that you uploaded to process the data files they download from your Storage account. As each task completes, it can upload its output to Azure Storage.
+5. Add [Tasks](#task) to the job. Each task runs the application or script that you uploaded to process the data files it downloads from your Storage account. As each task completes, it can upload its output to Azure Storage.
 
 6. Monitor job progress and retrieve the task output from Azure Storage.
 
@@ -141,9 +141,9 @@ A job is a collection of tasks, and specifies how computation is performed on co
 	- Azure Batch can detect tasks that fail and retry the tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is always or never retried. Retrying a task means that the task is re-queued to be run again.
 - Tasks can be added to the job by your client application, or a [Job Manager task](#jobmanagertask) may be specified. A job manager task uses the Batch API and contains the information necessary to create the required tasks for a job, with the task being run on one of the compute nodes within the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is required for jobs created by a job schedule as it is the only way to define the tasks before the job is instantiated. More information on job manager tasks appears below.
 
-  ### Scheduled jobs
+### Scheduled jobs
 
-  Job schedules enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule—how long and when the schedule is in effect—and how often during that time period jobs should be created.
+Job schedules enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule—how long and when the schedule is in effect—and how often during that time period jobs should be created.
 
 ### Task
 
