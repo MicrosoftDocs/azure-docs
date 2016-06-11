@@ -28,7 +28,7 @@ Because this service will belong to a single user or team, they are free to conf
 
 ## Prerequisites
 
-[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DC/OS, [ensure that your client can connect to your cluster](container-service-connect.md), and [AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)].
+[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DC/OS and  [ensure that your client can connect to your cluster](container-service-connect.md). Also, do the following steps. [AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)]
 
 ## Create an application or user-specific Marathon service
 
