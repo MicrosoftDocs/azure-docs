@@ -20,9 +20,9 @@
 
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to verify that the following requirements listed in the sections below have been met.
 
-## Azure account
-
 [AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
+## Azure account
 
 - A valid and active Microsoft Azure account. This is required to setup the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365 services and CRM online.
 - An active Office 365 subscription (if using Office 365 services). See the [Office 365 specific requirements](#office-365-specific-requirements) section of this article for more information.
