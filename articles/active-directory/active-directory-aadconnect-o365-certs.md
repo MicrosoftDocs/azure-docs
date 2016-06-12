@@ -28,7 +28,7 @@ This article provides you additional information to manage your token signing ce
 * You are not deploying the Web Application Proxy and therefore the federation metadata is not available in extranet
 * You are not using the default configuration of AD FS for token signing certificates
 
-## How does default configuration of AD FSfor token signing certificates work?
+## How does default configuration of AD FS for token signing certificates work?
 
 The token signing and token decrypting certificates are usually self-signed certificates and are good for one year. Default configuration of the AD FS regarding token signing and token decrypting certificates includes an auto-renewal process called **AutoCertificateRollover**. If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically update your certificate before it expires. 
 
@@ -39,7 +39,7 @@ Azure AD attempts to monitor the federation metadata and update the token signin
 * If it can successfully poll the federation metadata and retrieve the new certificates, then there is no email notification or O365 portal warning given to the user
 * If it cannot retrieve the new token signing certificates, either because the federation metdata is not reachable or automatic certificate rollover is not enabled - then it will issue an email notification and an warning would be shown in the O365 portal
 
->[Azure.Note] If you received an email or a portal notification asking you to renew your certificate for Office please you can follow the steps mentioned below in [Managing changes to token signing certificates](#managing-changes-to-toke-signing-certificates) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications being given to user for certificate renewal even when no action is required.
+>[AZURE.NOTE] If you received an email or a portal notification asking you to renew your certificate for Office please you can follow the steps mentioned below in [Managing changes to token signing certificates](./active-directory-aadconnect-o365-certs.md#managing-changes-to-toke-signing-certificates) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications being given to user for certificate renewal even when no action is required.
 
 ## How to check if the certificates need update?
 
