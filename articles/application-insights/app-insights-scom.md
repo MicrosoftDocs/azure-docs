@@ -17,7 +17,7 @@
  
 # Use SCOM to configure multiple servers for Application Insights
 
-System Center Operations Manager (SCOM) can be used to configure a multi-server web application for monitoring by Visual Studio Application Insights. An SCOM management pack finds the servers where the application is running, installs [Application Insights Status Monitor](app-insights-monitor-performance-live-website-now.md) on those servers, and configures it to monitor the application.
+System Center Operations Manager (SCOM) can be used to configure a multi-server web application for monitoring by [Visual Studio Application Insights](app-insights-asp-net.md). An SCOM management pack finds the servers where the application is running, installs [Application Insights Status Monitor](app-insights-monitor-performance-live-website-now.md) on those servers, and configures it to monitor the application.
 
 Application Insights is used by developers to monitor the performance and usage of web applications. They can display dashboards showing response times and failure rates for both incoming requests and calls to dependencies. The service automatically alerts them to unusual performance patterns, and they can diagnose problems by investigating individual exception, request and trace data.
 
@@ -81,11 +81,11 @@ On the machine where you run Operations Manager:
 
     ![Click Create](./media/app-insights-scom/070.png)
     
-If you need to change settings later, re-open the properties of the monitor from the Authoring window
-
-![In Authoring, select .NET Application Performance Monitoring with Application Insights, select your monitor, and click Properties.](./media/app-insights-scom/070.png)
-
 Repeat this procedure for each app that you want to monitor.
+
+If you need to change settings later, re-open the properties of the monitor from the Authoring window.
+
+![In Authoring, select .NET Application Performance Monitoring with Application Insights, select your monitor, and click Properties.](./media/app-insights-scom/080.png)
 
 ## Verify monitoring
 
