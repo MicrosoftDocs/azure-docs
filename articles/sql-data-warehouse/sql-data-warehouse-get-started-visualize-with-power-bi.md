@@ -25,11 +25,12 @@
 
 This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
+> [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
+
 ## Prerequisites
 
 To complete this tutorial, you need a SQL Data Warehouse that is pre-loaded with the AdventureWorksDW sample database. When you create a new SQL Data Warehouse, you can create either an empty database, a database which includes the AdventureWorks sample data, or restore a backup of another database.  See [Create a SQL Data Warehouse][] for more details on how to create a SQL Data Warehouse with the sample data already loaded for you. If you already have a SQL Data Warehouse which you want to use, but do not have sample data, follow the instructions at [load sample data manually][].
 
-> [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
 ## Connect to AdventureWorksDW
 
