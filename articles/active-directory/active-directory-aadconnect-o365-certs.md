@@ -154,3 +154,10 @@ Follow the steps given below to update O365 with the new token signing certifica
 
 >[AZURE.NOTE] If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the SupportMultipleDomain switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](active-directory-aadconnect-multiple-domains.md).
 Finally, ensure all Web Application Proxy servers are updated with [Windows Server May 2014](http://support.microsoft.com/kb/2955164) rollup, otherwise the proxies may fail to update themselves with the new certificate, resulting in an outage.
+
+## Repair Azure AD trust using AAD Connect
+
+If you had installed you configured your AD FS farm / Azure AD trust using Azure AD Connect, then you can use Azure AD Connect to detect if any action is needed to be taken for your token signing certificates. If you need to renew the certificates, you can use Azure AD Connect to do the needful with a few simple click.
+
+For more information, read [Repairing the trust](./active-directory-aadconnect-federation-management.md#repairing-the-trust)
+
