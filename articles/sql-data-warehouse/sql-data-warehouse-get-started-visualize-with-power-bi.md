@@ -59,7 +59,7 @@ To open Power BI and connect to your AdventureWorksDW database:
 
 
 
-## Create a Power BI report to analyze the sample data
+## Create a Power BI report
 
 You are now ready to use Power BI to analyze your AdventureWorksDW sample data. To perform the analysis, AdventureWorksDW has a view called AggregateSales. This view contains a few of the key metrics for analyzing the sales of the company.
 
