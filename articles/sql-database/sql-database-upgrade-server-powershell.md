@@ -189,7 +189,7 @@ For example, you can set up an email alert on “DTU Percentage” if the averag
 
 
 
-## Next Steps
+## Next steps
 
 - [Create an elastic database pool](sql-database-elastic-pool-create-portal.md) and add some or all of the databases into the pool.
 - [Change the service tier and performance level of your database](sql-database-scale-up.md).
