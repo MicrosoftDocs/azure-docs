@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Restore a database in Azure SQL Data Warehouse (Portal) | Microsoft Azure"
-   description="Azure portal tasks for restoring a live or deleted database in Azure SQL Data Warehouse."
+   pageTitle="Restore an Azure SQL Data Warehouse (Portal) | Microsoft Azure"
+   description="Azure portal tasks for restoring an Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -13,30 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="06/11/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Restore a database in Azure SQL Data Warehouse (Portal)
+# Restore an Azure SQL Data Warehouse (Portal)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-restore-database-overview.md)
-- [Portal](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-restore-database-rest-api.md)
+- [Overview][]
+- [Portal][]
+- [PowerShell][]
+- [REST][]
 
-PowerShell tasks for restoring a live or deleted database in Azure SQL Data Warehouse. 
-
-Tasks in this topic:
-
-- Restore a live database
-- Restore a deleted database
+In this article you will learn how to restore an Azure SQL Data Warehouse using the Azure Portal.
 
 ## Before you begin
 
-Verify your SQL Database DTU capacity. Since SQL Data Warehouse restores to a new database on your logical SQL server, it is important to make sure the SQL server you are restoring to has enough DTU capacity for the new database. See this blog post for more information on [how to view and increase DTU quota][].
+**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server logical server.  This logical server has a capacity limit measured in DTU.  Before you can restore a SQL Data Warehouse, it is important to make sure the SQL server logical server hosting your database has enough DTU capacity for the database being restored. See this blog post for more information on [how to view and increase DTU quota][].
 
 
-## Restore a live database
+## Restore an active or paused database
 
 To restore a database:
 
@@ -46,7 +41,6 @@ To restore a database:
 4. At the top of the database blade, click **Restore**.
 5. Specify a new **Database name**, select a **Restore Point** and then click **Create**.
 6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
-
 
 ## Restore a deleted database
 
@@ -62,14 +56,16 @@ To restore a deleted database:
 
 
 ## Next steps
-For more information, see [Azure SQL Database business continuity overview][] and [Management overview][].
+To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database business continuity overview]: sql-database-business-continuity.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Management overview]: sql-data-warehouse-overview-manage.md
+[Azure SQL Database business continuity overview]: ./sql-database-business-continuity.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
@@ -78,4 +74,3 @@ For more information, see [Azure SQL Database business continuity overview][] an
 
 <!--Other Web references-->
 [Azure portal]: https://portal.azure.com/
-

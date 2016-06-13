@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="What is Traffic Manager | Microsoft Azure"
    description="This article will help you understand what Traffic Manager is, and whether it is the right traffic routing choice for your application"
    services="traffic-manager"
