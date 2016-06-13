@@ -69,7 +69,7 @@ A Batch account is a uniquely identified entity within the Batch service. All pr
 
 ### Compute node
 
-A compute node is an Azure virtual machine that is dedicated to a specific workload for your application. The size of a node determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Cloud Services or Virtual Machines Marketplace images—see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.pd) for more information on both.
+A compute node is an Azure virtual machine that is dedicated to a specific workload for your application. The size of a node determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Cloud Services or Virtual Machines Marketplace images—see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information on both.
 
 Nodes can run executables and scripts, including executables (.exe), command (.cmd) files, batch (.bat) files, and PowerShell scripts. A node also has the following attributes:
 
@@ -92,34 +92,35 @@ When you create a pool, you specify the following attributes:
 
 - **Operating system** and **version** that runs on the nodes
 
-  You have two options when selecting an operating system for the nodes in your pool: **Cloud Services Configuration** and **Virtual Machine Configuration**.
+  You have two options when selecting an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**.
 
-  **Cloud Services Configuration** provides Windows compute nodes *only*. Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool containing Cloud Services nodes, you need to specify only the node size and its *OS Family*, the options for which are found in these articles. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
+  - **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. When you create a pool containing Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
-  - As with worker roles within Cloud Services, the an *OS Version* can be specified (for more information on worker roles, see the [Tell me about cloud services][about_cloud_services] section in *Compute Hosting Options Provided by Azure*).
-  - The *OS Family* also determines which versions of .NET are installed with the OS.
-  - As with worker roles, it is recommended that **`*`** be specified for the OS Version so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, allowing backward compatibility testing to be performed before allowing the version to be updated. Once validated, the OS version for the pool can be updated and the new OS image installed—any running tasks will be interrupted and re-queued.
+  - **Cloud Services Configuration** provides Windows compute nodes *only*. Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool containing Cloud Services nodes, you need to specify only the node size and its *OS Family*, the options for which are found in these articles. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
 
-  **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. When you create a pool containing Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
+    - The *OS Family* also determines which versions of .NET are installed with the OS.
+	- As with worker roles within Cloud Services, an *OS Version* can be specified (for more information on worker roles, see [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) section in the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)).
+    - As with worker roles, it is recommended that `*` be specified for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, allowing backward compatibility testing to be performed before allowing the version to be updated. Once validated, the *OS Version* for the pool can be updated and the new OS image installed—any running tasks will be interrupted and re-queued.
 
 - **Size of the nodes** in the pool
     - **Cloud Services Configuration** compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch supports all Cloud Services sizes except `ExtraSmall`.
 
 	- **Virtual Machine Configuration** compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Batch supports all Azure VM sizes except `STANDARD_A0` and those with premium storage (`STANDARD_GS`, `STANDARD_DS`, and `STANDARD_DSV2` series).
 
-	- An appropriate node size should be chosen, taking into account the characteristics and requirements of the application or applications that are going to be run on the nodes. The node size is typically selected assuming one task will run on the node at a time. Considering aspects such as whether the application is multi-threaded and how much memory it consumes will help determine the most suitable and cost-effective node size. It is possible to have multiple tasks assigned and multiple application instances run in parallel, in which case a larger node is typically chosen - see "Task scheduling policy" below for more information.
+	- You should take into account the characteristics and requirements of the application or applications that will run on the compute nodes when you select a node size. You will typically select a node size assuming one task will run on the node at a time. Consider aspects such as whether the application is multi-threaded and how much memory it consumes to help determine the most suitable and cost-effective node size. It is possible to have multiple tasks and therefore multiple application instances [run in parallel](batch-parallel-node-tasks.md), in which case you will typically choose a larger node. See "Task scheduling policy" below for more information.
 
-	- All of the nodes in a pool are the same size. If different applications are to be run with differing system requirements and/or load levels, separate pools should be created.
+	- All of the nodes in a pool are the same size. If you will be running applications with differing system requirements and/or load levels, you should use separate pools.
 
-- **Target number of nodes** that should be deployed in the pool.
+- **Target number of nodes** in the pool
+    - This is the number of compute nodes that you wish to deploy in the pool. This is referred to as a *target* because—in some situations—your pool may not reach the desired number of nodes. Causes of a pool not to reaching the desired number of nodes include reaching the [core quota](batch-quota-limit.md#batch-account-quotas) for your Batch account, or an auto-scaling formula that you have applied to the pool limiting the maximum number of nodes (see *Scaling policy* below).
 
 - **Scaling policy** for the pool
-	- In addition to the number of nodes, you can also specify an [auto-scaling formula](batch-automatic-scaling.md) for a pool. The Batch service will execute the formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
+	- In addition to specifying a static number of nodes, you can instead write and apply an [auto-scaling formula](batch-automatic-scaling.md) for a pool. The Batch service will periodically evaluate your formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
 
 - **Task scheduling** policy
-	- The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each node within the pool.
-	- The default configuration is for one task to be run on a compute node at a time, but there are scenarios where it is beneficial to have more than one task executed on a node at the same time. One example is to increase node utilization if an application has to wait for I/O. Having more than one application executed concurrently will increase CPU utilization. Another example is to reduce the number of nodes in the pool. This could reduce the amount of data transfer required for large reference data sets - if an A1 node size is sufficient for an application, then the A4 node size could instead be chosen and the pool configured for 8 parallel tasks, each using a core.
-	- A "fill type" can also be specified which determines whether Batch spreads the tasks evenly across all nodes, or packs each node with the maximum number of tasks before assigning tasks to another node in the pool.
+	- The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each compute node within the pool.
+	- The default configuration is one task at a time is run on a node, but there are scenarios where it is beneficial to have more than one task executed on a node simultaneously. See the [example scenario](batch-parallel-node-tasks.md#example-scenario) in our [concurrent node tasks](batch-parallel-node-tasks.md) article to see how you can benefit from multiple tasks per node.
+	- You can specify a *fill type* which determines whether Batch spreads the tasks evenly across all nodes, or packs each node with the maximum number of tasks before assigning tasks to another node in the pool.
 
 - **Communication status** of the nodes in the pool
 	- A pool may be configured to allow communication between the nodes (inter-node communication) which determines its underlying network infrastructure. Note that this also impacts placement of the nodes within clusters.
@@ -137,6 +138,7 @@ A job is a collection of tasks, and specifies how computation is performed on co
 - The job specifies the **pool** in which the work will be run. The pool can be an existing pool, previously created for use by many jobs, or created on-demand for each job associated with a job schedule, or for all jobs associated with a job schedule.
 - An optional **job priority** can be specified. When a job is submitted with a higher priority than jobs currently in progress, the higher priority job's tasks are inserted into the queue ahead of the lower priority job tasks. Lower priority tasks that are already running will not be pre-empted.
 - Job **constraints** specify certain limits for your jobs.
+
 	- A **maximum wallclock time** can be set for jobs. If the jobs runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.
 	- Azure Batch can detect tasks that fail and retry the tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is always or never retried. Retrying a task means that the task is re-queued to be run again.
 - Tasks can be added to the job by your client application, or a [Job Manager task](#jobmanagertask) may be specified. A job manager task uses the Batch API and contains the information necessary to create the required tasks for a job, with the task being run on one of the compute nodes within the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is required for jobs created by a job schedule as it is the only way to define the tasks before the job is instantiated. More information on job manager tasks appears below.
@@ -387,7 +389,6 @@ In situations where some of your tasks are failing, your Batch client applicatio
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
-[about_cloud_services]: ../cloud-services/cloud-services-choose-me.md
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
