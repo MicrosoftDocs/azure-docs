@@ -148,7 +148,7 @@ While these trade-offs can be major barriers with most cloud database service pr
 
 For multi-tenant application providers who have no tenant isolation requirements and are able to pack tenants in a database at very high density to reduce costs, “shared” data models may result in some additional efficiency in resource sharing and reduce the overall cost. Azure SQL database elastic database tools, sharding libraries and security features help SaaS providers in building and managing such multi-tenant applications.
 
-## Next Steps
+## Next steps
 
 For a sample app that demonstrates the client library, see [Get started with Elastic Datababase tools](sql-database-elastic-scale-get-started.md).
 
@@ -158,7 +158,7 @@ To create a new pool, see the [Create an elastic pool tutorial](sql-database-ela
 
 To monitor and manage an elastic database pool, see [Monitor and manage an elastic database pool](sql-database-elastic-pool-manage-portal.md).
 
-## Learn More
+## Additional resources
 
 - [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
 - [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
