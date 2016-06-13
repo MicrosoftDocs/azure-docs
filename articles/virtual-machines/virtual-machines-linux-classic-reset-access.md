@@ -49,17 +49,17 @@ You will need the following:
 
 ## <a name="pwresetcli"></a>Reset the password
 
-Step 1: Create a file named PrivateConf.json with these contents, substituting for the placeholder values.
+Step 1: Create a file named PrivateConf.json with these contents. Replace the brackets and the <placeholder> names with your own.
 
 	{
-	"username":"currentusername",
-	"password":"newpassword",
-	"expiration":"2016-01-01"
+	"username":"<currentusername>",
+	"password":"<newpassword>",
+	"expiration":"<2016-01-01>"
 	}
 
-Step 2: Run this command, substituting the name of your virtual machine for "vmname".
+Step 2: Run this command, substituting the name of your virtual machine for <vmname>.
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
+	azure vm extension set <vmname> VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
 
 ## <a name="sshkeyresetcli"></a>Reset the SSH key
 
