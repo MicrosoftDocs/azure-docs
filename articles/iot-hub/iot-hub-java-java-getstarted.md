@@ -95,10 +95,10 @@ In this section, you'll create a Java console app that creates a new device iden
     import java.net.URISyntaxException;
     ```
 
-7. Add the following class-level variables to the **App** class, replacing **{yourhubname}** and **{yourhubkey}** with the values your noted earlier:
+7. Add the following class-level variables to the **App** class, replacing **{yourhostname}** and **{yourhubkey}** with the values your noted earlier:
 
     ```
-    private static final String connectionString = "HostName={yourhubname}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
     private static final String deviceId = "javadevice";
     
     ```
@@ -190,14 +190,10 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
     import java.util.logging.*;
     ```
 
-7. Add the following class-level variables to the **App** class. Replace **{youriothubkey}**, **{youreventhubcompatiblenamespace}**, and **{youreventhubcompatiblename}** with the values you noted previously. The value of the **{youreventhubcompatiblenamespace}** placeholder comes from the **Event Hub-compatible endpoint** - it takes the form **xyznamespace** (in other words, remove the **sb://** prefix and **.servicebus.windows.net** suffix from the Event Hub-compatible endpoint value from the portal):
+7. Add the following class-level variables to the **App** class. Replace **{youriothubkey}**, **{youreventhubcompatibleendpoint}**, and **{youreventhubcompatiblename}** with the values you noted previously:
 
     ```
-    private static String namespaceName = "{youreventhubcompatiblenamespace}";
-    private static String eventHubName = "{youreventhubcompatiblename}";
-    private static String sasKeyName = "iothubowner";
-    private static String sasKey = "{youriothubkey}";
-    private static long now = System.currentTimeMillis();
+    private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 
 8. Add the following **receiveMessages** method to the **App** class. This method creates an **EventHubClient** instance to connect to the Event Hub-compatible endpoint and then asynchronously creates a **PartitionReceiver** instance to read from an Event Hub partition. It loops continuously and prints the message details until the application terminates.
@@ -207,8 +203,7 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
     {
       EventHubClient client = null;
       try {
-        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+        client = EventHubClient.createFromConnectionStringSync(connStr);
       }
       catch(Exception e) {
         System.out.println("Failed to create client: " + e.getMessage());
