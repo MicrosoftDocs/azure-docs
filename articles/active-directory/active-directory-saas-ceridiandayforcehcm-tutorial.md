@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="06/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -115,16 +115,17 @@ Your Ceridian Dayforce HCM application expects the SAML assertions in a specific
 	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_81.png) 
 
 
-1. Click **add user attribute**.
+1. In the attributes saml token attributes list, select the name attribute, and then click **Edit**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_82.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_06.png) 
 
 
 1. On the **Add User Attribute** dialog, perform the following steps:
  
 	a. In the **Attrubute Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. From the **Attribute Value** list, select **user.extensionattribute2**.
+    b. From the **Attribute Value** list, select the user attribute you want to use for your implementation.  
+    For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute12, then select **user.extensionattribute12**. 
 
     c. Click **Complete**.	
 	
