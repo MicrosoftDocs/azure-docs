@@ -36,11 +36,9 @@ The steps in this document walk through the process of creating a new HDInsight 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- __Azure CLI__.
+- __Azure CLI__. The steps in this document were last tested with Azure CLI version 0.10.1.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
-
-    > [AZURE.NOTE] The steps in this document were last tested with Azure CLI version 0.10.1.
 
 ##Login to your Azure subscription
 
