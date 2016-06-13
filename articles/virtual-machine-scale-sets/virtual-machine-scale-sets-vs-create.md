@@ -77,6 +77,8 @@ Now you can edit the Template to customize it for your application's needs, such
 
 9. Next select the **Edit Parameters** button to enter parameters which will be passed to your Template, Certain values such as the username and password for the OS are required to create the deployment.
 
+Note: If you don't have PowerShell Tools for Visual Studio installed, it is recommended to check "Save passwords" in order to avoid a hidden PowerShell command line prompt, or use [keyvault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
+
 	![Edit Parameters][edit_parameters]
 
 10. Now click **Deploy**. The **Output** window will show the deployment progress. Note that the the action is executing the **Deploy-AzureResourceGroup.ps1** script.
