@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with the Azure CDN Library for .NET"
+	pageTitle="Get started with the Azure CDN Library for .NET | Microsoft Azure"
 	description="Learn how to write .NET applications to manage Azure CDN using Visual Studio."
 	services="cdn"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="06/14/2016"
 	ms.author="casoper"/>
 
 # Get started with the Azure CDN Library for .NET
@@ -75,7 +75,7 @@ If, instead of a service principal, you'd rather have interactive individual use
 
 3. There is no need to create a **client authentication key**.
 
-4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *cdndemo@camthegeek.onmicrosoft.com* to the **CDN Profile Contributor** role.  
+4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
 	
 	![Individual user access](./media/cdn-app-dev-net/cdn-aad-user.png)
 
@@ -381,10 +381,10 @@ We can then confirm the prompts to run the rest of the program.
 
 ![Program completing](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
-## Additional information
+## Next Steps
 
-The completed project from this tutorial can be found [here](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-Addition documentation on the Azure CDN Management Library for .NET is available on [MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
+To find additional documentation on the Azure CDN Management Library for .NET, view the [reference on MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
 
