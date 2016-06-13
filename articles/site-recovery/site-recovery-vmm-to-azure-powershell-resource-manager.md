@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="06/13/2016"
 	ms.author="rajanaki"/>
 
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using PowerShell and Azure Resource Manager
@@ -267,7 +267,7 @@ After the servers, clouds and networks are configured correctly, you can enable 
 
  Note the following:
 
- - Virtual machines must meet Azure requirements. Check these in [Prerequisites and Support](../site-recovery-best-practices.md) in the planning guide.
+ - Virtual machines must meet Azure requirements. Check these in [Prerequisites and Support](site-recovery-best-practices.md) in the planning guide.
 
  - To enable protection, the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
