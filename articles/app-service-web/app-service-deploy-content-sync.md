@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Sync content from a cloud folder to Azure App Service
 
-One of the options for deployment to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) is syncing your content from popular cloud storage services like Dropbox and OneDrive. 
+This tutorial shows you how to deploy to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by syncing your content from popular cloud storage services like Dropbox and OneDrive. 
 
 ## <a name="overview"></a>Overview of content sync deployment
 

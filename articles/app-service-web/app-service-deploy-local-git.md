@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Local Git Deployment to Azure App Service
 

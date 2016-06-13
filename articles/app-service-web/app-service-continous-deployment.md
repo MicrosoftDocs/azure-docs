@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Continuous Deployment to Azure App Service
 
-[Azure App Service] integration with BitBucket, GitHub, and Visual Studio Team Services (VSTS) enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
+This tutorial shows you how to configure a continous deployment workflow for your [Azure App Service] app. [App Service] integration with BitBucket, GitHub, and Visual Studio Team Services (VSTS) enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
 
 ## <a name="overview"></a>Enable continuous deployment
 
@@ -31,6 +31,8 @@ To enable continuous deployment,
 
 	![](./media/app-service-continous-deployment/cd_options.png)
 	
+    > [AZURE.NOTE] To configure a VSTS account for App Service deployment please see this [tutorial](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+    
 3. Complete the authorization workflow. 
 
 4. In the **Deployment Source** blade, choose the project and branch to deploy from. When you're done, click **OK**.
