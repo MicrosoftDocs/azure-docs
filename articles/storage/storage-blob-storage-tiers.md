@@ -179,9 +179,9 @@ In this section we will demonstrate the following scenarios using the Azure port
 
 4. Select the desired access tier: **Hot** or **Cool**.
 
-    > [AZURE.NOTE] Changing the access tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
-
 5. Click Save at the top of the blade. 
+
+    > [AZURE.NOTE] Changing the access tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
 
 ## Migrating to Blob storage accounts
 
