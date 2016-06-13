@@ -38,9 +38,9 @@ The following high-level workflow is typical of nearly all applications and serv
 
 6. Monitor job progress and retrieve the task output from Azure Storage.
 
-> [AZURE.NOTE] You will need a [Batch account](batch-account-create-portal.md) to use the Batch service, and nearly all solutions will use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
-
 In the sections below, you'll learn about each of the resources mentioned in the above workflow, as well as many other features of Batch that will enable your distributed computational scenario.
+
+> [AZURE.NOTE] You will need a [Batch account](batch-account-create-portal.md) to use the Batch service, and nearly all solutions will use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 ## Resources of the Batch service
 
@@ -95,7 +95,7 @@ When you create a pool, you specify the following attributes:
 
 - **Operating system** and **version** that runs on the nodes
 
-  You have two options when selecting an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**.
+	You have two options when selecting an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**.
 
 	**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes from the [Azure Virtual Machines Marketplace][vm_marketplace]. When you create a pool containing Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
@@ -140,7 +140,7 @@ When you create a pool, you specify the following attributes:
 
 	The optional *start task* will execute on each node as that node joins the pool, as well as each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks will run.
 
-> [AZURE.IMPORTANT] It is important to note that all Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You will find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
+> [AZURE.IMPORTANT] All Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You will find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
 
 ### Job
 
@@ -153,7 +153,7 @@ A job is a collection of tasks, and specifies how computation is performed on co
 	A **maximum wallclock time** can be set for jobs. If a job runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.
 
 	Azure Batch can detect tasks that fail and retry the tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is always or never retried. Retrying a task means that the task is re-queued to be run again.
-- Tasks can be added to a job by your client application, or a [Job Manager task](#jobmanagertask) may be specified. A job manager task uses the Batch API and contains the information necessary to create the required tasks for a job, with the task being run on one of the compute nodes within the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is required for jobs created by a job schedule as it is the only way to define the tasks before the job is instantiated. More information on job manager tasks appears below.
+- Tasks can be added to a job by your client application, or a [Job Manager task](#job-manager-task) may be specified. A job manager task contains the information necessary to create the required tasks for a job, with the task being run on one of the compute nodes within the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is required for jobs created by a job schedule as it is the only way to define the tasks before the job is instantiated. More information on job manager tasks appears below.
 
 ### Scheduled jobs
 
@@ -213,8 +213,8 @@ A job manager task is started before all other tasks and provides the following 
 
 Batch provides the job preparation task for pre-job execution setup, and the job release task for post-job maintenance or cleanup.
 
-- **Job preparation task** - The job preparation task runs on all compute nodes scheduled to run tasks, before any of the other job tasks are executed. Use the job preparation task to copy data shared by all tasks, but unique to the job, for example.
-- **Job release task** - When a job has completed, the job release task runs on each node in the pool that executed at least one task. Use the job release task to delete data copied by the job preparation task, or compress and upload diagnostic log data, for example.
+- **Job preparation task** – The job preparation task runs on all compute nodes scheduled to run tasks, before any of the other job tasks are executed. Use the job preparation task to copy data shared by all tasks, but unique to the job, for example.
+- **Job release task** – When a job has completed, the job release task runs on each node in the pool that executed at least one task. Use the job release task to delete data copied by the job preparation task, or compress and upload diagnostic log data, for example.
 
 Both job preparation and release tasks allow you to specify a command line to run when the task is invoked, and offer features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
@@ -345,14 +345,22 @@ You may find it necessary to handle both task and application failures within yo
 Task failures fall into these categories:
 
 - **Scheduling failures**
-	- If the transfer of files specified for a task fails for any reason, a "scheduling error" is set for the task.
-	- Causes of scheduling errors could be because the files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+
+	If the transfer of files specified for a task fails for any reason, a "scheduling error" is set for the task.
+
+	Causes of scheduling errors could be because the files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+
 - **Application failures**
-	- The process specified by the task's command line can also fail. The process is deemed to have failed when a non-zero exit code is returned by the process executed by the task.
-	- For application failures, it is possible to configure Batch to automatically retry the task up to a specified number of times.
+
+	The process specified by the task's command line can also fail. The process is deemed to have failed when a non-zero exit code is returned by the process executed by the task.
+
+	For application failures, it is possible to configure Batch to automatically retry the task up to a specified number of times.
+
 - **Constraint failures**
-	- A constraint can be set that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating "hung" tasks.
-	- When the maximum amount of time has been exceeded, the task is marked as *completed* but the exit code is set to `0xC000013A`, and the *schedulingError* field will be marked as `{ category:"ServerError", code="TaskEnded"}`.
+
+	A constraint can be set that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating "hung" tasks.
+
+	When the maximum amount of time has been exceeded, the task is marked as *completed* but the exit code is set to `0xC000013A`, and the *schedulingError* field will be marked as `{ category:"ServerError", code="TaskEnded"}`.
 
 ### Debugging application failures
 
