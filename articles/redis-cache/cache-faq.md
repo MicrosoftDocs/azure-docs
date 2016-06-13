@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -48,21 +48,21 @@ From this table we can draw the following conclusions.
 -	With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. Eg. If you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS
 -	Throughput for bigger key sizes is higher in Premium tier as compared to Standard Tier.
 
-| Pricing tier         | Size   | Available bandwidth        | 1 KB Key size                  |
-|----------------------|--------|----------------------------|--------------------------------|
-| **Standard cache sizes** | &nbsp;       |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** | **Requests per second (RPS)**            |
-| C0                   | 250 MB | 5 / 0.625                          | 600                            |
-| C1                   | 1 GB   | 100 / 12.5                        | 12200                          |
-| C2                   | 2.5 GB | 200 / 25                        | 24000                          |
-| C3                   | 6 GB   | 400 / 50                        | 49000                          |
-| C4                   | 13 GB  | 500 / 62.5                        | 61000                          |
-| C5                   | 26 GB  | 1000 / 125                       | 115000                         |
-| C6                   | 53 GB  | 2000 / 250                       | 150000                         |
-| **Premium cache sizes**  |  &nbsp;      |    &nbsp;                        | **Requests per second (RPS), per shard** |
-| P1                   | 6 GB   | 1000 / 125                       | 140000                         |
-| P2                   | 13 GB  | 2000 / 250                       | 220000                         |
-| P3                   | 26 GB  | 2000 / 250                       | 220000                         |
-| P4                   | 53 GB  | 4000 / 500                       | 250000                         |
+| Pricing tier             | Size   | CPU cores | Available bandwidth                                    | 1 KB Key size                            |
+|--------------------------|--------|-----------|--------------------------------------------------------|------------------------------------------|
+| **Standard cache sizes** |        |           | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** | **Requests per second (RPS)**            |
+| C0                       | 250 MB | Shared    | 5 / 0.625                                              | 600                                      |
+| C1                       | 1 GB   | 1         | 100 / 12.5                                             | 12200                                    |
+| C2                       | 2.5 GB | 2         | 200 / 25                                               | 24000                                    |
+| C3                       | 6 GB   | 4         | 400 / 50                                               | 49000                                    |
+| C4                       | 13 GB  | 2         | 500 / 62.5                                             | 61000                                    |
+| C5                       | 26 GB  | 4         | 1000 / 125                                             | 115000                                   |
+| C6                       | 53 GB  | 8         | 2000 / 250                                             | 150000                                   |
+| **Premium cache sizes**  |        |           |                                                        | **Requests per second (RPS), per shard** |
+| P1                       | 6 GB   | 2         | 1000 / 125                                             | 140000                                   |
+| P2                       | 13 GB  | 4         | 2000 / 250                                             | 220000                                   |
+| P3                       | 26 GB  | 4         | 2000 / 250                                             | 220000                                   |
+| P4                       | 53 GB  | 8         | 4000 / 500                                             | 250000                                   |
 
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
