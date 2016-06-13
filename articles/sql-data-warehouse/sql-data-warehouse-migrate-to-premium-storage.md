@@ -120,8 +120,8 @@ If you would like to control your downtime, you can Self-Migrate your DW by usin
 
 > [AZURE.NOTE] While most settings will move over from your DW on Standard Storage to your new DW on Premium Storage, these items will not carry over:
 > 
-	1. Auditing at the Database level will need to be re-enabled
-	2. Firewall rules at the Database level will need to be re-added
+	- Auditing at the Database level will need to be re-enabled
+	- Firewall rules at the Database level will need to be re-added
 
 #### Optional: rename workaround 
 Two databases on the same logical server cannot have the same name. As SQL DW currently does not support the RENAME functionality, the instructions below will allow you to get around this missing functionality.
