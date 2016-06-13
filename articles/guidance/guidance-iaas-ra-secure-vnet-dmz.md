@@ -227,8 +227,8 @@ To run the script that deploys the solution:
 
 	# VPN parameter defaults
 	INPUT_ON_PREMISES_PUBLIC_IP=
-	INPUT_ON_PREMISES_ADDRESS_SPACE=192.168.0.0/16
-	INPUT_VPN_IPSEC_SHARED_KEY=myipsecsharedkey123
+	INPUT_ON_PREMISES_ADDRESS_SPACE=
+	INPUT_VPN_IPSEC_SHARED_KEY=
 	...
 	``` 
 
@@ -282,11 +282,11 @@ To run the script that deploys the solution:
 
 		> [AZURE.NOTE] The article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] describes the contents of these resource groups in more detail.
 
-	- **myapp*-dmz-rg.** This resource group contains the resources used to implement the public security perimeter. The script creates a public IP address, Azure load balancer, the public DMZ inbound and public DMZ outbound subnets, the NICs, and the NVAs in an availability set (*click to expand*):
+	- ***myapp*-dmz-rg.** This resource group contains the resources used to implement the public security perimeter. The script creates a public IP address, Azure load balancer, the public DMZ inbound and public DMZ outbound subnets, the NICs, and the NVAs in an availability set (*click to expand*):
 
 		[![2]][2]
 
-15. In the **myapp*-dmz-rg** resource group, click the **myapp*-dmz-pip** public IP address and make a note of the IP address. Open Internet Explorer, and navigate to this address. You should see the default page for the web server software deployed on the web tier (IIS for Windows, and Apache for Ubuntu). This indicates that the routing in the NVAs has been configured correctly:
+15. In the ***myapp*-dmz-rg** resource group, click the ***myapp*-dmz-pip** public IP address and make a note of the IP address. Open Internet Explorer, and navigate to this address. You should see the default page for the web server software deployed on the web tier (IIS for Windows, and Apache for Ubuntu). This indicates that the routing in the NVAs has been configured correctly:
 
 	[![3]][3]
 
@@ -351,7 +351,7 @@ If the NVAs are protected by using NSG rules, it may also be necessary to open p
 [availability-set]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/
 [iptables]: https://help.ubuntu.com/community/IptablesHowTo
 [azuredeploy-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/azuredeploy.sh
-[azuredeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/Templates/ra-vnet-subnets-udr-nsg/azuredeploy.json
+[azuredeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/Templates/ra-secure-vnet-pub-dmz/azuredeploy.json
 [ibb-dmz]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/Templates/ibb-dmz.json
 [0]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure1.svg "Secure hybrid network architecture"
 [1]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure2.png "Subnets in the VNet"
