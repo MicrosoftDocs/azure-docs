@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/20/2016"
+   	ms.date="06/13/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
@@ -39,6 +39,8 @@ The steps in this document walk through the process of creating a new HDInsight 
 - __Azure CLI__.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
+    The steps in this document were last tested with Azure CLI version 0.10.1.
 
 ##Login to your Azure subscription
 
@@ -69,7 +71,7 @@ The following steps should be performed from a command-prompt, shell or terminal
 
 5. Create a new storage account. This will be used as the default storage for the HDInsight cluster.
 
-        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage --access-tier hot storagename
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
      * Replace __groupname__ with the name of the group created in the previous step.
      * Replace __location__ with the same location used in the previous step. 
@@ -88,7 +90,7 @@ The following steps should be performed from a command-prompt, shell or terminal
 
 6. Create a new HDInsight cluster.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
     * Replace __groupname__ with the resource group name.
     * Replace __location__ with the same location used in previous steps.
