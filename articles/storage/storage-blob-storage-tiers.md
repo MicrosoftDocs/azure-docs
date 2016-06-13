@@ -133,9 +133,9 @@ In this section we will demonstrate the following scenarios using the Azure port
 
 ### Using the Azure portal
 
-#### Create a Blob storage account using the Azure Portal
+#### Create a Blob storage account using the Azure portal
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the Hub menu, select **New** > **Data + Storage** > **Storage account**.
 
@@ -163,15 +163,15 @@ In this section we will demonstrate the following scenarios using the Azure port
 
 8. Select the subscription in which you want to create the new storage account.
 
-9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Using the Azure Portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
+9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
 10. Select the region for your storage account.
 
 11. Click **Create** to create the storage account.
 
-#### Change the access tier on a Blob storage account using the Azure Portal
+#### Change the access tier on a Blob storage account using the Azure portal
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. To navigate to your storage account, select All Resources, then select your storage account.
 
