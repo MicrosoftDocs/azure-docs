@@ -18,9 +18,6 @@
 
 # Technical Guide to the Cortana Intelligence Solution Template for Demand Forecast in Energy
 
-## **Acknowledgements**
-This article is authored by data scientists Yijing Chen and software engineer Qiu Min at Microsoft.
-
 ## **Overview**
 
 Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Intelligence Suite. A deployed template will provision your subscription with necessary Cortana Intelligence component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the Power BI dashboard.
@@ -414,3 +411,6 @@ Solution Template in your subscription:
 
 -   [Microsoft Azure Cost Estimator
     Tool (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
+
+## **Acknowledgements**
+This article is authored by data scientists Yijing Chen and software engineer Qiu Min at Microsoft.
