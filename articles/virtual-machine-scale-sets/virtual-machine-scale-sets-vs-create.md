@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/13/2016"
 	ms.author="guybo"/>
 
 # Deploy Virtual Machine Scale Set using Visual Studio
@@ -75,9 +75,7 @@ Now you can edit the Template to customize it for your application's needs, such
 
 	![New Resource Group][new_resource]
 
-9. Next select the **Edit Parameters** button to enter parameters which will be passed to your Template, Certain values such as the username and password for the OS are required to create the deployment.
-
-Note: If you don't have PowerShell Tools for Visual Studio installed, it is recommended to check "Save passwords" in order to avoid a hidden PowerShell command line prompt, or use [keyvault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
+9. Next select the **Edit Parameters** button to enter parameters which will be passed to your Template, Certain values such as the username and password for the OS are required to create the deployment. If you don't have PowerShell Tools for Visual Studio installed, it is recommended to check "Save passwords" in order to avoid a hidden PowerShell command line prompt, or use [keyvault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
 
 	![Edit Parameters][edit_parameters]
 
