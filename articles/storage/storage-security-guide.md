@@ -609,12 +609,10 @@ For more information about CORS and how to enable it, please check out these res
 
 1.  **How can I verify the integrity of the blobs I’m transferring into or out of Azure Storage if I can’t use the HTTPS protocol?**
 
-	MD5 checking can be used on both PUT and GET operations when working with Azure Blob Storage using the REST APIs. If for any reason you might use HTTP instead of HTTPS, you should consider using MD5 checking. Storing the MD5 value ensures that it is available in case you want to download the blob using HTTP at a later date. If you are certain you’re only going to use HTTPS, then using MD5 checking is redundant because HTTPS provides transport level security.
+	If for any reason you need to use HTTP instead of HTTPS and you are working with block blobs, you can use MD5 checking to help verify the integrity of the blobs being transferred. 
 
-	The way it works for a block blob is this: You calculate the MD5 hash of the blob bits before you send them up. Then when you call the Azure Blob Service to put the blob, you include the MD5 hash value. If the Blob Service receives an MD5 hash value, it will calculate the MD5 hash of the data it received and compare it to the one you’ve specified. If they don’t match, then the blob was corrupted during transport, and it will return an error code 400 (Bad Request).
-
-	When you retrieve the blob, if there is an MD5 value stored, it will return it to you in the headers of the request. You can then calculate the MD5 hash of the data received and compare it to the MD5 value stored. If they don’t match, then the blob was corrupted during transport.
-
+	If you can use HTTPS, then using MD5 checking is redundant because HTTPS provides transport level security.
+	
 	For more information, please check out the [Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 
 2.  **What about FIPS-Compliance for the U.S. Government?**
