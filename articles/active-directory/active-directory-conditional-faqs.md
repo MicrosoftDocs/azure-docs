@@ -18,8 +18,17 @@
 
 # Conditional access FAQs
 
-**Can I use the device conditions in Azure AD if I am using mobile device management for Office 365?**
+## Which applications work with Conditional Access policies?
+Please see the topic, [Conditional access- What applications are supported](active-directory\active-directory-conditional-access-supported-apps.md).
+
+## Are Conditional Access policies enforced for B2B and guest user?
+Policies are enforced for B2B users. However, in some cases the user may not be able to satisfy the policy requirement. For example, if their organization does not support multi-factor authentication. Policy is not currently enforced for SharePoint guest users. The guest relationship is maintained within SharePoint, so not subject to access polices at the authenticatoin server. Guest access can be managed at SharePoint.
+
+## Does SharePoint Online policy also apply to OneDrive for Business?
+Yes.
  
-With MDM for O365, all the device policies are maintained as part of Office 365. To avoid conflicting policies between what is set in Office 365 and what is set in Azure AD, we currently disallow setting these policies in Azure AD if you are using MDM for O365.
+## Why can’t I set policy on client apps, like Word or Outlook?
+Conditional access policy sets requirements for accessing a service and is enforced when authentication happens to that service. So policy is not set directly on a client application, instead it is applied when it calls into a service. For example, policy set on SharePoint will apply to clients calling SharePoint and policy set on Exchange will apply to Outlook.
+.
 
 
