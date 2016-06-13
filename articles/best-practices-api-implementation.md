@@ -958,7 +958,7 @@ The same web API might be utilized by many client applications running anywhere 
 
 	If you prefer to implement notifications, the options available include:
 
-	- Using an Azure Notification Hub to push asynchronous responses to client applications. The page [Azure Notification Hubs Notify Users](./articles/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) on the Microsoft website provides further details.
+	- Using an Azure Notification Hub to push asynchronous responses to client applications. The page [Azure Notification Hubs Notify Users](../articles/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) on the Microsoft website provides further details.
 
 	- Using the Comet model to retain a persistent network connection between the client and the server hosting the web API, and using this connection to push messages from the server back to the client. The MSDN magazine article [Building a Simple Comet Application in the Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx) describes an example solution.
 
@@ -1143,7 +1143,7 @@ You can use this information to determine whether a particular web API or operat
 - For detailed information on handling HTTP exceptions with the ASP.NET Web API, visit the [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling) page on the Microsoft website.
 - The article [Web API Global Error Handling](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) on the Microsoft website describes how to implement a global error handling and logging strategy for a web API.
 - The page [Run background tasks with WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md) on the Microsoft website provides information and examples on using WebJobs to perform background operations on an Azure Website.
-- The page [Azure Notification Hubs Notify Users](./articles/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) on the Microsoft website shows how you can use an Azure Notification Hub to push asynchronous responses to client applications.
+- The page [Azure Notification Hubs Notify Users](../articles/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) on the Microsoft website shows how you can use an Azure Notification Hub to push asynchronous responses to client applications.
 - The [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website describes how to publish a product that provides controlled and secure access to a web API.
 - The [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website describes how to use the API Management REST API to build custom management applications.
 - The [Traffic Manager Routing Methods](../articles/traffic-manager/traffic-manager-routing-methods.md) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
