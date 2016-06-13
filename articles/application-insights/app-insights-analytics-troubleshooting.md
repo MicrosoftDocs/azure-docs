@@ -21,8 +21,6 @@
 
 Problems with [Application Insights Analytics](app-insights-analytics.md)? Start here. Analytics is the powerful search tool of Visual Studio Application Insights.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
-
 
 
 ## Limits
