@@ -20,33 +20,33 @@
 
 ##Overview
 
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPs, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using [Storage Service Encryption](storage-service-encryption.md). OS and Data disks used by virtual machines can be set to be encrypted using [Azure Disk Encryption](../azure-security-disk-encryption.md). Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](storage-dotnet-shared-access-signature-part-1.md).
+Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using [Storage Service Encryption](storage-service-encryption.md). OS and Data disks used by virtual machines can be set to be encrypted using [Azure Disk Encryption](../azure-security-disk-encryption.md). Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](storage-dotnet-shared-access-signature-part-1.md).
 
 This article will provide an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
 
 Here are the topics to be covered in this article:
 
--   Management Plane Security – Securing your Storage Account
+-   [Management Plane Security](#management-plant-security) – Securing your Storage Account
 
     The management plane consists of the resources used to manage your storage account. In this section, we’ll talk about the Azure Resource Manager (ARM) deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. We will also talk about managing your storage account keys and how to regenerate them.
 
--   Data Plane Security – Securing Access to Your Data
+-   [Data Plane Security](#data-plane-security) – Securing Access to Your Data
 
     In this section, we’ll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We’ll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
 
--   Encryption in Transit
+-   [Encryption in Transit](#encryption-in-transit)
 
     This section discusses how to secure data when you transfer it into or out of Azure Storage. We’ll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure File Shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
 
--   Encryption at Rest
+-   [Encryption at Rest](#encryption-at-rest)
 
-    We will talk about Storage Service Encryption, and how you can enable it for a storage account, resulting in your block blobs and page blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus Storage Service Encryption versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+    We will talk about Storage Service Encryption, and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus Storage Service Encryption versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
 
--   Using Storage Analytics to audit access of Azure Storage
+-   Using [Storage Analytics](#storage-analytics) to audit access of Azure Storage
 
     This section discusses how to find information in the storage analytics logs for a request. We’ll take a look at real storage analytics log data and see how to discern whether a request is made with the Storage account key, with a Shared Access signature, or anonymously, and whether it succeeded or failed.
 
--   Enabling Browser-Based Clients using CORS
+-   [Enabling Browser-Based Clients using CORS](#Cross-Origin-Resource-Sharing-CORS)
 
     This section talks about how to allow cross-origin resource sharing (CORS). We’ll talk about cross-domain access, and how to handle it with the CORS capabilities built into Azure Storage.
 
@@ -86,7 +86,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 
     -	Reader – They can view information about the storage account, except secrets. For example, if you assign a role with reader permissions on the storage account to someone, they can view the properties of the storage account, but they can’t make any changes to the properties or view the storage account keys.
 
-    -	Storage Account Contributor – They can manage the storage account – they can read the subscription’s resource groups and resources, and create and manage subscription resource group deployments. They can’t access the storage account keys, which in turn means they can’t access the data plane.
+    -	Storage Account Contributor – They can manage the storage account – they can read the subscription’s resource groups and resources, and create and manage subscription resource group deployments. They can also access the storage account keys, which in turn means they can access the data plane.
 
     -	User Access Administrator – They can manage user access to the storage account. For example, they can grant Reader access to a specific user.
 
@@ -212,7 +212,7 @@ As discussed in the section on the [Management Plane Security](#management-plane
 
 ###How to delegate access to objects in your account using Shared Access Signatures and Stored Access Policies
 
-A Shared Access Signature is a string containing a security token that can be attached to a URI that allows you to delegate access to storage objects and specify restraints such as the permissions and the date/time range of access.
+A Shared Access Signature is a string containing a security token that can be attached to a URI that allows you to delegate access to storage objects and specify constraints such as the permissions and the date/time range of access.
 
 You can grant access to blobs, containers, queue messages, files, and tables. With tables, you can actually grant permission to access a range of entities in the table by specifying the partition and row key ranges to which you want the user to have access. For example, if you have data stored with a partition key of geographical state, you could give someone access to just the data for California.
 
@@ -366,15 +366,15 @@ While you can use Client-side Encryption to encrypt the data in transit (which i
 
 ###Storage Service Encryption
 
-Storage Service Encryption is a new Azure Storage feature in public preview. This feature allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
+Storage Service Encryption (SSE) is a new Azure Storage feature in public preview. This feature allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
 
-This is a setting that applies to the whole storage account. You can enable and disable this feature by changing the value of the setting. To do this, you can use the Azure Portal, PowerShell, the Azure CLI, the Storage Resource Provider REST API, or the .NET Storage Client Library. By default, Storage Service Encryption is turned off.
+This is a setting that applies to the whole storage account. You can enable and disable this feature by changing the value of the setting. To do this, you can use the Azure Portal, PowerShell, the Azure CLI, the Storage Resource Provider REST API, or the .NET Storage Client Library. By default, SSE is turned off.
 
-At this time, the keys used for the encryption are managed by Microsoft. We generate the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, we will add the ability to manage your own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.
+At this time, the keys used for the encryption are managed by Microsoft. We generate the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, you will get the ability to manage your own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.
 
-This feature is available for Standard and Premium Storage accounts created using the ARM deployment model and created after 3/30/2016 12:00 am PST. Storage Server Encryption applies only to block blobs and page blobs. The other types of data, including tables, queues, and files, will not be encrypted.
+This feature is available for Standard and Premium Storage accounts created using the ARM deployment model and created after 3/30/2016 12:00 am PST. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.
 
-Data is only encrypted when Storage Service Encryption is enabled and the data is written to Blob Storage. Enabling or disabling the Storage Service Encryption does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable Storage Service Encryption.
+Data is only encrypted when SSE is enabled and the data is written to Blob Storage. Enabling or disabling the SSE does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable Storage Service Encryption.
 
 If you want to try this feature with a storage account created prior to the aforementioned date, or a Classic storage account, you can create a new storage account and use AzCopy to copy the data to the new account. This should not be required after the preview.
 
@@ -414,6 +414,8 @@ The Azure Disk Encryption solution supports the following three customer encrypt
 
 -   Enable encryption on existing IaaS VMs already running in Azure.
 
+>[AZURE.NOTE] For Linux VMs already running in Azure, or new Linux VMs created from images in the Azure Marketplace, encryption of the OS disk is not currently supported. Encryption of the OS Volume for Linux VMs is supported only for VMs that were encrypted on-premises and uploaded to Azure. This restriction only applies to the OS disk; encryption of data volumes for a Linux VM is supported.
+
 The solution supports the following for IaaS VMs for public preview release when enabled in Microsoft
 Azure:
 
@@ -437,9 +439,9 @@ This feature ensures that all data on your virtual machine disks is encrypted at
 
 ####IaaS VMs and their VHD files
 
-For disks used by IaaS VMs, we recommend using Azure Disk Encryption. You can turn on Storage Service Encryption to encrypt the VHD files that are used to back those disks in Azure Storage, but it only encrypts newly written data. This means if you create a VM and then enable Storage Service Encryption on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
+For disks used by IaaS VMs, we recommend using Azure Disk Encryption. You can turn on Storage Service Encryption to encrypt the VHD files that are used to back those disks in Azure Storage, but it only encrypts newly written data. This means if you create a VM and then enable SSE on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
 
-If you create a VM out of the Azure Marketplace, it performs a shallow copy to your storage account in Azure Storage, and it is not encrypted even if you have Storage Service Encryption enabled. It will only encrypt new data written after that point. For this reason, it’s best to use Azure Disk Encryption on VMs created from images in the Azure Marketplace if you want them fully encrypted.
+If you create a VM out of the Azure Marketplace, it performs a shallow copy to your storage account in Azure Storage, and it is not encrypted even if you have SSE enabled. It will only encrypt new data written after that point. For this reason, it’s best to use Azure Disk Encryption on VMs created from images in the Azure Marketplace if you want them fully encrypted.
 
 If you bring a pre-encrypted VM into Azure from on-premises, you will be able to upload the encryption keys to Azure Key Vault, and continue using the encryption for that VM that you were using on-premises. Azure Disk Encryption is enabled to handle this scenario.
 
