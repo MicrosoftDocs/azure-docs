@@ -91,9 +91,9 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 
 To configure and test Azure AD single sign-on with Ceridian Dayforce HCM, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Ceridian Dayforce HCM test user](#creating-a-ceridiandayforcehcm-test-user)** - to have a counterpart of Britta Simon in Ceridian Dayforce HCM that is linked to the Azure AD representation of her.
+4. **[Creating a Ceridian Dayforce HCM test user](#creating-a-ceridian-dayforce-hcm-test-user)** - to have a counterpart of Britta Simon in Ceridian Dayforce HCM that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -101,7 +101,7 @@ To configure and test Azure AD single sign-on with Ceridian Dayforce HCM, you ne
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Ceridian Dayforce HCM application.
 
-Your Ceridian Dayforce HCM application expects the SAML assertions in a specific format. Please work with Dayforce HCM team first to identify the correct user identifier which will be mapped into the application. Also please take the guidance from Dayforce HCM team about the attribute which they want to use for this mapping. Microsoft recommend to use the **"name"** attribute as user identifier. You can manage the value of this attribute from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. Here we have mapped the name claim with the Extension attrbute **extensionattribute2** which has unique Employee ID, which will be sent to the Dayforce HCM application in the every successful SAML Response.
+Your Ceridian Dayforce HCM application expects the SAML assertions in a specific format. Please work with Dayforce HCM team first to identify the correct user identifier. Microsoft recommends using the **"name"** attribute as user identifier. You can manage the value of this attribute on the **"Atrribute"** dialog. The following screenshot shows an example for this. 
 
 ![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_02.png) 
 
@@ -120,13 +120,13 @@ Your Ceridian Dayforce HCM application expects the SAML assertions in a specific
 	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_82.png) 
 
 
-1. On the Add User Attribute dialog, perform the following steps:
+1. On the **Add User Attribute** dialog, perform the following steps:
  
 	a. In the **Attrubute Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    c. From the **Attribute Value** list, select **user.extensionattribute2**.
+    b. From the **Attribute Value** list, select **user.extensionattribute2**.
 
-    d. Click **Complete**.	
+    c. Click **Complete**.	
 	
 
 
@@ -139,7 +139,7 @@ Your Ceridian Dayforce HCM application expects the SAML assertions in a specific
 
 
 
-1. In the Azure classic portal, on the **Ceridian Dayforce HCM** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **Ceridian Dayforce HCM** application integration page, click **Configure single sign-on**.
 
 	![Configure Single Sign-On][6] 
 
