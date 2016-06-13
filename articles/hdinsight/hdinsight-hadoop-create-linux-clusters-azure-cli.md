@@ -40,7 +40,7 @@ The steps in this document walk through the process of creating a new HDInsight 
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-    The steps in this document were last tested with Azure CLI version 0.10.1.
+    > [AZURE.NOTE] The steps in this document were last tested with Azure CLI version 0.10.1.
 
 ##Login to your Azure subscription
 
