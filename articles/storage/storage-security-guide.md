@@ -609,9 +609,9 @@ For more information about CORS and how to enable it, please check out these res
 
 1.  **How can I verify the integrity of the blobs I’m transferring into or out of Azure Storage if I can’t use the HTTPS protocol?**
 
-	If for any reason you need to use HTTP instead of HTTPS and you are working with block blobs, you can use MD5 checking to help verify the integrity of the blobs being transferred. 
+	If for any reason you need to use HTTP instead of HTTPS and you are working with block blobs, you can use MD5 checking to help verify the integrity of the blobs being transferred. This will help with protection from network/transport layer errors, but not necessarily with intermediary attacks.
 
-	If you can use HTTPS, then using MD5 checking is redundant because HTTPS provides transport level security.
+	If you can use HTTPS, which provides transport level security, then using MD5 checking is redundant and unnecessary.
 	
 	For more information, please check out the [Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 
