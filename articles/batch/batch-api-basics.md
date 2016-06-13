@@ -99,7 +99,7 @@ When you create a pool, you specify the following attributes:
 
 	**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes from the [Azure Virtual Machines Marketplace][vm_marketplace]. When you create a pool containing Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
-	**Cloud Services Configuration** provides Windows compute nodes *only*. Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool containing Cloud Services nodes, you need to specify only the node size and its *OS Family*, the options for which are found in these articles. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
+	**Cloud Services Configuration** provides Windows compute nodes *only*. Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool containing Cloud Services nodes, you need to specify only the node size and its *OS Family*. When creating pools of Windows compute nodes, Cloud Services is most commonly used.
 
     - The *OS Family* also determines which versions of .NET are installed with the OS.
 	- As with worker roles within Cloud Services, an *OS Version* can be specified (for more information on worker roles, see [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) section in the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)).
@@ -121,18 +121,18 @@ When you create a pool, you specify the following attributes:
 
 - **Scaling policy** for the pool
 
-	In addition to specifying a static number of nodes, you can instead write and apply an [auto-scaling formula](#scaling-applications) for a pool. The Batch service will periodically evaluate your formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
+	In addition to specifying a static number of nodes, you can instead write and apply an [auto-scaling formula](#scaling-applications) to a pool. The Batch service will periodically evaluate your formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
 
 - **Task scheduling** policy
 
 	The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each compute node within the pool.
-	The default configuration is one task at a time is run on a node, but there are scenarios where it is beneficial to have more than one task executed on a node simultaneously. See the [example scenario](batch-parallel-node-tasks.md#example-scenario) in our [concurrent node tasks](batch-parallel-node-tasks.md) article to see how you can benefit from multiple tasks per node.
+	The default configuration is that one task at a time runs on a node, but there are scenarios where it is beneficial to have more than one task executed on a node simultaneously. See the [example scenario](batch-parallel-node-tasks.md#example-scenario) in our [concurrent node tasks](batch-parallel-node-tasks.md) article to see how you can benefit from multiple tasks per node.
 
-	You can specify a *fill type* which determines whether Batch spreads the tasks evenly across all nodes, or packs each node with the maximum number of tasks before assigning tasks to another node in the pool.
+	You can also specify a *fill type* which determines whether Batch spreads the tasks evenly across all nodes in a pool, or packs each node with the maximum number of tasks before assigning tasks to another node.
 
 - **Communication status** of the nodes in the pool
 
-	A pool may be configured to allow communication between the nodes (inter-node communication) which determines its underlying network infrastructure. Note that this also impacts placement of the nodes within clusters.
+	You can configure a pool to allow communication between the nodes (inter-node communication) which determines its underlying network infrastructure. Note that this also impacts placement of the nodes within clusters.
 
 	In most scenarios, tasks operate independently and do not need to communicate with one another, but there may be some applications in which tasks must communicate, such as in [MPI](batch-mpi.md) scenarios.
 
@@ -165,9 +165,9 @@ A task is a unit of computation that is associated with a job and runs on a node
 
 - The application specified in the **command line** of the task.
 
-- **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in a **General purpose** Azure Storage account. For more information, see *Start task* and [Files and directories](#files-and-directories) below.
+- **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in a **General purpose** Azure Storage account. For more information, see [Start task](#start-task) and [Files and directories](#files-and-directories) below.
 
-- The **environment variables** that are required by the application. For more information, see [Environment settings for tasks](#environment) below.
+- The **environment variables** that are required by the application. For more information, see [Environment settings for tasks](#environment-settings-for-tasks) below.
 
 - The **constraints** under which the computation should occur. For example, the maximum time in which the task is allowed to run, the maximum number of times that a task should be retried if it fails, and the maximum time that files in the working directory are retained.
 
@@ -250,7 +250,7 @@ To find out more about the application package feature, check out [Application d
 
 Each task has a working directory under which it creates zero or more files and directories for storing the program that is run by the task, the data that it processes, and the output of the processing performed by the task. These files and directories are then available for use by other tasks during the running of a job. All tasks, files, and directories on a node are owned by a single user account.
 
-The Batch service exposes a portion of the file system on a node as the "root directory." The root directory is available to a task by accessing the `%AZ_BATCH_NODE_ROOT_DIR%` environment variable. For more information about using environment variables, see [Environment settings for tasks](#environment).
+The Batch service exposes a portion of the file system on a node as the "root directory." The root directory is available to a task by accessing the `%AZ_BATCH_NODE_ROOT_DIR%` environment variable. For more information about using environment variables, see [Environment settings for tasks](#environment-settings-for-tasks).
 
 ![Compute node directory structure][1]
 
