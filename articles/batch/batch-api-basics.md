@@ -3,7 +3,7 @@
 	description="Learn the features of the Batch service and its APIs from a development standpoint."
 	services="batch"
 	documentationCenter=".net"
-	authors="yidingzhou"
+	authors="mmacy"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="06/13/2016"
-	ms.author="yidingz;marsma"/>
+	ms.author="marsma"/>
 
 # Overview of Azure Batch features
 
@@ -69,14 +69,17 @@ A Batch account is a uniquely identified entity within the Batch service. All pr
 
 ### Compute node
 
-A compute node is an Azure virtual machine that is dedicated to a specific workload for your application. The size of a node determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Cloud Services or Virtual Machines Marketplace images—see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information on both.
+A compute node is an Azure virtual machine that is dedicated to a specific workload for your application. The size of a node determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Cloud Services or Virtual Machines Marketplace images—see [Pool](#pool) below for more information on these options.
 
-Nodes can run executables and scripts, including executables (.exe), command (.cmd) files, batch (.bat) files, and PowerShell scripts. A node also has the following attributes:
+Nodes can run any executable or script supported by the operating system environment of the node. This includes \*.exe, \*.cmd, \*.bat and PowerShell scripts for Windows, and binaries, shell, and Python scripts for Linux.
 
-- A standard **folder structure** and associated **environment variables** detailing their paths are created on each compute node. See [Files and directories](#files-and-directories) below for more information.
-- **Environment variables** available for reference by tasks.
+All compute nodes in Batch provide:
+
+- A standard [folder structure](#files-and-directories) and associated [environment variables](#environment-settings-for-tasks) available for reference by tasks.
 - **Firewall** settings that are configured to control access.
-- If **remote access** to a compute node is required (for debugging, for example), an RDP file can be obtained which may then be used to access the node via *Remote Desktop*.
+- **Remote access** to both Windows and Linux nodes—you can download a [Remote Desktop (RDP)][net_rdpfile] file for Windows nodes and obtain [SSH connection information](batch-linux-nodes.md#connect-to-linux-nodes) for Linux.
+
+> [AZURE.NOTE] Linux support in Batch is currently in preview. For more details, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
 ### Pool
 
@@ -115,7 +118,7 @@ When you create a pool, you specify the following attributes:
     - This is the number of compute nodes that you wish to deploy in the pool. This is referred to as a *target* because—in some situations—your pool may not reach the desired number of nodes. Causes of a pool not to reaching the desired number of nodes include reaching the [core quota](batch-quota-limit.md#batch-account-quotas) for your Batch account, or an auto-scaling formula that you have applied to the pool limiting the maximum number of nodes (see *Scaling policy* below).
 
 - **Scaling policy** for the pool
-	- In addition to specifying a static number of nodes, you can instead write and apply an [auto-scaling formula](batch-automatic-scaling.md) for a pool. The Batch service will periodically evaluate your formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
+	- In addition to specifying a static number of nodes, you can instead write and apply an [auto-scaling formula](#scaling-applications) for a pool. The Batch service will periodically evaluate your formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
 
 - **Task scheduling** policy
 	- The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each compute node within the pool.
@@ -265,25 +268,23 @@ A combined approach, typically used for handling variable but ongoing load, is t
 
 ## Scaling applications
 
-With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't. You can specify the automatic scaling settings for a pool when it is created, or enable scaling later, and you can update the scaling settings on an automatic scaling-enabled pool.
+With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't.
 
-Automatic scaling is performed by specifying an **automatic scaling formula** for a pool. The Batch service uses this formula to determine the target number of nodes in the pool for the next scaling interval (an interval which you can specify).
+You enable automatic scaling by writing an [automatic scaling formula](batch-automatic-scaling.md#automatic-scaling-formulas) and associating that formula with a pool. The Batch service uses the formula to determine the target number of nodes in the pool for the next scaling interval (an interval which you can configure). You can specify the automatic scaling settings for a pool when you create it, or enable scaling on a pool later. You can also update the scaling settings on a scaling-enabled pool.
 
-For example, perhaps a job requires that you submit a large number of tasks to be scheduled for execution. You can assign a scaling formula to the pool that adjusts number of nodes in the pool based on the current number of pending tasks, and the completion rate of those tasks. The Batch service periodically evaluates the formula, and resizes the pool based on workload and your formula settings.
+For example, perhaps a job requires that you submit a large number of tasks to be scheduled for execution. You can assign a scaling formula to the pool that adjusts number of nodes in the pool based on the current number of queued tasks, and the completion rate of the tasks in the job. The Batch service periodically evaluates the formula, and resizes the pool based on workload and your formula settings.
 
 A scaling formula can be based on the following metrics:
 
-- **Time metrics** – Based on statistics collected every five minutes in the specified number of hours.
-
 - **Resource metrics** – Based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 
-- **Task metrics** – Based on the status of tasks, such as Active, Pending, and Completed.
+- **Task metrics** – Based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-When automatic scaling decreases the number of compute nodes in a pool, currently running tasks must be considered. To accommodate this, your formula can include a node de-allocation policy setting that specifies whether running tasks are stopped immediately, or allowed to finish before the node is removed from the pool.
-
-> [AZURE.TIP] To maximize compute resource utilization, set the target number of nodes to zero at the end of a job, but allow running tasks to finish.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a *node deallocation option* that you can include in your formulas. For example, you can specify that running tasks are stopped immediately, stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool.
 
 For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
+
+> [AZURE.TIP] To maximize compute resource utilization, set the target number of nodes to zero at the end of a job, but allow running tasks to finish.
 
 ## Security with certificates
 
@@ -413,6 +414,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [net_offline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.disableschedulingasync.aspx
 [net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
 [net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
+[net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx
