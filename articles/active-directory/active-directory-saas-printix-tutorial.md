@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-printix-tutorial/tutorial_printix_04.png) 
 
-    a. In the **Reply URL** textbox,  type the Assertion Consumer Service URL using the following pattern: **“https://auth.printix.net/saml/SSO”**.
+    a. In the **Reply URL** textbox,  type `https://auth.printix.net/saml/SSO`.
 	
 	b. click **Next**
  
