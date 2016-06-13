@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using Analytics - the powerful search tool of Application Insights" 
+	pageTitle="Using Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
 	description="Using the Analytics, 
 	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
@@ -26,7 +26,6 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 ## Open Analytics
 

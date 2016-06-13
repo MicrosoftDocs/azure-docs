@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/05/2016"
+	ms.date="05/27/2016"
 	ms.author="wesmc"/>
 
 # Sending push notifications to Android with Azure Notification Hubs
@@ -75,13 +75,13 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 ###Adding Azure Notification Hubs libraries
 
-1. Download the `notification-hubs-0.4.jar` file from the **Files** tab of the [Notification-Hubs-Android-SDK on Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Drag the file into the **libs** folder of your project directory.
 
-2. In the `Build.Gradle` file for the **app**, add the following line in the **dependencies** section.
+1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section.
 
-	    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+		compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+		compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
 
-	Add the following repository after the **dependencies** section.
+2. Add the following repository after the **dependencies** section.
 
 		repositories {
 		    maven {

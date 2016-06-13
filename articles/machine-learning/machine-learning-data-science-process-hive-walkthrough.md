@@ -545,20 +545,20 @@ To see the contents of a given file, say 000000\_0, we use Hadoop's `copyToLocal
 
 **Warning:** `copyToLocal` can be very slow for large files, and is not recommended for use with them.  
 
-A key advantage of having this data reside in an Azure blob is that we may explore the data within Azure Machine Learning using the [Reader][reader] module.
+A key advantage of having this data reside in an Azure blob is that we may explore the data within Azure Machine Learning using the [Import Data][import-data] module.
 
 
 ## <a name="#downsample"></a>Down sample data and build models in Azure Machine Learning
 
 **Note:** This is typically a **Data Scientist** task.
 
-After the exploratory data analysis phase, we are now ready to down sample the data for building models in Azure Machine Learning. In this section, we show how to use a Hive query to down sample the data, which is then accessed from the [Reader][reader] module in Azure Machine Learning.
+After the exploratory data analysis phase, we are now ready to down sample the data for building models in Azure Machine Learning. In this section, we show how to use a Hive query to down sample the data, which is then accessed from the [Import Data][import-data] module in Azure Machine Learning.
 
 ### Down sampling the data
 
 There are two steps in this procedure. First we join the **nyctaxidb.trip** and **nyctaxidb.fare** tables on three keys that are present in all records : "medallion", "hack\_license", and "pickup\_datetime". We then generate a binary classification label **tipped** and a multi-class classification label **tip\_class**.
 
-To be able to use the down sampled data directly from the [Reader][reader] module in Azure Machine Learning, it is necessary to store the results of the above query to an internal Hive table. In what follows, we create an internal Hive table and populate its contents with the joined and down sampled data.
+To be able to use the down sampled data directly from the [Import Data][import-data] module in Azure Machine Learning, it is necessary to store the results of the above query to an internal Hive table. In what follows, we create an internal Hive table and populate its contents with the joined and down sampled data.
 
 The query applies standard Hive functions directly to generate the hour of day, week of year, weekday (1 stands for Monday, and 7 stands for Sunday) from the "pickup\_datetime" field,  and the direct distance between the pickup and dropoff locations. Users can refer to [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) for a complete list of such functions.
 
@@ -691,13 +691,13 @@ To run this query, from the Hive directory prompt :
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-We now have an internal table "nyctaxidb.nyctaxi_downsampled_dataset" which can be accessed using the [Reader][reader] module from Azure Machine Learning. Furthermore, we may use this dataset for building Machine Learning models.  
+We now have an internal table "nyctaxidb.nyctaxi_downsampled_dataset" which can be accessed using the [Import Data][import-data] module from Azure Machine Learning. Furthermore, we may use this dataset for building Machine Learning models.  
 
-### Use the Reader module in Azure Machine Learning to access the down sampled data
+### Use the Import Data module in Azure Machine Learning to access the down sampled data
 
-As prerequisites for issuing Hive queries in the [Reader][reader] module of Azure Machine Learning, we need access to an Azure Machine Learning workspace and access to the credentials of the cluster and its associated storage account.
+As prerequisites for issuing Hive queries in the [Import Data][import-data] module of Azure Machine Learning, we need access to an Azure Machine Learning workspace and access to the credentials of the cluster and its associated storage account.
 
-Some details on the [Reader][reader] module and the parameters to input :
+Some details on the [Import Data][import-data] module and the parameters to input :
 
 **HCatalog server URI**: If the cluster name is abc123, then this is simply : https://abc123.azurehdinsight.net
 
@@ -711,7 +711,7 @@ Some details on the [Reader][reader] module and the parameters to input :
 
 **Azure container name** : This is the default container name for the cluster, and is typically the same as the cluster name. For a cluster called "abc123", this is just abc123.
 
-**Important Note:** **Any table we wish to query using the [Reader][reader] module in Azure Machine Learning must be an internal table.** A tip for determining if a table T in a database D.db is an internal table is as follows.
+**Important Note:** **Any table we wish to query using the [Import Data][import-data] module in Azure Machine Learning must be an internal table.** A tip for determining if a table T in a database D.db is an internal table is as follows.
 
 From the Hive directory prompt, issue the command :
 
@@ -719,7 +719,7 @@ From the Hive directory prompt, issue the command :
 
 If the table is an internal table and it is populated, its contents must show here. Another way to determine whether a table is an internal table is to use the Azure Storage Explorer. Use it to navigate to the default container name of the cluster, and then filter by the table name. If the table and its contents show up, this confirms that it is an internal table.
 
-Here is a snapshot of the Hive query and the [Reader][reader] module:
+Here is a snapshot of the Hive query and the [Import Data][import-data] module:
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
@@ -735,7 +735,7 @@ We are now able to proceed to model building and model deployment in [Azure Mach
 
 **Learner used:** Two-class logistic regression
 
-a. For this problem, our target (or class) label is "tipped". Our original down-sampled dataset has a few columns that are target leaks for this classification experiment. In particular : tip\_class, tip\_amount, and total\_amount reveal information about the target label that is not available at testing time. We remove these columns from consideration using the [Project Columns][project-columns] module.
+a. For this problem, our target (or class) label is "tipped". Our original down-sampled dataset has a few columns that are target leaks for this classification experiment. In particular : tip\_class, tip\_amount, and total\_amount reveal information about the target label that is not available at testing time. We remove these columns from consideration using the [Select Columns in Dataset][select-columns] module.
 
 The snapshot below shows our experiment to predict whether or not a tip was paid for a given trip.
 
@@ -755,7 +755,7 @@ As a result, we obtain an AUC of 0.987 as shown in the figure below.
 
 **Learner used:** Multiclass logistic regression
 
-a. For this problem, our target (or class) label is "tip\_class" which can take one of five values (0,1,2,3,4). As in the binary classification case, we have a few columns that are target leaks for this experiment. In particular : tipped, tip\_amount, total\_amount reveal information about the target label that is not available at testing time. We remove these columns using the [Project Columns][project-columns] module.
+a. For this problem, our target (or class) label is "tip\_class" which can take one of five values (0,1,2,3,4). As in the binary classification case, we have a few columns that are target leaks for this experiment. In particular : tipped, tip\_amount, total\_amount reveal information about the target label that is not available at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
 
 The snapshot below shows our experiment to predict in which bin a tip is likely to fall ( Class 0: tip = $0, class 1 : tip > $0 and tip <= $5, Class 2 : tip > $5 and tip <= $10, Class 3 : tip > $10 and tip <= $20, Class 4 : tip > $20)
 
@@ -776,7 +776,7 @@ Note that while our class accuracies on the prevalent classes is quite good, the
 
 **Learner used:** Boosted decision tree
 
-a. For this problem, our target (or class) label is "tip\_amount". Our target leaks in this case are : tipped, tip\_class, total\_amount ; all these variables reveal information about the tip amount that is typically unavailable at testing time. We remove these columns using the [Project Columns][project-columns] module.
+a. For this problem, our target (or class) label is "tip\_amount". Our target leaks in this case are : tipped, tip\_class, total\_amount ; all these variables reveal information about the tip amount that is typically unavailable at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
 
 The snapshot belows shows our experiment to predict the amount of the given tip.
 
@@ -809,5 +809,5 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 [15]: ./media/machine-learning-data-science-process-hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

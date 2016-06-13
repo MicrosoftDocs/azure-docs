@@ -47,7 +47,9 @@ To deploy diagnostics extension to the VMs in the cluster as part of cluster cre
 
 ![Azure Diagnostics setting in portal for cluster creation](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-The Support Logs are **required** by the Azure support team to revolve any support requests that you create. These logs are collected in real-time and will be stored in one of the storage accounts created in the resource group. The Diagnostics setting configures application level events including [Actor](service-fabric-reliable-actors-diagnostics.md) events, [Reliable Service](service-fabric-reliable-services-diagnostics.md) events and some system level Service Fabric events to be stored into Azure storage. Products such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or your own process can pick up the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If a processes to remove events from the table is not implemented, the table will continue to grow.   When creating a cluster using the portal it is recommended that you export the template after the deployment has completed. Templates can be exported from the portal by
+The Support Logs are **required** by the Azure support team to revolve any support requests that you create. These logs are collected in real-time and will be stored in one of the storage accounts created in the resource group. The Diagnostics setting configures application level events including [Actor](service-fabric-reliable-actors-diagnostics.md) events, [Reliable Service](service-fabric-reliable-services-diagnostics.md) events and some system level Service Fabric events to be stored into Azure storage. Products such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or your own process can pick up the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If a processes to remove events from the table is not implemented, the table will continue to grow. 
+
+When creating a cluster using the portal it is highly recommended that you download the template *before clicking on OK* to create the cluster. For details, refer to [Setup a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). This will give you a usable ARM template for the cluster you are about to create. This is needed to make changes later, not all changes can be made using the portal. Templates can be exported from the portal using the steps below, but these templates can be more difficult to use because they may have a number of null values that will have to have values provided or be missing all required information. 
 
 1. Open your resource group
 2. Select Settings to display the Settings panel
@@ -56,7 +58,7 @@ The Support Logs are **required** by the Azure support team to revolve any suppo
 5. Select Export Template to display the Template panel
 6. Select Save to file to export a .zip file containing the template, parameter and PowerShell files.
 
-After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run. 
+After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run. When running the deployment script, you may have to fix null parameter values.
 To use the downloaded template to update a configuration
 
 1. Extract the contents to a folder on your local computer
@@ -182,7 +184,7 @@ After modifying the **template.json** file as described, republish the ARM templ
 
 
 ## Update Diagnostics to collect and upload logs from new EventSource channels
-To update diagnostics to collect logs from new EventSource channels that represent a new application that you are about to deploy, you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of diagnostics for an existing cluster.  You will need to update the *EtwEventSourceProviderConfiguration* section in the **template.json** to add entries for the new EventSources before you apply the configuration update using the *New-AzureRmResourceGroupDeployment* PowerShell command.
+To update diagnostics to collect logs from new EventSource channels that represent a new application that you are about to deploy, you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of diagnostics for an existing cluster.  You will need to update the *EtwEventSourceProviderConfiguration* section in the **template.json** to add entries for the new EventSources before you apply the configuration update using the *New-AzureRmResourceGroupDeployment* PowerShell command. The name of the event source is defined as part of your code in the Visual Studio generated **ServiceEventSource.cs** file.
 
 
 ## Next steps
