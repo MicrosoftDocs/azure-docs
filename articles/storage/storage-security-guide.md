@@ -20,15 +20,15 @@
 
 ##Overview
 
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using [Storage Service Encryption](storage-service-encryption.md). OS and Data disks used by virtual machines can be set to be encrypted using [Azure Disk Encryption](../azure-security-disk-encryption.md). Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](storage-dotnet-shared-access-signature-part-1.md).
+Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using [Storage Service Encryption (SSE)](storage-service-encryption.md). OS and Data disks used by virtual machines can be set to be encrypted using [Azure Disk Encryption](../azure-security-disk-encryption.md). Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](storage-dotnet-shared-access-signature-part-1.md).
 
 This article will provide an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
 
 Here are the topics to be covered in this article:
 
--   [Management Plane Security](#management-plant-security) – Securing your Storage Account
+-   [Management Plane Security](#management-plane-security) – Securing your Storage Account
 
-    The management plane consists of the resources used to manage your storage account. In this section, we’ll talk about the Azure Resource Manager (ARM) deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. We will also talk about managing your storage account keys and how to regenerate them.
+    The management plane consists of the resources used to manage your storage account. In this section, we’ll talk about the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. We will also talk about managing your storage account keys and how to regenerate them.
 
 -   [Data Plane Security](#data-plane-security) – Securing Access to Your Data
 
@@ -40,7 +40,7 @@ Here are the topics to be covered in this article:
 
 -   [Encryption at Rest](#encryption-at-rest)
 
-    We will talk about Storage Service Encryption, and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus Storage Service Encryption versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+    We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
 
 -   Using [Storage Analytics](#storage-analytics) to audit access of Azure Storage
 
@@ -56,7 +56,7 @@ The management plane consists of operations that affect the storage account itse
 
 When you create a new storage account, you select a deployment model of Classic or Resource Manager. The Classic model of creating resources in Azure only allows all-or-nothing access to the subscription, and in turn, the storage account.
 
-This guide focuses on the Resource Manager model which is the recommended means for creating storage accounts. With the Azure Resource Manager (ARM) storage accounts, rather than giving access to the entire subscription, you can control access on a more finite level to the management plane using Role-Based Access Control (RBAC).
+This guide focuses on the Resource Manager model which is the recommended means for creating storage accounts. With the Resource Manager storage accounts, rather than giving access to the entire subscription, you can control access on a more finite level to the management plane using Role-Based Access Control (RBAC).
 
 ###How to secure your storage account with Role-Based Access Control (RBAC)
 
@@ -116,7 +116,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 
 -   [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-    This article explains how the Azure Compute, Network, and Storage Providers work under the ARM model.
+    This article explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
 
 -   [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 
@@ -128,7 +128,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 
 -   [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
 
-	This article shows how to authenticate using the ARM APIs.
+	This article shows how to authenticate using the Resource Manager APIs.
 
 -   [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
@@ -184,7 +184,7 @@ Note: it is recommended to use only one of the keys in all of your applications 
 
 -   [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
 
-	This article contains links to specific articles about retrieving the storage account keys and regenerating the storage account keys for an Azure Account using the REST API. Note: This is for the ARM storage accounts.
+	This article contains links to specific articles about retrieving the storage account keys and regenerating the storage account keys for an Azure Account using the REST API. Note: This is for  Resource Manager storage accounts.
 
 -   [Operations on storage accounts](https://msdn.microsoft.com/library/ee460790.aspx)
 
@@ -360,21 +360,21 @@ Client-side encryption is also a method for encrypting your data at rest, as the
 
 ##Encryption at Rest
 
-There are three Azure features that provide encryption at rest. Azure Disk Encryption is used to encrypt the OS and data disks in IaaS Virtual Machines. The other two – Client-side Encryption and Storage Service Encryption – are both used to encrypt data in Azure Storage. Let’s look at each of these, and then do a comparison and see when each one can be used.
+There are three Azure features that provide encryption at rest. Azure Disk Encryption is used to encrypt the OS and data disks in IaaS Virtual Machines. The other two – Client-side Encryption and SSE – are both used to encrypt data in Azure Storage. Let’s look at each of these, and then do a comparison and see when each one can be used.
 
-While you can use Client-side Encryption to encrypt the data in transit (which is also stored in its encrypted form in Storage), you may prefer to simply use HTTPS during the transfer, and have some way for the data to be automatically encrypted when it is stored. There are two ways to do this -- Azure Disk Encryption and Storage Service Encryption. One is used to directly encrypt the data on OS and data disks used by VMs, and the other is used to encrypt data written to Azure Blob Storage.
+While you can use Client-side Encryption to encrypt the data in transit (which is also stored in its encrypted form in Storage), you may prefer to simply use HTTPS during the transfer, and have some way for the data to be automatically encrypted when it is stored. There are two ways to do this -- Azure Disk Encryption and SSE. One is used to directly encrypt the data on OS and data disks used by VMs, and the other is used to encrypt data written to Azure Blob Storage.
 
-###Storage Service Encryption
+###Storage Service Encryption (SSE)
 
-Storage Service Encryption (SSE) is a new Azure Storage feature in public preview. This feature allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
+SSE is a new Azure Storage feature in public preview. This feature allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
 
 This is a setting that applies to the whole storage account. You can enable and disable this feature by changing the value of the setting. To do this, you can use the Azure Portal, PowerShell, the Azure CLI, the Storage Resource Provider REST API, or the .NET Storage Client Library. By default, SSE is turned off.
 
 At this time, the keys used for the encryption are managed by Microsoft. We generate the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, you will get the ability to manage your own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.
 
-This feature is available for Standard and Premium Storage accounts created using the ARM deployment model and created after 3/30/2016 12:00 am PST. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.
+This feature is available for Standard and Premium Storage accounts created using the Resource Manager deployment model and created after 3/30/2016 12:00 am PST. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.
 
-Data is only encrypted when SSE is enabled and the data is written to Blob Storage. Enabling or disabling the SSE does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable Storage Service Encryption.
+Data is only encrypted when SSE is enabled and the data is written to Blob Storage. Enabling or disabling the SSE does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable SSE.
 
 If you want to try this feature with a storage account created prior to the aforementioned date, or a Classic storage account, you can create a new storage account and use AzCopy to copy the data to the new account. This should not be required after the preview.
 
@@ -435,39 +435,39 @@ This feature ensures that all data on your virtual machine disks is encrypted at
 
     This article discusses the preview release of Azure Disk Encryption and provides a link to download the white paper.
 
-###Comparison of Azure Disk Encryption, Storage Service Encryption, and Client-Side Encryption
+###Comparison of Azure Disk Encryption, SSE, and Client-Side Encryption
 
 ####IaaS VMs and their VHD files
 
-For disks used by IaaS VMs, we recommend using Azure Disk Encryption. You can turn on Storage Service Encryption to encrypt the VHD files that are used to back those disks in Azure Storage, but it only encrypts newly written data. This means if you create a VM and then enable SSE on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
+For disks used by IaaS VMs, we recommend using Azure Disk Encryption. You can turn on SSE to encrypt the VHD files that are used to back those disks in Azure Storage, but it only encrypts newly written data. This means if you create a VM and then enable SSE on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
 
 If you create a VM out of the Azure Marketplace, it performs a shallow copy to your storage account in Azure Storage, and it is not encrypted even if you have SSE enabled. It will only encrypt new data written after that point. For this reason, it’s best to use Azure Disk Encryption on VMs created from images in the Azure Marketplace if you want them fully encrypted.
 
 If you bring a pre-encrypted VM into Azure from on-premises, you will be able to upload the encryption keys to Azure Key Vault, and continue using the encryption for that VM that you were using on-premises. Azure Disk Encryption is enabled to handle this scenario.
 
-If you have non-encrypted VHD from on-premises, you can upload it into the gallery as a custom image and provision a VM from it. If you do this using the Azure Resource Manager (ARM) templates, you can ask it to turn on Azure Disk Encryption when it boots up the VM.
+If you have non-encrypted VHD from on-premises, you can upload it into the gallery as a custom image and provision a VM from it. If you do this using the Resource Manager templates, you can ask it to turn on Azure Disk Encryption when it boots up the VM.
 
 When you add a data disk and mount it on the VM, you can turn on Azure Disk Encryption on that data disk. It will encrypt that data disk locally first, and then the service management layer will do a lazy write against storage so the storage content is encrypted.
 
 ####Client-side encryption####
 
-Client-side encryption is the most secure method of encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you may not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest.
+Client-side encryption is the most secure method of encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you may not want to do. In those cases, you can use HTTPs for your data in transit, and SSE to encrypt the data at rest.
 
-With client-side encryption, you can encrypt table entities, queue messages, and blobs. With the Storage Service Encryption, you can only encrypt blobs. If you need table and queue data to be encrypted, you should use client-side encryption.
+With client-side encryption, you can encrypt table entities, queue messages, and blobs. With SSE, you can only encrypt blobs. If you need table and queue data to be encrypted, you should use client-side encryption.
 
 Client-side encryption is managed entirely by the application. This is the most secure approach, but does require you to make programmatic changes to your application and put key management processes in place. You would use this when you want the extra security during transit, and you want your stored data to be encrypted.
 
 Client-side encryption is more load on the client, and you have to account for this in your scalability plans, especially if you are encrypting and transferring a lot of data.
 
-####Storage Service Encryption
+####Storage Service Encryption (SSE)
 
-Storage Service Encryption is managed by Azure Storage, and is easily managed. Using Storage Service Encryption does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. There is no impact on the performance when using this feature.
+SSE is managed by Azure Storage, and is easily managed. Using SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. There is no impact on the performance when using this feature.
 
-You can only encrypt block blobs, append blobs, and page blobs using Storage Service Encryption. If you need to encrypt table data or queue data, you should consider using client-side encryption.
+You can only encrypt block blobs, append blobs, and page blobs using SSE. If you need to encrypt table data or queue data, you should consider using client-side encryption.
 
-If you have an archive or library of VHD files that you use as a basis for creating new virtual machines, you can create a new storage account, enable Storage Service Encryption, and then upload the VHD files to that account. Those VHD files will be encrypted by Azure Storage.
+If you have an archive or library of VHD files that you use as a basis for creating new virtual machines, you can create a new storage account, enable SSE, and then upload the VHD files to that account. Those VHD files will be encrypted by Azure Storage.
 
-If you have Azure Disk Encryption enabled for the disks in a VM and Storage Service Encryption enabled on the storage account holding the VHD files, it will work fine; it will result in any newly-written data being encrypted twice.
+If you have Azure Disk Encryption enabled for the disks in a VM and SSE enabled on the storage account holding the VHD files, it will work fine; it will result in any newly-written data being encrypted twice.
 
 ##Storage Analytics
 
