@@ -126,46 +126,62 @@ Blob storage accounts use a new pricing model for blob storage based on the acce
 
 ## Quick Start
 
-In this section we will demonstrate the following scenarios using the Azure Portal:
+In this section we will demonstrate the following scenarios using the Azure portal:
 
 - How to create a Blob storage account.
 - How to manage a Blob storage account.
 
-### Using the Azure Portal
+### Using the Azure portal
 
 #### Create a Blob storage account using the Azure Portal
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
-2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
+2. On the Hub menu, select **New** > **Data + Storage** > **Storage account**.
 
 3. Enter a name for your storage account.
 
+	This name must be globally unique; it is used as part of the URL used to access the objects in the storage account.  
+
 4. Select **Resource Manager** as the deployment model.
 
-5. Select **Blob storage** as the type of storage account.
+	Tiered storage can only be used with Resource Manager storage accounts; this is the recommended deployment model for new resources. For more information, check out the [Azure Resource Manager overview](../resource-group-overview.md).  
 
-6. Select the access tier: **Hot** or **Cool**. The default is **Hot**.
+5. In the Account Kind dropdown list, select **Blob Storage**. 
 
-7. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
+	This is where you select the type of storage account. Tiered storage is not available in general-purpose storage; it is only available in the Blob storage type account. 	
+
+	Note that when you select this, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier. 
+
+6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**. 
+ 
+	LRS = locally redundant storage; GRS = geo-redundant storage (2 regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
+
+	For more details on Azure Storage replication options, check out [Azure Storage replication](storage-redundancy.md).
+
+7. Select the access tier: **Cool** or **Hot**. The default is **Hot**.
 
 8. Select the subscription in which you want to create the new storage account.
 
 9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Using the Azure Portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
-10. Select the geographic location for your storage account.
+10. Select the region for your storage account.
 
 11. Click **Create** to create the storage account.
 
 #### Change the access tier on a Blob storage account using the Azure Portal
 
-1. Sign in to the [Azure Portal](https://portal.azure.com) and navigate to your storage account.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
-2. Click **All settings** and then click **Configuration** to view and/or change the account configuration.
+2. To navigate to your storage account, select All Resources, then select your storage account.
 
-3. Specify the desired access tier: **Hot** or **Cool**.
+3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
+
+4. Select the desired access tier: **Hot** or **Cool**.
 
     > [AZURE.NOTE] Changing the access tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+
+5. Click Save at the top of the blade. 
 
 ## Migrating to Blob storage accounts
 
