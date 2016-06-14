@@ -41,7 +41,7 @@ Default storage for HDInsight clusters is Blob storage with the HDFS file system
 
 In addition to using Blob storage, you have the option of using [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) with your cluster. If you use Data Lake, then you can use both Blob storage and Data Lake for HDFS storage.
 
-You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables you to mount a file share created in Azure Storage to the Linux file system. For more information about data storage options for R Server on HDInsight cluster, see [Storage options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-storage.md).
+You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables you to mount a file share that was created in Azure Storage to the Linux file system. For more information about data storage options for R Server on HDInsight cluster, see [Storage options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-storage.md).
 
 ## Access R Server on the cluster
 
@@ -55,7 +55,7 @@ In those cases, the function runs in a distributed fashion across those data (ta
 
 ## Operationalize a model
 
-When your data modeling is complete, you can operationalize the model to make predictions for new data (known as *scoring*) both in Azure and on-premises. Here are a few examples.
+When your data modeling is complete, you can operationalize the model to make predictions for new data both in Azure and on-premises. This process is known as scoring. Here are a few examples.
 
 ### Score in HDInsight
 
@@ -83,9 +83,9 @@ In these cases, the additional packages must be specified through use of a scrip
 
 ### Change Hadoop Map Reduce memory settings
 
-A cluster can be modified to change the amount of memory available to R Server when it's running a Map Reduce job. To modify a cluster, use the Apache Ambari UI that's available through the Azure portal blade for your cluster. For instructions about how to access the Ambari UI for your cluster, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
+A cluster can be modified to change the amount of memory that's available to R Server when it's running a Map Reduce job. To modify a cluster, use the Apache Ambari UI that's available through the Azure portal blade for your cluster. For instructions about how to access the Ambari UI for your cluster, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
-It's also possible to change the amount of memory that's available to R Server by using Hadoop switches in the call to **RxHadoopMR**, as follows:
+It's also possible to change the amount of memory that's available to R Server by using Hadoop switches in the call to **RxHadoopMR** as follows:
 
 	hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
 
