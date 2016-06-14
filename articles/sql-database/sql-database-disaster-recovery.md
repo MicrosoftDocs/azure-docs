@@ -72,7 +72,7 @@ If you are using geo-replication failover of geo-restore options to recover your
 
 Because your recovered database will reside in a different server you need to update your application’s connection string to point to that server.
 
-For more information about changing connection strings, see [Connections to Azure SQL Database: Central Recommendations](sql-database-connect-central-recommendations.md).
+For more information about changing connection strings, see [SQL Database Development Overview](sql-database-develop-overview.md).
 
 ### Configure Firewall Rules
 
