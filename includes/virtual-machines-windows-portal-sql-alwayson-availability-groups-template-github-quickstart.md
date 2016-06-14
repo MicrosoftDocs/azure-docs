@@ -4,6 +4,6 @@ This tutorial walks you through building the solution from the Azure portal. Ins
 
 -	[Create an availability group with SQL Server 2014 replica virtual machines](http://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) 
 -	[Create an availability group with SQL Server 2014 replica virtual machines in an existing Azure virtual network and an existing Active Directory instance](http://github.com/Azure/azure-quickstart-templates/tree/master/sql-server-2014-alwayson-existing-vnet-and-ad)
--	[Create a SQL Server 2014 availability group roup with PowerShell DSC Extension](http://github.com/Azure/azure-quickstart-templates/tree/master/sql-server-2014-alwayson-dsc)
+-	[Create a SQL Server 2014 availability group with PowerShell DSC Extension](http://github.com/Azure/azure-quickstart-templates/tree/master/sql-server-2014-alwayson-dsc)
 
  
