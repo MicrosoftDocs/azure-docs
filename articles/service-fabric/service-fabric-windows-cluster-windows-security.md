@@ -24,6 +24,7 @@ To prevent unauthorized access to a Service Fabric cluster you must secure it, e
 >[AZURE.NOTE]
 You should consider your security selection for node-to-node security carefully, since there is no cluster upgrade from one security choice to another. Changing the security selection would require a full cluster rebuild.
 
+## Configure Windows security
 The sample *ClusterConfig.Windows.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section:
 
 ```
