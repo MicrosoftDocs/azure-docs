@@ -146,11 +146,11 @@ Step 1: Create a file named PublicConf.json with this content. Check Disk takes 
 
 Step 2: Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
-   azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
+	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
 
 ## <a name='repairdisk'></a>Repair added disks on your Linux virtual machine
 
-To repair disks that are not mounting or have mount configuration errors, use the VMAccess extension to reset the mount configuration on your Linux VIrtual machine. Substituting the name of your disk for &#60;yourdisk&#62;.
+To repair disks that are not mounting or have mount configuration errors, use the VMAccess extension to reset the mount configuration on your Linux virtual machine. Substituting the name of your disk for &#60;yourdisk&#62;.
 
 Step 1: Create a file named PublicConf.json with this content. 
 
