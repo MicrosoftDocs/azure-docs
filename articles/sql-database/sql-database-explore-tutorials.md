@@ -176,6 +176,6 @@ In this tutorial, you will learn about [Data Sync](http://download.microsoft.com
 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
 ||||
 
-## Next Steps
+## Next steps
 
 [Explore Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)
