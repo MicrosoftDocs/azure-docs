@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="Conditional access- What applications are supported | Microsoft Azure"
-	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
+	description="With conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
     services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -19,11 +19,11 @@
 
 
 # Conditional access support for applications
-Conditional Access access works with mobile and desktop applications that use modern authentication. Applications with modern authentication can display Azure AD sign in pages. This allows a user to be prompted inline for multi-factor authentication or show an end user facing message when an access is blocked.
+Conditional access access works with mobile and desktop applications that use modern authentication. Applications with modern authentication can display Azure AD sign in pages. This allows a user to be prompted inline for multi-factor authentication or show an end user facing message when an access is blocked.
 It is important to understand which applications are supported as well as steps that may be necessary to secure other entry points.
 
-##Applications using modern authentication
-The below applications have been tested with MFA and location policy set on the target service.
+## Applications using modern authentication
+The following applications have been tested with multi-factor authentication (MFA) and location policy set on the target service.
 
 | Application  | Target Service  | Platform                                                       |
 |--------------|-----------------|----------------------------------------------------------------|
@@ -63,7 +63,7 @@ Android|
 
 ## Applications that do not use modern authentication
 
-Currently apps that do not use modern authentication must be blocked access by using other methods, because they are not enforced by conditional access. This is primarily a consideration for Exchange and SharePoint access, as previous app versions have been built using older protocols.
+Currently, apps that do not use modern authentication must be blocked access by using other methods, because they are not enforced by conditional access. This is primarily a consideration for Exchange and SharePoint access, as previous app versions have been built using older protocols.
 
 ## SharePoint
 Legacy protocols can be disabled at SharePoint, by using the Set-SPOTenant cmdlet. This cmdlet will prevent Office clients using non-modern authentication protocols from accessing SharePoint Online resources. 
@@ -73,7 +73,7 @@ Legacy protocols can be disabled at SharePoint, by using the Set-SPOTenant cmdle
  
 ## Exchange
 
-On Exchange there are two main categories of protocol review and select the right policy for your organization.:
+On Exchange, there are two main categories of protocol review and select the right policy for your organization.:
 
 1. Exchange ActiveSync. By default, conditional access policy for MFA and Location is not enforced for Exchange ActiveSync. This allows access to be protected either by configuring Exchange ActiveSync policy directly, or by blocking Exchange ActiveSync using AD FS rules.
 2. Legacy protocols. Legacy protocols can be blocked at AD FS. This will block access for older Office clients, such as Office 2013 without modern authentication enabled and earlier.
@@ -83,7 +83,7 @@ On Exchange there are two main categories of protocol review and select the righ
 The following rules can be used to block legacy protocol access at AD FS, in two common configurations.
 Option 1: Allow Exchange ActiveSync and only allow legacy apps on the intranet.
 
-By Appling the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from the extranet. 
+By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from the extranet. 
 
 Rule 1
 
