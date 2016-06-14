@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Distribute Data Globally with DocumentDB | Microsoft Azure"
+   pageTitle="Distribute data globally with DocumentDB | Microsoft Azure"
    description="Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure DocumentDB, a fully managed NoSQL database service."
    services="documentdb"
    documentationCenter=""
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/14/2016"
    ms.author="kipandya"/>
    
    
-# Distribute Data Globally with DocumentDB
+# Distribute data globally with DocumentDB
 
 Azure DocumentDB is designed to meet the needs of IoT applications consisting of millions of globally distributed devices and internet scale applications that deliver highly responsive experiences to users across the world. These database systems face the challenge of achieving low latency access to application data from multiple geographic regions with well-defined data consistency and availability guarantees. As a globally distributed database system, DocumentDB simplifies the global distribution of data by offering fully managed, multi-region database accounts that provide clear tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB database accounts are offered with high availability, single digit ms latencies, multiple [well-defined consistency levels] [consistency], transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
 
