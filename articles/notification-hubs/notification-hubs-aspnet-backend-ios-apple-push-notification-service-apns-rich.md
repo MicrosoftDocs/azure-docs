@@ -21,7 +21,7 @@
 
 ##Overview
 
-In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-notify-users.md) topic, and shows how to send push notifications that incorporate payloads (for example, image).
+In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) topic, and shows how to send push notifications that incorporate payloads (for example, image).
 
 
 This tutorial is compatible with iOS 7 & 8.
@@ -40,7 +40,7 @@ At a high level:
 
 ## WebAPI Project
 
-1. In Visual Studio, open the **AppBackend** project that you created in the [Notify Users](notification-hubs-aspnet-backend-ios-notify-users.md) tutorial.
+1. In Visual Studio, open the **AppBackend** project that you created in the [Notify Users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
 2. Obtain an image you would like to notify users with, and put it in an **img** folder in your project directory.
 3. Click **Show All Files** in the Solution Explorer, and right-click the folder to **Include In Project**.
 4. With the image selected, change its Build Action in Properties window to **Embedded Resource**.
@@ -142,7 +142,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
 
     ![][IOS3]
 
-3. Go to **Main.storyboard**, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from [Notify User](notification-hubs-aspnet-backend-ios-notify-users.md) tutorial.
+3. Go to **Main.storyboard**, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from [Notify User](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
 
 4. Add a **Navigation Controller** to your storyboard, and control-drag to Home View Controller to make it the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 

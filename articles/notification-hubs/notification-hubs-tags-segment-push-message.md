@@ -25,7 +25,7 @@ Tag expressions enable you to target specific sets of devices, or more specifica
 
 ## Targeting specific registrations
 
-The only way to target specific notification registrations is to associate tags with them, then target those tags. As discussed in [Registration Management](notification-hubs-registration-management.md), in order to receive push notifications an app has to register a device handle on a notification hub. Once a registration is created on a notification hub, the application backend can send push notifications to it.
+The only way to target specific notification registrations is to associate tags with them, then target those tags. As discussed in [Registration Management](notification-hubs-push-notification-registration-management.md), in order to receive push notifications an app has to register a device handle on a notification hub. Once a registration is created on a notification hub, the application backend can send push notifications to it.
 The application backend can choose the registrations to target with a specific notification in the following ways:
 
 1. **Broadcast**: all registrations in the notification hub receive the notification.
@@ -40,7 +40,7 @@ A tag can be any string, up to 120 characters, containing alphanumeric and the f
 
 In this picture, the message tagged **Beatles** reaches only the tablet that registered with the tag **Beatles**.
 
-For more information about creating registrations for tags, see [Registration Management](notification-hubs-registration-management.md).
+For more information about creating registrations for tags, see [Registration Management](notification-hubs-push-notification-registration-management.md).
 
 You can send notifications to tags using the send notifications methods of the `Microsoft.Azure.NotificationHubs.NotificationHubClient` class in the [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. You can also use Node.js, or the Push Notifications REST APIs.  Here's an example using the SDK.
 
@@ -70,7 +70,7 @@ In this picture, Alice is interested in updates for the Beatles, and Bob is inte
 
 While you can encode multiple concerns in tags (for example, “band_Beatles” or “follows_Charlie”), tags are simple strings and not properties with values. A registration is matched only on the presence or absence of a specific tag.
 
-For a full step-by-step tutorial on how to use tags for sending to interest groups, see [Breaking News](notification-hubs-windows-store-dotnet-send-breaking-news.md).
+For a full step-by-step tutorial on how to use tags for sending to interest groups, see [Breaking News](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
 
 ## Using tags to target users

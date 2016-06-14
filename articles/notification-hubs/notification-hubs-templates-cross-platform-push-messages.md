@@ -111,7 +111,7 @@ By using this pattern, the backend only sends a single message without having to
 
 ##How to register templates
 
-To register with templates using the Installation model (preferred), or the Registration model, see [Registration Management](notification-hubs-registration-management.md).
+To register with templates using the Installation model (preferred), or the Registration model, see [Registration Management](notification-hubs-push-notification-registration-management.md).
 
 ##Template expression language
 

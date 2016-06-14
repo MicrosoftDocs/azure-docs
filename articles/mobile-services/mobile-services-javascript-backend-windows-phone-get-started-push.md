@@ -143,7 +143,7 @@ This tutorial demonstrated the basics of enabling a Windows Store app to use Mob
 + [Send broadcast notifications to subscribers](../notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Send platform-agnostic notifications to subscribers](../notification-hubs/notification-hubs-aspnet-push-to-user-cross-platform-notification.md)
++ [Send platform-agnostic notifications to subscribers](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md)
 	<br/>Learn how to use templates to send push notifications from your mobile service, without having to craft platform-specific payloads in your back-end.
 
 

@@ -73,7 +73,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Get started with authentication](mobile-services-android-get-started-users.md)
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
-* [What are Notification Hubs?](../notification-hubs/notification-hubs-overview.md)
+* [What are Notification Hubs?](../notification-hubs/notification-hubs-push-notification-overview.md)
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)

@@ -25,7 +25,7 @@
 
 ##Overview
 
-This topic shows you how to use the [templates](notification-hubs-templates.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
+This topic shows you how to use the [templates](notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
 
 
 There are two parts to this scenario:
@@ -68,7 +68,7 @@ Then we will ensure that devices register with a template that refers to the cor
 		}
 	}
 
-Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates.md) article.
+Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages.md) article.
 
 ##The app user interface
 

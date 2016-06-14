@@ -74,7 +74,7 @@ The connection **connectionstring** value can be obtained from the [Azure Portal
 
 1. In the left navigation pane, click **Browse**.
 
-2. Select **Notification Hubs**, and then find the hub you wish to use for the sample. You can refer to the [Windows Store Getting Started tutorial](notification-hubs-windows-store-dotnet-get-started.md) if you need help creating a new Notification Hub.
+2. Select **Notification Hubs**, and then find the hub you wish to use for the sample. You can refer to the [Windows Store Getting Started tutorial](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) if you need help creating a new Notification Hub.
 
 3. Select **Settings**.
 

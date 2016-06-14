@@ -31,7 +31,7 @@ In this topic we show how to:
 * Send notifications using the Python interface to the Notification Hub REST APIs. 
 * Get a dump of the HTTP REST request/response for debugging/educational purpose. 
 
-You can follow the [Get started tutorial](notification-hubs-windows-store-dotnet-get-started.md) for your mobile platform of choice, implementing the back-end portion in Python.
+You can follow the [Get started tutorial](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) for your mobile platform of choice, implementing the back-end portion in Python.
 
 > [AZURE.NOTE] The scope of the sample is only limited to send notifications and it doesn't do any registration management.
 
