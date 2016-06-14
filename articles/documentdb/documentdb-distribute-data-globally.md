@@ -57,7 +57,10 @@ You can decide to make your data locally or globally distributed by either assoc
 
 
 
-## Additional References
+## Next steps
+
+Learn more about the distributing data globally with DocumentDB in the following articles:
+
 * [Provisioning throughput and storage for a collection] [throughputandstorage]
 * [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs] [developingwithmultipleregions]
 * [Consistency Levels in DocumentDB] [consistency]
