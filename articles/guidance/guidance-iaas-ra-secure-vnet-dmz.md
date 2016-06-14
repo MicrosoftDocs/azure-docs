@@ -53,11 +53,17 @@ Taken together, the public DMZ inbound network, NVAs, and public DMZ outbound ne
 
 This section summarizes recommendations for providing public access to the application running in the cloud, covering:
 
+- Using a separate set of NVAs to handle traffic received from the Internet.
+
 - Configuration of the public load balancer,
 
 - Routing Internet traffic to the web tier through the NVAs in the public DMZ.
 
 For information and recommendations about the gateway, elements in the private DMZ, the management and monitoring subnet, and the application subnets, refer to the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
+
+### NVA separation recommendations ###
+
+The traffic received from the Internet may need to be handled differently and be subjected to more stringent security checks than requests received from the on-premises network. Rather than try and route all on-premises and public traffic through the same set of NVAs, it is preferable to implement separate sets of NVAs, effectively creating different security perimeters. This approach reduces the complexity of the security checking, making configuration less error-prone as each set of NVAs can be focussed on specific types of traffic (Intranet or Internet). Additionally, the routing performed by the NVAs in the public security perimeter is significantly different from that provided by the NVAs in the private security perimeter.
 
 ### Public load balancer recommendations ###
 
@@ -67,7 +73,7 @@ Do not open ports in the load balancer unnecessarily. For example, consider rest
 
 ### Public DMZ routing recommendations ###
 
-The web tier comprises VMs fronted by a internal load balancer. You should not expose any of these items directly to the Internet; all traffic should pass through the NVAs in the security perimeter. Configure the NVAs to route validated incoming requests to the internal load balancer for the web tier. This routing should be transparent to the users making the requests. For example, if the NVAs are Linux VMs, you can use the [iptables][iptables] command to filter incoming traffic and and implement NAT routing to direct it through the public outbound DMZ network to the internal load balancer for the web tier.
+The web tier comprises VMs fronted by a internal load balancer. You should not expose any of these items directly to the Internet; all traffic should pass through the NVAs in the security perimeter. Configure the NVAs to route validated incoming requests to the internal load balancer for the web tier. This routing should be transparent to the users making the requests. For example, if the NVAs are Linux VMs, you can use the [iptables][iptables] command to filter incoming traffic and implement NAT routing to direct it through the public outbound DMZ network to the internal load balancer for the web tier.
 
 ## Solution components
 
@@ -188,7 +194,7 @@ DEBIAN_FRONTEND=noninteractive aptitude install -y -q iptables-persistent
 update-rc.d iptables-persistent defaults
 ```
 
-The first two lines configure IP forwarding for the NICs; traffic received in the NIC associated with the public DMZ inbound subnet will be passed to the NIC attached to the public DMZ outbound subnet. The next block configures NAT routing to direct incoming traffic on ports 80 and 443 to the internal load balancer for the web tier at address 10.0.3.254. The final three lines save these changes using the iptables-persistent service and ensure that the configuration is restored whenever the machine restarts.
+The first two lines configure IP forwarding for the NICs; traffic received in the NIC associated with the public DMZ inbound subnet will be passed to the NIC attached to the public DMZ outbound subnet. The next block configures NAT routing to direct incoming traffic on ports 80 and 443 to the internal load balancer for the web tier at address 10.0.1.254. The final three lines save these changes using the iptables-persistent service and ensure that the configuration is restored whenever the machine restarts.
 
 > [AZURE.NOTE] Remember that the IP addresses for the NVAs are allocated statically. This is important, as it means that the IP routing tables saved by using the iptables-persistent package will still be valid even if the VMs are de-provisioned and restarted.
 
@@ -234,11 +240,11 @@ To run the script that deploys the solution:
 
 3. 	Set the BASE_NAME variable to the name of the 3-tier application infrastructure to be created. The script creates separate subnets for the Web tier, business tier, and data tier. Each tier consists of two VMs accessed through a load balancer.
 
-4.	Set the SUBSCRIPTION variable to the subscription ID of the Azure account to use. By default, the script creates nine VMs that consume 36 CPU cores although you can customize the installation to use smaller VMs. Make sure that you have sufficient quota available before continuing.
+4.	Set the SUBSCRIPTION variable to the subscription ID of the Azure account to use. By default, the script creates 11 VMs that consume 44 CPU cores although you can customize the installation to use smaller VMs. Make sure that you have sufficient quota available before continuing.
 
 5.	Set the INPUT-ON-PREMISES_PUBLIC_IP variable to the public IP address of the VPN device located in the on-premises network.
 
-6.	Set the INPUT_ON_PREMISES_ADDRESS_SPACE variable to the internal address space of the on-premises network.
+6.	Set the INPUT_ON_PREMISES_ADDRESS_SPACE variable to the internal address space of the on-premises network. Use CIDR format; for example *192.168.0.0/16*.
 
 7.	Set the INPUT_VPN_IPSEC_SHARED_KEY variable to the shared secret key to be used to connect from the VPN device to the Azure VPN gateway.
 
@@ -278,7 +284,7 @@ To run the script that deploys the solution:
 
 	- ***myapp*-db-tier-rg.** This resource group holds the VMs and resources for the data access tier. The structure is the same as that of the web and business tiers.
 
-	- ***myapp*-mgmt-subnet-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs (with storage) and a load balancer for the NVA, and a separate VM (with storage) for the jump box. Each NVA VM has three network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs. This resource group also contains the UDR for the gateway subnet.
+	- ***myapp*-mgmt-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs (with storage) and a load balancer for the NVA, and a separate VM (with storage) for the jump box. Each NVA VM has three network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs. This resource group also contains the UDR for the gateway subnet.
 
 		> [AZURE.NOTE] The article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] describes the contents of these resource groups in more detail.
 
@@ -353,7 +359,7 @@ If the NVAs are protected by using NSG rules, it may also be necessary to open p
 [azuredeploy-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/azuredeploy.sh
 [azuredeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/Templates/ra-secure-vnet-pub-dmz/azuredeploy.json
 [ibb-dmz]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/Templates/ibb-dmz.json
-[0]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure1.svg "Secure hybrid network architecture"
+[0]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure1.png "Secure hybrid network architecture"
 [1]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure2.png "Subnets in the VNet"
 [2]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure3.png "Public DMZ resource group"
 [3]: ./media/guidance-iaas-ra-secure-vnet-dmz/figure4.png "Default IIS page in Internet Explorer"
