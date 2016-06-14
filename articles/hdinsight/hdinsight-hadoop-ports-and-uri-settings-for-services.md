@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/10/2016"
+ms.date="06/14/2016"
 ms.author="larryfr"/>
 
 # Ports and URIs used by HDInsight
@@ -72,72 +72,70 @@ __TBD__:
 
 ### HDFS ports
 
-| Service | Node(s) | Port | Protocol | Description | Configured in... |
-| ------- | ------- | ---- | -------- | ----------- | ------------------------ |
-| NameNode web UI | Head nodes | 30070 | HTTPS | Web UI to view current status |dfs.namenode.http-address.mycluster.nn1 and dfs.namenode.http-address.mycluster.nn2 |
-| NameNode metadata service | head nodes | 8020 | IPC | File system metadata operations | dfs.namenode.rpc-address.mycluster.nn1 and dfs.namenode.rpc-address.mycluster.nn2 |
-| DataNode | All worker nodes | 30075 | HTTPS | Web UI to view status, logs, etc. | dfs.datanode.http.address |
-| DataNode | All worker nodes | 30010 | &nbsp; | Data transfer | dfs.datanode.address |
-| DataNode | All worker nodes | 30020 | IPC | Metadata operations | dfs.datanode.ipc.address |
-| Secondary NameNode | Head nodes | 50090 | HTTP | Checkpoint for NameNode metadata | dfs.namenode.secondary.http-address |
- 
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- | 
+| NameNode web UI | Head nodes | 30070 | HTTPS | Web UI to view current status |
+| NameNode metadata service | head nodes | 8020 | IPC | File system metadata 
+| DataNode | All worker nodes | 30075 | HTTPS | Web UI to view status, logs, etc. |
+| DataNode | All worker nodes | 30010 | &nbsp; | Data transfer |
+| DataNode | All worker nodes | 30020 | IPC | Metadata operations |
+| Secondary NameNode | Head nodes | 50090 | HTTP | Checkpoint for NameNode metadata |
 ### YARN ports
 
-| Service | Node(s) | Port | Protocol | Description | Configured in... |
-| ------- | ------- | ---- | -------- | ----------- | ------------------------ |
-| Resource Manager web UI | Head nodes | 8088 | HTTP | Web UI for Resource Manager | yarn.resourcemanager.webapp.address |
-| Resource Manager web UI | Head nodes | 8090 | HTTPS | Web UI for Resource Manager | yarn.resourcemanager.webapp.https.address |
-| Resource Manager admin interface | head nodes | 8141 | IPC | For application submissions (Hive, Hive server, Pig, etc.) | yarn.resourcemanager.admin.address |
-| Resource Manager scheduler | head nodes | 8030 | HTTP | Administrative interface | yarn.resourcemanager.scheduler.address |
-| Resource Manager application interface | head nodes | 8050 | HTTP |Address of the applications manager interface | yarn.resourcemanager.address |
-| NodeManager | All worker nodes | 30050 | &nbsp; | ??? |yarn.nodemanager.address |
-| NodeManager web UI | All worker nodes | 30060 | HTTP | Resource manager interface | yarn.nodemanager.webapp.address |
-| Timeline server | Head nodes | 10200 | RPC | The Timeline RPC service. | yarn.timeline-service.address |
-| Timeline server web UI | Head nodes | 8181 | HTTP | The Timeline service web UI | yarn.timeline-service.webapp.address |
-
-| JobHistory | Head nodes | 19888 | ??? | ??? | yarn.log.server.url |
-| JobHistory | Head nodes | 10020 | ??? | ??? | mapreduce.jobhistory.address | 
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| Resource Manager web UI | Head nodes | 8088 | HTTP | Web UI for Resource Manager |
+| Resource Manager web UI | Head nodes | 8090 | HTTPS | Web UI for Resource Manager |
+| Resource Manager admin interface | head nodes | 8141 | IPC | For application submissions (Hive, Hive server, Pig, etc.) |
+| Resource Manager scheduler | head nodes | 8030 | HTTP | Administrative interface |
+| Resource Manager application interface | head nodes | 8050 | HTTP |Address of the applications manager interface |
+| NodeManager | All worker nodes | 30050 | &nbsp; | The address of the container manager |
+| NodeManager web UI | All worker nodes | 30060 | HTTP | Resource manager interface |
+| Timeline address | Head nodes | 10200 | RPC | The Timeline service RPC service. |
+| Timeline web UI | Head nodes | 8181 | HTTP | The Timeline service web UI |
 
 ### Hive ports
 
-| Service | Node(s) | Port | Protocol | Description | Configured in... |
-| ------- | ------- | ---- | -------- | ----------- | ------------------------ |
-| HiveServer2 | Head nodes | 10001 | Thrift | Service for programmatically connecting to Hive (Thrift/JDBC) | hive.server2.thrift.http.port |
-| HiveServer | Head nodes | 10000 | Thrift | Service for programmatically connecting to Hive (Thrift/JDBC) | hive.server2.thrift.port|
-| Hive Metastore | Head nodes | 9083 | Thrift | Service for programmatically connecting to Hive metadata (Thrift/JDBC) | hive.metastore.uris |
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| HiveServer2 | Head nodes | 10001 | Thrift | Service for programmatically connecting to Hive (Thrift/JDBC) |
+| HiveServer | Head nodes | 10000 | Thrift | Service for programmatically connecting to Hive (Thrift/JDBC) |
+| Hive Metastore | Head nodes | 9083 | Thrift | Service for programmatically connecting to Hive metadata (Thrift/JDBC) |
 
 ### WebHCat ports
 
-| Service | Node(s) | Port | Protocol | Description | Configured in... |
-| ------- | ------- | ---- | -------- | ----------- | ------------------------ |
-| WebHCat server | Head nodes | 30111 | HTTP | Web API on top of HCatalog and other Hadoop services | templeton.port |
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| WebHCat server | Head nodes | 30111 | HTTP | Web API on top of HCatalog and other Hadoop services |
 
 ### MapReduce ports
 
-| Service | Node(s) | Port | Protocol | Description | Configured in... |
-| ------- | ------- | ---- | -------- | ----------- | ------------------------ |
-| ShuffleHandler | 13562 | &nbsp; | Transfers intermediate Map outputs to requesting Reducers | maprduce.shuffle.port |
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| JobHistory | Head nodes | 19888 | HTTP | MapReduce JobHistory web UI |
+| JobHistory | Head nodes | 10020 | &nbsp; | MapReduce JobHistory server |
+| ShuffleHandler | &nbsp; | 13562 | &nbsp; | Transfers intermediate Map outputs to requesting Reducers |
 
 ### Oozie
 
-| Service | Node(s) | Port | Protocol | Description | Configured in... |
-| ------- | ------- | ---- | -------- | ----------- | ------------------------ |
-| Oozie server | Head nodes | 11000 | HTTP | URL for Oozie service | oozie.base.url |
-| Ooozie server | Head nodes | 11001 | HTTP | Port for Oozie admin |  &nbsp; |
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| Oozie server | Head nodes | 11000 | HTTP | URL for Oozie service |
+| Oozie server | Head nodes | 11001 | HTTP | Port for Oozie admin |
 
 ### Ambari Metrics
 
-| Service | Node(s) | Port | Protocol | Description | Configured in... |
-| ------- | ------- | ---- | -------- | ----------- | ------------------------ |
-| Metrics service | ?? | 6188 | ?? | ?? | timeline.metrics.service.webapp.address |
-| ??? | ?? | 30200 | RPC | ?? | timeline.metrics.service.rpc.address |
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| TimeLine (Application history) | Head nodes | 6188 | HTTP | The TimeLine service web UI |
+| TimeLine (Application history) | Head nodes | 30200 | RPC | The TimeLine service web UI |
 
 ### HBase ports
 
-| Service | Node(s) | Port | Protocol | Description | Configured in... |
-| ------- | ------- | ---- | -------- | ----------- | ------------------------ |
-| HMaster | Head nodes | 16000 | &nbsp; | &nbsp; | hbase.master.port |
-| HMaster info Web UI | Head nodes | 16010 | HTTP | The port for the HBase Master web UI | hbase.master.info.port |
-| Region server | All worker nodes | 16020 | &nbsp; | &nbsp; | hbase.reginserver.port |
-| &nbsp; | &nbsp; | 2181 | &nbsp; | The port that clients use to connect to ZooKeeper | hbase.zookeeper.property.clientPort |
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| HMaster | Head nodes | 16000 | &nbsp; | &nbsp; |
+| HMaster info Web UI | Head nodes | 16010 | HTTP | The port for the HBase Master web UI |
+| Region server | All worker nodes | 16020 | &nbsp; | &nbsp; |
+| &nbsp; | &nbsp; | 2181 | &nbsp; | The port that clients use to connect to ZooKeeper |
 
