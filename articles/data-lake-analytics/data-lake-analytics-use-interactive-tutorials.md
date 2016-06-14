@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 

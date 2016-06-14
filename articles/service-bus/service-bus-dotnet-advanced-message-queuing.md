@@ -26,7 +26,7 @@ This article explains how to use the Service Bus brokered messaging features (qu
 
 ## Get started with Service Bus
 
-This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure classic portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md).
+This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure classic portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 ## Download the Service Bus SDK
 
@@ -320,6 +320,6 @@ Now that you've read an overview of Service Bus and AMQP with .NET, see the foll
 
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
-* [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
  
 [Azure classic portal]: https://manage.windowsazure.com

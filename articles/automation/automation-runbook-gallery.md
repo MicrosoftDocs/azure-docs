@@ -4,7 +4,7 @@
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
+	manager="jwhit"
 	editor="tysonn" />
 <tags
 	ms.service="automation"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="03/02/2016"
+	ms.date="06/08/2016"
 	ms.author="magoedte;bwren" />
 
 
@@ -32,7 +32,7 @@ You can only import directly from the Runbook Gallery using the Azure classic po
 
 ### To import a runbook from the Runbook Gallery with the Azure classic portal
 
-1. In the Azure Management portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
+1. In the Azure Portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
 2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.
 
     ![Runbook gallery](media/automation-runbook-gallery/runbook-gallery.png)
@@ -69,6 +69,8 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 - You must specify *Windows Azure* for the **Category** and *Automation* for the **Subcategory** for the runbook to be displayed in the wizard.  
 
 - The upload must be a single .ps1 or .graphrunbook file.  If the runbook requires any modules, child runbooks, or assets, then you should list those in the description of the submission and in the comments section of the runbook.  If you have a solution requiring multiple runbooks, then upload each separately and list the names of the related runbooks in each of their descriptions. Make sure that you use the same tags so that they will show up in the same category. A user will have to read the description to know that other runbooks are required the solution to work.
+
+- Add the tag "GraphicalPS" if you are publishing a **Graphical runbook** (not a Graphical Workflow). 
 
 - Insert either a PowerShell or PowerShell Workflow code snippet into the description using **Insert code section** icon.
 
@@ -132,7 +134,7 @@ When you drill into a specific module, you can view more information about the m
 
 You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
-## Related articles
+## Next Steps
 
-- [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
-- [Learning PowerShell workflow](automation-powershell-workflow.md)
+- To get started with runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+- To understand the differences between PowerShell and PowerShell Workflow with runbooks, see [Learning PowerShell workflow](automation-powershell-workflow.md)

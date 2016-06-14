@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Copy an Azure SQL database using PowerShell
 
-**Single database**
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-copy.md)
@@ -46,29 +45,9 @@ To complete this article you need the following:
 
 
 
-## Configure your credentials and select your subscription
+## Copy your SQL database
 
-First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure Classic Portal.
-
-	Add-AzureAccount
-
-After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
-
-
-### Select your Azure subscription
-
-To select the subscription you need your subscription Id or subscription name (**-SubscriptionName**). You can copy the subscription Id from the information displayed from previous step, or if you have multiple subscriptions and need more details you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
-
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
-
-
-## Setup the variables for for your specific environment
-
-There are a few variables where you need to replace the example values with the specific values for your database and servers.
-
-Replace the placeholder values with the values for your environment:
+There are a few variables where you need to replace the example values with the specific values for your database and servers. Replace the placeholder values with the values for your environment:
 
     # The name of the server on which the source database resides.
     $ServerName = "sourceServerName"
@@ -86,14 +65,14 @@ Replace the placeholder values with the values for your environment:
 
 
 
-## Copy a SQL database to the same server
+### Copy a SQL database to the same server
 
 This command submits the copy database request to the service. Depending on the size of your database the copy operation may take some time to complete.
 
     # Copy a database to the same server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerDatabase $PartnerDatabaseName
 
-## Copy a SQL database to a different server
+### Copy a SQL database to a different server
 
 This command submits the copy database request to the service. Depending on the size of your database the copy operation may take some time to complete.
 
@@ -109,7 +88,7 @@ After running **Start-AzureSqlDatabaseCopy** you can check the status of the cop
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
 
-## Copy SQL database PowerShell script
+## Example PowerShell script
 
     # The name of the server where the source database resides
     $ServerName = "sourceServerName"
