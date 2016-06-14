@@ -110,7 +110,10 @@ By default, VirtualBox shares `C:\Users` as `c:/Users`. If possible, move your p
 ##Using Microsoft Edge as the default browser
 
 If you are using the Microsoft Edge browser, the site might not open as Edge considers the IP address to be unsecured. To remedy this, perform the following steps:
-1. From the Windows Run box, type `Internet Options`.
+
+1. Go to **Internet Options**.
+    - On Windows 10, you can type `Internet Options` in the Windows Run box.
+    - In Internet Explorer, you can go to the **Settings** menu and select **Internet Options**. 
 1. Select **Internet Options** when it appears. 
 1. Select the **Security** tab.
 1. Select the **Local Intranet** zone.
