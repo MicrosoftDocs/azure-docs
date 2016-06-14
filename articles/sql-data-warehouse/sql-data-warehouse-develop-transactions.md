@@ -18,7 +18,7 @@
 
 # Transactions in SQL Data Warehouse
 
-As you would expect SQL Data Warehouse does offer support for all transactional properties. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
+As you would expect, SQL Data Warehouse supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
 
 ## Transaction isolation levels
 SQL Data Warehouse implements ACID transactions. However, the Isolation of the transactional support is limited to `READ UNCOMMITTED` and this cannot be changed. You can implement a number of coding methods to prevent dirty reads of data if this is a concern for you. The most popular methods leverage both CTAS and table partition switching (often known as the sliding window pattern) to prevent users from querying data that is still being prepared. Views that pre-filter the data is also a popular approach.  
@@ -127,6 +127,7 @@ They are as follows:
 - No distributed transactions
 - No nested transactions permitted
 - No save points allowed
+- No support for DDL such as `CREATE TABLE` inside a user defined transaction
 
 ## Next steps
 For more development tips, see [development overview][].

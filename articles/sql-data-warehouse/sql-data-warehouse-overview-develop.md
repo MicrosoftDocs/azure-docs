@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Design decisions and coding techniques for SQL Data Warehouse
@@ -42,8 +42,6 @@ These articles highlight specific coding techniques, tips and recommendations fo
 - [temporary tables][]
 - [dynamic SQL][]
 - [looping][]
-- [renaming objects][]
-- [pivoting data][]
 - [group by options][]
 - [variable assignment][]
 
@@ -61,8 +59,6 @@ Once you have been through the development articles take a look through the [Tra
 [hash distribution keys]: sql-data-warehouse-develop-hash-distribution-key.md
 [labels]: sql-data-warehouse-develop-label.md
 [looping]: sql-data-warehouse-develop-loops.md
-[pivoting data]: sql-data-warehouse-develop-pivot-unpivot.md
-[renaming objects]: sql-data-warehouse-develop-rename.md
 [statistics]: sql-data-warehouse-develop-statistics.md
 [stored procedures]: sql-data-warehouse-develop-stored-procedures.md
 [table design]: sql-data-warehouse-develop-table-design.md
