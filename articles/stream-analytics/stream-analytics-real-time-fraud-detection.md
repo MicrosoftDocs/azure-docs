@@ -50,7 +50,7 @@ To create an Event Hub:
 3.	To grant access to the Event Hub, we will need to create a shared access policy.  Click the **Configure** tab of your Event Hub.
 4.	Under **Shared Access Policies**, create a new policy with **Manage** permissions.
 
-	![Shared Access Policies where you can create a policy with Manage permissions.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
+	![Shared Access Policies where you can create a policy with Manage permissions.](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-shared-access-policies.png)
 
 5.	Click **Save** at the bottom of the page.
 6.	Navigate to the **Dashboard** and click **Connection Information** at the bottom of the page, and then copy and save the connection information.
@@ -103,7 +103,7 @@ Now that we have a stream of telecommunications events, we can set up a Stream A
 
 3.	Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 
-	![Stream Analytics service icon](./media/stream-analytics-get-started/stream-analytics-service-icon.png)
+	![Stream Analytics service icon](./media/stream-analytics-real-time-fraud-detection/stream-analytics-service-icon.png)
 
 4.	The new job will be shown with a status of **Created**. Notice that the **Start** button on the bottom of the page is disabled. You must configure the job input, output, and query before you can start the job.
 
@@ -141,7 +141,7 @@ To validate your query against actual job data, you can use the **Sample Data** 
 2.	In the dialog box that appears, specify a **Start Time** to start collecting data from and a **Duration** for how much additional data to consume.
 3.	Click the check button to start sampling data from the input.  It can take a minute or two for the data file to be produced.  When the process is completed, click **Details** and download and save the .JSON file that is generated.
 
-	![Download and save processed data in a JSON file](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
+	![Download and save processed data in a JSON file](./media/stream-analytics-real-time-fraud-detection/stream-analytics-download-save-json-file.png)
 
 #### Passthrough query
 
@@ -158,7 +158,7 @@ If you want to archive every event, you can use a passthrough query to read all 
 4.	Supply a test file, either one that you created using the previous steps or use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Click the check button and see the results displayed below the query definition.
 
-	![Query definition results](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
+	![Query definition results](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sim-fraud-output.png)
 
 
 ### Column projection
@@ -172,7 +172,7 @@ We'll now pare down the returned fields to a smaller set.
 
 2.	Click **Rerun** under the query editor to see the results of the query.
 
-	![Output in query editor.](./media/stream-analytics-get-started/stream-analytics-query-editor-output.png)
+	![Output in query editor.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-output.png)
 
 ### Count of incoming calls by region: Tumbling window with aggregation
 
@@ -190,7 +190,7 @@ To compare the amount that incoming calls per region we'll leverage a [TumblingW
 
 2.	Click **Rerun** under the query editor to see the results of the query.
 
-	![Query results for Timestand By](./media/stream-analytics-get-started/stream-ananlytics-query-editor-rerun.png)
+	![Query results for Timestand By](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-query-editor-rerun.png)
 
 ### SIM fraud detection with a Self-Join
 
@@ -208,7 +208,7 @@ To identify potentially fraudulent usage we'll look for calls originating from t
 
 2.	Click **Rerun** under the query editor to see the results of the query.
 
-	![Query results of a join](./media/stream-analytics-get-started/stream-ananlytics-query-editor-join.png)
+	![Query results of a join](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-query-editor-join.png)
 
 ### Create output sink
 
@@ -251,7 +251,7 @@ Since a job input, query, and output have all been specified, we are ready to st
 
 Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view fraudulent events as they are written to your output in real-time.  
 
-![Fraud detection: Fraudulent events viewed in real-time](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
+![Fraud detection: Fraudulent events viewed in real-time](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
@@ -260,7 +260,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 ## Next steps
 
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
