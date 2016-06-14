@@ -116,7 +116,7 @@ For example, here's a table that shows how many request units to provision at th
 
 Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.  
 
-The number of Writes/Sec for sustained workloads on multi-region accoungs can vary based on a number of factors, Please see [How throughput works with multiple regions](#multiregionthrougput)
+The number of Writes/Sec for sustained workloads on multi-region accounts can vary based on a number of factors, Please see [How throughput works with multiple regions](#multiregionthrougput)
 
 
 ## Provisioned document storage and index overhead
