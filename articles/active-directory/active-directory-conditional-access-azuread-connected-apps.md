@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -18,26 +18,26 @@
 
 # Azure Conditional Access Preview for SaaS Apps
 
-The Azure Conditional Access for SaaS apps is available for public preview. The preview allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. 
+The Azure Conditional Access for SaaS apps is available for public preview. The preview allows you to configure per-application multi-factor authentication (MFA) access rules and the ability to block access for users not on a trusted network. 
 
 You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
 These capabilities will be available to customers that have purchased an Azure Active Directory Premium license.
 
 ## Scenario prerequisites
-* Subscription to Azure Active Directory Premium
+* License for Azure Active Directory Premium
 
 * Federated or Managed Azure Active Directory tenant
 
-* Federated tenants require that multi-factor authentication (MFA) be enabled.
+* Federated tenants require that multi-factor authentication be enabled.
 
 ## Known issues in this Preview release
-This preview applies to pre-integrated federated SaaS applications, applications that use password single-sign on, registered developed and line of business applications and Azure AD Application Proxy. Additional applications are still being enabled..
+This preview applies to pre-integrated federated SaaS applications, applications that use password single sign-on, registered developed and line of business applications and Azure AD Application Proxy. Additional applications are still being enabled.
 
-##Configure per-application access rules
+## Configure per-application access rules
 
 This section describes how to configure per-application access rules.
 
-1. Log on to the Microsoft Azure Portal as Administrator.
+1. Log on to the Azure classic portal as Administrator.
 2. On the left pane, select **Active Directory**.
 3. On the Directory tab, select your directory.
 4. Select the **Applications** tab.
@@ -60,10 +60,10 @@ The access rule shown in the below will require all users in the Managers group 
 
 ![Setting conditional access rules with MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
-##Conditional Access Rules with MFA
+## Conditional Access Rules with MFA
 If a user has been configured using the per-user multi-factor authentication feature, this setting on the user will combine with the multi-factor authentication rules of the app. This means a user that has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application multi-factor authentication rules. Learn more about multi-factor authentication and per-user settings.
 
-###Access rule options
+### Access rule options
 The current preview supports the following options:
 
 * **Require multi-factor authentication**: With this option the users that the access rules apply to will be required to complete multi-factor authentication before accessing the application the policy applies to.
@@ -72,7 +72,7 @@ The current preview supports the following options:
 
 * **Block access when not at work**: With this option a user that is not coming from a trusted IP will be blocked. The trusted IP ranges can be configured on the multi-factor authentication settings page.
 
-###Setting rule status
+### Setting rule status
 Access rule status allows turning the rules on or off. When the access rules are off the multi-factor authentication requirement will not be enforced.
 
 ### Access rule evaluation
@@ -90,7 +90,7 @@ The following example shows how to enable on-premises MFA by using the [Set-Msol
 
 In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for deploying Azure Multi-Factor Authentication on-premises.
 
-##Related Articles
+## Related Articles
 
 - [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md)
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
