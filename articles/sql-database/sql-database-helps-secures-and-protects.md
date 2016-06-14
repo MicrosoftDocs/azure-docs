@@ -46,11 +46,11 @@ SQL Database provides multiple layers of data protection. Your data is protected
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 
 
-## Next Steps
+## Next steps
 
 Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
 
-## Learn More
+## Additional resources
 
 Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
  

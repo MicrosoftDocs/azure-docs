@@ -150,7 +150,9 @@ The Docker daemon on the host is configured to listen for and authenticate clien
 
 ## Next steps
 
-You are ready to go to the [Docker User Guide] and use your Docker VM. To create a Docker-enabled VM in the new portal, see [How to use the Docker VM Extension with the Portal].
+* You are ready to go to the [Docker User Guide] and use your Docker VM. To create a Docker-enabled VM in the new portal, see [How to use the Docker VM Extension with the Portal].
+
+* The Azure Docker VM extension also supports Docker Compose, which uses a declarative YAML file to take a developer-modeled application across any environment and generate a consistent deployment. See [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine].  
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
@@ -172,3 +174,4 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. To create
 
 [Docker User Guide]: https://docs.docker.com/userguide/
  
+[Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine]:virtual-machines-linux-docker-compose-quickstart.md
