@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="06/15/2016"
 	ms.author="femila"/>
 
 # Conditional access FAQs
 
 ## Which applications work with Conditional Access policies?
-Please see the topic, [Conditional access- What applications are supported](active-directory\active-directory-conditional-access-supported-apps.md).
+Please see the topic, [Conditional access- What applications are supported](active-directory-conditional-access-supported-apps.md).
 
 ## Are Conditional Access policies enforced for B2B and guest user?
 Policies are enforced for B2B users. However, in some cases the user may not be able to satisfy the policy requirement. For example, if their organization does not support multi-factor authentication. Policy is not currently enforced for SharePoint guest users. The guest relationship is maintained within SharePoint, so not subject to access polices at the authenticatoin server. Guest access can be managed at SharePoint.
