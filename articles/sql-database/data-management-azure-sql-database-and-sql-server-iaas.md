@@ -81,7 +81,7 @@ Whether you’re a startup that is strapped for cash, or a team in an establishe
 
 #### Billing and licensing basics
 
-**SQL Database** is sold to customers as a service, not with a license, whereas [licensing SQL Server on Azure VMs](./virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) requires either per-minute SQL Server licensing or your own license through Software Assurance.
+**SQL Database** is sold to customers as a service, not with a license, whereas [licensing SQL Server on Azure VMs](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) requires either per-minute SQL Server licensing or your own license through Software Assurance.
 
 Currently, **SQL Database** is available in several service tiers, all of which are billed hourly at a fixed rate based on the service tier and performance level you choose. In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/). The Basic, Standard, and Premium service tiers are designed to deliver predictable performance with multiple performance levels to match your application’s peak requirements. You can change between service tiers and performance levels to match your application’s varied throughput needs. If your database has high transactional volume and needs to support many concurrent users, we recommend the Premium service tier. For the latest information on the current supported service tiers, see [Azure SQL Database Service Tiers](sql-database-service-tiers.md). You can also create [elastic database pools](sql-database-elastic-pool.md) to share performance resources among database instances.
 

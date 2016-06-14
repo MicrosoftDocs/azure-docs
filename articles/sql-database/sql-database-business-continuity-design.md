@@ -27,15 +27,13 @@ For detailed recovery strategies when using an elastic pool, see [Disaster recov
 
 ## When to use Geo-Restore
 
-[Geo-Restore](sql-database-geo-restore.md) provides the default recovery option when a database is unavailable because of an incident in the region where it's hosted. SQL Database provides built-in basic protection for every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). If you choose this method, no special configuration or additional resource allocation is necessary. With these backups, you can recover your database in any region using the Geo-Restore command. Use [Recover from an outage](sql-database-disaster-recovery.md) section for the details of using geo-restore to recover your application.
+[Geo-Restore](sql-database-geo-restore.md) provides the default recovery option when a database is unavailable because of an incident in the region where it's hosted. SQL Database provides built-in basic protection for every database by default. It is done by performing and storing the [database backups](sql-database-automated-backups.md) in the geo-redundant Azure storage (GRS). If you choose this method, no special configuration or additional resource allocation is necessary. With these backups, you can recover your database in any region using the Geo-Restore command. Use [Recover from an outage](sql-database-disaster-recovery.md) section for the details of using geo-restore to recover your application.
 
 You should use the built-in protection if your application meets the following criteria:
 
 1. It is not considered mission critical. It doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.
 2. The rate of data change is low (e.g. transactions per hour). The RPO of 1 hour will not result in a massive data loss.
 3. The application is cost sensitive and cannot justify the additional cost of Geo-Replication 
-
-To enable Geo-Restore, see [Geo-Restore an Azure SQL Database from a geo-redundant backup](sql-database-geo-restore-portal.md).
 
 > [AZURE.NOTE] Geo-Restore does not pre-allocate the compute capacity in any particular region to restore active databases from the backup during the outage. The service will manage the workload associated with the geo-restore requests in a manner that minimizes the impact on the existing databases in that region and their capacity demands will have priority. Therefore, the recovery time of your database will depend on how many other databases will be recovering in the same region at the same time. 
 
@@ -53,9 +51,14 @@ To enable Active Geo-Replication, see [Configure Geo-Replication for Azure SQL D
 
 > [AZURE.NOTE] Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads. 
 
-
-
-
 ##How to choose the failover configuration 
 
-When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using  Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) for guidance.
+When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) for guidance.
+
+## Next steps
+
+- [Designing Cloud Solutions for Disaster Recovery Using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+
+## Additional resources
+
+- [Disaster recovery strategies for applications using SQL Database Elastic Pool](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) 

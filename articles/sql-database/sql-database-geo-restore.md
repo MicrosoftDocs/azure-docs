@@ -18,18 +18,19 @@
 
 # Overview: SQL Database Geo-Restore
 
+> [AZURE.SELECTOR]
+- [Overview](sql-database-geo-restore.md)
+- [Azure Portal](sql-database-geo-restore-portal.md)
+- [PowerShell](sql-database-geo-restore-powershell.md)
+
 Geo-restore enables you to restore a SQL database from the most recent daily backup, and is automatically enabled for all service tiers at no extra cost. Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. 
 
 Initiating geo-restore creates a new SQL database that can be created on any server in any Azure region.
 
-
-|Task (Portal) | PowerShell | REST |
-|:--|:--|:--|
-| [Recover a SQL database from a copy in a different region](sql-database-geo-restore-portal.md) |  [PowerShell](sql-database-geo-restore-powershell.md) | [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |
+> [AZURE.NOTE] You can also use [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
 
 
-
-Geo-restore provides the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. Similar to [Point-in-time restore](sql-database-point-in-time-restore.md), geo-restore relies on database backups in geo-redundant Azure storage. It restores from the geo-replicated backup copy and therefore is resilient to the storage outages in the primary region.
+Geo-restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. The database can be created on any server in any Azure region. Geo-restore relies on [automated database backups](sql-database-automated-backups.md) in geo-redundant Azure storage and restores from the geo-replicated backup copy and therefore is resilient to the storage outages in the primary region.
 
 
 

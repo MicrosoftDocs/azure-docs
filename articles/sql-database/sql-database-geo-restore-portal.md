@@ -21,12 +21,11 @@
 
 
 > [AZURE.SELECTOR]
+- [Overview](sql-database-geo-restore.md)
 - [Azure Portal](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
 This article shows you how to restore your database into a new server using geo-restore using the Azure Portal.
-
-[Geo-Restore](sql-database-geo-restore.md) provides the ability to restore a database from a geo-redundant backup to create a new database. The database can be created on any server in any Azure region. Because it uses a geo-redundant backup as its source it can be used to recover a database even if the database is inaccessible due to an outage. Geo-restore is automatically enabled for all service tiers at no extra cost.
 
 ## Select the database to restore
 
