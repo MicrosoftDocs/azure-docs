@@ -105,7 +105,7 @@ The Linux edge node of an HDInsight Premium cluster is the landing zone for R-ba
 
 A more sophisticated tool for the development of your R script is the  R-based IDE for use on the desktop, such as Microsoft’s recently announced [R Tools for Visual Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx) (RTVS). This is a family of desktop and server tools from [RStudio](https://www.rstudio.com/products/rstudio-server/). You can also use Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet).
 
-Another option is to install an IDE on the Linux edge node itself.  A popular choice is [RStudio Server](https://www.rstudio.com/products/rstudio-server/), which provides a browser-based IDE for use by remote clients. Installing RStudio Server on the edge node of an HDInsight Premium cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster. It can be considerably more productive than the R Console.  If you want to use RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).
+Another option is to install an IDE on the Linux edge node itself.  A popular choice is [RStudio Server](https://www.rstudio.com/products/rstudio-server/), which provides a browser-based IDE for use by remote clients. Installing RStudio Server on the edge node of an HDInsight Premium cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster. It can be considerably more productive than the R console.  If you want to use RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).
 
 ## Learn about pricing
 
