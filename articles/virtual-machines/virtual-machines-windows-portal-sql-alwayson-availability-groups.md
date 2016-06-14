@@ -47,7 +47,9 @@ The figure below is a graphical representation of the solution.
 
 All of the resources in this solution belong to a single resource group.
 
-This tutorial uses the Azure portal to create all of the components of this solution. An alternative way to create the solution is with a template. [AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
+This tutorial uses the Azure portal to create all of the components of this solution. If you prefer, you can use a template to create the entire solution. 
+
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
 
 This tutorial assumes the following:
 
