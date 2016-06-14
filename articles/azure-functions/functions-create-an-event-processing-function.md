@@ -65,7 +65,7 @@ A function app hosts the execution of your functions in Azure. Before you can cr
 		    // Add a new scheduled message to the queue.
 		    outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
 		    
-		    // Write the message to the logs.
+		    // Also write the message to the logs.
 		    log.Info(outputQueueItem);
 		}
 
