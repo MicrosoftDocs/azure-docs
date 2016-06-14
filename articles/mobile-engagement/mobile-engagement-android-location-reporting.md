@@ -109,7 +109,7 @@ You also need to add the following permission if missing:
 
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Android M permissions
+## Android M permissions
 
 Starting with Android M, some permissions are managed at runtime and needs user approval.
 

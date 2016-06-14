@@ -30,8 +30,6 @@ But there are some SQL Server connectivity aspects that are specific to Azure VM
 
 This article focuses on how to connect to a SQL Server VM using the Resource Manager model. For a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
 ## Connection scenarios
 
 The way a client connects to SQL Server running on a Virtual Machine differs depending on the location of the client and the machine/networking configuration. These scenarios include:

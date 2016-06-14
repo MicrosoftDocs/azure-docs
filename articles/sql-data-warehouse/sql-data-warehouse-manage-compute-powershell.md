@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama"/>
 
 # Manage compute power in Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-compute.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ This collection of tasks uses the Azure portal to:
 - Pause compute
 - Resume compute
 
-To learn about this, see [Manage compute power overview][].
+To learn about this, see [Manage compute overview][].
 
 
 ## Before you begin
@@ -125,14 +125,13 @@ For other management tasks, see [Management overview][].
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
+[How to install and configure Azure PowerShell]: ./powershell-install-configure.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 
-
 <!--Other Web references-->
-
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/

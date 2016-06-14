@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="05/14/2016"
    ms.author="barbkess;sonyama"/>
 
 # Manage compute power in Azure SQL Data Warehouse (REST)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-compute.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ This collection of tasks uses the Azure portal to:
 - Pause compute
 - Resume compute
 
-To learn about this, see [Manage compute power overview][].
+To learn about this, see [Manage compute overview][].
 
 <a name="scale-performance-bk"></a>
 <a name="scale-compute-bk"></a>
@@ -90,7 +90,7 @@ For other management tasks, see [Management overview][].
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx

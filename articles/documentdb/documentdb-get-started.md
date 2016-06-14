@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/11/2016"
+	ms.date="05/16/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -47,7 +47,7 @@ Now let's get started!
 
 Please make sure you have the following:
 
-- An active Azure account. If you don't have one, you can sign up for a [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 - [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 - .NET Framework 4.6
 
@@ -600,14 +600,16 @@ Congratulations! You've completed this NoSQL tutorial and have a working C# cons
 ##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
--   [DocumentDB account][documentdb-create-account].
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+-   A [DocumentDB account][documentdb-create-account].
 -   The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) solution available on GitHub.
 
 To restore the references to the DocumentDB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).
 
 ## Next steps
 
--   Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
+- Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
+- Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md)
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).

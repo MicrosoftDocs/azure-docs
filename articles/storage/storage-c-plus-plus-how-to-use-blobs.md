@@ -1,5 +1,5 @@
 <properties
-    pageTitle="How to use blob storage  (C++) | Microsoft Azure"
+    pageTitle="How to use blob storage (object storage) from C++ | Microsoft Azure"
 	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
     services="storage"
     documentationCenter=".net"
@@ -21,6 +21,9 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
+
+Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
+
 This guide will demonstrate how to perform common scenarios using the Azure Blob storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.  
 
 >[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).

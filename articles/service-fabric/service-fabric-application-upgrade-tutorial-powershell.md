@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="06/13/2016"
    ms.author="subramar"/>
 
 
@@ -29,9 +29,8 @@ With Service Fabric monitored rolling upgrades, the application administrator ca
 
 ## Step 1: Build and deploy the Visual Objects sample
 
-These steps can be done by downloading the application from GitHub, and adding the **webgl-utils.js** and **gl-matrix-min.js** files into the project as mentioned in the sample's readme file. Without that, the application will not work.
 
-After adding these to the project, build and publish the application by right clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command in the Service Fabric menu item as follows.  See [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md) for more information.  Alternatively, you can use PowerShell to deploy your application.
+Build and publish the application by right clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command in the Service Fabric menu item as follows.  See [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md) for more information.  Alternatively, you can use PowerShell to deploy your application.
 
 > [AZURE.NOTE] Before any of the Service Fabric commands may be used in PowerShell, you first need to connect to the cluster by using the `Connect-ServiceFabricCluster` cmdlet. Similarly, it is assumed that the Cluster has already been set up on your local machine. See the article on [setting up your Service Fabric development environment](service-fabric-get-started.md).
 

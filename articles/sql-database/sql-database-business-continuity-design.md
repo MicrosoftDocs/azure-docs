@@ -13,19 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/25/2016"
+   ms.date="05/27/2016"
    ms.author="elfish"/>
 
-#Design for business continuity
+# Design for business continuity
 
 Designing your application for business continuity requires you to answer the following questions:
 
 1. Which business continuity feature is appropriate for protecting my application from outages?
 2. What level of redundancy and replication topology do I use?
 
-##When to use Geo-Restore
+For detailed recovery strategies when using an elastic pool, see [Disaster recovery strategies for applications using SQL Database Elastic Pool](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-SQL Database provides a built-in basic protection of every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). If you choose this method, no special configuration or additional resource allocation is necessary. With these backups, you can recover your database in any region using the Geo-Restore command. Use [Recover from an outage](sql-database-disaster-recovery.md) section for the details of using geo-restore to recover your application. 
+## When to use Geo-Restore
+
+[Geo-Restore](sql-database-geo-restore.md) provides the default recovery option when a database is unavailable because of an incident in the region where it's hosted. SQL Database provides built-in basic protection for every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). If you choose this method, no special configuration or additional resource allocation is necessary. With these backups, you can recover your database in any region using the Geo-Restore command. Use [Recover from an outage](sql-database-disaster-recovery.md) section for the details of using geo-restore to recover your application.
 
 You should use the built-in protection if your application meets the following criteria:
 
@@ -33,60 +35,25 @@ You should use the built-in protection if your application meets the following c
 2. The rate of data change is low (e.g. transactions per hour). The RPO of 1 hour will not result in a massive data loss.
 3. The application is cost sensitive and cannot justify the additional cost of Geo-Replication 
 
+To enable Geo-Restore, see [Geo-Restore an Azure SQL Database from a geo-redundant backup](sql-database-geo-restore-portal.md).
+
 > [AZURE.NOTE] Geo-Restore does not pre-allocate the compute capacity in any particular region to restore active databases from the backup during the outage. The service will manage the workload associated with the geo-restore requests in a manner that minimizes the impact on the existing databases in that region and their capacity demands will have priority. Therefore, the recovery time of your database will depend on how many other databases will be recovering in the same region at the same time. 
 
-##When to use Geo-Replication
+## When to use Active Geo-Replication
 
-Geo-Replication creates a replica database (secondary) in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-disaster-recovery.md) section for using failover to recover your application.
+[Active Geo-Replication](sql-database-geo-replication-overview.md) enables the creation of readable (secondary) databases in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-disaster-recovery.md) section for using failover to recover your application.
 
-You should use the Geo-Replication if your application meets the following criteria:
+You should use Geo-Replication if your application meets the following criteria:
 
 1. It is mission critical. It has a binding SLA with aggressive RPO and RTO. Loss of data and availability will result in financial liability. 
 2. The rate of data change is high (e.g. transactions per minute or seconds). The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.
 3. The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.
 
+To enable Active Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-portal.md)
 
 > [AZURE.NOTE] Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads. 
 
-##How to enable Geo-Replication
 
-You can enable Geo-Replication using Azure Classic Portal or by calling REST API or PowerShell command.
-
-###Azure portal
-
-[AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
-
-1. Log in to the [Azure portal](https://portal.Azure.com)
-2. On the left side of the screen select **BROWSE** and then select **SQL Databases**
-3. Navigate to your database blade, select the **Geo Replication map** and click **Configure Geo-Replication**.
-4. Navigate to Geo-Replication blade. Select the target region. 
-5. Navigate to the Create Secondary blade. Select an existing server in the target region or create a new one.
-6. Select the secondary type (*Readable* or *Non-readable*)
-7. Click **Create** to complete the configuration
-
-> [AZURE.NOTE] The DR paired region on the Geo-Replication blade will be marked as *recommended* but you can choose a different region.
-
-
-###PowerShell
-
-Use the [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) PowerShell cmdlet to create Geo-Replication configuration. This command is synchronous an returns when the primary and secondary databases are in sync. 
-
-To configure Geo-Replication with a non-readable secondary:
-		
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
-
-To create Geo-Replication with a readable secondary:
-
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
-		 
-
-###REST API 
-
-Use [Create Database](https://msdn.microsoft.com/library/mt163685.aspx) API with *createMode* set to *NonReadableSecondary* or *Secondary* to programmatically create a Geo-Replication secondary database.
-
-This API is asynchronous. After it returns use the [Get Replication Link](https://msdn.microsoft.com/library/mt600778.aspx) API to check the status of this operation. The *replicationState* field of the response body will have the value CATCHUP when the operation is completed.
 
 
 ##How to choose the failover configuration 

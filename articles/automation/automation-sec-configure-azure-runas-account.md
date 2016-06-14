@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/11/2016"
+    ms.date="06/09/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
-This topic will show you how to configure an Automation account from the Azure portal using the new Run As account feature (also referred to as a service principal) to access Azure Resource Manager (ARM) resources in your subscription with Automation runbooks.  When you create a new Automation account in the Azure portal, it automatically creates a new service principal and assigned to the Contributor role-based access control (RBAC) role in the subscription by default.  This simplifies the process for you and helps you quickly start building and deploying runbooks to support your automation needs.      
+This topic will show you how to configure an Automation account from the Azure portal using the new Run As account feature (also referred to as a service principal) to access Azure Resource Manager resources in your subscription with Automation runbooks.  When you create a new Automation account in the Azure portal, it automatically creates a new service principal and assigned to the Contributor role-based access control (RBAC) role in the subscription by default.  This simplifies the process for you and helps you quickly start building and deploying runbooks to support your automation needs.      
 
 Using a service principal, you can:
 
-* Provide a standardized way to authenticate with Azure when managing Azure ARM resources using runbooks
+* Provide a standardized way to authenticate with Azure when managing Azure Resource Manager resources using runbooks
 * Automate the use of global runbooks configured in Azure Alerts
 
 
@@ -45,7 +45,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 
     ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-account-decline-create-runas-msg.png)
 
-    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against ARM resources.
+    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your subscriptions directory service and therefore, no access resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against Azure Resource Manager resources.
 
     ![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
@@ -68,13 +68,11 @@ The procedure below updates an existing Automation account and creates the servi
 
 Before proceeding, please verify the following:
 
-1. You have downloaded and installed the [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297)
-2. You have created an automation account.  This account will be referenced as the value for parameters –AutomationAccountName and -ApplicationDisplayName in the script below.
-3. You have installed the [Azure Automation Authoring Toolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2)
+1. You have downloaded and installed [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) if you are running Windows 7.   
+    If you are running Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1, and Windows 7 SP1, [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) is available for installation.
+2. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
+3. You have created an automation account.  This account will be referenced as the value for parameters –AutomationAccountName and -ApplicationDisplayName in the script below.
 
-```
-Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
-```
 
 The PowerShell script will configure the following:
 
@@ -88,7 +86,7 @@ The PowerShell script will configure the following:
 1. Save the following script on your computer.  In this example, save it with the filename **New-AzureServicePrincipal.ps1**.  
 
     ```
-    #Requires - RunAsAdministrator
+    #Requires -RunAsAdministrator
     Param (
     [Parameter(Mandatory=$true)]
     [String] $ResourceGroup,
@@ -100,7 +98,7 @@ The PowerShell script will configure the following:
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
-    [String] $SubscriptionName,
+    [String] $SubscriptionId,
 
     [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
@@ -111,7 +109,7 @@ The PowerShell script will configure the following:
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -146,14 +144,14 @@ The PowerShell script will configure the following:
     {
       # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
       Sleep 5
-      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose
+      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
       Sleep 5
       $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
       $Retries++;
     }
 
     # Get the tenant id for this subscription
-    $SubscriptionInfo = Get-AzureRmSubscription
+    $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
     $TenantID = $SubscriptionInfo | Select TenantId -First 1
 
     # Create the automation resources
@@ -161,20 +159,19 @@ The PowerShell script will configure the following:
 
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
     $ConnectionAssetName = "AzureRunAsConnection"
-    $SubscriptionId = $SubscriptionInfo | Select SubscriptionId -First 1
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
+    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName*, and *-CertPlainPassword*.<br>
+3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
 
     ```
-    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
+    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
-     -SubscriptionName <SubscriptionName> `
+     -SubscriptionId <SubscriptionId> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
@@ -193,7 +190,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 5. In the **Edit PowerShell Runbook** blade, paste the following code on the canvas:<br>
 
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```  
@@ -208,12 +205,13 @@ Next we will perform a small test to confirm you are able to successfully authen
 13. Close the **Edit PowerShell Runbook** blade.
 14. Close the **Test-SecPrin-Runbook** blade.
 
-## Sample code to authenticate with ARM resources
+## Sample code to authenticate with Resource Manager resources
 
-You can use the updated sample code below, taken from the AzureAutomationTutorial example runbook, to authenticate using the Run As account to manage ARM resources with your runbooks. 
+You can use the updated sample code below, taken from the AzureAutomationTutorial example runbook, to authenticate using the Run As account to manage Resource Manager resources with your runbooks. 
 
    ```
-   connectionName = "AzureRunAsConnection"
+   $connectionName = "AzureRunAsConnection"
+   $SubId = Get-AutomationVariable -Name 'SubscriptionId'
    try
    {
       # Get the connection "AzureRunAsConnection "
@@ -225,9 +223,8 @@ You can use the updated sample code below, taken from the AzureAutomationTutoria
          -TenantId $servicePrincipalConnection.TenantId `
          -ApplicationId $servicePrincipalConnection.ApplicationId `
          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-
-      $SubscriptionId = Get-AutomationVariable -Name 'SubscriptionId'
-      Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+	  "Setting context to a specific subscription"	 
+	  Set-AzureRmContext -SubscriptionId $SubId	 		 
    }
    catch {
        if (!$servicePrincipalConnection)
@@ -241,8 +238,7 @@ You can use the updated sample code below, taken from the AzureAutomationTutoria
    } 
    ```
 
-The script includes two additional lines of code to support referencing the subscription context so you can easily work between multiple subscriptions. A variable asset named **SubscriptionId** contains the ID of the subscription and if that's too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easier to identify for your purposes.  Alternatively, you can also use the argument *SubscriptionName* instead of *SubscriptionId* with a corresponding variable asset.
-
+The script includes two additional lines of code to support referencing a subscription context so you can easily work between multiple subscriptions. A variable asset named SubscriptionId contains the ID of the subscription, and after the Add-AzureRmAccount cmdlet statement, the [Set-AzureRmContext cmdlet](https://msdn.microsoft.com/library/mt619263.aspx) is stated with the parameter set *-SubscriptionId*. If the variable name is too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easier to identify for your purposes. Alternatively, you can use the parameter set -SubscriptionName instead of -SubscriptionId with a corresponding variable asset.  
 
 ## Next Steps
 - For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).

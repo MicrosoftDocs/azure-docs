@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshooting deployments with PowerShell | Microsoft Azure"
-   description="Describes how to use the Azure PowerShell to detect and fix issues from Resource Manager deployment."
+   pageTitle="View deployment operations with PowerShell | Microsoft Azure"
+   description="Describes how to use the Azure PowerShell to detect issues from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Troubleshooting resource group deployments with Azure PowerShell
+# View deployment operations with Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,9 +25,11 @@
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-If you've received an error when deploying resources to Azure, you need to troubleshoot what went wrong. Azure PowerShell provides cmdlets that enable you to easily find the errors and determine potential fixes.
+If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. Azure PowerShell provides cmdlets that enable you to easily find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+
+You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
 ## Use audit logs to troubleshoot
 
@@ -101,7 +103,7 @@ For example, to retrieve the failed operations for the past hour run:
 2. Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the 
 deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
 
-        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
         
     Which returns the operations in the following format:
         

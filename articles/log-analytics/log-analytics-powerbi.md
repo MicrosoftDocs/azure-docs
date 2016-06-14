@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/11/2016"
    ms.author="bwren" />
 
 # Export Log Analytics data to Power BI
@@ -21,7 +21,7 @@
 
 When you configure Power BI with Log Analytics, you create log queries that export their results to corresponding datasets in Power BI.  The query and export continues to automatically run on a schedule that you define to keep the dataset up to date with the latest data collected by Log Analytics.
 
-![Log Analytics to Power BI](media/log-analytics-power-bi/overview.png)
+![Log Analytics to Power BI](media/log-analytics-powerbi/overview.png)
 
 ## Power BI Schedules
 
@@ -29,7 +29,7 @@ A *Power BI Schedule* includes a log search that exports a set of data from the 
 
 The fields in the dataset will match the properties of the records returned by the log search.  If the search returns records of different types then the dataset will include all of the properties from each of the included record types.  
 
-It is a best practice to use a log search query that returns raw data as opposed to performing any consolidation using commands such as [Measure](log-analytics-search-reference.md#measure).  You can perform any aggregation and calculations in Power BI from the raw data.
+> [AZURE.NOTE] It is a best practice to use a log search query that returns raw data as opposed to performing any consolidation using commands such as [Measure](log-analytics-search-reference.md#measure).  You can perform any aggregation and calculations in Power BI from the raw data.
 
 ## Connecting OMS workspace to Power BI
 
@@ -67,7 +67,7 @@ In addition to the details of the schedule, the number of times that the schedul
 
 You can remove a schedule by clicking on the **X** in the **Remove column**.  You can disable a schedule by selecting **Off**.  To modify a schedule you must remove it and recreate it with the new settings.
 
-![Power BI Schedules](media/log-analytics-power-bi/schedules.png)
+![Power BI Schedules](media/log-analytics-powerbi/schedules.png)
 
 ## Sample walkthrough
 The following section walks through an example of creating a Power BI Schedule and using its dataset to create a simple report.  In this example, all performance data for a set of computers is exported to Power BI and then a line graph is created to display processor utilization.
@@ -75,22 +75,22 @@ The following section walks through an example of creating a Power BI Schedule a
 ### Create log search
 We start by creating a log search for the data that we want to send to the dataset.  In this example, we’ll use a query that returns all performance data for computers with a name that starts with *srv*.  
 
-![Power BI Schedules](media/log-analytics-power-bi/walkthrough-query.png)
+![Power BI Schedules](media/log-analytics-powerbi/walkthrough-query.png)
 
 ### Create Power BI Search
 We click the **Power BI** button to open the Power BI dialog and provide the required information.  We want this search to run once per hour and create a dataset called *Contoso Perf*.  Since we already have the search open that creates the data we want, we keep the default of *Use current search query* for **Saved Search**.
 
-![Power BI search](media/log-analytics-power-bi/walkthrough-schedule.png)
+![Power BI search](media/log-analytics-powerbi/walkthrough-schedule.png)
 
 ### Verify Power BI Search
 To verify that we created the schedule correctly, we view the list of Power BI Searches under the **Settings** tile in the OMS dashboard.  We wait several minutes and refresh this view until it reports that the sync has been run.
 
-![Power BI search](media/log-analytics-power-bi/walkthrough-schedules.png)
+![Power BI search](media/log-analytics-powerbi/walkthrough-schedules.png)
 
 ### Verify the dataset in Power BI
 We log into our account at [powerbi.microsoft.com](http://powerbi.microsoft.com/) and scroll to **Datasets** at the bottom of the left pane.  We can see that the *Contoso Perf* dataset is listed indicating that our export has run successfully.
 
-![Power BI dataset](media/log-analytics-power-bi/walkthrough-datasets.png)
+![Power BI dataset](media/log-analytics-powerbi/walkthrough-datasets.png)
 
 ### Create report based on dataset
 We select the **Contoso Perf** dataset and then click on **Results** in the **Fields** pane on the right to view the fields that are part of this dataset.  To create a line graph showing processor utilization for each computer, we perform the following actions.
@@ -104,12 +104,12 @@ We select the **Contoso Perf** dataset and then click on **Results** in the **Fi
 
 We can see that the resulting line graph is displayed with the data from our dataset.
 
-![Power BI line graph](media/log-analytics-power-bi/walkthrough-linegraph.png)
+![Power BI line graph](media/log-analytics-powerbi/walkthrough-linegraph.png)
 
 ### Save the report
 We save the report by clicking on the Save button at the top of the screen and validate that it is now listed in the Reports section in the left pane.
 
-![Power BI reports](media/log-analytics-power-bi/walkthrough-report.png)
+![Power BI reports](media/log-analytics-powerbi/walkthrough-report.png)
 
 ## Next steps
 

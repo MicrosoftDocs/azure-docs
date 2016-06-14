@@ -27,7 +27,7 @@ This article explains how to use the Service Bus brokered messaging features (qu
 
 ## Get started with Service Bus
 
-This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure classic portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md).
+This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure classic portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 > [AZURE.NOTE] Partitioned queues and topics also support AMQP. For more information, see [Partitioned messaging entities](service-bus-partitioning.md) and [AMQP 1.0 support for Service Bus partitioned queues and topics](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 
@@ -53,7 +53,7 @@ JMS uses the Java Naming and Directory Interface (JNDI) to create a separation b
 	
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 	
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
@@ -77,13 +77,13 @@ Where **[jndi_name]** and **[ConnectionURL]** have the following meanings:
 The format of the **ConnectionURL** is as follows:
 
 ```
-amqps://[username]:[password]@[namespace].servicebus.windows.net
+amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-Where **[namespace]**, **[username]** and **[password]** have the following meanings:
+Where **[namespace]**, **[SASPolicyName]** and **[SASPolicyKey]** have the following meanings:
 
 - **[namespace]**: The Service Bus namespace.
-- **[username]**: The Service Bus issuer name.
-- **[password]**: URL-encoded form of the Service Bus issuer key.
+- **[SASPolicyName]**: The Queue Shared Access Signature policy name.
+- **[SASPolicyKey]**: The Queue Shared Access Signature policy key.
 
 > [AZURE.NOTE] You must URL-encode the password manually. A useful URL-encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -332,7 +332,7 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [How to use AMQP 1.0 with the Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
-* [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Java Developer Center](/develop/java/).
 
 

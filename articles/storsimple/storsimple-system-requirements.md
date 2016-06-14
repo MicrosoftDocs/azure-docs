@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/10/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -85,8 +85,8 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 | URL pattern                                                      | Component/Functionality                                           | Device IPs                           |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus| Cloud-enabled network interfaces        |
-|`http://*.backup.windowsazure.com`|Device registration| DATA 0 only|
-|`http://crl.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
+|`https://*.backup.windowsazure.com`|Device registration| DATA 0 only|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.windows.net/*`                                   | Azure storage accounts and monitoring                                | Cloud-enabled network interfaces        |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                             | Controller fixed IPs only               |
 | `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |Controller fixed IPs only   |

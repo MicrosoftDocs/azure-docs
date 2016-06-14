@@ -19,8 +19,6 @@
 
 # Line of Business Application Workload Phase 1: Configure Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models-rm-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
- 
 In this phase of deploying an intranet-only, high-availability line of business application in Azure infrastructure services, you build out the Azure networking and storage infrastructure. You must complete this phase before moving on to [Phase 2](virtual-machines-windows-ps-lob-ph2.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-windows-lob-overview.md) for all of the phases.
 
 Azure must be provisioned with these basic network components:

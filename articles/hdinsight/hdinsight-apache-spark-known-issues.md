@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
-# Known issues for Apache Spark on HDInsight Linux (Preview)
+# Known issues for Apache Spark cluster on HDInsight Linux
 
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
@@ -65,15 +65,6 @@ When hdiuser submits a job with spark-submit, there is an error java.io.FileNotF
 
 Following are some known issues related to Jupyter notebooks.
 
-### Cannot download Jupyter notebooks in .ipynb format
-
-If you are running the latest version of Jupyter notebooks for HDInsight Spark and you attempt to download a copy of the notebook as a **.ipynb** file from the Jupyter notebook user interface, you might see an internal server error.
-
-**Mitigation:**
-
-1.	Downloading the notebook in another format besides .ipynb (e.g. .txt) will succeed.  
-2.	If you need the .ipynb file, you can download it from your cluster container in your storage account at **/HdiNotebooks**. This only applies for the latest version of Jupyter notebooks for HDInsight, which supports notebook backups in the storage account. That said, previous versions of Jupyter notebooks for HDInsight Spark do not have this issue.
-
 
 ### Notebooks with non-ASCII characters in filenames
 
@@ -113,11 +104,44 @@ When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jup
 
 2. Restart the notebook you were trying to start up. Enough resources should be available for you to create a session now.
 
-### Reverting to checkpoint might fail
-
-You can create checkpoints in Jupyter notebooks in case you need to revert to an earlier version of the notebook. However, if the current state of notebooks has a SQL query with automatic visualization, reverting to a previously stored checkpoint might result in an error. 
-
 ##See also
 
-- [Overview: Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
-- [Get started: Provision Apache Spark on Azure HDInsight (Linux) and run interactive queries using Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+
+### Scenarios
+
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+
+### Create and run applications
+
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
+
+### Tools and extensions
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
+### Manage resources
+
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)

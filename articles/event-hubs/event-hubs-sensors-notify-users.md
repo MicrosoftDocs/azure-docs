@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/08/2016"
+   ms.date="05/31/2016"
    ms.author="spyros;sethm" />
 
 # Notify users of data received from sensors or other systems

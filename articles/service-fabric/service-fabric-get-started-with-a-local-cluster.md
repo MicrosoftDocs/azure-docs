@@ -3,7 +3,7 @@
    description="Set up a local Service Fabric cluster, deploy an existing application to it, and then upgrade that application."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/12/2016"
-   ms.author="seanmck"/>
+   ms.date="06/09/2016"
+   ms.author="ryanwi"/>
 
 # Get started with deploying and upgrading applications on your local cluster
 The Azure Service Fabric SDK includes a full local development environment that you can use to quickly get started with deploying and managing applications on a local cluster. In this article, you will create a local cluster, deploy an existing application to it, and then upgrade that application to a new version, all from Windows PowerShell.
@@ -66,7 +66,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
     cd c:\ServiceFabric\
     ```
 
-4. [Download the WordCount application](http://aka.ms/servicefabric-wordcountapp) to the location you created.
+4. [Download the WordCount application](http://aka.ms/servicefabric-wordcountapp) to the location you created.  Note: the Microsoft Edge browser will save the file with a *.zip* extension.  You will need to change the file extension to *.sfpkg*.
 
 5. Connect to the local cluster:
 
@@ -88,7 +88,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
 
     ![Deployed application UI][deployed-app-ui]
 
-    The WordCount application is very simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via ASP.NET Web API. A stateful service keeps track of the number of words counted. They are partitioned based on the first character of the word.
+    The WordCount application is very simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via ASP.NET Web API. A stateful service keeps track of the number of words counted. They are partitioned based on the first character of the word. You can find the source code for the WordCount app in the [getting started samples](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
     The application that we deployed contains four partitions. So words beginning with A through G are stored in the first partition, words beginning with H through N are stored in the second partition, and so on.
 
@@ -168,6 +168,33 @@ The new version of the application will now count only words that begin with a v
 
     ![View the new version of the application in the browser][deployed-app-ui-v2]
 
+## Cleaning up
+
+Before wrapping up, it's important to remember that the local cluster is very real. Applications will continue to run in the background until you remove them.  Depending on the nature of your apps, a running app can take up significant resources on your machine. You have several options to manage this:
+
+1. To remove an individual application and all of its data, run the following:
+
+    ```powershell
+    Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
+    ```
+
+    Or, use the **Delete application** action in Service Fabric Explorer either with the **ACTIONS** menu or the context menu in the application list view in the left hand pane.
+
+    ![Delete an application is Service Fabric Explorer][sfe-delete-application]
+
+2. After deleting the application from the cluster you can then unregister versions 1.0.0 and 2.0.0 of the WordCount application type. This removes the application packages, including the code and configuration, from the cluster's image store.
+
+    ```powershell
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0
+    ```
+
+    Or, in Service Fabric Explorer, choose **Unprovision Type** for the application.
+
+3. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
+
+4. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Use this only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
+
 ## Next steps
 - Now that you have deployed and upgraded some pre-built applications, you can [try building your own in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - All of the actions performed on the local cluster in this article can be performed on an [Azure cluster](service-fabric-cluster-creation-via-portal.md) as well.
@@ -189,3 +216,4 @@ The new version of the application will now count only words that begin with a v
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+[sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png

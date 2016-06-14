@@ -45,11 +45,12 @@ SQL Database includes cutting edge in-memory technology to execute extremely fas
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 
 
-## Next Steps
+## Next steps
 
 Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
 
-## Learn More
+## Additional resources
 
-Learn about [SQL Database](sql-database-technical-overview.md) and what it offers.
-
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+ 
+Review the [technical overview of SQL Database](sql-database-technical-overview.md).
