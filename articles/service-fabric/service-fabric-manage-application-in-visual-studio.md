@@ -36,23 +36,24 @@ Deploying an application combines the following steps into one simple operation:
 
 In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. For more information, refer to [Publish an application to a remote cluster by using Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
-### Preserve data between test runs
+### Application Debug Mode
 
-Often, you test services locally by adding test data input, modifying a few code blocks, and then debugging locally again. The Visual Studio Service Fabric Tools provide a handy property called **Preserve Data on Start** to keep the data that you entered in the previous session and let you use it again.
+While debugging the service locally, sometime you may want to keep the existing application and data. The Visual Studio Service Fabric Tools provide a property called **Application Debug Mode**, which controls whether the **F5** should uninstall the application or keep the application after a debug session ends.
 
-#### To enable the Preserve Data on Start property
+#### To set the Application Debug Mode property
 
 1. On the application project's shortcut menu, choose **Properties** (or press the **F4** key).
-1. In the **Properties** window, set the **Preserve Data on Start** property to **Yes**.
+2. In the **Properties** window, set the **Application Debug Mode** property to either **Remove** or **Auto Upgrade**.
 
-	![Set the Preserve Data on Start property][preservedata]
+![Set Application Debug Mode Property][debugmodeproperty]
 
-When you run your application again, the deployment script now treats the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
+Setting this property value to **Auto Upgrade** will leave the application running on the local cluster. The next **F5** will treat the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
 
-![Example of new application version with date appended][preservedate]
+![Example of new application version with date1 appended][preservedate]
 
 Data is preserved by leveraging the upgrade capability from the Service Fabric platform. For more information about upgrading an application, refer to [Service Fabric application upgrade](service-fabric-application-upgrade.md).
 
+**Note:** This property doesn't exist prior to 1.1 version of Service Fabric Tools for Visual Studio. Prior to 1.1 version please use **Preserve Data On Start** property to achieve the same behavior.
 ## Add a service to your Service Fabric application
 
 You can add new fabric services to your application to extend its functionality.  To ensure that the service is included in your application package, add the service through the **New Fabric Service...** menu item.
@@ -96,3 +97,4 @@ You can deprovision an application type from your local cluster by using Service
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]:./media/service-fabric-manage-application-in-visual-studio/preservedate.png
+[debugmodeproperty]:./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
