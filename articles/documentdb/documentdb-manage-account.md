@@ -185,11 +185,11 @@ To learn more about DocumentDB, see the Azure DocumentDB
 
 
 <!--Image references-->
-[1]: ./media/documentdb-global-database/documentdb_add_region-1.png
-[2]: ./media/documentdb-global-database/documentdb_add_region-2.png
-[3]: ./media/documentdb-global-database/documentdb_change_write_region-1.png
-[4]: ./media/documentdb-global-database/documentdb_change_write_region-2.png
-[5]: ./media/documentdb-global-database/documentdb_change_consistency-1.png
+[1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
+[2]: ./media/documentdb-manage-account/documentdb_add_region-2.png
+[3]: ./media/documentdb-manage-account/documentdb_change_write_region-1.png
+[4]: ./media/documentdb-manage-account/documentdb_change_write_region-2.png
+[5]: ./media/documentdb-manage-account/documentdb_change_consistency-1.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/

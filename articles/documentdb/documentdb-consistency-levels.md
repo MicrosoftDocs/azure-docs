@@ -27,7 +27,9 @@ The granularity of consistency is scoped to a single user request. A write reque
 
 ## Consistency levels
 
-You can configure a default consistency level on your database account that applies to all the collections (across all of the databases) under your database account. By default, all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. However, you can relax the consistency level of a specific read/query request by specifying the [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header. There are four types of consistency levels supported by the DocumentDB replication protocol - these are briefly described below.
+You can configure a default consistency level on your database account that applies to all the collections (across all of the databases) under your database account. By default, all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. However, you can relax the consistency level of a specific read/query request by specifying the [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header. There are four types of consistency levels supported by the DocumentDB replication protocol that provide a clear tradeoff between specific consistency guarantee and performance, as described below.
+
+![Alt text; DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
 
 **Strong**: 
 
@@ -122,3 +124,6 @@ If you'd like to do more reading about consistency levels and tradeoffs, we reco
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Eventual Consistent - Revisited.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+
+[1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png

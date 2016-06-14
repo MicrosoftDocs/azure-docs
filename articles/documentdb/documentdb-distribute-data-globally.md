@@ -67,9 +67,8 @@ Learn more about the distributing data globally with DocumentDB in the following
 * [Availability SLAs] [sla]
 * [Managing database account] [manageaccount]
 
-[1]: ./media/documentdb-global-database/consistency-tradeoffs.png
-[2]: ./media/documentdb-global-database/collection-regions.png
-[4]: ./media/documentdb-global-database/documentdb_change_consistency.jpg
+[1]: ./media/documentdb-distribute-data-globally/consistency-tradeoffs.png
+[2]: ./media/documentdb-distribute-data-globally/collection-regions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [pcolls]: https://azure.microsoft.com/documentation/articles/documentdb-partition-data/
