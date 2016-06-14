@@ -28,6 +28,9 @@
 
 This end-to-end tutorial shows you how to create a SQL Server availability group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
 
+>[AZURE.NOTE] This tutorial uses the Azure portal to create all of the components of this solution. Instead of doing this tutorial, you can use a template to create the entire solution. [AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
+
+
 
 At the end of the tutorial, your SQL Server availability group solution in Azure will consist of the following elements:
 
@@ -46,10 +49,6 @@ The figure below is a graphical representation of the solution.
 ![Test Lab Architecture for AG in Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/0-EndstateSample.png)
 
 All of the resources in this solution belong to a single resource group.
-
-This tutorial uses the Azure portal to create all of the components of this solution. If you prefer, you can use a template to create the entire solution. 
-
-[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
 
 This tutorial assumes the following:
 
