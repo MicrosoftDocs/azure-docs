@@ -38,9 +38,11 @@
 
 ### <a name="1.8.0"/>[1.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - Added the support for multi-region database accounts.
-  - Added support for retry on throttled requests.
-  - Added a new IDocumentClient interface and moved create query methods from an extension class to the main DocumentClient class.
-  - Changed default value for connection limit per service point.
+  - Added support for retry on throttled requests.  User can customize the number of retries and the max wait time by configuring the ConnectionPolicy.RetryOptions property.
+  - Added a new IDocumentClient interface that defines the signatures of all DocumenClient properties and methods.  As part of this change, also changed extension methods that create IQueryable and IOrderedQueryable to methods on the DocumentClient class itself.
+  - Added configuration option to set the ServicePoint.ConnectionLimit for a given DocumentDB endpoint Uri.  Use ConnectionPolicy.MaxConnectionLimit to change the default value, which is set to 50.
+  - Deprecated IPartitionResolver and its implementation.  Support for IPartitionResolver is now obsolete. It's recommended that you use Partitioned Collections for higher storage and throughput.
+
 
 ### <a name="1.7.1"/>[1.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
   - Added an overload to Uri based ExecuteStoredProcedureAsync method that takes RequestOptions as a parameter.

@@ -38,6 +38,8 @@
 
 ### <a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
   - Added the support for multi-region database accounts.
+  - Added support for automatic retry on throttled requests with options to customize the max retry attempts and max retry wait time.  See RetryOptions and ConnectionPolicy.getRetryOptions(). 
+  - Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput. 
 
 ### <a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
 - Added retry policy support for throttling.  
