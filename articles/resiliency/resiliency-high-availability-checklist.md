@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2016"
+   ms.date="06/15/2016"
    ms.author="aglick"/>
 
 #High availability checklist
@@ -29,7 +29,7 @@ __What happens if you don't use Traffic Manager?__ If you aren't using Traffic M
 ###Have you avoided using a single virtual machine for any role?
 Good design avoids any single point of failure. This is important in all service design (on-premises or in the cloud) but is especially useful in the cloud as you can increase scalability and resiliency though scaling out (adding virtual machines) instead of scaling up (using a more powerful virtual machine). If you would like to find out more information on scalable application design, read [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-__What happens if you have a single virtual machine for a role?__ A single machine is a single point of failure. In the best cases, your application will run just fine but this is not a resilient design and any single point of failure increases the chance of downtime if something fails.
+__What happens if you have a single virtual machine for a role?__ A single machine is a single point of failure and is not available for the [Azure Virtual Machine Service Level Agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/). In the best cases, your application will run just fine but this is not a resilient design, is not covered by the Azure Virtual Machine SLA, and any single point of failure increases the chance of downtime if something fails.
 
 ###Are you using a load balancer in front of your application's internet-facing VMs?
 Load balancers allow you to spread the incoming traffic to your application across an arbitrary number of machines. You can add/remove machines from your load balancer at any time, which works well with Virtual Machines (and also with auto-scaling with Virtual Machine Scale Sets) to allow you to easily handle increases in traffic or VM failures. If you want to know more about load balancers, please read the [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md) and [Running multiple VMs on Azure for scalability and availability](../guidance/guidance-compute-multi-vm.md).
