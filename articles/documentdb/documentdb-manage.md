@@ -116,6 +116,8 @@ For example, here's a table that shows how many request units to provision at th
 
 Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.  
 
+The number of Writes/Sec for sustained workloads on multi-region accoungs can vary based on a number of factors, Please see [How throughput works with multiple regions][multiregionthrougput]
+
 
 ## Provisioned document storage and index overhead
 DocumentDB supports the creation of both single-partition and partitioned collections. Each partition in DocumentDB supports up to 10 GB of SSD backed storage. The 10GB of document storage includes the documents plus storage for the index. By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema. Based on applications using DocumentDB, the typical index overhead is between 2-20%. The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings. 
@@ -129,7 +131,7 @@ The choice of default consistency level has an impact on the throughput and late
 For instructions on changing your consistency level on the Azure Portal, see [How to Manage a DocumentDB Account](documentdb-manage-account.md#consistency). Or, for more information on consistency levels, see [Using consistency levels](documentdb-consistency-levels.md).
 
 
-## How throughput works with multiple regions
+## <a id="multiregionthrougput"></a>How throughput works with multiple regions
 
 DocumentDB accounts can be configured to be available in many Azure regions and [regions can be added or removed] [manageaccount-addregion] throughout the lifespan of a database account.
 
