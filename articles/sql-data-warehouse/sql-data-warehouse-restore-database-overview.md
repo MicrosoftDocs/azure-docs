@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="06/14/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -33,9 +33,17 @@ Your **active** databases will automatically be backed up at a minimum of every 
 
 When a database is paused, new snapshots will stop and previous snapshots will roll off as they reach 7 days in age. If a database is paused for more than 7 days, the last snapshot will be saved, ensuring that you always have at least one backup.
 
-When a database is dropped, a snapshot will be taken before the database is dropped.  Only the last snapshot is saved for a dropped database and that snapshot will be retained for 7 days.
+When a database is dropped, the last snapshot is saved for 7 days.
 
-If you need to retain a backup for longer than 7 days, you can simply restore one of your restore points to a new database and then optionally pause that database so that you only pay for the storage space of that backup.  
+Run this query to see when the last backup was taken on your instance:
+
+```sql
+select top 1 *
+from sys.pdw_loader_backup_runs 
+order by run_id desc;
+```
+
+If you need to retain a backup for longer than 7 days, you can simply restore one of your restore points to a new database and then optionally pause that database so that you only pay for the storage space of that backup.
 
 ## Data redundancy
 
