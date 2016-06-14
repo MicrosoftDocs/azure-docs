@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Prepare your development environment
@@ -34,7 +34,7 @@ The following operating system versions are supported for development:
 
 The Web Platform Installer offers three configurations for Service Fabric development:
 
-- [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015][full-bundle-vs2015]
+- [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015 Update 2][full-bundle-vs2015]
 - [Install the Service Fabric runtime, SDK, and tools for Visual Studio "15" Preview][full-bundle-dev15]
 - [Install the Service Fabric runtime and SDK only (no Visual Studio tools)][core-sdk]
 

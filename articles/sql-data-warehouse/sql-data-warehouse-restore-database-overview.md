@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/10/2016"
+   ms.date="06/13/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -31,8 +31,7 @@ Azure SQL Data Warehouse protects your data with both locally redundant storage 
 
 Your **active** databases will automatically be backed up at a minimum of every 8 hours and kept for 7 days. This allows you to restore your active database to one of several restore points in the past 7 days.
 
-When a database is paused, new snapshots will stop and previous snapshots will roll off as they reach 7 days in age.  
-<!--If a database is paused for more than 7 days, the last snapshot will be saved, ensuring that you always have at least one backup.--> 
+When a database is paused, new snapshots will stop and previous snapshots will roll off as they reach 7 days in age. If a database is paused for more than 7 days, the last snapshot will be saved, ensuring that you always have at least one backup.
 
 When a database is dropped, a snapshot will be taken before the database is dropped.  Only the last snapshot is saved for a dropped database and that snapshot will be retained for 7 days.
 

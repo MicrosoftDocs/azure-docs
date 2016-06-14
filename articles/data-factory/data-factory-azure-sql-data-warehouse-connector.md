@@ -485,7 +485,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 
 ## Use PolyBase to load data into Azure SQL Data Warehouse
-**PolyBase** is an efficient way of loading large amount of data from Azure Blob Storage to Azure SQL Data Warehouse with high throughput.  You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism.   
+Using **PolyBase** is an efficient way of loading large amount of data into Azure SQL Data Warehouse with high throughput.  You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism.
 
 Set the **allowPolyBase** property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data into Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the **polyBaseSettings** property group. see the [SqlDWSink](#SqlDWSink) section above for details about properties that you can use with polyBaseSettings.   
 
@@ -504,18 +504,17 @@ Set the **allowPolyBase** property to **true** as shown in the following example
     }
 
 ### Direct copy using PolyBase
-If your source data meets the criteria below, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. Otherwise, you can copy data from the source data store to a staging Azure blob storage that meets the following criteria and then use PolyBase to load data into Azure SQL Data Warehouse. See the [Staged Copy using PolyBase](#staged-copy-using-polybase) section for details about staged copy. 
+If your source data meets the criteria below, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase referring to above sample configuration. Otherwise, you can leverage [Staged Copy using PolyBase](#staged-copy-using-polybase).
 
 Note that Azure Data Factory checks the settings and automatically fall back to the BULKINSERT mechanism for the data movement if the requirements are not met.
 
 1.	**Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
-2. The **input dataset** is of type: **Azure Blob** and the type properties of dataset meet the following criteria: 
-	1. **Type** must be **TextFormat** or **OrcFormat**. 
-	2. **rowDelimiter** must be **\n**. 
-	3. **nullValue** is set to **empty string** (""). 
-	4. **encodingName** is set to **utf-8**, which is **default** value, so do not set it to a different value. 
-	5. **escapeChar** and **quoteChar** are not specified. 
-	6. **Compression** is not **BZIP2**.
+2. The **input dataset** is of type: **Azure Blob** and the format type under type properties is **OrcFormat** or **TextFormat** with below configurations:
+	1. **rowDelimiter** must be **\n**. 
+	2. **nullValue** is set to **empty string** (""). 
+	3. **encodingName** is set to **utf-8**, which is **default** value, so do not set it to a different value. 
+	4. **escapeChar** and **quoteChar** are not specified. 
+	5. **Compression** is not **BZIP2**.
 	 
 			"typeProperties": {
 				"folderPath": "<blobpath>",
@@ -536,7 +535,9 @@ Note that Azure Data Factory checks the settings and automatically fall back to 
 5.	There is no **columnMapping** being used in the associated in Copy activity. 
 
 ### Staged Copy using PolyBase
-PolyBase mechanism requires the source data to be in an Azure Blob Storage and in one of the supported formats (DELIMITEDTEXT with restriction, RCFILE, ORC, PARQUET). When your source data doesn’t meet the criteria introduced in the section above, you can enable copying data via an interim staging Azure blob storage, in which case Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
+When your source data doesn’t meet the criteria introduced in the section above, you can enable copying data via an interim staging Azure blob storage, in which case Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
+
+> [AZURE.IMPORTANT] If you are copying data from on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, you need to install the JRE (Java Runtime Environment) on your gateway machine which will be used to transform your source data into proper format. Note 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605), please choose properly.
 
 To use this feature, create an [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) that refers to the Azure Storage Account that has the interim blob storage, then specify the **enableStaging** and **stagingSettings** properties for the Copy Activity as shown below:
 
@@ -555,16 +556,12 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 				"allowPolyBase": true
 			},
     		"enableStaging": true,
-				"stagingSettings": {
+			"stagingSettings": {
 				"linkedServiceName": "MyStagingBlob"
 			}
 		}
 	}
 	]
-
-
-Note: if you are copying data from on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, you need to install the JRE (Java Runtime Environment) on your gateway machine which will be used to transform your source data into proper format.
-
 
 
 ### Best practices when using PolyBase
