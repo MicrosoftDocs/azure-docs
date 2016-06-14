@@ -83,7 +83,7 @@ You will need to give your application permission to create resources in Azure f
 	            <version>1.0.0-20160513.000812-28</version>
 	        </dependency>
 	        <dependency>
-	            <groupId>com.microsoft.azure</groupId>
+	            <groupId>com.microsoft.rest</groupId>
 	            <artifactId>client-runtime</artifactId>
 	            <version>1.0.0-20160513.000825-29</version>
 	        </dependency>
