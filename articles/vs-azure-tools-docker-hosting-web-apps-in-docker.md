@@ -41,7 +41,7 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
 
 ## 3. Use the DockerTask.ps1 PowerShell Script 
 
-1.  Open a PowerShell prompt to the root directory of your project 
+1.  Open a PowerShell prompt to the root directory of your project. 
 
     ```
     PS C:\Src\WebApplication1>
@@ -55,11 +55,20 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
     MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
     ```
 
+    > [AZURE.NOTE] If you're using the Docker Beta, your host won't be listed here.
+
 1.  Build the app using the -Build parameter
 
     ```
     PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
     ```  
+
+    > [AZURE.NOTE] If you're using the Docker Beta, omit the -Machine argument
+    > 
+    > ```
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > ```  
+
 
 1.  Run the app, using the -Run parameter
 
@@ -67,7 +76,13 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
     PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
     ```
 
-1.  Once docker completes, you should see results similar to the following:
+    > [AZURE.NOTE] If you're using the Docker Beta, omit the -Machine argument
+    > 
+    > ```
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > ```
+
+	Once docker completes, you should see results similar to the following:
 
     ![View your app][3]
 
