@@ -3,7 +3,7 @@
 	description="Learn how to enable continuous deployment to Azure App Service."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 

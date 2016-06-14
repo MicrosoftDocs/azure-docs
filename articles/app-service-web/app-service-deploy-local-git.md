@@ -3,7 +3,7 @@
 	description="Learn how to enable local Git deployment to Azure App Service."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 

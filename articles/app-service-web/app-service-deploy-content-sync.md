@@ -3,7 +3,7 @@
 	description="Learn how to deploy your app to Azure App Service via content sync from a cloud folder."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
