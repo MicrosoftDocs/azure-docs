@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/14/2016"
+	ms.date="06/15/2016"
 	ms.author="marsma"/>
 
 # Overview of Azure Batch features
@@ -77,7 +77,7 @@ All compute nodes in Batch also include:
 
 - A standard [folder structure](#files-and-directories) and associated [environment variables](#environment-settings-for-tasks) available for reference by tasks.
 - **Firewall** settings that are configured to control access.
-- **Remote access** to both Windows (RDP) and Linux (SSH) nodes—see [Debugging application failures](#debugging-application-failures) below for more information.
+- **Remote access** to both Windows (RDP) and Linux (SSH) nodes—see [Connecting to compute nodes](#connecting-to-compute-nodes) below for more information.
 
 > [AZURE.NOTE] Linux support in Batch is currently in preview. For more details, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
@@ -312,13 +312,13 @@ Job scheduling across pools is independent. Between different pools, it is not g
 
 ## Environment settings for tasks
 
-Each task that executes within a Batch job has access to environment variables set both by the Batch service (system-defined, see table below) as well as user-defined environment variables. Applications and scripts run by tasks on compute nodes have access to these environment variables during execution on the node.
+Each task that executes within a Batch job has access to environment variables set both by the Batch service (service-defined; see table below) and custom environment variables that you can set for your tasks. The applications and scripts run on the nodes by your tasks have access to these environment variables during execution.
 
-You can set user-defined environment variables when using the [Add a task to a job][rest_add_task] operation (Batch REST API) or by modifying the [CloudTask.EnvironmentSettings][net_cloudtask_env] property (Batch .NET API) when adding tasks to a job.
+You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For example, see the [Add a task to a job][rest_add_task] operation (Batch REST API) or the [CloudTask.EnvironmentSettings][net_cloudtask_env] and [CloudJob.CommonEnvironmentSettings][net_job_env] properties in Batch .NET.
 
-You can get a task's environment variables, both system- and user-defined, by using the [Get information about a task][rest_get_task_info] operation (Batch REST API) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] property (Batch .NET API). As mentioned, processes executing on a compute node can also access all environment variables, for example by using the familiar `%VARIABLE_NAME%` syntax on a Windows compute node.
+Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
 
-For every task that is scheduled within a job, the following set of system-defined environment variables is set by the Batch service:
+The following environment variables are set by the Batch service, and are available for access by your tasks:
 
 | Environment Variable Name       | Description                                                              |
 |---------------------------------|--------------------------------------------------------------------------|
@@ -335,7 +335,7 @@ For every task that is scheduled within a job, the following set of system-defin
 | `AZ_BATCH_TASK_ID`              | The ID of the current task.                                              |
 | `AZ_BATCH_TASK_WORKING_DIR`     | The full path of the task working directory on the node.                 |
 
->[AZURE.NOTE] You cannot overwrite any of the above system-defined variables - they are read-only.
+>[AZURE.IMPORTANT] These environment variables are available only in the context of the **task user**, that is, the user account on the node under which a task is executed. You will **not** see these if you [connect remotely](#connecting-to-compute-nodes) to a compute node via RDP or SSH and list the environment variables.
 
 ## Error handling
 
@@ -352,7 +352,7 @@ Task failures fall into these categories:
 
 - **Application failures**
 
-	The process specified by the task's command line can also fail. The process is deemed to have failed when a non-zero exit code is returned by the process executed by the task.
+	The process specified by the task's command line can also fail. The process is deemed to have failed when a nonzero exit code is returned by the process executed by the task.
 
 	For application failures, it is possible to configure Batch to automatically retry the task up to a specified number of times.
 
@@ -364,11 +364,19 @@ Task failures fall into these categories:
 
 ### Debugging application failures
 
-During execution, an application may produce diagnostic output which can be used to troubleshoot issues. As mentioned in [Files and directories](#files-and-directories) above, the Batch service sends stdout and stderr output to `stdout.txt` and `stderr.txt` files located in the task directory on the compute node. By using [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in the Batch .NET library, for example, you can retrieve these and other files for troubleshooting purposes.
+- `stderr` and `stdout`
 
-Even more extensive debugging can be performed by logging in to a compute node remotely. You can download a [Remote Desktop (RDP)][net_rdpfile] file for Windows nodes and obtain [SSH connection information](batch-linux-nodes.md#connect-to-linux-nodes) for Linux.
+	During execution, an application may produce diagnostic output which can be used to troubleshoot issues. As mentioned in [Files and directories](#files-and-directories) above, the Batch service sends stdout and stderr output to `stdout.txt` and `stderr.txt` files located in the task directory on the compute node. You can use the Azure portal to download these files, or use one of the Batch SDKs to do so. For example, you can retrieve these and other files for troubleshooting purposes with [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in the Batch .NET library.
 
->[AZURE.NOTE] To connect to a node via RDP or SSH, you must first create a user on the node. You can [add a user account to a node][rest_create_user] in the Batch REST API, call the  [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET, or the [add_user][py_add_user] method in the Batch Python module.
+- **Task exit codes**
+
+	As mentioned above, a task is marked as failed by the Batch service if the process executed by the task returns a nonzero exit code. When a task executes a process, Batch populates the task's exit code property with the *return code of the process*. It is important to note that a task's exit code is **not** determined by the Batch service, but by the process itself or the operating system on which the process executed.
+
+### Connecting to compute nodes
+
+Even more extensive debugging can be performed by logging in to a compute node remotely. Using the Azure portal you can download a Remote Desktop (RDP) file for Windows nodes and obtain SSH connection information for Linux nodes. You can also do this using the Batch APIs, such as with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
+
+>[AZURE.IMPORTANT] To connect to a node via RDP or SSH, you must first create a user on the node. You can use the Azure portal, [add a user account to a node][rest_create_user] in the Batch REST API, call the  [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET, or call the [add_user][py_add_user] method in the Batch Python module.
 
 ### Accounting for task failures or interruptions
 
@@ -424,6 +432,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_job_env]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.commonenvironmentsettings.aspx
 [net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 [net_reboot]: https://msdn.microsoft.com/library/azure/mt631495.aspx
