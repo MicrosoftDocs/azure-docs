@@ -727,6 +727,7 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 - If the VM is accessed over a VPN connection (Express Route or site to site VPN) then the client can be used to directly connect to the VM over SSH.
 
 **On the Azure Windows/Linux VM after failover**:
+
 If you have a Network Security Group associated with the Virtual Machine or the subnet to which the machine belongs to, make sure that the Network Security Group has an outbound rule to allow HTTP/HTTPS. Also make sure that the DNS of the network to which virtual machine is getting failed over to is correctly configured. Else the failover could time out with error -'PreFailoverWorkflow task WaitForScriptExecutionTask timed out'. To understand this in detail, refer to section on Recovery in the [Monitoring and troubleshooting guide](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
 ## Run a test failover
