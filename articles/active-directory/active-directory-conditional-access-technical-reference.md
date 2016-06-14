@@ -48,16 +48,16 @@ Select groups may also be exempted from policy using the **Except** option. Any 
 ## “At work” networks
 
 
-Conditional access rules that use an “At work” network, rely on trusted IP ranges that have been configured in Azure AD, or use of the "inside corpnet" claim from AD FS. These rules include:
+Conditional access rules that use an “At work” network, rely on trusted IP address ranges that have been configured in Azure AD, or use of the "inside corpnet" claim from AD FS. These rules include:
 
 - Require multi-factor authentication when not at work
 - Block access when not at work
 
 Options for specifiying “at work” networks
 
-1. Configure trusted IP ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. 
+1. Configure trusted IP address ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. 
 2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. [Learn more about the inside coronet claims](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
-3. Configure public IP address ranges. On the configure tab, for your directory, you can set public ip addresses. Conditional Access will use these as ‘at work’ IP addresses, this allows additional ranges to be configure, above the 50 IP limit that is enforced by the MFA setting page.
+3. Configure public IP address ranges. On the configure tab, for your directory, you can set public IP addresses. Conditional Access will use these as ‘at work’ IP addresses, this allows additional ranges to be configure, above the 50 IP address limit that is enforced by the MFA setting page.
 
 
 
