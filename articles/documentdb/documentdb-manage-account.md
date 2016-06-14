@@ -19,11 +19,11 @@
 
 # How to manage a DocumentDB account
 
-Learn how to work with keys and consistency levels. Also, learn how to delete an account in the Azure Portal.
+Learn how to set global consistency and manage multiple regioss for global availabiltiy of data. Also, learn how to work with keys, and how to delete an account in the Azure Portal.
 
 ## <a id="consistency"></a>Manage DocumentDB consistency settings
 
-Selecting the right consistency level depends on the semantics of your application. We recommend that you familiarize yourself with the available consistency levels in DocumentDB: [Using consistency levels to maximize availability and performance in DocumentDB] [consistency]. DocumentDB provides consistency, availability and performance guarantees, at every consistency level available for your database account. Configuring your database account with a consistency level of strong requires that your data is confined to a single Azure region and not be globally available. On the other hand, the relaxed consistency levels - bounded staleness, session or eventual enable you to associate any number of Azure regions with your database account. The following simple steps show you how to select the default consistency level for your database account. 
+Selecting the right consistency level depends on the semantics of your application. You should familiarize yourself with the available consistency levels in DocumentDB: [Using consistency levels to maximize availability and performance in DocumentDB] [consistency]. DocumentDB provides consistency, availability and performance guarantees, at every consistency level available for your database account. Configuring your database account with a consistency level of strong requires that your data is confined to a single Azure region and not be globally available. On the other hand, the relaxed consistency levels - bounded staleness, session or eventual enable you to associate any number of Azure regions with your database account. The following simple steps show you how to select the default consistency level for your database account. 
 
 ### To specify the default consistency for a DocumentDB account
 
@@ -48,7 +48,7 @@ consistency setting takes effect across your DocumentDB account.*
 
 DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
-> [AZURE.NOTE] At this time, only DocumentDB accounts created on or after June 10th, 2016 can replicate data in multiple regions. Accounts created prior to June 10th will be enabled for global availability in the near future. 
+> [AZURE.NOTE] At this time, new regions can be added to new DocumentDB Accounts created on or after June 13th, 2016. Accounts must be of type "Azure DocumentDB - Multi-region database Account" in the Marketplace. Accounts created prior to June 13th will be enabled for global availability in the near future. 
 
 1.      In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 
@@ -66,13 +66,15 @@ DocumentDB is available in most [Azure regions] [azureregions]. After selecting 
 
 ### Selecting regions
 
-When deploying to two or more regions, it is recommended that regions are selected based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr] article.
+When configuring two or more regions, it is recommended that regions are selected based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr] article.
 
-Specifically, when deploying to multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. For example, if you want to deploy to 4 US regions, you select 2 US regions from the left column and 2 from the right. So, the following would be an appropriate set: West US, East US, North Central US and South Central US.
+Specifically, when configuring to multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. For example, if you want to deploy to 4 US regions, you select 2 US regions from the left column and 2 from the right. So, the following would be an appropriate set: West US, East US, North Central US and South Central US.
+
+This guidance is important to follow when only 2 regions are configured for disaster recovery scenarios. For more than 2 regions, following this guidance is good practice, but not critical as long as some of the selected regions adhere to this pairing.
 
 ## <a id="selectwriteregion"></a>Select the write region
 
-With the [current standard pricing offers] [offers], while all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
+While all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
 
 
 1.      In the **DocumentDB Account** blade, select the database account to modify

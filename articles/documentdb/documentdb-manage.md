@@ -17,7 +17,7 @@
 	ms.date="05/24/2016" 
 	ms.author="mimig"/>
 
-# Learn about storage and predictable performance provisioning in DocumentDB
+# Storage and predictable performance provisioning in DocumentDB
 DocumentDB is a fully managed, scalable document oriented NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
 
 You can get started with DocumentDB by [creating a database account](documentdb-create-account.md) through the [Azure Portal](https://portal.azure.com/). DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput. These units are provisioned by creating database collections within your database account. Each collection with reserved throughput. If the throughput requirements of your application change, you dynamically change this by setting the [performance level](documentdb-performance-levels.md) for each collection.  
@@ -133,13 +133,13 @@ For instructions on changing your consistency level on the Azure Portal, see [Ho
 
 DocumentDB accounts can be configured to be available in many Azure regions and [regions can be added or removed] [manageaccount-addregion] throughout the lifespan of a database account.
 
-> [AZURE.NOTE] At this time, only DocumentDB accounts created on or after June 10th, 2016 can replicate data in multiple regions. Accounts created prior to June 10th will be enabled for global availability in the near future. 
+> [AZURE.NOTE] At this time, new regions can be added to new DocumentDB Accounts created on or after June 13th, 2016. Accounts must be of type "Azure DocumentDB - Multi-region database Account" in the Marketplace. Accounts created prior to June 13th will be enabled for global availability in the near future. 
 
-When a DocumentDB account is availabe in multiple regions, each collection in that account will be assigned its full user-provisioned througput in each region. This means that the avaialbe throughput is multiplied by the number of regions in which the data is replicated. 
+When a DocumentDB account is availabe in multiple regions, each collection in that account will be assigned its full user-provisioned througput in each region. This means that the available throughput is multiplied by the number of regions in which the data is replicated. 
 
 For example, if you have a collection with 10,000 [RU/s](documentdb-request-units.md) provisioned, this collection is able to serve up to 10,000 RU/s in each region it is available in.
 
-The cost of a given request remains the same regardless of the number of replicated regions. When a read or write operation is performed on a collection in a region, it will consume RUs from that collection's budget in that specific region only. Unlike other distributed database systems, the RU charge for write operations does not increase as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
+The cost of a given request remains the same regardless of the number of replicated regions. When a read or write operation is performed on a collection in a region, it will consume RUs from that collection's budget in that specific region only. The RU charge for write operations does not change as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
 
 The above behavior ensures that that application code running in each region has reserved and predictable database throughput regardless of region additions or removals. This enables you to massively scale out your application without worrying about increasing replication costs.
 
