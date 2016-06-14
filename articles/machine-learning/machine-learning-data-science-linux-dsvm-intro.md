@@ -228,7 +228,7 @@ To access **Postgres**:
 ### Azure tools 
 The following Azure tools are installed on the VM:
 
-- **Azure Command Line Interface**: Azure Command Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools just type ***azure help***. For more information, please refer to the [Azure CLI documentation page](../virtual-machines-command-line-tools/).
+- **Azure Command Line Interface**: Azure Command Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools just type ***azure help***. For more information, please refer to the [Azure CLI documentation page](../virtual-machines-command-line-tools.md).
 - **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool used to browse through the objects that you have stored in your Azure Storage Account, and to upload/download data to and from Azure blobs. You can access the Storage Explorer from desktop shortcut icon. You can invoke it from a shell prompt by typing ***StorageExplorer***. You need to be logged in from an X2go client or have X11 forwarding setup. 
 - **Azure Libraries**: The following are the some of the libraries  that have been installed and so are available for you:
 

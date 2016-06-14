@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure"
-	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning."
+	description="Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -19,7 +19,7 @@
 
 # Scenarios for advanced analytics in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled by the Team Data Science Process. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the Team Data Science Process (TDSP). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
