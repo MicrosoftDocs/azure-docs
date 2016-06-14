@@ -439,7 +439,7 @@ We assume:
 
 For more information, see:
 
--   Summary of [Azure service quotas and limits](../azure-subscription-service-limits/#iot-hub-limits)
+-   Summary of [Azure service quotas and limits](../azure-subscription-service-limits.md#iot-hub-limits)
 
 -   Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
