@@ -41,17 +41,7 @@ If using Docker Toolbox, you'll need to [configure the Docker client](./vs-azure
 
 ## 1. Create a web app
 
-1. From the Visual Studio menu, select **File > New > Project**.
-
-1. Under the **Templates** section of the **New Project** dialog box, select **Visual C# > Web**.
-
-1. Select **ASP.NET Core Web Application (.NET Core)**.
-
-1. Give your new application a name (or take the default) and Tap **OK**.
-
-1. Under **ASP.NET Core Templates**, select **Web Application** and Tap **OK**.
-
-1. Deselect **Host in the cloud** as you'll be using Docker as your deployment solution.
+[AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
 ## 2. Add Docker support
 

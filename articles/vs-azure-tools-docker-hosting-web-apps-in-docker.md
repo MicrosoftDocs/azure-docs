@@ -23,7 +23,7 @@ Docker is a lightweight container engine, similar in some ways to a virtual mach
 This tutorial walks you through using the [Visual Studio 2015 Tools for Docker](http://aka.ms/DockerToolsForVS) extension
 to deploy an ASP.NET Core app to a Docker host on Azure using PowerShell.
 
-## 1. Prerequisites
+## Prerequisites
 The following is needed to complete this tutorial:
 
 - [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
@@ -31,16 +31,16 @@ The following is needed to complete this tutorial:
 - [Docker Tools for Visual Studio 2015](https://aka.ms/DockerToolsForVS)
 - [An Azure Docker Host VM created with docker-machine](./vs-azure-tools-docker-machine-azure-config.md)
 
-## 2. Create an ASP.NET 5 web app
+## 1. Create an ASP.NET 5 web app
 The following steps will guide you through creating a basic ASP.NET 5 app that will be used in this tutorial.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 3. Add Docker support
+## 2. Add Docker support
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## 4. Use the DockerTask.ps1 PowerShell Script 
+## 3. Use the DockerTask.ps1 PowerShell Script 
 
 1.  Open a PowerShell prompt to the root directory of your project 
 
