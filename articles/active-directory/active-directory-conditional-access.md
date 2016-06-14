@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Securing access to Office 365 and other apps connected to Azure Active Directory | Microsoft Azure"  
-    description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."  
+    description="With conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."  
     services="active-directory" 
 	keywords="conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies" 
 	documentationCenter=""
@@ -51,7 +51,7 @@ The following content map lists documents that you need to refer to learn more a
 
 | Scenario                                             | Articles |
 |------------------------------------------------------|----------|
-| Protecting resources based on authentication strength or user |[Getting started with conditional access to AAD SaaS apps with MFA and extranet](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[What applications are supported](active-directory-conditional-access-supported-apps.md)|
+| Protecting resources based on authentication strength or user |[Getting started with conditional access to Azure AD SaaS apps with MFA and extranet](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[What applications are supported](active-directory-conditional-access-supported-apps.md)|
 | Protecting corporate data on lost/stolen devices     |[Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)|
 |Protecting resources based on sign-in risk            |[Azure AD Identity Protection](active-directory-identityprotection.md)         |
 | Additional Info                                      |[Conditional Access FAQs](active-directory-conditional-faqs.md)|
