@@ -44,6 +44,7 @@ Figure 1 – Azure regional pair diagram
 | Australia     | Australia East   | Australia Southeast|
 | US Government | US Gov Iowa      | US Gov Virginia  |
 | India         | Central India    | South India      |
+| Canada        | Canada Central   | Canada East      |
 
 Table 1 - Mapping of azure regional pairs
 
