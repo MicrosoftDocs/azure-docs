@@ -1,4 +1,4 @@
-
+virtual-machines-linux-dockerextension
 <properties
    pageTitle="Getting Started using docker with swarm on Azure"
    description="Describes how to create a group of VMs with the Docker VM Extension and use swarm to create a Docker cluster."
@@ -135,5 +135,5 @@ Go run things on your swarm. To look for inspiration, see [https://github.com/do
 
 <!-- links -->
 
-[docker-machine-azure]: virtual-machines-linux-classic-docker-machine.md
+[docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
