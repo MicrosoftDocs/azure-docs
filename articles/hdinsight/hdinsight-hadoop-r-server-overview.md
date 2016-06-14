@@ -27,7 +27,7 @@ Clusters can be sized to the projects and tasks at hand and torn down when they'
 
 R Server on HDInsight provides the latest capabilities for R-based analytics on large datasets that are loaded to Azure Blob storage. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages, as well as the routines in ScaleR, Microsoft’s big data analytics package that's included with R Server.
 
-The edge node of Premium clusters provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running ScaleR’s parallelized distributed functions across the cores of the edge node server. You also have the option to run them  across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
+The edge node of Premium clusters provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running ScaleR’s parallelized distributed functions across the cores of the edge node server. You also have the option to run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
 The models or predictions that result from analyses can be downloaded for use on-premises. They can also be operationalized elsewhere in Azure, such as through an [Azure Machine Learning Studio](http://studio.azureml.net) [web service](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md).
 
@@ -45,7 +45,7 @@ You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as 
 
 ## Access R Server on the cluster
 
-Once you've created a cluster with R Server, you can connect to the R Console on the edge node of the cluster through SSH/PuTTY. You can also connect through a browser if you choose to install the optional RStudio Server IDE on the edge node. For more information about  installing RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
+Once you've created a cluster with R Server, you can connect to the R Console on the edge node of the cluster through SSH/PuTTY. You can also connect through a browser if you choose to install the optional RStudio Server IDE on the edge node. For more information about installing RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
 
 ## Develop and run R scripts
 
@@ -59,7 +59,7 @@ When your data modeling is complete, you can operationalize the model to make pr
 
 ### Score in HDInsight
 
-To score in HDInsight,  write an R function that calls your model to make predictions for a new data file that you've loaded to your storage account. Then save the predictions back to the storage account. You can run the routine on-demand on the edge node of your cluster or by using a scheduled job.  
+To score in HDInsight, write an R function that calls your model to make predictions for a new data file that you've loaded to your storage account. Then save the predictions back to the storage account. You can run the routine on-demand on the edge node of your cluster or by using a scheduled job.  
 
 ### Score in Azure Machine Learning
 
@@ -77,7 +77,7 @@ To score on-premises after creating your model, you can serialize the model in R
 
 Most of the R packages that you use will be required on the edge node since most of your R scripts will run there. To install additional R packages on the edge node, you can use the usual `install.packages()` method in R.
 
-In most cases, you don't need to install additional R packages on the data nodes if you are just using routines from the ScaleR library  across the cluster. However, you might need additional packages to support use of **rxExec** or **RxDataStep** execution on the data nodes.
+In most cases, you don't need to install additional R packages on the data nodes if you are just using routines from the ScaleR library across the cluster. However, you might need additional packages to support use of **rxExec** or **RxDataStep** execution on the data nodes.
 
 In these cases, the additional packages must be specified through use of a script action after you create the cluster. For more information, see [Creating an HDInsight cluster with R Server](hdinsight-hadoop-r-server-get-started.md).   
 
