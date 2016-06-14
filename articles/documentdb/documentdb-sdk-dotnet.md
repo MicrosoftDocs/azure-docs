@@ -36,7 +36,7 @@
 
 ## Release Notes
 
-###<a name="1.8.0"/>1.8.0</a>
+### <a name="1.8.0"/>[1.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - Added the support for multi-region database accounts.
   - Added support for retry on throttled requests.
   - Added a new IDocumentClient interface and moved create query methods from an extension class to the main DocumentClient class.

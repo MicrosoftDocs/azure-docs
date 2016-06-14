@@ -36,7 +36,7 @@
 
 ## Release Notes
 
-###<a name="1.8.0"/>1.8.0</a>
+### <a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
   - Added the support for multi-region database accounts.
 
 ### <a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
