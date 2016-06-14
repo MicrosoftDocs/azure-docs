@@ -45,7 +45,7 @@ You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as 
 
 ## Access R Server on the cluster
 
-Once you've created a cluster with R Server, you can connect to the R Console on the edge node of the cluster through SSH/PuTTY. You can also connect through a browser if you choose to install the optional RStudio Server IDE on the edge node. For more information about installing RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
+After you've created a cluster with R Server, you can connect to the R Console on the edge node of the cluster through SSH/PuTTY. You can also connect through a browser if you choose to install the optional RStudio Server IDE on the edge node. For more information about installing RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
 
 ## Develop and run R scripts
 
@@ -65,7 +65,7 @@ To score in HDInsight, write an R function that calls your model to make predict
 
 To score by using an Azure Machine Learning web service, use the [open source Azure Machine Learning R package](http://www.inside-r.org/blogs/2015/11/18/enhancements-azureml-package-connect-r-azureml-studio) to [publish your model as an Azure web service](http://www.r-bloggers.com/deploying-a-car-price-model-using-r-and-azureml/). Next, use the facilities in Machine Learning to create a user interface for the web service, and then call the web service as needed for scoring.
 
-If you choose this option, you need to convert any ScaleR model objects to an equivalent open-source model object for use with the web service.  This can be done through the use of ScaleR coercion functions, such as `as.randomForest()` for ensemble-based models.
+If you choose this option, you need to convert any ScaleR model objects to equivalent open-source model objects for use with the web service.  This can be done through the use of ScaleR coercion functions, such as `as.randomForest()` for ensemble-based models.
 
 ### Score on-premises
 
