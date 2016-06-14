@@ -24,7 +24,7 @@ Spark Streaming extends the core Spark API to build scalable, high-throughput, f
 
 In this tutorial, you will learn how to create an Azure Event Hub, how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using a Spark application written in Scala. This application consumes the data streamed through Event Hubs and routes it to different outputs (Azure Storage Blob, Hive table, and SQL table).
 
-> [AZURE.NOTE] To follow the instructions in this article, you will have to use both versions of the Azure portal. To create an Event Hub you will use the [Azure Classic portal](https://manage.windowsazure.com). To work with the HDInsight Spark cluster, you will use the [Azure Portal](https://ms.portal.azure.com/).  
+> [AZURE.NOTE] To follow the instructions in this article, you will have to use both versions of the Azure portal. To create an Event Hub you will use the [Azure Classic portal](https://manage.windowsazure.com). To work with the HDInsight Spark cluster, you will use the [Azure Portal](https://portal.azure.com/).  
 
 **Prerequisites:**
 

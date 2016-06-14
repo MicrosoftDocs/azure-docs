@@ -93,7 +93,7 @@ The following table lists every connection problem topic that applies directly t
 - [View the latest updates to the Azure SQL Database service](http://azure.microsoft.com/updates/?service=sql-database)
 
 
-## Learn more
+## Additional resources
 
 - [Connecting to SQL Database: Best practices and design guidelines](sql-database-connect-central-recommendations.md)
 - [General transient fault-handling guidance](../best-practices-retry-general.md)
