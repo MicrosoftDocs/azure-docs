@@ -67,6 +67,8 @@ In this tutorial you will use the Azure portal to:
 
 - Connect to one of the domain controllers and then to one of the SQL Servers
 
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
+
 ## Provision the cluster from the gallery
 
 Azure provides a gallery image for the entire solution. In order to locate the template:
