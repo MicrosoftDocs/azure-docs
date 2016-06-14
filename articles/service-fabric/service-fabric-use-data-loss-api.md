@@ -1,3 +1,21 @@
+<properties
+   pageTitle="How to Invoke Data Loss on Service Fabric Services | Microsoft Azure"
+   description="Describes how to use the data loss api"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="LMWF"
+   manager="rsinha"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="06/14/2016"
+   ms.author="lemai"/>
+   
 # How to Invoke Data Loss on Services
 
 **Warning: this document describe how to cause data loss in your services, and should be used with care.**
