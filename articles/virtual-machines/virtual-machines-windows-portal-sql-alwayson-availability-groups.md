@@ -66,10 +66,6 @@ In this tutorial you will use the Azure portal to:
 
 - Connect to one of the domain controllers and then to one of the SQL Servers
 
-## Build with the portal or from a template
-
-This tutorial walks you through building the solution from the Azure portal. Instead of doing this tutorial, you can use a template to create the entire solution. 
-
 [AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
 
 
