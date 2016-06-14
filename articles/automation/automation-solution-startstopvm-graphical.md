@@ -62,7 +62,7 @@ The runbooks require the following assets that you must create and populate with
 
 ### Parameters
 
-The runbooks each have the following [input parameters](automation-starting-a-runbook#runbook-parameters).  You must provide values for any mandatory parameters and can optionally provide values for other parameters depending on your requirements.
+The runbooks each have the following [input parameters](automation-starting-a-runbook.md#runbook-parameters).  You must provide values for any mandatory parameters and can optionally provide values for other parameters depending on your requirements.
 
 | Parameter | Type | Mandatory | Description |
 |:---|:---|:---|:---|
