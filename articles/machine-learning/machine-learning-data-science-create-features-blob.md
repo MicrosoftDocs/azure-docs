@@ -131,7 +131,7 @@ Note that additional features can be created in the Azure Machine Learning Studi
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Now the data can be read from the blob using the Azure Machine Learning [Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module as shown in the screen below:
+3. Now the data can be read from the blob using the Azure Machine Learning [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module as shown in the screen below:
  
 ![reader blob](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
 

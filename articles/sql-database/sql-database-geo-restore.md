@@ -35,7 +35,7 @@ Geo-restore provides the default recovery option when your database is unavailab
 
 ## Geo-restore in detail
 
-Geo-restore uses the same technology as point in time restore with one important difference. It restores the database from a copy of the most recent daily backup in geo-replicated blob storage (RA-GRS). For each active database, the service maintains a backup chain that includes a weekly full backup, multiple daily differential backups, and transaction logs saved every 5 minutes. These blobs are geo-replicated this guarantees that daily backups are available even after a massive failure in the primary region. The following shows Geo-replication of weekly and daily backups copied to the storage container(s).
+Geo-restore uses the same technology as point in time restore with one important difference. It restores the database from a copy of the most recent daily backup in geo-replicated blob storage (RA-GRS). For each active database, the service maintains a backup chain that includes a weekly full backup, multiple daily differential backups, and transaction logs saved every 5 minutes. These blobs are geo-replicated this guarantees that daily backups are available even after a massive failure in the primary region. The following shows Geo-Replication of weekly and daily backups copied to the storage container(s).
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
 
@@ -54,7 +54,7 @@ Recovery time is impacted by several factors: the size of the database and the p
 
 ## Summary
 
-While geo-restore is available with all service tiers, it is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB geo-restore provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if significantly shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using active geo-replication. Active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
+While geo-restore is available with all service tiers, it is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB geo-restore provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if significantly shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using Active Geo-Replication. Active Geo-Replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
 
 ## Additional resources
 

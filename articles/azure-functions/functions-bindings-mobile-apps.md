@@ -3,7 +3,7 @@
 	description="Understand how to use Azure Mobile Apps bindings in Azure Functions."
 	services="functions"
 	documentationCenter="na"
-	authors="christopheranderson"
+	authors="ggailey777"
 	manager="erikre"
 	editor=""
 	tags=""
@@ -15,8 +15,8 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="06/02/2016"
+	ms.author="glenga"/>
 
 # Azure Functions Mobile Apps bindings
 
@@ -25,6 +25,24 @@ This article explains how to configure and code Azure Mobile Apps bindings in Az
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
 Azure App Service Mobile Apps lets you expose table endpoint data to mobile clients. This same tabular data can be used with both input and output bindings in Azure Functions. Because it supports dynamic schema, a Node.js backend mobile app is ideal for exposing tabular data for use with your functions. Dynamic schema is enabled by default and should be disabled in a production mobile app. For more information about table endpoints in a Node.js backend, see [Overview: table operations](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). In Mobile Apps, the Node.js backend supports in-portal browsing and editing of tables. For more information, see [in-portal editing](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) in the Node.js SDK topic. When you use a .NET backend mobile app with Azure Functions, you must manually update your data model as required by your function. For more information about table endpoints in a .NET backend mobile app, see [How to: Define a table controller](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) in the .NET backend SDK topic. 
+
+## Create an environment variable for your mobile app backend URL
+
+Mobile Apps bindings currently require you to create an environment variable that returns the URL of the mobile app backend itself. This URL can be found in the [Azure portal](https://portal.azure.com) by locating your mobile app and opening the blade.
+
+![Mobile Apps blade in the Azure portal](./media/functions-bindings-mobile-apps/mobile-app-blade.png)
+
+To set this URL as an environment variable in your function app:
+
+1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Go to App Service settings**. 
+
+	![Function app settings blade](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
+
+2. In your function app, click **All settings**, scroll down to **Application settings**, then under **App settings** type a new **Name** for the environment variable, paste the URL into **Value**, making sure to use the HTTPS scheme, then click **Save** and close the function app blade to return to the Functions portal.   
+
+	![Add an app setting environment variable](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
+
+You can now set this new environment variable as the *connection* field in your bindings.
 
 ## <a id="mobiletablesapikey"></a> Use an API key to secure access to your Mobile Apps table endpoints.
 
@@ -45,7 +63,7 @@ The *function.json* file supports the following properties:
 - `tableName` : The table where the new record will be created.
 - `id` : The ID of the record to retrieve. This property supports bindings similar to `{queueTrigger}`, which will use the string value of the queue message as the record Id.
 - `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
-- `connection` : String that is the application setting that specifies the URI of your mobile app.
+- `connection` : String that is the name of the environment variable in application settings that specifies the URL of your mobile app backend.
 - `direction` : Binding direction, which must be set to *in*.
 
 Example *function.json* file:
@@ -57,7 +75,7 @@ Example *function.json* file:
 	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "id" : "{queueTrigger}",
-	      "connection": "My_MobileApp_Uri",
+	      "connection": "My_MobileApp_Url",
 	      "apiKey": "My_MobileApp_Key",
 	      "direction": "in"
 	    }
@@ -102,7 +120,7 @@ The function.json file supports the following properties:
 - `type` : Binding type that must be set to *mobileTable*.
 - `tableName` : The table where the new record is created.
 - `apiKey` : String that is the application setting that specifies the optional API key for the mobile app. This is required when your mobile app uses an API key to restrict client access.
-- `connection` : String that is the application setting that specifies the URI of your mobile app.
+- `connection` : String that is the name of the environment variable in application settings that specifies the URL of your mobile app backend.
 - `direction` : Binding direction, which must be set to *out*.
 
 Example function.json:
@@ -113,7 +131,7 @@ Example function.json:
 	      "name": "record",
 	      "type": "mobileTable",
 	      "tableName": "MyTable",
-	      "connection": "My_MobileApp_Uri",
+	      "connection": "My_MobileApp_Url",
 	      "apiKey": "My_MobileApp_Key",
 	      "direction": "out"
 	    }

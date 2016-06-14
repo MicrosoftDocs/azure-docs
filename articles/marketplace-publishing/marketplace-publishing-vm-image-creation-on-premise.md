@@ -25,7 +25,7 @@ For on-premises development, you must download the operating system VHD of the c
 ### Locate a blob URL
 In order to download the VHD, first locate the blob URL for the operating system disk.
 
-Locate the blob URL from the new [Microsoft Azure portal](https://ms.portal.azure.com):
+Locate the blob URL from the new [Microsoft Azure portal](https://portal.azure.com):
 
 1.	Go to **Browse** > **VMs**, and then select the deployed VM.
 2.	Under **Configure**, select the **Disks** tile, which opens the Disks blade.

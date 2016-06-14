@@ -3,7 +3,7 @@
 	description="Understand how to use Azure Notification Hub binding in Azure Functions."
 	services="functions"
 	documentationCenter="na"
-	authors="christopheranderson"
+	authors="wesmc7777"
 	manager="erikre"
 	editor=""
 	tags=""
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.author="wesmc"/>
 
 # Azure Functions Notification Hub output binding
 
@@ -24,7 +24,7 @@ This article explains how to configure and code Azure Notification Hub bindings 
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register for notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) and click your target client platform at the top.
+Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register to receive notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) and click your target client platform at the top.
 
 ## function.json for Azure Notification Hub output binding
 
@@ -131,7 +131,7 @@ This example shows how to use the `Notification` type that is defined in the [Mi
 	  }
 	}
 
-For more information on uploading your project.json file, see [uploading a project.json file](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+For more information on uploading your project.json file, see [uploading a project.json file](functions-reference.md#fileupdate).
 
 Example code:
 

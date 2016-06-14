@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/10/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -238,6 +238,15 @@ Open an individual test to edit or disable it.
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
 
 You might want to disable web tests while you are performing maintenance on your service.
+
+## Performance tests
+
+You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
+
+From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Visual Studio Team Services account. 
+
+When the test is complete, you'll be shown response times and success rates.
+
 
 ## Automation
 

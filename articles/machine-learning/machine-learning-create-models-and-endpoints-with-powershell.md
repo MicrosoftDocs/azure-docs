@@ -36,14 +36,14 @@ We're going to use an example [training experiment](https://gallery.cortanaintel
 
 >[AZURE.NOTE] In order to follow along with this example, you may want to use a standard workspace rather than a free workspace. We'll be creating one endpoint for each customer - for a total of 10 endpoints - and that will require a standard workspace since a free workspace is limited to 3 endpoints. If you only have a free workspace, just modify the scripts below to allow for only 3 locations.
 
-The experiment uses a **Reader** module to import the training dataset *customer001.csv* from an Azure storage account. Let's assume we have collected training datasets from all bike rental locations and stored them in the same blob storage location with file names ranging from *rentalloc001.csv* to *rentalloc10.csv*.
+The experiment uses an **Import Data** module to import the training dataset *customer001.csv* from an Azure storage account. Let's assume we have collected training datasets from all bike rental locations and stored them in the same blob storage location with file names ranging from *rentalloc001.csv* to *rentalloc10.csv*.
 
 ![image](./media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
 
 Note that a **Web Service Output** module has been added to the **Train Model** module. 
 When this experiment is deployed as a web service, the endpoint associated with that output will return the trained model in the format of a .ilearner file. 
 
-Also note that we set up a web service parameter for the URL that the **Reader** module uses. This allows us to use the parameter to specify individual training datasets to train the model for each location.
+Also note that we set up a web service parameter for the URL that the **Import Data** module uses. This allows us to use the parameter to specify individual training datasets to train the model for each location.
 There are other ways we could have done this, such as using a SQL query with a web service parameter to get data from a SQL Azure database, or simply using a  **Web Service Input** module to pass in a dataset to the web service.
 
 ![image](./media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)

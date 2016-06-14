@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"/>
 
 # Upgrade to Azure SQL Database V12 using PowerShell
@@ -48,7 +48,7 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 ## Prepare to upgrade
 
 - **Upgrade all Web and Business databases**: See [Upgrade all Web and Business databases](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) section below or use [PowerShell to upgrade databases and server](sql-database-upgrade-server-powershell.md).
-- **Review and suspend geo-replication**: If your Azure SQL database is configured for geo-replication you should document its current configuration and [stop geo-replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for geo-replication.
+- **Review and suspend Geo-Replication**: If your Azure SQL database is configured for Geo-Replication you should document its current configuration and [stop Geo-Replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for Geo-Replication.
 - **Open these ports if you have clients on an Azure VM**: If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
@@ -152,7 +152,7 @@ ElasticPoolCollection and DatabaseCollection parameters are optional:
 
     # Starting the upgrade
     #
-    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
+    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -ServerVersion 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
 
 
 
@@ -189,7 +189,7 @@ For example, you can set up an email alert on “DTU Percentage” if the averag
 
 
 
-## Next Steps
+## Next steps
 
 - [Create an elastic database pool](sql-database-elastic-pool-create-portal.md) and add some or all of the databases into the pool.
 - [Change the service tier and performance level of your database](sql-database-scale-up.md).

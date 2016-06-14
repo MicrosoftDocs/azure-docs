@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Troubleshooting deployments with Portal | Microsoft Azure"
-   description="Describes how to use the Azure Portal to detect and fix issues from Resource Manager deployment."
+   pageTitle="View deployment operations with portal | Microsoft Azure"
+   description="Describes how to use the Azure portal to detect errors from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-# Troubleshooting resource group deployments with Azure Portal
+# View deployment operations with Azure Portal
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-If you've received an error when deploying resources to Azure, you need to troubleshoot what went wrong. The Azure Portal provides an interface that enables you to easily find the errors and determine potential fixes.
+If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. The Azure Portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 

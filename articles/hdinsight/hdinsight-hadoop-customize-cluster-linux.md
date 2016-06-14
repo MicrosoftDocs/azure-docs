@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/03/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -22,6 +22,8 @@
 HDInsight provides a configuration option called **Script Action** that invokes custom scripts that customize the cluster. These scripts can be used during cluster creation, or on an already running cluster, and are used to install additional components or change configuration settings.
 
 > [AZURE.NOTE] The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md).
+
+Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK. For more information on HDInsight applications, see [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md). 
 
 ## Understanding Script Actions
 
@@ -36,6 +38,8 @@ A Script Action is simply a Bash script that you provide a URL to, and parameter
     For examples of the URI for scripts stored in blob container (publicly readable,) see the [Example script action scripts](#example-script-action-scripts) section.
 
 * Can be restricted to __run on only certain node types__, for example head nodes or worker nodes.
+
+    > [AZURE.NOTE] When used with HDInsight Premium, you can specify that the script should be used on the edge node.
 
 * Can be __persisted__ or __ad hoc__.
 
@@ -140,6 +144,8 @@ This section provides examples on the different ways you can use script actions 
 ### Use a Script Action from Azure Resource Manager templates
 
 In this section, we use Azure Resource Manager (ARM) templates to create an HDInsight cluster and also use a script action to install custom components (R, in this example) on the cluster. This section provides a sample ARM template to create a cluster using script action.
+
+> [AZURE.NOTE] The steps in this section demonstrate creating a cluster using a script action. For an example of creating a cluster from an ARM template using an HDInsight application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 #### Before you begin
 
@@ -428,19 +434,17 @@ The HDInsight .NET SDK provides client libraries that makes it easier to work wi
 
 ## Apply a Script Action to a running cluster
 
-This section provides examples on the different ways you can apply script actions to a running HDInsight cluster- from the Azure Portal, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK.
+This section provides examples on the different ways you can apply script actions to a running HDInsight cluster; from the Azure Portal, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK.
 
 ### Apply a Script Action to a running cluster from the Azure Portal
 
 1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
 
-2. From the HDInsight cluster blade, select __Settings__.
+2. From the HDInsight cluster blade, select the __Script Actions__ tile.
 
-    ![Settings icon](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. From the Settings blade, select __Script Actions__.
-
-    ![Script Actions link](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] You can also select __All settings__ and then select __Script Actions__ from the Settings blade.
 
 4. From the top of the Script Actions blade, select __Submit new__.
 
@@ -470,7 +474,8 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
         $saName = "<ScriptActionName>"                  # Name of the script action
         $saURI = "<URI to the script>"                  # The URI where the script is located
         $nodeTypes = "headnode", "workernode"
-
+        
+    > [AZURE.NOTE] If using an HDInsight Premium cluster, you can use a nodetype of `"edgenode"` to run the script on the edge node.
 
 2. Use the following command to apply the script to the cluster:
 
@@ -594,6 +599,8 @@ The following example script demonstrates using the cmdlets to promote, then dem
 ### Using the HDInsight .NET SDK
 
 For an example of using the .NET SDK to retrieve script history from a cluster, promote or demote scripts, see [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+
+> [AZURE.NOTE] This example also demonstrates how to install an HDInsight application using the .NET SDK.
 
 ## Troubleshooting
 

@@ -26,14 +26,13 @@ This article explains how to configure timer triggers in Azure Functions. Timer 
 
 ## function.json for timer trigger
 
-The *function.json* file provides a schedule expression and a switch that indicates whether the function should be triggered immediately.
+The *function.json* file provides a schedule expression.
 
 ```json
 {
   "bindings": [
     {
       "schedule": "0 * * * * *",
-      "runOnStartup": true,
       "name": "myTimer",
       "type": "timerTrigger",
       "direction": "in"
@@ -47,31 +46,20 @@ The timer trigger handles multi-instance scale-out automatically: only a single 
 
 ## Format of schedule expression
 
-The schedule expression can be a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  {second} {minute} {hour} {day} {month} {day of the week}. Many of the cron expression documents you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
-
-The schedule expression may also be in the format *hh:mm:ss* to specify the delay between each time the function is triggered. 
+The schedule expression is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  {second} {minute} {hour} {day} {month} {day of the week}. Many of the cron expression documents you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
 
 Here are some schedule expression examples.
 
 To trigger once every 5 minutes:
 
 ```json
-"schedule": "0 */5 * * * *",
-"runOnStartup": false,
+"schedule": "0 */5 * * * *"
 ```
 
-To trigger immediately and then every two hours thereafter:
+To trigger once every two hours:
 
 ```json
 "schedule": "0 0 */2 * * *",
-"runOnStartup": true,
-```
-
-To trigger every 15 seconds:
-
-```json
-"schedule": "00:00:15",
-"runOnStartup": false,
 ```
 
 ## Timer trigger C# code example

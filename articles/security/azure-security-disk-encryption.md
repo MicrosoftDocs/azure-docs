@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="06/14/2016"
    ms.author="devtiw"/>
 
 
@@ -27,7 +27,7 @@ Microsoft Azure is strongly committed to ensuring your data privacy, data sovere
 
 Azure Disk Encryption is a new capability that lets you encrypt your Windows and Linux IaaS virtual machine disks. Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key](https://azure.microsoft.com/documentation/services/key-vault/) Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
 
-Azure disk encryption for Windows IaaS VMs is now in [General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/15/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) in Australia region. The general availability for Windows IaaS VMs for other regions will be coming soon.
+> [AZURE.NOTE] Azure disk encryption for Windows IaaS VMs is now in [General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/).
 
 ### Encryption Scenarios
 
@@ -263,23 +263,23 @@ Azure AD Client ID and secret can also be provisioned using the Azure Service Ma
 
 1.Click the Active Directory tab as shown in Figure below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2.Click Add Application and type the application name as shown below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3.Click the arrow button and configure the app's properties as shown below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4.Click the check mark in the lower left corner to finish. The app's configuration page appears. Notice the Azure AD Client ID is located in the bottom of the page as shown in figure below.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5.Save the Azure AD client secret by click in the Save button. Click the save button and note the secret from the keys text box, this is the Azure AD client secret. You should safeguard the Azure AD client secret appropriately.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Note:** this flow above is not supported in the Portal.
