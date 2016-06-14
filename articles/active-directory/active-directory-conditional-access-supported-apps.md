@@ -29,37 +29,14 @@ The following applications have been tested with multi-factor authentication (MF
 |--------------|-----------------|----------------------------------------------------------------|
 | Outlook 2016 | Exchange        |  Windows 10,  Windows Mobile 10,  Windows 8.1, Windows 7, Mac  |
 | Outlook 2013 (Requires modern authentication to be enabled)| Exchange |Windows 10
-Windows Mobile 10, Windows 8.1,Windows 7|
-|Skype for Business (with modern authentication)|Exchange
-(Exchange is accessed for calendar and conversation history)|                                                               Windows 10
-Windows 8.1
-Windows 7 |
+Windows Mobile 10, Windows 8.1, Windows 7|
+|Skype for Business (with modern authentication)|Exchange (Exchange is accessed for calendar and conversation history)|  Windows 10, Windows 8.1, Windows 7 |
 |Outlook Mobile app|Exchange| iOS and Android |
-|Office 2016; Word, Excel, Sharepoint|SharePoint| Windows 10
-Windows Mobile 10
-Windows 8.1
-Windows 7
-Mac
- |
-|Office 2013
-Requires modern authentication to be enabled|SharePoint|Windows 10
-Windows Mobile 10
-Windows 8.1
-Windows 7|
-|Dynamics CRM app|Dynamics CRM| Windows 10
-Windows 8.1
-Windows 7
-iOS
-Android|
-| Yammer app|Yammer| Windows Mobile 10
-iOS
-Android|
-|Azure Remote App|Azure Remote App service|Windows 10
-Windows 8.1
-Windows 7
-Mac
-iOS
-Android|
+|Office 2016; Word, Excel, Sharepoint|SharePoint| Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
+|Office 2013 (Requires modern authentication to be enabled)|SharePoint|Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
+|Dynamics CRM app|Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+| Yammer app|Yammer| Windows Mobile 10, iOS, Android|
+|Azure Remote App|Azure Remote App service|Windows 10, Windows 8.1, Windows 7,Mac, iOS, Android|
 
 ## Applications that do not use modern authentication
 
