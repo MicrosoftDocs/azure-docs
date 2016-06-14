@@ -79,9 +79,11 @@ To configure the integration of Ceridian Dayforce HCM into Azure AD, you need to
 
 6. In the search box, type **Ceridian Dayforce HCM**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_01.png)
+	![Applications](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_01.png)
 
 7. In the results pane, select **Ceridian Dayforce HCM**, and then click **Complete** to add the application.
+
+	![Applications](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -123,7 +125,7 @@ Your Ceridian Dayforce HCM application expects the SAML assertions in a specific
 1. On the **Edit User Attribute** dialog, perform the following steps:
  
     a. From the **Attribute Value** list, select the user attribute you want to use for your implementation.  
-    For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute12, then select **user.extensionattribute12**. 
+    For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**. 
 
     b. Click **Complete**.	
 	
