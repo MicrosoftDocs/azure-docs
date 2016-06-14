@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provision the Linux Data Science Virtual Machine 
@@ -355,6 +355,6 @@ You can exit Rattle and R. Now you can  modify the generated R script or use it 
 Here are some next steps to continue your learning and exploration. 
 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information on the tools installed on the VM.  
-* Learn how to build end to end analytical solutions systematically using the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples using the Cortana Analytics Suite. 
 

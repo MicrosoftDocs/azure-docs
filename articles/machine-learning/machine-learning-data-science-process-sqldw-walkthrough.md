@@ -1,5 +1,5 @@
 <properties
-	pageTitle="The Cortana Analytics Process in action: using SQL Data Warehouse | Microsoft Azure"
+	pageTitle="The Team Data Science Process in action: using SQL Data Warehouse | Microsoft Azure"
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/13/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
-# The Cortana Analytics Process in action: using SQL Data Warehouse
+# The Team Data Science Process in action: using SQL Data Warehouse
 
 In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip, and models for multiclass classification and regression are also discussed that predict the distribution for the tip amounts paid.
 
-The procedure follows the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how use either SQL DW or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
+The procedure follows the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how use either SQL DW or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
 
 
 ## <a name="dataset"></a>The NYC Taxi Trips dataset
@@ -925,7 +925,7 @@ A sample scoring experiment is provided in the figure below. When ready to deplo
 
 
 ## Summary
-To recap what we have done in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset, taking it through the Cortana Analytics Process, all the way from data acquisition to model training, and then to the deployment of an Azure Machine Learning web service.
+To recap what we have done in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset, taking it through the Team Data Science Process, all the way from data acquisition to model training, and then to the deployment of an Azure Machine Learning web service.
 
 ### License information
 
