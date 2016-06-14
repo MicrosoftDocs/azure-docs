@@ -36,6 +36,9 @@
 
 ## Release Notes
 
+###<a name="1.8.0"/>1.8.0</a>
+  - Added the support for multi-region database accounts.
+
 ### <a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
 - Added retry policy support for throttling.  
 
@@ -83,6 +86,7 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.1](#1.7.1) | April 30, 2016 |---
 | [1.7.0](#1.7.0) | April 27, 2016 |---
 | [1.6.0](#1.6.0) | March 29, 2016 |---

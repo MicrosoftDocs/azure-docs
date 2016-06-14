@@ -28,12 +28,14 @@ Configuring your DocumentDB account to scale across the globe can be done in les
 
 ![Alt text; DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
 
-DocumentDB offers multiple, well defined (relaxed) consistency models to choose from
+DocumentDB offers multiple, well defined (relaxed) consistency models to choose from.
+
 Selecting the right consistency level depends on data consistency guarantee your application needs. DocumentDB automatically replicates your data across all specified regions and guarantees the consistency that you have selected for your database account. 
+
 
 ## Using multi-region failover 
 
-Azure DocumentDB is able to transparently failover database accounts across multiple Azure regions – the new [multi-homing APIs][developingwithmultipleregions] guarantee that your app can continue to use a logical endpoint and is uninterrupted by the failover. Failover is controlled by you, providing the flexibility to rehome your database account in the event a range of possible failure conditions including application, infrastructure, service or regional failures (real or simulated). In the event of a DocumentDB regional failure, the service will transparently fail over your database account and your application continues to access data without losing availability. While DocumentDB offers [99.99% availability SLAs][sla], you can test your application’s end to end availability properties by simulating a regional failure both, [programmatically][arm] as well as through the Azure Portal.
+Azure DocumentDB is able to transparently failover database accounts across multiple Azure regions – the new [multi-homing APIs][developingwithmultipleregions] guarantee that your app can continue to use a logical endpoint and is uninterrupted by the failover. Failover is controlled by you, providing the flexibility to rehome your database account in the event any of range of possible failure conditions occur, including application, infrastructure, service or regional failures (real or simulated). In the event of a DocumentDB regional failure, the service will transparently fail over your database account and your application continues to access data without losing availability. While DocumentDB offers [99.99% availability SLAs][sla], you can test your application’s end to end availability properties by simulating a regional failure both, [programmatically][arm] as well as through the Azure Portal.
 
 
 ## Scaling across the planet
@@ -43,12 +45,13 @@ The throughput purchased and storage consumed for each DocumentDB collection is 
 
 ![Alt text; Scaling throughput for a DocumentDB collection across four regions][2]
 
-DocumentDB guarantees < 10 ms read and < 15ms write latencies at P99. The read requests never span datacenter boundary to guarantee the [consistency requirements you have selected][consistency]. The writes are always quorum committed locally before they are acknowledged to the clients. 
+DocumentDB guarantees < 10 ms read and < 15 ms write latencies at P99. The read requests never span datacenter boundary to guarantee the [consistency requirements you have selected][consistency]. The writes are always quorum committed locally before they are acknowledged to the clients. 
 Each database account is configured with write region priority. The region designated with highest priority will act as the current write region for the account. All SDKs will transparently route database account writes to the current write region. 
 
 Finally, since DocumentDB is completely [schema-agnostic][vldb] - you never have to worry about managing/updating schemas or secondary indexes across multiple datacenters. Your [SQL queries][sqlqueries] continue to work while your application and data models continue to evolve. 
 
-## Enabling global distribution for your databse account
+
+## Enabling global distribution for your database account
 
 You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can decide to globally distribute your data or confine it to a single region by adding or removing regions to your database account at any time. DocumentDB database accounts that support multi-region assignment can be created through the Azure Marketplace by selecting ‘DocumentDB – Multi-Region Database Account’. 
 

@@ -18,7 +18,7 @@
    
 # Developing with multi-region DocumentDB accounts
 
-In order to take advantage of global distribution, client applications can specify the ordered preference list of regions to be used to perform document operations via connection policy. Based on the DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations. 
+In order to take advantage of global distribution, client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations. 
 
 This preference list is specified when initializing a connection using the DocumentDB  client SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
 
@@ -26,9 +26,9 @@ The SDK will automatically send all writes to the current write region.
 
 All reads will be sent to the first available region in the PreferredLocations list. If the request fails, the client will fail down the list to the next region, and so on. 
 
-The client SDKs will only attempt to read to the regions specified in PreferredLocations. So, for example, if the Database Account is replicated to 3 regions, but the client only specifies 2 of the non-write regions for PreferredLocations, then no reads will be served out of the write region, even in the case of failover.
+The client SDKs will only attempt to read to the regions specified in PreferredLocations. So, for example, if the Database Account is available in 3 regions, but the client only specifies 2 of the non-write regions for PreferredLocations, then no reads will be served out of the write region, even in the case of failover.
 
-The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two new properties - WriteEndpoint and ReadEndpoint. 
+The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two new (v1.8+) properties - WriteEndpoint and ReadEndpoint. 
 
 If the PreferredLocations property is not set, all requests will be served from the current write region. 
 
@@ -36,7 +36,7 @@ If the PreferredLocations property is not set, all requests will be served from 
 ## .NET SDK
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
 
-In Version 1.8 and later of the .Net SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions] [regions] page, with no spaces before or after the first and last character respectively.
+In version 1.8 and later of the .Net SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions] [regions] page, with no spaces before or after the first and last character respectively.
 
 The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
 
@@ -64,7 +64,7 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
 ## NodeJS, JavaScript and Python SDKs
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
 
-The ConnectionPolicy parameter for the DocumentClient constructor has a new property, DocumentClient.ConnectionPolicy.PreferredLocations. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions] [regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
+In version 1.8 and later of each SDK, the ConnectionPolicy parameter for the DocumentClient constructor a new property called DocumentClient.ConnectionPolicy.PreferredLocations. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions] [regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
 
 The current write and read endpoints are available in DocumentClient.getWriteEndpoint and DocumentClient.getReadEndpoint respectively.
 

@@ -36,6 +36,12 @@
 
 ## Release Notes
 
+###<a name="1.8.0"/>1.8.0</a>
+  - Added the support for multi-region database accounts.
+  - Added support for retry on throttled requests.
+  - Added a new IDocumentClient interface and moved create query methods from an extension class to the main DocumentClient class.
+  - Changed default value for connection limit per service point.
+
 ### <a name="1.7.1"/>[1.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
   - Added an overload to Uri based ExecuteStoredProcedureAsync method that takes RequestOptions as a parameter.
   
@@ -134,6 +140,7 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.1](#1.7.1) | May 06, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---
 | [1.6.3](#1.6.3) | April 08, 2016 |---

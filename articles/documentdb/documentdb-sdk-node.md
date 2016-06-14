@@ -37,11 +37,16 @@
 
 ##Release notes
 
+###<a name="1.8.0"/>1.8.0</a>
+
+  - Added the support for multi-region database accounts.
+
 ###<a name="1.7.0"/>1.7.0</a>
 
 - Added the support for Time To Live(TTL) feature for documents.
 
 ###<a name="1.6.0"/>1.6.0</a>
+
 - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
 ###<a name="1.5.6"/>1.5.6</a>
@@ -132,6 +137,7 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---
 | [1.6.0](#1.6.0) | March 29, 2016 |---
 | [1.5.6](#1.5.6) | March 08, 2016 |---

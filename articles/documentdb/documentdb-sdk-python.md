@@ -36,6 +36,9 @@
 
 ## Release notes
 
+###<a name="1.8.0"/>1.8.0</a>
+  - Added the support for multi-region database accounts.
+
 ### <a name="1.7.0"/>[1.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
 - Added the support for Time To Live(TTL) feature for documents.
 
