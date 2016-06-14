@@ -173,7 +173,7 @@ The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/
 
 Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](sql-database-elastic-scale-get-started.md).
 
-## Learn More
+## Additional resources
 
 For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 

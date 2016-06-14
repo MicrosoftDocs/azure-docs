@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manually Configure Always On availability group in Azure VM with Resource Manager (GUI) | Microsoft Azure"
+	pageTitle="Configure Always On availability group in Azure VM manually - Resource Manager"
 	description="Create an Always On Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -16,11 +16,11 @@
 	ms.date="06/09/2016"
 	ms.author="MikeRayMSFT" />
 
-# Configure Always On availability group in Azure VM manually - Resource Manager (GUI)
+# Configure Always On availability group in Azure VM manually - Resource Manager
 
 > [AZURE.SELECTOR]
-- [Resource Manager: Portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Resource Manager: UI](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Resource Manager: Auto](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 

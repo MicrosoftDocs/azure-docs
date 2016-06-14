@@ -1,10 +1,10 @@
-<properties
+﻿<properties
    pageTitle="Performance considerations for Azure Traffic Manager | Microsoft Azure"
    description="Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager"
    services="traffic-manager"
    documentationCenter=""
    authors="kwill-MSFT"
-   manager="adinah"
+   manager="carmonm"
    editor="joaoma" />
 
 <tags 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="06/10/2016"
    ms.author="joaoma" />
 
 
