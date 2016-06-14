@@ -135,7 +135,7 @@ DocumentDB accounts can be configured to be available in many Azure regions and 
 
 > [AZURE.NOTE] At this time, new regions can be added to new DocumentDB Accounts created on or after June 13th, 2016. Select  "Azure DocumentDB - Multi-region database Account" in the Marketplace to create a multi-region account. Accounts created prior to June 13th will be enabled for global availability in the near future. 
 
-When a DocumentDB account is availabe in multiple regions, each collection in that account will be assigned its full user-provisioned througput in each region. This means that the available throughput is multiplied by the number of regions in which the data is replicated. 
+When a DocumentDB account is available in multiple regions, each collection in that account will be assigned its full user-provisioned throughput in each region. This means that the available throughput is multiplied by the number of regions in which the data is replicated. 
 
 For example, if you have a collection with 10,000 [RU/s](documentdb-request-units.md) provisioned, this collection is able to serve up to 10,000 RU/s in each region it is available in.
 
