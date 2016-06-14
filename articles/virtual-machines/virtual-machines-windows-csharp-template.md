@@ -454,8 +454,8 @@ In this step, you use the [ResourceGroup](https://msdn.microsoft.com/library/azu
           credential,
           groupName",
           storageName,
-          deploymentName}",
-          subscriptionId}");
+          deploymentName,
+          subscriptionId);
         Console.ReadLine();
 
 ##Step 7: Add the code to delete the resources

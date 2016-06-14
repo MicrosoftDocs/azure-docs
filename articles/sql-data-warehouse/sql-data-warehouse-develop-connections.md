@@ -155,7 +155,7 @@ Once connected you can begin designing your tables. Please refer to the [table d
 <!--Azure.com references-->
 [connect and query]: ./sql-data-warehouse-get-started-connect.md
 [table design]: ./sql-data-warehouse-develop-table-design.md
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 

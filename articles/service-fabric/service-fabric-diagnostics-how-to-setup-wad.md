@@ -28,6 +28,8 @@ These tools will be used to perform some of the operations in this document:
 * [Azure Resource Manager](../resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
+* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
 
 ## Different log sources that you may want to collect
 1. **Service Fabric logs:** Emitted by the platform to standard ETW and EventSource channels. Logs can be one of several types:
@@ -45,7 +47,9 @@ To deploy diagnostics extension to the VMs in the cluster as part of cluster cre
 
 ![Azure Diagnostics setting in portal for cluster creation](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-The Support Logs are **required** by the Azure support team to revolve any support requests that you create. These logs are collected in real-time and will be stored in one of the storage accounts created in the resource group. The Diagnostics setting configures application level events including [Actor](service-fabric-reliable-actors-diagnostics.md) events, [Reliable Service](service-fabric-reliable-services-diagnostics.md) events and some system level Service Fabric events to be stored into Azure storage. Products such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or your own process can pick up the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If a processes to remove events from the table is not implemented, the table will continue to grow.   When creating a cluster using the portal it is recommended that you export the template after the deployment has completed. Templates can be exported from the portal by
+The Support Logs are **required** by the Azure support team to revolve any support requests that you create. These logs are collected in real-time and will be stored in one of the storage accounts created in the resource group. The Diagnostics setting configures application level events including [Actor](service-fabric-reliable-actors-diagnostics.md) events, [Reliable Service](service-fabric-reliable-services-diagnostics.md) events and some system level Service Fabric events to be stored into Azure storage. Products such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or your own process can pick up the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If a processes to remove events from the table is not implemented, the table will continue to grow. 
+
+When creating a cluster using the portal it is highly recommended that you download the template *before clicking on OK* to create the cluster. For details, refer to [Setup a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). This will give you a usable ARM template for the cluster you are about to create. This is needed to make changes later, not all changes can be made using the portal. Templates can be exported from the portal using the steps below, but these templates can be more difficult to use because they may have a number of null values that will have to have values provided or be missing all required information. 
 
 1. Open your resource group
 2. Select Settings to display the Settings panel
@@ -54,7 +58,14 @@ The Support Logs are **required** by the Azure support team to revolve any suppo
 5. Select Export Template to display the Template panel
 6. Select Save to file to export a .zip file containing the template, parameter and PowerShell files.
 
-After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run.
+After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run. When running the deployment script, you may have to fix null parameter values.
+To use the downloaded template to update a configuration
+
+1. Extract the contents to a folder on your local computer
+2. Modify the content to reflect the new configuration
+3. Start PowerShell and change to the folder where you extracted the content
+4. Run **deploy.ps1** and fill in the subscriptionId, resource group name (use the same name to update the configuration) and a unique deployment name
+
 
 ### Deploy the diagnostics extension as part of cluster creation by using Azure Resource Manager
 To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before creating the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). To see the Diagnostics setting in the Resource Manager template, open the **azuredeploy.json** file and search for **IaaSDiagnostics**. To create a cluster with this template, just press the **Deploy to Azure** button available at the link above.
@@ -67,7 +78,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ```
 
 ### Deploy the diagnostics extension to an existing cluster
-If you have an existing cluster that doesn't have diagnostics deployed, you can add it by following these steps. Modify the ARM template used to create the existing cluster or download the template from the portal as described above. Modify the **template.json** file by performing the following tasks:
+If you have an existing cluster that doesn't have diagnostics deployed or you want to modify an existing configuration, you can add or update it by following these steps. Modify the ARM template used to create the existing cluster or download the template from the portal as described above. Modify the **template.json** file by performing the following tasks:
 
 Add a new storage resource to the template by adding to the resources section.
 
@@ -173,8 +184,16 @@ After modifying the **template.json** file as described, republish the ARM templ
 
 
 ## Update Diagnostics to collect and upload logs from new EventSource channels
-To update diagnostics to collect logs from new EventSource channels that represent a new application that you are about to deploy, you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of diagnostics for an existing cluster.  You will need to update the *EtwEventSourceProviderConfiguration* section in the **template.json** to add entries for the new EventSources before you apply the configuration update using the *New-AzureRmResourceGroupDeployment* PowerShell command.
+To update diagnostics to collect logs from new EventSource channels that represent a new application that you are about to deploy, you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of diagnostics for an existing cluster.  You will need to update the *EtwEventSourceProviderConfiguration* section in the **template.json** to add entries for the new EventSources before you apply the configuration update using the *New-AzureRmResourceGroupDeployment* PowerShell command. The name of the event source is defined as part of your code in the Visual Studio generated **ServiceEventSource.cs** file.
 
 
 ## Next steps
 Check out the diagnostic events emitted for [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) and [Reliable Services](service-fabric-reliable-services-diagnostics.md) to understand in more detail what events you should look into while troubleshooting issues.
+
+
+## Related articles
+* [Learn how to collect performance counters or logs using diagnostic extensions](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
+
+
+

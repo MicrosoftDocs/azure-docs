@@ -13,14 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/20/2016"
+	ms.date="06/03/2016"
 	ms.author="marsma" />
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
 
 With multi-instance tasks, you can run an Azure Batch task on multiple compute nodes simultaneously to enable high performance computing scenarios like Message Passing Interface (MPI) applications. In this article, you will learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
-
-> [AZURE.IMPORTANT] Multi-instance tasks are currently only supported by pools created with **CloudServiceConfiguration**. You cannot use multi-instance tasks on nodes in pools created with VirtualMachineConfiguration images. See the [Virtual Machine Configuration](batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two different configurations.
 
 ## Multi-instance task overview
 

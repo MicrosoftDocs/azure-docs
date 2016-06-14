@@ -24,9 +24,9 @@ To disable Stretch Database for a table, select **Stretch** for a table in SQL S
 
 -   **Disable | Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
 
-After you disable Stretch Database for a table, data migration stops and query results no longer include results from the remote table.
-
 You can also use Transact\-SQL to disable Stretch Database for a table or for a database.
+
+After you disable Stretch Database for a table, data migration stops and query results no longer include results from the remote table.
 
 If you simply want to pause data migration, see [Pause and resume Stretch Database](sql-server-stretch-database-pause.md).
 

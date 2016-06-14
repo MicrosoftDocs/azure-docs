@@ -21,7 +21,7 @@
 This topic lists each library/driver that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.
 
 
-| Language | Platform | Learn more | Download |
+| Language | Platform | Additional resources | Download |
 | :-- | :-- | :-- | :-- |
 | ADO.NET | Windows, Linux, Mac | [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md) | [Download](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
 | Java | Windows | [Connect to SQL Database by using Java with JDBC on Windows](sql-database-develop-java-simple-windows.md) | [Download](http://go.microsoft.com/fwlink/?LinkId=245496) |

@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="05/26/2016" 
 	ms.author="tomfitz"/>
 
 # Lock resources with Azure Resource Manager
 
 As an administrator, you may need to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. 
-You can set the lock level to **CanNotDelete** or **ReadOnly**. **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete it. 
-**ReadOnly** means authorized users can only read from a resource, but they can't modify or delete it. 
+You can set the lock level to **CanNotDelete** or **ReadOnly**. 
+
+- **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete it. 
+- **ReadOnly** means authorized users can read from a resource, but they can't delete it or perform any actions on it. The permission on the resource is restricted to the **Reader** role. Applying **ReadOnly** can lead to unexpected results because some operations that seem like read operations actually require additional actions. For example, placing a **ReadOnly** lock on a storage account will prevent all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations. For another example, placing a **ReadOnly** lock on an App Service resource will prevent Visual Studio Server Explorer from being able to display files for the resource because that interaction requires write access.
 
 Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see 
 [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/31/2016" 
 	ms.author="bradsev;gopitk" /> 
 
 
@@ -87,6 +87,11 @@ The [Cortana Analytics Process](https://azure.microsoft.com/documentation/learni
 
 While CAP does not prescribe specific types of **documentation** artifacts, it is a best practice to document the results of the data exploration, modeling and evaluation, and to save the pertinent code so that the analysis can iterated when required. This also allows reuse of the analytics work when working on other applications involving similar data and prediction tasks.
 
-Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. See [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md) and [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
+Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. See, for example:
+
+- [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
+- [Data Science using Spark on Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
+- [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](machine-learning-data-science-process-data-lake-walkthrough.md)
 
  

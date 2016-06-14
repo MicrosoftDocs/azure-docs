@@ -52,7 +52,7 @@ The procedure below will walk you through configuring your VPN gateway in the Az
 
 Before you configure your gateway, you'll first need to create your virtual network. For steps to create a virtual network for cross-premises connectivity, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md), or [Configure a virtual network with a point-to-site VPN connection](vpn-gateway-point-to-site-create.md). Then, use the steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. 
 
-If you already have a VPN gateway and you want to change the routing type, see [How to change your VPN gateway routing type](#how-to-change-your-vpn-gateway-type).
+If you already have a VPN gateway and you want to change the routing type, see [How to change the VPN routing type for your gateway](#how-to-change-the-vpn-routing-type-for-your-gateway).
 
 ## Create a VPN gateway
 
