@@ -47,6 +47,8 @@ The figure below is a graphical representation of the solution.
 
 All of the resources in this solution belong to a single resource group.
 
+This tutorial uses the Azure portal to create all of the components of this solution. An alternative way to create the solution is with a template. [AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
+
 This tutorial assumes the following:
 
 - You already have an Azure account. If you don't have one, [sign up for a trial account](http://azure.microsoft.com/pricing/free-trial/).
@@ -66,8 +68,6 @@ In this tutorial you will use the Azure portal to:
 - Monitor Azure as it creates the entire environment
 
 - Connect to one of the domain controllers and then to one of the SQL Servers
-
-[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
 
 ## Provision the cluster from the gallery
 
@@ -262,3 +262,5 @@ You are now connected to the primary domain controller. To RDP to the SQL Server
 1.	Use the same user account and password that you used to RDP to the domain controller.
 
 You are now connected with RDP to the SQL Server. You can open SQL Server management studio, connect to the default instance of SQL Server and verify the availabilty group is configured.
+
+

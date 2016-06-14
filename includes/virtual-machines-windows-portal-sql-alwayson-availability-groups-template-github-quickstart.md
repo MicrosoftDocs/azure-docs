@@ -1,6 +1,4 @@
-## Create an availability group with Azure templates
-
-You can create an availability group on Azure virtual machines from a template. Choose the appropriate template from Microsoft Azure GitHub quickstart templates. 
+Choose the appropriate template from Microsoft Azure GitHub quickstart templates. 
 
 Here are some examples of [Microsoft Azure GitHub templates](http://github.com/Azure/azure-quickstart-templates):
 
