@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/03/2016"
+    ms.date="06/09/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
@@ -98,7 +98,7 @@ The PowerShell script will configure the following:
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
-    [String] $SubscriptionName,
+    [String] $SubscriptionId,
 
     [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
@@ -109,7 +109,7 @@ The PowerShell script will configure the following:
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -144,14 +144,14 @@ The PowerShell script will configure the following:
     {
       # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
       Sleep 5
-      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose
+      New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
       Sleep 5
       $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
       $Retries++;
     }
 
     # Get the tenant id for this subscription
-    $SubscriptionInfo = Get-AzureRmSubscription
+    $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
     $TenantID = $SubscriptionInfo | Select TenantId -First 1
 
     # Create the automation resources
@@ -159,20 +159,19 @@ The PowerShell script will configure the following:
 
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
     $ConnectionAssetName = "AzureRunAsConnection"
-    $SubscriptionId = $SubscriptionInfo | Select SubscriptionId -First 1
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
+    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName*, and *-CertPlainPassword*.<br>
+3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
 
     ```
-    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
+    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
-     -SubscriptionName <SubscriptionName> `
+     -SubscriptionId <SubscriptionId> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>

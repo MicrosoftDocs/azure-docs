@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/11/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -31,7 +31,7 @@ We will continuously work toward these goals during the preview of SQL Data Ware
 
 ## Predictable and scalable performance
 
-Azure SQL Data Warehouse introduces Data Warehouse Units (DWUs) as a way to measure the computing resources (CPUs, memory, storage I/O) available for the data warehouse. Increasing the number of DWUs increases the resources. As the number of DWUs increases, SQL Data Warehouse runs operations in parallel (e.g. data load or query) across more distributed resources. This reduces latency and improves performance.
+SQL Data Warehouse introduces Data Warehouse Units (DWUs) as a way to measure the computing resources (CPUs, memory, storage I/O) available for the data warehouse. Increasing the number of DWUs increases the resources. As the number of DWUs increases, SQL Data Warehouse runs operations in parallel (e.g. data load or query) across more distributed resources. This reduces latency and improves performance.
 
 Any data warehouse has 2 fundamental performance metrics:
 
@@ -42,21 +42,15 @@ We’re measuring some important performance enhancements and will soon share th
 
 ## Data Protection
 
-SQL Data Warehouse stores all data in Azure storage using locally redundant storage. Multiple synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures. 
-
-## Backups
-
-Azure SQL Data Warehouse backs up all data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows restoring the data to at least 21 points in time within the past 7 days up to the time when the last snapshot was taken. You can restore data from a snapshot by using PowerShell or REST APIs.
+SQL Data Warehouse stores all data in Azure locally redundant storage. Multiple synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures. In addition, SQL Data Warehouse automatically backs up active (unpaused) databases at regular intervals using Azure Storage Snapshots.  To learn more about how backup and restore works, see the [Backup and Restore Overview][].
 
 ## Query reliability
 
 SQL Data Warehouse is built on a massively parallel processing (MPP) architecture. SQL Data Warehouse automatically detects and migrates Compute and Control node failures. However an operation (e.g. data load or query) may fail as a result of a node failure or migration. During preview, we are making continuous enhancements to successfully complete operations despite node failures.
 
-
 ## Upgrades and downtime
 
 SQL Data Warehouse will periodically be upgraded in order to add new features and install critical fixes.  These upgrades can be disruptive and at this time upgrades are not done on a predictable schedule.  If you find that this process is too disruptive, we encourage you to [create a support ticket][] so that we can help you work around this process.
-
 
 ## Next steps
 
@@ -67,6 +61,7 @@ SQL Data Warehouse will periodically be upgraded in order to add new features an
 <!--Article references-->
 [create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Get started]: ./sql-data-warehouse-get-started-provision.md
+[Backup and Restore Overview]: ./sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 

@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/03/2016"
+	ms.date="06/08/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch Python client
@@ -265,9 +265,8 @@ After it uploads the task script and data files to the Storage account, *python_
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 Next, a pool of compute nodes is created in the Batch account with a call to `create_pool`.

@@ -53,7 +53,7 @@ This tutorial assumes you have:
 * Access to an **Azure SQL Database**. If you must setup an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of a Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-> [AZURE.NOTE] This procedure uses the [Azure Portal](https://ms.portal.azure.com/).
+> [AZURE.NOTE] This procedure uses the [Azure Portal](https://portal.azure.com/).
 
 
 ##<a name="upload-data"></a> Upload the data to your on-premise SQL Server
@@ -66,7 +66,7 @@ You can either adapt the procedure provided here to a set of your own data or fo
 
 ##<a name="create-adf"></a> Create an Azure Data Factory
 
-The instructions for creating a new Azure Data Factory and a resource group in the [Azure Portal](https://ms.portal.azure.com/) are provided [Create an Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
+The instructions for creating a new Azure Data Factory and a resource group in the [Azure Portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
 
 ## Install and configure up the Data Management Gateway

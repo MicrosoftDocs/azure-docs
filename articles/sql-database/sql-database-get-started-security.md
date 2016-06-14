@@ -20,6 +20,11 @@
 
 # SQL Database tutorial: Create SQL database user accounts to access and manage a database using the Azure portal
 
+
+> [AZURE.SELECTOR]
+- [Get started tutorial](sql-database-get-started-security.md)
+- [Grant access](sql-database-manage-logins.md)
+
 In this tutorial, you'll learn how to use the Aure portal to:
 
 - Login to SQL Database using a server-level principal login

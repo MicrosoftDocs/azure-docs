@@ -504,11 +504,11 @@ Set the **allowPolyBase** property to **true** as shown in the following example
     }
 
 ### Direct copy using PolyBase
-If your source data meets the criteria below, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. Otherwise, you can copy data from the source data store to a staging Azure blob storage that meets the following criteria and then use PolyBase to load data into Azure SQL Data Warehouse. See the next section for details about staged copy. 
+If your source data meets the criteria below, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. Otherwise, you can copy data from the source data store to a staging Azure blob storage that meets the following criteria and then use PolyBase to load data into Azure SQL Data Warehouse. See the [Staged Copy using PolyBase](#staged-copy-using-polybase) section for details about staged copy. 
 
 Note that Azure Data Factory checks the settings and automatically fall back to the BULKINSERT mechanism for the data movement if the requirements are not met.
 
-1.	**Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage Linked Service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
+1.	**Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
 2. The **input dataset** is of type: **Azure Blob** and the type properties of dataset meet the following criteria: 
 	1. **Type** must be **TextFormat** or **OrcFormat**. 
 	2. **rowDelimiter** must be **\n**. 
@@ -538,7 +538,7 @@ Note that Azure Data Factory checks the settings and automatically fall back to 
 ### Staged Copy using PolyBase
 PolyBase mechanism requires the source data to be in an Azure Blob Storage and in one of the supported formats (DELIMITEDTEXT with restriction, RCFILE, ORC, PARQUET). When your source data doesn’t meet the criteria introduced in the section above, you can enable copying data via an interim staging Azure blob storage, in which case Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
 
-To use this feature, create an Azure Storage linked service that refers to the Azure Storage Account that has the interim blob storage, then specify the **enableStaging** and **stagingSettings** properties for the Copy Activity as shown below:
+To use this feature, create an [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) that refers to the Azure Storage Account that has the interim blob storage, then specify the **enableStaging** and **stagingSettings** properties for the Copy Activity as shown below:
 
 	"activities":[  
 	{
@@ -596,31 +596,6 @@ Currently, PolyBase feature in Data Factory only accepts the same number of colu
 	All columns of the table must be specified in the INSERT BULK statement.
 
 NULL value is a special form of default value. If the column is nullable, the input data (in blob) for that column could be empty (cannot be missing from the input dataset). PolyBase will insert NULL for them in the Azure SQL Data Warehouse.  
-
-#### Leveraging two stage copy in order to use PolyBase
-PolyBase has limitations on the data stores and formats that it can operate with. If your scenario does not meet the requirements, you should leverage the Copy Activity to copy data to a data store supported by PolyBase and/or convert the data into a format that PolyBase supports. Here are examples of the transformations you can do:
-
--	Convert source files in other encodings to Azure blobs in UTF-8
--	Serialize data in SQL Server/Azure SQL Database into Azure blobs in CSV format.
--	Change the order of columns by specifying the columnMapping property.
-
-Here are some tips when doing the transformations:
-
-- Selecting an appropriate delimiter when converting tabular data into CSV files.
-
-	It is recommended to use characters that are very unlikely to appear in the data as the column delimiter. Common delimiters include comma (,), tilde (~), pipe (|) and TAB(\t). If your data contains them, you can set column delimiter to be non-printable characters such as “\u0001”. Polybase accepts multi-char column delimiters which would allow you to construct more complex column delimiters.	
-- Format of datetime objects
-
-	When datetime objects are serialized, the Copy Activity, by default, uses the format: "yyyy-MM-dd HH:mm:ss.fffffff", which is, by default, not supported by PolyBase. The supported datetime formats can be found here: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). Failing to meet Polybase expectation on datetime format would result in an error as shown below:
-
-		Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 1 rows processed.
-		(/AccountDimension)Column ordinal: 97, Expected data type: DATETIME NOT NULL, Offending value: 2010-12-17 00:00:00.0000000  (Column Conversion Error), Error: Conversion failed when converting the NVARCHAR value '2010-12-17 00:00:00.0000000' to data type DATETIME.
-
-	In order to resolve this error, specify the datetime format as shown in the following example:
-	
-		"structure": [
-    		{ "name" : "column", "type" : "int", "format": "yyyy-MM-dd HH:mm:ss" }
-		]
 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 

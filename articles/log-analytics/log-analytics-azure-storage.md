@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/10/2016"
 	ms.author="banders"/>
 
 # Use Log Analytics to collect data from Azure storage accounts
@@ -51,28 +51,46 @@ Log Analytics can collect data for the following Azure resources:
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 
-## Collect data from Application Insights (Preview)
+## Application Insights (Preview)
 
 This functionality is currently in private preview. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
-## Collect data using Azure diagnostics written to blob in JSON (Preview)
+## JSON files in blob storage
 
-Log Analytics can read the logs for the following services write diagnostics to blob storage in JSON format:
+Log Analytics can read the logs for the following services that write diagnostics to blob storage in JSON format:
 
 + Automation (Preview)
 + Key Vault (Preview)
 + Application Gateway (Preview)
 + Network Security Group (Preview)
 
-Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. Refer to the following articles for how to enable diagnostic logging:
+Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. You can use the  `Set-AzureRmDiagnosticSetting` cmdlet to enable logging.
 
-+ Automation (details coming)
+The example below will enable logging on all supported resources
+
+```
+# update to be the storage account that logs will be written to. Storage account must be in the same region as the resource to monitor
+# format is similar to "/subscriptions/ec11ca60-ab12-345e-678d-0ea07bbae25c/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+$storageAccountId = ""
+
+$supportedResourceTypes = ("Microsoft.Automation/AutomationAccounts", "Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
+
+# update location to match your storage account location
+$resources = (Get-AzureRmResource).Where({$_.ResourceType -in $supportedResourceTypes -and $_.Location -eq "westus"})
+
+foreach ($resource in $resources) {
+    Set-AzureRmDiagnosticSetting -ResourceId $resource.ResourceId -StorageAccountId $storageAccountId -Enabled $true -RetentionEnabled $true -RetentionInDays 1
+}
+```
+
+Refer to the following articles for more information on how to enable diagnostic logging:
+
 + [Key Vault](../key-vault/key-vault-logging.md)
 + [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 + [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
  
 
-### Configure Log Analytics to collect Azure Diagnostics written to Blob in JSON format
+### Configure Log Analytics to collect Azure Diagnostics written to blob in JSON format
 
 Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
 
@@ -85,7 +103,7 @@ This documentation also includes details on:
 
 It is not currently possible to perform the above configuration from the portal. 
 
-## Collect data using Azure diagnostics written to table storage or IIS Logs written to blob 
+## Events in table storage or IIS Logs in blob 
 
 Log Analytics can read the logs for the following services that write diagnostics to table storage or IIS Logs written to blob:
 

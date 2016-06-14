@@ -34,7 +34,7 @@ Perform the following steps to create a support request:
 
 	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
-2. You will be redirected to the new Azure portal (ms.portal.azure.com). Click the **New support request** tile.
+2. You will be redirected to the new Azure portal (portal.azure.com). Click the **New support request** tile.
 
 	![Contact MS Support via new portal](./media/storsimple-contact-microsoft-support/Ibiza2.png)
 
