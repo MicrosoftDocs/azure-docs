@@ -37,6 +37,7 @@ The Fault Injection and Analysis Service currently supports the following APIs i
 
 The Fault Injection and Analysis Service uses an asynchronous model where you start the command with one API, referred to as the “Start” API in this document, then checks the progress of this command using a “GetProgress” API until it has reached a terminal state, or until you cancel it.
 To start a command, call the “Start” API for the corresponding API.  This API returns when the Fault Injection and Analysis Service has accepted the request.  However, it does not indicate how far a command has run, or even if it has started yet.  In order to check progress of a command, call the “GetProgress” API that corresponds to the “Start” API previously called.  The “GetProgress” API will return an object indicating the current status of the command inside its State property.  A command runs indefinitely until:
+
 1.	It completes successfully.  If you call “GetProgress” on it in this case, the progress object’s State will be Completed.
 2.	It encounters a fatal error.  If you call “GetProgress” on it in this case, the progress object’s State will be Faulted
 3.	You cancel it through the [CancelTestCommandAsync] [cancel] API, or [Stop-ServiceFabricTestCommand] [cancelps] PowerShell cmdlet.  If you call “GetProgress” on it in this case, the progress object’s State will be either Cancelled or ForceCancelled, depending on an argument to that API.  See the documentation for [CancelTestCommandAsync] [cancel] for more details.
@@ -51,7 +52,7 @@ When the command has reached a terminal state (Completed, Faulted, or Cancelled)
 
 The sample code below shows how to start then check progress on a command to restart a specific partition.
 
-
+```csharp
     static async Task PerformDataLossSample()
     {
         // Create a unique operation id for the command below
@@ -130,10 +131,11 @@ The sample code below shows how to start then check progress on a command to res
             await Task.Delay(TimeSpan.FromSeconds(5.0d)).ConfigureAwait(false);
         }
     }
-
+```
 
 The sample below shows how to use the PartitionSelector to choose a random partition of a specified service:
 
+```csharp
     static async Task PerformDataLossUseSelectorSample()
     {
         // Create a unique operation id for the command below
@@ -216,6 +218,7 @@ The sample below shows how to use the PartitionSelector to choose a random parti
             await Task.Delay(TimeSpan.FromSeconds(1.0d)).ConfigureAwait(false);
         }
     }
+```
 
 ## History and Truncation
 
