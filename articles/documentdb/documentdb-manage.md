@@ -114,9 +114,7 @@ For example, here's a table that shows how many request units to provision at th
     </tbody>
 </table>
 
-Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.  
-
-The number of Writes/Sec for sustained workloads on multi-region accounts can vary based on a number of factors, Please see [How throughput works with multiple regions](#multiregionthrougput)
+Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.  \
 
 
 ## Provisioned document storage and index overhead
@@ -141,14 +139,7 @@ When a DocumentDB account is available in multiple regions, each collection in t
 
 For example, if you have a collection with 10,000 [RU/s](documentdb-request-units.md) provisioned, this collection is able to serve up to 10,000 RU/s in each region it is available in. 
 
-Note, however, that the actual writes/sec achieved under sustained load could vary based on 
- -   the number of region(s) – more regions increases the probability of replicas falling behind
- -   geographical spread of regions – regions that are further apart may experience backpressure on write operations if network delays occur in receiving the replicated writes.
-
-
-Throughput might also be affected during Add Region and/or Change Write Region Priority operations on the account as the system converges the regions.
-
-The RU charge of a given request, as returned by [x-ms-request-charge](documentdb-request-units.md/#estimating-throughput-needs)  remains the same regardless of the number of replicated regions. When a read or write operation is performed on a collection in a region, it will consume RUs from that collection's budget in that specific region only. The RU charge for write operations does not change as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
+The RU charge of a given request, as returned by [x-ms-request-charge](documentdb-request-units.md/#estimating-throughput-needs) remains the same regardless of the number of replicated regions. When a read or write operation is performed on a collection in a region, it will consume RUs from that collection's budget in that specific region only. The RU charge for write operations does not change as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
 
 The above behavior ensures that that application code running in each region has reserved and predictable database throughput regardless of region additions or removals. This enables you to massively scale out your application without worrying about increasing replication costs.
 
