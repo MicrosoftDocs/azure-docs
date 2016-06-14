@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Restore an Azure SQL Database from a geo-redundant backup (Azure Portal). | Microsoft Azure"
+	pageTitle="Restore an Azure SQL Database from a geo-redundant backup (Azure Portal) | Microsoft Azure"
 	description="Geo-Restore an Azure SQL Database from a geo-redundant backup (Azure Portal)."
 	services="sql-database"
 	documentationCenter=""

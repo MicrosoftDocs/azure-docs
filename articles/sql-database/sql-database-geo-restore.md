@@ -57,6 +57,12 @@ Recovery time is impacted by several factors: the size of the database and the p
 
 While geo-restore is available with all service tiers, it is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB geo-restore provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if significantly shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using Active Geo-Replication. Active Geo-Replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
 
+## Next steps
+
+- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
+- [Geo-Restore using the Azure Portal](sql-database-geo-restore-portal.md)
+- [Geo-Restore using PowerShell](sql-database-geo-restore-powershell.md)
+
 ## Additional resources
 
 - [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
@@ -64,4 +70,3 @@ While geo-restore is available with all service tiers, it is the most basic of t
 - [Point-in-Time Restore](sql-database-point-in-time-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)

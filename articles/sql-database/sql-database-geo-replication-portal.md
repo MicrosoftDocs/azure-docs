@@ -13,29 +13,27 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="sstein"/>
 
 # Configure Geo-Replication for Azure SQL Database with the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-portal.md)
+- [Overview](sql-database-geo-replication.md)
+- [Azure Portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
-
-This article shows you how to configure Geo-Replication for SQL Database with the [Azure portal](http://portal.azure.com).
+This article shows you how to configure Active Geo-Replication for SQL Database with the [Azure portal](http://portal.azure.com).
 
 To initiate failover, see [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-portal.md).
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
-You can configure up to 4 readable secondary databases in the same or different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
+To configure Geo-Replication using the Azure portal, you need the following:
 
-To configure Geo-Replication you need the following:
-
-- An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
+- An Azure subscription. 
 - An Azure SQL Database database - The primary database that you want to replicate to a different geographical region.
 
 
