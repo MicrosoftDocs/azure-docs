@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2016" 
+	ms.date="06/14/2016" 
 	ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
@@ -24,15 +24,15 @@ When cache diagnostics are enabled, metrics for Azure Redis Cache instances are 
 
 Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO commands used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-To view cache metrics, [browse](cache-configure.md) to your cache instance in the [Azure Portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis Cache** blade.
+To view cache metrics, [browse](cache-configure.md) to your cache instance in the [Azure Portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis metrics** blade.
 
-![Monitor][redis-cache-monitor-overview]
+![Redis metrics][redis-cache-redis-metrics-blade]
 
->[AZURE.IMPORTANT] If the following message is displayed in the Azure Portal, follow the steps in the [Enable cache diagnostics](#enable-cache-diagnostics) section to enable cache diagnostics.
+>[AZURE.IMPORTANT] If the following message is displayed in the **Redis metrics** blade, follow the steps in the [Enable cache diagnostics](#enable-cache-diagnostics) section to enable cache diagnostics.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
-The **Redis Cache** blade has **Monitoring** charts and **Usage** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. The **Redis Cache** blade also has an **Operations** section that displays cache **Events** and **Alert rules**.
+The **Redis metrics** blade has **Monitoring** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. The **Redis Cache** blade has an **Operations** section that displays cache **Events** and **Alert rules**.
 
 ## Enable cache diagnostics
 
@@ -84,6 +84,33 @@ Each metric includes two versions. One metric measures performance for the entir
 | CPU               | The CPU utilization of the Azure Redis Cache server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Cache Read        | The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Cache Write       | The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+## Redis metrics
+
+To access the Redis metrics blade choose **All settings** > **Redis metrics**.
+
+![Redis metrics][redis-cache-redis-metrics]
+
+
+The **Redis metrics** blade contains the following charts.
+
+| Redis metrics chart | Displayed metrics     |
+|------------------|-------------------|
+| Cache Read and Cache Write | Cache Read |
+|                            | Cache Write |
+| Connected Clients      | Connected Clients |
+| Hits and Misses  | Cache Hits        |
+|                  | Cache Misses      |
+| Total Commands   | Total Operations  |
+| Gets and Sets    | Gets              |
+|                  | Sets              |
+| CPU Usage         | CPU           |
+| Memory Usage      | Used Memory   |
+|                   | Used Memory RSS |
+| Redis Server Load | Server Load   |
+| Key Count | Total Keys |
+|           | Evicted Keys |
+|           | Expired Keys |
 
 ## Monitoring charts
 
@@ -225,7 +252,6 @@ An alert rule is considered to be resolved when the alert condition no longer ev
 For more information about alerts in Azure, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md).
   
 <!-- IMAGES -->
-[redis-cache-monitor-overview]: ./media/cache-how-to-monitor/redis-cache-monitor-overview.png
 
 [redis-cache-enable-diagnostics]: ./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png
 
@@ -258,6 +284,10 @@ For more information about alerts in Azure, see [Receive alert notifications](..
 [redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
+[redis-cache-redis-metrics]: ./media/cache-how-to-monitor/redis-cache-redis-metrics.png
+
+[redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
 
 
 
