@@ -18,7 +18,7 @@
     
 # Continuous Deployment to Azure App Service
 
-This tutorial shows you how to configure a continous deployment workflow for your [Azure App Service] app. [App Service] integration with BitBucket, GitHub, and Visual Studio Team Services (VSTS) enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
+This tutorial shows you how to configure a continous deployment workflow for your [Azure App Service] app. App Service integration with BitBucket, GitHub, and Visual Studio Team Services (VSTS) enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
 
 ## <a name="overview"></a>Enable continuous deployment
 
