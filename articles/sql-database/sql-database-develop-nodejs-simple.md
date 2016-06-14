@@ -37,3 +37,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Step 4: Run sample code
 
 [Proof of Concept connecting to SQL using Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
+
+## Additional resources
+
+For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).

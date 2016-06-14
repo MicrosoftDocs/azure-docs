@@ -42,7 +42,7 @@ In this article we walk you through how to use your DSVM to perform various data
 
 - You will need an Azure subscription. You can sign-up for a free trial [here](https://azure.microsoft.com/free/).
 
-- Instructions for provisioning a Data Science Virtual Machine on the Azure Portal are available at [Creating a virtual machine](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+- Instructions for provisioning a Data Science Virtual Machine on the Azure Portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
 ## 1. Explore data and develop models using Microsoft R Server or Python
 

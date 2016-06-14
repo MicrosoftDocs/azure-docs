@@ -29,6 +29,8 @@ If you've received an error when deploying resources to Azure, you may want to s
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
+You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+
 ## Use audit logs to troubleshoot
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
@@ -101,7 +103,7 @@ For example, to retrieve the failed operations for the past hour run:
 2. Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the 
 deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
 
-        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment | Format-List
+        Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
         
     Which returns the operations in the following format:
         

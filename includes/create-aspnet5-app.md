@@ -10,7 +10,7 @@
 
 1. Give your new application a name (or take the default).
 
-1. Tap **OK**.
+1. Select **OK**.
 
 1. The **New ASP.NET Project** dialog will display.
 
@@ -18,4 +18,4 @@
 
 1. Under ASP.NET 5 Templates, select ASP.NET Web Application.
 
-1. Tap **OK**.
+1. Select **OK**.

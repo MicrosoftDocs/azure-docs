@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restore a database in Azure SQL Data Warehouse (Overview) | Microsoft Azure"
+   pageTitle="Restore an Azure SQL Data Warehouse (Overview) | Microsoft Azure"
    description="Overview of the database restore options for recovering a database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,54 +13,51 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/13/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
-# Restore a database in Azure SQL Data Warehouse (Overview)
+# Restore an Azure SQL Data Warehouse (Overview)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-restore-database-overview.md)
-- [Portal](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Overview][]
+- [Portal][]
+- [PowerShell][]
+- [REST][]
 
-Describes the options for restoring a database in Azure SQL Data Warehouse. These include restoring a live data warehouse and a deleted data warehouse. Live and deleted data warehouses are restored from the automatic snapshots created from all data warehouses. 
+Azure SQL Data Warehouse protects your data with both locally redundant storage and automated backups. Automated backups give you a zero-admin way to protect your databases from accidental corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you can ensure business continuity by restoring your database to an earlier point in time. SQL Data Warehouse uses Azure Storage Snapshots to backup your database seemlessly without the need for any downtime.
 
-## Recovery scenarios
+## Automated backups
 
-**Recovering from infrastructure failures:** This scenario refers to recovering from infrastructure issues such as disk failures etc. A customer would like to ensure business continuity with a fault tolerant and highly available infrastructure.
+Your **active** databases will automatically be backed up at a minimum of every 8 hours and kept for 7 days. This allows you to restore your active database to one of several restore points in the past 7 days.
 
-**Recovering from user errors:** This scenario refers to recovering from unintentional or incidental Data Corruption or Deletion. In the event that a user unintentionally or incidentally modifies or deletes data, a customer would like to ensure business continuity by restoring the database to an earlier point in time.
+When a database is paused, new snapshots will stop and previous snapshots will roll off as they reach 7 days in age. If a database is paused for more than 7 days, the last snapshot will be saved, ensuring that you always have at least one backup.
 
-## Snapshot policies
+When a database is dropped, a snapshot will be taken before the database is dropped.  Only the last snapshot is saved for a dropped database and that snapshot will be retained for 7 days.
 
-[AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
+If you need to retain a backup for longer than 7 days, you can simply restore one of your restore points to a new database and then optionally pause that database so that you only pay for the storage space of that backup.  
 
+## Data redundancy
 
-## Database restore capabilities
+In addition to backups, SQL Data Warehouse also protects your data with [locally redundant (LRS)][] Azure Premium Storage.  Multiple synchronous copies of the data are maintained in the local data center to guarantee transparent data protection in case of localized failures. Data redundancy ensures that your data can survive infrastructure issues such as disk failures etc.  Data redundancy ensures business continuity with a fault tolerant and highly available infrastructure.
 
-Let us take a look at how SQL Data Warehouse enhances the reliability of your database and allows for recoverability and continuous operation in the aforementioned scenarios.
+## Restore a database
 
+Restoring a SQL Data Warehouse is a simple opertaion which can be done in the Azure portal, or automated using PowerShell or REST APIs.
 
-### Data redundancy
-
-SQL Data Warehouse stores all data on [locally redundant (LRS)](../storage/storage-redundancy.md) Azure Premium Storage keeping 3 copies of your data. 
-
-### Database Restore
-
-Database restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic snapshot and restore features provide a zero-admin way to protect databases from accidental corruption or deletion. To learn more about database restore, refer to [Database restore tasks][].
 
 ## Next steps
-For other important management tasks, see [Management overview][].
+To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
-[Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Management overview]: sql-data-warehouse-overview-management.md
-[Database restore tasks]: sql-data-warehouse-manage-database-restore-portal.md
+[Azure SQL Database business continuity overview]: ./sql-database-business-continuity.md
+[locally redundant (LRS)]: ../storage/storage-redundancy.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 

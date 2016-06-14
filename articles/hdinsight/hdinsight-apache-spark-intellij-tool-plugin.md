@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -82,7 +82,11 @@ You can also follow a video [here](https://mix.office.com/watch/1nqkqjt5xonza) t
 
 	You can also create your own artifact bly clicking on the **+** icon, highlighted in the image above.
 
-4. Add your application source code.
+4. In the **Project Structure** dialog box, click **Project**. If the **Project SDK** is set to 1.8, make sure the **Project language level** is set to **7 - Diamonds, ARM, multi-catch, etc**.
+
+	![Set project language level](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
+
+5. Add your application source code.
 
 	1. From the **Project Explorer**, right-click **src**, point to **New**, and then click **Scala class**.
 

@@ -25,7 +25,7 @@ When designing the application upgrade process the main goal should be eliminati
 1.	Maximum acceptable time when the application will have reduced capability 
 2.	Minimum set of features that will be available during the upgrade process
 3.	Ability to roll back in case of any errors during upgrade.
-4.	Total dollar cost involved.  This includes the cost of additional application components needed to create a temporary copy (such as additional premium databases for active geo-replication) and incremental costs for temporary deployments used by the upgrade process. 
+4.	Total dollar cost involved.  This includes the cost of additional application components needed to create a temporary copy (such as additional databases for Active Geo-Replication) and incremental costs for temporary deployments used by the upgrade process. 
 
 If the application can temporarily operate in read-only mode the upgrade workflow could be designed to effectively eliminate the downtime altogether. To understand how to implement the upgrade work-flow for your specific application topology please refer to [Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication](sql-database-manage-application-rolling-upgrade.md).
  

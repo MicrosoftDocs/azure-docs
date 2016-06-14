@@ -23,7 +23,7 @@
 - [Manage Azure VM backups](backup-azure-manage-vms.md)
 - [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
 
-This article provides jnformation about common management and monitoring tasks for Classic-model virtual machines protected in Azure.  
+This article provides information about common management and monitoring tasks for Classic-model virtual machines protected in Azure.  
 
 >[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 
@@ -52,7 +52,7 @@ To manage protected virtual machines:
 ## On-demand backup of a virtual machine
 You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault i.e. it is always incremental.
 
->[AZURE.NOTE] Retention range of an On-Demand backup is set to retention value specified for Daily retention in backup policy corresponding to the VM.  
+>[AZURE.NOTE] Retention range of an on-demand backup is set to retention value specified for Daily retention in backup policy corresponding to the VM.  
 
 To take an on-demand backup of a virtual machine:
 
@@ -94,7 +94,7 @@ To Stop protection for a virtual machine:
 
     ![Stop protection](./media/backup-azure-manage-vms/stop-protection.png)
 
-3. By default, Azure Backup doesn’t delete the backup data associated with the Virtual machine.
+3. By default, Azure Backup doesn’t delete the backup data associated with the virtual machine.
 
     ![Confirm stop protection](./media/backup-azure-manage-vms/confirm-stop-protection.png)
 
@@ -208,7 +208,7 @@ To view operation logs corresponding to a backup vault:
     ![Operation Details](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## Alert notifications
-You can get custom alert notifications for the jobs in portal. This is achieved by defining PowerShell based alert rules on operational logs events. We recommend using *PowerShell version 1.3.0 or above*.
+You can get custom alert notifications for the jobs in portal. This is achieved by defining PowerShell-based alert rules on operational logs events. We recommend using *PowerShell version 1.3.0 or above*.
 
 To define a custom notification to alert for backup failures, a sample command will look like:
 
@@ -217,7 +217,7 @@ PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId**: You can get this from Operations Logs popup as described in above section. ResourceUri in details popup window of an operation is the ResourceId to besupplied for this cmdlet.
+**ResourceId**: You can get this from Operations Logs popup as described in above section. ResourceUri in details popup window of an operation is the ResourceId to be supplied for this cmdlet.
 
 **OperationName**: This will be of the format "Microsoft.Backup/backupvault/<EventName>" where EventName is one of Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
@@ -235,7 +235,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Event-based alerts are subjected to the following limitations:
 
 1. Alerts are triggered on all virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
-2. This feature in in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
+2. This feature is in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
 3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
 ## Next steps
