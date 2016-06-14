@@ -50,7 +50,7 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 
 ## After data collection is enabled
 
-Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803) (ETW) traces. In addition, the operating system creates event log entries. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. The Monitoring Agent also copies crash dump files to your storage account. This is the storage account you configured in the security policy.
+Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. The Monitoring Agent also copies crash dump files to your storage account. This is the storage account you configured in the security policy.
 
 ## Disabling data collection
 
