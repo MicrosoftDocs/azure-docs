@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Developing with multiple regions | Microsoft Azure"
+   pageTitle="Developing with multiple regions in DocumentDB | Microsoft Azure"
    description="Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service."
    services="documentdb"
    documentationCenter=""
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/14/2016"
    ms.author="kipandya"/>
    
 # Developing with multi-region DocumentDB accounts
 
-In order to take advantage of global distribution, client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations. 
+In order to take advantage of [global distribution](documentdb-distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations. 
 
 This preference list is specified when initializing a connection using the DocumentDB  client SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
 
@@ -26,7 +26,7 @@ The SDK will automatically send all writes to the current write region.
 
 All reads will be sent to the first available region in the PreferredLocations list. If the request fails, the client will fail down the list to the next region, and so on. 
 
-The client SDKs will only attempt to read to the regions specified in PreferredLocations. So, for example, if the Database Account is available in 3 regions, but the client only specifies 2 of the non-write regions for PreferredLocations, then no reads will be served out of the write region, even in the case of failover.
+The client SDKs will only attempt to read to the regions specified in PreferredLocations. So, for example, if the Database Account is available in three regions, but the client only specifies two of the non-write regions for PreferredLocations, then no reads will be served out of the write region, even in the case of failover.
 
 The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two new (v1.8+) properties - WriteEndpoint and ReadEndpoint. 
 
@@ -36,7 +36,7 @@ If the PreferredLocations property is not set, all requests will be served from 
 ## .NET SDK
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
 
-In version 1.8 and later of the .Net SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions] [regions] page, with no spaces before or after the first and last character respectively.
+In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions] [regions] page, with no spaces before or after the first and last character respectively.
 
 The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
 
@@ -86,7 +86,7 @@ Below is a code example for NodeJS/Javascript. Python and Java will follow the s
 
 
 ## REST 
-Once a Database Account has been made available in muliple regions, clients can query its availability by performing a GET request on the following URI.
+Once a database account has been made available in muliple regions, clients can query its availability by performing a GET request on the following URI.
 
     https://{databaseaccount}.documents.azure.com/dbs
 
@@ -131,5 +131,14 @@ Example response
 Write requests to read-only regions will fail with HTTP error code 403 (“Forbidden”).
 
 If the write region changes after the client’s initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 (“Forbidden”). The client should then GET the list of regions again to get the updated write region.
+
+## Next steps
+
+Learn more about the distributing data globally with DocumentDB in the following articles:
+
+- [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
+- [Consistency levels](documentdb-consistency-levels.md)
+- [How throughput works with multiple regions](documentdb-manage.md#how-throughput-works-with-multiple-regions)
+- [Add regions using the Azure portal](documentdb-manage-account.md#addregion)
 
 [regions]: https://azure.microsoft.com/regions/ 
