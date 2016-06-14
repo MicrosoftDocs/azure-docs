@@ -20,7 +20,7 @@
 
 # Compute context options for R Server on HDInsight (preview)
 
-R Server on Azure HDInsight (preview) provides the latest capabilities for R-based analytics. It uses data that's stored in HDFS in a container in your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages. They can also leverage the routines in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), Microsoft’s big data analytics package that's included with R Server.  
+Microsoft R Server on Azure HDInsight (preview) provides the latest capabilities for R-based analytics. It uses data that's stored in HDFS in a container in your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages. They can also leverage the routines in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), Microsoft’s big data analytics package that's included with R Server.  
 
 The edge node of a Premium cluster provides a convenient place to connect to the cluster and run your R scripts. With an edge node, you have the option of running ScaleR’s parallelized distributed functions across the cores of the edge node server. You also have the option to run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
@@ -76,7 +76,7 @@ You can also refer to the “ScaleR Distributed Computing Guide” that's availa
 
 In this article, you learned how to create a new HDInsight cluster that includes R Server. You also learned the basics of using the R console from an SSH session. Now you can read the following articles to discover other ways of working with R Server on HDInsight:
 
-- [Overview of R Server on Hadoop](hdinsight-hadoop-r-server-overview.md)
-- [Get started with R server on Hadoop](hdinsight-hadoop-r-server-get-started.md)
+- [Overview of R Server for Hadoop](hdinsight-hadoop-r-server-overview.md)
+- [Get started with R server for Hadoop](hdinsight-hadoop-r-server-get-started.md)
 - [Add RStudio Server to HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Azure Storage options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
