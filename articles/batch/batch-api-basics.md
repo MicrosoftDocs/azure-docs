@@ -91,7 +91,7 @@ Every node that is added to a pool is assigned a unique name and IP address. Whe
 
 When you create a pool, you can specify the following attributes:
 
-- Compute node **Operating system** and **version**
+- Compute node **operating system** and **version**
 
 	You have two options when selecting an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**.
 
