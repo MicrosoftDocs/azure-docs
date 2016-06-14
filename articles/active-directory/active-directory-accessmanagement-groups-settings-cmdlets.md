@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 
@@ -28,6 +28,8 @@ The following settings for unified groups can be configured in your directory:
 3.  Group creation enabled: whether none, some or all users are allowed to create Unified Groups. When set to on, all users can create groups. When set to off, no users can create groups. When off, you can also specify a security group whose users who are still allowed to create groups.
 
 These settings are configured using a Settings and SettingsTemplate objects. Initially, you will not see any Settings objects in your directory. This means your directory is configured with the default settings. To change the default settings, you will create a new settings object using a settings template. Settings templates are defined by Microsoft.
+
+You can download the module containing the cmdlets used for these operations from the [Microsoft Connect site](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).
 
 ## Create settings at the directory level
 
@@ -135,4 +137,8 @@ name | type | defaultValue | description
 
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-Additional instruction from Microsoft's Rob de Jong is available at [Rob's Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad).
+Additional instruction from Microsoft program manager Rob de Jong is available at [Rob's Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad).
+
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
