@@ -45,7 +45,7 @@ You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as 
 
 ## Access R Server on the cluster
 
-After you've created a cluster with R Server, you can connect to the R Console on the edge node of the cluster through SSH/PuTTY. You can also connect through a browser if you choose to install the optional RStudio Server IDE on the edge node. For more information about installing RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
+After you've created a cluster with R Server, you can connect to the R console on the edge node of the cluster through SSH/PuTTY. You can also connect through a browser if you choose to install the optional RStudio Server IDE on the edge node. For more information about installing RStudio Server, see [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md).   
 
 ## Develop and run R scripts
 
