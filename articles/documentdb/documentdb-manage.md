@@ -145,7 +145,7 @@ Note, however, that the actual writes/sec achieved under sustained load could va
 - the number of region(s) 
 - geographical spread of regions.
 - global network conditions at the given time
- Throughput might also be affected during Add Region and/or Change Write Region Priority operation on the account as the system converges the regions.
+ Throughput might also be affected during Add Region and/or Change Write Region Priority operations on the account as the system converges the regions.
 
 The RU charge of a given request, as returned by [x-ms-request-charge](documentdb-request-units.md/#estimating-throughput-needs)  remains the same regardless of the number of replicated regions. When a read or write operation is performed on a collection in a region, it will consume RUs from that collection's budget in that specific region only. The RU charge for write operations does not change as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
 
