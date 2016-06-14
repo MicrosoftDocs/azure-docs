@@ -37,7 +37,7 @@ This preview applies to pre-integrated federated SaaS applications, applications
 
 This section describes how to configure per-application access rules.
 
-1. Log on to the Azure classic portal as Administrator.
+1. Sign in to the Azure classic portal Using an account that is a global administrator for Azure AD.
 2. On the left pane, select **Active Directory**.
 3. On the Directory tab, select your directory.
 4. Select the **Applications** tab.
@@ -68,12 +68,12 @@ The current preview supports the following options:
 
 * **Require multi-factor authentication**: With this option the users that the access rules apply to will be required to complete multi-factor authentication before accessing the application the policy applies to.
 
-* **Require multi-factor authentication when not at work**: With this option a user that is coming from a trusted IP will not be required to perform multi-factor authentication. The trusted IP ranges can be configured on the multi-factor authentication settings page or by using configuring public IP Address ranges on the directory configure tab.
+* **Require multi-factor authentication when not at work**: With this option a user that is coming from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page or by using configuring public IP address ranges on the directory Configure tab.
 
-* **Block access when not at work**: With this option a user that is not coming from a trusted IP will be blocked. The trusted IP ranges can be configured on the multi-factor authentication settings page.
+* **Block access when not at work**: With this option a user that is not coming from a trusted IP address will be blocked. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
 
 ### Setting rule status
-Access rule status allows turning the rules on or off. When the access rules are off the multi-factor authentication requirement will not be enforced.
+Access rule status allows turning the rules on or off. When the access rules are off, the multi-factor authentication requirement will not be enforced.
 
 ### Access rule evaluation
 
