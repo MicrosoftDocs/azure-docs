@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/13/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
 # Enable data collection in Azure Security Center
 
-To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure virtual machines, including configuration information, metadata, event logs, and more. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning data collection off in the Security Center policy (see [Disabling data collection](disabling-data-collection)). If you turn data collection off, Security Center will recommend that you turn on data collection in the security policy for that subscription.
+To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure virtual machines, including configuration information, metadata, event logs, and more. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning data collection off in the Security Center policy (see [Disabling data collection](#disabling-data-collection)). If you turn data collection off, Security Center will recommend that you turn on data collection in the security policy for that subscription.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment. This is not a step-by-step guide.
 

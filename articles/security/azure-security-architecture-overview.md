@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="06/14/2016"
    ms.author="yurid"/>
 
 # Security Architecture Overview
@@ -24,4 +24,4 @@ In this section you’ll see articles on Azure Security Architecture that will h
 
 - [Data Classification for Cloud Readiness](azure-security-data-classification.md)
 - [Application Architecture on Microsoft Azure](security-application-architecture-on-azure.md)
-- [Azure Security Best Practices and Patterns](azure-security-best-practices-and-patterns.md)
+- [Azure Security Best Practices and Patterns](security-best-practices-and-patterns.md)
