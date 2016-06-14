@@ -48,7 +48,7 @@ consistency setting takes effect across your DocumentDB account.*
 
 DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
-> [AZURE.NOTE] At this time, new regions can be added to new DocumentDB Accounts created on or after June 13th, 2016. Accounts must be of type "Azure DocumentDB - Multi-region database Account" in the Marketplace. Accounts created prior to June 13th will be enabled for global availability in the near future. 
+> [AZURE.NOTE] At this time, new regions can be added to new DocumentDB Accounts created on or after June 13th, 2016. Select  "Azure DocumentDB - Multi-region database Account" in the Marketplace to create a multi-region account. Accounts created prior to June 13th will be enabled for global availability in the near future. 
 
 1.      In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 
