@@ -28,8 +28,7 @@ The following applications have been tested with multi-factor authentication (MF
 | Application  | Target Service  | Platform                                                       |
 |--------------|-----------------|----------------------------------------------------------------|
 | Outlook 2016 | Exchange        |  Windows 10,  Windows Mobile 10,  Windows 8.1, Windows 7, Mac  |
-| Outlook 2013 (Requires modern authentication to be enabled)| Exchange |Windows 10
-Windows Mobile 10, Windows 8.1, Windows 7|
+| Outlook 2013 (Requires modern authentication to be enabled)| Exchange |Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
 |Skype for Business (with modern authentication)|Exchange (Exchange is accessed for calendar and conversation history)|  Windows 10, Windows 8.1, Windows 7 |
 |Outlook Mobile app|Exchange| iOS and Android |
 |Office 2016; Word, Excel, Sharepoint|SharePoint| Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
@@ -50,7 +49,7 @@ Legacy protocols can be disabled at SharePoint, by using the Set-SPOTenant cmdle
  
 ## Exchange
 
-On Exchange, there are two main categories of protocol review and select the right policy for your organization.:
+On Exchange, there are two main categories of protocol review and select the right policy for your organization:
 
 1. Exchange ActiveSync. By default, conditional access policy for MFA and Location is not enforced for Exchange ActiveSync. This allows access to be protected either by configuring Exchange ActiveSync policy directly, or by blocking Exchange ActiveSync using AD FS rules.
 2. Legacy protocols. Legacy protocols can be blocked at AD FS. This will block access for older Office clients, such as Office 2013 without modern authentication enabled and earlier.
