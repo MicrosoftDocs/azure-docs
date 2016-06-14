@@ -73,7 +73,7 @@ In your main activity file, remember to add the following **using** statement:
 The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource].  Refer to the [SymbolSource instructions]
 to integrate SymbolSource with Visual Studio.
 
-##<a name="create-client"></a>Create the Mobile App client
+##<a name="create-client"></a>Create the Mobile Apps client
 
 The following code creates the [MobileServiceClient] object that is used to access your Mobile App backend.
 
