@@ -32,16 +32,16 @@ You can reset credentials or SSHD using either Azure CLI commands directly or th
 
 ### Azure CLI pre-reqs
 
-Using the Azure CLI, make sure [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed.
-
 If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md). Sign in by using the `azure login` command and make sure you are in Resource Manager mode (`azure config mode arm`).
 
+Make sure [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed.
+
 ## Azure CLI - Reset SSHD
+You can reset SSHD to make sure the SSH configuration itself is valid:
+
 ```bash
 azure vm reset-access -g <resource group> -n <vm name> -r
 ```
-
-This installs the `VMAccessForLinux` extension on your VM:
 
 ## Azure CLI - Reset SSH credentials for a user
 Reset the password for a giver user:
@@ -56,10 +56,7 @@ Reset the SSH key for a given user:
 azure vm reset-access -g <resource group> -n <vm name> -u <usernamer> -M <~/.ssh/azure_id_rsa.pub>
 ```
 
-See more information about this by typing `azure vm reset-access -h` on the command line.
-
 ## VM Access Extension - reset SSHD
-
 Create a file named PrivateConf.json with the following content:
 
 ```bash
@@ -75,18 +72,26 @@ azure vm extension set <resource group> <vm name> VMAccessForLinux Microsoft.OST
 ```
 
 ## VM Access Extension - Reset SSH credentials for a user
- Create a file named PrivateConf.json with the following contents:
+To reset the password for a given user, create a file named PrivateConf.json with the following contents:
 
 ```bash
 {
-	"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
+	"username":"Username", "password":"NewPassword"
+}
+```
+
+Or to reset the SSH key for a given user, create a file named PrivateConf.json with the following contents:
+
+```bash
+{
+	"username":"Username", "ssh_key":"ContentsOfNewSSHKey"
 }
 ```
 
 Then manually run the `VMAccessForLinux` extension to reset your SSH user credentials:
 
 ```
-azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+azure vm extension set <resource group> <vmname> VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 ```
 
 If you want to try other troubleshooting approaches, you can follow steps in [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](virtual-machines-linux-using-vmaccess-extension.md).
