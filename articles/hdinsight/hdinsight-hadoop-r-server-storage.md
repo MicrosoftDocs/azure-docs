@@ -29,8 +29,9 @@ When you create a Hadoop cluster in HDInsight, you specify an Azure Storage acco
 
 If necessary, you can access multiple Azure storage accounts or containers with your HDI cluster. To do so, you need to specify the additional storage accounts in the UI when you create the cluster, and then follow these steps to use them in R.  
 
-1.	Suppose you create an HDInsight cluster with a storage account name of “storage1” with the default container “container1”.  You also specify an additional storage account called “storage2".  
-2.	Now you copy a file “mycsv.csv” to directory “/share” and want to perform analysis on that file.  
+1.	Create an HDInsight cluster with a storage account name of “storage1” and a default container called “container1”.
+2. Specify an additional storage account called “storage2".  
+3. Copy a file called “mycsv.csv” to the directory called “/share”, and  perform analysis on that file.  
 
 ````
 hadoop fs –mkdir /share
@@ -56,7 +57,7 @@ myPort <- 0
 
     rxSetComputeContext(mySparkCluster)
 
-  Define the HDFS file system:
+  Define the Hadoop Distributed File System (HDFS) file system:
 
     hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
@@ -66,7 +67,7 @@ myPort <- 0
 
 All of the directory and file references point to the storage account wasb://container1@storage1.blob.core.windows.net. This is the **default storage account** that's associated with the HDInsight cluster.
 
-Now suppose you want to process a file called “mySpecial.csv” that's located in the directory “/private” of the container called “container2” in the storage account called “storage2”.
+Now, suppose you want to process a file called “mySpecial.csv” that's located in the directory “/private” of  “container2” in “storage2”.
 
 In your R code, change the name node reference to the “storage2" storage account.
 
@@ -103,7 +104,7 @@ Note that you will have to configure the /user/RevoShare/<SSH username> director
 
 ## Use an Azure Data Lake store
 
-To use Data Lake stores with your HDInsight account, you need to give your cluster access to each Azure Data Lake store that you want to use. Then reference the store in your R script in a manner that's similar to the previous procedure for using a secondary storage account.
+To use Data Lake stores with your HDInsight account, you need to give your cluster access to each Azure Data Lake store that you want to use. You reference the store in your R script much like you use a secondary storage account (as described in the previous procedure).
 
 ## Add cluster access to your Azure Data Lake stores
 
@@ -150,7 +151,7 @@ colInfo <- list(DayOfWeek = list(type = "factor",
                levels = c("Monday", "Tuesday", "Wednesday", "Thursday",
                           "Friday", "Saturday", "Sunday")))
 
-# define the data source
+# Define the data source
 airDS <- RxTextData(file = inputFile, missingValueString = "M",
                     colInfo  = colInfo, fileSystem = hdfsFS)
 
@@ -174,7 +175,7 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 ## Use Azure Files on the edge node
 
-There is also a convenient data storage option for use on the edge node called [Azure Files](../storage/storage-how-to-use-files-linux.md "Azure Files") that allows you to mount an Azure Storage file share to the Linux file system. This can be handy for storing data files, R scripts, and result objects that might be needed later when it makes sense to use the native file system on the edge node rather than HDFS.
+There is also a convenient data storage option for use on the edge node called [Azure Files](../storage/storage-how-to-use-files-linux.md "Azure Files"). It enables you to mount an Azure Storage file share to the Linux file system. This can be handy for storing data files, R scripts, and result objects that might be needed later when it makes sense to use the native file system on the edge node rather than HDFS.
 
 A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or  Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system.
 
