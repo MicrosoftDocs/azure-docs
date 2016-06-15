@@ -74,14 +74,19 @@ You receive this error when the resource SKU you have selected (such as VM size)
 
 1.	Log into portal and begin adding a new resource through the UI. As you set the values, you will see the available SKUs for that resource. 
 
-        ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
+    ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
 
 2.	If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, please reach out to [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
 
 
 ## No registered provider found
 
-You will receive an error code **NoRegisteredProviderFound** for one of three reasons:
+When deploying resource, you may receive the following error code and message:
+
+    Dode: NoRegisteredProviderFound
+    Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
+
+You receive this error for one of three reasons:
 
 1. Location not supported for the resource type
 2. API version not supported for the resource type
@@ -177,34 +182,33 @@ In addition to role-based access control, your deployment actions may be limited
 
 ## Virtual machine troubleshooting
 
-| Articles | Description |
+| Error | Articles |
 | -------- | ----------- |
-| [Troubleshooting Azure Windows VM extension failures](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />or<br />[Troubleshooting Azure Linux VM extension failures](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) | Custom script extension error |
-| [Troubleshoot creating a new Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />or<br />[Troubleshoot creating a new Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md ) | OS image provisioning error |
-| [Troubleshoot allocation failures for Windows VM](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />or<br />[Troubleshoot allocation failures for Linux VM](./virtual-machines/virtual-machines-linux-allocation-failure.md) | Allocation failures  |
-| [Troubleshoot Secure Shell connections to a Linux-based Azure virtual machine](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) | Secure Shell (SSH) errors when attempting to connect |
-| [Troubleshoot access to an application running on a Windows virtual machine](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />or<br />[Troubleshoot access to an application running on a Linux virtual machine](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) | Error connecting to an application running on a VM |
-| [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) | Cannot connect to VM |
-| [Redeploy Virtual Machine to new Azure node](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) | Resolve connection error by re-deploying |
-| [Troubleshoot cloud service deployment problems](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) | Cloud service errors |
+| Custom script extension errors | [Windows VM extension failures](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />or<br />[Linux VM extension failures](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) | 
+| OS image provisioning errors | [New Windows VM errors](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />or<br />[New Linux VM errors](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md ) | 
+| Allocation failures | [Windows VM allocation failures](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />or<br />[Linux VM allocation failures](./virtual-machines/virtual-machines-linux-allocation-failure.md) | 
+| Secure Shell (SSH) errors when attempting to connect | [Secure Shell connections to Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) | 
+| Errors connecting to application running on VM | [Application running on Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />or<br />[Application running on a Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) | 
+| Remote Desktop connection errors | [Remote Desktop connections to Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) | 
+| Connection errors resolved by re-deploying | [Redeploy Virtual Machine to new Azure node](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) | 
+| Cloud service errors | [Cloud service deployment problems](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) | 
 
-## Other Azure servcies troubleshooting
+## Other Azure services troubleshooting
 
 The following topics focus on issues related to deploying or configuring resources. If you need help troubleshooting a run-time issues with a resource, see the documentation for that Azure services. 
 
-| Articles | Services |
+| Service | Article |
 | -------- | -------- |
-| [Troubleshooting tips for common errors in Azure Automation](./automation/automation-troubleshooting-automation-errors.md) | Automation |
-| [Microsoft Azure Stack troubleshooting](./azure-stack/azure-stack-troubleshooting.md) | Azure Stack |
-| [Web Apps and Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md ) | Azure Stack |
-| [Troubleshoot Data Factory issues](./data-factory/data-factory-troubleshoot.md) | Data Factory |
-| [Troubleshoot StorSimple device deployment issues](./storsimple/storsimple-troubleshoot-deployment.md) | StorSimple |
-| [Monitor and troubleshoot protection for virtual machines and physical servers](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) | Site Recovery |
-| [Troubleshoot connection issues to Azure SQL Database](./sql-database/sql-database-troubleshoot-common-connection-issues.md) | SQL Database |
-| [Troubleshoot common issues when you deploy services on Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) | Service Fabric |
-| [Troubleshooting Azure SQL Data Warehouse](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) | SQL Data Warehouse |
-| [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](./storage/storage-monitoring-diagnosing-troubleshooting.md) | Storage |
-
+| Automation | [Troubleshooting tips for common errors in Azure Automation](./automation/automation-troubleshooting-automation-errors.md) | 
+| Azure Stack | [Microsoft Azure Stack troubleshooting](./azure-stack/azure-stack-troubleshooting.md) | 
+| Azure Stack | [Web Apps and Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md ) | 
+| Data Factory | [Troubleshoot Data Factory issues](./data-factory/data-factory-troubleshoot.md) | 
+| Service Fabric | [Troubleshoot common issues when you deploy services on Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) | 
+| Site Recovery | [Monitor and troubleshoot protection for virtual machines and physical servers](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
+| Storage | [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
+| StorSimple | [Troubleshoot StorSimple device deployment issues](./storsimple/storsimple-troubleshoot-deployment.md) | 
+| SQL Database | [Troubleshoot connection issues to Azure SQL Database](./sql-database/sql-database-troubleshoot-common-connection-issues.md) | 
+| SQL Data Warehouse | [Troubleshooting Azure SQL Data Warehouse](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) | 
 
 ## Understand when a deployment is ready 
 
@@ -217,5 +221,3 @@ the [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate
 
 - To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md).
-- To troubleshoot Remote Desktop Protocol errors to your Windows-based virtual machine, see [Troubleshoot Remote Desktop connections](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
-- To troubleshoot Secure Shell errors to your Linux-based virtual machine, see [Troubleshoot Secure Shell connections](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).

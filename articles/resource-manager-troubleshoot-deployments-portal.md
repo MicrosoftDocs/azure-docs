@@ -51,7 +51,7 @@ To see the deployment operations, use the following steps:
 
     ![view operations](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
 
-    In this case, you see that the storage account, virtual network, and availability set were successfully created. The publich IP address failed, and other resources were not attempted.
+    In this case, you see that the storage account, virtual network, and availability set were successfully created. The public IP address failed, and other resources were not attempted.
 
 5. You can view events for the deployment by selecting **Events**.
 
@@ -83,7 +83,7 @@ To see errors for a deployment, use the following steps:
 
     ![set filter options](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
 
-5. You can further filter operations by setting a time span. The following image filters the view to a particular 20 minute timespan.
+5. You can further filter operations by setting a time span. The following image filters the view to a particular 20-minute timespan.
 
     ![set time](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
 
