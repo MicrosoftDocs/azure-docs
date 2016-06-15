@@ -159,7 +159,7 @@ Note that:
 - SNI server-side certificates are not supported
 - Client certificates are not supported
 
-### What host header is used for endpoint health checks?
+### What host header do endpoint health checks use?
 
 The host header used in HTTP and HTTPS health checks is the DNS name associated with each endpoint. This is exposed as the endpoint target in the Azure portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), [cross-platform Azure CLI](../xplat-cli-install.md), and [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx).
 
