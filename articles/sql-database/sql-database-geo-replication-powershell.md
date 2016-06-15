@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Configure Active Geo-Replication for Azure SQL Database using PowerShell | Microsoft Azure" 
-    description="geo-replication for Azure SQL Database using PowerShell" 
+    description="Configure Active Geo-replication for Azure SQL Database using PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,31 +13,29 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="sstein"/>
 
-# Configure geo-replication for Azure SQL Database with PowerShell
-
-
+# Configure Geo-Replication for Azure SQL Database with PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-portal.md)
+- [Overview](sql-database-geo-replication-overview.md)
+- [Azure Portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-
-This article shows you how to configure geo-replication for SQL Database with PowerShell.
+This article shows you how to configure Active Geo-Replication for SQL Database with PowerShell.
 
 To initiate failover, see [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-powershell.md).
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
-You can configure up to 4 readable secondary databases in the same or different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
 
-To configure geo-replication you need the following:
 
-- An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
-- An Azure SQL database - The primary database that you want to replicate to a different geographical region.
+To configure Active Geo-Replication using PowerShell, you need the following:
+
+- An Azure subscription. 
+- An Azure SQL database - The primary database that you want to replicate.
 - Azure PowerShell 1.0 or later. You can download and install the Azure PowerShell modules by following [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
@@ -63,7 +61,7 @@ After successfully running **Select-AzureRmSubscription** you are returned to th
 ## Add secondary database
 
 
-The following steps create a new secondary database in a geo-replication partnership.  
+The following steps create a new secondary database in a Geo-Replication partnership.  
   
 To enable a secondary you must be the subscription owner or co-owner. 
 
@@ -74,7 +72,7 @@ This cmdlet replaces **Start-AzureSqlDatabaseCopy** with the **–IsContinuous**
 The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) and [Service Tiers](sql-database-service-tiers.md).
 After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. The steps below describe how to accomplish this task using PowerShell to create non-readable and readable secondaries, either with a single database or an elastic database.
 
-If the partner database already exists (for example - as a result of terminating a previous geo-replication relationship) the command will fail.
+If the partner database already exists (for example - as a result of terminating a previous Geo-Replication relationship) the command will fail.
 
 
 
@@ -159,7 +157,7 @@ The following command retrieves status of the replication link between the prima
 ## Additional resources
 
 - [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)

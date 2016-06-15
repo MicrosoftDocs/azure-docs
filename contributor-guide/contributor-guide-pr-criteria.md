@@ -9,6 +9,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Category | Quality review item |
 |----------|---------------------|
 |Prerequisites|	The "ready-to-merge" and the "validation succeeded" labels are assigned to the PR.|
+|Prerequisites| The pull request cannot be blocked by a merge conflict.|
 |Repo integrity|	Pull request contains no obvious content regressions.|
 |Repo integrity|	Pull request does not include an embedded repo or any unusual, extraneous files.|
 |Repo integrity	|Pull request contains fewer than 100 changed files unless the PR intentionally is updating a release branch from master. (Really, a PR should contain far fewer than that, but after 100 changed files, GitHub doesn’t display the diffs).|
@@ -16,7 +17,7 @@ The updates in the pull request must comply with the following criteria to be me
 |Naming	|New folders introduced into the repo follow the [folder naming guidelines](file-names-and-locations.md#folder-names-in-the-repo).|
 |Content	|The article is a technical document, and therefore in the correct content channel. See the [what goes where guidance](content-channel-guidance.md).|
 |Content	|The subject matter in the technical document is appropriate for a technical article. See the [what goes where guidance](content-channel-guidance.md).|
-|Content	|The article contains an introductory paragraph, and a procedural or conceptual body of content. The article needs to contain sufficient, complete content to stand on its own as an article. It should not be a small fragment of information.|
+|Content	|The article contains an introductory paragraph, and a procedural or conceptual body of content. The article needs to contain sufficient, complete content to stand on its own as an article. It should not be a small fragment of information. (Exception: A "Limits" topic if it is in the context of a large article that lists all of the limits of a service.)|
 |Content| Elements that should be numbered lists are numbered, elements that should be unordered lists are bulleted. This is basic usability.|
 |Content| Unusual or novel graphics, information architecture or structures, or obviously non-standard designs need to be vetted with the lead PR reviewer. Teams that are experimenting with new things need to have a problem/solution canvas or plan in place for evaluating experiments.|
 |Site/design functionality|	Switchers are used only for switching across multiple versions of the same article.|

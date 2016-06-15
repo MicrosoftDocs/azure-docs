@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/14/2016" 
+	ms.date="06/10/2016" 
 	ms.author="raynew"/>
 
 # Failover in Site Recovery
@@ -49,8 +49,8 @@ VMM site to Azure | Supported | Supported | Supported
 Azure to VMM site | Unsupported | Supported | Unsupported 
 Hyper-V site to Azure | Supported | Supported | Supported
 Azure to Hyper-V site | Unsupported | Supported | Unsupported
-VMware site to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) |This scenario uses continuous replication so there's no distinction between planned and unplanned failover. You select **Failover** | NA
-Physical server to Azure | Not supported | This scenario uses continuous replication so there's no distinction between planned and unplanned failover. You select **Failover** | NA
+VMware site to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) |Unsupported | Supported
+Physical server to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) | Unsupported | Supported
 
 ## Failover and failback
 

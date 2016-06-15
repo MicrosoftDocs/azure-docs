@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Security Best Practices and Patterns | Microsoft Azure"
-   description=" This article discusses best practices and useful patterns helpful in improving the security of Azure deployments. "
-   services="security"
+   pageTitle="Azure security best practices and patterns | Microsoft Azure"
+   description="The article provides an introduction about Azure Security Best Practices and Patterns and a curated list of security best practices for different Azure resources."
+   services="azure-security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,10 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/25/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
-# Azure Security Best Practices and Patterns
+# Azure security best practices and patterns
+
+We currently have the following Azure security best practices and patterns articles. Make sure to visit this site periodically to see updates to our growing list of Azure security best practices and patterns:  
+
+- [Azure network security best practices](azure-security-network-security-best-practices.md)
+- [Azure data security and encryption best practices](azure-security-data-encryption-best-practices.md)
+- [Identity management and access control security best practices](azure-security-identity-management-best-practices.md)
+- [Internet of Things security best practices](azure-security-iot-best-practices.md)
+- [Best practices for software update on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
+- [Azure boundary security best practices](../best-practices-network-security.md)
+- [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
 Azure provides a secure platform on which you can build your solutions. We also provide you a great deal of services and technologies that you can use to make the services you build on Azure more secure. Because of the many options available to you, many of you have voiced an interest in what Microsoft might recommend as best practices and patterns for improving security for their Azure deployments.
 
@@ -32,11 +42,4 @@ For each best practice we strive to explain:
 - Possible alternatives to the best practice
 - How you can learn to enable the best practice
 
-We currently have the following Azure security best practices and patterns articles. Make sure to visit this site periodically to see updates to our growing list of Azure security best practices and patterns:
-
-- [Azure Network Security Best Practices](azure-security-network-security-best-practices.md)
-- [Azure Data Security and Encryption Best Practices](azure-security-data-encryption-best-practices.md)
-- [Identity Management and Access Control Security Best Practices](azure-security-identity-management-best-practices.md)
-- [Internet of Things Security Best Practices](azure-security-iot-best-practices.md)
-- [Best practices for software update on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
-- [Azure Boundary Security Best Practices](../best-practices-network-security.md)
+We look forward to including many more articles on Azure security architecture and best practices. If there are topics that you'd like us to include, let us know in the discussion area at the bottom of this page.

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ To configure the integration of Predictix Price Reporting into Azure AD, you nee
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Active Directory][1]
+	![Applications][1]
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
@@ -79,10 +79,11 @@ To configure the integration of Predictix Price Reporting into Azure AD, you nee
 
 6. In the search box, type **Predictix Price Reporting**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_01.png)
+	![Applications](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_01.png)
+
 7. In the results pane, select **Predictix Price Reporting**, and then click **Complete** to add the application.
 
-
+	![Applications](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Predictix Price Reporting based on a test user called "Britta Simon".
@@ -118,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Predictix Price Reporting application using the following pattern: **https://\<company name-pricing\>.predictix.com/sso/request**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Predictix Price Reporting application using the following pattern: `https://<company name-pricing>.predictix.com/sso/request`
 	
 	b. click **Next**
  

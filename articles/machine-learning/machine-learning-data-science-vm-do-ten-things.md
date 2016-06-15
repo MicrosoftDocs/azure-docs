@@ -42,7 +42,7 @@ In this article we walk you through how to use your DSVM to perform various data
 
 - You will need an Azure subscription. You can sign-up for a free trial [here](https://azure.microsoft.com/free/).
 
-- Instructions for provisioning a Data Science Virtual Machine on the Azure Portal are available at [Creating a virtual machine](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+- Instructions for provisioning a Data Science Virtual Machine on the Azure Portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
 ## 1. Explore data and develop models using Microsoft R Server or Python
 
@@ -201,7 +201,7 @@ More information about the Azure Machine Learning R library can be found [here](
 The DSVM not only allows you to build your analytics solution locally on the virtual machine, but also allows you to access services on Microsoft's Azure cloud. Azure provides several compute, storage, data analytics services and other services that you can administer and access from your DSVM.
 
 To administer your Azure subscription and cloud resources you can use your browser and point to the
-[Azure Portal](portal.azure.com). You can also use Azure Powershell to administer your Azure subscription and resources via a script.
+[Azure Portal](https://portal.azure.com). You can also use Azure Powershell to administer your Azure subscription and resources via a script.
 You can run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell". Refer to
 [Microsoft Azure Powershell documentation](../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
 
@@ -273,7 +273,7 @@ Azure blob is a reliable, economical cloud storage for data big and small. Let u
 
 **Prerequisite**
 
-- **Create your Azure Blob storage account from [Azure Portal](http://portal.azure.com).**
+- **Create your Azure Blob storage account from [Azure Portal](https://portal.azure.com).**
 
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -292,7 +292,7 @@ To move data between your local files and blob storage, you can use AzCopy in co
 
 	AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
-Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure Portal](http://portal.azure.com).
+Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure Portal](https://portal.azure.com).
 
 ![StorageAccountCredential_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
 
@@ -323,7 +323,7 @@ You can also upload data from the local file in your VM using Azure Storage Expl
 
 **Read data from Azure Blob: AML reader module**
 
-In Azure Machine Learning Studio you can use a **Reader module** to read data from your blob.
+In Azure Machine Learning Studio you can use an **Import Data module** to read data from your blob.
 
 
 ![AML_ReaderBlob_Module_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
@@ -384,7 +384,7 @@ Azure Data Lake Storage is a hyper-scale repository for big data analytics workl
 
 **Prerequisite**
 
-- Create your Azure Data Lake Analytics in [Azure Portal](http://portal.azure.com).
+- Create your Azure Data Lake Analytics in [Azure Portal](https://portal.azure.com).
 
 ![Azure_Data_Lake_Create_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
@@ -479,7 +479,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 **Prerequisite**
 
-- Create your Azure Blob storage account from [Azure Portal](http://portal.azure.com). This storage account is used to store data for HDInsight clusters.
+- Create your Azure Blob storage account from [Azure Portal](https://portal.azure.com). This storage account is used to store data for HDInsight clusters.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 

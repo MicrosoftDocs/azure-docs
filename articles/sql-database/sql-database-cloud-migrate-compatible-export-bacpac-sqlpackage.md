@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Export a SQL Server database to a BACPAC file using SqlPackage"
+   pageTitle="Export a SQL Server database to a BACPAC file using SqlPackage | Microsoft Azure"
    description="Microsoft Azure SQL Database, database migration, export database, export BACPAC file, sqlpackage"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Export a SQL Server database to a BACPAC file using SqlPackage
@@ -37,7 +37,7 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
-## Next Steps
+## Next steps
 
 - [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -46,7 +46,7 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 - [Import a BACPAC to Azure SQL Database Azure Portal](sql-database-import.md)
 - [Import a BACPAC to Azure SQL Database PowerShell](sql-database-import-powershell.md)
 
-## Learn More
+## Additional resources
 
 - [SQL Database V12](sql-database-v12-whats-new.md)
 - [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)

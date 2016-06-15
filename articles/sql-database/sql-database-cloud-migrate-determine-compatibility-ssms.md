@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Determine SQL Database compatibility using SSMS"
+   pageTitle="Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database | Microsoft Azure"
    description="Microsoft Azure SQL Database, database migration, SQL Database compatibility, Export Data Tier Application Wizard"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database
@@ -55,14 +55,14 @@ In this article you learn to determine if a SQL Server database is compatible to
 
 8.	If the *.BACPAC file is successfully generated, then your database is compatible with SQL Database, and you are ready to migrate.
 
-## Next Steps
+## Next steps
 
 - [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Fix database migration compatibility issues](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
 - [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## Learn More
+## Additional resources
 
 - [SQL Database V12](sql-database-v12-whats-new.md)
 - [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)

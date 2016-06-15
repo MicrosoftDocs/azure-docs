@@ -28,6 +28,7 @@ There are three distinct steps:
 2. Upload the certificate to Azure Key Vault.
 3. Provide the location and details of the certificate to the Service Fabric cluster creation process.
 
+<a id="acquirecerts"></a>
 ## Step 1: Acquire the X.509 certificate(s)
 
 For clusters that are running production workloads, you must use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed X.509 certificate to secure the cluster. For details on obtaining these certificates, go to [How to: Obtain a Certificate](http://msdn.microsoft.com/library/aa702761.aspx).
@@ -45,10 +46,10 @@ Make sure that Azure PowerShell 1.0+ is installed on your machine. If you have n
 Copy the *ServiceFabricRPHelpers* folder from this [Git repository](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers) to your computer.
 
 ### Step 2.3
-Open a PowerShell window and import the ServiceFabricRPHelpers.psm (change the path of the .psm1 to match the path on your machine).
+Open a PowerShell window and go to the directory where you downloaded the module.  Then import the module using the following command.
 
 ```powershell
-Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+Import-Module .\ServiceFabricRPHelpers.psm1
 ```
 
 ### Step 2.4

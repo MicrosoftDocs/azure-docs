@@ -221,7 +221,7 @@ ErrorCancelingTask|Category of errors to cover failures when attempting to cance
 TransientError|Category of errors to cover transient issues (eg. temporary networking issues with Azure Storage)
 
 
-To get help from the **Media Services** team, open a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+To get help from the **Media Services** team, open a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 
 

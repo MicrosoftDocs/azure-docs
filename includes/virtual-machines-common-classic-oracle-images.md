@@ -1,7 +1,7 @@
 
 
 
-To create virtual machines based on Oracle images, sign in to the [Azure portal](https://ms.portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure portal](https://ms.portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
+To create virtual machines based on Oracle images, sign in to the [Azure portal](https://portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure portal](https://portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
 
 ##Windows-based virtual machine images
 The following is a list of the available Oracle virtual machine images that run on Windows Server on Azure. These images are pay-as-you-go, meaning that Oracle license fees are included in the usage of these images. Microsoft no longer publishes Oracle Database or WebLogic images in Azure Marketplace.  You can still create your own custom image and use the Bring Your Own License model in order to run Oracle software on Microsoft Azure. 
