@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="hero-article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # B2C preview: Secure a web API by using Node.js

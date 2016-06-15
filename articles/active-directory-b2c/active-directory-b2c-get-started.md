@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Create an Azure AD B2C tenant
@@ -46,9 +46,6 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
 
 6. Your tenant is now created and will appear in the Active Directory extension. You are also made a Global Administrator of the tenant. You can add other Global Administrators as required.
 
-    > [AZURE.IMPORTANT]
-    It can take up to two minutes for your tenant to be created. If you face issues during tenant creation, see [Creating an Azure AD Tenant or an Azure AD B2C Tenant - Issues & Resolutions](active-directory-b2c-support-create-directory.md) for guidance.
-
 ## Step 3: Navigate to the B2C features blade on the Azure portal
 
 1. Navigate to the Active Directory extension on the navigation bar on the left side.
@@ -61,7 +58,7 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
 5. The Azure portal with the B2C features blade showing will open in a new browser tab or window.
 
     > [AZURE.IMPORTANT]
-    There is a known issue where this page doesn't load properly (for a small number of tenants). Refreshing the browser should fix it. If not, please contact Azure Support.
+    It can take up to 2-3 minutes for your tenant to be accessible on the Azure portal. Retrying these steps after some time will fix this. If not, please contact Support.
 
 6. Pin this blade to your Startboard for easy access. (The Pin tool is marked in red at the upper-right corner of the features blade.)
 

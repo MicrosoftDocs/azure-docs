@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/22/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Sign up and sign in consumers in your applications
@@ -62,3 +62,7 @@ These links will be useful for exploring the service in depth:
   - [App Model v2.0 Token Reference](active-directory-b2c-reference-tokens.md)
 - Read the [Azure Active Directory B2C FAQs](active-directory-b2c-faqs.md).
 - [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
+
+## Get security updates for our products
+
+We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.

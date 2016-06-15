@@ -12,15 +12,15 @@
 <tags
    ms.service="functions"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="05/07/2016"
    ms.author="glenga"/>
    
 # Create a webhook or API Azure Function
 
-Azure Functions event-driven, compute-on-demand experience that enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
+Azure Functions is an event-driven, compute-on-demand experience that enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
 
 This topic shows you how to create a new Node.js function that is invoked by a GitHub webhook. The new function is created based on a pre-defined template in the Azure Functions portal. You can also watch a short video to see how these steps are performed in the portal.
 
@@ -84,7 +84,7 @@ Now, it's time to test it out.
 See these topics for more information about Azure Functions.
 
 + [Azure Functions developer reference](functions-reference.md)  
-Programmer reference for coding functions and defining triggers and bindings.
+Programmer reference for coding functions.
 + [Testing Azure Functions](functions-test-a-function.md)  
 Describes various tools and techniques for testing your functions.
 + [How to scale Azure Functions](functions-scale.md)  

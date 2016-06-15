@@ -14,20 +14,19 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
-# Create Windows virtual machines with PowerShell and the classic deployment model 
+# Create a Windows virtual machine with PowerShell and the classic deployment model 
 
 > [AZURE.SELECTOR]
 - [Azure classic portal - Windows](virtual-machines-windows-classic-tutorial.md)
 - [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
-- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-create-powershell.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-ps-create.md).
 
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.

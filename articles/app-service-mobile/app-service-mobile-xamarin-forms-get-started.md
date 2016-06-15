@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.topic="hero-article"
+	ms.date="05/06/2016"
 	ms.author="glenga"/>
 
 #Create a Xamarin.Forms app
@@ -63,7 +63,7 @@ If you chose a .NET backend configuration above, you can optionally test the bac
 
 ##Download and run the Xamarin.Forms solution
 
-Here you have a couple of choices. You can download the solution to a Mac and open it in Xamarin Studio, or you can download the solution to a Windows computer and open it in Visual Studio using a networked Mac for building the iOS app. Again, see [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
+Here you have a couple of choices. You can download the solution to a Mac and open it in Xamarin Studio, or you can download the solution to a Windows computer and open it in Visual Studio using a networked Mac for building the iOS app. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) if you need more detailed instructions on the Xamarin setup scenarios.
 
 Let's proceed:
 
@@ -77,6 +77,7 @@ Let's proceed:
 	![][9]
 
 	![][8]
+
 
 ##(Optional) Run the iOS project
 
@@ -93,13 +94,15 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
 3. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the iOS project.
 4. Press the **F5** key to build the project and start the app in the iPhone emulator.
 
+	>[AZURE.NOTE] If you have problems building, run NuGet package manager and update to the latest version of the Xamarin support packages. Sometimes the Quickstart projects may lag behind in being updated to the latest.    
+
 In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+** button.
 
 ![][10]
 
 This sends a POST request to the new mobile app backend hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data is displayed in the list.
 
-> [AZURE.NOTE]
+>[AZURE.NOTE]
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
 
 ##(Optional) Run the Android project
@@ -112,10 +115,13 @@ This section is for running the Xamarin droid project for Android. You can skip 
 2. On the **Run** menu, click **Start Debugging** to build the project and start the app in an Android emulator.
 
 ####In Visual Studio
-1. Right-click the Android project, and then click **Set as StartUp Project**.
+1. Right-click the Android (Droid) project, and then click **Set as StartUp Project**.
 4. On the **Build** menu, click **Configuration Manager**.
 5. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the Android project.
 6. Press the **F5** key to build the project and start the app in an Android emulator.
+
+	>[AZURE.NOTE] If you have problems building, run NuGet package manager and update to the latest version of the Xamarin support packages. Sometimes the Quickstart projects may lag behind in being updated to the latest.    
+
 
 In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+** button.
 
@@ -138,6 +144,9 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 4. On the **Build** menu, click **Configuration Manager**.
 5. In the **Configuration Manager** dialog box, select the **Build** and **Deploy** checkboxes of the Windows project that you chose.
 6. Press the **F5** key to build the project and start the app in a Windows emulator.
+
+	>[AZURE.NOTE] If you have problems building, run NuGet package manager and update to the latest version of the Xamarin support packages. Sometimes the Quickstart projects may lag behind in being updated to the latest.    
+
 
 In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+** button.
 

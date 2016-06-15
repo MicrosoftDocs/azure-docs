@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/23/2016"
+	ms.date="05/16/2016"
 	ms.author="brandwe"/>
 
 # Getting Started With WEB-API for Node

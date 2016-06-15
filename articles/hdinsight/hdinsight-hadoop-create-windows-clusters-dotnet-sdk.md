@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="06/07/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using .NET SDK
@@ -45,96 +45,112 @@ The application requires an Azure resource group, and the default storage accoun
 1. Create a new C# console application in Visual Studio.
 2. Run the following Nuget command in the Nuget Package Management console.
 
-		Install-Package Microsoft.Azure.Common.Authentication -Pre
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight
 
 6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
 
 		using System;
-		using System.Security;
-		using Microsoft.Azure;
-		using Microsoft.Azure.Common.Authentication;
-		using Microsoft.Azure.Common.Authentication.Factories;
-		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
+        using System.Threading;
+        using System.Threading.Tasks;
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
+        using Microsoft.Azure;
+        using Microsoft.Azure.Management.HDInsight;
+        using Microsoft.Azure.Management.HDInsight.Models;
+        using Microsoft.Azure.Management.ResourceManager;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Net.Http;
 		
 		namespace CreateHDInsightCluster
 		{
 			class Program
 			{
+                // The client for managing HDInsight
 				private static HDInsightManagementClient _hdiManagementClient;
-		
-				private static Guid SubscriptionId = new Guid("<Azure Subscription ID>");
+		        // Replace with your AAD tenant ID if necessary
+                private const string TenantId = UserTokenProvider.CommonTenantId; 
+                private const string SubscriptionId = "<Your Azure Subscription ID>";
+                // This is the GUID for the PowerShell client. Used for interactive logins in this example.
+                private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
 				private const string ExistingResourceGroupName = "<Azure Resource Group Name>";
 				private const string ExistingStorageName = "<Default Storage Account Name>.blob.core.windows.net";
 				private const string ExistingStorageKey = "<Default Storage Account Key>";
 				private const string ExistingBlobContainer = "<Default Blob Container Name>";
 				private const string NewClusterName = "<HDInsight Cluster Name>";
-				private const int NewClusterNumNodes = 1;
+				private const int NewClusterNumWorkerNodes = 2;
 				private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
 				private const OSType NewClusterOsType = OSType.Windows;
-                private const string NewClusterType = "Hadoop";
-                private const string NewClusterVersion = "3.2";
+				private const string NewClusterType = "Hadoop";
+				private const string NewClusterVersion = "3.2";
 				private const string NewClusterUsername = "admin";
 				private const string NewClusterPassword = "<HTTP User password>";
+                
+
 		
 				static void Main(string[] args)
 				{
 					System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
 		
-					var tokenCreds = GetTokenCloudCredentials();
-					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-					
-					var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-					resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-					
-					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
-				
-					var parameters = new ClusterCreateParameters
-					{
-						ClusterSizeInNodes = NewClusterNumNodes,
-						UserName = NewClusterUsername,
-						Password = NewClusterPassword,
-						Location = NewClusterLocation,
-						DefaultStorageAccountName = ExistingStorageName,
-						DefaultStorageAccountKey = ExistingStorageKey,
-						DefaultStorageContainer = ExistingBlobContainer,
-						ClusterType = NewClusterType,
-						OSType = NewClusterOsType
-					};
-		
-					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+					// Authenticate and get a token
+                    var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
+                    // Flag subscription for HDInsight, if it isn't already.
+                    EnableHDInsight(authToken);
+                    // Get an HDInsight management client
+                    _hdiManagementClient = new HDInsightManagementClient(authToken);
 
-                    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
-                    System.Console.ReadLine();
-                    
+                    // Set parameters for the new cluster
+                    var parameters = new ClusterCreateParameters
+                    {
+                        ClusterSizeInNodes = NewClusterNumWorkerNodes,
+                        UserName = NewClusterUsername,
+                        Password = NewClusterPassword,
+                        Location = NewClusterLocation,
+                        DefaultStorageAccountName = ExistingStorageName,
+                        DefaultStorageAccountKey = ExistingStorageKey,
+                        DefaultStorageContainer = ExistingBlobContainer,
+                        ClusterType = NewClusterType,
+                        OSType = NewClusterOsType
+                    };
+                    // Create the cluster
+                    _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+
+					System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+					System.Console.ReadLine();
 				}
 
-				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-				{
-					var authFactory = new AuthenticationFactory();
-		
-					var account = new AzureAccount { Type = AzureAccount.AccountType.User };
-		
-					if (username != null && password != null)
-						account.Id = username;
-		
-					var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-		
-					var accessToken =
-						authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-							.AccessToken;
-		
-					return new TokenCloudCredentials(accessToken);
-				}
-		
-				public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
-				{
-					return new TokenCloudCredentials(subId.ToString(), creds.Token);
-		
-				}
+                /// <summary>
+                /// Authenticate to an Azure subscription and retrieve an authentication token
+                /// </summary>
+                /// <param name="TenantId">The AAD tenant ID</param>
+                /// <param name="ClientId">The AAD client ID</param>
+                /// <param name="SubscriptionId">The Azure subscription ID</param>
+                /// <returns></returns>
+                static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
+                {
+                    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
+                    var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
+                        ClientId, 
+                        new Uri("urn:ietf:wg:oauth:2.0:oob"), 
+                        PromptBehavior.Always, 
+                        UserIdentifier.AnyUser);
+                    return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+                }
+                /// <summary>
+                /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
+                /// </summary>
+                /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
+                /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
+                /// <param name="authToken">An authentication token for your Azure subscription</param>
+                static void EnableHDInsight(TokenCloudCredentials authToken)
+                {
+                    // Create a client for the Resource manager and set the subscription ID
+                    var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
+                    resourceManagementClient.SubscriptionId = SubscriptionId;
+                    // Register the HDInsight provider
+                    var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+                }
 			}
 		}
 
@@ -215,9 +231,9 @@ The following Azure PowerShell script can be use to create the dependent compone
         -Location $location `
         -Type Standard_GRS
 
-    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
     $defaultStorageContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey

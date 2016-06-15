@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="05/23/2016"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application

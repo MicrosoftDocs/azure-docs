@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/05/2016" 
 	ms.author="ddove"/>
 
 # Using the RecoveryManager class to fix shard map problems

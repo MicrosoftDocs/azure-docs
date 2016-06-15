@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 #Run Hadoop MapReduce samples in Windows-based HDInsight
@@ -32,7 +32,7 @@ A set of samples are provided to help you get started running MapReduce jobs on 
 
 Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting. For more information about these resources, see:
 
-- [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+- [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 - [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Introduction to Azure HDInsight][hdinsight-introduction]
 
@@ -55,7 +55,7 @@ To submit a MapReduce project, you first create a MapReduce job definition. In t
 
 The source code can be found in the [Appendix A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-For the procedure of developing a Java MapReduce program, see - [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+For the procedure of developing a Java MapReduce program, see - [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
  
 **To submit a word count MapReduce job**
 
@@ -91,7 +91,7 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
 		# Get the job output
 		$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 		$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 		$defaultStorageContainer = $cluster.DefaultStorageContainer
 		
 		Get-AzureRmHDInsightJobOutput `

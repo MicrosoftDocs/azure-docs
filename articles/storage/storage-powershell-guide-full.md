@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure PowerShell cmdlets for Azure Storage to create and manage storage accounts; work with blobs, tables, queues, and files; configure and query storage analytics, and create shared access signatures."
 	services="storage"
 	documentationCenter="na"
-	authors="robinsh" 
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/18/2016"
 	ms.author="robinsh"/>
 
 # Using Azure PowerShell with Azure Storage
@@ -102,16 +102,16 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 	- **$SubscriptionName:** You must update this variable with your own subscription name. Follow one of the following three ways to locate the name of your subscription:
 
 		a. In **Windows PowerShell ISE**, click **File** > **New** to create a new script file. Copy the following script to the new script file and click **Debug** > **Run**. The following script will first ask your Azure account credentials to add your Azure account to the local PowerShell environment and then show all the subscriptions that are connected to the local PowerShell session. Take a note of the name of the subscription that you want to use while following this tutorial:
-		
+
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-		
+
 		b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
-		
+
 		![Azure Portal][Image2]
-		  
+
 		c. To locate and copy your subscription name in the [Azure Classic Portal](https://manage.windowsazure.com/), scroll down and click **Settings** on the left side of the portal. Click **Subscriptions** to see a list of your subscriptions. Copy the name of subscription that you want to use while running the scripts given in this guide.
-		
+
 		![Azure Classic Portal][Image1]
 
 	- **$StorageAccountName:** Use the given name in the script or enter a new name for your storage account. **Important:** The name of the storage account must be unique in Azure. It must be lowercase, too!
@@ -235,6 +235,24 @@ For more information on how to configure a storage connection string, see [Confi
 
 Now that you have set up your computer and learned how to manage subscriptions and storage accounts using Azure PowerShell. Go to the next section to learn how to manage Azure blobs and blob snapshots.
 
+### How to retrieve and regenerate Azure storage keys
+
+An Azure Storage account comes with two account keys. You can use the following cmdlet to retrieve your keys.
+
+	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+
+Use the following cmdlet to retrieve a specific key. Valid values are Primary and Secondary.  
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+
+If you would like to regenerate your keys, use the following cmdlet. Valid values for -KeyType are "Primary" and "Secondary"
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+
 ## How to manage Azure blobs
 Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob Storage Service concepts. For detailed information, see [Get started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
@@ -298,9 +316,9 @@ You can copy blobs across storage accounts and regions asynchronously. The follo
 Note that this example performs an asynchronous copy. You can monitor the status of each copy by running the [Get-AzureStorageBlobCopyState](http://msdn.microsoft.com/library/azure/dn806406.aspx) cmdlet.
 
 ### How to copy blobs from a secondary location
-You can copy blobs from the secondary locatioon of a RA-GRS enabled account. 
+You can copy blobs from the secondary locatioon of a RA-GRS enabled account.
 
-    #define secondary storage context using a connection string constructed from secondary endpoints. 
+    #define secondary storage context using a connection string constructed from secondary endpoints.
     $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;BlobEndpoint=http://***-secondary.blob.core.windows.net;FileEndpoint=http://***-secondary.file.core.windows.net;QueueEndpoint=http://***-secondary.queue.core.windows.net; TableEndpoint=http://***-secondary.table.core.windows.net;"
     Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
 
@@ -668,13 +686,17 @@ To use Azure Storage with AzureChinaCloud, you need to create a storage context 
 
 To use Azure Storage with [U.S. Azure Government](https://azure.microsoft.com/features/gov/), you should define a new environment and then create a new storage context with this environment:
 
-1. Call the [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) cmdlet to create a new Azure environment for your private datacenter.
+1.	Run the [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) cmdlet to see the available Azure environments:
 
-    	Add-AzureEnvironment -Name $EnvironmentName -PublishSettingsFileUrl $publishSettingsFileUrl -ServiceEndpoint $serviceEndpoint -ManagementPortalUrl $managementPortalUrl -StorageEndpoint $storageEndpoint -ActiveDirectoryEndpoint $activeDirectoryEndpoint -ResourceManagerEndpoint $resourceManagerEndpoint -GalleryEndpoint $galleryEndpoint -ActiveDirectoryServiceEndpointResourceId $activeDirectoryServiceEndpointResourceId -GraphEndpoint $graphEndpoint -SubscriptionDataFile $subscriptionDataFile
+    `Get-AzureEnvironment`
 
-2. Run the [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) cmdlet to create a new storage context for this new environment as shown below.
+2.	Add an Azure US Government account to Windows PowerShell:
 
-	    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment $EnvironmentName
+    `Add-AzureAccount –Environment AzureUSGovernment`
+
+3.	Create a storage context for an AzureUSGovernment account:
+
+    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
 
 For more information, see:
 
@@ -731,4 +753,3 @@ In this guide, you've learned how to manage Azure Storage with Azure PowerShell.
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
- 

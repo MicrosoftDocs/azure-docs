@@ -14,14 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2016"
-	ms.author="stevestein"/>
+	ms.date="05/09/2016"
+	ms.author="sstein"/>
 
 
 # How to: Configure an Azure SQL Database firewall using the REST API
 
 
 > [AZURE.SELECTOR]
+- [Overview](sql-database-firewall-configure.md)
 - [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)

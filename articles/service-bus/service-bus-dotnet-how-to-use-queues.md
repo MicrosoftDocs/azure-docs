@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="06/10/2016"
     ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -28,14 +28,10 @@ This article describes how to use Service Bus queues. The samples are written in
 
 ## Add the Service Bus NuGet package
 
-The [Service Bus **NuGet** package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express. The Service Bus NuGet package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
-
-To install the NuGet package in your application, do the following:
+The [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. To install the NuGet package in your application, do the following:
 
 1.  In Solution Explorer, right-click **References**, then click **Manage NuGet Packages**.
 2.  Search for "Service Bus" and select the **Microsoft Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog box.
-
-    ![][7]
 
 You are now ready to write code for Service Bus.
 
@@ -48,9 +44,9 @@ Service Bus uses a connection string to store endpoints and credentials. You can
 
 In both cases, you can retrieve your connection string using the [CloudConfigurationManager.GetSetting][GetSetting] method, as shown later in this article.
 
-### Configure your connection string when using Cloud Services
+### Configure your connection string
 
-The service configuration mechanism is unique to Azure Cloud Services projects and enables you to dynamically change configuration settings from the [Azure classic portal][] without redeploying your application. For example, add a `Setting` label to your service definition (.csdef) file, as shown in the next example.
+The service configuration mechanism enables you to dynamically change configuration settings from the [Azure classic portal][] without redeploying your application. For example, add a `Setting` label to your service definition (.csdef) file, as shown in the next example.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -182,7 +178,8 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Service Bus queues support a [maximum message size of 256 Kb](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (the header, which includes  the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioned messaging entities](service-bus-partitioning.md).
+Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioned messaging entities](service-bus-partitioning.md).
 
 ## How to receive messages from a queue
 
@@ -251,7 +248,6 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
 -   Download Service Bus samples from [Azure samples][] or see the [overview of Service Bus samples][].
 
   [Azure classic portal]: http://manage.windowsazure.com
-  [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md
   [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2

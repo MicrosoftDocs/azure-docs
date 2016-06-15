@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
@@ -80,7 +80,7 @@ Once the prediction results have been understood and judged sound, the experimen
 
 Figure 3 Scoring Experiment of Iris Two-Class Classification Problem
 
-Now we need to set the input and output for the web service. Obviously, the input is the right input port of [Score Model][score-model], which is the Iris flower features input. The choice of the output depends on whether we are interested in the predicted class (scored label), the scored probability, or both. Here,  it is assumed that we are interested in both. To select the desired output columns, we need to use a [Project Columns][project-columns] module. We click on [Project Columns][project-columns] module, click on **Launch column selector** in the right panel, and select **Scored Labels** and **Scored Probabilities**. After setting the output port of [Project Columns][project-columns] module and running it again, we should be ready to publish the scoring experiment as a web service by clicking on **PUBLISH WEB SERVICE** button at the bottom. The final experiment looks like Figure 4.
+Now we need to set the input and output for the web service. Obviously, the input is the right input port of [Score Model][score-model], which is the Iris flower features input. The choice of the output depends on whether we are interested in the predicted class (scored label), the scored probability, or both. Here,  it is assumed that we are interested in both. To select the desired output columns, we need to use a [Select Columns in Dataset][select-columns] module. We click on [Select Columns in Dataset][select-columns] module, click on **Launch column selector** in the right panel, and select **Scored Labels** and **Scored Probabilities**. After setting the output port of [Select Columns in Dataset][select-columns] module and running it again, we should be ready to publish the scoring experiment as a web service by clicking on **PUBLISH WEB SERVICE** button at the bottom. The final experiment looks like Figure 4.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/4.png)
 
@@ -117,7 +117,7 @@ The left sixteen columns represent the feature values of the test set. The colum
 
 **Web service publication**
 
-This time, instead of using [Project Columns][project-columns] to select some columns as the output of our web service, we would like to get the scored label for each entry and the probability of the scored label. The basic logic is to find the largest probability among all the scored probabilities. To do this, we need to use [Execute R Script][execute-r-script] module. The R code is shown in Figure 8 and the experiment is as Figure 9.
+This time, instead of using [Select Columns in Dataset][select-columns] to select some columns as the output of our web service, we would like to get the scored label for each entry and the probability of the scored label. The basic logic is to find the largest probability among all the scored probabilities. To do this, we need to use [Execute R Script][execute-r-script] module. The R code is shown in Figure 8 and the experiment is as Figure 9.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/8.png)
 
@@ -304,7 +304,7 @@ Figure 26 Web Service Result of Restaurant Recommendation Problem
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
