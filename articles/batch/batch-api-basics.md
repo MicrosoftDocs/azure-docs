@@ -16,11 +16,13 @@
 	ms.date="06/16/2016"
 	ms.author="marsma"/>
 
-# Overview of Azure Batch features
+# Batch feature and development overview
 
-This article provides a basic overview of the core API features of the Azure Batch service. Whether developing a distributed computational solution using the [Batch REST][batch_rest_api] API or one of the [Batch SDKs](batch-technical-overview.md#batch-development-apis), you will use many of the entities and features discussed below.
+In this overview of the core components of the Azure Batch service, we discuss the primary service features that Batch developers can use to build parallel compute solutions.
 
-> [AZURE.TIP] For a higher level technical overview of Batch, please see the [Basics of Azure Batch](batch-technical-overview.md).
+Whether you're developing a distributed computational application or service that issues direct [Batch REST][batch_rest_api] API calls or you use one of the several [Batch SDKs](batch-technical-overview.md#batch-development-apis), you will use many of the resources and features discussed below.
+
+> [AZURE.TIP] For a higher level overview of Batch, please see the [Basics of Azure Batch](batch-technical-overview.md).
 
 ## Workflow of the Batch service
 
@@ -44,7 +46,7 @@ In the sections below, you'll learn about each of the resources mentioned in the
 
 ## Resources of the Batch service
 
-Some of the following resources—accounts, compute nodes, pools, jobs, and tasks—are used in all Batch solutions. Others, such as job schedules and application packages, are helpful but optional features.
+Some of the following resources—accounts, compute nodes, pools, jobs, and tasks—are essential to all solutions using the Batch service. Others, such as job schedules and application packages, are helpful but optional .
 
 - [Account](#account)
 - [Compute node](#compute-node)
@@ -156,6 +158,14 @@ A job is a collection of tasks and manages how computation is performed by its t
 	Batch can detect and then retry failed tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is *always* or *never* retried. Retrying a task means that the task is requeued to be run again.
 
 - Tasks can be added to a job by your client application, or a [Job Manager task](#job-manager-task) may be specified. A job manager task contains the information necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is *required* for jobs created by a [job schedule](#scheduled-jobs), because is the only way to define the tasks before the job is instantiated.
+
+### Job priority
+
+You can assign a priority to jobs that you create in Batch. The Batch service uses the priority value of the job to determine the order of job scheduling within an account (this is not to be confused with a [scheduled job](#scheduled-jobs)). The priority values range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest. You can update the priority of a job by using the [Update the properties of a job][rest_update_job] operation (Batch REST) or by modifying the [CloudJob.Priority][net_cloudjob_priority] property (Batch .NET).
+
+Within the same account, higher priority jobs have scheduling precedence over lower priority jobs. A job with a higher priority value in one account does not have scheduling precedence over another job with a lower priority value in a different account.
+
+Job scheduling across pools is independent. Between different pools, it is not guaranteed that a higher priority job will be scheduled first if its associated pool is short of idle nodes. In the same pool, jobs with the same priority level have an equal chance of being scheduled.
 
 ### Scheduled jobs
 
@@ -338,14 +348,6 @@ For more information about automatically scaling an application, see [Automatica
 You typically need to use certificates when encrypting or decrypting sensitive information for tasks, such as the key for an [Azure Storage account][azure_storage]. To support this, certificates can be installed on nodes. Encrypted secrets are passed to tasks via command-line parameters or embedded in one of the task resources, and the installed certificates can be used to decrypt them.
 
 You use the [Add certificate][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] method (Batch .NET) to add a certificate to a Batch account. You can then associate the certificate to a new or existing pool. When a certificate is associated with a pool, the Batch service installs the certificate on each node in the pool. The Batch service installs the appropriate certificates when the node starts up, before launching any tasks (including the start task and job manager task).
-
-## Scheduling priority
-
-You can assign a priority to jobs you create in Batch. The Batch service uses the priority value of the job to determine the order of job scheduling within an account. The priority values range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest. You can update the priority of a job by using the [Update the properties of a job][rest_update_job] operation (Batch REST) or by modifying the [CloudJob.Priority][net_cloudjob_priority] property (Batch .NET).
-
-Within the same account, higher priority jobs have scheduling precedence over lower priority jobs. A job with a higher priority value in one account does not have scheduling precedence over another job with a lower priority value in a different account.
-
-Job scheduling across pools is independent. Between different pools, it is not guaranteed that a higher priority job will be scheduled first if its associated pool is short of idle nodes. In the same pool, jobs with the same priority level have an equal chance of being scheduled.
 
 ## Error handling
 
