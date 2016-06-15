@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Resource health overview"
+   pageTitle="Azure Resource health overview | Microsoft Azure"
    description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
