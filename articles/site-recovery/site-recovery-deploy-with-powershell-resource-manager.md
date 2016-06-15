@@ -82,19 +82,10 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 	In the output of these commands, if the **RegistrationState** is set to **Registered**, you can proceed to Step 2. If not, you should register the missing provider in your subscription.
 
-	To register the Azure provider for Site Recovery, run the following command:
+	To register the Azure provider for Site Recovery and Recovery Services, run the following commands:
 
     	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery
-
-	Similarly, if you are using the Recovery Services cmdlets for the first time in your subscription, you should register the Azure provider for Recovery Services. Before you can do this, first enable access to the Recovery Services provider on your subscription, by running the following command:
-
-		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
-
-	>[AZURE.TIP] After successful completion of this command, it may take up to an hour to enable access to the Recovery Services provider on your subscription. Attempts to register the Recovery Services provider in your subscription by using the `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` command might fail in the interim. If this happens, wait for an hour and retry.
-
-	Once you've enabled access to the Recovery Services provider on your subscription, register the provider in your subscription by running the following command:
-
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 
 	Verify that the providers registered successfully by using the following commands: `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` and `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
