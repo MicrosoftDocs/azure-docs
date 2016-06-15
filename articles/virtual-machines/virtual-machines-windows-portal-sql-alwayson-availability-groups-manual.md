@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="06/15/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configure Always On availability group in Azure VM manually - Resource Manager
@@ -110,11 +110,11 @@ To create the virtual network:
  
 
  
-Configure the virtual network on the **Create virtual network** blade. 
+1. Configure the virtual network on the **Create virtual network** blade. 
 
-The table below shows the settings for the virtual network. 
+    The table below shows the settings for the virtual network. 
 
-| **Field** | Value |
+    | **Field** | Value |
 | ----- | ----- |
 | **Name** | autoHAVNET |
 | **Address space** | 10.0.0.0/16 |
@@ -123,9 +123,9 @@ The table below shows the settings for the virtual network.
 | **Subscription** | Specify the subscription that you intend to use. If you only have one subscription this may be blank. |
 | **Location** | Specify the Azure location where you will deploy your availability group |
 
-Note that your address space and subnet address range may be different from the table. Depending on your subscription Azure will automatically specify an available address space and corresponding subnet address range. If no sufficient address space is available use a different subscription. 
+    Note that your address space and subnet address range may be different from the table. Depending on your subscription Azure will automatically specify an available address space and corresponding subnet address range. If no sufficient address space is available use a different subscription. 
 
-Click **Create** 
+1. Click **Create**
 
     ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
@@ -154,7 +154,7 @@ At this point your virtual network contains one subnet, named Subnet-1. The doma
  In the **Add Subnet** blade configure the subnet by typing **subnet-2** under **Name**. Azure will automatically specify a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment you may require more addresses. 
 
 Click **OK**. 
-
+ 
     ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
    
 Here is a summary of the configuration settings for the virtual network and both subnets.
@@ -209,7 +209,7 @@ You will go through that process twice to create two virtual machines. Name the 
 - ad-primary-dc
 - ad-secondary-dc
 
- [AZURE.NOTE] **ad-secondary-dc** is an optional component to provide high availability for Active Directory domain services. 
+ >[AZURE.NOTE] **ad-secondary-dc** is an optional component to provide high availability for Active Directory domain services. 
 
 The following table shows the settings for these two machines.
 
@@ -236,6 +236,8 @@ The following table shows the settings for these two machines.
 Azure will create the virtual machines.
 
 After the virtual machines are created, configure the domain controller.
+
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
 
 ### Configure the domain controller
 
@@ -279,7 +281,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 | **Page** |Setting|
 |---|---|
-|** Deployment Configuration** |**Add a new forest** = Selected<br/>**Root domain name** = corp.contoso.com|
+|**Deployment Configuration** |**Add a new forest** = Selected<br/>**Root domain name** = corp.contoso.com|
 |**Domain Controller Options**|**DSRM Password** = Contoso!000<br/>**Confirm Password** = Contoso!000|
 
 1. Click **Next** to go through the other pages in the wizard. On the **Prerequisites Check** page, verify that you see the following message: **All prerequisite checks passed successfully**. Note that you should review any applicable warning messages, but it is possible to continue with the install.
