@@ -151,11 +151,11 @@ At this point your virtual network contains one subnet, named Subnet-1. The doma
 
 1. Create a second subnet. Click **+ Subnet**. 
 
- In the **Add Subnet** blade configure the subnet by typing **subnet-2** under **Name**. Azure will automatically specify a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment you may require more addresses. 
+    In the **Add Subnet** blade configure the subnet by typing **subnet-2** under **Name**. Azure will automatically specify a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment you may require more addresses. 
 
-Click **OK**. 
+1. Click **OK**.
  
-    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
+![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
    
 Here is a summary of the configuration settings for the virtual network and both subnets.
 
