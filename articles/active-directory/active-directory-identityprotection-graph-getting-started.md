@@ -217,15 +217,15 @@ Just add your client id, key, and tenant domain.
 Congratulations, you just made your first call to Microsoft Graph!  
 Now you can query identity risk events and use the data however you see fit.
 
-To learn more about Microsoft Graph and how to build applications using the Graph API, check out the [documentation](https://graph.microsoft.io/docs) and much more on the [Microsoft Graph site](https://graph.microsoft.io/). Also, make sure to bookmark the [Azure AD Identity Protection API](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/identityprotection_root) page that lists all of the Identity Protection APIs available in Graph. As we add new ways to work with Identity Protection via API, you’ll see them on that page.
+To learn more about Microsoft Graph and how to build applications using the Graph API, check out the [documentation](https://graph.microsoft.io/docs) and much more on the [Microsoft Graph site](https://graph.microsoft.io/). Also, make sure to bookmark the [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) page that lists all of the Identity Protection APIs available in Graph. As we add new ways to work with Identity Protection via API, you’ll see them on that page.
 
 
 ## Additional resources
 
-- [Azure Active Directory Identity Protection](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection/)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 - [Microsoft Graph](https://graph.microsoft.io/)
 
 - [Overview of Microsoft Graph](https://graph.microsoft.io/docs)
 
-- [Azure AD Identity Protection Service Root](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/identityprotection_root)
+- [Azure AD Identity Protection Service Root](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
