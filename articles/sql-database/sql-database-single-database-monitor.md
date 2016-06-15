@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="03/25/2016"
+	ms.date="06/15/2016"
 	ms.author="carlrab"/>
 
 # Monitoring database performance in Azure SQL Database
