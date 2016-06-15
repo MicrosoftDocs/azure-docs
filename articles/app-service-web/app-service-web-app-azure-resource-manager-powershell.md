@@ -42,11 +42,22 @@ Example to use this cmdlet:
 
     New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
+### Create an App Service Plan in an App Service Environment ###
+To create a new app service plan in an app service environment, the same command **New-AzureRmAppServicePlan** command can be used with extra parameters to specify the ASE name and the resource group name that the ASE belongs to.
+
+Example to use this cmdlet:
+
+    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -AseName constosoASE -AseResourceGroupName contosoASERG -Tier Premium -WorkerSize Large -NumberofWorkers 10
+
+To learn more about app service environment, check [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
+
 ### List Existing App Service Plans ###
 
 To list the existing app service plans, use **Get-AzureRmAppServicePlan** cmdlet.
 
-To list all app service plans under your subscription, use: **Get-AzureRmAppServicePlan**
+To list all app service plans under your subscription, use: 
+
+    Get-AzureRmAppServicePlan
 
 To list all app service plans under a specific resource group, use:
 
