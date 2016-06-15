@@ -432,7 +432,7 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
 
 
 
-## Next Steps
+## Next steps
 Now that you've tried SQL Database and set up a database with C#, you're ready for the following articles:
 
 - [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)

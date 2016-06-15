@@ -173,10 +173,9 @@ The following table provides description for JSON elements specific to Web linke
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **Web** | Yes | 
 | Url | URL to the Web source | Yes |
+| authenticationType | Anonymous or Basic. | Yes |
 | userName | Username for Basic authentication. | Yes (for Basic Authentication)
 | password | Password for Basic authentication. | Yes (for Basic Authentication)
-| authenticationType | Anonymous, Basic, or WebApi. | Yes |
-| apiKey | ApiKey for WebApi authentication. | Yes (for WebApi authentication)|   
 
 ### Using Anonymous authentication
 

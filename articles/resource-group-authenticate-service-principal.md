@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Use Azure PowerShell to create an Active Directory application to access resources
@@ -116,7 +116,7 @@ You have created an Active Directory application and a service principal for tha
 
 In this section, you will perform the steps to create an AD application with a certificate. 
 
-1. Create a self-signed certificate.
+1. Create a self-signed certificate. If you are have Windows 10 or Windows Server 2016 Technical Preview, run the following command: 
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -127,6 +127,12 @@ In this section, you will perform the steps to create an AD application with a c
         Thumbprint                                Subject
         ----------                                -------
         724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
+
+     If you do not have Windows 10 or Windows Server 2016 Technical Preview, download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) PowerShell script. Run the following commands to generate a certificate.
+     
+        Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
+        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+        $cert = Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp
 
 2. Retrieve the key value from the certificate.
 

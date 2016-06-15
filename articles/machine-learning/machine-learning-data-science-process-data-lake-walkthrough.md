@@ -82,19 +82,19 @@ This section provides instructions on how to create each of these resources. If 
 
 ### Create an Azure Data Lake Store
 
-Create an ADLS from the [Azure Portal](http://ms.portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
+Create an ADLS from the [Azure Portal](http://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Create an Azure Data Lake Analytics account
-Create an ADLA account from the [Azure Portal](http://ms.portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure Portal](../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
+Create an ADLA account from the [Azure Portal](http://portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure Portal](../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
 
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Create an Azure Blob storage account
-Create an Azure Blob storage account from the [Azure Portal](http://ms.portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+Create an Azure Blob storage account from the [Azure Portal](http://portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -640,7 +640,7 @@ Azure Machine Learning Studio can read data directly from Azure Data Lake Store 
 
 ### Create an HDInsight Linux Cluster
 
-Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Create an HDInsight Cluster (Linux) from the [Azure Portal](http://portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
