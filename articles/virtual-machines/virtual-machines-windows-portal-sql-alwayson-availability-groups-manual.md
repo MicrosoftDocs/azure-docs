@@ -50,6 +50,8 @@ Note that this is one possible configuration. For example, you can minimize the 
 
 >[AZURE.NOTE] Completing this tutorial takes a significant amount of time. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for Always On availability groups with a listener. This configures everything you need for availability groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
 
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
+
 This tutorial assumes the following:
 
 - You already have an Azure account.
@@ -236,8 +238,6 @@ The following table shows the settings for these two machines.
 Azure will create the virtual machines.
 
 After the virtual machines are created, configure the domain controller.
-
-[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-availability-groups-template-github-quickstart.md)]
 
 ### Configure the domain controller
 
