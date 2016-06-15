@@ -36,6 +36,9 @@ ASP.NET 5 RC1 and ASP.NET Core RC2 projects also have new support in the Diagnos
 
 ![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
 
+###HockeyApp for Universal Windows apps
+In addition to beta distribution and user feedback, HockeyApp provides symbolicated crash reporting for your Universal Windows apps. We've made it even easier to add the HockeyApp SDK: right-click on your Universal Windows project, and choose Hockey App - Enable Crash Analytics... This will install the SDK, set up crash collection, and provision a HockeyApp resource in the cloud, without uploading your app to the HockeyApp service.
+
 Other new features:
 
 * We've made the Application Insights Search experience faster and more intuitive by automatically applying time ranges and detail filters as you select them
