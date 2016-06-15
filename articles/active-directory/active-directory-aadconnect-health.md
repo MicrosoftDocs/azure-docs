@@ -56,13 +56,13 @@ Azure AD Connect Health for Sync monitors and provides information on the synchr
 
 The following video will provide an overview of Azure AD Connect Health for sync
 
-[Azure Active Directory Connect Health: Monitoring the sync engine](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
+>[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 
 ## Get started with Azure AD Connect Health
 It is very easy to get started with Azure AD Connect Health. Follow the steps below:
 
-1. [Get Azure AD Premium](active-directory-get-started-premium) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/)
+1. [Get Azure AD Premium](https://azure.microsoft.com/documentation/articles/active-directory-get-started-premium/) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 2. [Download and Install Azure AD Connect Health agents](#download-and-install-azure-ad-connect-health-agent) on your identity servers.
 
