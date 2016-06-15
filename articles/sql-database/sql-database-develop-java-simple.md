@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="LuisBosquez"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="genemi"/>
 
 
