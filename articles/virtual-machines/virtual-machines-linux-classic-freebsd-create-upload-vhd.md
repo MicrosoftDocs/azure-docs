@@ -73,7 +73,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 		# pkg install python27  
 		# pkg install Py27-setuptools27   
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python   
-		# pkg install git 
+		# pkg install git
 
 6. **Install Azure Agent**
 
@@ -88,20 +88,20 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 		v2.1.4
 		v2.1.4.rc0
 		v2.1.4.rc1
-   
+
     For 2.0, let us use 2.0.16 as an example here.
-    
+
 		# git checkout WALinuxAgent-2.0.16
 		# python setup.py install  
 		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 
     For 2.1, let us use 2.1.4 as an example here.
-    
+
 		# git checkout v2.1.4
 		# python setup.py install  
 		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 		# ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
-   
+
     **Important**: After installation, you could double check the version and whether it is running.
 
 		# waagent -version
@@ -111,13 +111,13 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
-7. **De-provision** 
+7. **De-provision**
 
     It is to clean the system and make it suitable for re-provisioning. Below command also deletes the last provisioned user account and associated data.
 
 		# echo "y" |  /usr/local/sbin/waagent -deprovision+user  
 		# echo  'waagent_enable="YES"' >> /etc/rc.conf
-    
+
     Now you could **shut down** your VM.
 
 ## Step 2: Create a storage account in Azure ##
