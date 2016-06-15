@@ -32,7 +32,7 @@ To view cache metrics, [browse](cache-configure.md) to your cache instance in th
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
-The **Redis metrics** blade has **Monitoring** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. The **Redis Cache** blade has an **Operations** section that displays cache **Events** and **Alert rules**.
+The **Redis metrics** blade has **Monitoring** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. For viewing and configuring operations and alerts, the **Redis Cache** blade has an **Operations** section that displays cache **Events** and **Alert rules**.
 
 ## Enable cache diagnostics
 
@@ -42,7 +42,7 @@ To enable and configure cache diagnostics, navigate to the **Redis Cache** blade
 
 ![Enable cache diagnostics][redis-cache-enable-diagnostics]
 
-Click one of the monitoring charts such as **Hits and Misses** to display the **Metric** blade and click **Diagnostic settings** to enable and configure the diagnostic settings for the cache service instance.
+Click the message to display the **Metric** blade and click **Diagnostic settings** to enable and configure the diagnostic settings for the cache service instance.
 
 ![Diagnostics settings][redis-cache-diagnostic-settings]
 
@@ -85,9 +85,9 @@ Each metric includes two versions. One metric measures performance for the entir
 | Cache Read        | The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Cache Write       | The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-## Redis metrics
+## Redis metrics blade
 
-To access the Redis metrics blade choose **All settings** > **Redis metrics**.
+To access the **Redis metrics** blade choose **All settings** > **Redis metrics**.
 
 ![Redis metrics][redis-cache-redis-metrics]
 
