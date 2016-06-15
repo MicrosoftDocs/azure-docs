@@ -26,7 +26,7 @@ Azure DocumentDB is designed to meet the needs of IoT applications consisting of
 
 Configuring your DocumentDB account to scale across the globe can be done in less than a minute through the Azure Portal. All you need to do is select the right consistency level among several supported well-defined consistency levels, and associate any number of Azure regions with your database account. DocumentDB consistency levels provide clear tradeoffs between specific consistency guarantee and performance. 
 
-![Alt text; DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
+![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
 
 DocumentDB offers multiple, well defined (relaxed) consistency models to choose from.
 
@@ -43,7 +43,7 @@ DocumentDB allows you to independently provision throughput and consume storage 
 
 The throughput purchased and storage consumed for each DocumentDB collection is automatically provisioned across all regions equally. This allows your application to seamlessly scale across the globe [paying only for the throughput and storage you are using within each hour][pricing]. For instance, if you have provisioned 2 million RUs for a DocumentDB collection, then each of the regions associated with your database account gets 2 million RUs for that collection. This is illustrated below.
 
-![Alt text; Scaling throughput for a DocumentDB collection across four regions][2]
+![Scaling throughput for a DocumentDB collection across four regions][2]
 
 DocumentDB guarantees < 10 ms read and < 15 ms write latencies at P99. The read requests never span datacenter boundary to guarantee the [consistency requirements you have selected][consistency]. The writes are always quorum committed locally before they are acknowledged to the clients. 
 Each database account is configured with write region priority. The region designated with highest priority will act as the current write region for the account. All SDKs will transparently route database account writes to the current write region. 
@@ -51,7 +51,7 @@ Each database account is configured with write region priority. The region desig
 Finally, since DocumentDB is completely [schema-agnostic][vldb] - you never have to worry about managing/updating schemas or secondary indexes across multiple datacenters. Your [SQL queries][sqlqueries] continue to work while your application and data models continue to evolve. 
 
 
-## Enabling global distribution for your database account
+## Enabling global distribution 
 
 You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can decide to globally distribute your data or confine it to a single region by adding or removing regions to your database account at any time. DocumentDB database accounts that support multi-region assignment can be created through the Azure Marketplace by selecting ‘DocumentDB – Multi-Region Database Account’. 
 
