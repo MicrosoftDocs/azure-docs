@@ -228,7 +228,7 @@ See [Retrain Machine Learning models programmatically](machine-learning-retrain-
 
 **How do I monitor my web service deployed in production?**
 
-Once a predictive model has been deployed, you can monitor it from the Azure classic portal. Each deployed service has its own dashboard where you can see monitoring information for that service.
+Once a predictive model has been deployed, you can monitor it from the Azure classic portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information on managing your deployed web services, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 
 **Is there a place where I can see the output of my RRS/BES?**
 
