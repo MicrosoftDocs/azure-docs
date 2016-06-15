@@ -19,7 +19,7 @@
 
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 
-Microsoft Graph is Microsoft’s unified API endpoint and the home of Azure Active Directory Identity Protection’s APIs. Our first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of risk events and associated information. This topic gets you started querying this API. For an in depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/).
+Microsoft Graph is Microsoft’s unified API endpoint and the home of [Azure Active Directory Identity Protection’s](active-directory-identityprotection.md) APIs. Our first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](active-directory-identityprotection-risk-events-types.md) and associated information. This topic gets you started querying this API. For an in depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/).
 
 There are three steps to accessing Identity Protection data through Microsoft Graph:
 
@@ -223,6 +223,8 @@ To learn more about Microsoft Graph and how to build applications using the Grap
 ## Additional resources
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+- [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
 
 - [Microsoft Graph](https://graph.microsoft.io/)
 
