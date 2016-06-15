@@ -82,12 +82,6 @@ To understand how to navigate to databases see [Manage database access and login
 - [Securing your database](sql-database-security.md)
 - [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
-
-
-## Additional resources
-
-- [Securing your database](sql-database-security.md)
-- [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
