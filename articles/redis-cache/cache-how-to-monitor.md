@@ -112,53 +112,17 @@ The **Redis metrics** blade contains the following charts.
 |           | Evicted Keys |
 |           | Expired Keys |
 
-## Monitoring charts
 
-The **Monitoring** section has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
-
-![Monitoring charts][redis-cache-monitoring-part]
-
-The **Monitoring** charts display the following metrics.
-
-| Monitoring chart | Cache metrics     |
-|------------------|-------------------|
-| Hits and Misses  | Cache Hits        |
-|                  | Cache Misses      |
-| Gets and Sets    | Gets              |
-|                  | Sets              |
-| Connections      | Connected Clients |
-| Total Commands   | Total Operations  |
-
-For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
-
-## Usage charts
-
-The **Usage** section has **Redis Server Load**, **Memory Usage**, **Network Bandwith**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
-
-![Usage charts][redis-cache-usage-part]
-
-The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
-
-The **Usage** charts display the following metrics.
-
-| Usage chart       | Cache metrics |
-|-------------------|---------------|
-| Redis Server Load | Server Load   |
-| Memory Usage      | Used Memory   |
-| Network Bandwidth | Cache Write   |
-| CPU Usage         | CPU           |
-
-For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
 
 ## How to view metrics and customize charts
 
-You can view an overview of the metrics on the **Redis Cache** blade in the **Monitoring** and **Usage** charts as described in the previous sections. For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the **Redis Cache** blade to display the **Metric** blade for that chart.
+You can view an overview of the metrics on the **Redis metrics** blade as described in the previous sections. For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the **Redis metrics** blade to display the **Metric** blade for that chart.
 
 ![Metric blade][redis-cache-metric-blade]
 
 Any alerts that are set on the metrics displayed by a chart are listed at the bottom of the **Metric** blade for that chart.
 
-To add or remove metrics or change the reporting interval, right-click the chart and choose **Edit Chart**. You can also edit charts directly from the **Redis Cache** blade by right-clicking the desired chart and choosing **Edit Chart**.
+To add or remove metrics or change the reporting interval, choose **Edit Chart**.
 
 To add or remove metrics from the chart, click the checkbox beside the name of the metric. To change the reporting interval, click the desired interval. To change the **Chart type**, click the desired style. Once the desired changes are made, click **Save**. 
 
@@ -199,7 +163,7 @@ For more information on the available performance counters, see [Available metri
 
 ## Operations and alerts
 
-The **Operations** section has **Events** and **Alert rules** sections.
+The **Operations** section on the **Redis Cache** blade has **Events** and **Alert rules** sections.
 
 ![Oeprations][redis-cache-operations-events]
 
@@ -250,6 +214,51 @@ When an alert rule is activated, an email is sent depending on the configuration
 An alert rule is considered to be resolved when the alert condition no longer evaluates to true. Once the alert rule condition is resolved, the alert icon is replaced with a check mark. For details on alert activations and resolutions, click the **Events** part on the **Redis Cache** blade to view the events on the **Events** blade.
 
 For more information about alerts in Azure, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md).
+
+## Metrics on the Redis Cache blade
+
+The **Redis Cache** blade displays the following categories of metrics.
+
+-	[Monitoring charts](#monitoring-charts)
+-	[Usage charts](#usage-charts)
+
+### Monitoring charts
+
+The **Monitoring** section has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
+
+![Monitoring charts][redis-cache-monitoring-part]
+
+The **Monitoring** charts display the following metrics.
+
+| Monitoring chart | Cache metrics     |
+|------------------|-------------------|
+| Hits and Misses  | Cache Hits        |
+|                  | Cache Misses      |
+| Gets and Sets    | Gets              |
+|                  | Sets              |
+| Connections      | Connected Clients |
+| Total Commands   | Total Operations  |
+
+For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
+
+### Usage charts
+
+The **Usage** section has **Redis Server Load**, **Memory Usage**, **Network Bandwith**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
+
+![Usage charts][redis-cache-usage-part]
+
+The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
+
+The **Usage** charts display the following metrics.
+
+| Usage chart       | Cache metrics |
+|-------------------|---------------|
+| Redis Server Load | Server Load   |
+| Memory Usage      | Used Memory   |
+| Network Bandwidth | Cache Write   |
+| CPU Usage         | CPU           |
+
+For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
   
 <!-- IMAGES -->
 
