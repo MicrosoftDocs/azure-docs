@@ -40,7 +40,7 @@ Selecting the right consistency level depends on the semantics of your applicati
 > [AZURE.NOTE] It can take several minutes before a change to the default
 consistency setting takes effect across your DocumentDB account.
 
-## <a id="addregion"></a>Adding regions
+## <a id="addregion"></a>Add regions
 
 DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
@@ -55,7 +55,7 @@ DocumentDB is available in most [Azure regions] [azureregions]. After selecting 
 
     ![Click on the regions in the map to add or remove them][2]
 
-### Selecting regions
+### Select regions
 
 When configuring two or more regions, it is recommended that regions are selected based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr] article.
 
@@ -116,7 +116,7 @@ access your DocumentDB account.
 
 > [AZURE.NOTE] It can take several minutes before a newly generated key can be used to access your DocumentDB account.
 
-## <a id="delete"></a> How to: Delete a DocumentDB account in the Azure Portal
+## <a id="delete"></a> Delete a DocumentDB account
 To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete** command on the **DocumentDB Account** blade.
 
 ![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/deleteaccountconfirmation.png)
