@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="06/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -81,6 +81,8 @@ To configure the integration of 10,000ft Plans into Azure AD, you need to add 10
 	![Creating an Azure AD test user](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10000ftplans_01.png)
 
 7. In the results pane, select **10,000ft Plans**, and then click **Complete** to add the application.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10000ftplans_02.png)
 
 
 ##  Configuring and testing Azure AD single sign-on

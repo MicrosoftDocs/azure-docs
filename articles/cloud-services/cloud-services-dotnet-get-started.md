@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/21/2016"
+	ms.date="06/10/2016"
 	ms.author="adegeo"/>
 
 # Get started with Azure Cloud Services and ASP.NET

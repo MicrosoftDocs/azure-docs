@@ -3,7 +3,7 @@
    description="Learn how to use Visual Studio Tools for Docker to publish an ASP.NET 5 web app to a Docker container running on an Azure Docker Host machine"   
    services="visual-studio-online"
    documentationCenter=".net"
-   authors="tomarcher"
+   authors="allclark"
    manager="douge"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/01/2016"
-   ms.author="tarcher"/>
+   ms.date="06/08/2016"
+   ms.author="allclark"/>
 
 # Deploy an ASP.NET container to a remote Docker host
 
@@ -26,7 +26,7 @@ supports Docker on Ubuntu, CoreOS, and Windows. This tutorial walks you through 
 ## 1. Prerequisites
 The following is needed to complete this tutorial:
 
-- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-linux-classic-docker-machine.md)
+- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-linux-docker-machine.md)
 - Install [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
 - Install [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)
 

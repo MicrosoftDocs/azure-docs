@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
@@ -54,7 +54,7 @@ Click the arrow to the right of **Storage Account** to select a storage account 
 
 Once the diagnostic settings are configured, click **Save** to save the configuration. Note that it may take a few moments for the changes to take effect.
 
->[AZURE.IMPORTANT] Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
+>[AZURE.IMPORTANT] Caches in the same region and subscription share the same diagnostics storage settings, and when the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region.
 
 To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure Portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
 
