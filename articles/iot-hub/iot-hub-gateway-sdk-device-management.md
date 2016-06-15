@@ -3,7 +3,7 @@
 	description="Azure IoT Hub Gateway SDK walkthrough showing how to implement device management when you are using the Gateway SDK"
 	services="iot-hub"
 	documentationCenter=""
-	authors="chipalost"
+	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/10/2016"
-     ms.author="cstreet"/>
+     ms.date="06/15/2016"
+     ms.author="dobett"/>
 
 
 # IoT Gateway SDK (beta) – device management with the Gateway SDK
@@ -23,9 +23,9 @@ This tutorial shows you how to use the [device management][lnk-device-management
 
 This tutorial covers:
 
-1. **Architecture**: important architectural information about the device management sample.
+- **Architecture**: important architectural information about the device management sample.
 
-2. **Build and run**: the steps required to build and run the sample.
+- **Build and run**: the steps required to build and run the sample.
 
 ## Architecture
 
@@ -93,58 +93,58 @@ To create a custom image for your Edison board, you need a Linux environment. Th
 For the steps in this section, we consulted the following articles: [Intel Edison Board Support Package][lnk-inteledison-bsp], [Manually Building Yocto Images for the Intel Edison Board from Source][lnk-hackgnar], and [Creating a Custom Linux Kernel for the Edison (release 2.1)][lnk-shawnhymel].
 
 1. Sign in to your Ubuntu 14.04 machine and execute the following command in your home folder to download the Edison source package:
-  
-  ```
-  curl -O http://downloadmirror.intel.com/25028/eng/edison-src-ww25.5-15.tgz
-  ```
+    
+    ```
+    curl -O http://downloadmirror.intel.com/25028/eng/edison-src-ww25.5-15.tgz
+    ```
 
 2. Uncompress the source package to create an **edison-src** folder in your home folder with the following command and navigate to the new **edison-src** folder:
-  
-  ```
-  tar xfvz edison-src-ww25.5-15.tgz
-  cd edison-src/
-  ```
+    
+    ```
+    tar xfvz edison-src-ww25.5-15.tgz
+    cd edison-src/
+    ```
 
 3. Install the prerequisite packages:
-  
-  ```
-  sudo apt-get -y install build-essential git diffstat gawk chrpath texinfo libtool gcc-multilib libsdl1.2-dev u-boot-tools
-  ```
+    
+    ```
+    sudo apt-get -y install build-essential git diffstat gawk chrpath texinfo libtool gcc-multilib libsdl1.2-dev u-boot-tools
+    ```
 
 4. Create the two new directories in the **edison-src** folder:
-  
-  ```
-  mkdir bitbake_download_dir
-  mkdir bitbake_sstate_dir 
-  ```
+    
+    ```
+    mkdir bitbake_download_dir
+    mkdir bitbake_sstate_dir 
+    ```
 
 5. Run the following script to download your build environment. If you have more than 4 CPU cores, set the **--parallel_make** and **--bb_number_thread** script arguments to the number of cores you have available:
-  
-  ```
-  ./meta-intel-edison/setup.sh --dl_dir=bitbake_download_dir  --sstate_dir=bitbake_sstate_dir 
-  ```
+    
+    ```
+    ./meta-intel-edison/setup.sh --dl_dir=bitbake_download_dir  --sstate_dir=bitbake_sstate_dir 
+    ```
 
 6. Update the location of the Paho git repository. Edit the file **~/edison-src/out/linux64/poky/meta-intel-iot-middleware/recipes-connectivity/paho-mqtt/paho-mqtt_3.1.bb** and replace the URL `git://git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.c.git/` with `git://github.com/eclipse/paho.mqtt.c.git`.
 
 7. Initialize your build environment with the following commands:
-  
-  ```
-  cd out/linux64/
-  source poky/oe-init-build-env
-  ```
+    
+    ```
+    cd out/linux64/
+    source poky/oe-init-build-env
+    ```
 
 8. Use the following command to build your custom image. The first time you run this command it can take up to 6 hours to run on a 4 CPU core machine. Subsequent rebuilds after you have added your own customizations will be much faster:
-  
-  ```
-  bitbake edison-image
-  ```
+    
+    ```
+    bitbake edison-image
+    ```
 
 9. Finalize the build by running the following commands:
-  
-  ```
-  cd ~/edison-src/
-  ./meta-intel-edison/utils/flash/postBuild.sh ./out/linux64/build/
-  ```
+    
+    ```
+    cd ~/edison-src/
+    ./meta-intel-edison/utils/flash/postBuild.sh ./out/linux64/build/
+    ```
 
 The files you need to flash the Edison board are now in the **~/edison-src/out/linux64/build/toFlash/** folder.
 
@@ -155,35 +155,35 @@ The steps in this section guide you through the process of adding the Gateway SD
 Complete the following steps on the same Ubuntu 14.04 machine you used to build an Edison image in the previous section.
 
 1. Clone the Gateway SDK to your home folder:
-  
-  ```
-  cd ~
-  git clone https://github.com/Azure/azure-iot-gateway-sdk.git --recursive
-  ```
+    
+    ```
+    cd ~
+    git clone https://github.com/Azure/azure-iot-gateway-sdk.git --recursive
+    ```
 
 2. Configure the gateway to connect to your IoT Hub and simulate two devices. Edit the file **~/azure-iot-gateway-sdk/samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_intel_edison.json** and replace the **IoTHubName**, **IoTHubSuffix**, **deviceID**, and **deviceKey** placeholders with the values you noted when you configured your IoT Hub. Use the devices **GW-ble1-demo** and **GW-ble2-demo** you created earlier.
 
 3. Create a folder to contain your new recipe:
-  
-  ```
-  mkdir ~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/azure-iot-field-gateway-sdk
-  ```
+    
+    ```
+    mkdir ~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/azure-iot-field-gateway-sdk
+    ```
 
 4. Copy the recipe file called **azure-iot-field-gateway-sdk.bb** from the folder **~/azure-iot-gateway-sdk/samples/simulated_device_cloud_upload/src/** to the folder **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/azure-iot-field-gateway-sdk/** you just created. Edit the file to replace the two occurences of  `<<userName>>` with your current user name.
 
 5. Edit **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** to add an entry for your new recipe. Add the following line at the end of the file:
-  
-  ```
-  IMAGE_INSTALL += "azure-iot-field-gateway-sdk"
-  ```
+    
+    ```
+    IMAGE_INSTALL += "azure-iot-field-gateway-sdk"
+    ```
 
 6. You can now test your changes by running the **bitbake** command to build just the new recipe:
-  
-  ```
-  cd ~/edison-src/out/linux64/
-  source poky/oe-init-build-env
-  bitbake azure-iot-field-gateway-sdk
-  ```
+    
+    ```
+    cd ~/edison-src/out/linux64/
+    source poky/oe-init-build-env
+    bitbake azure-iot-field-gateway-sdk
+    ```
 
 ### Add the Azure IoT Hub device management client to your custom image
 
@@ -192,66 +192,66 @@ The steps in this section guide you through the process of adding the IoT Hub de
 Complete the following steps on the same Ubuntu 14.04 machine you used in the previous section to add the gateway to your Edison image.
 
 1. Clone the **dmpreview** branch of the IoT Hub SDKs repository to your home folder:
-  
-  ```
-  cd ~
-  git clone https://github.com/Azure/azure-iot-sdks -b dmpreview --recursive
-  ```
+    
+    ```
+    cd ~
+    git clone https://github.com/Azure/azure-iot-sdks -b dmpreview --recursive
+    ```
 
 2. Create the following folders to contain your new recipe:
-  
-  ```
-  mkdir ~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample
-  mkdir ~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files
-  ```
+    
+    ```
+    mkdir ~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample
+    mkdir ~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files
+    ```
 
 3. Copy the file **iotdm-edison-sample.bb** from the **~/azure-iot-sdks/c/iotdm_client/samples/iotdm_edison_sample/bitbake/** folder to the **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample** folder.
 
 4. Copy the file **iotdm_edison_sample.service** from the **~/azure-iot-sdks/c/iotdm_client/samples/iotdm_edison_sample/bitbake/** folder to the **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files** folder.
 
 5. Edit the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** to add an entry for your new recipe. Add the following line at the end of the file:
-  
-  ```
-  IMAGE_INSTALL += "iotdm-edison-sample"
-  ```
+    
+    ```
+    IMAGE_INSTALL += "iotdm-edison-sample"
+    ```
 
-6. Because the Gateway SDK and device management client share some libraries, you ned to edit the **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** file. Add the following lines at the end of this file. Be sure to replace `<your user>` with your current user name:
-  
-  ```
-  SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libmicromock_ctest.a"
-  SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libctest.a"
-  SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
-  SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libtestrunnerswitcher.a"
-  SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
-  ```
+6. Because the Gateway SDK and device management client share some libraries, you need to edit the **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** file. Add the following lines at the end of this file. Be sure to replace `<your user>` with your current user name:
+    
+    ```
+    SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libmicromock_ctest.a"
+    SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libctest.a"
+    SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
+    SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libtestrunnerswitcher.a"
+    SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
+    ```
 
 7. Configure WiFi to start automatically on the Edison board by editing the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa_supplicant/wpa-supplicant/wpa_supplicant.conf-sane** and adding the following lines at the end of the file. Be sure to replace `<your wifi ssid>` and `<your wifi password>` with the correct values for your WiFi network:
-  
-  ```
-  network={
-    ssid="<your wifi ssid>"
-    key_mgmt=WPA-PSK
-    pairwise=CCMP TKIP
-    group=CCMP TKIP WEP104 WEP40
-    eap=TTLS PEAP TLS
-    psk="<your wifi password>"
-  }
-  ```
+    
+    ```
+    network={
+      ssid="<your wifi ssid>"
+      key_mgmt=WPA-PSK
+      pairwise=CCMP TKIP
+      group=CCMP TKIP WEP104 WEP40
+      eap=TTLS PEAP TLS
+      psk="<your wifi password>"
+    }
+    ```
 
 8. You can now build the image for your Edison board that contains the Gateway SDK and device management client. The **bitbake** command will run much faster than previously because it only needs to build the new recipe and add it to the image:
-  
-  ```
-  cd ~/edison-src/out/linux64/
-  source poky/oe-init-build-env
-  bitbake edison-image
-  ```
+    
+    ```
+    cd ~/edison-src/out/linux64/
+    source poky/oe-init-build-env
+    bitbake edison-image
+    ```
 
 9. Finalize the build by running the following commands:
   
-  ```
-  cd ~/edison-src/
-  ./meta-intel-edison/utils/flash/postBuild.sh ./out/linux64/build/
-  ```
+    ```
+    cd ~/edison-src/
+    ./meta-intel-edison/utils/flash/postBuild.sh ./out/linux64/build/
+    ```
 
 The files you need to flash the Edison board are now in the **~/edison-src/out/linux64/build/toFlash/** folder.
 
@@ -275,7 +275,7 @@ Your Edison board now has the custom image installed and can connect to IoT Hub 
 
 ### Run the sample
 
-You must configure the device management service on the Edison board to connect as the **GW-device** device to your IoT hub. Use a text editor (such as **vi** or **nano**) to create a file called **.cs** in the /home/root folder on the Edison. This file should contain just the connection string of the **GW-device**. If you did not make a note of this connection string previously, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to retrieve the connection string from the IoT Hub device registry.
+You must configure the device management service on the Edison board to connect as the **GW-device** device to your IoT hub. Use a text editor (such as **vi** or **nano**) to create a file called **.cs** in the /home/root folder on the Edison. This file should contain just the connection string of the **GW-device**. If you didn't make a note of this connection string previously, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to retrieve this device connection string from the IoT Hub device registry.
 
 When you have created the **.cs** file, reboot the Edison board using the following command:
 
@@ -312,7 +312,7 @@ systemctl status iotdm_edison_sample.service
 
 A firmware update on the Edison requested by the IoT device management service normally downloads a zip file that contains the firmware from a URL. To simplify this tutorial, you manually copy the zip file to the Edison board and then use a **file://** URL instead of an **http://** URL when you request the update.
 
-Again, to simplify the tutorial the firmware update reapplies the same firmware image instead of creating a brand new image. You will be able to see as this image is applied to the Edison board.
+Again, to simplify the tutorial the firmware update reapplies the same firmware image instead of using a brand new image. You will be able to see this image being applied to the Edison board.
 
 Create a zip file called **edison.zip** that contains the files in the files from the **toFlash** folder on the Ubuntu machine you used to create the custom image. Make sure that the files from the **toFlash** folder are in the root of the zip file. Use a tool such as SCP (or PSCP if you are using Putty) to copy the **edison.zip** file to the /home/root folder on your Edison board.
 
