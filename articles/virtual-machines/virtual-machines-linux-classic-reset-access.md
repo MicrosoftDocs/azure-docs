@@ -46,7 +46,7 @@ You will need the following:
 - Azure Command-Line Interface (CLI). You will need to [install the Azure CLI](../xplat-cli-install.md) and [connect to your subscription](../xplat-cli-connect.md) to use Azure resources associated with your account.
 - Make sure you are in the correct mode for the classic deployment model by typing the following at the command prompt before beginning:
 	
-	azure config mode asm
+	```azure config mode asm```
 	
 - A new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration.
 
