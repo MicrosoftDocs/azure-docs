@@ -20,7 +20,7 @@
 # Overview: SQL Database Active Geo-Replication
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-geo-replication.md)
+- [Overview](sql-database-geo-replication-overview.md)
 - [Azure Portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [T-SQL](sql-database-geo-replication-transact-sql.md)

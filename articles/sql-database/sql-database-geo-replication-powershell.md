@@ -19,12 +19,10 @@
 # Configure Geo-Replication for Azure SQL Database with PowerShell
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-geo-replication.md)
+- [Overview](sql-database-geo-replication-overview.md)
 - [Azure Portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [T-SQL](sql-database-geo-replication-transact-sql.md)
-
-
 
 This article shows you how to configure Active Geo-Replication for SQL Database with PowerShell.
 
