@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="06/15/2016"
 	ms.author="danlep"/>
 
 # Azure CLI commands in Azure Service Management (asm) mode
@@ -25,19 +25,19 @@ This article provides syntax and options for Azure CLI commands you'd commonly u
 
 To get started, first [install the Azure CLI](xplat-cli-install.md) and [connect to your Azure subscription](xplat-cli-connect.md).
 
-For current command syntax and options at the command line in Service Management mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
+For current command syntax and options at the command line in asm mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
 
 Optional parameters are shown in square brackets (for example, `[parameter]`). All other parameters are required.
 
 In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The `-v` parameter provides verbose output, and the `-vv` parameter provides even more detailed verbose output. The `--json` option will output the result in raw json format.
 
-## Setting the Service Management mode
+## Setting asm mode
 
-Currently the Service Management mode is enabled by default when you first install the CLI. If you need to, use the following command to enable Azure CLI Service Management commands.
+Currently the asm mode is enabled by default when you first install the CLI. If you need to, use the following command to set asm mode.
 
 	azure config mode asm
 
->[AZURE.NOTE] The Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[AZURE.NOTE] The CLI's Azure Resource Manager mode and asm mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 ## Manage your account information and publish settings
 One way the CLI can connect to your account is by using your Azure subscription information. (See [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md) for other options.) This information can be obtained from the Azure classic portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the CLI will use for subsequent operations. You only need to import your publish settings once.
