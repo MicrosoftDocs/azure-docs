@@ -31,7 +31,7 @@ If necessary, you can access multiple Azure storage accounts or containers with 
 
 1.	Create an HDInsight cluster with a storage account name of “storage1” and a default container called “container1”.
 2. Specify an additional storage account called “storage2".  
-3. Copy a file called “mycsv.csv” to the directory called “/share”, and  perform analysis on that file.  
+3. Copy a file called “mycsv.csv” to the directory called “/share”, and perform analysis on that file.  
 
 ````
 hadoop fs –mkdir /share
@@ -111,7 +111,7 @@ To use Data Lake stores with your HDInsight account, you need to give your clust
 You access a Data Lake store by using an Azure Active Directory (Azure AD) service principal that's associated with your HDInsight cluster.
 
 ### To add a service principal
-1. When you create your HDInsight cluster, select  **Cluster AAD Identity** from the **Data Source** tab.
+1. When you create your HDInsight cluster, select **Cluster AAD Identity** from the **Data Source** tab.
 2. In the **Cluster AAD Identity** dialog box, under **Select AD Service Principal**, select **Create new**.
 
 After you give the service principal a name and create a password for it, a new tab opens where you can associate the service principal with your Data Lake stores.
@@ -177,7 +177,7 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 There is also a convenient data storage option for use on the edge node called [Azure Files](../storage/storage-how-to-use-files-linux.md "Azure Files"). It enables you to mount an Azure Storage file share to the Linux file system. This can be handy for storing data files, R scripts, and result objects that might be needed later when it makes sense to use the native file system on the edge node rather than HDFS.
 
-A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or  Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system.
+A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system.
 
 
 ## Next steps
