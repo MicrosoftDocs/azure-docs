@@ -23,7 +23,7 @@
 
 Microsoft R Server on HDInsight (preview) has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/), as a means of persisting data, code, result objects from analysis, and so on.
 
-When you create a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated to hold the file system for the cluster you create (for example, it might hold the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
+When you create a Hadoop cluster in HDInsight, you specify an Azure storage account. A specific Blob storage container from that account  holds the file system for the cluster you create (for example, the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
 
 
 ## Use multiple Azure Blob storage accounts
@@ -70,7 +70,7 @@ All of the directory and file references point to the storage account wasb://con
 
 Now, suppose you want to process a file called “mySpecial.csv” that's located in the directory “/private” of  “container2” in “storage2”.
 
-In your R code, change the name node reference to the “storage2" storage account.
+In your R code, point the name node reference to the “storage2" storage account.
 
     myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
     myPort <- 0
@@ -95,9 +95,9 @@ In your R code, change the name node reference to the “storage2" storage accou
 
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-All of the directory and file references now point to storage account wasb://container2@storage2.blob.core.windows.net. This is the **Name Node** that you’ve specified.
+All of the directory and file references now point to the storage account wasb://container2@storage2.blob.core.windows.net. This is the **Name Node** that you’ve specified.
 
-Note that you will have to configure the /user/RevoShare/<SSH username> directory on “storage2”:
+Note that you will have to configure the /user/RevoShare/<SSH username> directory on “storage2” as follows:
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
@@ -105,19 +105,19 @@ Note that you will have to configure the /user/RevoShare/<SSH username> director
 
 ## Use an Azure Data Lake store
 
-To use Data Lake stores with your HDInsight account, you need to give your cluster access to each Azure Data Lake store that you want to use. You reference the store in your R script much like you use a secondary storage account (as described in the previous procedure).
+To use Data Lake stores with your HDInsight account, you need to give your cluster access to each Azure Data Lake store that you want to use. You use the store in your R script much like you use a secondary storage account (as described in the previous procedure).
 
 ## Add cluster access to your Azure Data Lake stores
 
-You access a Data Lake store by using an Azure Active Directory (Azure AD) service principal that's associated with your HDInsight cluster.
+You access a Data Lake store by using an Azure Active Directory (Azure AD) Service Principal that's associated with your HDInsight cluster.
 
-### To add a service principal
+### To add a Service Principal
 1. When you create your HDInsight cluster, select **Cluster AAD Identity** from the **Data Source** tab.
 2. In the **Cluster AAD Identity** dialog box, under **Select AD Service Principal**, select **Create new**.
 
-After you give the service principal a name and create a password for it, a new tab opens where you can associate the service principal with your Data Lake stores.
+After you give the Service Principal a name and create a password for it, a new tab opens where you can associate the Service Principal with your Data Lake stores.
 
-Note that you can also add access to a Data Lake store later by opening the Data Lake store in the Azure portal and going to **Data Explorer** -> **Access**.  Following is an example of a dialog box that shows how to create a service principal and associate it with the “rkadl11” Data Lake store.
+Note that you can also add access to a Data Lake store later by opening the Data Lake store in the Azure portal and going to **Data Explorer** -> **Access**.  Following is an example of a dialog box that shows how to create a Service Principal and associate it with the “rkadl11” Data Lake store.
 
 ![Create Data Lake store Service Principle 1](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
 
