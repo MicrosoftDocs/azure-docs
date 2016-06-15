@@ -133,6 +133,30 @@ Now that you've created a vault, you prepare your infrastructure to back up file
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
+To confirm that the agent was installed and registered correctly, you can check for the items you backed up in the **Production Server** section of the management portal. To do this:
+
+1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
+
+    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+
+    The list of Recovery Services vaults is displayed.
+
+2. Select the name of the vault you created.
+
+    The Recovery Services vault dashboard blade opens.
+
+    ![recovery services vault dashboard](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
+
+3. Click the **Settings** button at the top of the page.
+
+4. Click **Backup Infrastructure > Production Servers**.
+
+    ![Production servers](./media/backup-configure-vault/production-server-verification.png)
+
+If you see your servers in the list, you have confirmation that the agent has been installed and registered correctly.
+
 ## Step 4: Complete the initial backup
 
 The initial backup includes two key tasks:
