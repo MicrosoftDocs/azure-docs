@@ -1,4 +1,3 @@
-
 <properties
    pageTitle="Azure Storage options for R Server on HDInsight (preview) | Microsoft Azure"
    description="Learn about the different storage options available to users with R Server on HDInsight (preview)"
@@ -30,16 +29,16 @@ When you create a Hadoop cluster in HDInsight, you specify an Azure storage acco
 
 If necessary, you can access multiple Azure storage accounts or containers with your HDI cluster. To do so, you need to specify the additional storage accounts in the UI when you create the cluster, and then follow these steps to use them in R.  
 
-1.	Create an HDInsight cluster with a storage account name of “storage1” and a default container called “container1”.
-2. Specify an additional storage account called “storage2".  
-3. Copy a file called “mycsv.csv” to the directory called “/share”, and perform analysis on that file.  
+1.	Create an HDInsight cluster with a storage account name of **storage1** and a default container called **container1**.
+2. Specify an additional storage account called **storage2**.  
+3. Copy the mycsv.csv file to the /share directory, and perform analysis on that file.  
 
 ````
 hadoop fs –mkdir /share
 hadoop fs –copyFromLocal myscsv.scv /share  
 ````
 
-3.	In R code, set the name node to “default,” and set your directory and file to process.  
+3.	In R code, set the name node to **default,** and set your directory and file to process.  
 
 ````
 myNameNode <- "default"
@@ -68,9 +67,9 @@ myPort <- 0
 
 All of the directory and file references point to the storage account wasb://container1@storage1.blob.core.windows.net. This is the **default storage account** that's associated with the HDInsight cluster.
 
-Now, suppose you want to process a file called “mySpecial.csv” that's located in the directory “/private” of  “container2” in “storage2”.
+Now, suppose you want to process a file called mySpecial.csv that's located in the  /private directory of **container2** in **storage2**.
 
-In your R code, point the name node reference to the “storage2" storage account.
+In your R code, point the name node reference to the **storage2** storage account.
 
     myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
     myPort <- 0
@@ -97,7 +96,7 @@ In your R code, point the name node reference to the “storage2" storage accoun
 
 All of the directory and file references now point to the storage account wasb://container2@storage2.blob.core.windows.net. This is the **Name Node** that you’ve specified.
 
-Note that you will have to configure the /user/RevoShare/<SSH username> directory on “storage2” as follows:
+Note that you will have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
@@ -125,7 +124,7 @@ Note that you can also add access to a Data Lake store later by opening the Data
 ![Create Data Lake store Service Principle 2](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp2.png)
 
 ## Use the Data Lake store with R Server
-Once you’ve given access to a Data Lake store, you can use the store in R Server on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix "wasb://" changes to "adl://" as follows:
+Once you’ve given access to a Data Lake store, you can use the store in R Server on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl:// as follows:
 
 ````
 # Point to the ADL store (e.g. ADLtest)
@@ -160,7 +159,7 @@ airDS <- RxTextData(file = inputFile, missingValueString = "M",
 model <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS)
 ````
 
-Following are the commands that are used to configure the Data Lake storage account with the RevoShare directory and add the sample CSV file for the previous example:
+Following are the commands that are used to configure the Data Lake storage account with the RevoShare directory and add the sample .csv file for the previous example:
 
 ````
 hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user
