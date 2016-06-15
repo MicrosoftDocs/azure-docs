@@ -3,7 +3,7 @@
    description="How to implement a secure hybrid network architecture with Internet access in Azure."
    services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network"
    documentationCenter="na"
-   authors="telmos"
+   authors="telmosampaio"
    manager="roshar"
    editor=""
    tags="azure-resource-manager"/>
