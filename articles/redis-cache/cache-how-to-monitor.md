@@ -85,9 +85,10 @@ Each metric includes two versions. One metric measures performance for the entir
 | Cache Read        | The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Cache Write       | The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-## Redis metrics blade
 
-To access the **Redis metrics** blade choose **All settings** > **Redis metrics**.
+## How to view metrics and customize charts
+
+You can view an overview of the metrics for your cache on the **Redis metrics** blade. To access the **Redis metrics** blade choose **All settings** > **Redis metrics**.
 
 ![Redis metrics][redis-cache-redis-metrics]
 
@@ -113,10 +114,7 @@ The **Redis metrics** blade contains the following charts.
 |           | Expired Keys |
 
 
-
-## How to view metrics and customize charts
-
-You can view an overview of the metrics on the **Redis metrics** blade as described in the previous sections. For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the **Redis metrics** blade to display the **Metric** blade for that chart.
+For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the **Redis metrics** blade to display the **Metric** blade for that chart.
 
 ![Metric blade][redis-cache-metric-blade]
 
