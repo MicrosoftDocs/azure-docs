@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Sign-in experiences with Azure AD Identity Protection| Microsoft Azure"
-	description="Provides an overview of the user experience when Identity Protection has mitigated or remediated a user or when multi-factor authentication is required by a policy."
+	pageTitle="Get started with Azure Active Directory Identity Protection and Microsoft Graph| Microsoft Azure"
+	description="Provides an introduction to query Microsoft Graph for a list of risk events and associated information."
 	services="active-directory"
-	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
+	keywords="azure active directory identity protection, risk event, vulnerability, security policy, Microsoft Graph"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/15/2016"
 	ms.author="markvi"/>
 
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
@@ -166,11 +166,12 @@ To authenticate, send a post request to `https://login.microsoft.com` with the f
 - client_secret: <your key>
 
 
+> [AZURE.NOTE] You need to provide values for the **client_id** and the **client_secret** parameter.
 
 If successful, this returns an authentication token.  
 To call the API, create a header with the following parameter:
 
-`’Authorization’=”<token_type> <access_token>`
+	`Authorization`=”<token_type> <access_token>`
 
 
 When authenticating, you can find the token type and access token in the returned token.
@@ -216,4 +217,4 @@ Just add your client id, key, and tenant domain.
 Congratulations, you just made your first call to Microsoft Graph!  
 Now you can query identity risk events and use the data however you see fit.
 
-To learn more about Microsoft Graph and how to build applications using the Graph API, check out the documentation and much more on the [Microsoft Graph site](https://graph.microsoft.io/). And, make sure to bookmark the Azure AD Identity Protection API page that lists all of the Identity Protection APIs available in Graph. As we add new ways to work with Identity Protection via API, you’ll see them on that page.
+To learn more about Microsoft Graph and how to build applications using the Graph API, check out the [documentation](https://graph.microsoft.io/docs) and much more on the [Microsoft Graph site](https://graph.microsoft.io/). Also, make sure to bookmark the [Azure AD Identity Protection API](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/identityprotection_root) page that lists all of the Identity Protection APIs available in Graph. As we add new ways to work with Identity Protection via API, you’ll see them on that page.
