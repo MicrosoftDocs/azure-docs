@@ -171,7 +171,7 @@ To authenticate, send a post request to `https://login.microsoft.com` with the f
 If successful, this returns an authentication token.  
 To call the API, create a header with the following parameter:
 
-	`Authorization`=”<token_type> <access_token>`
+	`Authorization`=”<token_type> <access_token>"
 
 
 When authenticating, you can find the token type and access token in the returned token.
