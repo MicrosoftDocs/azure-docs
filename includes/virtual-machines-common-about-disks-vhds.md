@@ -8,7 +8,7 @@ Every virtual machine has one attached operating system disk. It’s registered 
 
 The temporary disk is automatically created for you. On Windows virtual machines, this disk is labeled as the D: drive and it used for storing pagefile.sys. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
 
->[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk for a Windows virtual machine, see [Change the drive letter of the Windows temporary disk](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
+>[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk to a different drive letter for a Windows virtual machine, see [Change the drive letter of the Windows temporary disk](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
 
 For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
