@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="06/15/2016" 
 	ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
