@@ -3,8 +3,8 @@
    description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="BernardoAMunoz"
-   manager="scotthit"
+   authors="bernardm"
+   manager=""
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm@microsoft.com"/>
+   ms.author="bernardm"/>
 
 # Azure Resource health overview
 
