@@ -63,11 +63,11 @@ Some of the following resources—accounts, compute nodes, pools, jobs, and task
 
 - [Application packages](#application-packages)
 
-### Account
+## Account
 
 A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and one of its account keys. You can [create and manage an Azure Batch account in the Azure portal](batch-account-create-portal.md).
 
-### Compute node
+## Compute node
 
 A compute node is an Azure virtual machine that is dedicated to a specific workload for your application. The size of a node determines the number of CPU cores, memory capacity, and local file system size allocated to the node. You can create pools of Windows or Linux nodes by using either Cloud Services or Virtual Machines Marketplace images—see [Pool](#pool) below for more information on these options.
 
@@ -81,7 +81,7 @@ All compute nodes in Batch also include:
 
 > [AZURE.NOTE] Linux support in Batch is currently in preview. For more details, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
-### Pool
+## Pool
 
 A pool is a collection of nodes on which your application runs. The pool can be created manually by you, or by the Batch service automatically when you specify the work to be done. You can create and manage a pool that meets the resource requirements of your application, and pools may be used only by the Batch account in which it was created. A Batch account can have more than one pool.
 
@@ -143,7 +143,7 @@ When you create a pool, you can specify the following attributes:
 
 > [AZURE.IMPORTANT] All Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You will find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
 
-### Job
+## Job
 
 A job is a collection of tasks and manages how computation is performed by its tasks on the compute nodes in a pool.
 
@@ -161,7 +161,7 @@ A job is a collection of tasks and manages how computation is performed by its t
 
 [Job schedules][rest_job_schedules] enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule—how long and when the schedule is in effect—and how often during that time period jobs should be created.
 
-### Task
+## Task
 
 A task is a unit of computation that is associated with a job and runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. Put simply, a task runs one or more programs or scripts on a compute node to perform the work you need done.
 
@@ -244,14 +244,6 @@ With task dependencies, you can configure scenarios such as the following:
 
 Check out the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository. In it, you will see how to configure tasks that depend on other tasks using the [Batch .NET][batch_net_api] library.
 
-### Application packages
-
-The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
-
-Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
-
-To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
-
 ## Environment settings for tasks
 
 Each task that executes within a Batch job has access to environment variables set both by the Batch service (service-defined; see table below) and custom environment variables that you can set for your tasks. The applications and scripts run on the nodes by your tasks have access to these environment variables during execution.
@@ -300,6 +292,14 @@ The root directory contains the following directory structure:
 	`stdout.txt` and `stderr.txt` – These files are written to the task folder during the execution of the task.
 
 >[AZURE.IMPORTANT] When a node is removed from the pool, *all* of the files that are stored on the node are removed.
+
+## Application packages
+
+The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
+
+Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
+
+To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
 ## Pool and compute node lifetime
 
