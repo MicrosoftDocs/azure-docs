@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="05/12/2016"
+   ms.date="06/16/2016"
    ms.author="delhan"/>
 
 # Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
@@ -75,3 +75,7 @@ The request to resize the VM has to be attempted at the original cluster that ho
 
   2. After all the VMs stop, resize the desired VM to a larger size.
   3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
+
+## Next steps
+
+If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](../articles/virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
