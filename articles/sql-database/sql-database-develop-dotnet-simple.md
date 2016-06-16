@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="06/16/2016"
 	ms.author="tobiast"/>
 
 # Connect to SQL Database by using .NET (C#)
@@ -37,6 +37,10 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 * [Proof of concept connecting to SQL using ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
 * [Connect resiliently to SQL with ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
 
-## Additional resources
+## Next Steps
 
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database.md)
+* [Build a service using an existing SQL database with the Mobile Services .NET backend](mobile-services-dotnet-backend-use-existing-sql-database.md)
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+
+
