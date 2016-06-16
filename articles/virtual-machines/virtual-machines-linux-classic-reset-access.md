@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Reset Linux VM password and SSH key from the CLI | Microsoft Azure"
-	description="How to use the VMAccess extension from the Azure Command-Line Interface (CLI) to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+        pageTitle="Reset Linux VM password and SSH key from the CLI | Microsoft Azure"
+        description="How to use the VMAccess extension from the Azure Command-Line Interface (CLI) to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency"
+        services="virtual-machines-linux"
+        documentationCenter=""
+        authors="cynthn"
+        manager="timlt"
+        editor=""
+        tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="cynthn"/>
+        ms.service="virtual-machines-linux"
+        ms.workload="infrastructure-services"
+        ms.tgt_pltfrm="vm-linux"
+        ms.devlang="na"
+        ms.topic="article"
+        ms.date="06/14/2016"
+        ms.author="cynthn"/>
 
 # How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension
 
@@ -45,9 +45,9 @@ You will need to do the following:
 
 - You will need to [install the Azure CLI](../xplat-cli-install.md) and [connect to your subscription](../xplat-cli-connect.md) to use Azure resources associated with your account.
 - Set the correct mode for the classic deployment model by typing the following at the command prompt:
-	
-	```azure config mode asm```
-	
+        
+        ```azure config mode asm```
+        
 - Have a new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration.
 
 
@@ -55,42 +55,42 @@ You will need to do the following:
 
 1. Create a file named PrivateConf.json with these lines. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
-	{
-	"username":"<currentusername>",
-	"password":"<newpassword>",
-	"expiration":"<2016-01-01>"
-	}
+        {
+        "username":"<currentusername>",
+        "password":"<newpassword>",
+        "expiration":"<2016-01-01>"
+        }
 
 2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
-	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
+        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
 
 ## <a name="sshkeyresetcli"></a>Reset the SSH key
 
 1. Create a file named PrivateConf.json with these contents. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
-	{
-	"username":"<currentusername>",
-	"ssh_key":"<contentofsshkey>"
-	}
+        {
+        "username":"<currentusername>",
+        "ssh_key":"<contentofsshkey>"
+        }
 
 2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
-	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="resetbothcli"></a>Reset both the password and the SSH key
 
 1. Create a file named PrivateConf.json with these contents. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
-	{
-	"username":"<currentusername>",
-	"ssh_key":"<contentofsshkey>",
-	"password":"<newpassword>"
-	}
+        {
+        "username":"<currentusername>",
+        "ssh_key":"<contentofsshkey>",
+        "password":"<newpassword>"
+        }
 
 2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
-	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="createnewsudocli"></a>Create a new sudo user account
 
@@ -110,13 +110,13 @@ If the SSH configuration is in an undesired state, you might also lose access to
 
 1. Create a file named PrivateConf.json with this content.
 
-	{
-	"reset_ssh":"True"
-	}
+        {
+        "reset_ssh":"True"
+        }
 
 2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;. 
 
-	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="deletecli"></a>Delete a user
 
@@ -124,19 +124,19 @@ If you want to delete a user account without logging into to the VM directly, yo
 
 S1. Create a file named PrivateConf.json with this content, substituting the user name to remove for &#60;usernametoremove&#62;. 
 
-	{
-	"remove_user":"<usernametoremove>"
-	}
+        {
+        "remove_user":"<usernametoremove>"
+        }
 
 2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;. 
 
-	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="statuscli"></a>Display the status of the VMAccess extension
 
 To display the status of the VMAccess extension, run this command.
 
-	azure vm extension get
+        azure vm extension get
 
 ## <a name='checkdisk'<</a>Check consistency of added disks
 
@@ -144,13 +144,13 @@ To run fsck on all disks in your Linux virtual machine, you will need to do the 
 
 1. Create a file named PublicConf.json with this content. Check Disk takes a boolean for whether to check disks attached to your virtual machine or not. 
 
-    {   
-    "check_disk": "true"
-    }
+        {   
+        "check_disk": "true"
+        }
 
 2. Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
-	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
+        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
 
 ## <a name='repairdisk'></a>Repair disks 
 
@@ -158,14 +158,14 @@ To repair disks that are not mounting or have mount configuration errors, use th
 
 1. Create a file named PublicConf.json with this content. 
 
-    {
-    "repair_disk":"true",
-    "disk_name":"<yourdisk>"
-    }
+        {
+        "repair_disk":"true",
+        "disk_name":"<yourdisk>"
+        }
 
 2. Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
-    azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+        azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
 
 
 
