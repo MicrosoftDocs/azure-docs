@@ -32,7 +32,7 @@ Update 0.2 includes all changes from Update 0.1 in addition to the fix described
 
 Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 --------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-Updates                                 | In the last release, updates weren't detected automatically. This issue is fixed in this release.                       
+Updates                                 | In the last release, updates weren't detected automatically in the Azure Classic portal, so you had to use the local Web UI to install updates. This issue is fixed in this release.                       
 
 ## What's new in the Update 0.1
 
@@ -90,4 +90,4 @@ The following table provides a summary of known issues for the StorSimple Virtua
 
 ## Next step
 
-[Install Update 0.1](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
+[Install Updates](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
