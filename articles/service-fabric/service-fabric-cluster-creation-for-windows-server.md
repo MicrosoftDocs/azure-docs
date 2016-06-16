@@ -41,6 +41,8 @@ In the download package you will find the following files:
 |Readme.txt|Link to the release notes and basic installation instructions. It is a small subset of the instructions you will find on this page.|
 |CreateServiceFabricCluster.ps1|PowerShell script that creates the cluster using the settings in the ClusterConfig.JSON file.|
 |RemoveServiceFabricCluster.ps1|PowerShell script for cluster removal using the settings in the ClusterConfig.JSON.|
+|AddNode.ps1|PowerShell script for cluster adding a Node to an existing cluster|
+|RemoveNode.ps1|PowerShell script for cluster removing a Node from a cluster|
 
 ## Plan and prepare for cluster deployment
 The following steps need to be performed before you create your cluster.
@@ -107,6 +109,28 @@ This script can be run on any machine that has admin access to all the machines 
 
 ```
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+```
+
+## Add nodes to your Azure Service Fabric cluster on-premises or in the cloud
+
+1. Prepare the VM/Machine you want to add to your cluster (refer to step #2 in Plan and prepare for cluster deployment section above). 
+2. Plan as to which Fault domain and Upgrade domain you are going to add this VM/ machine to.
+3. [Download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)and unzip the package either to the VM/Machine you are planning to add to the cluster. 
+4. Open up a powershell admin prompt, navigate to the location of the unzipped package
+5. Run AddNode.PS1
+
+```
+.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.1.150.9590\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 172.17.34.52 -ExistingClusterConnectionEndPoint 172.17.34.12:19000 -UpgradeDomain UD1 -FaultDomain FD1
+```
+
+## Remove nodes to your Azure Service Fabric cluster on-premises or in the cloud
+
+1. TS into the VM/MAchine you want to remove from the cluster
+2. Open up a powershell admin prompt, navigate to the location of the unzipped package
+5. Run RemoveNode.PS1
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.1.150.9590\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 172.17.34.12:19000
 ```
 
 ## Next steps
