@@ -105,7 +105,7 @@ You can get this URL using the below PowerShell command
 
 ## Step 5: Reference your self-signed certificates URL while creating a VM
 
-#### ARM Templates
+#### Azure Resource Manager Templates
 
 While creating a VM through templates, the certificate gets referenced in the secrets section and the winRM section as below
 
@@ -159,7 +159,7 @@ Before you can connect to the VM you'll need to make sure your machine is config
 
     Enable-PSRemoting -Force
 
-**NOTE** You might need to make sure the WinRM service is running if the above does not work. You can do that using `Get-Service WinRM`
+>[AZURE.NOTE] You might need to make sure the WinRM service is running if the above does not work. You can do that using `Get-Service WinRM`
 
 Once the setup is done, you can connect to the VM using the below command
 
