@@ -19,20 +19,20 @@
 
 # What is the Team Data Science Process (TDSP)?
 
-The Team Data Science Process (TDSP) provides a systematic approach to building intelligent applications that enables teams of data scientists to collaborate effectively over the full lifecycle of activities needed to turn these applications into products. Specifically, the TDSP provides data science teams with:
+The Team Data Science Process (TDSP) provides a systematic approach to building intelligent applications that enables teams of data scientists to collaborate effectively over the full lifecycle of activities needed to turn these applications into products. Specifically, the TDSP currently provides data science teams with:
 
 - **Methodology**: It outlines a sequence of steps that define the development lifecycle providing guidance on how to define the problem, analyze relevant data, build and evaluate predictive models, and then deploy those models in enterprise applications. 
 - **Resources**: Tools and technologies such as the Data Science VM to simplify setting up environments for data science activities and practical guidance for on-boarding new technologies.
-- **Collaboration**: Scripts and templates to provision a team environment with standardized directory structures, output artifacts to track each stage in the development lifecycle, repositories for capturing work and datasets for reuse. 
+
 
 Download the [Team Data Science Process poster](https://www.microsoft.com/en-us/download). (TBD-update link when ready.)
 
-![TDSP-poster](./media/data-science-process-overview/TDSP-poster.png)
+![TDSP-poster](./media/data-science-process-overview/TDSP-development-lifecycle.png)
 
 
-Here are the steps in **Team Data Science Process**:  
+Here are the lifecycle steps in **Team Data Science Process**:  
 
-![TDSP-workflow](./media/data-science-process-overview/TDSP-workflow.PNG)
+![TDSP-workflow](./media/data-science-process-overview/TDSP-workflow.png)
 
 The process is **iterative**: the understanding of new and existing or refinements in the model evolves and requires reworking steps previously completed in the sequence. Existing organizational development and project planning processes are **easily adapted** to work with the TDSP-defined sequence of steps. 
 
