@@ -60,8 +60,8 @@ Now that you've built a working application that creates an Event Hub and sends 
 - [Event Hubs overview][]
 
 <!-- Images. -->
-[21]: ./media/event-hubs-csharp-ephjava-getstarted/run-ephjava.png
-[22]: ./media/event-hubs-csharp-ephjava-getstarted/run-csharp-ephcs2.png
+[21]: ./media/event-hubs-csharp-ephjava-getstarted/ephjava.png
+[22]: ./media/event-hubs-csharp-ephjava-getstarted/cs-send.png
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/

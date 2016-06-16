@@ -65,8 +65,8 @@ Now that you've built a working application that creates an Event Hub and sends 
 For more information, see the [Java Developer Center](/develop/java/).
 
 <!-- Images. -->
-[21]: ./media/event-hubs-java-ephjava-getstarted/run-ephjava.png
-[22]: ./media/event-hubs-java-ephjava-getstarted/run-java-send.png
+[21]: ./media/event-hubs-java-ephjava-getstarted/ephjava.png
+[22]: ./media/event-hubs-java-ephjava-getstarted/java-send.png
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
