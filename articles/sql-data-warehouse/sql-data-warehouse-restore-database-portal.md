@@ -38,12 +38,14 @@ To restore a database:
 1. Log in to the [Azure portal][]
 2. On the left side of the screen select **Browse** and then select **SQL Servers**
 3. Navigate to your server and select it
+    ![](./media/sql-data-warehouse-restore-database-portal/select-data-warehouse.png)
 4. Find the SQL Data Warehouse that you want to restore from and select it
 5. At the top of the Data Warehouse blade, click **Restore**
 6. Specify a new **Database name**
 7. Select the latest **Restore Point**
 	1. Make sure you choose the latest restore point.  Since restore points are shown in UTC, sometimes the default option shown is not the latest restore point.
 8. Click **OK**
+    ![](./media/sql-data-warehouse-restore-database-portal/restore-data-warehouse-from-active.png)
 9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
 ## Restore a deleted database
@@ -55,9 +57,11 @@ To restore a deleted database:
 3. Navigate to your server and select it
 4. Scroll down to the Operations section on your server's blade
 5. Click the **Deleted Databases** tile
+    ![](./media/sql-data-warehouse-restore-database-portal/select-deleted.png)
 6. Select the deleted database you want to restore
 7. Specify a new **Database name**
 8. Click **OK**
+    ![](./media/sql-data-warehouse-restore-database-portal/restore-data-warehouse-from-deleted.png)
 9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
 
