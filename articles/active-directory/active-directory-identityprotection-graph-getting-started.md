@@ -60,7 +60,7 @@ Before you get started, you’ll need:
 	![Creating an application](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_04.png)
 
 
-5. On the **Tell us about your application** dialog, perform the following steps**:
+5. On the **Tell us about your application** dialog, perform the following steps:
 
 	![Creating an application](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_05.png)
 
@@ -71,7 +71,7 @@ Before you get started, you’ll need:
 	c. Click **Next**.
 
 
-5. On the **App properties** dialog, perform the following steps**:
+5. On the **App properties** dialog, perform the following steps:
 
 	![Creating an application](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_06.png)
 
