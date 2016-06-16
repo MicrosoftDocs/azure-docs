@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to manage security after disaster recovery"
-	description="This topic explains security considerations for managing Active Geo-Replication scenarios for SQL Database."
+	pageTitle="How to manage security after restoring a database to a new server or failing over a database to a secondary database copy"
+	description="This topic explains security considerations for managing security after a database restore or a failover."
 	services="sql-database"
 	documentationCenter="na"
 	authors="carlrabeler"
@@ -14,10 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/10/2016"
+	ms.date="06/16/2016"
 	ms.author="carlrab" />
 
-# How to manage security after disaster recovery
+# How to manage Azure SQL Database security after disaster recovery
 
 >[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
 
@@ -27,7 +27,7 @@ This topic describes the authentication requirements to configure and control [A
 
 ## Disaster recovery with contained users
 
-With the [V12 version of Azure SQL Database](sql-database-v12-whats-new.md), SQL Database now supports contained users. Unlike traditional users, which must be mapped to logins in the master database, a contained user is managed completely by the database itself. This has two benefits. In the disaster recovery scenario, the users can continue to connect to the new primary database or the database recovered using geo-restore without any additional configuration, because the database manages the users. There are also potential scalability and performance benefits from this configuration from a login perspective. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
+Unlike traditional users, which must be mapped to logins in the master database, a contained user is managed completely by the database itself. This has two benefits. In the disaster recovery scenario, the users can continue to connect to the new primary database or the database recovered using geo-restore without any additional configuration, because the database manages the users. There are also potential scalability and performance benefits from this configuration from a login perspective. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
 
 The main trade-off is that managing the disaster recovery process at scale is more challenging. When you have multiple databases that use the same login, maintaining the credentials using contained users in multiple database may negate the benefits of contained users. For example, the password rotation policy requires that changes be made consistently in multiple databases rather than changing the password for the login once in the master database. For this reason, if you have multiple databases that use the same user name and password, using contained users is not recommended. 
 
@@ -46,7 +46,6 @@ Preparing user access to a Geo-Replication secondary should be performed as part
 >[AZURE.NOTE] If you failover or geo-restore to a server that does not have properly configured logins access to it will be limited to the server admin account.
 
 Setting up logins on the target server involves three steps outlined below:
-
 
 #### 1. Determine logins with access to the primary database:
 The first step of the process is to determine which logins must be duplicated on the target server. This is accomplished with a pair of SELECT statements, one in the logical master database on the source server and one in the primary database itself.
@@ -91,11 +90,16 @@ The last step is to go to the target server, or servers, and generate the logins
 
 - For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](sql-database-manage-logins.md).
 - For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+- [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- [Geo-Restore](sql-database-geo-restore.md)
 
 ## Additional resources
 
-- [Business Continuity Overview](sql-database-business-continuity.md)
+- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
+- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
+- [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
+- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
 - [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)

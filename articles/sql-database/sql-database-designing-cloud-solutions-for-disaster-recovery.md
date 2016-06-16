@@ -156,12 +156,19 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 | Active-active deployment for application load balancing | Read-write access < 5 sec | Failure detection time + failover API call + SQL connection string change + application verification test
 | Active-passive deployment for data preservation | Read-only access < 5 sec Read-write access = zero |  Read-only access = connectivity failure detection time + application verification test <br>Read-write access = time to mitigate the outage
 
+## Next steps
+
+- [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- [Geo-Restore](sql-database-geo-restore.md)
+
 
 ## Additional resources
 
-
-- [Business Continuity Overview](sql-database-business-continuity.md)
+- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
+- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
+- [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
+- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
 - [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)

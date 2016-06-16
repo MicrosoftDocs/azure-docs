@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/18/2016"
+   ms.date="06/16/2016"
    ms.author="mihaelab"/>
 
 #Performing Disaster Recovery Drill
@@ -62,3 +62,20 @@ To simulate the outage you can disable the web application or virtual machine co
 ####Validation
 
 - Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
+
+
+## Next steps
+
+- [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- [Geo-Restore](sql-database-geo-restore.md)
+
+## Additional Resources
+
+- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
+- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
+- [Geo-Restore](sql-database-geo-restore.md)
+- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
+- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
+- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
+- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)

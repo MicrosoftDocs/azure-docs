@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
@@ -120,8 +120,9 @@ The key **advantage** of this option is that you can upgrade both the applicatio
 
 The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines the end-user experience during upgrades. So the best way you can improve it is by focusing your efforts on making the upgrade script as efficient as possible.  
 
-## Additional resources
- The following pages will help you learn about the specific operations required to implement the upgrade workflow:
+
+## Next steps
+The following pages will help you learn about the specific operations required to implement the upgrade workflow:
 
 - [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -130,3 +131,14 @@ The two upgrade methods described in the article differ in complexity and the do
 - [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Set database to read-only or read-write mode](https://msdn.microsoft.com/library/bb522682.aspx)
+
+## Additional resources
+
+- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
+- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
+- [Geo-Restore](sql-database-geo-restore.md)
+- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
+- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
+- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
+- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
