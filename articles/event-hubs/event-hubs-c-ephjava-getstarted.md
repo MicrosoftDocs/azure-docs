@@ -46,11 +46,11 @@ In order to complete this tutorial you will need the following:
 
 Now you are ready to run the applications.
 
-1.	Run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
+1.	Run the **Receiver** project.
 
 	![][21]
 
-2.	Run the **Sender** program, and see the events appear in the receiver window.
+2.	Run the **Sender** program, and notice the events appear in the receiver window.
 
 	![][24]
 
@@ -64,8 +64,8 @@ Now that you've built a working application that creates an Event Hub and sends 
 - [Event Hubs overview][]
 
 <!-- Images. -->
-[21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
-[24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
+[21]: ./media/event-hubs-c-ephjava-getstarted/ephjava.png
+[24]: ./media/event-hubs-c-ephjava-getstarted/receive-eph-c.png
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
