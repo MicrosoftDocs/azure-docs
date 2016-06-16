@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure IoT Hub for Node.js getting started | Microsoft Azure"
-	description="Azure IoT Hub with Node.js getting started tutorial. Use Azure IoT Hub and Node.js with the Microsoft Azure IoT SDKs to implement an internet of things solution."
+	description="Azure IoT Hub with Node.js getting started tutorial. Use Azure IoT Hub and Node.js with the Microsoft Azure IoT SDKs to implement an Internet of Things solution."
 	services="iot-hub"
 	documentationCenter="nodejs"
 	authors="dominicbetts"
@@ -13,31 +13,17 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Get started with Azure IoT Hub for Node.js
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-## Introduction
-
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of internet of things (IoT) devices and a solution back end. One of the biggest challenges IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
-
-- Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
-- Enables secure communications using per-device security credentials and access control.
-- Includes device libraries for the most popular languages and platforms.
-
-This tutorial shows you how to:
-
-- Use the Azure portal to create an IoT hub.
-- Create a device identity in your IoT hub.
-- Create a simulated device that sends telemetry to your cloud back end.
-
-At the end of this tutorial you will have three Node.js console applications:
+At the end of this tutorial, you will have three Node.js console applications:
 
 * **CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device.
-* **ReadDEviceToCloudMessages.js**, which displays the telemetry sent by your simulated device.
+* **ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device.
 * **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQPS protocol.
 
 > [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
@@ -46,19 +32,15 @@ To complete this tutorial you'll need the following:
 
 + Node.js version 0.12.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
++ An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-As a final step, click **Settings** on the IoT Hub blade, then **Messaging** on the **Settings** blade. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You will need these values when you create your **read-d2c-messages** application.
-
-![][6]
-
-You have now created your IoT hub and you have the IoT Hub hostname, IoT Hub connection string, Event Hub-compatible name, and Event-Hub compatible endpoint values that you need to complete the rest of this tutorial.
+You have now created your IoT hub. You have the IoT Hub hostname and the IoT Hub connection string that you need to complete the rest of this tutorial.
 
 ## Create a device identity
 
-In this section, you'll create a Node.js console app that creates a new device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the device identity registry. Refer to the **Device Identity Registry** section of the [IoT Hub Developer Guide][lnk-devguide-identity] for more information. When you run this console application, it generates a unique device ID and key that your device can identify itself with when it sends device-to-cloud messages to IoT Hub.
+In this section, you'll create a Node.js console app that creates a new device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the device identity registry. Refer to the **Device Identity Registry** section of the [IoT Hub Developer Guide][lnk-devguide-identity] for more information. When you run this console application, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
 1. Create a new empty folder called **createdeviceidentity**. In the **createdeviceidentity** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
@@ -82,7 +64,7 @@ In this section, you'll create a Node.js console app that creates a new device i
     var iothub = require('azure-iothub');
     ```
 
-5. Add the following code to the **CreateDeviceIdentity.js** file, replacing the placeholder value with the connection string for the IoT hub you created in the previous section: 
+5. Add the following code to the **CreateDeviceIdentity.js** file and replace the placeholder value with the connection string for the IoT hub you created in the previous section: 
 
     ```
     var connectionString = '{iothub connection string}';
@@ -122,11 +104,11 @@ In this section, you'll create a Node.js console app that creates a new device i
 
 9. Make a note of the **Device id** and **Device key**. You will need these later when you create an application that connects to IoT Hub as a device.
 
-> [AZURE.NOTE] The IoT Hub identity registry only stores device identities to enable secure access to the hub. It stores device IDs and keys to use as security credentials and an enabled/disabled flag that enables you to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. Refer to [IoT Hub Developer Guide][lnk-devguide-identity] for more information.
+> [AZURE.NOTE] The IoT Hub identity registry only stores device identities to enable secure access to the hub. It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. Refer to [IoT Hub Developer Guide][lnk-devguide-identity] for more information.
 
 ## Receive device-to-cloud messages
 
-In this section, you'll create a Node.js console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.
+In this section, you'll create a Node.js console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hubs-compatible endpoints.
 
 > [AZURE.NOTE] The Event Hubs-compatible endpoint for reading device-to-cloud messages always uses the AMQPS protocol.
 
@@ -136,10 +118,10 @@ In this section, you'll create a Node.js console app that reads device-to-cloud 
     npm init
     ```
 
-2. At your command-prompt in the **readdevicetocloudmessages** folder, run the following command to install the **amqp10** and **bluebird** packages:
+2. At your command-prompt in the **readdevicetocloudmessages** folder, run the following command to install the **azure-event-hubs** package:
 
     ```
-    npm install amqp10 bluebird --save
+    npm install azure-event-hubs --save
     ```
 
 3. Using a text editor, create a new **ReadDeviceToCloudMessages.js** file in the **readdevicetocloudmessages** folder.
@@ -149,91 +131,48 @@ In this section, you'll create a Node.js console app that reads device-to-cloud 
     ```
     'use strict';
 
-    var AMQPClient = require('amqp10').Client;
-    var Policy = require('amqp10').Policy;
-    var translator = require('amqp10').translator;
-    var Promise = require('bluebird');
+    var EventHubClient = require('azure-event-hubs').Client;
     ```
 
-5. Add the following variable declarations, replacing the placeholders with the values you noted previously. The value of the **{your event hub-compatible namespace}** placeholder comes from the **Event Hub-compatible endpoint** field in the portal - it takes the form **namespace.servicebus.windows.net** (without the *sb://* prefix).
+5. Add the following variable declaration and replace the placeholder value with the connection string for your IoT hub:
 
     ```
-    var protocol = 'amqps';
-    var eventHubHost = '{your event hub-compatible namespace}';
-    var sasName = 'iothubowner';
-    var sasKey = '{your iot hub key}';
-    var eventHubName = '{your event hub-compatible name}';
-    var numPartitions = 2;
+    var connectionString = '{iothub connection string}';
     ```
 
-    > [AZURE.NOTE] This code assumes you created your IoT hub in the F1 (free) tier. A free IoT hub has two partitions named "0" and "1". If you created your IoT hub using one of the other pricing tiers, you should adjust the code to create a **MessageReceiver** for each partition.
-
-6. Add the following filter definition. This application uses a filter when it creates a receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This is useful in a test environment so you can see the current set of messages, but in a production environment your code should make sure that it processes all the messages - see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial for more information.
+6. Add the following two functions that print output to the console:
 
     ```
-    var filterOffset = new Date().getTime();
-    var filterOption;
-    if (filterOffset) {
-      filterOption = {
-      attach: { source: { filter: {
-      'apache.org:selector-filter:string': translator(
-        ['described', ['symbol', 'apache.org:selector-filter:string'], ['string', "amqp.annotation.x-opt-enqueuedtimeutc > " + filterOffset + ""]])
-        } } }
-      };
-    }
-    ```
-
-7. Add the following code to create the receive address and an AMQP client:
-
-    ```
-    var uri = protocol + '://' + encodeURIComponent(sasName) + ':' + encodeURIComponent(sasKey) + '@' + eventHubHost;
-    var recvAddr = eventHubName + '/ConsumerGroups/$default/Partitions/';
-    
-    var client = new AMQPClient(Policy.EventHub);
-    ```
-
-8. Add the following two functions that print output to the console:
-
-    ```
-    var messageHandler = function (partitionId, message) {
-      console.log('Received(' + partitionId + '): ', message.body);
+    var printError = function (err) {
+      console.log(err.message);
     };
-    
-    var errorHandler = function(partitionId, err) {
-      console.warn('** Receive error: ', err);
+
+    var printMessage = function (message) {
+      console.log('Message received: ');
+      console.log(JSON.stringify(message.body));
+      console.log('');
     };
     ```
 
-9. Add the following function that acts as a receiver for a given partition using the filter:
+7. Add the following code to create the **EventHubClient**, open the connection to your IoT Hub, and create a receiver for each partition. This application uses a filter when it creates a receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This is useful in a test environment so you see just the current set of messages, but in a production environment your code should make sure that it processes all the messages - see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial for more information:
 
     ```
-    var createPartitionReceiver = function(partitionId, receiveAddress, filterOption) {
-      return client.createReceiver(receiveAddress, filterOption)
-        .then(function (receiver) {
-          console.log('Listening on partition: ' + partitionId);
-          receiver.on('message', messageHandler.bind(null, partitionId));
-          receiver.on('errorReceived', errorHandler.bind(null, partitionId));
-        });
-    };
+    var client = EventHubClient.fromConnectionString(connectionString);
+    client.open()
+        .then(client.getPartitionIds.bind(client))
+        .then(function (partitionIds) {
+            return partitionIds.map(function (partitionId) {
+                return client.createReceiver('$Default', partitionId, { 'startAfterTime' : Date.now()}).then(function(receiver) {
+                    console.log('Created partition receiver: ' + partitionId)
+                    receiver.on('errorReceived', printError);
+                    receiver.on('message', printMessage);
+                });
+            });
+        })
+        .catch(printError);
     ```
 
-10. Add the following code to connect to the Event Hub-compatible endpoint and start the receivers:
-
-    ```
-    client.connect(uri)
-      .then(function () {
-        var partitions = [];
-        for (var i = 0; i < numPartitions; ++i) {
-          partitions.push(createPartitionReceiver(i, recvAddr + i, filterOption));
-        }
-        return Promise.all(partitions);
-    })
-    .error(function (e) {
-        console.warn('Connection error: ', e);
-    });
-    ```
-
-11. Save and close the **ReadDeviceToCloudMessages.js** file.
+8. Save and close the **ReadDeviceToCloudMessages.js** file.
 
 ## Create a simulated device app
 

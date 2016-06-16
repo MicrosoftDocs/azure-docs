@@ -3,7 +3,7 @@
    description="Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Classic Portal, Azure Classic Portal"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
+   authors="carlrabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
    ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Finalize your recovered Azure SQL Database
 

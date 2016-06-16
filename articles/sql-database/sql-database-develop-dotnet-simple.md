@@ -42,5 +42,9 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 * [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database.md)
 * [Build a service using an existing SQL database with the Mobile Services .NET backend](mobile-services-dotnet-backend-use-existing-sql-database.md)
 * [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
+
+
+
 
 
