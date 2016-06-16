@@ -1,10 +1,10 @@
 ## Receive messages with EventProcessorHost in Java
 
-[EventProcessorHost][] is a Java class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][] for a single receiver.
+EventProcessorHost is a Java class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using EventProcessorHost you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use EventProcessorHost for a single receiver.
 
 ###Create a storage account
 
-In order to use [EventProcessorHost][], you must have an [Azure Storage account][]:
+In order to use EventProcessorHost, you must have an [Azure Storage account][]:
 
 1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
 
@@ -154,7 +154,7 @@ For a simple event publisher, import the *com.microsoft.azure.eventhubs* package
 	``` Java
 	final String namespaceName = "----ServiceBusNamespaceName-----";
 	final String eventHubName = "----EventHubName-----";
-	
+
 	final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
 	final String sasKey = "---SharedAccessSignatureKey----";
 
@@ -162,20 +162,14 @@ For a simple event publisher, import the *com.microsoft.azure.eventhubs* package
 	final String storageAccountKey = "---StorageAccountKey----";
 	```
 
-> [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost][]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost][], as shown in the [Scaled out event processing][] sample. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost][] instances based on the machines (or roles) in which they are deployed. For more information about these topics, see the [Event Hubs Overview][] and [Event Hubs Programming Guide][] topics.
+> [AZURE.NOTE] This tutorial uses a single instance of EventProcessorHost. To increase throughput, it is recommended that you run multiple instances of EventProcessorHost. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for EventProcessorHost instances based on the machines (or roles) in which they are deployed.
 
 <!-- Links -->
 [Event Hubs Overview]: event-hubs-overview.md
-[Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]: ../storage/storage-create-storage-account.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure classic portal]: http://manage.windowsazure.com
 
 <!-- Images -->
-
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
