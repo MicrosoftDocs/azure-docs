@@ -66,7 +66,7 @@ On your AD FS Server, open Microsoft Powershell.  Check that AutoCertRollover va
 
 On your AD FS Server, Open the Azure AD Powershell prompt and connect to Azure AD.
 
->[AZURE.NOTE] You can download Azure Powershell if not already installed from [here](https://technet.microsoft.com/library/jj151815.aspx).
+>[AZURE.NOTE] You can download Azure AD Powershell if not already installed from [here](https://technet.microsoft.com/library/jj151815.aspx).
 
 	Connect-MsolService
 
