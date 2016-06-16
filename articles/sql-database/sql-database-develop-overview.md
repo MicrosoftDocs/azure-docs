@@ -36,7 +36,7 @@ Azure SQL Database provides resources for limiting access, protecting data, and 
 * More Information: [Securing your SQL Database](sql-database-security.md)
 
 ## Authentication
-* Windows authentication which is not available in Azure SQL Database, you will need to use SQL Database authentication instead.
+* Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.
 * You will need to specify a particular database, instead of defaulting to the *master* database.
 * You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database to switch to another database.
 * More information: [SQL Database security: Manage database access and login security](sql-database-manage-logins.md)
