@@ -2,7 +2,7 @@
    pageTitle="The 5 data science questions - Data Science for Beginners | Microsoft Azure"
    description="Get a quick introduction to data science from Data Science for Beginners, 5 short videos that start with The 5 Questions Data Science Can Answer."
    keywords="doing data science,introduction to data science,data science for beginners, types of questions,data science questions, data science algorithms"
-   services="machine-learning" 
+   services="machine-learning"
    documentationCenter="na"
    authors="cjgronlund"
    manager="paulettm"
@@ -29,9 +29,9 @@ This video series if helpful you're interested in doing data science--or work wi
 
 Hi! Welcome to the video series Data Science for Beginners.
 
-Data Science can be intimidating, so I’ll introduce the basics here without any equations or computer programming jargon.
+Data Science can be intimidating, so I'll introduce the basics here without any equations or computer programming jargon.
 
-In this first video, we’ll talk about The 5 questions that data science can answer.
+In this first video, we'll talk about The 5 questions that data science can answer.
 
 Data Science uses numbers and names (also known as categories or labels) to predict answers to questions.
 
@@ -47,33 +47,35 @@ It might surprise you, but *there are only five questions that data science answ
 
 ## An algorithm is like a recipe
 
-It’s helpful to think about an algorithm as a recipe and your data as the ingredients. An algorithm tells how to combine and mix the data in order to get an answer. Computers are like a blender. They do most of the hard work of the algorithm for you and they do it pretty fast.
+It's helpful to think about an algorithm as a recipe and your data as the ingredients. An algorithm tells how to combine and mix the data in order to get an answer. Computers are like a blender. They do most of the hard work of the algorithm for you and they do it pretty fast.
 
 ## Question 1: Is this A or B? uses classification algorithms
 
-Let’s start with the question: Is this A or B?
+Let's start with the question: Is this A or B?
+
+![Classification algorithm: Is this A or B?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-classification-algorithm.png)
 
 This family of algorithms is called two-class classification.
 
-It’s useful for any question that has just two possible answers.
+It's useful for any question that has just two possible answers.
 
 For example:
 
   •	Will this tire fail in the next 1,000 miles: Yes or no?
   •	Which brings in more customers: a $5 coupon or a 25% discount?
 
-This question can also be rephrased to include more than two options: Is this A or B or C or D, etc.?  This is called multiclass classification and it’s useful when you have several—or several thousand— possible answers. Multiclass classification chooses the most likely one.
+This question can also be rephrased to include more than two options: Is this A or B or C or D, etc.?  This is called multiclass classification and it's useful when you have several—or several thousand— possible answers. Multiclass classification chooses the most likely one.
 
 ## Question 2: Is this weird? uses anomaly detection algorithms
 
 The next question data science can answer is: Is this weird? This question is answered by a family of algorithms called anomaly detection.
 
-If you have a credit card, you’ve already benefitted from anomaly detection. Your credit card company analyzes your purchase patterns, so that they can alert you to possible fraud. Charges that are “weird” might be a purchase at a store where you don’t normally shop or buying an unusually pricey item.
+If you have a credit card, you’ve already benefitted from anomaly detection. Your credit card company analyzes your purchase patterns, so that they can alert you to possible fraud. Charges that are "weird" might be a purchase at a store where you don't normally shop or buying an unusually pricey item.
 
 This question can be useful in lots of ways. For instance:
 
   •	If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
-  •	If you’re monitoring the internet you’d want to know: Is this message from the internet typical?
+  •	If you're monitoring the internet you’d want to know: Is this message from the internet typical?
 
 Anomaly detection flags unexpected or unusual events or behaviors. It gives clues where to look for problems.
 
@@ -115,19 +117,19 @@ Typically, reinforcement learning is a good fit for automated systems that have 
 
 Questions it answers are always about what action should be taken--usually by a machine or a robot. Examples are:
 
-  •	If I’m a temperature control system for a house: Adjust the temperature or leave it where it is?
-  •	If I’m a self-driving car: At a yellow light, brake or accelerate?
+  •	If I'm a temperature control system for a house: Adjust the temperature or leave it where it is?
+  •	If I'm a self-driving car: At a yellow light, brake or accelerate?
   •	For a robot vacuum: Keep vacuuming, or go back to the charging station?
 
 Reinforcement learning algorithms gather data as they go, learning from trial and error.
-So that’s it--The 5 questions data science can answer.
+So that's it--The 5 questions data science can answer.
 
 ## Conclusion
 
-Be sure to check out the other 4 videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
+Be sure to check out the other 4 videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
 
 ## Next steps
 
   * Look for next week's Data Science for Beginners video "Is your data ready for data science?"
 
-  * [Try your first data science experiment]() with Azure Machine Learning.
+  * [Try your first data science experiment](../machine-learning-create-experiment.md) with Azure Machine Learning.
