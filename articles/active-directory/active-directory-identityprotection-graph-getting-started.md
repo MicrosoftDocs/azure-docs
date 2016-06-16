@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Active Directory Identity Protection and Microsoft Graph| Microsoft Azure"
-	description="Provides an introduction to query Microsoft Graph for a list of risk events and associated information."
+	pageTitle="Get started with Azure Active Directory Identity Protection and Microsoft Graph | Microsoft Azure"
+	description="Provides an introduction to query Microsoft Graph for a list of risk events and associated information from Azure Active Directory."
 	services="active-directory"
 	keywords="azure active directory identity protection, risk event, vulnerability, security policy, Microsoft Graph"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 
-Microsoft Graph is Microsoft’s unified API endpoint and the home of [Azure Active Directory Identity Protection’s](active-directory-identityprotection.md) APIs. Our first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](active-directory-identityprotection-risk-events-types.md) and associated information. This topic gets you started querying this API. For an in depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/).
+Microsoft Graph is Microsoft’s unified API endpoint and the home of [Azure Active Directory Identity Protection’s](active-directory-identityprotection.md) APIs. Our first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](active-directory-identityprotection-risk-events-types.md) and associated information. This article gets you started querying this API. For an in depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/).
 
 There are three steps to accessing Identity Protection data through Microsoft Graph:
 
@@ -32,15 +32,14 @@ There are three steps to accessing Identity Protection data through Microsoft Gr
 Before you get started, you’ll need:
 
 - Administrator privileges to create the application in Azure AD
-- The name of your tenant's domain (e.g. contoso.onmicrosoft.com)
+- The name of your tenant's domain (for example, contoso.onmicrosoft.com)
 
 
 
 ## Add an application with a client secret
 
-**To add an application with a client secret:**
 
-1. [Sign on](https://manage.windowsazure.com) to your Azure classic portal as an administrator. 
+1. [Sign in](https://manage.windowsazure.com) to your Azure classic portal as an administrator. 
 
 1. On on the left navigation pane, click **Active Directory**. 
 
@@ -89,11 +88,8 @@ Your can now configure your application.
 
 
 
-
-
 ## Grant your application permission to use the API
 
-**To grant your application permission to use the API:**
 
 1. On your application's page, in the menu on the top, click **Configure**. 
 
@@ -120,8 +116,6 @@ Your can now configure your application.
 1. Click **Save** at the bottom of the page.
 
 	![Creating an application](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
-
-
 
 
 ## Get an access key
@@ -181,9 +175,9 @@ Send this header as a request to the following API URL: `https://graph.microsoft
 The response, if successful, is a collection of identity risk events and associated data in the OData JSON format, which can be parsed and handled as see fit.
 
 Here’s sample code for authenticating and calling the API using Powershell.  
-Just add your client id, key, and tenant domain.
+Just add your client ID, key, and tenant domain.
 
-	$ClientID       = "<your client id here>"        # Should be a ~36 hex character string; insert your info here
+	$ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
 	$ClientSecret   = "<your client secret here>"    # Should be a ~44 character string; insert your info here
 	$tenantdomain   = "<your tenant domain here>"    # For example, contoso.onmicrosoft.com
 
