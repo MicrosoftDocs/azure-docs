@@ -115,13 +115,13 @@ The following table compares STLF and LTLF in respect to the most important attr
 
 |Attribute|Short Term Load Forecast|Long Term Load Forecase|
 |---|---|---|
-|Forecast Horizon|From 1 hour to 48 hours|From 1 week to 6 months or more|
+|Forecast Horizon|From 1 hour to 48 hours|From 1 to 6 months or more|
 |Data granularity|Hourly|Hourly or daily|
 |Typical use cases|<ul><li>Demand/Supply balancing</li><li>Pick hour forecasting</li><li>Demand response</li></ul>|<ul><li>Long term planning</li><li>Grid assets planning</li><li>Resource planning</li></ul>|
 |Typical predictors|<ul><li>Day or week</li><li>Hour of day</li><li>Hourly temperature</li></ul>|<ul><li>Month of year</li><li>Day of month</li><li>Long term temperature and climate</li></ul>|
 |Historical data range|Two to three years' worth of data|Five to 10 years' worth of data|
-|Typical accuracy|MAPE* of 95% or better|MAPE* of 75% or better|
-|Forecast frequency|Produced every hour or every 24 hours|Produced once a week, monthly or quarterly|
+|Typical accuracy|MAPE* of 5% or lower|MAPE* of 25% or lower|
+|Forecast frequency|Produced every hour or every 24 hours|Produced once monthly, quarterly or yearly|
 \*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) –
 Mean Average Percent Error
 
