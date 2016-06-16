@@ -1,9 +1,3 @@
-<properties
-	pageTitle="Using Azure AD Connect Health with AD DS | Microsoft Azure"
-	description="This is the Azure AD Connect Health page how to monitor your AD DS infrastructure."
-	services="active-directory"
-/>
-
 # Using Azure AD Connect Health with AD DS
 The following documentation is specific to monitoring Active Directory Domain Services with Azure AD Connect Health. For information on monitoring AD FS with Azure AD Connect Health see Using Azure AD Connect Health with AD FS. Additionally, for information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health see Using Azure AD Connect Health for Sync.
 
