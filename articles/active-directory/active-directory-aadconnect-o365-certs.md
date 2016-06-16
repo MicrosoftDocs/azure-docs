@@ -35,7 +35,7 @@ The token signing and token decrypting certificates are usually self-signed cert
 
 ### Renewal notification - O365 portal and email notification
 
->[AZURE.NOTE] If you received an email or a portal notification asking you to renew your certificate for Office please you can follow the steps mentioned below in [Managing changes to token signing certificates](./active-directory-aadconnect-o365-certs.md#managing-changes-to-toke-signing-certificates) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications being given to user for certificate renewal even when no action is required.
+>[AZURE.NOTE] If you received an email or a portal notification asking you to renew your certificate for Office you can follow the steps mentioned below in [Managing changes to token signing certificates](#managecerts) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications being given to user for certificate renewal even when no action is required.
 
 Azure AD attempts to monitor the federation metadata and update the token signing certificates as indicated by the federation metadata. 30 days before the expiry of the token signing certificates, Azure AD will check if new certificates are available by polling the federation metadata.
 
@@ -49,7 +49,7 @@ Server 2012 R2 - [Windows Server May 2014 rollup](http://support.microsoft.com/k
 >
 >Server 2008 R2 and 2012 - [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
 
-## How to check if the certificates need update?
+## How to check if the certificates need update? <a name="managecerts"></a>
 
 ### Step 1: Check AutoCertificateRollover state
 
