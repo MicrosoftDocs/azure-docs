@@ -46,7 +46,7 @@ In the sections below, you'll learn about each of the resources mentioned in the
 
 ## Batch service components
 
-Some of the following resources—account, compute nodes, pools, jobs, and tasks—are required for all solutions using the Batch service. Others, such as job schedules and application packages, are helpful but optional features.
+Some of the following resources—account, compute node, pool, job, task—are required by all solutions using the Batch service. Others, such as job schedules and application packages, are helpful but optional features.
 
 - [Account](#account)
 - [Compute node](#compute-node)
@@ -71,7 +71,7 @@ A Batch account is a uniquely identified entity within the Batch service. All pr
 
 ## Compute node
 
-A compute node is an Azure virtual machine that is dedicated to a specific workload for your application. The size of a node determines the number of CPU cores, memory capacity, and local file system size allocated to the node. You can create pools of Windows or Linux nodes by using either Cloud Services or Virtual Machines Marketplace images—see [Pool](#pool) below for more information on these options.
+A compute node is an Azure virtual machine that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size allocated to the node. You can create pools of Windows or Linux nodes by using either Cloud Services or Virtual Machines Marketplace images—see [Pool](#pool) below for more information on these options.
 
 Nodes can run any executable or script supported by the operating system environment of the node. This includes \*.exe, \*.cmd, \*.bat and PowerShell scripts for Windows, and binaries, shell, and Python scripts for Linux.
 
