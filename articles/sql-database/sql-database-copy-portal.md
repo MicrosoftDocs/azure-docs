@@ -53,11 +53,9 @@ Open the SQL database blade for the database you want to copy:
 
 ## Monitor the progress of the copy operation
 
-1.	After starting the copy click on the portal notification for details.
-
+- After starting the copy click on the portal notification for details.
 
     ![notification][3]
-
  
     ![monitor][4]
 
@@ -93,8 +91,8 @@ To resolve logins after the copy operation completes, see [Resolve logins](sql-d
 
 
 <!--Image references-->
-[1]: ./media/sql-database-copy/copy.png
-[2]: ./media/sql-database-copy/copy-ok.png
-[3]: ./media/sql-database-copy/copy-notification.png
-[4]: ./media/sql-database-copy/monitor-copy.png
+[1]: ./media/sql-database-copy-portal/copy.png
+[2]: ./media/sql-database-copy-portal/copy-ok.png
+[3]: ./media/sql-database-copy-portal/copy-notification.png
+[4]: ./media/sql-database-copy-portal/monitor-copy.png
 
