@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copy an Azure SQL database | Microsoft Azure"
+	pageTitle="Copy an Azure SQL database using the Azure portal | Microsoft Azure"
 	description="Create a copy of an Azure SQL database"
 	services="sql-database"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 
 
 
-# Copy an Azure SQL Database
+# Copy an Azure SQL Database using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Overview](sql-database-copy.md)
