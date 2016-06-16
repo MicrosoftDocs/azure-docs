@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/16/2016"
+   ms.author="elfish;barbkess;sonyama;nicw"/>
 
 # Restore an Azure SQL Data Warehouse (Portal)
 
@@ -35,24 +35,30 @@ In this article you will learn how to restore an Azure SQL Data Warehouse using 
 
 To restore a database:
 
-1. Log in to the [Azure portal][].
-2. On the left side of the screen select **BROWSE** and then select **SQL Databases**.
-3. Navigate to your database and select it.
-4. At the top of the database blade, click **Restore**.
-5. Specify a new **Database name**, select a **Restore Point** and then click **Create**.
-6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
+1. Log in to the [Azure portal][]
+2. On the left side of the screen select **Browse** and then select **SQL Servers**
+3. Navigate to your server and select it
+4. Find the SQL Data Warehouse that you want to restore from and select it
+5. At the top of the Data Warehouse blade, click **Restore**
+6. Specify a new **Database name**
+7. Select the latest **Restore Point**
+	1. Make sure you choose the latest restore point.  Since restore points are shown in UTC, sometimes the default option shown is not the latest restore point.
+8. Click **OK**
+9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
 ## Restore a deleted database
 
 To restore a deleted database:
 
-1. Log in to the [Azure portal][].
-2. On the left side of the screen select **BROWSE** and then select **SQL Servers**.
-3. Navigate to your server and select it.
-4. Scroll down to Operations on your server's blade, click the **Deleted Databases** tile.
-5. Select the deleted database you want to restore.
-5. Specify a new **Database name** and click **Create**.
-6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
+1. Log in to the [Azure portal][]
+2. On the left side of the screen select **Browse** and then select **SQL Servers**
+3. Navigate to your server and select it
+4. Scroll down to the Operations section on your server's blade
+5. Click the **Deleted Databases** tile
+6. Select the deleted database you want to restore
+7. Specify a new **Database name**
+8. Click **OK**
+9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
 
 ## Next steps
