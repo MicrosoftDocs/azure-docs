@@ -43,6 +43,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Next Steps
 
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt691981.aspx)
 
 ## Additional resources 
 

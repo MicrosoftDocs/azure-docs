@@ -41,7 +41,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Next Steps
 
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft PHP Driver for SQL Server](https://msdn.microsoft.com/en-us/library/dn865013.aspx)
+* More information on the [Microsoft Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652093.aspx)
 
 ## Additional resources 
 

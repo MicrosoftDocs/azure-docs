@@ -46,6 +46,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Next steps
 
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft Python Driver for SQL Server](https://msdn.microsoft.com/library/mt652092.aspx)
 * Visit the [Python Developer Center](/develop/python/).
 
 ## Additional resources 

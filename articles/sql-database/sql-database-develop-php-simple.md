@@ -49,7 +49,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Next steps
 
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft PHP Driver for SQL Server](https://msdn.microsoft.com/en-us/library/dn865013.aspx)
+* More information on the [Microsoft PHP Driver for SQL Server](https://msdn.microsoft.com/library/dn865013.aspx)
 * For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://social.technet.microsoft.com/wiki/contents/articles/1258.accessing-sql-server-databases-from-php.aspx).
 
 ## Additional resources 

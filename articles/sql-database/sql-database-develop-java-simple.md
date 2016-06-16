@@ -48,7 +48,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 * Visit the [Java Developer Center](/develop/java/).
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft PHP Driver for SQL Server](https://msdn.microsoft.com/en-us/library/dn865013.aspx)
+* More information on the [Microsoft JDBC Driver for SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
 
 ## Additional resources 
 
