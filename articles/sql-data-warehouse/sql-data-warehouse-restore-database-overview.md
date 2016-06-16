@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/10/2016"
+   ms.date="06/15/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -24,19 +24,26 @@
 - [Portal][]
 - [PowerShell][]
 - [REST][]
-
+s
 Azure SQL Data Warehouse protects your data with both locally redundant storage and automated backups. Automated backups give you a zero-admin way to protect your databases from accidental corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you can ensure business continuity by restoring your database to an earlier point in time. SQL Data Warehouse uses Azure Storage Snapshots to backup your database seemlessly without the need for any downtime.
 
 ## Automated backups
 
 Your **active** databases will automatically be backed up at a minimum of every 8 hours and kept for 7 days. This allows you to restore your active database to one of several restore points in the past 7 days.
 
-When a database is paused, new snapshots will stop and previous snapshots will roll off as they reach 7 days in age.  
-<!--If a database is paused for more than 7 days, the last snapshot will be saved, ensuring that you always have at least one backup.--> 
+When a database is paused, new backups will stop and previous backups will roll off as they reach 7 days in age. If a database is paused for more than 7 days, the most recent backup will be saved, ensuring that you always have at least one backup.
 
-When a database is dropped, a snapshot will be taken before the database is dropped.  Only the last snapshot is saved for a dropped database and that snapshot will be retained for 7 days.
+When a database is dropped, the last backup is saved for 7 days.
 
-If you need to retain a backup for longer than 7 days, you can simply restore one of your restore points to a new database and then optionally pause that database so that you only pay for the storage space of that backup.  
+Run this query on your active SQL Data Warehouse to see when the last backup was taken:
+
+```sql
+select top 1 *
+from sys.pdw_loader_backup_runs 
+order by run_id desc;
+```
+
+If you need to retain a backup for longer than 7 days, you can simply restore one of your restore points to a new database and then optionally pause that database so that you only pay for the storage space of that backup.
 
 ## Data redundancy
 

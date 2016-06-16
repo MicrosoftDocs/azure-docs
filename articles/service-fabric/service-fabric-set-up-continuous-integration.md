@@ -262,6 +262,8 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 3. Add the new files to source control, and push to VSTS.
 
+>[AZURE.NOTE] If you used a different certificate for managing your Service Fabric cluster, repeat the steps in 'Import your automation certificate', using that certificate.
+
 ### Create the build definition
 
 1.	Create an empty build definition. To do this:
@@ -340,7 +342,9 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 ### <a name="RemoveClusterResourceGroup"></a> Add a "Remove cluster resource group" step
 
-If a previous build did not clean up after itself (for example, if the build was canceled before it could clean up), there might be an existing resource group that might conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before you create a new one.
+If a previous build did not clean up after itself (for example, if the build was canceled before it could clean up), there might be an existing resource group that might conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before you create a new one. 
+
+>[AZURE.NOTE] Skip this step if you want to create and reuse the same cluster for every build.
 
 1.	On the **Build** tab, select the **Add build step…** command.
 
@@ -390,13 +394,17 @@ If a previous build did not clean up after itself (for example, if the build was
 
 3.	Select the pencil icon next to the build step's name, and then rename it to **Deploy**.
 
-4. Select these values:
+4. Select these values (replace the values of -PublishProfile and -ApplicationPackagePath with your actual paths):
 
     |Setting Name|Value|
     |---|---|
     |Type|**File Path**|
     |Script filename|Click the **…** button and navigate to the **Scripts** directory inside your application project. Select `Deploy-FabricApplication.ps1`.|
     |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
+
+>[AZURE.NOTE] An easy way to create a working publish profile xml file, is to create it in Visual Studio, as shown here: https://azure.microsoft.com/en-us/documentation/articles/service-fabric-publish-app-remote-cluster
+
+>[AZURE.NOTE] If you want to support deployment of the application to a cluster by overwriting the existing application instead of upgrading it, add this Powershell Argument: '-OverwriteBehavior SameAppTypeAndVersion'. In addition, be sure that the selected publish profile is not configured to enable an upgrade. This will first remove any existing ApplicationType before installing the newer build.
 
 5.	Save the build definition.
 

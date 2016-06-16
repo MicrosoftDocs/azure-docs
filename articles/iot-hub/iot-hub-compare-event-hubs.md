@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="06/06/2016"
  ms.author="elioda"/>
 
 # Comparison of IoT Hub and Event Hubs

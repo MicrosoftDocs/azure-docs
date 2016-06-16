@@ -50,7 +50,7 @@ Azure to VMM site | Unsupported | Supported | Unsupported
 Hyper-V site to Azure | Supported | Supported | Supported
 Azure to Hyper-V site | Unsupported | Supported | Unsupported
 VMware site to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) |Unsupported | Supported
-Physical server to Azure | Not supported | Unsupported | Supported
+Physical server to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) | Unsupported | Supported
 
 ## Failover and failback
 
