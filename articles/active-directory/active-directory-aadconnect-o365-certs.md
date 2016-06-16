@@ -17,7 +17,7 @@
 	ms.author="billmath"/>
 
 
-#Managing Federation Certificates for Office 365 and Azure AD
+# Renewing Federation Certificates for Office 365 and Azure AD
 
 ##Overview
 
