@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analytics with Application Insights" 
+	pageTitle="Analytics with Application Insights | Microsoft Azure" 
 	description="Device and web app analytics. Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
 	services="application-insights" 
     documentationCenter=""
