@@ -104,13 +104,8 @@ You choose the columns you want to appear as part of the alert with the **Choose
 
 >[AZURE.NOTE] From the **Settings** blade, you manage backup alerts by selecting **Monitoring and Reports > Alerts and Events > Backup Alerts** and then clicking **Filter** or **Configure Notifications**.
 
-## Manage backup tasks
-In the Backup section of the dashboard, you have access to Backup Items, Backup Jobs, and Backup Usage information. You manage your Backup Items and Backup Jobs by clicking on the appropriate tile on the dashboard.
-
-![Manage backups](./media/backup-azure-manage-windows-server/manage-backups.png)
-
-## Backup Items
-Managing on-premises backups is now available in the management portal. The **Backup Items** tiles shows the number of backup items protected to the vault.
+## Manage Backup items
+Managing on-premises backups is now available in the management portal. In the Backup section of the dashboard, the **Backup Items** tiles shows the number of backup items protected to the vault.
 
 Click **File-Folders** in the Backup Items tile. The Backup Items blade opens with the filter set to File-Folder where you can see each specific backup item listed.
 
@@ -122,10 +117,10 @@ If you click a specific backup items from the list, you see the essential detail
 
 ![Backup items from settings](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
-## Backup jobs
+## Manage Backup jobs
 Backup jobs for both on-premises (when the on-premises server is backing up to Azure) and Azure backups are visible in the dashboard.
 
-The Backup job tile shows the number of jobs:
+In the Backup section of the dashboard, the Backup job tile shows the number of jobs:
 
 - in progress
 - failed in the last 24 hours.
@@ -142,8 +137,8 @@ If you don't see your backed up files and folders, click **Filter** button at th
 
 >[AZURE.NOTE] From the **Settings** blade, you manage backup jobs by selecting **Monitoring and Reports > Jobs > Backup Jobs** and then selecting **File-Folders** from the drop down menu.
 
-## Backup usage
-The Backup Usage tile show the storage consumed in Azure. Storage usage is provided for:
+## Monitor Backup usage
+In the Backup section of the dashboard, the Backup Usage tile show the storage consumed in Azure. Storage usage is provided for:
 - Cloud LRS storage usage associated with the vault
 - Cloud GRS storage usage associated with the vault
 
