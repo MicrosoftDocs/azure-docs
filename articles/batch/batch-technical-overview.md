@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/02/2016"
+	ms.date="06/16/2016"
 	ms.author="marsma"/>
 
-# Basics of Azure Batch
+# Introduction to Azure Batch
 
 Azure Batch enables you to run large-scale parallel and high performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
@@ -46,9 +46,11 @@ For a comparison between Batch and other HPC solution options in Azure, see [Bat
 
 ## Developing with Batch
 
-When you build solutions that use Azure Batch for parallel workload processing, you do so programmatically using the Batch APIs. With the Batch APIs, you create and manage pools of compute nodes (virtual machines) and schedule jobs and tasks to run on those nodes. A client application or service that you author uses the Batch APIs to communicate with the Batch service. You can efficiently process large-scale workloads for your organization, or provide a service front-end to your customers so that they can run jobs and tasks--on demand, or on a schedule--on one, hundreds, or thousands of nodes. You can also use Batch as part of a larger workflow, managed by tools such as [Azure Data Factory][data_factory].
+When you build solutions that use Azure Batch for parallel workload processing, you do so programmatically using the [Batch APIs](#batch-development-apis). With the Batch APIs, you create and manage pools of compute nodes (virtual machines) and schedule jobs and tasks to run on those nodes. A client application or service that you author uses the Batch APIs to communicate with the Batch service.
 
-> [AZURE.TIP] When you are ready to dig in to the Batch API for a more in-depth understanding of the features it provides, check out the [Azure Batch feature overview](batch-api-basics.md).
+You can efficiently process large-scale workloads for your organization, or provide a service front-end to your customers so that they can run jobs and tasks—on demand, or on a schedule—on one, hundreds, or even thousands of nodes. You can also use Batch as part of a larger workflow, managed by tools such as [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
+
+> [AZURE.TIP] When you're ready to dig in to the Batch API for a more in-depth understanding of the features it provides, check out the [Batch feature overview for developers](batch-api-basics.md).
 
 ### Azure accounts you'll need
 
@@ -82,14 +84,6 @@ In addition to the client APIs, you can also use the following to manage resourc
 
 - [Batch Management .NET](batch-management-dotnet.md) client library: Also available via [NuGet][api_net_mgmt_nuget], you can use the Batch Management .NET client library to programmatically manage Batch accounts, quotas, and application packages. Reference for the management library is on [MSDN][api_net_mgmt].
 
-### Batch tools
-
-While not required to build solutions using Batch, these tools can be considered essential while building and debugging your Batch applications and services.
-
-- [Azure Batch Explorer][batch_explorer]: The Batch Explorer is one of the Batch .NET sample applications available on [GitHub][github_samples]. Build this Windows Presentation Foundation (WPF) application with Visual Studio 2013 or 2015, and use it to browse and manage the resources in your Batch account while you are developing and debugging your Batch solutions. View job, pool, and task details, download files from compute nodes, or even connect to nodes remotely by using Remote Desktop (RDP) files that you obtain with just a few clicks in the Batch Explorer interface.
-
-- [Microsoft Azure Storage Explorer][storage_explorer]: While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
-
 ## Scenario: Scale out a parallel workload
 
 A common solution that uses the Batch APIs to interact with the Batch service involves scaling out intrinsically parallel work--such as the rendering of images for 3D scenes--on a pool of compute nodes. This pool of compute nodes can be your "render farm" that provides tens, hundreds, or even thousands of cores to your rendering job, for example.
@@ -120,13 +114,13 @@ Keep in mind that this is just one way to use Batch, and this scenario describes
 
 ## Next steps
 
-Now that you've seen an example Batch scenario, it's time to dig deeper into the service to learn how you can use it to process your compute-intensive parallel workloads.
+Now that you have a high-level overview of the Batch service, it's time to dig deeper to learn how you can use it to process your compute-intensive parallel workloads.
 
-- [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to use C# and the Batch .NET library to perform the techniques described above. This should be one of your first stops while learning how to use the Batch service.
+- Read the [Batch feature overview for developers](batch-api-basics.md) to learn more in-depth information on the API features that Batch provides for processing your workloads. This is essential reading for anyone preparing to use Batch.
 
-- Check out the [Batch feature overview](batch-api-basics.md) to get more in-depth information on the API features that Batch provides for processing your compute intensive workloads.
+- [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to use C# and the Batch .NET library to execute a simple workload using a common Batch workflow. This should be one of your first stops while learning how to use the Batch service. There is also a [Python version](batch-python-tutorial.md) of the tutorial.
 
-- In addition to the Batch Explorer, the other [code samples on GitHub][github_samples] show you how to use many of the Batch features using the Batch .NET library.
+- Download the [code samples on GitHub][github_samples] to see how both C# and Python can interface with Batch to schedule and process sample workloads.
 
 - Check out the [Batch Learning Path][learning_path] to get an idea of the resources available to you as you learn to work with Batch.
 
@@ -143,15 +137,12 @@ Now that you've seen an example Batch scenario, it's time to dig deeper into the
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[storage_explorer]: http://storageexplorer.com/
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
