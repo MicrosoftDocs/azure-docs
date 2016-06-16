@@ -46,10 +46,11 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 ## Next steps
 
-For more information, see the [Java Developer Center](/develop/java/).
+* Visit the [Java Developer Center](/develop/java/).
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft PHP Driver for SQL Server](https://msdn.microsoft.com/en-us/library/dn865013.aspx)
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+## Additional resources 
 
-## Additional resources
-
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)

@@ -38,10 +38,12 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 [Proof of Concept connecting to SQL using Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
 
-## Next steps
+## Next Steps
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft PHP Driver for SQL Server](https://msdn.microsoft.com/en-us/library/dn865013.aspx)
 
-## Additional resources
+## Additional resources 
 
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
