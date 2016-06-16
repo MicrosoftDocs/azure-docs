@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/016/2016"
+	ms.date="06/16/2016"
 	ms.author="carlrab"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -67,7 +67,7 @@ Performing a disaster recovery drill consists of:
 
 ## Manage rolling upgrades of cloud applications uisng Active Geo-Replication
 
-[Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication](sql-database-manage-application-rolling-upgrade) describes how to use [Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. This article looks at two different methods of orchestrating the upgrade process and discusses the benefits and trade-offs of each option. 
+[Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication](sql-database-manage-application-rolling-upgrade.md) describes how to use [Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. This article looks at two different methods of orchestrating the upgrade process and discusses the benefits and trade-offs of each option. 
 
 ## Design an application for cloud disaster recovery using Active Geo-Replication
 
