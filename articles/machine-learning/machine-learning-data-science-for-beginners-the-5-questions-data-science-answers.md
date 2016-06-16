@@ -1,6 +1,7 @@
 <properties
    pageTitle="The 5 data science questions - Data Science for Beginners | Microsoft Azure"
    description="Get a quick introduction to data science from Data Science for Beginners, 5 short videos that start with The 5 Questions Data Science Can Answer."
+   keywords="doing data science,introduction to data science, data science for beginners, types of questions, data science questions, data science algorithms"
    documentationCenter="na"
    authors="cjgronlund"
    manager="paulettm"
@@ -23,7 +24,7 @@ This video series if helpful you're interested in doing data science--or work wi
 
 ## Transcript: The 5 questions that data science can answer
 
-> [AZURE.VIDEO video-id-string]
+> [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
 Hi! Welcome to the video series Data Science for Beginners.
 
@@ -55,7 +56,8 @@ This family of algorithms is called two-class classification.
 
 It’s useful for any question that has just two possible answers.
 
-For example,
+For example:
+
   •	Will this tire fail in the next 1,000 miles: Yes or no?
   •	Which brings in more customers: a $5 coupon or a 25% discount?
 
@@ -67,7 +69,8 @@ The next question data science can answer is: Is this weird? This question is an
 
 If you have a credit card, you’ve already benefitted from anomaly detection. Your credit card company analyzes your purchase patterns, so that they can alert you to possible fraud. Charges that are “weird” might be a purchase at a store where you don’t normally shop or buying an unusually pricey item.
 
-This question can be useful in lots of ways. For instance,
+This question can be useful in lots of ways. For instance:
+
   •	If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
   •	If you’re monitoring the internet you’d want to know: Is this message from the internet typical?
 
@@ -75,12 +78,55 @@ Anomaly detection flags unexpected or unusual events or behaviors. It gives clue
 
 
 
-## Question 3: How much? or How many? use regression algorithms
+## Question 3: How much? or How many? uses regression algorithms
 
 Machine learning can also predict the answer to How much? or How many? The algorithm family that answers this question is called regression.
 
 Regression algorithms make numerical predictions, such as:
+
   •	What will the temperature be next Tuesday?
   •	What will my fourth quarter sales be?
 
 They help answer any question that can asks for a number.
+
+## Question 4: How is this organized? uses clustering algorithms
+
+Now the last two questions are a bit more advanced.
+
+Sometimes you want to understand the structure of a data set--How is this organized? For this question, you don’t have examples that you already know outcomes for.
+
+There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering there is no one right answer.
+
+Common examples of clustering questions are:
+
+  •	Which viewers like the same types of movies?
+  •	Which printer models fail the same way?
+
+By understanding how data is organized, you can better understand--and predict--behaviors and events.  
+
+Question 5: What should I do now? uses reinforcement learning algorithms
+
+The last question – What should I do now? – uses a family of algorithms called reinforcement learning.
+
+Reinforcement learning was inspired by how the brains of rats and humans respond to punishment and rewards. These algorithms learn from outcomes, and decide on the next action.
+
+Typically, reinforcement learning is a good fit for automated systems that have to make lots of small decisions without human guidance.
+
+Questions it answers are always about what action should be taken--usually by a machine or a robot. Examples are:
+
+  •	If I’m a temperature control system for a house: Adjust the temperature or leave it where it is?
+  •	If I’m a self-driving car: At a yellow light, brake or accelerate?
+  •	For a robot vacuum: Keep vacuuming, or go back to the charging station?
+
+Reinforcement learning algorithms gather data as they go, learning from trial and error.
+So that’s it--The 5 questions data science can answer.
+
+## Conclusion
+
+Be sure to check out the other 4 videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
+
+## Next steps
+
+  * Look for next week's Data Science for Beginners video "Is your data ready for data science?"
+
+  * [Try your first data science experiment]() with Azure Machine Learning.
