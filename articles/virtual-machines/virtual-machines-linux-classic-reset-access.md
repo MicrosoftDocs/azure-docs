@@ -53,7 +53,7 @@ You will need to do the following:
 
 ## <a name="pwresetcli"></a>Reset the password
 
-Step 1: Create a file named PrivateConf.json with these lines. Replace the brackets and the &#60;placeholder&#62; values with your own information.
+1. Create a file named PrivateConf.json with these lines. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
 	{
 	"username":"<currentusername>",
@@ -61,26 +61,26 @@ Step 1: Create a file named PrivateConf.json with these lines. Replace the brack
 	"expiration":"<2016-01-01>"
 	}
 
-Step 2: Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
 	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
 
 ## <a name="sshkeyresetcli"></a>Reset the SSH key
 
-Step 1: Create a file named PrivateConf.json with these contents. Replace the brackets and the &#60;placeholder&#62; values with your own information.
+1. Create a file named PrivateConf.json with these contents. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
 	{
 	"username":"<currentusername>",
 	"ssh_key":"<contentofsshkey>"
 	}
 
-Step 2: Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
 	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="resetbothcli"></a>Reset both the password and the SSH key
 
-Step 1: Create a file named PrivateConf.json with these contents. Replace the brackets and the &#60;placeholder&#62; values with your own information.
+1. Create a file named PrivateConf.json with these contents. Replace the brackets and the &#60;placeholder&#62; values with your own information.
 
 	{
 	"username":"<currentusername>",
@@ -88,7 +88,7 @@ Step 1: Create a file named PrivateConf.json with these contents. Replace the br
 	"password":"<newpassword>"
 	}
 
-Step 2: Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
 	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -108,13 +108,13 @@ If the SSH configuration is in an undesired state, you might also lose access to
 
 > [AZURE.NOTE] The SSH configuration file that gets reset is located at /etc/ssh/sshd_config.
 
-Step 1: Create a file named PrivateConf.json with this content.
+1. Create a file named PrivateConf.json with this content.
 
 	{
 	"reset_ssh":"True"
 	}
 
-Step 2: Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;. 
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;. 
 
 	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -122,13 +122,13 @@ Step 2: Run this command, substituting the name of your virtual machine for &#60
 
 If you want to delete a user account without logging into to the VM directly, you can use this script.
 
-Step 1: Create a file named PrivateConf.json with this content, substituting the user name to remove for &#60;usernametoremove&#62;. 
+S1. Create a file named PrivateConf.json with this content, substituting the user name to remove for &#60;usernametoremove&#62;. 
 
 	{
 	"remove_user":"<usernametoremove>"
 	}
 
-Step 2: Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;. 
+2. Run this command, substituting the name of your virtual machine for &#60;vm-name&#62;. 
 
 	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -142,13 +142,13 @@ To display the status of the VMAccess extension, run this command.
 
 To run fsck on all disks in your Linux virtual machine, you will need to do the following:
 
-Step 1: Create a file named PublicConf.json with this content. Check Disk takes a boolean for whether to check disks attached to your virtual machine or not. 
+1. Create a file named PublicConf.json with this content. Check Disk takes a boolean for whether to check disks attached to your virtual machine or not. 
 
     {   
     "check_disk": "true"
     }
 
-Step 2: Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
+2. Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
 	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
 
@@ -156,14 +156,14 @@ Step 2: Run this command to execute, substituting the name of your virtual machi
 
 To repair disks that are not mounting or have mount configuration errors, use the VMAccess extension to reset the mount configuration on your Linux virtual machine. Substituting the name of your disk for &#60;yourdisk&#62;.
 
-Step 1: Create a file named PublicConf.json with this content. 
+1. Create a file named PublicConf.json with this content. 
 
     {
     "repair_disk":"true",
     "disk_name":"<yourdisk>"
     }
 
-Step 2: Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
+2. Run this command to execute, substituting the name of your virtual machine for &#60;vm-name&#62;.
 
     azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
 
