@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Map in Application Insights" 
+	pageTitle="Application Map in Application Insights | Microsoft Azure" 
 	description="A visual presentation of the dependencies between app components, labeled with KPIs and alerts." 
 	services="application-insights" 
     documentationCenter=""
