@@ -59,6 +59,8 @@ On your AD FS Server, open Microsoft Powershell.  Check that AutoCertRollover va
 
 ![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
+[Azure.Note] If you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first.
+
 ### Step 2: Confirm that AD FS and Azure AD are in sync
 
 On your AD FS Server, Open the Azure Powershell prompt and connect to Azure AD.
@@ -96,18 +98,6 @@ If you have deployed Web Application Proxy which can enable acecess to the feder
 **#1 The AD FS property AutoCertificateRollover must be set to True**
 
 This indicates that AD FS will automatically generate new token signing and token decryption certificates before the old ones expire.
-
-_How to check if AutoCertificateRollover is enabled:_
-
-Verify that your AD FS installation is using automatic certificate rollover by executing the following command in a PowerShell command window on your primary federation server:
-
-	PS C:\> Get-ADFSProperties
-
-[Azure.Note] If you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first.
-
-In the resulting output, check for the following setting:
-	
-	AutoCertificateRollover :True
 
 **#2 The AD FS federation metadata is publicly accessible**
 
