@@ -122,7 +122,7 @@ If the SSH configuration is in an undesired state, you might also lose access to
 
 If you want to delete a user account without logging into to the VM directly, you can use this script.
 
-S1. Create a file named PrivateConf.json with this content, substituting the user name to remove for &#60;usernametoremove&#62;. 
+1. Create a file named PrivateConf.json with this content, substituting the user name to remove for &#60;usernametoremove&#62;. 
 
         {
         "remove_user":"<usernametoremove>"
