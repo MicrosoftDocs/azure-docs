@@ -18,7 +18,7 @@
    
 # How to Invoke Data Loss on Services
 
-**Warning: this document describe how to cause data loss in your services, and should be used with care.**
+>[AZURE.WARNING] Warning: this document describe how to cause data loss in your services, and should be used with care.
 
 ## Introduction
 You can invoke data loss on a partition of your Service Fabric Service by calling StartPartitionDataLossAsync().  This api uses the Fault Injection and Analysis Service to perform the work to cause data loss conditions.
