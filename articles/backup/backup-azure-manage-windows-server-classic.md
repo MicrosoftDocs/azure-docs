@@ -20,10 +20,10 @@
 # Manage Azure Backup vaults and servers using the classic deployment model
 
 > [AZURE.SELECTOR]
-- [Classic](backup-azure-manage-windows-server-classic.md)
 - [Resource Manager](backup-azure-manage-windows-server.md)
+- [Classic](backup-azure-manage-windows-server-classic.md)
 
-In this article you'll find an overview of the backup management tasks available through the management portal and the Microsoft Azure Backup agent.
+In this article you'll find an overview of the backup management tasks available through the Azure classic portal and the Microsoft Azure Backup agent.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
 
