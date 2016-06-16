@@ -45,7 +45,8 @@ Azure AD attempts to monitor the federation metadata and update the token signin
 ![O365 portal notification](./media/active-directory-aadconnect-o365-certs/notification.png)
 
 >[AZURE.IMPORTANT] If you are using AD FS, to ensure business continuity, please verify that your servers have the following patches so that authentication failures for known issues are not experienced.  This will mitigate known AD FS proxy server issues for this renewal and future renewal periods:
-Server 2012 R2 - [Windows Server May 2014 rollup](http://support.microsoft.com/kb/2955164)
+>
+>Server 2012 R2 - [Windows Server May 2014 rollup](http://support.microsoft.com/kb/2955164)
 >
 >Server 2008 R2 and 2012 - [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
 
@@ -63,9 +64,9 @@ On your AD FS Server, open Microsoft Powershell.  Check that AutoCertRollover va
 
 ### Step 2: Confirm that AD FS and Azure AD are in sync
 
-On your AD FS Server, Open the Azure Powershell prompt and connect to Azure AD.
+On your AD FS Server, Open the Azure AD Powershell prompt and connect to Azure AD.
 
->[AZURE.NOTE] You can download Azure Powershell if not already installed from [here](https://azure.microsoft.com/en-us/downloads/).
+>[AZURE.NOTE] You can download Azure Powershell if not already installed from [here](https://technet.microsoft.com/library/jj151815.aspx).
 
 	Connect-MsolService
 
@@ -158,7 +159,6 @@ Follow the steps given below to update O365 with the new token signing certifica
 
 
 >[AZURE.NOTE] If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the SupportMultipleDomain switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](active-directory-aadconnect-multiple-domains.md).
-Finally, ensure all Web Application Proxy servers are updated with [Windows Server May 2014](http://support.microsoft.com/kb/2955164) rollup, otherwise the proxies may fail to update themselves with the new certificate, resulting in an outage.
 
 ## Repair Azure AD trust using AAD Connect <a name="connectrenew"></a>
 
