@@ -124,11 +124,11 @@ You should use Active Geo-Replication if your application meets the following cr
 
 ## Next steps
 
-- [SQL Database automated backups](sql-database-automated-backups.md)
-- [Point In Time Restore](sql-database-point-in-time-restore.md)
-- [Restore deleted database](sql-database-restore-deleted-database.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn to use Azure SQL Database automated backups to perform a point-in-time restore of a database, see [Point-in-time restore](sql-database-point-in-time-restore.md)
+- To learn to use Azure SQL Database automated backups to restore a deleted database, see [Restore deleted database](sql-database-restore-deleted-database.md)
+- To learn to use Azure SQL Database automated backups to perform a geo-restore of a database, see [Geo-Restore](sql-database-geo-restore.md)
+- To learn to use configure and use Active Geo-Replication for business continuity, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
 
 ## Additional resources
 
