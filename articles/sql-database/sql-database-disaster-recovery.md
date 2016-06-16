@@ -72,7 +72,7 @@ If you are using geo-replication failover of geo-restore options to recover your
 
 Because your recovered database will reside in a different server you need to update your application’s connection string to point to that server.
 
-For more information about changing connection strings, see the appropriate development langauge for your [connection library](sql-database-libraries.md).
+For more information about changing connection strings, see the appropriate development language for your [connection library](sql-database-libraries.md).
 
 ### Configure Firewall Rules
 
