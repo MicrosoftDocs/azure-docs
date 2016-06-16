@@ -13,21 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2016" 
+	ms.date="06/16/2016" 
 	ms.author="bradsev;gopitk" /> 
 
 
 # What is the Team Data Science Process (TDSP)?
 
-The Team Data Science Process (TDSP) provides a systematic approach to building intelligent applications that enables teams of data scientists to collaborate effectively over the full lifecycle of activities needed to turn these applications into products. Specifically, the TDSP currently provides data science teams with:
+The Team Data Science Process (TDSP) provides a systematic approach to building intelligent applications that enables teams of data scientists to collaborate effectively over the full lifecycle of activities needed to turn these applications into products. 
+
+Here is the development lifecycle of the TDSP:
+
+![TDSP-poster](./media/data-science-process-overview/TDSP-development-lifecycle.png)
+
+
+Specifically, the TDSP currently provides data science teams with:
 
 - **Methodology**: It outlines a sequence of steps that define the development lifecycle providing guidance on how to define the problem, analyze relevant data, build and evaluate predictive models, and then deploy those models in enterprise applications. 
 - **Resources**: Tools and technologies such as the Data Science VM to simplify setting up environments for data science activities and practical guidance for on-boarding new technologies.
-
-
-Download the [Team Data Science Process poster](https://www.microsoft.com/en-us/download). (TBD-update link when ready.)
-
-![TDSP-poster](./media/data-science-process-overview/TDSP-development-lifecycle.png)
 
 
 Here are the lifecycle steps in **Team Data Science Process**:  
