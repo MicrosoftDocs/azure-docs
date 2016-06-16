@@ -152,7 +152,7 @@ To run fsck on all disks in your Linux virtual machine, you will need to do the 
 
 	azure vm extension set <vm-name> VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
 
-## <a name='repairdisk'></a>Repair added disks on your Linux virtual machine
+## <a name='repairdisk'></a>Repair disks 
 
 To repair disks that are not mounting or have mount configuration errors, use the VMAccess extension to reset the mount configuration on your Linux virtual machine. Substituting the name of your disk for &#60;yourdisk&#62;.
 
