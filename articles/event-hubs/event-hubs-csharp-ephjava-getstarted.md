@@ -42,33 +42,13 @@ In order to complete this tutorial you'll need the following:
 
 Now you are ready to run the applications.
 
-1. From within Visual Studio, open the **Receiver** project you created earlier.
-
-2. Right-click the **Receiver** solution, then click **Add**, and then click **Existing Project**.
- 
-3. Locate the existing Sender.csproj file, then double-click it to add it to the solution.
- 
-4. Again, right-click the **Receiver** solution and then click **Properties**. The **Receiver** property page is displayed.
-
-5. Click **Startup Project**, then click the **Multiple startup projects** button. Set the **Action** box for both the **Receiver** and **Sender** projects to **Start**.
-
-	![][19]
-
-6. Click **Project Dependencies**. In the **Projects** box, click **Sender**. In the **Depends on** box, make sure **Receiver** is checked.
-
-	![][20]
-
-7. Click **OK** to dismiss the **Properties** dialog.
-
-1.	Press F5 to run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
+1.	Run the **Receiver** project.
 
 	![][21]
 
-2.	The **Sender** project will run automatically. Press **Enter** in the console window, and see the events appear in the receiver window.
+2.	Run the **Sender** project.
 
 	![][22]
-
-Press **Ctrl+C** in the **Sender** window to end the Sender application, then press **Enter** in the Receiver window to shut down that application.
 
 ## Next steps
 
@@ -80,10 +60,8 @@ Now that you've built a working application that creates an Event Hub and sends 
 - [Event Hubs overview][]
 
 <!-- Images. -->
-[19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
-[20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
-[21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
-[22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
+[21]: ./media/event-hubs-csharp-ephjava-getstarted/run-ephjava.png
+[22]: ./media/event-hubs-csharp-ephjava-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
