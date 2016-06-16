@@ -512,7 +512,7 @@ Returns an array or string with all of the elements or characters after the spec
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | originalValue                      |   Yes    | The array or string to use for skipping the elements or characters.
-| numberToSkip                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, all of the elements in the array or string are returned. If it is larger than the length of the array or string, an empty array or string is returned. 
+| numberToSkip                       |   Yes    | The number of elements or characters to skip. If this value is 0 or less, all of the elements in the array or string are returned. If it is larger than the length of the array or string, an empty array or string is returned. 
 
 The following example skips the specified number of elements in the array.
 
