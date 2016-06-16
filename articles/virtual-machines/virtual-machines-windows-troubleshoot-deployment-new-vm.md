@@ -81,3 +81,6 @@ This error arises in situations when the new VM request is pinned to a cluster t
 - If the new VM can be part of a different availability set
   - Create a new VM in a different availability set (in the same region).
   - Add the new VM to the same virtual network.
+
+## Next steps
+If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
