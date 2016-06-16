@@ -40,7 +40,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Next steps
 
 * [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service]( ../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
-* [Build a service using an existing SQL database with the Mobile Services .NET backend](../mobile-services\/obile-services-dotnet-backend-use-existing-sql-database.md)
+* [Build a service using an existing SQL database with the Mobile Services .NET backend](../mobile-services/mobile-services-dotnet-backend-use-existing-sql-database.md)
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
 * More information on the [Microsoft ADO.Net Driver for SQL Server](https://msdn.microsoft.com/library/mt657768.aspx)
 
