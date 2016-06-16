@@ -65,7 +65,9 @@ The Adventure Works database supports standard online transaction processing sce
 Here's how to install the Adventure Works sample database:
 
 1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex.
-2. Follow instructions in this article: [Restore a Database Backup using SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx) to restore the database on your machine. **Quick steps**: In SQL Server Management Studio, right-click Databases, select Restore Database. In the Restore Database dialog box, select Device option, add AdventureWorks2014.bak file, click OK to close the dialog box and then click OK to start the restore database operation.   
+2. Follow instructions in this article: [Restore a Database Backup using SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx) to restore the database on your machine. 
+
+	**Quick steps**: In SQL Server Management Studio, right-click Databases, select Restore Database. In the Restore Database dialog box, select Device option, add AdventureWorks2014.bak file, click OK to close the dialog box and then click OK to start the restore database operation.   
 
 Now, let's see how to register data assets from the Adventure Works sample database with **Azure Data Catalog**.
 
@@ -76,11 +78,13 @@ In this exercise you use the **Azure Data Catalog** publishing tool to register 
 ### Here’s how to register a data source
 
 1.	Go to [https://azure.microsoft.com/services/data-catalog](https://azure.microsoft.com/services/data-catalog), and click **Get started**.
-2.	Log into the **Azure Data Catalog** portal, and click **Publish data**.
+
+	![Azure Data Catalog - Get started button](media/data-catalog-get-started/data-catalog-get-started-button.png)
+2.	Click **Publish data** on the home page. 
 
     ![Azure Data Catalog - Publish Data button](media/data-catalog-get-started/data-catalog-publish-data.png)
 
-3.	Click **Launch Application** to download, install, and run the **publishing tool**. 
+3.	Click **Launch Application** to download, install, and run the **publishing tool** on your computer.
 
     ![Azure Data Catalog - Launch button](media/data-catalog-get-started/data-catalog-launch-application.png)
 
@@ -92,38 +96,33 @@ In this exercise you use the **Azure Data Catalog** publishing tool to register 
 
     ![Azure Data Catalog - Data sources](media/data-catalog-get-started/data-catalog-data-sources.png)
 
-6.	Enter the SQL Server connection properties for AdventureWorks2014 (see example below), and click **CONNECT**.
+6.	Enter the SQL Server connection properties for **AdventureWorks2014** (see example below), and click **CONNECT**.
 
     ![](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
 
 7.	The next page is where you register the metadata of your data asset. In this example, you register **Production/Product** objects from the AdventureWorks Production namespace. Here’s how to do it:
+    
+	1. In the **Server Hierarchy** tree, click **Production**.
+	2. Ctrl+click **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto**.
+	3. Click the **move selected arrow** (**>**). This will move all selected Product objects into the **Objects to be registered** list.
+			
+    	![Azure Data Catalog tutorial - browse and select objects](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
+	4. Select **Include a Preview** for users to be able to preview data before they consume it.
+	5. Select **Include Data Profile** for users to be able see profiling of the data (for example: minimum, maximum, and average values for a column, number of rows etc...).
+	5. In the **Add tags**, enter **adventure works, cycles**. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
+	6. (optional) Specify name of an expert on this data. You are automatically added as an expert. 
 
-    a. In the **Server Hierarchy** tree, click **Production**.
+    	![Azure Data Catalog tutorial - objects to be registered](media/data-catalog-get-started/data-catalog-objects-register.png)
 
-    b. Ctrl+click Product, ProductCategory, ProductDescription, and ProductPhoto.
-
-    c. Click the move selected arrow (**>**). This will move all selected Product objects into the **Objects to be registered** list.
-
-    ![Azure Data Catalog tutorial - browse and select objects](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
-
-		You should see 
- 
-    d. In the **Add tags**, enter **description, photo**. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
-
-    ![Azure Data Catalog tutorial - objects to be registered](media/data-catalog-get-started/data-catalog-objects-register.png)
-
-    e.	**Optional**: You can select **Include a Preview** to preview data, and specify name of the expert on this data. 
-
-    f.	Click **REGISTER**. **Azure Data Catalog** registers your selected objects. In this exercise, the selected objects from Adventure Works are registered.
+    f.	Click **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from Adventure Works are registered.
 	
 		![Azure Data Catalog - registered objects](media/data-catalog-get-started/data-catalog-registered-objects.png)
 
     g.	To see your registered data source objects, click **View Portal**. In the **Azure Data Catalog** portal, you can view data source objects in **Tiles** or a **List**.
 
-    ![](media/data-catalog-get-started/data-catalog-view-portal.png)
+    ![Objects in Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
 
-In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization.
-In the next exercise you learn how to discover registered data assets.
+	In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise you learn how to discover registered data assets.
 
 ## Discover data assets
 
@@ -135,11 +134,45 @@ In this exercise you will use the **Azure Data Catalog** portal to discover regi
 
 For details about **Azure Data Catalog** search, see [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx). Let's look at a few examples for searching for data assets in the catalog.  
 
-### Grouping query
-In this example, you do a **Grouping** search for data assets where name equals product and tags equal illustration or tags equal photo.
+### Basic search
+1. Click **Home** button in the Azure Data Catalog portal. If you have closed it, navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+2. In the search box at the top, enter **adventure works cycles** and click the **search** icon (or) press **Enter**.
+3. Confirm that you see all the four tables and the database (AdventureWorks2014) **Product** table from **AdventureWorks2014** database in the results. 
 
-1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-2. In the **Search Data Catalog** box, enter a **Grouping** query: (**tags:description OR tags:photo**). Click the **search** icon, or press **Enter**. These are the tags you added in the first exercise when publishing the data assets. 
+	You can switch between tile view and grid view by clicking buttons at the top as shown in the following image. 
+
+	Notice that the tags are highlighted in the search results as the Highlight option at the top is ON. 
+4. You can also filter the results by using Filters on the left. For example, click Table for Object Type and you should see only the four tables, not the database.
+
+### Property scoping
+3. In the search box at the top, enter **tags:cycles** and click the **search** icon (or) press **Enter**. See all the properties you can use at https://msdn.microsoft.com/library/azure/mt267594.aspx.
+3. Confirm that you see all the four tables and the database (AdventureWorks2014) **Product** table from **AdventureWorks2014** database in the results. 
+
+### Boolean operators
+2. **tags:cycles AND objectType:table**
+3. You should see only four tables.
+
+### Grouping with parenthesis
+1. name:product AND (tags:cycles AND objectType:table)
+2. You should see only product table now. 
+
+### Comparison operators
+1. Clear all filters
+2. lastRegisteredTime:>"06/09/2016"
+
+
+### Property scoping query
+1. Click **Home** button in the Azure Data Catalog portal. If you have closed it, navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+2. In the search box at the top, enter **tags:photo** and click the **search** icon (or) press **Enter**.
+2. Confirm that you see all the four tables and the database (AdventureWorks2014) **Product** table from **AdventureWorks2014** database in the results. 
+
+    ![Azure Data Catalog - property scoping query](media/data-catalog-get-started/data-catalog-property-scoping-query.png)
+
+
+### Use grouping query
+In this example, you do a **grouping** search for data assets.
+
+2. In the **Search Data Catalog** box, enter a **grouping** query: **name:product AND (tags:description or tags:photo)**. Click the **search** icon, or press **Enter**. These are the tags you added in the first exercise when publishing the data assets. 
 
 	![Azure Data Catalog - grouping query search](media/data-catalog-get-started/data-catalog-grouping-query-search.png)
 	
@@ -152,12 +185,6 @@ In this example, you do a **Grouping** search for data assets where name equals 
 	![Azure Data Catalog - search results in list view](media/data-catalog-get-started/data-catalog-list-view-highlight.png)
 
 In this exercise you used the **Azure Data Catalog** portal to discover and view Adventure Works data assets registered with the catalog.
-
-### Property scoping query
-1. In the search box at the top, enter **name:product** and click the **search** icon (or) press **Enter**.
-2. Confirm that you see the Product table from AdventureWorks2014 database in the results. 
-
-    ![Azure Data Catalog - property scoping query](media/data-catalog-get-started/data-catalog-property-scoping-query.png)
 
 ### Comparison operators query
 1. In the search box at the top, enter **timestamp > "5/25/2016"** and click the **search** icon (or) press **Enter**.
