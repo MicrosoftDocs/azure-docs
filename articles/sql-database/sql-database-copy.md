@@ -42,9 +42,10 @@ To copy a SQL database you need the following:
 
 ## Next steps
 
-- [Copy a database using the Azure Portal](sql-database-copy-portal.md)
-- [Copy a database using PowerShell](sql-database-copy-powershell.md)
-- [Copy a database using T-SQL](sql-database-copy-transact-sql.md)
+- See [Copy an Azure SQL database using the Azure Portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
+- See [Copy an Azure SQL database using PowerShell](sql-database-copy-powershell.md) to copy a database using PowerShell.
+- See [Copy an Azure SQL database using T-SQL](sql-database-copy-transact-sql.md) to copy a database using Transact-SQL.
+- See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
 
 
 
@@ -55,5 +56,3 @@ To copy a SQL database you need the following:
 - [Export the database to a BACPAC](sql-database-export.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
-
-

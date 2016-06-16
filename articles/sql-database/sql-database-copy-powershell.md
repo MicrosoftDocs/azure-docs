@@ -111,8 +111,11 @@ To resolve logins after the copy operation completes, see [Resolve logins](sql-d
 
 ## Next steps
 
-- [Copy a database using the Azure Portal](sql-database-copy-portal.md)
-- [Copy a database using T-SQL](sql-database-copy-transact-sql.md)
+- See [Copy an Azure SQL database](sql-database-copy.md) for an overview of copying an Azure SQL Database.
+- See [Copy an Azure SQL database using the Azure Portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
+- See [Copy an Azure SQL database using T-SQL](sql-database-copy-transact-sql.md) to copy a database using Transact-SQL.
+- See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
+
 
 ## Additional resources
 

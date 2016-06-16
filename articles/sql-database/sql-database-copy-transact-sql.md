@@ -78,16 +78,17 @@ Monitor the copying process by querying the sys.databases and sys.dm_database_co
 
 ## Resolve logins after the copy operation completes
 
-After the new database is online on the destination server, use the [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) statement to remap the users from the new database to logins on the destination server. To resolve orphaned users, see [Troubleshoot Orphaned Users](https://msdn.microsoft.com/library/ms175475.aspx). 
+After the new database is online on the destination server, use the [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) statement to remap the users from the new database to logins on the destination server. To resolve orphaned users, see [Troubleshoot Orphaned Users](https://msdn.microsoft.com/library/ms175475.aspx). See also [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
 All users in the new database maintain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner (DBO), can log on to the new database.
 
 
 ## Next steps
 
-- [Copy a database using the Azure Portal](sql-database-copy-portal.md)
-- [Copy a database using PowerShell](sql-database-copy-powershell.md)
-- [Copy a database using T-SQL](sql-database-copy-transact-sql.md)
+- See [Copy an Azure SQL database](sql-database-copy.md) for an overview of copying an Azure SQL Database.
+- See [Copy an Azure SQL database using the Azure Portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
+- See [Copy an Azure SQL database using PowerShell](sql-database-copy-powershell.md) to copy a database using PowerShell.
+- See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
 
 
 
