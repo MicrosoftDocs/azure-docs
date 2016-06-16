@@ -133,7 +133,7 @@ You should use Active Geo-Replication if your application meets the following cr
 ## Additional resources
 
 - [Recover from an outage](sql-database-disaster-recovery.md)
-- [Recover from user error](sql-database-user-error-recovery)
+- [Recover from user error](sql-database-user-error-recovery.md)
 - [Perform a disaster recovery drill](sql-database-disaster-recovery-drills.md)
 - [Manage security after recovery](sql-database-geo-replication-security-config.md)
 - [Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication](sql-database-manage-application-rolling-upgrade.md)
