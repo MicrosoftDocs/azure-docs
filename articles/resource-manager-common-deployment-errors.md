@@ -180,7 +180,7 @@ For more information about role-based access control, see [Azure Role-Based Acce
 
 In addition to role-based access control, your deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the subscription. For example, an administrator can require that a particular tag value be provided for a resource type. If you have not fulfilled the policy requirements, you will receive an error during deployment. For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
-## Virtual machine troubleshooting
+## Troubleshooting virtual machines 
 
 | Error | Articles |
 | -------- | ----------- |
@@ -193,9 +193,9 @@ In addition to role-based access control, your deployment actions may be limited
 | Connection errors resolved by re-deploying | [Redeploy Virtual Machine to new Azure node](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) | 
 | Cloud service errors | [Cloud service deployment problems](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) | 
 
-## Other Azure services troubleshooting
+## Troubleshooting other services 
 
-The following table is not a complete list of troubleshooting topics for Azure. Instead, it focuses on issues related to deploying or configuring resources. If you need help troubleshooting run-time issues with a resource, see the documentation for that Azure services.
+The following table is not a complete list of troubleshooting topics for Azure. Instead, it focuses on issues related to deploying or configuring resources. If you need help troubleshooting run-time issues with a resource, see the documentation for that Azure service.
 
 | Service | Article |
 | -------- | -------- |
