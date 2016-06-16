@@ -32,7 +32,7 @@ Update 0.2 includes all changes from Update 0.1 in addition to the fix described
 
 Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 --------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-Updates                                 | In the last release, updates weren't detected automatically in the Azure classic portal, so you had to use the local Web UI to install updates. After installing Update 0.2, you can install future updates using the Azure classic portal.                       
+Updates                                 | In the last release, updates weren't detected automatically in the Azure classic portal, so you had to use the local Web UI to install updates. This issue is fixed in this release. After installing Update 0.2, you can install future updates using the Azure classic portal.                       
 
 ## What's new in the Update 0.1
 
