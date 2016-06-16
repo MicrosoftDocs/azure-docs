@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="support-article"
-  ms.date="05/06/2016"
+  ms.date="06/16/2016"
   ms.author="cjiang"/>
 
 # Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure
