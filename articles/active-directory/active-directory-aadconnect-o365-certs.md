@@ -27,6 +27,7 @@ This article provides you additional information to manage your token signing ce
 
 * You are not deploying the Web Application Proxy and therefore the federation metadata is not available in extranet
 * You are not using the default configuration of AD FS for token signing certificates
+* You are using a third party identity provider
 
 ## How does default configuration of AD FS for token signing certificates work?
 
@@ -34,47 +35,61 @@ The token signing and token decrypting certificates are usually self-signed cert
 
 ### Renewal notification - O365 portal and email notification
 
+>[AZURE.NOTE] If you received an email or a portal notification asking you to renew your certificate for Office please you can follow the steps mentioned below in [Managing changes to token signing certificates](./active-directory-aadconnect-o365-certs.md#managing-changes-to-toke-signing-certificates) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications being given to user for certificate renewal even when no action is required.
+
 Azure AD attempts to monitor the federation metadata and update the token signing certificates as indicated by the federation metadata. 30 days before the expiry of the token signing certificates, Azure AD will check if new certificates are available by polling the federation metadata.
 
 * If it can successfully poll the federation metadata and retrieve the new certificates, then there is no email notification or O365 portal warning given to the user
 * If it cannot retrieve the new token signing certificates, either because the federation metdata is not reachable or automatic certificate rollover is not enabled - then it will issue an email notification and an warning would be shown in the O365 portal
 
->[AZURE.NOTE] If you received an email or a portal notification asking you to renew your certificate for Office please you can follow the steps mentioned below in [Managing changes to token signing certificates](./active-directory-aadconnect-o365-certs.md#managing-changes-to-toke-signing-certificates) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications being given to user for certificate renewal even when no action is required.
+![O365 portal notification](./media/active-directory-aadconnect-o365-certs/notification.png)
+
+>[AZURE.IMPORTANT] If you are using AD FS, to ensure business continuity, please verify that your servers have the following patches so that authentication failures for known issues are not experienced.  This will mitigate known AD FS proxy server issues for this renewal and future renewal periods:
+Server 2012 R2 - [Windows Server May 2014 rollup](http://support.microsoft.com/kb/2955164)
+>
+>Server 2008 R2 and 2012 - [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
 
 ## How to check if the certificates need update?
 
-### Step 1: Confirm that AD FS and Azure AD are in sync
+### Step 1: Check AutoCertificateRollover state
 
-On your AD FS Server, Open the Azure Powershell prompt and connect to Msol
+On your AD FS Server, open Microsoft Powershell.  Check that AutoCertRollover value is set to TRUE
+
+	Get-Adfsproperties
+
+![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
+
+### Step 2: Confirm that AD FS and Azure AD are in sync
+
+On your AD FS Server, Open the Azure Powershell prompt and connect to Azure AD.
+
+>[AZURE.NOTE] You can download Azure Powershell if not already installed from [here](https://azure.microsoft.com/en-us/downloads/).
 
 	Connect-MsolService
 
-Check the certificate in Azure AD configured for your federated domain
+Check the certificates configured in AD FS and Azure AD trust properties for the specified domain.
 
-	Get-MsolFederationProperty -DomainName <domain name>
+	Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
 
-![Get-MsolFederationProperty Output](./media/active-directory-aadconnect-o365-certs/getazurecertinfo.png)
-
-Check the certificate configured for token signing at your AD FS server
-
-	Get-AdfsCertificate -CertificateType Token-Signing
-
-![Get-MsolFederationProperty Output](./media/active-directory-aadconnect-o365-certs/getadfscertinfo.png)
+![Get-MsolFederationProperty](./media/active-directory-aadconnect-o365-certs/certsync.png)
 
 If the thumbprints in both the outputs match, then it confirms that your certificates are in sync with Azure AD.
 
-### Step 2: Check if your certificate is about to expire
+### Step 3: Check if your certificate is about to expire
 
 In the output of either Get-MsolFederationProperty or Get-AdfsCertificate check for the date against "Not after". If the date is less than 30 days away, then you need to take action.
 
->[AZURE.IMPORTANT] Please be aware that authentication through your proxy may fail in Windows Server 2012 or Windows Server 2008 R2 after doing one of the following:
->
-- Your proxy renews its trust token after certificates rollover in AD FS
-- You manually replaced your AD FS certificates 
->
-A hotfix is available to fix this issue.  See [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
- 
-## Renew token signing certificate automatically (Recommended)
+### Next Step
+
+| AutoCertificateRollover | Certificates in sync with Azure AD | Federation Metadata is publically accessible | Validity | Action |
+|:-----------------------:||:-----------------------:||:-----------------------:||:-----------------------:||:-----------------------:|
+| X | X | X | - | No Action needed. See [Renew token signing certificate automatically](#autorenew) |
+| X |   | - | Less than 15 days | Renew immediately. See [Renew token signing certifcate manually](#manualrenew) |
+|  | - | Less than 30 days | - | Renew immediately. See [Renew token signing certifcate manually](#manualrenew) |
+
+\[X]  True  \[-]  Does not matter  \[ ]  False
+
+## Renew token signing certificate automatically (Recommended) <a name="autorenew"></a>
 
 If you have deployed Web Application Proxy which can enable acecess to the federation metadata from extranet and you are using AD FS default configuration, i.e. AutoCertificateRollover is enabled, then **you do not need to perform any manual steps.**  Check the following to confirm that automatic update of the certificate can happen:
 
@@ -105,7 +120,7 @@ where `(your_FS_name) `is replaced with the federation service host name your or
 
 Example: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml 
 
-## Renew token signing certifcate manually
+## Renew token signing certifcate manually <a name="manualrenew"></a>
 
 You may chose to renew the token signing certificates manually. Some of the common scenarios where you might want to update the token signing certificates manually are:
 * Token signing certificates are not self signed certitifcates. The most common reason for this is that your organization manages AD FS certificates enrolled from an organizational certificate authority. 
@@ -155,7 +170,7 @@ Follow the steps given below to update O365 with the new token signing certifica
 >[AZURE.NOTE] If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the SupportMultipleDomain switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](active-directory-aadconnect-multiple-domains.md).
 Finally, ensure all Web Application Proxy servers are updated with [Windows Server May 2014](http://support.microsoft.com/kb/2955164) rollup, otherwise the proxies may fail to update themselves with the new certificate, resulting in an outage.
 
-## Repair Azure AD trust using AAD Connect
+## Repair Azure AD trust using AAD Connect <a name="connectrenew"></a>
 
 If you had installed you configured your AD FS farm / Azure AD trust using Azure AD Connect, then you can use Azure AD Connect to detect if any action is needed to be taken for your token signing certificates. If you need to renew the certificates, you can use Azure AD Connect to do the needful with a few simple click.
 
