@@ -48,6 +48,8 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 For more information, see the [Java Developer Center](/develop/java/).
 
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+
 ## Additional resources
 
 For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
