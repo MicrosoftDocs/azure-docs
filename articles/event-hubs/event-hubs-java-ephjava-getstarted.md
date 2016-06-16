@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get Started with Event Hubs in Java | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in C# using the EventProcessorHost."
+	description="Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in using the EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
 	authors="fsautomata"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
-	ms.author="sethm"/>
+	ms.date="06/16/2016"
+	ms.author="jtaubensee"/>
 
 # Get started with Event Hubs
 
@@ -40,18 +40,17 @@ In order to complete this tutorial, you will need the following:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-java](../../includes/service-bus-event-hubs-get-started-send-java.md)]
 
-
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephjava.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephjava](../../includes/service-bus-event-hubs-get-started-receive-ephjava.md)]
 
 ## Run the applications
 
 Now you are ready to run the applications.
 
-1.	Run the **Receiver** project from Visual Studio, then wait for it to start the receivers for all partitions.
+1.	Run the **Receiver** project.
 
 	![][21]
 
-2.	Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
+2.	Run the **Sender** project.
 
 	![][22]
 
@@ -66,8 +65,8 @@ Now that you've built a working application that creates an Event Hub and sends 
 For more information, see the [Java Developer Center](/develop/java/).
 
 <!-- Images. -->
-[21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png
-[22]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs2.png
+[21]: ./media/event-hubs-java-ephjava-getstarted/run-ephjava.png
+[22]: ./media/event-hubs-java-ephjava-getstarted/run-java-send.png
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/

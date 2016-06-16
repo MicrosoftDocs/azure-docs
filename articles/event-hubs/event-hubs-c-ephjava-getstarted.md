@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get Started with Event Hubs in C and C# | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving hem in C# using the EventProcessorHost."
+	pageTitle="Get Started with Event Hubs in C | Microsoft Azure"
+	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving them in Java using the EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
 	authors="fsautomata"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="05/13/2016"
-	ms.author="sethm"/>
+	ms.date="06/16/2016"
+	ms.author="jtaubensee"/>
 
 # Get started with Event Hubs
 
@@ -40,7 +40,7 @@ In order to complete this tutorial you will need the following:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephjava](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Run the applications
 
