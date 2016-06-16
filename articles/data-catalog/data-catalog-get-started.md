@@ -98,11 +98,11 @@ In this exercise you use the **Azure Data Catalog** publishing tool to register 
 
 6.	Enter the SQL Server connection properties for **AdventureWorks2014** (see example below), and click **CONNECT**.
 
-    ![](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
+    ![Azure Data Catalog - SQL Server connection settings](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
 
 7.	The next page is where you register the metadata of your data asset. In this example, you register **Production/Product** objects from the AdventureWorks Production namespace. Here’s how to do it:
     
-	1. In the **Server Hierarchy** tree, click **Production**.
+	1. In the **Server Hierarchy** tree, expand **AdventureWorks2014**, and click **Production**.
 	2. Ctrl+click **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto**.
 	3. Click the **move selected arrow** (**>**). This will move all selected Product objects into the **Objects to be registered** list.
 			
@@ -136,59 +136,52 @@ For details about **Azure Data Catalog** search, see [Data Catalog Search syntax
 
 ### Basic search
 1. Click **Home** button in the Azure Data Catalog portal. If you have closed it, navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-2. In the search box at the top, enter **adventure works cycles** and click the **search** icon (or) press **Enter**.
+2. In the search box at the top, enter **cycles** and click the **search** icon (or) press **ENTER**.
+	
+	![Azure Data Catalog - basic text search](media/data-catalog-get-started/data-catalog-basic-text-search.png)
 3. Confirm that you see all the four tables and the database (AdventureWorks2014) **Product** table from **AdventureWorks2014** database in the results. 
 
-	You can switch between tile view and grid view by clicking buttons at the top as shown in the following image. 
+	You can switch between **tile** view and **grid** view by clicking buttons at the top as shown in the following image. 
 
-	Notice that the tags are highlighted in the search results as the Highlight option at the top is ON. 
-4. You can also filter the results by using Filters on the left. For example, click Table for Object Type and you should see only the four tables, not the database.
+	Notice that the search keyword is highlighted in the search results as the **Highlight** option at the top is **ON**.
+
+	You can also specify the number of **results per page** in search results. 
+
+	![Azure Data Catalog - basic text search results](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
+4. Click on **Product** in the search results. Click on tabs titled **Preview**, **Columns**, **Data Profile**, and **Documenation** (or) use the **UP** arrow to expand the bottom pane in the middle.  
+ 
+	![Azure Data Catalog - bottom pane](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
+	
+	On the **Preview** tab, you should see preview of the data in the data asset.  
+5. Click **Columns** tab to find details about columns in the data asset such as **name** and **data type**. 
+6. Click **Data Profile** tab to see the profiling of data (for example: number of rows, size of data, minimum value in a column, etc...) in the data asset. 
+6. Filter the results by using **Filters** on the left. For example, click **Table** for **Object Type** and you should see only the four tables, not the database.
+
+	![Azure Data Catalog - filter search results](media/data-catalog-get-started/data-catalog-filter-search-results.png) 
 
 ### Property scoping
-3. In the search box at the top, enter **tags:cycles** and click the **search** icon (or) press **Enter**. See all the properties you can use at https://msdn.microsoft.com/library/azure/mt267594.aspx.
+3. Click **Home** on the toolbar. 
+4. In the search box, enter **tags:cycles** and click the **search** icon (or) press **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching data catalog. 
 3. Confirm that you see all the four tables and the database (AdventureWorks2014) **Product** table from **AdventureWorks2014** database in the results. 
 
 ### Boolean operators
-2. **tags:cycles AND objectType:table**
-3. You should see only four tables.
+2. In the search box, enter **tags:cycles AND objectType:table**, and click the **search** icon or press **ENTER**. 
+3. Confirm that you see only tables, not the database in the results. Notice that the **Table** filter for **Object Type** is checked. 
+
+	![Azure Data Catalog - boolean operator in search](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
 
 ### Grouping with parenthesis
-1. name:product AND (tags:cycles AND objectType:table)
-2. You should see only product table now. 
+1. In the search box, enter **name:product AND (tags:cycles AND objectType:table)**, and click the **search** icon or press **ENTER**.
+2. You should see only **Product** table in the search results now.
+
+	![Azure Data Catalog - grouping search](media/data-catalog-get-started/data-catalog-grouping-search.png)   
 
 ### Comparison operators
-1. Clear all filters
-2. lastRegisteredTime:>"06/09/2016"
+1. In the search box, enter **lastRegisteredTime:>"06/09/2016"**.
+2. Clear **Table** filter for **Object Type** on the left. 
+3. Click the **search** icon or press **ENTER**. 
+2. Confirm that you see Product, ProductCategory, ProductDescription, and ProductPhoto tables, and AdventureWorks2014 database you registered in search results. 
 
-
-### Property scoping query
-1. Click **Home** button in the Azure Data Catalog portal. If you have closed it, navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-2. In the search box at the top, enter **tags:photo** and click the **search** icon (or) press **Enter**.
-2. Confirm that you see all the four tables and the database (AdventureWorks2014) **Product** table from **AdventureWorks2014** database in the results. 
-
-    ![Azure Data Catalog - property scoping query](media/data-catalog-get-started/data-catalog-property-scoping-query.png)
-
-
-### Use grouping query
-In this example, you do a **grouping** search for data assets.
-
-2. In the **Search Data Catalog** box, enter a **grouping** query: **name:product AND (tags:description or tags:photo)**. Click the **search** icon, or press **Enter**. These are the tags you added in the first exercise when publishing the data assets. 
-
-	![Azure Data Catalog - grouping query search](media/data-catalog-get-started/data-catalog-grouping-query-search.png)
-	
-3. **Azure Data Catalog** will display data assets for this search query.
-
-    ![Azure Data Catalog - group query search results](media/data-catalog-get-started/data-catalog-search-box.png)
-
-4. Switch between **tiled view** and **list view** by clicking the buttons next to the search button. You can also enable **search keyword highlighting** by using the slider bar and select the **number of results per page** from the drop-down list. 
-
-	![Azure Data Catalog - search results in list view](media/data-catalog-get-started/data-catalog-list-view-highlight.png)
-
-In this exercise you used the **Azure Data Catalog** portal to discover and view Adventure Works data assets registered with the catalog.
-
-### Comparison operators query
-1. In the search box at the top, enter **timestamp > "5/25/2016"** and click the **search** icon (or) press **Enter**.
-2. Confirm that you see all the data assets you published today. 
 
 <a name="annotating"/>
 ## Annotate data assets
@@ -196,11 +189,9 @@ In this exercise you use the **Azure Data Catalog** portal to annotate data asse
 
 ### Here’s how you annotate data assets
 
-1. Navigate to [https://www.azurecatalog.com](https://www.azuredatacatalog.com).
-2. Click **ProductPhoto** under **My Assets**. 
-
-	![Azure Data Catalog - My Assets](media/data-catalog-get-started/data-catalog-myassets-productphoto.png)
-3. Enter **Product photos** for **friendly name** and **Product photos for marketing materials** for the **Description** field.
+1.  If you have closed it, navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) and search with tags:cycles to find the data assets you have registered.  
+2. Click **ProductPhoto** in search results.  
+3. Enter **Product images** for **friendly name** and **Product photos for marketing materials** for the **Description** field.
 
 	![Azure Data Catalog - Product Photo description](media/data-catalog-get-started/data-catalog-productphoto-description.png)
 
@@ -212,7 +203,12 @@ Note that you can also do the following on this page:
 - Add tags at the dataset level. Click **Add...** under **Tags:** in the right pane. A tag can be a user tag or a glossary tag. The Standard Edition of Data Catalog includes a business glossary that allows catalog administrators to define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)
 - Add tags at the column level. In the bottom pane in the middle, click **Add...** under **Tags** for the column you want to annotate. 
 - Add description at the column level. In the bottom pane in the middle, enter **Description** for a column. You can also view the description metadata extracted from the data source. 
-- Add **Request access** information that specifies users how to request access to the data asset. 
+- Add **Request access** information that specifies users how to request access to the data asset.
+
+	![Azure Data Catalog - add tags, descriptions](media/data-catalog-get-started/data-catalog-add-tags-experts-descriptions.png)
+  
+- Click Documentation tab in the bottom-middle pane and provide documentation for the data asset.
+	![Azure Data Catalog - Documentation tab](media/data-catalog-get-started/data-catalog-documentation.png) 
 
 Azure Data Catalog supports crowd sourcing approach to annotations allows any user to add tags (user or glossary), descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
 
@@ -226,7 +222,7 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to a 
 
 ### Here’s how to connect to a data asset from Excel
 
-1. Click **Open In** on the toolbar and select **Excel**.
+1. Select ProductCategory from search results. Click **Open In** on the toolbar and select **Excel**.
  
     ![Azure Data Catalog - Connect to data asset](media/data-catalog-get-started/data-catalog-connect1.png)	
 5. Click **Open** in the download pop-up window at the bottom (this experience may vary depending on the browser). 
@@ -240,7 +236,7 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to a 
 	![Azure Data Catalog - Excel import data](media/data-catalog-get-started/data-catalog-excel-import-data.png) 
 8. The data source is opened in Excel.
 
-    ![](media/data-catalog-get-started/data-catalog-connect2.png)
+    ![Azure Data Catalog - product table in Excel](media/data-catalog-get-started/data-catalog-connect2.png)
 
 In this exercise you connected to data assets discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
 
@@ -253,17 +249,17 @@ In **Azure Data Catalog**, you can take ownership of data assets, add co-owners 
 
 ### Here’s how to take ownership of data assets and restrict visibility
 
-1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-2. In the Search text box, enter **(**tags:description AND timestamp > "5/22/2016"**)** and press **ENTER**. 
+1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) if you have closed the web browser.
+2. In the Search text box, enter **tags:cycles** and press **ENTER**. 
 	
 	> [AZURE.NOTE] Replace the date with the yesterday's date.
-3. Select an item in the result list, for example, **Product** by clicking the check box in the top-right corner and click Take Ownership on the toolbar as shown in the following image. 
+3. Select an item in the result list, for example, **Product** by clicking the check box in the top-right corner and click **Take Ownership** on the toolbar as shown in the following image. 
 4. In the **Properties** panel, **Management** section, click **Take Ownership** under **Management** section in the right pane. 
 
 	![Azure Data Catalog - Take ownership](media/data-catalog-get-started/data-catalog-take-ownership.png)
 5. To restrict visibility, click **Owners & These Users** in the **Visibility** section and click **Add**. Enter user email address in the text box and press ENTER. 
 
-    ![](media/data-catalog-get-started/data-catalog-ownership.png)
+    ![Azure Data Catalog - restrict access](media/data-catalog-get-started/data-catalog-ownership.png)
 
 ## Remove data assets
 
@@ -273,11 +269,9 @@ In **Azure Data Catalog**, you can delete an individual asset or delete multiple
 
 ### Here’s how to delete multiple data assets
 
-1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-2. In the Search text box, enter **(**tags:description AND timestamp > "5/22/2016"**)** and press **ENTER**. 
-	
-	> [AZURE.NOTE] Replace the date with the yesterday's date.
-3. Select an item in the result list, for example, ProductDescription by clicking the check box in the top-right corner and click Delete on the toolbar as shown in the following image. 
+1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) if you have closed the web browser. 
+2. In the search text box, enter **tags:cycles** and press **ENTER**.	
+3. Select an item in the result list, for example, **ProductDescription** by clicking the check box in the top-right corner and click **Delete** on the toolbar as shown in the following image. 
 
 	![Azure Data Catalog - Delete grid item](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
 	
@@ -292,3 +286,12 @@ In **Azure Data Catalog**, you can delete an individual asset or delete multiple
 ## Summary
 
 In this tutorial you explored essential capabilities of **Azure Data Catalog**, including registering, annotating, discovering, and managing enterprise data sources. Now that you’ve completed the tutorial, it’s time to get started. You can begin today by registering the data sources you and your team rely on, and by inviting colleagues to use the catalog.
+
+## References
+
+* [How to register data sources](data-catalog-how-to-register.md)
+* [How to discover data sources](data-catalog-how-to-discover.md)
+* [How to annotate data sources](data-catalog-how-to-annotate.md)
+* [How to document data sources](data-catalog-how-to-documentation.md)
+* [How to connect to data sources](data-catalog-how-to-connect.md)
+* [How to manage data assets](data-catalog-how-to-manage.md)
