@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Batch feature overview | Microsoft Azure"
+	pageTitle="Azure Batch feature overview for developers | Microsoft Azure"
 	description="Learn the features of the Batch service and its APIs from a development standpoint."
 	services="batch"
 	documentationCenter=".net"
@@ -13,18 +13,18 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/16/2016"
+	ms.date="06/17/2016"
 	ms.author="marsma"/>
 
-# Batch feature and development overview
+# Batch feature overview for developers
 
-In this overview of the core components of the Azure Batch service, we discuss the primary service features that Batch developers can use to build parallel compute solutions.
+In this overview of the core components of the Azure Batch service, we discuss the primary service features that Batch developers can use to build large-scale parallel compute solutions.
 
-Whether you're developing a distributed computational application or service that issues direct [Batch REST][batch_rest_api] API calls or you use one of the several [Batch SDKs](batch-technical-overview.md#batch-development-apis), you will use many of the resources and features discussed below.
+Whether you're developing a distributed computational application or service that issues direct [Batch REST][batch_rest_api] API calls or you use one of the [Batch SDKs](batch-technical-overview.md#batch-development-apis), you will use many of the resources and features discussed below.
 
 > [AZURE.TIP] For a higher level overview of Batch, please see the [Basics of Azure Batch](batch-technical-overview.md).
 
-## Workflow of the Batch service
+## Batch workflow
 
 The following high-level workflow is typical of nearly all applications and services that use the Batch service for processing parallel workloads:
 
@@ -44,9 +44,9 @@ In the sections below, you'll learn about each of the resources mentioned in the
 
 > [AZURE.NOTE] You will need a [Batch account](batch-account-create-portal.md) to use the Batch service, and nearly all solutions will use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-## Resources of the Batch service
+## Batch resources
 
-Some of the following resources—accounts, compute nodes, pools, jobs, and tasks—are essential to all solutions using the Batch service. Others, such as job schedules and application packages, are helpful but optional .
+Some of the following resources—account, compute nodes, pools, jobs, and tasks—are required for all solutions using the Batch service. Others, such as job schedules and application packages, are helpful but optional features.
 
 - [Account](#account)
 - [Compute node](#compute-node)
