@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to:Configure an Azure SQL Database firewall | Microsoft Azure"
+	pageTitle="Azure SQL Database server-level firewall rules using the REST API | Microsoft Azure"
 	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/09/2016"
+	ms.date="06/15/2016"
 	ms.author="sstein"/>
 
 
-# How to: Configure an Azure SQL Database firewall using the REST API
+#  Configure Azure SQL Database server-level firewall rules using the REST API
 
 
 > [AZURE.SELECTOR]
@@ -65,9 +65,22 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
  
 ## Next steps
 
-For a tutorial on creating a database, see [Create your first Azure SQL Database](sql-database-get-started.md).
-For help in connecting to an Azure SQL database from open source or third-party applications, see [Guidelines for Connecting to Azure SQL Database Programmatically](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-To understand how to navigate to databases see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+For a how to article on how to use Transact-SQL to create server-level and database-level firewall rules, see [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md). 
+
+For how to articles on creating server-level firewall rules using other methods, see: 
+
+- [Configure Azure SQL Database server-level firewall rules using the Azure Portal](sql-database-configure-firewall-settings.md)
+- [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
+
+For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
+For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+To understand how to navigate to databases see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+
+
+## Additional resources
+
+- [Securing your database](sql-database-security.md)
+- [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
