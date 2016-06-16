@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="06/16/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -51,7 +51,7 @@ Now you are ready to run the applications.
 
 	![][21]
 
-2.	Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
+2.	Run the **Sender** project.
 
 	![][22]
 
@@ -67,7 +67,7 @@ For more information, see the [Java Developer Center](/develop/java/).
 
 <!-- Images. -->
 [21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png
-[22]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs2.png
+[22]: ./media/event-hubs-java-ephcs-getstarted/java-send.png
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
