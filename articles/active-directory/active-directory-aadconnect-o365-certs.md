@@ -86,9 +86,9 @@ In the output of either Get-MsolFederationProperty or Get-AdfsCertificate check 
 
 | AutoCertificateRollover | Certificates in sync with Azure AD | Federation Metadata is publically accessible | Validity | Action |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| X | X | X | - | No Action needed. See [Renew token signing certificate automatically](#autorenew) |
-| X |   | - | Less than 15 days | Renew immediately. See [Renew token signing certifcate manually](#manualrenew) |
-|  | - | - | Less than 30 days | Renew immediately. See [Renew token signing certifcate manually](#manualrenew) |
+| Yes | Yes | Yes | - | No Action needed. See [Renew token signing certificate automatically](#autorenew) |
+| Yes | No  | - | Less than 15 days | Renew immediately. See [Renew token signing certifcate manually](#manualrenew) |
+| No | - | - | Less than 30 days | Renew immediately. See [Renew token signing certifcate manually](#manualrenew) |
 
 \[X]  True  \[-]  Does not matter  \[ ]  False
 
