@@ -133,6 +133,8 @@ Now that you've created a vault, you prepare your infrastructure to back up file
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
+### Confirm the installation
+
 To confirm that the agent was installed and registered correctly, you can check for the items you backed up in the **Production Server** section of the management portal. To do this:
 
 1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
