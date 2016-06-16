@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL Database disaster recovery" 
+   pageTitle="SQL Database disaster recovery | Microsoft Azure" 
    description="Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database Active Geo-Replication, and Geo-Restore capabilities." 
    services="sql-database" 
    documentationCenter="" 
@@ -98,8 +98,8 @@ If auditing is required to access your database, you need to enable Auditing aft
 
 ## Next steps
 
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-geo-restore.md)
+- For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-geo-restore.md)
 
 ## Additional Resources
 

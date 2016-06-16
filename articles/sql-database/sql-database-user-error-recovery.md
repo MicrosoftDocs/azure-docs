@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL Database User Error Recovery" 
+   pageTitle="SQL Database User Error Recovery | Microsoft Azure" 
    description="Learn how to recover from user error, accidental data corruption, or a deleted database using the Point-in-time Restore (PITR) feature of Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
@@ -53,8 +53,8 @@ To restore a deleted database:
 
 ## Next steps
 
-- [Point-in-time restore](sql-database-point-in-time-restore.md) 
-- [Restore deleted database](sql-database-restore-deleted-database.md)
+- For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-geo-restore.md)
 
 ## Additional Resources
 

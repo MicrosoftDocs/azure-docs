@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to manage security after restoring a database to a new server or failing over a database to a secondary database copy"
+	pageTitle="How to manage security after restoring a database to a new server or failing over a database to a secondary database copy | Microsoft Azure"
 	description="This topic explains security considerations for managing security after a database restore or a failover."
 	services="sql-database"
 	documentationCenter="na"
@@ -90,8 +90,8 @@ The last step is to go to the target server, or servers, and generate the logins
 
 - For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](sql-database-manage-logins.md).
 - For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-geo-restore.md)
+- For information about using and configuring Active Geo-Replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- For informatin about using Geo-Restore, see [Geo-Restore](sql-database-geo-restore.md)
 
 ## Additional resources
 

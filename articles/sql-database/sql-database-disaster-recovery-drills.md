@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL Database Disaster Recovery Drills" 
+   pageTitle="SQL Database Disaster Recovery Drills | Microsoft Azure" 
    description="Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills that will help keep your mission critical business applications resilient to failures and outages." 
    services="sql-database" 
    documentationCenter="" 
@@ -66,8 +66,8 @@ To simulate the outage you can disable the web application or virtual machine co
 
 ## Next steps
 
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-geo-restore.md)
+- For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-geo-restore.md)
 
 ## Additional Resources
 

@@ -79,8 +79,8 @@ Performing a disaster recovery drill consists of:
 
 ## Next steps
 
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-geo-restore.md)
+- For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-geo-restore.md)
 
 ## Additional resources
 
