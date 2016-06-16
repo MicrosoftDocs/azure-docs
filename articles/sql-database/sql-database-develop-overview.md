@@ -63,3 +63,7 @@ Elastic Scale simplifies the process of scaling out (and in).
 * (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 * [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
+
+## Next steps
+
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).

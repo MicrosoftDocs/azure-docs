@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="LuisBosquez"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="genemi"/>
 
 
@@ -47,6 +47,8 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Next steps
 
 For more information, see the [Java Developer Center](/develop/java/).
+
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
 
 ## Additional resources
 

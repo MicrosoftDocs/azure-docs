@@ -3,7 +3,7 @@
    description="Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database Active Geo-Replication, and Geo-Restore capabilities." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Restore an Azure SQL Database or failover to a secondary
 
@@ -72,7 +72,7 @@ If you are using geo-replication failover of geo-restore options to recover your
 
 Because your recovered database will reside in a different server you need to update your application’s connection string to point to that server.
 
-For more information about changing connection strings, see [Connections to Azure SQL Database: Central Recommendations](sql-database-connect-central-recommendations.md).
+For more information about changing connection strings, see the appropriate development langauge for your [connection library](sql-database-libraries.md).
 
 ### Configure Firewall Rules
 

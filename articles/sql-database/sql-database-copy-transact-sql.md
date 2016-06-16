@@ -30,7 +30,7 @@
 This following steps show you how to copy a SQL database with Transact-SQL. The database copy operation copies a SQL database to a new database using the [CREATE DATABASE]() statement. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
 
-> [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+> [AZURE.NOTE] Azure SQL Database automatically [creates and maintains backups](sql-database-automated-backups.md) for every user database that you can restore.
 
 
 When the copying process completes, the new database is a fully functioning database that is independent of the source database. The new database is transactionally consistent with the source database at the time when the copy completes. The service tier and performance level (pricing tier) of the database copy are the same as the source database. After the copy is complete, the copy becomes a fully functional, independent database. The logins, users, and permissions can be managed independently.
