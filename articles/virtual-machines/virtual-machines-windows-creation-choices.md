@@ -43,7 +43,7 @@ If you prefer working in a command shell, you can use Azure PowerShell.
 
 ## Visual Studio
 
-Visual Studio provides many features for automating and managing VM deployments.
+Use Visual Studio to build, manage, and deploy VMs with the Azure Tools for Visual Studio and the Azure SDK.
 
-[Deploy Azure resources using the Compute, Network, and Storage .NET libraries](virtual-machines-windows-csharp.md)
+[Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
 
