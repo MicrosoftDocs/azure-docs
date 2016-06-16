@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/16/2016"
 	ms.author="robinsh"/>
 
 #Azure Storage security guide
@@ -410,7 +410,7 @@ The Azure Disk Encryption solution supports the following three customer encrypt
 
 -   Enable encryption on new IaaS VMs created from customer-encrypted VHD files and customer-provided encryption keys, which are stored in Azure Key Vault.
 
--   Enable encryption on new IaaS VMs created from the Azure Gallery.
+-   Enable encryption on new IaaS VMs created from the Azure Marketplace.
 
 -   Enable encryption on existing IaaS VMs already running in Azure.
 
@@ -441,7 +441,7 @@ This feature ensures that all data on your virtual machine disks is encrypted at
 
 For disks used by IaaS VMs, we recommend using Azure Disk Encryption. You can turn on SSE to encrypt the VHD files that are used to back those disks in Azure Storage, but it only encrypts newly written data. This means if you create a VM and then enable SSE on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
 
-If you create a VM using an image from the Azure Marketplace, Azure points at the original image file while creating the VM. When it starts updating the image, SSE will start encrypting the VHD file (assuming you have SSE enabled). Only new data written after that point will be encrypted. For this reason, it’s best to use Azure Disk Encryption on VMs created from images in the Azure Marketplace if you want them fully encrypted.
+If you create a VM using an image from the Azure Marketplace, Azure performs a [shallow copy](https://en.wikipedia.org/wiki/Object_copying) of the image to your storage account in Azure Storage, and it is not encrypted even if you have SSE enabled. After it creates the VM and starts updating the image, SSE will start encrypting the data. For this reason, it’s best to use Azure Disk Encryption on VMs created from images in the Azure Marketplace if you want them fully encrypted.
 
 If you bring a pre-encrypted VM into Azure from on-premises, you will be able to upload the encryption keys to Azure Key Vault, and continue using the encryption for that VM that you were using on-premises. Azure Disk Encryption is enabled to handle this scenario.
 
