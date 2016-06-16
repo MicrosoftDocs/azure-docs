@@ -195,7 +195,7 @@ In addition to role-based access control, your deployment actions may be limited
 
 ## Other Azure services troubleshooting
 
-The following topics focus on issues related to deploying or configuring resources. If you need help troubleshooting a run-time issues with a resource, see the documentation for that Azure services. 
+The following table is not a complete list of troubleshooting topics for Azure. Instead, it focuses on issues related to deploying or configuring resources. If you need help troubleshooting run-time issues with a resource, see the documentation for that Azure services.
 
 | Service | Article |
 | -------- | -------- |
