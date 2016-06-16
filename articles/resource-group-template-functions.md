@@ -476,14 +476,14 @@ Or, you can use with a string:
 ### take
 **take(originalValue, numberToTake)**
 
-Returns the specified number of elements or characters from the start of the array or string.
+Returns an array or string with the specified number of elements or characters from the start of the array or string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | originalValue                      |   Yes    | The array or string to take the elements or characters from.
-| numberToTake                       |   Yes    | The number of elements or characters to take.
+| numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
 
-If the numberToTake is 0 or less, an empty array or string is returned. If numberToTake is larger than the length of the given array or string, all the elements in the array or string are returned.
+The following example takes the specified number of elements from the array.
 
     "parameters": {
       "first": {
@@ -507,14 +507,12 @@ If the numberToTake is 0 or less, an empty array or string is returned. If numbe
 ### skip
 **skip(originalValue, numberToSkip)**
 
-Returns all of the elements or characters after the specified number in the array or string.
+Returns an array or string with all of the elements or characters after the specified number in the array or string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | originalValue                      |   Yes    | The array or string to use for skipping the elements or characters.
-| numberToSkip                       |   Yes    | The number of elements or characters to take.
-
-If numberToSkip is 0 or less, all of the elements in the array or string are returned. If numberToSkip is larger than the length of the array or string, an empty array or string is returned. 
+| numberToSkip                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, all of the elements in the array or string are returned. If it is larger than the length of the array or string, an empty array or string is returned. 
 
 The following example skips the specified number of elements in the array.
 
