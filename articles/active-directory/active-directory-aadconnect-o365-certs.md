@@ -90,7 +90,7 @@ In the output of either Get-MsolFederationProperty or Get-AdfsCertificate check 
 | Yes | No  | - | Less than 15 days | Renew immediately. See [Renew token signing certifcate manually](#manualrenew) |
 | No | - | - | Less than 30 days | Renew immediately. See [Renew token signing certifcate manually](#manualrenew) |
 
-\[X]  True  \[-]  Does not matter  \[ ]  False
+\[-]  Does not matter 
 
 ## Renew token signing certificate automatically (Recommended) <a name="autorenew"></a>
 
