@@ -116,7 +116,7 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String           | Release date  | Disable date  | Expired date |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.52_201606-01     | July 14 2016  | Post 2.54     | TBD |
+| WA-GUEST-OS-2.52_201606-01     | July 14 2016* | Post 2.54     | TBD |
 | WA-GUEST-OS-2.51_201605-01     | June 10 2016  | Post 2.53     | TBD |
 | WA-GUEST-OS-2.50_201604-01     | May 2 2016    | Post 2.52     | TBD |
 | WA-GUEST-OS-2.49_201603-01     | April 7 2016  | July 10 2016  | TBD |
