@@ -19,7 +19,7 @@
 
 # Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager
 
-This topic describes how you can resolve some common errors you may encounter when deploying resources to Azure. If you need more information about what went work with your deployment, first see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md) and then come back to this article for help with resolving the error.
+This topic describes how you can resolve some common errors you may encounter when deploying resources to Azure. If you need more information about what went wrong with your deployment, first see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md) and then come back to this article for help with resolving the error.
 
 ## Invalid template or resource
 
