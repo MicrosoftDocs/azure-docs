@@ -59,7 +59,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 	![classic-portal-active-directory-entry](./media/billing-add-office-365-tenant-to-azure-subscription/s35-classic-portal-active-directory-entry.png)
 
-	**Note:** You should not see the Office 365 tenant. If you see it, skip the next step.
+	> [AZURE.NOTE] You should not see the Office 365 tenant. If you see it, skip the next step.
 
 	![aad-tenant-default](./media/billing-add-office-365-tenant-to-azure-subscription/s36-aad-tenant-default.png)
 
