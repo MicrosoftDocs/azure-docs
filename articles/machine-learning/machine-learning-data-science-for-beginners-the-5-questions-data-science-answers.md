@@ -2,6 +2,7 @@
    pageTitle="The 5 data science questions - Data Science for Beginners | Microsoft Azure"
    description="Get a quick introduction to data science from Data Science for Beginners, 5 short videos that start with The 5 Questions Data Science Can Answer."
    keywords="doing data science,introduction to data science,data science for beginners, types of questions,data science questions, data science algorithms"
+   services="machine-learning" 
    documentationCenter="na"
    authors="cjgronlund"
    manager="paulettm"
