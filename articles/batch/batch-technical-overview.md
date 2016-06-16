@@ -16,7 +16,7 @@
 	ms.date="06/16/2016"
 	ms.author="marsma"/>
 
-# Introduction to Azure Batch
+# Basics of Azure Batch
 
 Azure Batch enables you to run large-scale parallel and high performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
