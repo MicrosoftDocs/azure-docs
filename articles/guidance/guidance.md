@@ -129,6 +129,7 @@ Hybrid network architectures:
 - [Implementing a hybrid network architecture with Azure and on-premises VPN][ref-arch-hybrid-network-vpn]
 - [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
+- [Implementing a secure hybrid network architecture in Azure](guidance-iaas-ra-secure-vnet-hybrid.md)
 
 Web applications (PaaS):
 
