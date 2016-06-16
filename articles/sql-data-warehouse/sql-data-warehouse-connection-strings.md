@@ -1,6 +1,6 @@
 <properties
    pageTitle="Connection strings for SQL Data Warehouse | Microsoft Azure"
-   description="Drivers for SQL Data Warehouse"
+   description="Connection strings and drivers for SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="06/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-connect-overview.md)
 - [Authentication](sql-data-warehouse-authentication.md)
-- [Connection Strings](sql-data-warehouse-connection-strings.md)
+- [Drivers](sql-data-warehouse-connection-strings.md)
 
 
 You can connect to SQL Data Warehouse using any of the following application protocols:
@@ -58,9 +58,9 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
-
-
 ## Next steps
+
+To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio][].
 
 <!--Image references-->
 

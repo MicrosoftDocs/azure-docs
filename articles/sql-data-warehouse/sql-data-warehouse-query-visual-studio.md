@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connect to SQL Data Warehouse with Visual Studio | Microsoft Azure"
-   description="Get started with connecting to SQL Data Warehouse and running some queries."
+   pageTitle="Query Azure SQL Data Warehouse (Visual Studio) | Microsoft Azure"
+   description="Query SQL Data Warehouse with Visual Studio."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,45 +16,38 @@
    ms.date="06/16/2016"
    ms.author="sonyama;barbkess"/>
 
-# Connect to SQL Data Warehouse with Visual Studio
+# Query Azure SQL Data Warehouse (Visual Studio)
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-This walkthrough shows you how to get connected to an Azure SQL Data Warehouse in just a few minutes by using the SQL Server Data Tools (SSDT) extention in Visual Studio. Once connected, you will run a simple query.
+Use Visual Studio to query Azure SQL Data Warehouse in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio. 
 
 ## Prerequisites
 
-+ AdventureWorksDW sample data in SQL Data Warehouse. To create this, see [Create a SQL Data Warehouse][].
-+ SQL Server Data Tools for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT][].
+To use this tutorial, you need:
 
-## Step 1: Find the fully qualified Azure SQL server name
++ An existing SQL data warehouse. To create one, see [Create a SQL Data Warehouse][].
++ SSDT for Visual Studio. If you have Visual Studio, you probably already have this. For installation instructions and options, see [Installing Visual Studio and SSDT][].
++ The fully qualified SQL server name. To find this, see [Connect to SQL Data Warehouse][].
 
-Your SQL Data Warehouse database is associated with an Azure SQL server. To connect to your database you need the fully qualified name of the server (**servername**.database.windows.net*).
-
-To find the fully qualified server name.
-
-1. Go to the [Azure portal][].
-2. Click **SQL databases** and click the database you want to connect to. This example uses the AdventureWorksDW sample database.
-3. Locate the full server name.
-
-    ![Full server name][1]
-
-## Step 2: Connect to your SQL Data Warehouse
+## 1. Connect to your SQL Data Warehouse
 
 1. Open Visual Studio 2013 or 2015.
 2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
 
-    ![SQL Server Object Explorer][2]
+    ![SQL Server Object Explorer][1]
 
 3. Click the **Add SQL Server** icon.
 
-    ![Add SQL Server][3]
+    ![Add SQL Server][2]
 
 4. Fill in the fields in the Connect to Server window.
 
-    ![Connect to Server][4]
+    ![Connect to Server][3]
 
     - **Server name**. Enter the **server name** previously identified.
     - **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
@@ -63,9 +56,9 @@ To find the fully qualified server name.
 
 5. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
 
-    ![Explore AdventureWorksDW][5]
+    ![Explore AdventureWorksDW][4]
 
-## Step 3: Run a sample query
+## 2. Run a sample query
 
 Now that a connection has been established to your database, let's write a query.
 
@@ -73,7 +66,7 @@ Now that a connection has been established to your database, let's write a query
 
 2. Select **New Query**. A new query window opens.
 
-    ![New query][6]
+    ![New query][5]
 
 3. Copy this TSQL query into the query window:
 
@@ -83,34 +76,34 @@ Now that a connection has been established to your database, let's write a query
 
 4. Run the query. To do this, click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
 
-    ![Run query][7]
+    ![Run query][6]
 
 5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
 
-    ![Query results][8]
+    ![Query results][7]
 
 ## Next steps
 
 Now that you can connect and query, try [visualizing the data with PowerBI][].
 
-To configure your environment for Windows authentication, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication][].
+To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][].
 
 <!--Arcticles-->
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
-[Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
-[visualizing the data with PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md  
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
-[2]: ./media/sql-data-warehouse-get-started-connect/open-ssdt.png
-[3]: ./media/sql-data-warehouse-get-started-connect/add-server.png
-[4]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
-[5]: ./media/sql-data-warehouse-get-started-connect/explore-sample.png
-[6]: ./media/sql-data-warehouse-get-started-connect/new-query2.png
-[7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
-[8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
+[1]: media/sql-data-warehouse-query-visual-studio/open-ssdt.png
+[2]: media/sql-data-warehouse-query-visual-studio/add-server.png
+[3]: media/sql-data-warehouse-query-visual-studio/connection-dialog.png
+[4]: media/sql-data-warehouse-query-visual-studio/explore-sample.png
+[5]: media/sql-data-warehouse-query-visual-studio/new-query2.png
+[6]: media/sql-data-warehouse-query-visual-studio/run-query.png
+[7]: media/sql-data-warehouse-query-visual-studio/query-results.png
