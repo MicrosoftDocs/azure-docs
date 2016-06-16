@@ -21,20 +21,12 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Overview](sql-database-copy.md)
+- [Azure Portal](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-
-
-This following steps show you how to copy a SQL database with PowerShell. The database copy operation copies a SQL database to a new database using the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) cmdlet. The copy is a snapshot backup of your database that you create on either the same server or a different server.
-
-> [AZURE.NOTE] Azure SQL Database automatically [creates and maintains backups](sql-database-automated-backups.md) for every user database that you can restore. 
-
-When the copying process completes, the new database is a fully functioning database that is independent of the source database. The new database is transactionally consistent with the source database at the time when the copy completes. The service tier and performance level (pricing tier) of the database copy are the same as the source database. After the copy is complete, the copy becomes a fully functional, independent database. The logins, users, and permissions can be managed independently.
-
-
-When you copy a database to the same logical server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner (DBO) on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.
+This following steps show you how to copy a SQL database with PowerShell to the same server or a different server. The database copy operation uses the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) cmdlet. 
 
 
 To complete this article you need the following:
@@ -87,6 +79,10 @@ After running **Start-AzureSqlDatabaseCopy** you can check the status of the cop
 
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
+## Resolve logins
+
+To resolve logins after the copy operation completes, see [Resolve logins](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes)
+
 
 ## Example PowerShell script
 
@@ -115,12 +111,13 @@ After running **Start-AzureSqlDatabaseCopy** you can check the status of the cop
 
 ## Next steps
 
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
-- [Export the database to a BACPAC](sql-database-export-powershell.md)
-
+- [Copy a database using the Azure Portal](sql-database-copy-portal.md)
+- [Copy a database using T-SQL](sql-database-copy-transact-sql.md)
 
 ## Additional resources
 
+- [Manage logins](sql-database-manage-logins.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
+- [Export the database to a BACPAC](sql-database-export.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
