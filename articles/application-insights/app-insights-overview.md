@@ -128,6 +128,7 @@ For more details, choose your app type under Get Started in the navigation bar o
 
 ## Videos
 
+[![Animated introduction](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
