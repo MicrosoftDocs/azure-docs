@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="06/16/2016"
 	ms.author="larryfr"/>
 
 # Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file
@@ -76,6 +76,7 @@ Because Azure Blob storage is the default storage for HDInsight, you can also ac
 
 The following HiveQL statements will project columns onto delimited data that is stored in the **wasb:///example/data** directory:
 
+    set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -83,6 +84,10 @@ The following HiveQL statements will project columns onto delimited data that is
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 In the previous example, the HiveQL statements perform the following actions:
+
+* **set hive.execution.engine=tez;": Sets the execution engine to use Tez. Using Tez instead of MapReduce can provide an increase in query performance. For more information on Tez, see the [Use Apache Tez for improved performance](#usetez) section.
+
+    > [AZURE.NOTE] This statement is only required when using a Windows-based HDInsight cluster; Tez is the default execution engine for Linux-based HDInsight.
 
 * **DROP TABLE**: Deletes the table and the data file if the table already exists.
 * **CREATE EXTERNAL TABLE**: Creates a new **external** table in Hive. External tables only store the table definition in Hive; the data is left in the original location and in the original format.
@@ -97,10 +102,11 @@ In the previous example, the HiveQL statements perform the following actions:
 
 After creating the external table, the following statements are used to create an **internal** table.
 
+    set hive.execution.engine=tez;
 	CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 	STORED AS ORC;
 	INSERT OVERWRITE TABLE errorLogs
-	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
 These statements perform the following actions:
 
