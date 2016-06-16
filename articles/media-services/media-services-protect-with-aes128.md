@@ -527,10 +527,19 @@ The following code shows how to send a request to the Media Services key deliver
 		            Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
 		
 		            string envelopeEncryptionIV = Convert.ToBase64String(GetRandomBuffer(16));
-		
+			    
+			    // When configuring delivery policy, you can choose to associate it
+			    // with a key acquisition URL that has a KID appended or
+			    // or a key acquisition URL that does not have a KID appended  
+                            // in which case a content key can be reused. 
+
+			    // EnvelopeKeyAcquisitionUrl:  contains a key ID in the key URL.
+			    // EnvelopeBaseKeyAcquisitionUrl:  the URL does not contains a key ID
+
 		            // The following policy configuration specifies: 
-		            //   key url that will have KID=<Guid> appended to the envelope and
-		            //   the Initialization Vector (IV) to use for the envelope encryption.
+		            // key url that will have KID=<Guid> appended to the envelope and
+		            // the Initialization Vector (IV) to use for the envelope encryption.
+		            
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		            {
