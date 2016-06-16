@@ -59,5 +59,11 @@ When a transient error occurs while connecting to SQL Database, your code should
 ## Data Sharding with Elastic Scale
 Elastic Scale simplifies the process of scaling out (and in). 
 
+[Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database]
+* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 * [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
+
+## Next steps
+
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).

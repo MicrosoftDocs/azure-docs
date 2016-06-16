@@ -22,6 +22,7 @@
 
 
 > [AZURE.SELECTOR]
+- [Overview](sql-database-firewall-configure.md)
 - [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)

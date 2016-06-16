@@ -112,7 +112,7 @@ The client connection differences between SQL Database V11 and V12 are highlight
 - [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 
 
-- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
+- [SQL Database Development Overview](sql-database-develop-overview.md)
 
 
 - [Azure SQL Database firewall](sql-database-firewall-configure.md)

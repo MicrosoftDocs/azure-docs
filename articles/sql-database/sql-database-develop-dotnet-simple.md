@@ -37,3 +37,10 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 * [Proof of concept connecting to SQL using ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
 * [Connect resiliently to SQL with ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
 
+## Next steps
+
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+
+## Additional resources
+
+For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).

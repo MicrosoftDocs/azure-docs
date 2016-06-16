@@ -134,7 +134,7 @@ The table below shows each resource type with the possible allocation methods (d
 
 ## Limits
 
-The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
 
 ||Default limit|Maximum limit|
 |---|---|---|

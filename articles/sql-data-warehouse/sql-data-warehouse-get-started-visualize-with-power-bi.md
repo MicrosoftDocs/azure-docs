@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/11/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualize data with Power BI
@@ -21,16 +21,18 @@
 > [AZURE.SELECTOR]
 - [Power BI][]
 - [Azure Machine Learning][]
+- [SQLCMD][] 
 
 This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
-> [AZURE.NOTE] To complete this tutorial, you need a SQL Data Warehouse database that is pre-loaded with the AdventureWorksDW sample database. [Create a SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) shows you how to create one.
->
-> If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][].
-
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
-## Connect to AdventureWorksDW
+## Prerequisites
+
+To complete this tutorial, you need a SQL Data Warehouse that is pre-loaded with the AdventureWorksDW sample database. When you create a new SQL Data Warehouse, you can create either an empty database, a database which includes the AdventureWorks sample data, or restore a backup of another database.  See [Create a SQL Data Warehouse][] for more details on how to create a SQL Data Warehouse with the sample data already loaded for you. If you already have a SQL Data Warehouse which you want to use, but do not have sample data, follow the instructions at [load sample data manually][].
+
+
+## Connect to Database
 
 To open Power BI and connect to your AdventureWorksDW database:
 
@@ -51,13 +53,13 @@ To open Power BI and connect to your AdventureWorksDW database:
 
     ![Power BI sign in][4]
 
-1. Once you have signed into Power BI, click the AdventureWorksDW dataset on the left blade. This will open the database.
+7. Once you have signed into Power BI, click the AdventureWorksDW dataset on the left blade. This will open the database.
 
     ![Power BI open AdventureWorksDW][5]
 
 
 
-## Create a Power BI report to analyze the sample data
+## Create a Report
 
 You are now ready to use Power BI to analyze your AdventureWorksDW sample data. To perform the analysis, AdventureWorksDW has a view called AggregateSales. This view contains a few of the key metrics for analyzing the sales of the company.
 
@@ -108,11 +110,13 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-overview-load.md
-[load sample data manually]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[load sample data manually]: ./sql-data-warehouse-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [Azure Portal]: https://portal.azure.com/

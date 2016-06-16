@@ -14,14 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.date="06/09/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 - [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 
