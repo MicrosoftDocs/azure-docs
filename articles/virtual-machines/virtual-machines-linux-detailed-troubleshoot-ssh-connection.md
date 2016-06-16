@@ -20,7 +20,7 @@
 
 # Detailed SSH troubleshooting steps
 
-There are many possible reasons that the SSH client might not be able to reach the SSH service on the VM. If you have followed through the more [general SSH troubleshooting steps](virtual-machines-linux-troubleshoot-ssh-connection.md) to reset SSHD itself, or reset SSH key/password credentials for a user, you will need to further troubleshoot the connection issue. This article guides you through those troubleshooting steps to determine where the SSH connection is failing and how resolve it.
+There are many possible reasons that the SSH client might not be able to reach the SSH service on the VM. If you have followed through the more [general SSH troubleshooting steps](virtual-machines-linux-troubleshoot-ssh-connection.md), you will need to further troubleshoot the connection issue. This article guides you through detailed troubleshooting steps to determine where the SSH connection is failing and how resolve it.
 
 ## Take preliminary steps
 
@@ -144,3 +144,7 @@ Try connecting from your computer again. If it still fails, these are some of th
 - The SSH service is not listening on TCP port 22. To test this, install a telnet client on your local computer and run "telnet *cloudServiceName*.cloudapp.net 22". This will determine if the virtual machine allows inbound and outbound communication to the SSH endpoint.
 - The local firewall on the target virtual machine has rules that are preventing inbound or outbound SSH traffic.
 - Intrusion detection or network monitoring software that's running on the Azure virtual machine is preventing SSH connections.
+
+
+## Additional resources
+For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-linux-troubleshoot-app-connection.md)
