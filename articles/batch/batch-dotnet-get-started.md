@@ -48,10 +48,6 @@ The [DotNetTutorial][github_dotnettutorial] sample is one of the many code sampl
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### Azure Batch Explorer (optional)
-
-The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
-
 ## DotNetTutorial sample project overview
 
 The *DotNetTutorial* code sample is a Visual Studio 2015 solution that consists of two projects: **DotNetTutorial** and **TaskApplication**.
@@ -671,7 +667,7 @@ if (response != "n" && response != "no")
 
 ## Run the *DotNetTutorial* sample
 
-When you run the sample application, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or one of the [available Azure Storage explorers][storage_explorers] to view the Storage resources (containers and blobs) that are created by the application.
+When you run the sample application, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Azure portal][azure_portal] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Azure Storage Explorer][storage_explorers] to view the Storage resources (containers and blobs) that are created by the application.
 
 Typical execution time is **approximately 5 minutes** when you run the application in its default configuration.
 
@@ -708,7 +704,7 @@ Sample complete, hit ENTER to exit...
 
 ## Next steps
 
-Feel free to make changes to *DotNetTutorial* and *TaskApplication* to experiment with different compute scenarios. For example, try adding an execution delay to *TaskApplication*, such as with [Thread.Sleep][net_thread_sleep], to simulate long-running tasks and monitor them with the Batch Explorer's *Heat Map* feature. Try adding more tasks or adjusting the number of compute nodes. Add logic to check for and allow the use of an existing pool to speed execution time (*hint*: check out `ArticleHelpers.cs` in the [Microsoft.Azure.Batch.Samples.Common][github_samples_common] project in [azure-batch-samples][github_samples]).
+Feel free to make changes to *DotNetTutorial* and *TaskApplication* to experiment with different compute scenarios. For example, try adding an execution delay to *TaskApplication*, such as with [Thread.Sleep][net_thread_sleep], to simulate long-running tasks and monitor them in the portal. Try adding more tasks or adjusting the number of compute nodes. Add logic to check for and allow the use of an existing pool to speed execution time (*hint*: check out `ArticleHelpers.cs` in the [Microsoft.Azure.Batch.Samples.Common][github_samples_common] project in [azure-batch-samples][github_samples]).
 
 Now that you're familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
@@ -719,10 +715,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
@@ -762,7 +755,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
-[storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
+[storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Create containers in Azure Storage"
