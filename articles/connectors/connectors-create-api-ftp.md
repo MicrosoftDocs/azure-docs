@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the FTP API in your Logic Apps | Microsoft Azure"
-	description="Overview of the FTP API with REST API parameters"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the FTP connector in your Logic Apps | Microsoft Azure"
+    description="Overview of the FTP connector with REST API parameters"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,15 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the FTP API
-Connect to an FTP server to manage your files, including upload files, delete files, and more. The FTP API can be used from:
+# Get started with the FTP connector
+Connect to an FTP server to manage your files, including upload files, delete files, and more. The FTP connector can be used from:
 
-- Logic apps
+- Logic apps (discussed in this topic)
+- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [FTP connector](../app-service-logic/app-service-logic-connector-ftp.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With FTP, you can: 
 
@@ -40,16 +41,12 @@ Triggers | Actions
 --- | ---
 <ul><li>Gets an updated file</li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Gets an updated file</li><li>Update file</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 ## Create a connection to FTP
-When you add this API to your logic apps, enter the following values:
 
-|Property| Required|Description|
-| ---|---|---|
-|Server Address| Yes | Enter the fully qualified domain (FQDN) or IP address of the FTP server.|
-|User name| Yes | Enter the user name to connect to the FTP Server.|
-|Password | Yes | Enter the user name's password.|
+
+>[AZURE.INCLUDE [Steps to create an FTP connection](../../includes/connectors-create-api-ftp.md)]
 
 After you create the connection, you enter the FTP properties, like the source file or destination folder. The **REST API reference** in this topic describes these properties.
 

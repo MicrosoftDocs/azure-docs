@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Copy data from Azure Storage Blobs to Data Lake Store
@@ -110,7 +110,7 @@ For example:
 
 ## Considerations for using AdlCopy
 
-* AdlCopy does not support copying data from sources that have more than 1000 files and folders collectively. An alternate approach would be to distribute the files/folders into different sub-folders and use the path to those sub-folders as the source instead.
+* AdlCopy (for version 1.0.4), supports copying data from sources that collectively have more than thousands of files and folders. However, if you encounter issues copying a large dataset, you can distribute the files/folders into different sub-folders and use the path to those sub-folders as the source instead.
 
 ## Next steps
 

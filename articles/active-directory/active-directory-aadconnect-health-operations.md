@@ -93,7 +93,7 @@ Azure AD Connect Health supports the following built-in roles.
 |Contributor|  Contributors can ***view all information*** (e.g. view alerts) from the portal and ***change settings*** (e.g. email notifications) within Azure AD Connect Health.|
 |Reader| Readers can ***view all information*** (e.g. view alerts) from the portal within Azure AD Connect Health.|
 
-All other roles (such as ‘User Access Administrators’ or ‘DevTest Lab Users’), even if available in the portal experience, have no impact to access within Azure AD Connect Health.
+All other roles (such as ‘User Access Administrators’ or ‘DevTest Labs Users’), even if available in the portal experience, have no impact to access within Azure AD Connect Health.
 
 #### Access Scope
 

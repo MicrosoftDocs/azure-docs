@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from On-premises file system using Azure Data Factory
@@ -485,9 +485,9 @@ Property | Description | Required
 folderPath | Path to the folder. Example: myfolder<br/><br/>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\\\subfolder and for d:\samplefolder, specify d:\\\\samplefolder.<br/><br/>You can combine this with **partitionBy** to have folder paths based on slice start/end date-times. | Yes
 fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
-Format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either if this value. When the forAvroFormatmat is TextFormat you can specify additional optional properties for format. See the format section below for more details. **Format property is currently not supported for On-premise file systems. It shall be enabled shortly as documented here.** | No
+Format | The following format types are supported: **TextFormat**, **AvroFormat**,  **JsonFormat**, and **OrcFormat**. You need to set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), and [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions. | No
 fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: * (multiple characters) and ? (single character).<br/><br/>Examples 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Note**: fileFilter is applicable for an input FileShare dataset | No
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. See [Compression support](#compression-support) section for more details.  | No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Note that compression settings are not supported for data in **AvroFormat** or **OrcFormat** at this time. See [Compression support](#compression-support) section for more details.  | No |
 
 > [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
 
@@ -521,52 +521,7 @@ In the above example {Slice} is replaced with the value of Data Factory system v
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
-### Specifying TextFormat
-
-If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section within the **typeProperties** section. 
-
-Property | Description | Required
--------- | ----------- | --------
-columnDelimiter | The character(s) used as a column separator in a file. The default value is comma (,). | No
-rowDelimiter | The character(s) used as a raw separator in file. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No
-escapeChar | The special character used to escape column delimiter shown in content. No default value. You must specify no more than one character for this property.<br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | No
-quoteChar | The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. No default value. You must specify no more than one character for this property.<br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | No
-nullValue | The character(s) used to represent null value in blob file content. The default value is “\N”.> | No
-encodingName | Specify the encoding name. For the list of valid encoding names, see: Encoding.EncodingName Property. <br/><br/>For example: windows-1250 or shift_jis. The default value is: UTF-8. | No
-
-#### Samples:
-
-The following sample shows some of the format properties for **TextFormat**.
-
-	"typeProperties":
-	{
-	    "folderPath": "MyFolder",
-	    "fileName": "MyFileName"
-	    "format":
-	    {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": ";",
-	        "quoteChar": "\"",
-	        "NullValue": "NaN"
-	    }
-	},
-
-To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following:
-
-	"escapeChar": "$",
-
-### Specifying AvroFormat
-
-If the format is set to **AvroFormat**, you do not need to specify any properties in the Format section within the typeProperties section. Example:
-
-	"format":
-	{
-	    "type": "AvroFormat",
-	}
-	
-To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).		
-
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]   
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## File Share copy activity type properties
@@ -581,7 +536,7 @@ The **FileSystemSink** supports the following properties:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name.  | No |
+| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name.<br/><br/>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name.  | No |
 
 ### recursive and copyBehavior examples
 This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 

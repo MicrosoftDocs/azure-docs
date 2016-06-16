@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a on-premises or poly-cloud Azure Service Fabric cluster | Microsoft Azure"
-   description="Learn how to create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in the cloud."
+   pageTitle="Create a on-premises or any-cloud Azure Service Fabric cluster | Microsoft Azure"
+   description="Learn how to create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="06/14/2016"
    ms.author="chackdan"/>
 
 
@@ -23,9 +23,13 @@ Azure Service Fabric allows the creation of Service Fabric clusters on any virtu
 
 This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on-premises, though it can be easily adapted for any other environment such as other clouds.
 
-## Service Fabric standalone package
+>[AZURE.NOTE] This Standalone Offering is currently in Preview. [Click here](http://go.microsoft.com/fwlink/?LinkID=733084) if you would like to download a copy of the EULA now.
 
-The standalone package for Service Fabric for Windows Server 2012 R2 deployments is named *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip* and can be downloaded [here](http://go.microsoft.com/fwlink/?LinkId=730690).
+<a id="downloadpackage"></a>
+## Download the Service Fabric standalone package
+
+
+[Download the standalone package for Service Fabric for Windows Server 2012 R2](http://go.microsoft.com/fwlink/?LinkId=730690), which is named *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
 In the download package you will find the following files:
 
@@ -53,6 +57,7 @@ Pre-requisites for each machine that you want to add to the cluster:
 - .NET Framework 4.5.1 or higher, full install
 - Windows PowerShell 3.0
 - The cluster administrator deploying and configuring the cluster must have administrator privileges on each of the computers.
+- RemoteRegistry service should be running on all the machines.
 
 ### Step 3: Determine the initial cluster size
 Each node consists of a full Service Fabric stack and is an individual member of the Service Fabric cluster. In a typical Service Fabric deployment there is one node per OS instance (physical or virtual). The cluster size is determined by your business needs; however, you must have a minimum cluster size of three nodes (machines/VMs).
@@ -82,6 +87,7 @@ When you specify UDs in the *ClusterConfig.JSON*, you get to choose the name of 
 ### Step 5: Download the standalone package for Service Fabric for Windows Server
 [Download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package either to a deployment machine that is not part of the cluster or to one of the machines that will be part of your cluster.
 
+<a id="createcluster"></a>
 ## Create your cluster
 
 After you have gone through steps outlined in the planning and preparation section above, you are now ready to create your cluster.

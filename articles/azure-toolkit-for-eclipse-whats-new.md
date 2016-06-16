@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -24,6 +24,16 @@
 
 This article contains information on the various releases and latest updates to the Azure Toolkit for Eclipse.
 
+> [AZURE.NOTE] There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
+
+### April 12, 2016
+
+The Azure Toolkit for Eclipse - April 2016 release includes the following enhancements:
+
+* **Support for Azure SDK v2.9.0**. The latest version of the Azure SDK is now the minimum pre-requisite for the Azure Toolkit for Eclipse.
+* **Miscellaneous usability, responsiveness and performance improvements related to Azure Web App support**. A number of performance optimizations in how the Toolkit communicates with Azure result in a more responsive UI.
+* **Ability to delete an existing Web Application container in Azure from within Eclipse**. The Azure Toolkit for Eclipse now allows you to delete an existing Azure Web container without leaving Eclipse.
+
 ### March 7, 2016
 
 The Azure Toolkit for Eclipse - March 2016 release includes the following enhancements:
@@ -32,7 +42,7 @@ The Azure Toolkit for Eclipse - March 2016 release includes the following enhanc
 * **Support for Web App management using the Azure Explorer view**. The Azure Explorer view in the toolkit now supports for listing, starting and stopping Azure Web Apps.
 * **Updated Tomcat, Jetty, and Zulu OpenJDK distributions**. The Azure Toolkit for Eclipse provides support for updated versions of Tomcat, Jetty and Zulu OpenJDK for Java deployments into Azure cloud services.
 
-### January 4, 2015
+### January 4, 2016
 
 The Azure Toolkit for Eclipse - January 2016 release includes the following enhancements:
 
@@ -289,22 +299,31 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 ## See Also ##
 
-[Azure Toolkit for Eclipse]
+For more information about the Azure Toolkits for Java IDEs, see the following links:
 
-[Installing the Azure Toolkit for Eclipse] 
-
-[Creating a Hello World Application for Azure in Eclipse]
+- [Azure Toolkit for Eclipse]
+  - [Installing the Azure Toolkit for Eclipse]
+  - [Create a Hello World Web App for Azure in Eclipse]
+  - *What's New in the Azure Toolkit for Eclipse (This Article)*
+- [Azure Toolkit for IntelliJ]
+  - [Installing the Azure Toolkit for IntelliJ]
+  - [Create a Hello World Web App for Azure in IntelliJ]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
 
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+
 [Azul Systems web page for the Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure Toolkit for IntelliJ]: https://plugins.jetbrains.com/plugin/8053
 [Components properties]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535

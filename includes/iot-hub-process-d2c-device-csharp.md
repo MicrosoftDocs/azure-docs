@@ -1,4 +1,4 @@
-## Send interactive messages from simulated device
+## Send interactive messages from a simulated device
 
 In this section, you'll modify the simulated device application you created in the [Get started with IoT Hub] tutorial to send interactive device-to-cloud messages to the IoT hub.
 
@@ -17,17 +17,17 @@ In this section, you'll modify the simulated device application you created in t
         await deviceClient.SendEventAsync(interactiveMessage);
         Console.WriteLine("{0} > Sending interactive message: {1}", DateTime.Now, interactiveMessageString);
 
-        Thread.Sleep(10000);
+        Task.Delay(10000).Wait();
       }
     }
     ```
 
-    This method is very similar to the **SendDeviceToCloudMessagesAsync** method in **SimulatedDevice** project. The only differences are that you now set the **MessageId** system property, and a user property called **messageType**.
-    The code assigns a globally unique identifier (guid) to the **MessageId** property, that Service Bus can use to deduplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data point messages. The application passes this information in message properties instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
+    This method is very similar to the **SendDeviceToCloudMessagesAsync** method in the **SimulatedDevice** project. The only differences are that you now set the **MessageId** system property, and a user property called **messageType**.
+    The code assigns a globally unique identifier (GUID) to the **MessageId** property. The Service Bus can use this to de-duplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data point messages. The application passes this information in message properties, instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
 
-    > [AZURE.NOTE] It is important to create the **MessageId** used to deduplicate interactive messages in the device code because intermittent network communications, or other failures, could result in multiple retransmissions of the same message from that device. You can also use a semantic message id - such as a hash of the relevant message data fields - in place of a guid.
+    > [AZURE.NOTE] It is important to create the **MessageId** used to de-duplicate interactive messages in the device code. Intermittent network communications, or other failures, could result in multiple re-transmissions of the same message from that device. You can also use a semantic message ID, such as a hash of the relevant message data fields, in place of a GUID.
 
-2. Add the following method in the **Main** method right before the `Console.ReadLine()` line:
+2. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
 
     ````
     SendDeviceToCloudInteractiveMessagesAsync();
@@ -37,10 +37,4 @@ In this section, you'll modify the simulated device application you created in t
 
 <!-- Links -->
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-
-
-
-
-
-
+[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md

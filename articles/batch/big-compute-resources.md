@@ -10,10 +10,10 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="01/26/2016"
+   ms.date="06/08/2016"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical resources for batch and high performance computing (HPC)
@@ -30,13 +30,15 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 ## Azure Batch
 
-[Batch](https://azure.microsoft.com/services/batch/) is a platform service that makes it easy to cloud-enable your applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through a variety of languages, stage data to Azure, and build job execution pipelines.
+[Batch](https://azure.microsoft.com/services/batch/) is a platform service that makes it easy to cloud-enable your Linux and Windows applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through a variety of languages, stage data to Azure, and build job execution pipelines.
 
 * [Documentation](https://azure.microsoft.com/documentation/services/batch/)
 
-* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) and [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API reference
+* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/), and [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API reference
 
-* [Tutorial: Getting started with Azure Batch library for .NET](batch-dotnet-get-started.md)
+* [Batch management .NET library](https://msdn.microsoft.com/library/mt463120.aspx) reference
+
+* Tutorials: Get started with [Azure Batch library for .NET](batch-dotnet-get-started.md) and [Batch Python client](batch-python-tutorial.md)
 
 * [Batch forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch)
 
@@ -55,7 +57,7 @@ HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows S
 * [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
+* [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md) and [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md) HPC Pack cluster options in Azure
 
 * [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -77,7 +79,7 @@ Use these Azure templates to deploy Linux HPC clusters.
 
 ## Microsoft MPI
 
-[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) is a Microsoft implementation of the Message Passing Interface standard for developing and running parallel applications on the Windows platform.
+[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) is a Microsoft implementation of the Message Passing Interface standard for developing and running parallel applications on the Windows platform. The latest version is MS-MPI v7.
 
 
 * [Download MS-MPI](http://go.microsoft.com/FWLink/p/?LinkID=389556)
@@ -95,13 +97,13 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-siz
 
 * [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-## Architecture blueprints
 
-* [HPC and data orchestration using Azure Batch and Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) and [article](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Samples and demos
 
-* [Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
+* [Azure Batch C# and Python code samples](https://github.com/Azure/azure-batch-samples)
+
+* [Test drive SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
 ## Related Azure services
 
@@ -113,12 +115,23 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-siz
 
 * [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
+* [Virtual Machine Scale Sets](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)
+
 * [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
 
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
 
-## Customer stories
+## Architecture blueprints
 
+* [HPC and data orchestration using Azure Batch and Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) and [article](../data-factory/data-factory-data-processing-using-batch.md)
+
+## Industry solutions
+
+* [Banking and capital markets](https://finance.azure.com/)
+
+* [Engineering simulations](https://simulation.azure.com/) 
+
+## Customer stories
 
 * [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
@@ -136,9 +149,7 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-siz
 
 * [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
 
-
-
-
+* [UberCloud](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 

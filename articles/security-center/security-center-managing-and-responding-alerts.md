@@ -9,13 +9,13 @@
 
 <tags
    ms.service="security-center"
-   ms.topic="hero-article" 
+   ms.topic="hero-article"
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
- 
+
 # Managing and responding to security alerts in Azure Security Center
 This document helps you use Azure Security Center capabilities to manage and respond to security alerts.
 
@@ -26,7 +26,7 @@ This document helps you use Azure Security Center capabilities to manage and res
 
 ## What are security alerts?
 Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and integrated antimalware and firewalls to detect real threats and reduce false positives. A list of prioritized security alerts, including alerts from integrated partner solutions, is shown in Security Center along with the information you need to quickly investigate and recommendations on how to remediate an attack.
- 
+
 Microsoft security researchers are constantly analyzing emerging threats across the globe, including new attack patterns and trends seen across its consumer and enterprise products and online services. As a result, Security Center can update its detection algorithms as new vulnerabilities and exploits are discovered – helping customers keep pace with evolving threats. Examples of some of the types of threats Security Center can detect include:
 
 - **Brute force detection over network data**: Uses machine-learning models that understand typical network traffic patterns for your applications, enables more effective detection of access attempts being executed by bad actors instead of legitimate users.
@@ -34,7 +34,7 @@ Microsoft security researchers are constantly analyzing emerging threats across 
 - **VMs communicating with malicious IPs**: Compares network traffic to Microsoft global threat intelligence, discovers machines that are compromised and communicating with Command and Control (C&C) servers and vice-versa.
 - **Compromised VMs**: Based on behavioral analysis of machine logs and correlation with other signals, identifies anomalous events that are likely the results of machine compromise and exploitation.
 
-## Managing security alerts 
+## Managing security alerts
 
 You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
 
@@ -69,7 +69,7 @@ You can filter alerts based on date, state, and severity. Filtering alerts can b
 	![Filter alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-new.png)
 
 ### Respond to security alerts
-Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert will open a blade containing a list of the grouped alerts. 
+Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert will open a blade containing a list of the grouped alerts.
 
 ![Respond to security alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig7.png)
 
@@ -87,5 +87,6 @@ In the **Alert** field of this blade you will find more details about this event
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Find blog posts about Azure security and compliance.

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -20,8 +20,6 @@
 
 # Copy an Azure SQL Database
 
-**Single database**
-
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
@@ -29,7 +27,7 @@
 
 The following steps show you how to copy a SQL database with the [Azure Portal](https://portal.azure.com). The database copy operation creates a new SQL database. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
-> [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+> [AZURE.NOTE] Azure SQL Database automatically [creates and maintains backups](sql-database-automated-backups.md) for every user database that you can restore. 
 
 When the copying process completes, the new database is a fully functioning database that is independent of the source database. The new database is transactionally consistent with the source database at the time when the copy completes. The service tier and performance level (pricing tier) of the database copy are the same as the source database. After the copy is complete, the copy becomes a fully functional, independent database. The logins, users, and permissions can be managed independently.
 

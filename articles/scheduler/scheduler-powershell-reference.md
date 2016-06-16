@@ -1,6 +1,6 @@
 <properties
  pageTitle="Scheduler PowerShell Cmdlets Reference"
- description=""
+ description="Scheduler PowerShell Cmdlets Reference"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"

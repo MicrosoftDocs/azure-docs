@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analytics - the powerful search tool of Application Insights" 
+	pageTitle="Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
 	description="Overview of Analytics, 
 	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 
@@ -24,7 +24,6 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
  
 A typical query is a *source* table followed by a series of *operators* separated by `|`. 
@@ -33,14 +32,14 @@ For example, let's find out what time of day the citizens of Hyderabad try our w
 
 ```AIQL
 
-    requests 
-    | where timestamp > ago(30d) and client_City == "Hyderabad"
+    requests      // Table of events that log HTTP requests.
+    | where timestamp > ago(7d) and client_City == "Hyderabad"
     | summarize clients = dcount(client_IP) 
       by tod_UTC=bin(timestamp % 1d, 1h), resultCode
     | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
 ```
 
-We count distinct client IP addresses, grouping them by the hour of the day over the past 30 days. 
+We count distinct client IP addresses, grouping them by the hour of the day over the past 7 days. 
 
 Let's display the results with the bar chart presentation, choosing to stack the results from different response codes:
 
@@ -56,15 +55,15 @@ There are also powerful statistical operations:
 
 The language has many attractive features:
 
-* [Filter](app-insights-analytics-queries.md) your raw app telemetry by any fields, including your custom properties and metrics.
-* [Join](app-insights-analytics-queries.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
-* Powerful statistical [aggregations](app-insights-analytics-aggregations.md).
+* [Filter](app-insights-analytics-reference.md#where-operator) your raw app telemetry by any fields, including your custom properties and metrics.
+* [Join](app-insights-analytics-reference.md#join-operator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* Powerful statistical [aggregations](app-insights-analytics-reference.md#aggregations).
 * Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
 * Immediate and powerful visualizations.
 
 
 
->[AZURE.NOTE] We recommend starting with the [language tour](app-insights-analytics-tour.md).
+>[AZURE.NOTE] We recommend you start with the [language tour](app-insights-analytics-tour.md).
 
 
 

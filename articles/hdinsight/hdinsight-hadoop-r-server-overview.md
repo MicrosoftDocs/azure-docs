@@ -1,6 +1,6 @@
 <properties
-	pageTitle="What is R on HDInsight? Introduction to R Server on HDInsight | Microsoft Azure"
-	description="What is R on HDInsight and how to use R for creating applications for big data analysis."
+	pageTitle="What is R on HDInsight? Introduction to R Server on HDInsight (preview) | Microsoft Azure"
+	description="What is R Server on HDInsight (preview) and how to use R for creating applications for big data analysis."
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="jeffstok"/>
 
 
-# Overview: R Server on HDInsight
+#Overview: R Server on HDInsight \(preview\)
 
 With HDInsight Premium, R Server is now available as an option when creating HDInsight clusters in Azure. This new capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. Clusters can be sized to the projects and tasks at hand and torn down when no longer needed. Being part of Azure HDInsight, these clusters come with enterprise-level 24/7 support, SLA of 99.9% up-time, and the flexibility of integration with other components of the Azure ecosystem.
 
@@ -31,7 +31,9 @@ To include R Server on an HDInsight cluster, you must create either a Hadoop or 
 
 ## Data storage options
 
-Default storage for HDInsight clusters is on Azure Blob (WASB) with the HDFS file system mapped to a blob container. This insures that whatever data is uploaded to the cluster storage, or written to cluster storage during the course of analysis is made persistent. A convenient method of copying data to and from blob is to use the [AzCopy](../storage/storage-use-azcopy/) utility. 
+Default storage for HDInsight clusters is on Azure Blob (WASB) with the HDFS file system mapped to a blob container. This insures that whatever data is uploaded to the cluster storage, or written to cluster storage during the course of analysis is made persistent. A convenient method of copying data to and from blob is to use the [AzCopy](../storage/storage-use-azcopy.md) utility. 
+
+In addition to Blob, there is the option of adding use of [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) (ADLS) to your cluster. If you add use of ADLS then you can combine use of both Blob and ADLS for HDFS storage.
 
 You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enable you to mount a file share created on an Azure Storage account to the Linux file system. For more information on data storage options for R Server on HDInsight cluster, see [Storage options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-storage.md).
   

@@ -3,7 +3,7 @@
 	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)."
 	services="sql-database"
 	documentationCenter=""
-	authors="jhubbard"
+	authors="jennieHubbard"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="04/26/2016"
 	ms.author="jhubbard"/>
 
 
@@ -195,7 +195,7 @@ To synchronize on a schedule, you configure the sync group.
 
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.
 
-## Next Steps
+## Next steps
 For additional information on SQL Database and SQL Data Sync see:
 
 * [Download the complete SQL Data Sync technical documentation](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)

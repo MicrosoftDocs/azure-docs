@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="06/13/2016"
 	ms.author="jeffstok"/>
 
 # Using reference data or lookup tables in a Stream Analytics input stream
@@ -72,9 +72,16 @@ To configure your reference data, you first need to create an input that is of t
 
 ## Generating reference data on a schedule
 
-If your reference data is a slowly changing dataset, then support for refreshing reference data is enabled by specifying a path pattern in the input configuration using the {date} and {time} tokens. Stream Analytics will pick up the updated reference data definitions based on this path pattern. For example, a pattern of ````"/sample/{date}/{time}/products.csv"```` with a date format of “YYYY-MM-DD” and a time format of “HH:mm” tells Stream Analytics to pick up the updated blob ````"/sample/2015-04-16/17:30/products.csv"```` at 5:30 PM on April 16th 2015 UTC time zone.
+If your reference data is a slowly changing data set, then support for refreshing reference data is enabled by specifying a path pattern in the input configuration using the {date} and {time} substitution tokens. Stream Analytics will pick up the updated reference data definitions based on this path pattern. For example, a pattern of `sample/{date}/{time}/products.csv` with a date format of **“YYYY-MM-DD”** and a time format of **“HH:mm”** instructs Stream Analytics to pick up the updated blob `sample/2015-04-16/17:30/products.csv` at 5:30 PM on April 16th 2015 UTC time zone.
 
-> [AZURE.NOTE] Currently Stream Analytics jobs look for the blob refresh only when the machine time coincides with the time encoded in the blob name. For example the job will look for /sample/2015-04-16/17:30/products.csv between 5:30 PM and 5:30:59.9PM on April 16th 2015 UTC time zone. When the machine clock reaches 5:31PM it stops looking for /sample/2015-04-16/17:30/products.csv and starts looking for /sample/2015-04-16/17:31/products.csv. An exception to this is when the job needs to re-process data back in time or when the job is first started. At start time the job is looking for the most recent blob produced prior to the job start time specified. This is done to ensure that there is a non-empty reference data set when the job starts. If one cannot be found, the job will fail and will display a diagnostic notice to the user.
+> [AZURE.NOTE] Currently Stream Analytics jobs look for the blob refresh only when the machine time advances to the time encoded in the blob name. For example the job will look for `sample/2015-04-16/17:30/products.csv` as soon as possible but no earlier than 5:30 PM on April 16th 2015 UTC time zone. It will *never* look for a file with an encoded time earlier than the last one that is discovered.
+> 
+> E.g. once the job finds the blob `sample/2015-04-16/17:30/products.csv` it will ignore any files with an encoded date earlier than 5:30 PM April 16th 2015 so if a late arriving `sample/2015-04-16/17:25/products.csv` blob gets created in the same container the job will not use it.
+> 
+> Likewise if `sample/2015-04-16/17:30/products.csv` is only produced at 10:03 PM April 16th 2015 but no blob with an earlier date is present in the container, the job will use this file starting at 10:03 PM April 16th 2015 and use the previous reference data until then.
+> 
+> An exception to this is when the job needs to re-process data back in time or when the job is first started. At start time the job is looking for the most recent blob produced prior to the job start time specified. This is done to ensure that there is a **non-empty** reference data set when the job starts. If one cannot be found, the job will display the following diagnostic: `Initializing input without a valid reference data blob for UTC time <start time>`.
+
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions . Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md) and moving data easily on a regular schedule that you specify. For more information and step by step guidance on how to set up a Data Factory pipeline to generate reference data for Stream Analytics which refreshes on a pre-defined schedule, check out this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 

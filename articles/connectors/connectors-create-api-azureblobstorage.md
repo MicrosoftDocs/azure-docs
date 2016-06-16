@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Azure blob storage API in your Logic Apps | Microsoft Azure"
-	description="Overview of Azure blob storage API with REST API parameters"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the Azure blob storage Connector in your Logic Apps | Microsoft Azure"
+    description="Overview of Azure blob storage Connector with REST API parameters"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the Azure blob storage API
-Connect to an Azure Blob to manage files in a blob container, such as creating files, deleting files, and more. The Azure blob storage API can be used from:
+# Get started with the Azure blob storage connector
+Connect to an Azure Blob to manage files in a blob container, such as creating files, deleting files, and more. The Azure blob storage Connector can be used from:
 
 - Logic apps 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Storage Blob connector](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Azure blob storage, you can:
 
@@ -38,15 +38,11 @@ Azure blob includes the following actions. There are no triggers.
 | --- | --- |
 | None. | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li></ul> |
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 ## Create a connection to Azure blob
-When you add this API to your logic apps, enter the following storage account values: 
 
-|Property| Required|Description|
-| ---|---|---|
-|Azure storage account name | yes | The name of your blob storage account|
-|Azure storage account access key | yes | The access key to your blob storage account|
+>[AZURE.INCLUDE [Steps to create a connection to Azure Blob Storage](../../includes/connectors-create-api-azureblobstorage.md)]
 
 After you create the connection, you enter the blob properties, like folder path or file name. The **REST API reference** in this topic describes these properties.
 

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to monitor Azure Redis Cache" 
+	pageTitle="How to monitor Azure Redis Cache | Microsoft Azure" 
 	description="Learn how to monitor the health and performance your Azure Redis Cache instances" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
@@ -54,7 +54,7 @@ Click the arrow to the right of **Storage Account** to select a storage account 
 
 Once the diagnostic settings are configured, click **Save** to save the configuration. Note that it may take a few moments for the changes to take effect.
 
->[AZURE.IMPORTANT] Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
+>[AZURE.IMPORTANT] Caches in the same region and subscription share the same diagnostics storage settings, and when the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region.
 
 To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure Portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
 
@@ -82,8 +82,8 @@ Each metric includes two versions. One metric measures performance for the entir
 | Used Memory       | The amount of cache memory used for key/value pairs in the cache in MB during the specified reporting interval. This value maps to the Redis INFO `used_memory` command. This does not include metadata or fragmentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Used Memory RSS   | The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to the Redis INFO `used_memory_rss` command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | CPU               | The CPU utilization of the Azure Redis Cache server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Cache Read        | The amount of data read from the cache in KB/s during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Cache Write       | The amount of data written to the cache in KB/s during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Cache Read        | The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Cache Write       | The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 ## Monitoring charts
 

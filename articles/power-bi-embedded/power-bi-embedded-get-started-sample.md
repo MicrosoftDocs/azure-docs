@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with sample"
-   description=""
+   description="Power BI Embedded, use SDK to add interactive Power BI reports into your business intelligence application"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Get started with Microsoft Power BI Embedded sample
@@ -21,7 +21,7 @@
 **Microsoft Power BI Embedded Preview** enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users. The following resources can help you get started integrating Power BI reports into your app.
 
  -	[Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt712303.aspx)
+ -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt711493.aspx)
  -	[Power BI Embedded .NET SDK (available via NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 In this article, you are introduced to the **Power BI Embedded** get started sample. Let’s get started configuring the sample app so that you can run the sample web app.
@@ -222,14 +222,14 @@ Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
-### Filter reports embedded in your application
+## Filter reports embedded in your application
 
-You can filter an embedded report using a URL syntax. To do this, you add a query string parameter to your iFrame src url with the filter specified. Here is the filter query syntax:
+You can filter an embedded report using a URL syntax. To do this, you add a **$filter** query string parameter with an **eq** operator to your iFrame src url with the filter specified. Here is the filter query syntax:
 
 ```
 https://app.powerbi.com/reportEmbed
-?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
-$filter={tableName/fieldName} eq '{fieldValue}'
+?reportId=d2a0ea38-...-9673-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
 > [AZURE.NOTE] {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/29/2016"
 	ms.author="cynthn"/>
 
 # Create a custom virtual machine running Windows
@@ -26,3 +26,6 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
+## Next steps
+
+You can also [create a custom virtual machine running Linux](virtual-machines-linux-classic-createportal.md) using the classic portal.

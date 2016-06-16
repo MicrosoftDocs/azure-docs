@@ -43,9 +43,9 @@ If you are a Microsoft contributor, you need to set up your GitHub account so yo
 
 - **Profile picture**: a picture of you (required)
 - **Name**: your first and last name (required)
-- **Email**: your Microsoft email address (required)
+- **Email**: your Microsoft email address (optional)
 - **Company**: Microsoft Corporation (required)
-- **Location**: list your location (required)
+- **Location**: list your location (optional)
 
 Your profile should resemble this profile:
 
@@ -158,7 +158,7 @@ If you use Atom, you'll need to set a few things up.
 
 1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers and program managers need to fork azure-content-pr, the private repo. Community contributors need to fork azure-content, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.  If you choose to create forks of both repositories, you will need to create a fork for each repository.
 
-2. Copy the Personal Access Token that you got from [https://github.com/settings/applications#personal-access-tokens](https://github.com/settings/applications#personal-access-tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
+2. Copy the Personal Access Token that you got from [https://github.com/settings/tokens](https://github.com/settings/tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
 
 3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
 

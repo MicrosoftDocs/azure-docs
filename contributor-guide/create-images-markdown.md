@@ -45,7 +45,7 @@ Screenshots are currently encouraged if it's not possible to include repro steps
 Use the following guidelines when creating and including art files:
 - Do not share art files across documents. Copy the file you need and add it to the media folder for your specific topic. Sharing between files is discouraged because  it is easier to remove deprecated content and images which keeps the repo clean.
 
-- .png files are highly preferred over other formats.
+- File formats: Use .png files - they are higher quality and maintain their quality during the localization process. Other file formats do not maintain their quality as well. The .jpeg format is permitted, but not preferred.  No animated GIF files.
 
 - Use red squares of the default width provided in Paint (5 px) to call attention to particular elements in screenshots.  
 
@@ -58,6 +58,8 @@ Use the following guidelines when creating and including art files:
     Example:
 
     ![This is an example of a gray border around whitespace.](./media/create-images-markdown/agent.png)
+    
+    For a tool to help automate the process of adding the required border to images, see [AddACOMBorder tool - How to automate the process of adding the required 1 pixel grey border to ACOM images](https://github.com/Azure/Azure-CSI-Content-Tools/tree/master/Tools/AddACOMImageBorder).
 
 - Conceptual images with whitespace do not need a gray border.  
 

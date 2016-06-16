@@ -3,7 +3,7 @@
    description="Common questions and answers that customers ask about built-in and optional features for business continuity and disaster recovery with Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.date="04/25/2016"
+   ms.author="carlrab"/>
 
 # Business Continuity FAQ
 
@@ -50,12 +50,6 @@ For recovery from outage - Use the [Get Recoverable Database](https://msdn.micro
 
 There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task. 
 
-## 8.	What is the difference between standard geo-replication and active geo-replication?
-
-For standard geo-replication, the secondary database is not readable. It is only available for failover during outages.
-
-For active geo-replication, all the secondaries database is readable (up to 4 secondaries).
-
-## 9.	What is the replication delay when using standard geo-replication or active geo-replication?
+## 8.	What is the replication delay when using Geo-Replication?
 
 Use the [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx) dynamic management view (DMVs) to get the last replication time, last replication lag and other information about the replication link.

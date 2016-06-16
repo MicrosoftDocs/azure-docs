@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the SFTP API in your Logic Apps | Microsoft Azure"
-	description="Overview of the SFTP API with REST API parameters"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the SFTP connector  in your Logic Apps | Microsoft Azure"
+    description="Overview of the SFTP connector  with REST API parameters"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the SFTP API
-Connect to an SFTP server to manage your files. You can do different tasks on the SFTP server, such as upload files, delete files, and more. The SFTP API can be used from: 
+# Get started with the SFTP connector 
+Connect to an SFTP server to manage your files. You can do different tasks on the SFTP server, such as upload files, delete files, and more. The SFTP connector  can be used from: 
 
 - Logic apps
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SFTP connector](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With SFTP, you can: 
 
@@ -34,17 +34,17 @@ To add an operation in logic apps, see [Create a logic app](../app-service-logic
 
 
 ## Triggers and actions
-The SFTP API has the following triggers and actions available.
+The SFTP connector  has the following triggers and actions available.
 
 Triggers | Actions
 --- | ---
 <ul><li>When a file is created or modified </li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is created or modified </li></ul>
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 
 ## Create a connection to SFTP
-When you add this API to your logic apps, enter the following values:
+When you add this connector to your logic apps, enter the following values:
 
 |Property| Required|Description|
 | ---|---|---|
@@ -52,6 +52,10 @@ When you add this API to your logic apps, enter the following values:
 |User name| Yes | Enter the user name to connect to the SFTP Server.|
 |Password | Yes | Enter the user name's password.|
 |SSH Server Host Key Finger Print | Yes | Enter the fingerprint of the public host key for the SSH server. <br/><br/>Typically, the server administrator can give you this key. You can also use the ```WinSCP``` or ```ssh-keygen-g3 -F``` tools to get the key fingerprint. | 
+
+Here's a walk through of the steps to create the connection:  
+
+>[AZURE.INCLUDE [Steps to create a connection to sftp](../../includes/connectors-create-api-sftp.md)]
 
 After you create the connection, you enter the SFTP properties, like the folder path or file. The **REST API reference** in this topic describes these properties.
 

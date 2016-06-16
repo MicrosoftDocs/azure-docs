@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 
 # Provision the Microsoft Data Science Virtual Machine
-
-## Introduction
 
 The Microsoft Data Science Virtual Machine is an Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
@@ -51,7 +49,7 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
 
-1.	Navigate to the virtual machine listing on [Azure Portal](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Navigate to the virtual machine listing on [Azure Portal](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
@@ -91,7 +89,7 @@ Once the VM is created you can login to it using remote desktop with the Admin a
 
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are start menu tiles and desktop icons for many of the tools. 
 
-##How to create a strong password on the Jupyter notebook server 
+## How to create a strong password on the Jupyter notebook server 
 
 Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
 

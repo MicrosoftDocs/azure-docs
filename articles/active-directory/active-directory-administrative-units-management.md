@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="04/26/2016"
    ms.author="curtand"/>
 
 # Administrative units management in Azure AD - Public Preview
 
-This article describes administrative units – a new Azure Active Directory containers of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users. In Azure Active Directory, administrative units enable central administrators to delegate permissions to regional administrators or to set policy at a granular level.
+This article describes administrative units – a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users. In Azure Active Directory, administrative units enable central administrators to delegate permissions to regional administrators or to set policy at a granular level.
 
 This is useful in organizations with independent divisions, for example, a large university that is made up of many autonomous schools (Business school, Engineering school, and so on) which are independent from each other. Such divisions have their own IT administrators who control access, manage users, and set policies specifically for their division. Central administrators want to be able grant these divisional administrators permissions over the users in their particular divisions. More specifically, using this example, a central administrator can, for instance, create an administrative unit for a particular school (Business school) and populate it with only the Business school users. Then a central administrator can add the Business school IT staff to a scoped role, in other words, grant the IT staff of Business school administrative permissions only over the Business school administrative unit.
 

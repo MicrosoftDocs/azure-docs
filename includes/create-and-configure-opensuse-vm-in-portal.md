@@ -1,6 +1,6 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
+<properties writer="cynthn" editor="tysonn" manager="timlt" />
 
-1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  Check out the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
+1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
 
 2. On the command bar at the bottom of the window, click **New**.
 
@@ -8,7 +8,7 @@
 
 	![Create a New Virtual Machine][Image1]
 
-4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click arrow to continue.
+4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.
 
 5. On the first **Virtual machine configuration** page:
 

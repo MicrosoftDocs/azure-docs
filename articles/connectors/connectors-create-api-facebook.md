@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Facebook API in your Logic Apps | Microsoft Azure"
-	description="Overview of the Facebook API with REST API parameters"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the Facebook connector in your Logic Apps | Microsoft Azure"
+    description="Overview of the Facebook connector with REST API parameters"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,15 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the Facebook API
-Connect to Facebook and post to a timeline, get a page feed, and more. The Facebook API can be used from:
+# Get started with the Facebook connector
+Connect to Facebook and post to a timeline, get a page feed, and more. The Facebook connector can be used from:
 
-- Logic apps 
+- Logic apps (discussed in this topic)
+- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Facebook connector](../app-service-logic/app-service-logic-connector-facebook.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 
 With Facebook, you can:
@@ -34,21 +35,21 @@ With Facebook, you can:
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
-The Facebook API includes the following trigger and actions. 
+The Facebook connector includes the following trigger and actions. 
 
 | Triggers | Actions|
 | --- | --- |
 | <ul><li>When there is a new post on my timeline</li></ul> |<ul><li>Get feed from my timeline</li><li>Post to my timeline</li><li>When there is a new post on my timeline</li><li>Get page feed</li><li>Get user timeline</li><li>Post to page</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 ## Create a connection to Facebook
-When you add this API to your logic apps, you must authorize logic apps to connect to your Facebook.
+When you add this connector to your logic apps, you must authorize logic apps to connect to your Facebook.
 
 1. Sign in to your Facebook account
 2. Select **Authorize**, and allow your logic apps to connect and use your Facebook. 
 
-After you create the connection, you enter the Facebook properties. The **REST API reference** in this topic describes these properties.
+>[AZURE.INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 
 >[AZURE.TIP] You can use this same Facebook connection in other logic apps.
 

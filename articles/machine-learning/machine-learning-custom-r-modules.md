@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -26,7 +26,7 @@ This topic describes how to author and deploy a custom R module in Azure Machine
 ## What is a custom R module?
 A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment. A **custom R module** is a custom module that executes a user-defined R function. R is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages will be added in future releases.
 
-Custom modules have **first-class status** in Azure Machine Learning in the sense that they can used just like any other module. They can be executed with other modules, included in published experiments or visualizations. Users have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. A custom module is only available in the workspace in which it was created and cannot be published to community experiments.
+Custom modules have **first-class status** in Azure Machine Learning in the sense that they can used just like any other module. They can be executed with other modules, included in published experiments or visualizations. Users have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment containing custom module(s) can also be published into Cortana Intelligence Gallery for easy sharing.
 
 ## Files in a custom R module
 A custom R module is defined by a .zip file that contains, at a minimum, two files:
