@@ -17,7 +17,7 @@
  
 # Application Map in Application Insights
 
-In [Visual Studio Application Insights](app-insights-overview.md), Application Map is a visual layout of the dependency relationships of your application components. Each component shows KPIs such as load, performance, failures, and alerts to help you discover any component causing a performance issue or failure. You can click through from any component to more detailed diagnostics, both from Application Insights, and - if your app uses Azure services - Azure diagnostics, such as the SQL Database Advisor recommendations.
+In [Visual Studio Application Insights](app-insights-overview.md), Application Map is a visual layout of the dependency relationships of your application components. Each component shows KPIs such as load, performance, failures, and alerts, to help you discover any component causing a performance issue or failure. You can click through from any component to more detailed diagnostics, both from Application Insights, and - if your app uses Azure services - Azure diagnostics, such as the SQL Database Advisor recommendations.
 
 Like other charts, you can pin an application map to the Azure dashboard, where it is fully functional. 
 
@@ -29,12 +29,12 @@ Open the map from the overview blade for your application:
 
 ![app map](./media/app-insights-app-map/02.png)
 
-The map shows the following nodes:
+The map shows:
 
+* Availability tests
 * Client side component (monitored with the JavaScript SDK)
-*	Server side component
-*	Dependencies from the client/server component
-*	Availability tests
+* Server side component
+* Dependencies of the client and server components
 
 You can expand and collapse dependency link groups:
 
@@ -50,23 +50,23 @@ If you have a large number of dependencies of one type (SQL, HTTP etc.), they ma
 
 Each node has relevant performance indicators, such as the load, performance and failure rates for that component. 
 
-Useful icons help you notice problems. An orange warning icon indicates failures in requests, page views or dependency calls. A red icon means a failure rate above 5%.
+Warning icons highlight possible problems. An orange warning means there are failures in requests, page views or dependency calls. Red means a failure rate above 5%.
 
 
 ![failure icons](./media/app-insights-app-map/04.png)
 
  
-Active alerts - orange means some alerts are active, red means all: 
+Active alerts also show up: 
 
 
 ![active alerts](./media/app-insights-app-map/05.png)
  
-If you use SQL Azure, an icon will show up when there are recommendations on how you can improve performance. 
+If you use SQL Azure, there's an icon that shows when there are recommendations on how you can improve performance. 
 
 
 ![Azure recommendation](./media/app-insights-app-map/06.png)
 
-Click through to get details of the recommendations:
+Click any icon to get more details:
 
 
 ![azure recommendation](./media/app-insights-app-map/07.png)
@@ -76,17 +76,10 @@ Click through to get details of the recommendations:
 
 Each of the nodes on the map offers targeted click through for diagnostics. The options vary depending on the type of the node.
 
-
-![client options](./media/app-insights-app-map/08.png)
-
-
 ![server options](./media/app-insights-app-map/09.png)
 
-
-![dependency options](./media/app-insights-app-map/10.png)
  
- 
-For components that are hosted in Azure, you can find direct links to them among the options.
+For components that are hosted in Azure, the options include direct links to them.
 
 
 ## Filters and time range
