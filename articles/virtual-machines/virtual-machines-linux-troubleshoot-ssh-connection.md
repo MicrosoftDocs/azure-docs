@@ -28,7 +28,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## VMs created by using the Resource Manager deployment model
 
-You can reset credentials or SSHD using either Azure CLI commands directly or the [Azure VMAccessForLinux extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). The Azure CLI provides a direct way to interact with the VM.
+You can reset credentials or SSHD using either Azure CLI commands directly or the [Azure VMAccessForLinux extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). After each troubleshooting step, try connecting to your VM again.
 
 ### Azure CLI pre-reqs
 
@@ -36,28 +36,28 @@ If you haven't already, [install the Azure CLI and connect to your Azure subscri
 
 Make sure [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed.
 
-## Azure CLI - Reset SSHD
+### Azure CLI - reset SSHD
 You can reset SSHD to make sure the SSH configuration itself is valid:
 
 ```bash
 azure vm reset-access -g <resource group> -n <vm name> -r
 ```
 
-## Azure CLI - Reset SSH credentials for a user
-Reset the password for a giver user:
+### Azure CLI - reset SSH credentials for a user
+If SSHD appears to functioning correctlt, you can reset the password for a giver user:
 
 ```bash
 azure vm reset-access -g <resource group> <vm name> -u <username> -p <new password>
 ```
 
-Reset the SSH key for a given user:
+If using SSH key authentication, you can reset the SSH key for a given user:
 
 ```bash
 azure vm reset-access -g <resource group> -n <vm name> -u <usernamer> -M <~/.ssh/azure_id_rsa.pub>
 ```
 
-## VM Access Extension - reset SSHD
-Create a file named PrivateConf.json with the following content:
+### VM Access Extension - reset SSHD
+Access extensions read in a json file that defines which action to carry out, such as resetting SSH, resetting an SSH key, adding a new user, etc. First, create a file named PrivateConf.json with the following content:
 
 ```bash
 {  
@@ -71,7 +71,7 @@ Then manually run the `VMAccessForLinux` extension to reset your SSHD connection
 azure vm extension set <resource group> <vm name> VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 ```
 
-## VM Access Extension - Reset SSH credentials for a user
+### VM Access Extension - reset SSH credentials for a user
 To reset the password for a given user, create a file named PrivateConf.json with the following contents:
 
 ```bash
@@ -88,16 +88,19 @@ Or to reset the SSH key for a given user, create a file named PrivateConf.json w
 }
 ```
 
-Then manually run the `VMAccessForLinux` extension to reset your SSH user credentials:
+After either of the above steps, you then manually run the `VMAccessForLinux` extension to reset your SSH user credentials:
 
 ```
 azure vm extension set <resource group> <vmname> VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 ```
 
-If you want to try other troubleshooting approaches, you can follow steps in [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](virtual-machines-linux-using-vmaccess-extension.md).
+### Portal - redeploy VM
+You can redeploy a VM to another node within Azure, which may correct any underlying networking issues. To redeploy a VM using the Azure portal, select **Browse** > **Virtual machines** > *your Linux virtual machine* > **Redeploy**. For information about how to do this, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md). You cannot currently redeploy a VM using the Azure CLI.
+
+> [AZURE.NOTE] Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 
 
-## Troubleshoot VMs created by using the Classic deployment model
+## VMs created by using the Classic deployment model
 
 Try these steps to resolve the most common SSH connection failures for VMs that were created by using the classic deployment model. After each step, try reconnecting to the VM.
 
@@ -109,7 +112,7 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 
 	On the [Azure classic portal](https://manage.windowsazure.com), select **Virtual machines** > **Instances** > **Restart**.
 
-- Redeploy the VMe to a new Azure node. For information about how to do this, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
+- Redeploy the VM to a new Azure node. For information about how to do this, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
 	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 
@@ -126,6 +129,4 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 
 - For more information about troubleshooting virtual machines that were created by using the classic deployment model, see [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md).
 
-- For more information about troubleshooting virtual machines that were created by using the Resource Manager deployment model, see:
-	- [Troubleshoot Windows Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-windows-troubleshoot-rdp-connection.md)
-	-	[Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-linux-troubleshoot-app-connection.md)
+- For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-linux-troubleshoot-app-connection.md)### P
