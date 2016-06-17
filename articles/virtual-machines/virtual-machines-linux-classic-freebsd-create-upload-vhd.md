@@ -55,14 +55,14 @@ On the virtual machine where you installed the FreeBSD operating system, complet
 		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
-3. **Set up serial console**.
+3. **Set up a serial console**.
 
 		# echo 'console="comconsole vidconsole"' >> /boot/loader.conf
 		# echo 'comconsole_speed="115200"' >> /boot/loader.conf
 
 4. **Install sudo**.
 
-    The root account is disabled in Azure. Then you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
+    The root account is disabled in Azure. This means you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
 
 		# pkg install sudo
 ;
@@ -75,7 +75,7 @@ On the virtual machine where you installed the FreeBSD operating system, complet
 
 6. **Install Azure Agent**
 
-    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 officially supports FreeBSD 10.2 and later releases.
+    The latest release of Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 officially supports FreeBSD 10.2 and later releases.
 
 		# git clone https://github.com/Azure/WALinuxAgent.git  
 		# cd WALinuxAgent  
@@ -141,7 +141,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
 	![Enter storage account details](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storage-create-account.png)
 
 
-5. Select **Create Storage Account**. The account now appears under **Storage**.
+5. Select **Create Storage Account**. The account now appears under **storage**.
 
 	![Storage account successfully created](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storagenewaccount.png)
 
@@ -153,7 +153,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
 
 	![Storage account detail](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_container.png)
 
-8. In the **Name** field, type a name for your container. Then select what type of access policy you want in the **Access** drop-down menu.
+8. In the **Name** field, type a name for your container. Then, in the **Access** drop-down menu, select what type of access policy you want.
 
 	![Container name](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
@@ -161,7 +161,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
 
 ## Step 3: Prepare the connection to Azure
 
-Before you can upload a .vhd file, you need to establish a secure connection between your computer and your Azure subscription. You can use the Azure Active Directory method or the certificate method to do this.
+Before you can upload a .vhd file, you need to establish a secure connection between your computer and your Azure subscription. You can use the Azure Active Directory (Azure AD) method or the certificate method to do this.
 
 ### Use the Azure AD method to upload a .vhd file
 
@@ -190,7 +190,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 3. Save the .publishsettings file.
 
 4. Type:
-	`Import-AzurePublishSettingsFile <PathToFile>`, where `
+	`Import-AzurePublishSettingsFile <PathToFile>`, where
 `<PathToFile>` is the full path to the .publishsettings file.
 
    For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
@@ -199,7 +199,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 ## Step 4: Upload the .vhd file
 
-When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll use in the command when you upload the file:
+When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll when you upload the file:
 -  **BlobStorageURL** is the URL for the storage account that you created in Step 2.
 -  **YourImagesFolder** is the container within Blob storage where you want to store your images.
 - **VHDName** is the label that appears in the Azure classic portal to identify the virtual hard disk.
@@ -211,13 +211,13 @@ From the Azure PowerShell window you used in the previous step, type:
 		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
 ## Step 5: Create a VM with the uploaded .vhd file
-After you upload the .vhd, you can add it as an image to the list of custom images associated with your subscription and create a virtual machine with this custom image.
+After you upload the .vhd file, you can add it as an image to the list of custom images that are associated with your subscription and create a virtual machine with this custom image.
 
 1. From the Azure PowerShell window you used in the previous step, type:
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    **Important**: Use Linux as the OS type. The current Azure PowerShell version accepts only “Linux” or “Windows” as parameters.
+    > [AZURE.NOTE]Use Linux as the OS type. The current Azure PowerShell version accepts only “Linux” or “Windows” as parameters.
 
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure classic portal.  
 
