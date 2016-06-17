@@ -19,10 +19,10 @@
 
 # Copy data from Blob Storage to SQL Database using Data Factory 
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 In this tutorial, you’ll create a data factory with a pipeline to copy data from Blob storage to SQL database.
@@ -99,9 +99,9 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 Do the following:
 
-- Click [Using Data Factory Editor](data-factory-get-started-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
-- Click [Using PowerShell](data-factory-monitor-manage-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
-- Click [Using Visual Studio](data-factory-get-started-using-vs.md) link at the top to perform the tutorial by using Visual Studio 2013.
+- Click [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
+- Click [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
+- Click [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) link at the top to perform the tutorial by using Visual Studio 2013.
 
 ## Copy Activity
 See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the Copy Activity in Azure Data Factory.  
