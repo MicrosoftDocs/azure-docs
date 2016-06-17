@@ -19,6 +19,7 @@
 # Overview: SQL Database Point-In-Time Restore
 
 > [AZURE.SELECTOR]
+- [Business continuity overview](sql-datbase-business-continuity.md)
 - [Point-In-Time Restore](sql-database-point-in-time-restore.md)
 - [Restore deleted database](sql-database-restore-deleted-database.md)
 - [Geo-Restore](sql-database-geo-restore.md)
