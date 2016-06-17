@@ -797,7 +797,7 @@ In this step, you will test the pipeline by dropping files into the input folder
 
     ![](./media/data-factory-data-processing-using-batch/image13.png)
 
-6.  Use [Azure Batch Explorer](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) to view the **tasks** associated with the **slices** and see what VM each slice ran on. You see that a job is created with the name **adf-\<poolname\>**. This job will have a task for each slice. In this example, there will be 5 slices, so 5 tasks in Azure Batch. With the **concurrency** set to **5** in the pipeline JSON in Azure Data Factory and **Maximum tasks per VM** set to **2** in Azure Batch pool with **2** VMs, the tasks ran very fast (see the **Created** time).
+6.  Use Azure Portal to view the **tasks** associated with the **slices** and see what VM each slice ran on. See [Data Factory and Batch integration](#data-factory-and-batch-integration) section for details. 
 
 7.  You should see the output files in the **outputfolder** of **mycontainer** in your Azure blob storage.
 
