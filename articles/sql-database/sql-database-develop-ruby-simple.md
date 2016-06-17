@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="andrela"/>
 
 
@@ -40,10 +40,12 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 [Proof of Concept connecting to SQL using Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
 
-## Next steps
+## Next Steps
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt691981.aspx)
 
-## Additional resources
+## Additional resources 
 
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
