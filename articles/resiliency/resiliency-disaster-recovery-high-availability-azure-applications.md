@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/20/2016"
    ms.author="hanuk;jroth;aglick"/>
 
 #Disaster recovery and high availability for applications built on Microsoft Azure
@@ -54,9 +54,9 @@ Consider the following SLAs for an Azure service that uses Azure services: Compu
 
 |Azure service|SLA   |Potential minutes downtime/month (30 days)|
 |:------------|:-----|:----------------------------------------:|
-|Compute      |99.95%|21.6                                      |
-|SQL Database |99.90%|43.2                                      |
-|Storage      |99.90%|43.2                                      |
+|Compute      |99.95%|21.6 minutes                              |
+|SQL Database |99.99%|4.3  minutes                              |
+|Storage      |99.90%|43.2 minutes                              |
 
 You must plan for all services to potentially go down at different times. In this simplified example, the total number of minutes per month that the application could be down is 108 minutes. A 30-day month has a total of 43,200 minutes. 108 minutes is .25 percent of the total number of minutes in a 30-day month (43,200 minutes). This gives you an effective availability of 99.75 percent for the cloud service.
 
