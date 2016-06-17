@@ -106,6 +106,8 @@ For different types of build environments, you can explicitly obtain the latest 
 
 	```Java
 	import com.microsoft.azure.eventprocessorhost.*;
+	import com.microsoft.azure.servicebus.ConnectionStringBuilder;
+	import com.microsoft.azure.eventhubs.EventData;
 
 	public class EventProcessorSample
 	{
@@ -117,18 +119,34 @@ For different types of build environments, you can explicitly obtain the latest 
 			final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
 			final String sasKey = "---SharedAccessSignatureKey----";
 
-			final String storageAccountName = "---StorageAccountName----"
+			final String storageAccountName = "---StorageAccountName----";
 			final String storageAccountKey = "---StorageAccountKey----";
 			final String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=" + storageAccountName + ";AccountKey=" + storageAccountKey;
 			
 			ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-
+			
 			EventProcessorHost host = new EventProcessorHost(eventHubName, consumerGroupName, eventHubConnectionString.toString(), storageConnectionString);
 			
 			System.out.println("Registering host named " + host.getHostName());
 			EventProcessorOptions options = new EventProcessorOptions();
 			options.setExceptionNotification(new ErrorNotificationHandler());
-			host.registerEventProcessor(EventProcessor.class, options);
+			try
+			{
+				host.registerEventProcessor(EventProcessor.class, options).get();
+			}
+			catch (Exception e)
+			{
+				System.out.print("Failure while registering: ");
+				if (e instanceof ExecutionException)
+				{
+					Throwable inner = e.getCause();
+					System.out.println(inner.toString());
+				}
+				else
+				{
+					System.out.println(e.toString());
+				}
+			}
 
 			System.out.println("Press enter to stop");
 			try
