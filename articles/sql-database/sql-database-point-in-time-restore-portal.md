@@ -21,7 +21,6 @@
 
 
 > [AZURE.SELECTOR]
-- [Business continuity](sql-database-business-continuity.md)
 - [Overview](sql-database-point-in-time-restore.md)
 - [Azure portal](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)

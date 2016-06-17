@@ -19,14 +19,19 @@
 # Overview: SQL Database point-in-time restore
 
 > [AZURE.SELECTOR]
-- [Business continuity](sql-database-business-continuity.md)
-- [Overview](sql-database-point-in-time-restore.md)
+- [Point-in-time restore](sql-database-point-in-time-restore.md)
+- [Restore deleted database](sql-database-restore-deleted-database.md)
+- [Geo-restore](sql-database-geo-restore.md)
+- [Active geo-replication](sql-database-geo-replication-overview.md)
+- [Business continuity scenarios](sql-database-business-continuity-scenarios.md)
+
+
+Point-in-time restore allows you to restore an existing database as a new database at an earlier point in time using [SQL Database automated backups](sql-database-automated-backups.md) and on the same logical server. You can restore to an earlier point in time using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+
+> [AZURE.SELECTOR]
 - [Azure portal](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-Point-in-time restore allows you to restore an existing database as a new database at an earlier point in time using [SQL Database automated backups](sql-database-automated-backups.md) and on the same logical server. 
-
-> [AZURE.NOTE] You can restore to an earlier point in time using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 The database can be restored to any performance level or elastic pool. You need to ensure you have sufficient DTU quota on the server or pool keeping in mind that the restore creates a new database and that the service tier and performance level of the restored database may be different than the current state of the live database. Once complete, the restored database is a normal fully accessible online database charged at normal rates based on its service tier and performance level. 
 

@@ -13,7 +13,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-business-continuity"
+   ms.workload="sqldb-bcdr"
    ms.date="06/09/2016"
    ms.author="carlrab"/>
 
@@ -22,8 +22,8 @@
 > [AZURE.SELECTOR]
 - [Point-in-time restore](sql-database-point-in-time-restore.md)
 - [Restore deleted database](sql-database-restore-deleted-database.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- [Geo-restore](sql-database-geo-restore.md)
+- [Active geo-replication](sql-database-geo-replication-overview.md)
 - [Business continuity scenarios](sql-database-business-continuity-scenarios.md)
 
 Azure SQL Database provides a number of business continuity solutions. Business continuity is about designing, deploying, and running applications in a way that is resilient to planned or unplanned disruptive events that result in permanent or temporary loss of the application’s ability to conduct its business function. Unplanned events range from human errors to permanent or temporary outages to regional disasters that could cause wide scale loss of facility in a particular Azure region. The planned events include application redeployment to a different region and application upgrades. The goal of business continuity is for your application to continue to function during these events with minimal impact on the business function.
