@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="backups; backing up;"/>
 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Prepare your environment to back up Azure virtual machines
 
 > [AZURE.SELECTOR]
-- [Prepare to back up ARM VMs](backup-azure-arm-vms-prepare.md)
-- [Prepare to back up Azure VMs](backup-azure-vms-prepare.md)
+- [Resource manager model](backup-azure-arm-vms-prepare.md)
+- [Classic model](backup-azure-vms-prepare.md)
 
 Before you can back up an Azure virtual machine (VM), there are three conditions that must exist.
 
@@ -124,7 +124,7 @@ To use an HTTP proxy to communicating to the public Internet, follow these steps
 
 #### Step 1. Configure outgoing network connections
 ###### For Windows machines
-This will setup proxy server configuration for Local System Account. 
+This will setup proxy server configuration for Local System Account.
 
 1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
 2. Run following command from elevated prompt,
@@ -134,11 +134,11 @@ This will setup proxy server configuration for Local System Account.
      ```
      It will open internet explorer window.
 3. Go to Tools -> Internet Options -> Connections -> LAN settings.
-4. Verify proxy settings for System account. Set Proxy IP and port. 
+4. Verify proxy settings for System account. Set Proxy IP and port.
 5. Close Internet Explorer.
 
 This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
-   
+
 If you have setup a proxy server on a current user account(not a Local System Account), use the following script to apply them to SYSTEMACCOUNT:
 
 ```
@@ -150,9 +150,9 @@ If you have setup a proxy server on a current user account(not a Local System Ac
    Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
->[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly. 
+>[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly.
 
-######For Linux machines 
+######For Linux machines
 
 Add the following line to the ```/etc/environment``` file:
 
@@ -161,7 +161,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Add the following lines to the ```/etc/waagent.conf``` file:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/16/2016"
+	ms.date="05/31/2016"
 	ms.author="dendeli"/>
     
 # Geo-fenced push notifications with Azure Notification Hubs and Bing Spatial Data
@@ -378,6 +378,6 @@ First and foremost, you might need to ensure that geofences are dynamic. This wi
 
 Second, as you are working to ensure that the delivery is done to the right participants, you might want to target them via [tagging](notification-hubs-routing-tag-expressions.md).
 
-The solution shown above describes a scenario in which you might have a wide variety of target platforms, so we did not limit the geofencing to system-specific capabilities. That said, the Universal Windows Platform offers capabilities to [detect geofences right out-of-the-box](msdn.microsoft.com/en-us/windows/uwp/maps-and-location/set-up-a-geofence).
+The solution shown above describes a scenario in which you might have a wide variety of target platforms, so we did not limit the geofencing to system-specific capabilities. That said, the Universal Windows Platform offers capabilities to [detect geofences right out-of-the-box](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 For more details regarding Notification Hubs capabilities, check out our [documentation portal](https://azure.microsoft.com/documentation/services/notification-hubs/).

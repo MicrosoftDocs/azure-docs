@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Auto scale a cloud service in the portal | Microsoft Azure"
-	description="Learn how to use the portal to configure auto scale rules for a cloud service web role or worker role in Azure."
+	description="(classic) Learn how to use the classic portal to configure auto scale rules for a cloud service web role or worker role in Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -19,9 +19,13 @@
 
 # How to auto scale a cloud service
 
+> [AZURE.SELECTOR]
+- [Azure portal](cloud-services-how-to-scale-portal.md)
+- [Azure classic portal](cloud-services-how-to-scale.md)
+
 On the Scale page of the Azure classic portal, you can manually scale your web role or worker role, or you can enable automatic scaling based on CPU load or a message queue.
 
->[AZURE.NOTE] This article focuses on Cloud Service web and worker roles. When you create a virtual machine directly, it is hosted in a cloud service. Some of this information applies to these types of virtual machines. Scaling an availability set of virtual machines is really just shutting them on and off based on the scale rules you configure. For more information about Virtual Machines and availability sets, see [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
+>[AZURE.NOTE] This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. Some of this information applies to these types of virtual machines. Scaling an availability set of virtual machines is really just shutting them on and off based on the scale rules you configure. For more information about Virtual Machines and availability sets, see [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
 
 You should consider the following information before you configure scaling for your application:
 

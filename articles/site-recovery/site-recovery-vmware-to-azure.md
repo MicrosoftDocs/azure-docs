@@ -154,7 +154,7 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 ## Create a Recovery Services vault
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **New** > **Hybrid Integration** > **Recovery Services**. Alternatively you can click **Browse** > **Recovery Services** vaults > **Add**.
+2. Click **New** > **Management** > **Backup and Site Recovery (OMS)**. Alternatively you can click **Browse** > **Recovery Services Vault** > **Add**.
 
 	![New vault](./media/site-recovery-vmware-to-azure/new-vault3.png)
 
@@ -726,7 +726,9 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 - A public endpoint should be created to allow incoming connections on the SSH port (TCP port 22 by default).
 - If the VM is accessed over a VPN connection (Express Route or site to site VPN) then the client can be used to directly connect to the VM over SSH.
 
+**On the Azure Windows/Linux VM after failover**:
 
+If you have a Network Security Group associated with the Virtual Machine or the subnet to which the machine belongs to, make sure that the Network Security Group has an outbound rule to allow HTTP/HTTPS. Also make sure that the DNS of the network to which virtual machine is getting failed over to is correctly configured. Else the failover could time out with error -'PreFailoverWorkflow task WaitForScriptExecutionTask timed out'. To understand this in detail, refer to section on Recovery in the [Monitoring and troubleshooting guide](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
 ## Run a test failover
 

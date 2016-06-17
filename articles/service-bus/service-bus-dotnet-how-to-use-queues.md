@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="06/10/2016"
     ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -32,8 +32,6 @@ The [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.Serv
 
 1.  In Solution Explorer, right-click **References**, then click **Manage NuGet Packages**.
 2.  Search for "Service Bus" and select the **Microsoft Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog box.
-
-    ![][7]
 
 You are now ready to write code for Service Bus.
 
@@ -250,7 +248,6 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
 -   Download Service Bus samples from [Azure samples][] or see the [overview of Service Bus samples][].
 
   [Azure classic portal]: http://manage.windowsazure.com
-  [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md
   [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2

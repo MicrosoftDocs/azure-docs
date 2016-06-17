@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Call a custom API in Logic Apps"
+	pageTitle="Call a custom API in Logic apps"
 	description="Using your custom API hosted on App Service with Logic apps"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
 # Using your custom API hosted on App Service with Logic apps
 
-Although Logic Apps has a rich set of 40+ connectors for a variety of services, you may want to call into your own custom API that can run your own code. One of the easiest and most scalable ways to host your own custom web API's is to use App Service. This article covers how to call into any web API hosted in an App Service API app, web app or mobile app.
+Although Logic apps has a rich set of 40+ connectors for a variety of services, you may want to call into your own custom API that can run your own code. One of the easiest and most scalable ways to host your own custom web API's is to use App Service. This article covers how to call into any web API hosted in an App Service API app, web app or mobile app.
 
-For information on building APIs as a trigger or action within Logic Apps, check out [this article](app-service-logic-create-api-app.md).
+For information on building APIs as a trigger or action within Logic apps, check out [this article](app-service-logic-create-api-app.md).
 
 ## Deploy your Web App
 
-First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](../app-service-web/web-sites-dotnet-get-started.md).  While you can call into any API from a Logic App, for the best experience we recommend you add Swagger metadata to integrate easily with Logic Apps actions.  You can find details on [adding swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
+First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](../app-service-web/web-sites-dotnet-get-started.md).  While you can call into any API from a Logic app, for the best experience we recommend you add Swagger metadata to integrate easily with Logic apps actions.  You can find details on [adding swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
 ### API Settings
 
-In order for the Logic Apps designer to parse your Swagger, it's important that you enable CORS and set the APIDefinition properties of your web app.  This is very easy to set within the Azure Portal.  Simply open the settings blade of your Web App, and under the API section set the 'API Definition' to the URL of your swagger.json file (this is usually https://{name}.azurewebsites.net/swagger/docs/v1), and add a CORS policy for '*' to allow for requests from the Logic Apps Designer.
+In order for the Logic apps designer to parse your Swagger, it's important that you enable CORS and set the APIDefinition properties of your web app.  This is very easy to set within the Azure Portal.  Simply open the settings blade of your Web App, and under the API section set the 'API Definition' to the URL of your swagger.json file (this is usually https://{name}.azurewebsites.net/swagger/docs/v1), and add a CORS policy for '*' to allow for requests from the Logic apps Designer.
 
 ## Calling into the API
 
-When within the Logic Apps portal, if you have set CORS and the API Definition properties you should be able to easily add Custom API actions within your flow.  In the designer you can select to browse your subscription websites to list the websites with a swagger URL defined.  You can also use the HTTP + Swagger action to point to a swagger and list available actions and inputs.  Finally, you can always create a request using the HTTP action to call any API, even those that do not have or expose a swagger doc.
+When within the Logic apps portal, if you have set CORS and the API Definition properties you should be able to easily add Custom API actions within your flow.  In the designer you can select to browse your subscription websites to list the websites with a swagger URL defined.  You can also use the HTTP + Swagger action to point to a swagger and list available actions and inputs.  Finally, you can always create a request using the HTTP action to call any API, even those that do not have or expose a swagger doc.
 
 If you want to secure your API, then there are a couple different ways to do that:
 
@@ -41,7 +41,7 @@ If you want to secure your API, then there are a couple different ways to do tha
 
 ## Securing calls to your API without a code change
 
-In this section, you’ll create two Azure Active Directory applications – one for your Logic App and one for your Web App.  You’ll authenticate calls to your Web App using the service principal (client id and secret) associated with the AAD application for your Logic App. Finally, you'll include the application ID's in your Logic app definition.
+In this section, you’ll create two Azure Active Directory applications – one for your Logic app and one for your Web App.  You’ll authenticate calls to your Web App using the service principal (client id and secret) associated with the AAD application for your Logic app. Finally, you'll include the application ID's in your Logic app definition.
 
 ### Part 1: Setting up an Application identity for your Logic app
 
@@ -116,7 +116,7 @@ To run a deployment automatically that deploys a blank Web app and Logic app tog
 
 [![Deploy to Azure](./media/app-service-logic-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-For the complete template, see [Logic App calls into a Custom API hosted on App Service and protected by AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
+For the complete template, see [Logic app calls into a Custom API hosted on App Service and protected by AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
 
 ### Part 3: Populate the Authorization section in the Logic app

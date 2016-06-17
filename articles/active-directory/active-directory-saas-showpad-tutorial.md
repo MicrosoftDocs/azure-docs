@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ To configure the integration of Showpad into Azure AD, you need to add Showpad f
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-	![Active Directory][1]
+	![Applications][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
@@ -80,10 +80,11 @@ To configure the integration of Showpad into Azure AD, you need to add Showpad f
 
 6. In the search box, type **Showpad**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
+	![Applications](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
 
 7. In the results pane, select **Showpad**, and then click **Complete** to add the application.
 
+	![Applications](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Showpad based on a test user called "Britta Simon".

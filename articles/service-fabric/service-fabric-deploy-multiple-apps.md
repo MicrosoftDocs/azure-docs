@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="bscholl"/>
+   ms.date="06/06/2016"
+   ms.author="bscholl;mikhegn"/>
 
 
 # Deploy multiple guest executables
@@ -66,6 +66,8 @@ Below is a description of the parameters that are being used:
 - **/exe** defines the executable that Service Fabric is supposed to launch, in this case `node.exe`.
 - **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
 - **/AppType** defines the Service Fabric application type name.
+
+>[AZURE.NOTE] You can also use Visual Studio to produce the application package as part of an application project. If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source.
 
 If you browse to the directory that was specified in the /target parameter, you can see that the tool has created a fully functioning Service Fabric package as shown below:
 
@@ -135,6 +137,8 @@ In PowerShell or the command shell, we run the packaging tool with the following
 
 In order to add MongoDB to your Service Fabric application package, you need to make sure that the /target parameter points to the same directory that already contains the application manifest along with the Node.js application. You also need to make sure that you are using the same ApplicationType name.
 
+>[AZURE.NOTE] You can also use Visual Studio to produce the application package as part of an application project. If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source.
+
 Let's browse to the directory and examine what the tool has created.
 
 ```
@@ -189,6 +193,8 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
+
+>[AZURE.NOTE] Using Visual Studio, you can publish the application locally by debugging (F5) or using the publish wizard.
 
 Once the application is successfully published to the local cluster, you can access the Node.js application on the port that we have entered in the service manifest of the Node.js application--for example http://localhost:3000.
 

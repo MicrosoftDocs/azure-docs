@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="06/06/2016"
  ms.author="dobett"/>
 
 # What is Azure IoT Hub?
@@ -70,7 +70,7 @@ These benefits are generic to many communication patterns. IoT Hub currently ena
 
 -   **Reliable cloud-to-device messaging (or *commands*).** The solution back end can use IoT Hub to send messages with an at-least-once delivery guarantee to individual devices. Each message has an individual time-to-live setting, and the back end can request both delivery and expiration receipts. This ensures full visibility into the life cycle of a cloud-to-device message. You can then implement business logic that includes operations that run on devices.
 
-You can also implement other common patterns, such as file upload and download, by taking advantage of IoT-specific features in IoT Hub. These features include consistent device identity management, connectivity monitoring, and scale.
+-   **Upload files and cached sensor data to the cloud.** Your devices can upload files to Azure Storage using SAS URIs managed for you by IoT Hub. IoT Hub can generate notifications when files arrive in the cloud to enable the back end to process them.
 
 ## Gateways
 

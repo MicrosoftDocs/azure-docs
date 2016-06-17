@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/02/2016"
+	ms.date="06/07/2016"
 	ms.author="davidmu"/>
 
 # Create a Windows VM using Resource Manager and PowerShell
@@ -120,7 +120,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    The password must be at 8-123 characters long and have at least 3 of the following: one lower case character, one upper case character, one number, and one special character. 
+    The password must be at 12-123 characters long and have at least one lower case character, one upper case character, one number, and one special character. 
         
 2. Replace the value of **$vmName** with a name for the virtual machine. Create the variable and the virtual machine configuration.
 

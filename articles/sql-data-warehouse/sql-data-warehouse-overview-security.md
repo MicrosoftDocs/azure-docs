@@ -99,7 +99,7 @@ For details and examples on connecting to your SQL Data Warehouse with different
 
 <!--Article references-->
 [Connect to SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
-[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
+[Get started with SQL Database Auditing]: sql-database-auditing-overview.md
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx

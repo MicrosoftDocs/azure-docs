@@ -19,8 +19,6 @@
 
 # Authoring Azure Resource Manager templates with Linux VM extensions
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 From Azure CLI, run the following commnad:

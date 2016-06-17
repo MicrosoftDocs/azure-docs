@@ -13,8 +13,8 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
-  ms.topic="support-article"
-  ms.date="05/06/2016"
+  ms.topic="article"
+  ms.date="06/17/2016"
   ms.author="cjiang"/>
 
 # Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure
@@ -81,3 +81,6 @@ Depending on the constraints of the cloud service you use to create the new VM, 
 - Create a new regional virtual network.
 - Create the new VM in the new virtual network.
 - [Connect your existing virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) to the new virtual network. See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then create the new VM.
+
+## Next steps
+If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).

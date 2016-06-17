@@ -35,6 +35,7 @@ Summary of loading process:
 2. Move your data to Azure blob storage and store it in text files.
 3. Configure external objects in SQL Data Warehouse to define the location and format of the data
 4. Run a T-SQL command to load the data in parallel into a new database table.
+
 <!-- 5. Schedule and run a loading job. --> 
 
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][].

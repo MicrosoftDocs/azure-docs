@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database"
+   pageTitle="Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database | Microsoft Azure" 
    description="This article discusses the requirements and common data architecture patterns of multi-tenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database service with its elastic database pools and elastic tools help in addressing these requirements in a no-compromise fashion."
    keywords=""
    services="sql-database"
@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.workload="sqldb-design"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database
@@ -148,19 +148,23 @@ While these trade-offs can be major barriers with most cloud database service pr
 
 For multi-tenant application providers who have no tenant isolation requirements and are able to pack tenants in a database at very high density to reduce costs, “shared” data models may result in some additional efficiency in resource sharing and reduce the overall cost. Azure SQL database elastic database tools, sharding libraries and security features help SaaS providers in building and managing such multi-tenant applications.
 
-## Next Steps
+## Next steps
 
 For a sample app that demonstrates the client library, see [Get started with Elastic Datababase tools](sql-database-elastic-scale-get-started.md).
 
 To convert existing databases to use the tools, see [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-To create a new pool with the [tutorial](sql-database-elastic-pool-create-portal.md).  
+To create a new pool, see the [Create an elastic pool tutorial](sql-database-elastic-pool-create-portal.md).  
 
-## Learn More
+To monitor and manage an elastic database pool, see [Monitor and manage an elastic database pool](sql-database-elastic-pool-manage-portal.md).
 
-[What is an Azure elastic database pool?](sql-database-elastic-pool.md)
+## Additional resources
 
-[Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## Questions and Feature Requests
 

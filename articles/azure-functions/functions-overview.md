@@ -44,7 +44,7 @@ Azure Functions is a great solution for processing data, integrating systems, wo
 Functions provides templates to get you started with key scenarios, including the following:
 
 * **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this for image resizing.
-* **EventHubTrigger** -  Respond to events occurring in your IoT devices.
+* **EventHubTrigger** -  Respond to events delivered to an Azure Event Hub. Particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios.
 * **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks.
 * **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a webhook or API function](functions-create-a-web-hook-or-api-function.md).
 * **HTTPTrigger** - Trigger the execution of your code by using an HTTP request.

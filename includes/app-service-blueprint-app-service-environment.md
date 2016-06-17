@@ -8,3 +8,4 @@
 * [Connecting to Backend Resources](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [ExpressRoute and App Service Environments](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
 * [Custom Configuration Settings for App Service Environments](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
+* [High Density App Hosting with App Service Environments](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)

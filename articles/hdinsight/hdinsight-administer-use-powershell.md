@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
@@ -60,10 +60,15 @@ Use the following command to show details of a specific cluster in the current s
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Delete clusters
+
 Use the following command to delete a cluster:
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
+You can also delete a cluster by removing the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
+
+	Remove-AzureRmResourceGroup -Name <Resource Group Name>
+			
 ##Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 

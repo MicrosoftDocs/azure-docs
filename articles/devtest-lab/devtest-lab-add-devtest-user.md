@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a lab
 
-> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to set security in DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab).
+> [AZURE.NOTE] View this article's accompanying video: [How to set security in DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab).
 
 ## Overview
 DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.
@@ -41,29 +41,29 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. In the left-nav, tap **Subscriptions**.
+1. In the left-nav, select **Subscriptions**.
 
 	![Subscriptions link](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
-1. Tap the subscription that will contain the lab(s).
+1. Select the subscription that will contain the lab(s).
 
-1. Tap the **Access** icon. 
+1. Select the **Access** icon. 
 
 	![Access users](./media/devtest-lab-add-devtest-user/access-users.png)
 
-1. On the **Users** blade, tap **Add**.
+1. On the **Users** blade, select **Add**.
 
 	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. On the **Select a role** blade, tap **Owner**.
+1. On the **Select a role** blade, select **Owner**.
 
 1. Enter into the **User** text box the email of the user you want to add as an owner. If the user can't be found, you'll get an error message explaining the issue. If the user is found, that user will be listed under the **User** text box.
 
-1. Tap the located user name.
+1. Select the located user name.
 
-1. Tap **Select**.
+1. Select **Select**.
 
-1. Tap **OK** to close the **Add access** blade.
+1. Select **OK** to close the **Add access** blade.
 
 1. When you return to the **Users** blade, you'll see that the user has been added as an owner. This person will now be an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
 
@@ -73,30 +73,30 @@ To add a DevTest Labs user to your lab, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**.
+1. Select **Browse**.
 
-1. Tap **DevTest Labs**.
+1. Select **DevTest Labs**.
 
-1. From the list of labs, tap the desired lab.   
+1. From the list of labs, select the desired lab.   
 
-1. Tap the **Access** icon.
+1. Select the **Access** icon.
 
 	![User access](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
 
-1. On the **Users** blade, tap **Add**.
+1. On the **Users** blade, select **Add**.
 
 	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. In the **Select a role** blade, tap **DevTest Labs User**
+1. In the **Select a role** blade, select **DevTest Labs User**
 
 1. In the **Add users** blade:
 
-	1. The **Add users** blade will display a list of built-in users. If the desired user is already in the list, you can simply tap the user row to select it. A checkmark will appear to the left of the user to indicate that the user has been selected. To select multiple users, hold the **&lt;Ctrl>** key while clicking each user. To deselect a user, hold the **&lt;Ctrl>** key and click the user. A counter at the bottom of the blade indicates the number of selected users.
+	1. The **Add users** blade will display a list of built-in users. If the desired user is already in the list, you can simply select the user row to select it. A checkmark will appear to the left of the user to indicate that the user has been selected. To select multiple users, hold the **&lt;Ctrl>** key while selecting each user. To deselect a user, hold the **&lt;Ctrl>** key and select the user. A counter at the bottom of the blade indicates the number of selected users.
 
-	1. If the desired user is not in the list, enter a valid Microsoft email account in the **Users** text box. If the email address is valid, the user will display below the **User** text box. Simply tap it to select it.   
+	1. If the desired user is not in the list, enter a valid Microsoft email account in the **Users** text box. If the email address is valid, the user will display below the **User** text box.    
 
-	1. Once you've selected the users you want to add to the lab, tap **Select**.
+	1. Once you've selected the users you want to add to the lab, select **Select**.
 
-	1. Tap **OK** to close the **Add access** blade.
+	1. Select **OK** to close the **Add access** blade.
 
 1. The **Users** blade displays the added roles and users.
