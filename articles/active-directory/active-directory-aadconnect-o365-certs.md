@@ -29,7 +29,7 @@ This article provides you additional information to manage your token signing ce
 * You are not using the default configuration of AD FS for token signing certificates
 * You are using a third party identity provider
 
-## How does default configuration of AD FS for token signing certificates work?
+## Default configuration of AD FS for token signing certificates
 
 The token signing and token decrypting certificates are usually self-signed certificates and are good for one year. Default configuration of the AD FS regarding token signing and token decrypting certificates includes an auto-renewal process called **AutoCertificateRollover**. If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically update your certificate before it expires. 
 
@@ -50,7 +50,7 @@ Azure AD attempts to monitor the federation metadata and update the token signin
 >
 >Server 2008 R2 and 2012 - [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
 
-## How to check if the certificates need update? <a name="managecerts"></a>
+## Checking if the certificates need update? <a name="managecerts"></a>
 
 ### Step 1: Check AutoCertificateRollover state
 
@@ -60,7 +60,7 @@ On your AD FS Server, open Microsoft Powershell.  Check that AutoCertRollover va
 
 ![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
-[Azure.Note] If you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first.
+[AZURE.NOTE] If you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first.
 
 ### Step 2: Confirm that AD FS and Azure AD are in sync
 
@@ -134,8 +134,7 @@ On the other hand if **AutoCertificateRollover** is set to **True** but your fed
 
 	PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
-[Azure.Note] If you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first.
-
+	>[AZURE.NOTE] If you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first.
 
 3. Look at the command output at any certificates listed.  If AD FS has generated a new certificate, you should see two certificates in the output:  One for which the IsPrimary value is True and the NotAfter date is within 5 days, and one for which IsPrimary is False and NotAfter is about a year in the future.
 
