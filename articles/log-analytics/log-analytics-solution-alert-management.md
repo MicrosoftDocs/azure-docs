@@ -12,14 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/12/2016"
+   ms.date="06/07/2016"
    ms.author="bwren" />
 
 # Alert Management solution in Log Analytics
 
-The Alert Management solution helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager (SCOM) management groups into Log Analytics.  In environments with multiple management groups, the Alert Management solution will provide a consolidated view of alerts across all management groups.
-
-![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
+![Alert Management icon](media/log-analytics-solution-alert-management/icon.png) The Alert Management solution helps you analyze all of the alerts in your environment.  In addition to consolidating alerts generated within OMS, it imports alerts from connected System Center Operations Manager (SCOM) management groups into Log Analytics.  In environments with multiple management groups, the Alert Management solution will provide a consolidated view of alerts across all management groups.
 
 ## Prerequisites
 
