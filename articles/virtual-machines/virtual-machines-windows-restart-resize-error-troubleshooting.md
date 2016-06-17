@@ -78,4 +78,4 @@ The request to resize the VM has to be attempted at the original cluster that ho
 
 ## Next steps
 
-If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
