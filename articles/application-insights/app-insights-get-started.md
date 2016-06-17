@@ -61,8 +61,9 @@ What you want | What to do | What you get
 
 
 
-## <a name="video"></a>Videos
+## <a name="video"></a>Video
 
+[![Animated introduction](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 

@@ -44,6 +44,11 @@ The following steps describe the most common workflow when using the Media Servi
 
 	You should post your subsequent API calls to https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
+##Access control address
+
+Media Services access control address is https://wamsprodglobal001acs.accesscontrol.windows.net, 
+except for North China region, where it is https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
+
 ##Getting an access token
 
 To access Media Services directly through the REST API, retrieve an access token from ACS and use it during every HTTP request you make into the service. This token is similar to other tokens provided by ACS based on access claims provided in the header of an HTTP request and using the OAuth v2 protocol. You do not need any other prerequisites before directly connecting to Media Services.
