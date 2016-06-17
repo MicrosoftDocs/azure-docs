@@ -23,6 +23,7 @@
 - [Overview](sql-database-restore-deleted-database.md)
 - [Azure portal](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
