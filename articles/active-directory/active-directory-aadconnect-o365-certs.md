@@ -50,7 +50,7 @@ Azure AD attempts to monitor the federation metadata and update the token signin
 >
 >Server 2008 R2 and 2012 - [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
 
-## Checking if the certificates need update? <a name="managecerts"></a>
+## Check if the certificates need update <a name="managecerts"></a>
 
 ### Step 1: Check AutoCertificateRollover state
 
