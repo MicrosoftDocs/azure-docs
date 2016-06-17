@@ -41,7 +41,7 @@ You can restore the deleted database using the same or a different database name
 
 ## Restoration time
 
-The time taken to restore a database depends on many factors, including the size of the database, the number of transaction logs, the time point selected, and the amount of activity that needs to be replayed to reconstruct the state at the selected point. For a very large and/or active database the restore may take several hours. Restoring a database always creates a new database on the same server as the original database, so the restored database must be given a new name. 
+The time taken to restore a database depends on many factors, including the size of the database, the number of transaction logs, the time point selected, and the amount of activity that needs to be replayed to reconstruct the state at the selected point. For a very large and/or active database the restore may take several hours. Restoring a database always creates a new database on the same server as the original database, so the restored database must be given a new name. The majority of database restorations complete within 12 hours.
 
 ## Summary
 
