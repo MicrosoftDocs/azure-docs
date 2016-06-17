@@ -19,7 +19,7 @@
 
 # Azure Availability Sets Infrastructure Guidelines
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
 
 ## Availability sets
 

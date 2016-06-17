@@ -3,7 +3,7 @@
 	description="Learn about the key design and implementation guidelines for deploying virtual machines into Azure infrastructure services."
 	documentationCenter=""
 	services="virtual-machines-linux"
-	authors="vlivech"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,33 +14,32 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
-	ms.author="v-livech"/>
+	ms.date="06/17/2016"
+	ms.author="iainfouh"/>
 
 # Azure Virtual Machines Guidelines
 
-This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding the required planning steps for creating and managing virtual machines (VMs) within your Azure environment.
 
 ## Virtual machines
 
-In Azure PaaS, Azure manages virtual machines and their associated disks. You must create and name cloud services and roles, and then Azure creates instances associated to those roles. In the case of Azure IaaS, it is up to you to provide names for the cloud services, virtual machines, and associated disks.
+One of the main components within your Azure environment will likely be VMs. VMs will run your applications, databases, authentication services, etc.
 
-To reduce administrative burden, the Azure classic portal uses the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
+It is important to understand the [different VM sizes](virtual-machines-linux-sizes.md) in order to correctly size your environment from a performance and cost perspective. If your VMs do not have an adequate amount of CPU cores or memory, performance of your application will suffer regardless of how well it is designed and developed. You should also read about [storage infrastructure guidelines](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md) to understand how to design appropriate storage for optimum performance of your VMs.
 
-In addition, Azure names disks and their supporting VHD blobs using a combination of the cloud service name, the computer name, and the creation date.
-
-In general, the number of disks is much greater than the number of virtual machines. You should be careful when manipulating virtual machines to prevent orphaning disks. Also, disks can be deleted without deleting the supporting blob. If this is the case, the blob remains in the storage account until manually deleted.
+Resources such as VMs are logically grouped together for ease of management and update cycles using [resource groups](../resource-group-overview.md). By using resource groups, you can create, manage, and monitor all the resources that make up a given application. You can also implement [role-based access controls](../active-directory/role-based-access-control-what-is.md) to grant access to others within your team to only the resources they require. Take time to plan out your resource groups and role assignments.
 
 ## Implementation guidelines recap for virtual machines
 
 Decision:
 
-- How many virtual machines do you need to provide for the IT workload or infrastructure?
+- How many VMs do you require for your various application tiers and components of your infrastructure and will you manage them?
 
 Tasks:
 
-- Define each virtual machine name using your naming convention.
-- Create your virtual machines with the Azure portal, the Azure classic portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
+- Define your VM naming convention.
+- Define your resource groups for the different tiers and components of your infrastructure.
+- Create your VMs using the Azure portal, the Azure CLI, or with Resource Manager templates.
 
 ## Next steps
 
