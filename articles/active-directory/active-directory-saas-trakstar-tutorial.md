@@ -78,7 +78,7 @@ To configure the integration of Trakstar into Azure AD, you need to add Trakstar
 
 6. In the search box, type **Trakstar**.
 
-![Creating an Azure AD test user](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_01.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_01.png)
 
 7. In the results pane, select **Trakstar**, and then click **Complete** to add the application.
 
