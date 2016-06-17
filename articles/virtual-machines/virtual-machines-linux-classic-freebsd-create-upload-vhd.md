@@ -199,7 +199,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 ## Step 4: Upload the .vhd file
 
-When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll when you upload the file:
+When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll use when you upload the file:
 -  **BlobStorageURL** is the URL for the storage account that you created in Step 2.
 -  **YourImagesFolder** is the container within Blob storage where you want to store your images.
 - **VHDName** is the label that appears in the Azure classic portal to identify the virtual hard disk.
