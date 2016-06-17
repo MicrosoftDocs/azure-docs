@@ -12,24 +12,31 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.workload="sqldb-bcdr"
+   ms.date="06/17/2016"
    ms.author="sstein"/>
 
 # Overview: SQL Database point-in-time restore
 
 > [AZURE.SELECTOR]
+- [Business continuity](sql-database-business-continuity.md)
 - [Overview](sql-database-point-in-time-restore.md)
 - [Azure portal](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-Point-in-time restore allows you to restore a database to an earlier point in time using [SQL Database automated backups](sql-database-automated-backups.md). You can restore to an earlier point in time using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Point-in-time restore allows you to restore an existing database as a new database at an earlier point in time using [SQL Database automated backups](sql-database-automated-backups.md) and on the same logical server. 
 
-The database can be restored to any performance level or elastic pool. You need to ensure you have sufficient DTU quota on the server or pool keeping in mind that the restore creates a new database and that the service tier and performance level of the restored database may be different than the current state of the live database. Once complete, the restored database is a normal fully accessible online database charged at normal rates based on its service tier and performance level. If you are restoring the database for recovery purposes you can treat the restored database as a replacement for the original database, or use it to retrieve data from and then update the original database. If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. If you plan to retrieve data from the restored database, you will separately need to write and execute whatever data recovery scripts you need. Although the restore operation may take a long time to complete the database will be visible in the database list throughout. If you delete the database during the restore it will cancel the operation and you will not be charged. 
+> [AZURE.NOTE] You can restore to an earlier point in time using the [Azure portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+
+The database can be restored to any performance level or elastic pool. You need to ensure you have sufficient DTU quota on the server or pool keeping in mind that the restore creates a new database and that the service tier and performance level of the restored database may be different than the current state of the live database. Once complete, the restored database is a normal fully accessible online database charged at normal rates based on its service tier and performance level. 
+
+If you are restoring the database for recovery purposes you can treat the restored database as a replacement for the original database, or use it to retrieve data from and then update the original database. If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. 
+
+If you plan to retrieve data from the restored database, you will separately need to write and execute whatever data recovery scripts you need. Although the restore operation may take a long time to complete the database will be visible in the database list throughout. If you delete the database during the restore it will cancel the operation and you will not be charged. 
 
 ## Recovery time for a point-in-time restore
 
-The time taken to restore a database depends on many factors, including the size of the database, the time point selected, and the amount of activity that needs to be replayed to reconstruct the state at the selected point. For a very large and/or active database the restore may take several hours. Restoring a database always creates a new database on the same server as the original database, so the restored database must be given a new name. 
+The time taken to restore a database depends on many factors, including the size of the database, the number of transaction logs, the time point selected, and the amount of activity that needs to be replayed to reconstruct the state at the selected point. For a very large and/or active database the restore may take several hours. Restoring a database always creates a new database on the same server as the original database, so the restored database must be given a new name. 
 
 ## Backup/Restore vs. Copy/Export/Import
 
@@ -43,11 +50,10 @@ Automatic backups and point-in-time restore protect your databases from accident
 
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Point-in-time restore using the Azure portal](sql-database-point-in-time-restore-portal.md)
-- [Point-in-time restore using](sql-database-point-in-time-restore-powershell.md)
-- [Point-in-time restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [SQL Database automated backups](sql-database-automated-backups.md)
+- For detailed steps to recover to a point in time using the Azure portal, see [Point-in-time restore using the Azure portal](sql-database-point-in-time-restore-portal.md).
+- For detailed steps to recover to a point in time using PowerShell, see [Point-in-time restore using PowerShell](sql-database-point-in-time-restore-powershell.md).
+- For detailed steps to recover to a point in time using the REST API, see [Point-in-time restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- For detailed information regarding Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 
 
 ## Additional resources

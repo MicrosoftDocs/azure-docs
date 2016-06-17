@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/09/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -21,9 +21,11 @@
 
 
 > [AZURE.SELECTOR]
+- [Business continuity](sql-database-business-continuity.md)
 - [Overview](sql-database-point-in-time-restore.md)
 - [Azure portal](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
+
 
 This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using the Azure Portal.
 
@@ -45,10 +47,10 @@ To restore a database in the Azure Portal do the following:
 
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Point-in-time restore](sql-database-point-in-time-restore.md)
-- [Point-in-time restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [SQL Database automated backups](sql-database-automated-backups.md)
+- For detailed steps to recover to a point in time using PowerShell, see [Point-in-time restore using PowerShell](sql-database-point-in-time-restore-powershell.md).
+- For detailed steps to recover to a point in time using the REST API, see [Point-in-time restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- For an overview of point in time restore, see [Point-in-time restore](sql-database-point-in-time-restore.md).
+- For detailed information regarding Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 
 ## Additional resources
 
