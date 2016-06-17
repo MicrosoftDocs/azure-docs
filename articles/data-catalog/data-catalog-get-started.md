@@ -124,6 +124,10 @@ In this exercise you use the **Azure Data Catalog** publishing tool to register 
 
 	In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise you learn how to discover registered data assets.
 
+	![Data Catalog - objects in list view](media/data-catalog-get-started/data-catalog-portal-grid-view.png)
+
+	You can expand the left side panel to see seach filters and right side panel to see properties of a selected object. 
+
 ## Discover data assets
 
 In this exercise you will use the **Azure Data Catalog** portal to discover registered data assets and view their metadata. **Azure Data Catalog** has a simple but powerful search syntax that enables you to easily build queries that return data users need. **Azure Data Catalog** has the following search options:
@@ -160,9 +164,11 @@ For details about **Azure Data Catalog** search, see [Data Catalog Search syntax
 	![Azure Data Catalog - filter search results](media/data-catalog-get-started/data-catalog-filter-search-results.png) 
 
 ### Property scoping
-3. Click **Home** on the toolbar. 
+3. Clear the **Table** filter for **Object Type**.  
 4. In the search box, enter **tags:cycles** and click the **search** icon (or) press **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching data catalog. 
-3. Confirm that you see all the four tables and the database (AdventureWorks2014) **Product** table from **AdventureWorks2014** database in the results. 
+3. Confirm that you see all the four tables and the database (AdventureWorks2014) in the results.  
+
+	![Data Catalog - property scoping search results](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
 
 ### Boolean operators
 2. In the search box, enter **tags:cycles AND objectType:table**, and click the **search** icon or press **ENTER**. 
@@ -182,6 +188,7 @@ For details about **Azure Data Catalog** search, see [Data Catalog Search syntax
 3. Click the **search** icon or press **ENTER**. 
 2. Confirm that you see Product, ProductCategory, ProductDescription, and ProductPhoto tables, and AdventureWorks2014 database you registered in search results. 
 
+	![Azure Data Catalog - comparison search results](media/data-catalog-get-started/data-catalog-comparison-operator-results.png)
 
 <a name="annotating"/>
 ## Annotate data assets
@@ -189,7 +196,7 @@ In this exercise you use the **Azure Data Catalog** portal to annotate data asse
 
 ### Here’s how you annotate data assets
 
-1.  If you have closed it, navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) and search with tags:cycles to find the data assets you have registered.  
+1.  If you have closed the browser, navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) and search with **tags:cycles** to find the data assets you have registered.  
 2. Click **ProductPhoto** in search results.  
 3. Enter **Product images** for **friendly name** and **Product photos for marketing materials** for the **Description** field.
 
@@ -222,7 +229,7 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to a 
 
 ### Here’s how to connect to a data asset from Excel
 
-1. Select ProductCategory from search results. Click **Open In** on the toolbar and select **Excel**.
+1. Select **Product** from search results. Click **Open In** on the toolbar and select **Excel**.
  
     ![Azure Data Catalog - Connect to data asset](media/data-catalog-get-started/data-catalog-connect1.png)	
 5. Click **Open** in the download pop-up window at the bottom (this experience may vary depending on the browser). 
@@ -249,10 +256,7 @@ In **Azure Data Catalog**, you can take ownership of data assets, add co-owners 
 
 ### Here’s how to take ownership of data assets and restrict visibility
 
-1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) if you have closed the web browser.
-2. In the Search text box, enter **tags:cycles** and press **ENTER**. 
-	
-	> [AZURE.NOTE] Replace the date with the yesterday's date.
+1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) if you have closed the web browser. In the Search text box, enter **tags:cycles** and press **ENTER**. 
 3. Select an item in the result list, for example, **Product** by clicking the check box in the top-right corner and click **Take Ownership** on the toolbar as shown in the following image. 
 4. In the **Properties** panel, **Management** section, click **Take Ownership** under **Management** section in the right pane. 
 
