@@ -41,7 +41,7 @@ You can access data from within the Azure Machine Learning Studio from one of se
  
 The workflow for conducting experiments in Azure Machine Learning Studio consists of dragging-and-dropping components onto the canvas. To access online data sources, add the [Import Data][import-data] module to your experiment, select the **Data source**, and then provide the parameters needed to access the data. The online data sources that are supported are itemized in the table below. This table also summarizes the file formats that are supported and parameters that are used to access the data.
 
-Note that because this training data is accessed while your experiment is running, it is only available in that experiment. By comparison, data that has been stored in a dataset modules are available to any experiment in your workspace.
+Note that because this training data is accessed while your experiment is running, it is only available in that experiment. By comparison, data that has been stored in a dataset module are available to any experiment in your workspace.
 
 > [AZURE.IMPORTANT] Currently, the [Import Data][import-data] and [Export Data][export-data] modules can read and write data only from Azure storage created using the Classic deployment model. In other words, the new Azure Blob Storage account type that offers a hot storage access tier or cool storage access tier is not yet supported. 
 
