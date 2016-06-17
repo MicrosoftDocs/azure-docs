@@ -19,7 +19,7 @@
 
 # Configure Secure HDInsight
 
-Learn how to setup a Linux-based HDInsight cluster with Azure Activie Directory(AAD) and Apache Ranger to take advantage of strong authentication and rich role based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsigit](hdinsight-secure-introduction.md).
+Learn how to setup a Linux-based HDInsight cluster with Azure Active Directory(AAD) and Apache Ranger to take advantage of strong authentication and rich role based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
 
 This is the first part of the 2-part tutorial:
 
@@ -34,7 +34,7 @@ An example of the final topology looks as follows:
 
 Because AAD currently only supports classic virtual networks (VNets) and the Linux-based HDInsight only supports Azure Resource Manager (ARM) based VNets, HDInsight AAD integration requires two VNets and a bridge between them. 
 
-Most of the Azure service names must be globally unique.  The following are the names used in this tutorial. Contoso is a fictious name. You must replace *contoso* with a different name when you go through the tutorial.
+Most of the Azure service names must be globally unique.  The following are the names used in this tutorial. Contoso is a fictitious name. You must replace *contoso* with a different name when you go through the tutorial.
 	
 **Names:**
 
@@ -59,55 +59,19 @@ This tutorial mainly provides the steps to configure a secured HDInsight. Each s
 
 ## Procedures
 
-- Create a classic VNet with.  
-
-	You will use Azure Classic portal to create a classic VNet, and then create VM within the VNet. The VM will be used late to configure an organizational unit(OU).
+1. Create an AAD VNet (classic).  
+2. Create and configure an AAD.
+3. Add an admin VM to the AAD.
+3. Configure an organizational unit
+4. Create an ARM VNet with an HDInsight cluster
+5. Bridge the two VNets.
+6. Test the connection between the two VNets
 	
-- Create and configure an AAD.
-
-	This part includes the following steps:
-
-	- Create an AAD
-	- Create **AAD DC Administrators** group. Members of this group will be granted administrative privileges on machines that are domain joined to the AAD domain you will setup.
-	
-		- After domain join, this group will be added to the Administrators group on these domain joined machines.
-		- Members of this group will also be able to use Remote Desktop to connect remotely to domain joined machines. [jgao: this is not true based on my testing.  Need further testing.]
-
-	- Create an AAD global admin user and add it to the AAD DC Administrators group. [jgao: is AAD global admin an overkill?]
-	- Enable AAD services for the classic VNet.
-	- Update DNS settings for the virtual network. 
-	- (Optional) Enable password synchronization to AAD services for a cloud-only Azure AD directory. See [Enable password synchronization to AAD domain services for a cloud-only Azure AD directory](../active-directory/active-directory-ds-getting-started-password-sync.md)
-
-	- Configure Secure LDAP for the AAD
-
-- Configure an organizational unit
-
-	- Join the VM to the domain
-	
-		[jgao: to do]
-		- validate the AAD DC Administrators group is added to the local administrator's group
-		- validate the remote desktop access permision
-		
-	- configure an oganizational unit
-	
-		- connect to the VM using the domain account
-		
-	- (?)Enable Secure Ldap access through the internet
-	- (?)Configure DNS to access the managed domain from the internet
-
-
-- create an arm VNet with an HDInsight cluster
-
-- Bridge the two VNets
-
-- Additional temporary steps.
-
-	
-## Create an Azure classic VNet with a VM
+## Create an Azure classic VNet
 
 In this section, you will first create a classic VNet using the Azure classic portal. In the next section,  you will create an AAD and enabled the AAD service for the VNet.
 
-For additional information about the following procedure and using other VNet creation methords, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 **To create a classic VNet**
 
@@ -119,7 +83,7 @@ For additional information about the following procedure and using other VNet cr
 	- **Location**: East US 2
 	- **Subscription**: (Select a subscription).
 4. Click **Next**.
-4. On the **DNS Servers and VPN Connectivity** page, click **Next**. If you do not specify a DNS server, your VNet will use the internal naming resolution resolution provided by Azure. For our scenario, we will not configure DNS servers.
+4. On the **DNS Servers and VPN Connectivity** page, click **Next**. If you do not specify a DNS server, your VNet will use the internal naming resolution provided by Azure. For our scenario, we will not configure DNS servers.
 5. Configure **Address Space** with **10.1.0.0/16**, and **Subnet-1** with **10.1.0.0.24** as shown below:
 
 	![Configure Secure HDInsight Azure Activie directory virtual network](.\media\hdinsight-secure-setup\hdinsight-secure-aad-vnet-setting.png)
@@ -132,9 +96,9 @@ In this section, you will:
 
 - Create an AAD.
 - Create an AAD user. 
-- Create the AAD DC ADministrators group and add the AAD user to the group. You will use this user to create the organizational unit.
+- Create the AAD DC Administrators group and add the AAD user to the group. You will use this user to create the organizational unit.
 - Enable AAD Service for the VNet.
-- Update the DNS setting for the VNet - Use the AAD domain controlers for domain name resolution.
+- Update the DNS setting for the VNet - Use the AAD domain controllers for domain name resolution.
 - Configure LDAPS for the AAD [jgao: explain why].
 
 **To create an AAD**
@@ -215,7 +179,7 @@ For more information, see [Azure AD Domain Services (Preview) - Update DNS setti
 
 You can skip the next step. In your real implementation, you will need it:
 
-	- (Optional) [Enable password synchronization to AAD domain services for a cloud-only Azure AD directory](../active-directory/active-directory-ds-getting-started-password-sync.md).
+- (Optional) [Enable password synchronization to AAD domain services for a cloud-only Azure AD directory](../active-directory/active-directory-ds-getting-started-password-sync.md).
 	
 
 **To configure LDAPS for the AAD**
@@ -256,7 +220,7 @@ You can skip the next step. In your real implementation, you will need it:
 For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 
-## Add an admin VM
+## Add an admin VM to the AAD VNet
 
 In this section, you will add a virtual machine to the AAD VNet, you will install some administrative tools on this VM to perform:
 
@@ -322,7 +286,7 @@ For more information, see [Join a Windows Server virtual machine to a managed do
 6. Select **Role-based or feature-based installation**, and then click **Next**.
 7. Select the current virtual machine from the server pool, and click **Next**.
 8. Click **Next** to skip roles.
-9. Exapnd **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools** and **DNS Server Tools**, and then click **Next**
+9. Expand **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools** and **DNS Server Tools**, and then click **Next**
 10. Click **Next**
 10. Click **Install**.
 
@@ -416,7 +380,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 	- In the CIDR (ADDRESS COUNT) drop down, select the number of bits used for the network portion of the CIDR block used by the ARM VNet you want to connect to.
 	- In VPN DEVICE IP ADDRESS (OPTIONAL), type any valid public IP address. For example, 192.168.0.1. We will change this IP address later. 
 5. Click **Networks** from the left pane >  **VIRTUAL NETWORKS**, and then click on your classic VNet (contosoaadvnet), and then click **CONFIGURE**.
-6. Under **site-to-site connectivity**,  check **Connect to the local network**, and then select the local network you just created in **Local Netwrok**.
+6. Under **site-to-site connectivity**,  check **Connect to the local network**, and then select the local network you just created in **Local Network**.
 7. Click **Save** on the bottom of the page.
 8. Click **Yes** to confirm.
 9. Click **Dashboard** from the top menu, click **Create Gateway** from the bottom of the page, click **Dynamic Routing**, and then click **Yes**. When it is done, copy the gateway public IP address. You will need it to setup the gateway in the ARM VNet. Don't worry if you see the status is disconnected.  It is expected. 40.84.4.190
@@ -440,11 +404,11 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 	- Name: contosohdivnetvirtualnetworkgateway
 	- Virtual network: ARM network name contosohdicluster-vnet.
-	- Pulbic IP address: Create new: contosohdvnetvirtualnetworkgatewayip
+	- Public IP address: Create new: contosohdvnetvirtualnetworkgatewayip
 
 4. Click **OK**.
 5. Click **Create**.
-6. Open the virutal network public gateway.  In the Seetings > Properties, find the public IP address:  23.101.143.175
+6. Open the virtual network public gateway.  In the Settings > Properties, find the public IP address:  23.101.143.175
 
 
 
