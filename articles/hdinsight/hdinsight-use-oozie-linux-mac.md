@@ -18,7 +18,7 @@
 	ms.author="larryfr"/>
 
 
-# Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight (Preview)
+# Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight
 
 [AZURE.INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
