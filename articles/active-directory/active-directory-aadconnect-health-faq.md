@@ -35,7 +35,7 @@ You can switch between different Azure AD directories by selecting the currently
 
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-The impact of installing the Microsoft Identity Health Agent on the ADFS servers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
+The impact of installing the Microsoft Identity Health Agent on ADFS or AD DS servers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
 
 The numbers below are an approximation.
 
@@ -108,4 +108,5 @@ Also, if you re-imaged a server or created a new server with the same details(su
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adds.md) 
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
