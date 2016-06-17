@@ -32,7 +32,6 @@ You can restore a deleted database during the retenion period for the [SQL Datab
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
-- [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
 
 ## Restoring a Recently Deleted Database
 
