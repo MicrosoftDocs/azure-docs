@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="06/17/2016"
 	ms.author="jimpark; markgal"/>
 
 
@@ -113,7 +113,7 @@ Click **File-Folders** in the Backup Items tile. The Backup Items blade opens wi
 
 If you click a specific backup items from the list, you see the essential details for that item.
 
->[AZURE,NOTE] From the **Settings** blade, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
+>[AZURE.NOTE] From the **Settings** blade, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
 
 ![Backup items from settings](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
