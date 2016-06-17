@@ -46,9 +46,9 @@ To restore a database in the Azure Portal do the following:
 
 ## Next steps
 
-- For detailed steps to recover to a point in time using PowerShell, see [Point-in-time restore using PowerShell](sql-database-point-in-time-restore-powershell.md).
-- For detailed steps to recover to a point in time using the REST API, see [Point-in-time restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- For an overview of point in time restore, see [Point-in-time restore](sql-database-point-in-time-restore.md).
+- For detailed steps to recover to a point in time using PowerShell, see [Point-In-Time Restore using PowerShell](sql-database-point-in-time-restore-powershell.md).
+- For detailed steps to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- For an overview of point in time restore, see [Point-In-Time Restore](sql-database-point-in-time-restore.md).
 - For detailed information regarding Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 
 ## Additional resources
