@@ -168,7 +168,7 @@ For different types of build environments, you can explicitly obtain the latest 
 	}
 	```
 
-4. Replace the namespace and Event Hub names with the values used when you created the Event Hub. The `sasKeyName` and `sasKey` correspond to the name and key of the Send rule you created earlier. With that information, you create a connection string.
+4. Replace the following fields with used when you created the Event Hub and storage account. The `sasKeyName` and `sasKey` correspond to the name and key of the Event Hubs Send rule created earlier. With that information, you can create a connection string.
 
 	``` Java
 	final String namespaceName = "----ServiceBusNamespaceName-----";
