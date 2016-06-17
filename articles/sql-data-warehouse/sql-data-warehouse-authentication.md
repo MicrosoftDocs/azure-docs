@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/09/2016"
+   ms.date="06/17/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentication to Azure SQL Data Warehouse
@@ -26,7 +26,7 @@
 
 To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.  
 
-For more information on security and how to enable connections to your data warehouse, see[Secure a database in SQL Data Warehouse][] 
+For more information on security and how to enable connections to your data warehouse, see [Secure a database in SQL Data Warehouse][].
 
 ## SQL authentication
 To connect to SQL Data Warehouse you will need to provide the following information:
