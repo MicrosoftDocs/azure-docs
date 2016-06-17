@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Connection strings for SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Drivers for SQL Data Warehouse | Microsoft Azure"
    description="Connection strings and drivers for SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/16/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.author="sonyama;barbkess"/>
 
 
-# Connection strings for Azure SQL Data Warehouse
+# Drivers for Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-connect-overview.md)
