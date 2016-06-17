@@ -33,7 +33,7 @@ If you need the classic version of this topic, see [Provision a SQL Server virtu
 For this tutorial you'll need:
 
 - An Azure account and subscription before you start. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- [Azure PowerShell)](../powershell-install-configure.md), minimum version of 1.0.0 or later (this tutorial written using version 1.0.4).
+- [Azure PowerShell)](../powershell-install-configure.md), minimum version of 1.4.0 or later (this tutorial written using version 1.5.0).
     - To retrieve your version, type **Get-Module Azure -ListAvailable**.
 
 ## Configure your subscription
