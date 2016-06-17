@@ -30,7 +30,7 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 In order to complete this tutorial you will need the following:
 
-+ Microsoft Visual Studio Express 2013 for Windows
++ [Microsoft Visual Studio](http://visualstudio.com)
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we will assume [Eclipse](https://www.eclipse.org/)
 
