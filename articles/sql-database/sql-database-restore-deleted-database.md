@@ -19,10 +19,10 @@
 # Overview: Restore a deleted Azure SQL database
 
 > [AZURE.SELECTOR]
-- [Point-in-time restore](sql-database-point-in-time-restore.md)
+- [Point-In-Time Restore](sql-database-point-in-time-restore.md)
 - [Restore deleted database](sql-database-restore-deleted-database.md)
-- [Geo-restore](sql-database-geo-restore.md)
-- [Active geo-replication](sql-database-geo-replication-overview.md)
+- [Geo-Restore](sql-database-geo-restore.md)
+- [Active Geo-Replication](sql-database-geo-replication-overview.md)
 - [Business continuity scenarios](sql-database-business-continuity-scenarios.md)
 
 
@@ -49,15 +49,14 @@ Automatic backups protect your databases from accidental database deletion. This
 
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Restore a deleted database using the Azure Portal](sql-database-restore-deleted-database-portal.md)
-- [Restore a deleted database using PowerShell](sql-database-restore-deleted-database-powershell.md)
-- [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [SQL Database automated backups](sql-database-automated-backups.md)
+- For detailed steps on how to restore a deleted database using the Azure portal, see [Restore a deleted database using the Azure Portal](sql-database-restore-deleted-database-portal.md).
+- For detailed steps on how to restore a deleted database using PowerShell, see [Restore a deleted database using PowerShell](sql-database-restore-deleted-database-powershell.md).
+- For information about how to restore a deleted database, see [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- For detailed information regarding Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 
 ## Additional resources
 
-- [Point-in-time restore](sql-database-point-in-time-restore.md)
+- [Point-In-Time Restore](sql-database-point-in-time-restore.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
