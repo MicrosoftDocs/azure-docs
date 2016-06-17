@@ -16,7 +16,7 @@
 	ms.date="05/16/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
-# Technical Guide to the Cortana Intelligence Solution Template for Demand Forecast in Energy
+# Technical guide to the Cortana Intelligence Solution Template for demand forecast in energy
 
 ## **Overview**
 
