@@ -61,7 +61,7 @@ openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
 ###Use Git for Windows###
 
 1.	Download and install Git for Windows from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
-2.	Run Git Bash from the Start Menu > All Apps > Git
+2.	Run Git Bash from the Start Menu > All Apps > Git Shell
 
 > [AZURE.NOTE] You may encounter the following error when running the `openssl` commands above:
 
