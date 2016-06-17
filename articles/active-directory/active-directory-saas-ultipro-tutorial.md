@@ -61,29 +61,29 @@ To configure the integration of Ultipro into Azure AD, you need to add Ultipro f
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-![Active Directory][1]
+	![Active Directory][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-![Applications][2]
+	![Applications][2]
 
 4. Click **Add** at the bottom of the page.
 
-![Applications][3]
+	![Applications][3]
 
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-![Applications][4]
+	![Applications][4]
 
 6. In the search box, type **Ultipro**.
 
-![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)
 
 7. In the results pane, select **Ultipro**, and then click **Complete** to add the application.
 
-![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Ultipro based on a test user called "Britta Simon".
