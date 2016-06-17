@@ -66,14 +66,14 @@ On the virtual machine where you installed the FreeBSD operating system, complet
 
 		# pkg install sudo
 ;
-5. **Prerequisites for Azure Agent**:
+5. **Prerequisites for Azure Agent**.
 
 		# pkg install python27  
 		# pkg install Py27-setuptools27   
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python   
 		# pkg install git
 
-6. **Install Azure Agent**
+6. **Install Azure Agent**.
 
     The latest release of Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 officially supports FreeBSD 10.2 and later releases.
 
