@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure Availability Sets Infrastructure Guidelines"
+	pageTitle="Azure Availability Sets Infrastructure Guidelines | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for deploying Availability Sets in Azure infrastructure services."
 	documentationCenter=""
 	services="virtual-machines-linux"
-	authors="vlivech"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,20 +14,24 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
-	ms.author="v-livech"/>
+	ms.date="06/17/2016"
+	ms.author="iainfou"/>
 
 # Azure Availability Sets Infrastructure Guidelines
 
-This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
 
 ## Availability sets
 
-In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
+Within Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform will distribute the placement of those VMs across the underlying infrastructure. Should there be a planned maintenance event to the Azure platform or an underlying hardware / infrastructure fault, the use of availability sets would ensure that at least one VM remains running.
 
-In Azure IaaS, the concept of role is not significant, because each IaaS virtual machine represents a role with a single instance. In order to hint to Azure not to bring down two or more associated machines at the same time (for example, for operating system updates of the node where they reside), the concept of availability sets was introduced. An availability set tells Azure not to bring down all the machines in the same availability set at the same time to prevent a service outage. The virtual machine members of an availability set have a 99.95% uptime service level agreement.
+As a best practice, applications should not reside on a single VM. An availability set that contains a single VM doesn't gain any protection from planned or unplanned events within the Azure platform. The [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) requires two or more VMs within an availability set in order to allow the distribution of VMs across the underlying infrastructure. 
 
-Availability sets must be part of the high-availability planning of the solution. An availability set is defined as the set of virtual machines within a single cloud service that have the same availability set name. You can create availability sets after you create cloud services.
+When designing your application infrastructure, you should also plan out the application tiers that you will use. Group together VMs that serve the same purpose in to availability sets, such as an availability set for your front-end VMs running IIS, Nginx, Apache, etc. Create a separate availability set for your back-end VMs running SQL Server, MongoDB, MySQL, etc. The goal is to ensure that each component of your application is protected by an availability set and at least once instance will always remain running.
+
+Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance.
+
+For more detailed information about availability sets and how VMs are distributed across update domains and fault domains, see [Manage the availability of virtual machines](virtual-machines-linux-manage-availability.md).
 
 ## Implementation guidelines recap for availability sets
 
@@ -37,7 +41,9 @@ Decision:
 
 Task:
 
-- Define the set of availability sets using your naming convention. You can associate a virtual machine to an availability set when you create the virtual machines, or you can associate a virtual machine to an availability set after the virtual machine has been created.
+- Define the required availability sets using your naming convention. A VM can only reside in one availability set. 
+- Define the number of VMs in application tier you require.
+- Understand [update and fault domains](virtual-machines-linux-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) and define if you need to adjust the number of domains in use for your application
 
 ## Next steps
 
