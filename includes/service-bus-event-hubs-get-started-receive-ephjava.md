@@ -26,7 +26,7 @@ The Java client library for Event Hubs is available for use in Maven projects fr
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.6.9</version>
+	<version>0.7.2</version>
 </dependency>
 ```
  
@@ -118,11 +118,14 @@ For a simple event publisher, import the *com.microsoft.azure.eventhubs* package
 			final String eventHubName = "----EventHubName-----";
 			final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
 			final String sasKey = "---SharedAccessSignatureKey----";
+
 			final String storageAccountName = "---StorageAccountName----"
 			final String storageAccountKey = "---StorageAccountKey----";
 			final String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=" + storageAccountName + ";AccountKey=" + storageAccountKey;
 			
-			EventProcessorHost host = new EventProcessorHost(namespaceName, eventHubName, sasKeyName, sasKey, consumerGroupName, storageConnectionString);
+			ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+
+			EventProcessorHost host = new EventProcessorHost(eventHubName, consumerGroupName, eventHubConnectionString.toString(), storageConnectionString);
 			
 			System.out.println("Registering host named " + host.getHostName());
 			EventProcessorOptions options = new EventProcessorOptions();
