@@ -36,7 +36,7 @@ In this article you will learn how to restore an Azure SQL Data Warehouse using 
 To restore a database:
 
 1. Log in to the [Azure portal][]
-2. On the left side of the screen select **Browse** and then select **SQL Servers**
+2. On the left side of the screen select **Browse** and then select **SQL servers**
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
     
@@ -65,7 +65,7 @@ To restore a database:
 To restore a deleted database:
 
 1. Log in to the [Azure portal][]
-2. On the left side of the screen select **Browse** and then select **SQL Servers**
+2. On the left side of the screen select **Browse** and then select **SQL servers**
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 
