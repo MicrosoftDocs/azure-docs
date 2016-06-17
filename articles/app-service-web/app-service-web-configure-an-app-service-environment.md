@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/20/2016" 
 	ms.author="ccompy"/>
 
 
@@ -75,10 +75,13 @@ The virtual network that is used with your ASE can be one that you made when cre
 There are some restrictions on the VNET used for an ASE:
 
 - Currently there is only support for V1 "classic" VNETs
-- the VNET must be a regional VNET
-- VNETs used to host an ASE must use RFC1918 addresses (i.e. private addresses)
-- there needs to be a subnet with 8 or more addresses where the ASE is deployed
-- Once a subnet is used to host an ASE, the address range of the subnet cannot be changed.  For this reason it is recommended that the subnet contains at least 64 addresses to accomodate any future ASE growth 
+- The VNET must be a regional VNET
+- With a recent change made in June 2016, ASEs can now be deployed into virtual networks that use *either* public address ranges, *or*
+RFC1918 address spaces (i.e. private addresses).  In order to use a virtual network with a public address range, you will
+need to create the subnet ahead of time, and then select the subnet in the ASE creation UX.
+- There needs to be a subnet with 8 or more addresses where the ASE is deployed
+- Once a subnet is used to host an ASE, the address range of the subnet cannot be changed.  For this reason it is recommended that the subnet contains at least 64 addresses to accommodate any future ASE growth 
+- **The subnet used to host the ASE must not contain any other compute resources.**
 
 Unlike the hosted service that contains the ASE, the [Virtual Network][virtualnetwork] and subnet are all under user control.  Administering your VNET is done through the Virtual Network UI or Powershell.
 
@@ -178,6 +181,7 @@ If you want to delete an App Service Environment then simply use the Delete acti
 ![][9]  
 
 ## Getting started
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
 To get started with App Service Environments, see [How To Create An App Service Environment](app-service-web-how-to-create-an-app-service-environment.md)
 

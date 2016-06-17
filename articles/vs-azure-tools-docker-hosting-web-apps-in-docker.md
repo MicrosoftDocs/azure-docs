@@ -1,101 +1,90 @@
 <properties
-   pageTitle="Deploy an ASP.NET container to a remote Docker host | Microsoft Azure"
-   description="Learn how to use Visual Studio Tools for Docker to publish an ASP.NET 5 web app to a Docker container running on an Azure Docker Host machine"   
-   services="visual-studio-online"
+   pageTitle="Deploy an ASP.NET Core Linux Docker container to a remote Docker host | Microsoft Azure"
+   description="Learn how to use Visual Studio Tools for Docker to deploy an ASP.NET Core web app to a Docker container running on an Azure Docker Host Linux VM"   
+   services="azure-container-service"
    documentationCenter=".net"
    authors="allclark"
    manager="douge"
    editor=""/>
 
 <tags
-   ms.service="visual-studio-online"
+   ms.service="azure-container-service"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark"/>
+   ms.author="allclark;stevelas"/>
 
 # Deploy an ASP.NET container to a remote Docker host
 
 ## Overview
-Docker is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services. Visual Studio 
-supports Docker on Ubuntu, CoreOS, and Windows. This tutorial walks you through using the 
-[Visual Studio 2015 Tools for Docker](http://aka.ms/DockerToolsForVS) extension to publish an ASP.NET 5 app to a Docker host on Azure. 
+Docker is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services.
+This tutorial walks you through using the [Visual Studio 2015 Tools for Docker](http://aka.ms/DockerToolsForVS) extension
+to deploy an ASP.NET Core app to a Docker host on Azure using PowerShell.
 
-## 1. Prerequisites
+## Prerequisites
 The following is needed to complete this tutorial:
 
-- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-linux-classic-docker-machine.md)
-- Install [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-linux-docker-machine.md)
+- Install [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
 - Install [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)
 
-## 2. Create an ASP.NET 5 web app
+## 1. Create an ASP.NET 5 web app
 The following steps will guide you through creating a basic ASP.NET 5 app that will be used in this tutorial.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 3. Add Docker support
+## 2. Add Docker support
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## 4. Point to the remote Docker host
+## 3. Use the DockerTask.ps1 PowerShell Script 
 
-1.  In the Visual Studio **Solution Explorer**, locate the **Properties** folder and expand it.
-1.  Open the *Docker.props* file.
+1.  Open a PowerShell prompt to the root directory of your project. 
 
-    ![Open the Docker.props file][0] 
+    ```
+    PS C:\Src\WebApplication1>
+    ```
 
-1.  Change the value of **DockerMachineName** to the name of your remote Docker host. If you do not know the name of your remote Docker host, 
-run ```docker-machine ls``` at the Windows PowerShell prompt. Use the value listed under the **Name** column for the desired host. 
+1.  Validate the remote host is running. You should see state = Running 
 
-    ![Change Docker Machine name][1]
+    ```
+    docker-machine ls
+    NAME         ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
+    MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
+    ```
 
-1.  Restart Visual Studio.
+    > [AZURE.NOTE] If you're using the Docker Beta, your host won't be listed here.
 
-## 5. Configure the Azure Docker Host endpoint
-Before deploying your app from Visual Studio to Azure, add endpoint 80 to your Docker Host Virtual Machine so you can view your app from the browser later.
-This can be done either via the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) or via Windows PowerShell: 
+1.  Build the app using the -Build parameter
 
-- **Use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) to configure the Azure Docker Host endpoint**
+    ```
+    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    ```  
 
-    1.  Browse to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
-    
-    1.  Select **VIRTUAL MACHINES**.
-    
-    1.  Select your Docker Host virtual machine.
-    
-    1.  Select the **ENDPOINTS** tab.
-    
-    1.  Select **ADD** (at the bottom of the page).
-    
-    1.  Follow the instructions to expose port 80, which is used by the deployment script by default.
+    > [AZURE.NOTE] If you're using the Docker Beta, omit the -Machine argument
+    > 
+    > ```
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > ```  
 
-- **Use Windows PowerShell to configure the Azure Docker Host endpoint**
 
-    1. Open Windows PowerShell
-    1. Enter the following command at the Windows PowerShell prompt (changing the values in angle brackets to match your environment):  
+1.  Run the app, using the -Run parameter
 
-        ```PowerShell
-        C:\PS>Get-AzureVM -ServiceName "<your_cloud_service_name>" -Name "<your_vm_name>" | Add-AzureEndpoint -Name "<endpoint_name>" -Protocol "tcp" -PublicPort 80 -LocalPort 80 | Update-AzureVM
-        ```
+    ```
+    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    ```
 
-## 6. Build and run the app
-When deploying to remote hosts, the volume mapping feature used for Edit & Refresh development will not function. 
-Therefore, you'll need to use the *release configuration* when building your app to avoid the volume mapping configuration.  
-Follow these steps to run your app.
+    > [AZURE.NOTE] If you're using the Docker Beta, omit the -Machine argument
+    > 
+    > ```
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > ```
 
-1.  From the Visual Studio toolbar, select the **Release** configuration
+	Once docker completes, you should see results similar to the following:
 
-1.  Change the launch target to **Docker**.
-
-1.  Select the **Docker** icon to build and run the app.
-
-![Launch app][2]
-
-You should see results similar to the following.
-
-![View your app][3]
+    ![View your app][3]
 
 [0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
 [1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png

@@ -40,4 +40,4 @@
 
 If you have set up a credit card or a debit card as your payment method, the payment will be made automatically.  To change the card at any time, see [How to change Payments or Credits for an azure subscription](billing-how-to-change-credit-card.md).
 
-If you are on an invoice method of payment, send your payment to the location listed at the bottom of your invoice. For additional help, contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+If you are on an invoice method of payment, send your payment to the location listed at the bottom of your invoice. For additional help, contact [Microsoft Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

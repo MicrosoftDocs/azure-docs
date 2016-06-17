@@ -306,7 +306,7 @@ GO
 
 Elastic database tools and row-level security can be used together to scale out an application’s data tier with support for both multi-tenant and single-tenant shards. Multi-tenant shards can be used to store data more efficiently (particularly in cases where a large number of tenants have only a few rows of data), while single-tenant shards can be used to support premium tenants with stricter performance and isolation requirements.  For more information, see [Row-Level Security reference](https://msdn.microsoft.com/library/dn765131). 
 
-## Learn More
+## Additional resources
 
 - [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
 - [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)

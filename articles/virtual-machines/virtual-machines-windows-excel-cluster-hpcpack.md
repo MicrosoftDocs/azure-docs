@@ -46,7 +46,7 @@ We'll show you two ways to set up the cluster: first, using an Azure quickstart 
 ### Use a quickstart template
 Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure portal. When you open the template in the preview portal, you get a simple UI where you enter the settings for your cluster. Here are the steps. 
 
->[AZURE.TIP]If you want, use an [Azure Markeplace template](https://ms.portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) that creates a similar cluster specifically for Excel workloads. The steps differ slightly from the following.
+>[AZURE.TIP]If you want, use an [Azure Markeplace template](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) that creates a similar cluster specifically for Excel workloads. The steps differ slightly from the following.
 
 1.  Visit the [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). If you want, review information about the template and the source code.
 

@@ -89,7 +89,7 @@ Open your Application Insights resource in the [Azure portal](https://portal.azu
 The portal opens on a view of the telemetry from your app:
 ![](./media/app-insights-asp-net/66.png)
 
-* Individual events appear in **Search** (1). Data appears here first (and in Live Stream). Click any event to see its properties. 
+* Individual events appear in **Search** (1). Data appears here first (and in [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream)). Click any event to see its properties. 
 * Aggregated metrics appear in the charts (2). It might take a minute or two for data to appear here. Click any chart to open a blade with more detail.
 
 [Learn more about using Application Insights in the Azure portal](app-insights-dashboards.md).

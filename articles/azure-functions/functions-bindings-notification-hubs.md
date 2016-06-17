@@ -131,7 +131,7 @@ This example shows how to use the `Notification` type that is defined in the [Mi
 	  }
 	}
 
-For more information on uploading your project.json file, see [uploading a project.json file](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+For more information on uploading your project.json file, see [uploading a project.json file](functions-reference.md#fileupdate).
 
 Example code:
 

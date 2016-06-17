@@ -114,7 +114,7 @@ More recently, Azure released the [Azure resource management](../articles/virtua
 
 There are several popular systems that can deploy entire groups of VMs and install Docker (or other Linux container host systems) on them as an automatable group. For direct links, see the [containers and tools](#containers-and-vm-technologies) section, below. There are several systems that do this to a greater or lesser extent, and this list is not exhaustive. Depending upon your skill set and scenarios, they may or may not be useful.
 
-Docker has its own set of VM-creation tools ([docker-machine](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
+Docker has its own set of VM-creation tools ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
 
 In addition, you can try out [Mesosphere's Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS is based on the open-source [mesos](http://mesos.apache.org/) "distributed systems kernel" that enables you to treat your datacenter as one addressable service. DCOS has built-in packages for several important systems such as [Spark](http://spark.apache.org/) and [Kafka](http://kafka.apache.org/) (and others) as well as built-in services such as [Marathon](https://mesosphere.github.io/marathon/) (a container control system) and [Chronos](https://mesosphere.github.io/chronos/) (a distributed scheduler). Mesos was derived from lessons learned at Twitter, AirBnb, and other web-scale businesses.
 
@@ -165,7 +165,7 @@ Docker on Microsoft Azure:
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
 - [Using the Docker VM Extension from the Azure portal](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
 - [Getting Started Quickly with Docker in the Azure Marketplace](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)
-- [How to use docker-machine on Azure](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)
+- [How to use docker-machine on Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
 - [How to use docker with swarm on Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
 - [Get Started with Docker and Compose on Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Using an Azure resource group template to create a Docker host on Azure quickly](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
