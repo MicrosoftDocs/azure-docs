@@ -31,8 +31,6 @@ Point-In-Time Restore allows you to restore an existing database as a new databa
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
-- [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-
 
 The database can be restored to any performance level or elastic pool. You need to ensure you have sufficient DTU quota on the server or pool keeping in mind that the restore creates a new database and that the service tier and performance level of the restored database may be different than the current state of the live database. Once complete, the restored database is a normal fully accessible online database charged at normal rates based on its service tier and performance level. 
 
@@ -60,14 +58,10 @@ Automatic backups and Point-In-Time Restore protect your databases from accident
 
 - For detailed steps to recover to a point in time using the Azure portal, see [Point-In-Time Restore using the Azure portal](sql-database-point-in-time-restore-portal.md).
 - For detailed steps to recover to a point in time using PowerShell, see [Point-In-Time Restore using PowerShell](sql-database-point-in-time-restore-powershell.md).
-- For detailed steps to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- For detailed information regarding Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
-
+- For information about how to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+ore.md)
+- For a full discussion about how to recover from a user or application error, see [User error recovery](sql-database-user-error-recover.md).
 
 ## Additional resources
 
-- [Restore a deleted database](sql-database-restore-deleted-database.md)
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Business continuity scenarios](sql-database-business-continuity-scenarios.md)

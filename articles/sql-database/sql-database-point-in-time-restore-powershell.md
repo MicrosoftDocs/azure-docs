@@ -22,7 +22,6 @@
 - [Overview](sql-database-point-in-time-restore.md)
 - [Azure portal](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
-- [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using PowerShell.
 
@@ -52,14 +51,10 @@ This article shows you how to restore your database to an earlier point in time 
 ## Next steps
 
 - For detailed steps to recover to a point in time using the Azure portal, see [Point-In-Time Restore using the Azure portal](sql-database-point-in-time-restore-portal.md).
-- For detailed steps to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- For information about how to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 - For an overview of point in time restore, see [Point-In-Time Restore](sql-database-point-in-time-restore.md)
-- For detailed information regarding Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+- For a full discussion about how to recover from a user or application error, see [User error recovery](sql-database-user-error-recover.md).
 
 ## Additional resources
 
-- [Restore a deleted database](sql-database-restore-deleted-database.md)
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Business continuity scenarios](sql-database-business-continuity-scenarios.md)
