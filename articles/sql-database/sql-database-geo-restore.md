@@ -27,7 +27,7 @@
 - [Business continuity scenarios](sql-database-business-continuity-scenarios.md)
 
 
-Geo-Restore enables you to restore a SQL database on any server in any Azure region from the most recent [automated daily backup](sql-database-automated-backups). Geo-Restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. You can use the [Azure portal](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
+Geo-Restore enables you to restore a SQL database on any server in any Azure region from the most recent [automated daily backup](sql-database-automated-backups.md). Geo-Restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage. You can use the [Azure portal](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
 
 > [AZURE.SELECTOR]
 - [Overview](sql-database-geo-restore.md)
