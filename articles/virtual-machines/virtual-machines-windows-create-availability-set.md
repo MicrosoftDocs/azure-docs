@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/17/2016"
 	ms.author="cynthn"/>
 
 
@@ -69,9 +69,6 @@ This example creates an availability set in the **RMResGroup** resource group in
 	
 For more information, see [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
 
-## Use the CLI to create an availability set
-
-	availset create [options] <resource-group> <name> <location> [tags]
 
 ## Troubleshooting
 
