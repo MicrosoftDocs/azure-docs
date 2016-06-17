@@ -60,7 +60,7 @@ Automatic backups and Point-In-Time Restore protect your databases from accident
 - For detailed steps to recover to a point in time using PowerShell, see [Point-In-Time Restore using PowerShell](sql-database-point-in-time-restore-powershell.md).
 - For information about how to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 ore.md)
-- For a full discussion about how to recover from a user or application error, see [User error recovery](sql-database-user-error-recover.md).
+- For a full discussion about how to recover from a user or application error, see [User error recovery](sql-database-user-error-recovery.md).
 
 ## Additional resources
 

@@ -53,7 +53,7 @@ This article shows you how to restore your database to an earlier point in time 
 - For detailed steps to recover to a point in time using the Azure portal, see [Point-In-Time Restore using the Azure portal](sql-database-point-in-time-restore-portal.md).
 - For information about how to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 - For an overview of point in time restore, see [Point-In-Time Restore](sql-database-point-in-time-restore.md)
-- For a full discussion about how to recover from a user or application error, see [User error recovery](sql-database-user-error-recover.md).
+- For a full discussion about how to recover from a user or application error, see [User error recovery](sql-database-user-error-recovery.md).
 
 ## Additional resources
 
