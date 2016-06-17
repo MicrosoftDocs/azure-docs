@@ -327,6 +327,7 @@ Add the functions to execute when the device receives a command from the hub, an
     ```
     
     For reference, here is a sample **DeviceInfo** message sent to IoT Hub at start up:
+
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -345,11 +346,13 @@ Add the functions to execute when the device receives a command from the hub, an
     ```
     
     For reference, here is a sample **Telemetry** message sent to IoT Hub:
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
     For reference, here is a sample **Command** received from IoT Hub:
+    
     ```
     {
       "Name":"SetHumidity",
