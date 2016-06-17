@@ -24,6 +24,7 @@
 - [Overview](sql-database-point-in-time-restore.md)
 - [Azure portal](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
 
 
 This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using the Azure Portal.
