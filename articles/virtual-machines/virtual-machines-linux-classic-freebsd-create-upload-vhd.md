@@ -170,11 +170,11 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 2. Type the following command:  
 	`Add-AzureAccount`
 
-	This command opens a sign-in window so you can sign in with your work or school account.
+	This command opens a sign-in window where you can sign in with your work or school account.
 
 	![PowerShell Window](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/add_azureaccount.png)
 
-3. Azure authenticates and saves the credential information, then closes the window.
+3. Azure authenticates and saves the credential information. Then it closes the window.
 
 ### Use the certificate method to upload a .vhd file
 
@@ -190,24 +190,23 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 3. Save the .publishsettings file.
 
 4. Type:
-	`Import-AzurePublishSettingsFile <PathToFile>`
+	`Import-AzurePublishSettingsFile <PathToFile>`, where `
+`<PathToFile>` is the full path to the .publishsettings file.
 
-	 `<PathToFile>` is the full path to the .publishsettings file.
-
-   For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
+   For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
    For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 ## Step 4: Upload the .vhd file
 
-When you upload the .vhd file, you can place it anywhere within your Blob storage. Here a few helpful terms.
+When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll use in the command when you upload the file:
 -  **BlobStorageURL** is the URL for the storage account that you created in Step 2.
--  **YourImagesFolder** is the container within blob storage where you want to store your images.
+-  **YourImagesFolder** is the container within Blob storage where you want to store your images.
 - **VHDName** is the label that appears in the Azure classic portal to identify the virtual hard disk.
 - **PathToVHDFile** is the full path and name of the .vhd file.
 
 
-1. From the Azure PowerShell window you used in the previous step, type:
+From the Azure PowerShell window you used in the previous step, type:
 
 		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
@@ -218,16 +217,17 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    **Important**: Use Linux as OS type because the current Azure PowerShell version only accepts “Linux” or “Windows” as a parameter.
+    **Important**: Use Linux as the OS type. The current Azure PowerShell version accepts only “Linux” or “Windows” as parameters.
 
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure classic portal.  
 
     ![Choose an image](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/addfreebsdimage.png)
 
-3. Create a virtual machine from the gallery. This new image is now available under **My Images**. Select the new image. Next, go through the prompts to set up a host name, password, SSH key, and so on.
+3. Create a virtual machine from the gallery. This new image is now available under **My Images**.
+4. Select the new image. Next, go through the prompts to set up a host name, password, SSH key, and so on.
 
-	![custom image](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
+	![Custom image](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
 
-4. After provisioning has finished, you will see your FreeBSD VM running in Azure.
+4. After you complete the provisioning, you'll see your FreeBSD VM running in Azure.
 
-	![freebsd image in azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
+	![FreeBSD image in azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
