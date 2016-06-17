@@ -33,7 +33,7 @@ public class Send
 	{
 ```
 
-Replace the namespace and Event Hub names with the values used when you created the Event Hub. The `sasKeyName` and `sasKey` correspond to the name and key of the Send rule you created earlier. With that information, you create a connection string.
+Replace the namespace and Event Hub names with the values used when you created the Event Hub.
 
 ``` Java
 	final String namespaceName = "----ServiceBusNamespaceName-----";
