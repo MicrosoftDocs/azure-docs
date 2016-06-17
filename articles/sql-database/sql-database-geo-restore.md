@@ -36,7 +36,6 @@ Geo-Restore enables you to restore a SQL database on any server in any Azure reg
 
 Geo-Restore is the default recovery option when your database is unavailable because of an incident in the region where the database is hosted. The database can be created on any server in any Azure region. Geo-Restore relies on [automated database backups](sql-database-automated-backups.md) in geo-redundant Azure storage and restores from the geo-replicated backup copy and therefore is resilient to the storage outages in the primary region.
 
-
 ## Geo-Restore in detail
 
 Geo-Restore uses the same technology as point in time restore with one important difference. It restores the database from a copy of the most recent daily backup in geo-replicated blob storage (RA-GRS). For each active database, the service maintains a backup chain that includes a weekly full backup, multiple daily differential backups, and transaction logs saved every 5 minutes. These blobs are geo-replicated this guarantees that daily backups are available even after a massive failure in the primary region. The following shows Geo-Replication of weekly and daily backups copied to the storage container(s).
@@ -49,12 +48,11 @@ If a large scale incident in a region results in unavailability of your database
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
-
+Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
 
 ## Recovery time for a Geo-Restore
 
-Recovery time is impacted by several factors: the size of the database and the performance level of the database, and the number of concurrent restore requests being processed in the target region. If there is prolonged outage in a region it is possible that there will be large numbers of Geo-Restore requests being processed by other regions. If there are a large number of requests this may increase the recovery time for databases in that region.
-
+Recovery time is impacted by several factors: the size of the database and the performance level of the database, and the number of concurrent restore requests being processed in the target region. If there is prolonged outage in a region it is possible that there will be large numbers of Geo-Restore requests being processed by other regions. If there are a large number of requests this may increase the recovery time for databases in that region. The duration it takes to restore a DB depends on multiple factors such as the size of the DB, the number of transaction log, network bandwidth and etc. The majority of database restores complete within 12 hours.
 
 ## Summary
 
