@@ -21,9 +21,8 @@
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article shows a recommended architecture for a basic web application in Microsoft Azure.  
-
-The architecture described here has a web front end, with a SQL database on the back end. The architecture uses Azure platform services such as [App Service][app-service] and [Azure SQL Database][sql-db], with a focus on scalability, availability, manageability, and security. Later articles will build on this basic architecture, adding components such as cache and CDN. 
+This article shows a recommended architecture for a basic web application in Microsoft Azure. 
+The architecture implements a web front end using [Azure App Service][app-service], with [Azure SQL Database][sql-db] on the database. Later articles in this series build on this basic architecture, adding components such as cache and CDN. 
 
 > [AZURE.NOTE] This article is not focused on application development, and doesn't assume any particular application framework. Instead, the goal is to understand how the various Azure services fit together within this application architecture.
 
@@ -231,6 +230,11 @@ New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <r
 ```
 
 For more information, see [Deploy resources with Azure Resource Manager templates][deploy-arm-template].
+
+
+## Next steps
+
+- You can improve scalability and performance by adding features such as caching, CDN, and background processing for long-running tasks. See [Web application with improved scalability](guidance-web-apps-scalability.md).
 
 <!-- links -->
 
