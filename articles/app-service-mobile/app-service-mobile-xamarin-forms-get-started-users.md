@@ -70,7 +70,8 @@ You must implement the **IAuthenticate** interface for each platform supported b
 
 4. Open TodoList.xaml from the Portable Class Library project, add the following **Button** element in the *buttonsPanel* layout element, after the existing button: 
 
-		<Button Text="Sign-in" MinimumHeightRequest="30" Clicked="loginButton_Clicked" />
+      	<Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" 
+			Clicked="loginButton_Clicked"/>
 
 	This button triggers server-managed authentication with your mobile app backend.
 
@@ -92,6 +93,9 @@ You must implement the **IAuthenticate** interface for each platform supported b
 	            // Set syncItems to true in order to synchronize the data 
 	            // on startup when running in offline mode.
 	            await RefreshItems(true, syncItems: false);
+
+				// Hide the Sign-in button.
+                this.loginButton.IsVisible = false;
 	        }
 	    }
 
@@ -144,9 +148,12 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
                 // Sign in with Facebook login using a server-managed flow.
                 user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this,
                     MobileServiceAuthenticationProvider.Facebook);
-                message = string.Format("you are now signed-in as {0}.",
-                    user.UserId);
-                success = true;
+                if (user != null)
+                {
+                    message = string.Format("you are now signed-in as {0}.",
+                        user.UserId);
+                    success = true;
+                }
             }
             catch (Exception ex)
             {
@@ -191,35 +198,39 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 
 		public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 
-5. Update the `**ppDelegate** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate** interface, as follows:
+5. Update the **AppDelegate** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate** interface, as follows:
 
-		// Define a authenticated user.
-		private MobileServiceUser user;
+        // Define a authenticated user.
+        private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
         {
             var success = false;
+            var message = string.Empty;
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
                 if (user == null)
                 {
-                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
+                    user = await TodoItemManager.DefaultManager.CurrentClient
+                        .LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
                         MobileServiceAuthenticationProvider.Facebook);
                     if (user != null)
                     {
-                        UIAlertView avAlert = new UIAlertView("Authentication", "You are now signed-in " + user.UserId, null, "OK", null);
-                        avAlert.Show();
+                        message = string.Format("You are now signed-in as {0}.", user.UserId);
+                        success = true;                        
                     }
-                }
-
-                success = true;
+                }        
             }
             catch (Exception ex)
             {
-                UIAlertView avAlert = new UIAlertView("Authentication failed", ex.Message, null, "OK", null);
-                avAlert.Show();
+               message = ex.Message;
             }
+
+            // Display the success or failure message.
+            UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
+            avAlert.Show();         
+
             return success;
         }
 
@@ -231,7 +242,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 
 	This makes sure that the authenticator is initialized before the app is loaded.
 
-7. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.
+7. Rebuild the app, run it, then sign-in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
 
 ##Add authentication to Windows app projects
@@ -275,11 +286,11 @@ This section shows how to implement the **IAuthenticate** interface in the Windo
                         .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
                     if (user != null)
                     {
+						success = true;
                         message = string.Format("You are now signed-in as {0}.", user.UserId);
                     }
                 }
-
-                success = true;
+                
             }
             catch (Exception ex)
             {
