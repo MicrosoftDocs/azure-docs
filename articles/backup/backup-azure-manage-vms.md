@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/17/2016"
 	ms.author="jimpark; markgal;"/>
 
 # Manage and monitor Azure virtual machine backups
@@ -23,7 +23,7 @@
 - [Manage Azure VM backups](backup-azure-manage-vms.md)
 - [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
 
-This article provides guidance on how to manage the backups for your virtual machines (VM), as well as explain the backup information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of virtual machines, nor does it explain how to protect virtual machines. For a primer on protecting Azure Resource Manager-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
+This article provides guidance on how to manage the backups for your virtual machines (VM), as well as explain the backup alerts information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of virtual machines, nor does it explain how to protect virtual machines. For a primer on protecting Azure Resource Manager-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
 
 ## Access vaults and protected virtual machines
 
@@ -64,7 +64,7 @@ In the previous procedure you opened the vault dashboard. To open the vault item
 
 1. In the vault dashboard, on the **Backup Items** tile, click **Azure Virtual Machines**.
 
-    ![Open backup items tile](./media/backup-azure-manage-vms/contoso-vault.png)
+    ![Open backup items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
     The **Backup Items** blade lists the last backup job for each item. In this example, there is one virtual machine, demovm-markgal, protected by this vault.  
 
@@ -120,7 +120,7 @@ You can take an on-demand backup of a virtual machine once it is configured for 
 
 To trigger an on-demand backup of a virtual machine:
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Backup now**.
+- On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Backup now**.
 
     ![Backup now button](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -132,7 +132,11 @@ To trigger an on-demand backup of a virtual machine:
 
 
 ## Stop protecting virtual machines
-If you choose to stop protecting a virtual machine, you are asked if you want to retain the recovery points. There are two ways to stop protecting virtual machines: stop all future backup jobs and delete all recovery points, or stop all future backup jobs but leave the recovery points. There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For pricing details for such virtual machines, click [here](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, there is no option for restoring the virtual machine.
+If you choose to stop protecting a virtual machine, you are asked if you want to retain the recovery points. There are two ways to stop protecting virtual machines:
+- stop all future backup jobs and delete all recovery points, or
+- stop all future backup jobs but leave the recovery points <br/>
+
+There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For information about the cost of leaving the recovery points, see the  [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, you will no longer have an option for restoring the virtual machine.
 
 To stop protection for a virtual machine:
 
@@ -148,7 +152,7 @@ To stop protection for a virtual machine:
 
     ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
-3. If you chose to retain backup data, skip to the step 4. If you chose to delete backup data, confirm that you want to stop the backup jobs and delete the recovery points - type the name of the item.
+3. If you chose to retain the backup data, skip to step 4. If you chose to delete backup data, confirm that you want to stop the backup jobs and delete the recovery points - type the name of the item.
 
     ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
 
@@ -184,7 +188,7 @@ To resume protection for the virtual machine
     ![Successfully protected VM](./media/backup-azure-manage-vms/success-message.png)
 
 ## Delete Backup data
-You can delete the backup data associated with a virtual machine during the **Stop backup** job, or anytime after the backups have stopped. If it is beneficial to allow to stop the backup job for a virtual machine, and wait days or weeks before deciding whether to delete the recovery points, then that is possible. Unlike restoring recovery points, when deleting backup data, you cannot choose specific recovery points to delete. If you choose to delete it, you delete all recovery points associated with the item.
+You can delete the backup data associated with a virtual machine during the **Stop backup** job, or anytime after the backup job has completed. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you cannot choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
 
 The following procedure assumes the Backup job for the virtual machine has been stopped or disabled. Only when the Backup job has been disabled, will the **Resume backup** and **Delete backup** options be available in the vault item dashboard.
 
@@ -214,9 +218,7 @@ To delete backup data on a virtual machine with the *Backup disabled*:
     A notification message lets you know the backup data has been deleted.
 
 ## Auditing Operations
-You can review the operation and event logs to see the management operations performed on the Recovery Services vault. Operations logs enable great post-mortem and audit support for the backup operations. You can use the Audit logs feature to view the logs for all operations *in the subscription*. For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md). Use the **Audit logs** setting to view the events and operations logs specific to a Recovery Services vault or to a vault item.
-
-The following operations are logged in Audit logs:
+You can review the operation and event logs to see the management operations performed on the Recovery Services vault. Operations logs enable great post-mortem and audit support for the backup operations. The following operations are logged in Audit logs:
 
 - Register
 - Unregister
@@ -230,29 +232,51 @@ The following operations are logged in Audit logs:
 - Update policy
 - Cancel job
 
-To view the event logs for a Recovery Services vault:
+There are multiple ways to filter and view the operations. The quickest way to view operations that threw a critical or warning event, in the dashboard, is to use the **Backup Alerts** tile. For a comprehensive, and customizable view of events, you can also use the **Audit Logs** setting to view the logs for all operations in the subscription. For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md). The **Audit logs** setting provides information about the events and operations logs specific to a Recovery Services vault or to a vault item.
+
+### Use the Backup Alerts tile to view alerts
+
+The **Backup Alerts** tile provides shortcuts to filtered views of Critical or Warning-level alerts. To open one of these filtered views:
+
+1. On the **Backup Alerts** tile on the vault dashboard, click **Critical** or **Warning** to view the operation logs filtered to show just those event levels.
+
+    ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-tile.png)
+
+    The Backup Alerts blade opens and displays the filtered alerts.
+
+    ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-critical.png)
+
+2. To view detailed information about a particular alert, from the list click the alert to open its Detail blade.
+
+    ![Event Detail](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
+
+    To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-manage-vms.md#view-additional-event-attributes)
+
+### Use the Audit logs to view the operations and events for a Recovery Services vault:
 
 1. In the [vault dashboard](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
 
-    ![Audit Logs](./media/backup-azure-manage-vms/audit-logs.png)
+    ![Audit Logs](./media/backup-azure-manage-vms/audit-logs-1606-1.png)
 
-    The Events blade opens to the operational events filtered just for the current vault. The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter** settings. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Show chart** to toggle the chart off.
+    The Events blade opens to the operational events filtered just for the current vault.
 
     ![Audit Logs Filter](./media/backup-azure-manage-vms/audit-logs-filter.png)
+
+    The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter** settings. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Show chart** to toggle the chart off. The default view of Events shows Operation, Level, Status, Resource, and Time, information. For information about exposing additional Event attributes, see the section [expanding Event information](backup-azure-manage-vms.md#view-additional-event-attributes).
 
 2. For additional information on a particular operation, from the list of Operations, click that operation to open its blade. The blade contains detailed information about the operation, and a list of the Events that occurred in the Time span.
 
     ![Operation Details](./media/backup-azure-manage-vms/audit-logs-details-window.png)
 
-3. To view detailed information about an particular event, from the list of events, click the operation to open its Details blade.
+3. To view detailed information about a particular event, from the list of events, click the operation to open its Detail blade.
 
-    ![Event Details](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
+    ![Event Detail](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
 
-    The Event-level information is as detailed as the information gets. The remainder of this procedure explains how to edit or alter the available information.
+    The Event-level information is as detailed as the information gets. The remainder of this procedure explains how to edit or alter the available information. If you like seeing this much information about each event, and would like to see this much detail to the **Events** blade, see the section [expanding Event information](backup-azure-manage-vms.md#view-additional-event-attributes).
 
 4. To edit the list of available filters, on the **Events** menu, click **Filter** to open that blade.
 
-    ![open filter blade](./media/backup-azure-manage-vms/audi-logs-filter-button.png)
+    ![open filter blade](./media/backup-azure-manage-vms/audit-logs-filter-button.png)
 
 5. On the **Filter** blade, adjust the **Level**, **Time span**, and **Caller** filters. The other filters are not available since they were set to provide the current information for the Recovery Services vault.
 
@@ -265,6 +289,38 @@ To view the event logs for a Recovery Services vault:
     ![Operation Details](./media/backup-azure-manage-vms/edited-list-of-events.png)
 
 
+### View additional event attributes
+Using the **Columns** button, you can enable additional event attributes to appear in the list on the **Events** blade. The default list of events displays information for Operation, Level, Status, Resource, and Time. To enable additional attributes:
+1. On the **Events** blade, click **Columns**.
+
+    ![Open Columns](./media/backup-azure-manage-vms/audi-logs-column-button.png)
+
+    The **Choose columns** blade opens.
+
+    ![Columns blade](./media/backup-azure-manage-vms/columns-blade.png)
+
+2. Click the checkbox to select that attribute. The attribute checkbox toggles on and off.
+
+3. Click **Reset** to reset the list of attributes in the **Events** blade. After adding or removing attributes from the list, use **Reset** to view the new list of Event attributes.
+    Click **Update** to update the data in the Event attributes. The following table provides information about each attribute.
+
+| Column name      |Description|
+| -----------------|-----------|
+| Operation|The name of the operation|
+| Level|The level of the operation, values can be: Informational, Warning, Error, or Critical|
+|Status|Descriptive state of the operation|
+|Resource|URL that identifies the resource; also known as the resource ID|
+|Time|Time, measured from the current time, when the event occurred|
+|Caller|Who or what called or triggered the event; can be the system, or a user|
+|Timestamp|The time when the event was triggered|
+|Resource Group|The associated resource group|
+|Resource Type|The internal resource type used by Resource Manager|
+|Subscription ID|The associated subscription ID|
+|Category|Category of the event|
+|Correlation ID|Common ID for related events|
+
+
+
 ## Alert notifications
 You can get custom alert notifications for the jobs in the portal. To get these jobs, define PowerShell-based alert rules on the operational logs events. Use *PowerShell version 1.3.0 or later*.
 
@@ -275,19 +331,29 @@ PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/RecoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/RecoveryServicesVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId** : You can get this information from the Audit logs. The ResourceId is provided in the Resource column of the Operation logs.
+**ResourceId** : You can get this information from the Audit logs. The ResourceId is a URL provided in the Resource column of the Operation logs.
 
-**OperationName** : This will be of the format "Microsoft.RecoveryServices/recoveryServicesVault/<EventName>" where EventName is one of Register, Unregister, ConfigureProtection, Backup, Restore, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy, UpdateProtectionPolicy
+**OperationName** : This will be of the format "Microsoft.RecoveryServices/recoveryServicesVault/<EventName>" where EventName can be:
+- Register
+- Unregister
+- ConfigureProtection
+- Backup
+- Restore
+- StopProtection
+- DeleteBackupData
+- CreateProtectionPolicy
+- DeleteProtectionPolicy
+- UpdateProtectionPolicy
 
-**Status** : Supported values are- Started, Succeeded and Failed.
+**Status** : Supported values are- Started, Succeeded, or Failed.
 
 **ResourceGroup** : This is the Resource Group to which the resource belongs. You can add the Resource Group column to the generated logs. Resource Group is one of the available types of event information.
 
 **Name** : Name of the Alert Rule.
 
-**CustomEmail** : Specify the custom email address to which you want to send alert notification
+**CustomEmail** : Specify the custom email address to which you want to send an alert notification
 
-**SendToServiceOwners** : This option sends alert notification to all administrators and co-administrators of the subscription. It can be used in **New-AzureRmAlertRuleEmail** cmdlet
+**SendToServiceOwners** : This option sends alert notifications to all administrators and co-administrators of the subscription. It can be used in **New-AzureRmAlertRuleEmail** cmdlet
 
 ### Limitations on Alerts
 Event-based alerts are subjected to the following limitations:
