@@ -287,7 +287,7 @@ If you browse to the directory by using Server Explorer, you can find the workin
 Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
 You need to go through the following, to complete the publishing:
 
->[AZURE.NOTE] This feature requires SDK version 2.1.150 - https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/13/release-of-service-fabric-sdk-2-1-150-and-runtime-5-1-150/
+>[AZURE.NOTE] This feature requires [SDK version 2.1.150](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/13/release-of-service-fabric-sdk-2-1-150-and-runtime-5-1-150/)
 
 1. Choose File -> New Project and create a new Service Fabric Application.
 2. Choose Guest Executable as the Service Template.
