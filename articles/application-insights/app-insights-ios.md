@@ -33,7 +33,7 @@ If your app has a server side, use [Application Insights](app-insights-overview.
 
 > [AZURE.NOTE] You will soon be able to use [Application Insights Analytics](app-insights-analytics.md) and [Continuous Export](app-insights-export-telemetry.md) with telemetry sent from the HockeyApp SDK. 
 >
-> [More info about this change.](https://azure.microsoft.com/en-us/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+> [More info about this change.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
 
 

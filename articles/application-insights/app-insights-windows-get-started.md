@@ -35,5 +35,5 @@ You can also use [Application Insights for Windows Desktop apps](app-insights-wi
 
 > [AZURE.NOTE] You will soon be able to use [Application Insights Analytics](app-insights-analytics.md) and [Continuous Export](app-insights-export-telemetry.md) with telemetry sent from the HockeyApp SDK. 
 >
-> [More info about this change.](https://azure.microsoft.com/en-us/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+> [More info about this change.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
