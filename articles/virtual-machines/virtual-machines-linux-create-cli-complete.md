@@ -1252,7 +1252,7 @@ Now that you have built out this environment, what if you want to create an addi
 azure group export TestRG
 ```
 
-This creates the `TestRG.json` file in your current working directory. When you then create a new environment from this template, you will prompted for all of the resource names such as for the load balancer, network interfaces, VMs, etc. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown above, editing your JSON template to specify the resource names, or by [creating a parameters.json file](../resource-group-authoring-templates.md/#parameters) that just specifies the resource names. 
+This creates the `TestRG.json` file in your current working directory. When you then create a new environment from this template, you will prompted for all of the resource names such as for the load balancer, network interfaces, VMs, etc. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown above, editing your JSON template to specify the resource names, or by [creating a parameters.json file](../resource-group-authoring-templates.md#parameters) that just specifies the resource names. 
 
 To create a new environment from your template:
 
