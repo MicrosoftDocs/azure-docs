@@ -92,7 +92,7 @@ Follow the documentation at [Create a SQL Data Warehouse](../sql-data-warehouse/
 
 **Install Visual Studio 2015 and SQL Server Data Tools.** For instructions, see [Install Visual Studio 2015 and/or SSDT (SQL Server Data Tools) for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connect to your Azure SQL DW with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md).
+**Connect to your Azure SQL DW with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 >[AZURE.NOTE] Run the following SQL query on the database you created in your SQL Data Warehouse (instead of the query provided in step 3 of the connect topic,) to **create a master key**.
 
