@@ -6,15 +6,13 @@
 1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials.
 
 2. Click **Go to project**, and then click **Create Project**.
-<!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
--->
-3. Enter a project name.
+3. Enter a **Project name** and click **Create**
 
-4. Make a note of the project number which appears under the **Project name** text box. You will need it later in the tutorial to populate in the Android Manifest file.
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
+4. Once the project is created then make sure that you are noting down the **Project number** which will be a long numerical value. You can find this in the **Settings** of your Project and you will require this later. 
+ 
+	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)
+
 5. Click **Create**.
 
 6. In the left column, make sure **Overview** is selected, and under Mobile APIs click **Google Cloud Messaging**. Then on the next page click **Enable**.
