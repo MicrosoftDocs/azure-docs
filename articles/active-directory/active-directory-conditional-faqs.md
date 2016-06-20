@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Conditional access FAQs | Microsoft Azure"
-	description="Frequently asked questions for conditional access "
+	description="Frequently asked questions about conditional access "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,13 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="06/15/2016"
 	ms.author="femila"/>
 
 # Conditional access FAQs
 
-**Can I use the device conditions in Azure AD if I am using mobile device management for Office 365?**
+## Which applications work with conditional access policies?
+Please see the topic, [Conditional access- What applications are supported](active-directory-conditional-access-supported-apps.md).
+
+## Are conditional access policies enforced for B2B collaboration and guest users?
+Policies are enforced for B2B collaboration users. However, in some cases the user may not be able to satisfy the policy requirement, for example, if their organization does not support multi-factor authentication. Policy is not currently enforced for SharePoint guest users. The guest relationship is maintained within SharePoint, so guest users accounts are not subject to access polices at the authenticatoin server. Guest access can be managed at SharePoint.
+
+## Does SharePoint Online policy also apply to OneDrive for Business?
+Yes.
  
-With MDM for O365, all the device policies are maintained as part of Office 365. To avoid conflicting policies between what is set in Office 365 and what is set in Azure AD, we currently disallow setting these policies in Azure AD if you are using MDM for O365.
+## Why can’t I set policy on client apps, like Word or Outlook?
+Conditional access policy sets requirements for accessing a service and is enforced when authentication happens to that service. So policy is not set directly on a client application, instead it is applied when it calls into a service. For example, policy set on SharePoint will apply to clients calling SharePoint and policy set on Exchange will apply to Outlook.
 
 
