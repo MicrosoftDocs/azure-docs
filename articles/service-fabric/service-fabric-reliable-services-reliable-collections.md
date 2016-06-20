@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
@@ -153,6 +153,7 @@ Of course, reads from Primary are always stable: can never be false progressed.
 ## Next steps
 
 - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+- [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
 - [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 - [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 - [Getting started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
