@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/17/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl"/>
 
 # Partition Service Fabric reliable services
@@ -135,15 +135,9 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-<<<<<<< HEAD
     
     You also need to update the LowKey and HighKey properties of the StatefulService element in the ApplicationManifest.xml as shown below.
-    
-=======
 
-    You also need to update the LowKey and HighKey properties of the StatefulService element as shown below.
-
->>>>>>> 5222120350288cddda452c58eab3069c033062e7
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -247,19 +241,11 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 10. Let's add a stateless service to the project to see how you can call a particular partition.
 
     This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key, and sends it to the Alphabet.Processing service for processing.
-<<<<<<< HEAD
     
 11. In the **Create a Service** dialog box, choose **Stateless** service and call it "Alphabet.Web" as shown below.
     
     ![Stateless service screenshot](./media/service-fabric-concepts-partitioning/createnewstateless.png).
-    
-=======
 
-11. In the **Create a Service** dialog box, choose **Stateless** service and call it "Alphabet.WebApi" as shown below.
-
-    ![Stateless service screenshot](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
-
->>>>>>> 5222120350288cddda452c58eab3069c033062e7
 12. Update the endpoint information in the ServiceManifest.xml of the Alphabet.WebApi service to open up a port as shown below.
 
     ```xml
@@ -374,21 +360,12 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     ```
 
 16. Once you finish deployment, you can check the service and all of its partitions in the Service Fabric Explorer.
-<<<<<<< HEAD
     
     ![Service Fabric Explorer screenshot](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
     
-17. In a browser, you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
+17. In a browser, you can test the partitioning logic by entering `http://localhost:8081/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
     
     ![Browser screenshot](./media/service-fabric-concepts-partitioning/samplerunning.png)
-=======
-
-    ![Service Fabric Explorer screenshot](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-
-17. In a browser, you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
-
-    ![Browser screenshot](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
->>>>>>> 5222120350288cddda452c58eab3069c033062e7
 
 The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
