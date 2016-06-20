@@ -63,8 +63,9 @@ To configure the integration of SAP Cloud for Customer into Azure AD, you need t
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
 	![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
-	![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
 	![Applications][2]
@@ -80,11 +81,15 @@ To configure the integration of SAP Cloud for Customer into Azure AD, you need t
 6. In the search box, type **SAP Cloud for Customer**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_01.png)
+
 7. In the results pane, select **SAP Cloud for Customer**, and then click **Complete** to add the application.
+
+	![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
 
 
 
 ##  Configuring and testing Azure AD single sign-on
+
 In this section, you configure and test Azure AD single sign-on with SAP Cloud for Customer based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in SAP Cloud for Customer is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SAP Cloud for Customer needs to be established.
@@ -99,7 +104,7 @@ To configure and test Azure AD single sign-on with SAP Cloud for Customer, you n
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SAP Cloud for Customer application.
 
@@ -296,14 +301,14 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	![Assign User][205]
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the SAP Cloud for Customer tile in the Access Panel, you should get automatically signed-on to your SAP Cloud for Customer application.
 
 
-## Additional Resources
+## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
