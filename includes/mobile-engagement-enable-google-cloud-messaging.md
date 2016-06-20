@@ -13,7 +13,7 @@
  
 	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)
 
-5. Now we will create a key for the Google Cloud messaging platform which will be used bu Azure Mobile Engagement platform to send notifications to the Android devices. Go to the **API Manager** section and click on **Google Cloud Messaging** under **Mobile APIs**. 
+5. Now we will create a key for the Google Cloud messaging platform which will be used by our platform to send notifications to the Android devices. Go to the **API Manager** section and click on **Google Cloud Messaging** under **Mobile APIs**. 
 
 	![](./media/mobile-engagement-enable-google-cloud-messaging/gcm.png)
 
