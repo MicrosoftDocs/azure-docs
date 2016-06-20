@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -63,8 +63,10 @@ To configure the integration of SAP Business ByDesign into Azure AD, you need to
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
 	![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
-	![Active Directory](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_02.png)
+
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
 	![Applications][2]
@@ -80,8 +82,10 @@ To configure the integration of SAP Business ByDesign into Azure AD, you need to
 6. In the search box, type **SAP Business ByDesign**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_01.png)
+
 7. In the results pane, select **SAP Business ByDesign**, and then click **Complete** to add the application.
 
+	![Active Directory](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_02.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -120,13 +124,15 @@ SAP Business ByDesign application expects the SAML assertions in a specific form
 
 3. On the Edit User Attribute dialog, perform the following steps:
 
+	![Configure Single Sign-On](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_85.png) 
+
 	a. From the Attribute Value list, select the **ExtractMailPrefix()** fuction
-	b. In the Mail value list select the user attribute you want to use for your implementation. 
-	For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select user.extensionattribute2. 
+
+	b. From the Mail list, select the user attribute you want to use for your implementation. 
+	For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**. 
 
 	b. Click **Complete**. 
 	
-	![Configure Single Sign-On](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_85.png) 
 
 4. In the classic portal, on the **SAP Business ByDesign** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 	 
@@ -140,7 +146,7 @@ SAP Business ByDesign application expects the SAML assertions in a specific form
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SAP Business ByDesign application using the following pattern: **https://\<servername\>.sapbydesign.com**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SAP Business ByDesign application using the following pattern: `https://<servername>.sapbydesign.com`
 	
 	b. click **Next**
  
@@ -153,33 +159,33 @@ SAP Business ByDesign application expects the SAML assertions in a specific form
     b. Click **Next**.
 
 
-8. To get SSO configured for your application, please follow the below steps in SAP Business ByDesign environment.
+8. To get SSO configured for your application, perform the following steps:
 
-	a. Login into SAP Business ByDesign portal with administrator rights.
+	a. Sign on to your SAP Business ByDesign portal with administrator rights.
 
-	b. Navigate to **Application and User Management Common Task** and choose **Identity Provider** tab
+	b. Navigate to **Application and User Management Common Task** and click the **Identity Provider** tab.
 
-	c. Click **New Identity Provider** and select the metadata XML file that you have downloaded from Azure AD in step 4a. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
+	c. Click **New Identity Provider** and select the metadata XML file that you have downloaded from the Azure classic portal. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
 
-	d. Azure AD requires the element Assertion Consumer Service URL in the SAML request, so select the **Include Assertion Consumer Service URL** checkbox.
+	d. To include the **Assertion Consumer Service URL** into the SAML request, select **Include Assertion Consumer Service URL**.
 
-	e. Once you have configured your IdP, activate SSO in your solution. To do so, click Activate Single Sign-On.
+	e. Click **Activate Single Sign-On**.
 
 	f. Save your changes.
 
-	g. Now click on **My System** tab
+	g. Click the **My System** tab.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
 
-	h. Copy the SSO URL and paste it in the Azure AD Sign On URL textbox as shown in step 3
+	h. Copy the **SSO URL** and paste it into the **Azure AD Sign On URL** textbox.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_53.png)
 
-	i. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting the Manual Identity Provider Selection checkbox.
+	i. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting **Manual Identity Provider Selection**.
 
-	j. In the SSO URL section, specify which URL should be used by the employee to logon to the system. 
+	j. In the **SSO URL** section, specify the URL that should be used by the employee to logon to the system. 
 	In the URL Sent to Employee dropdown list, you can choose between the following options:
 	
 	**Non-SSO URL**
