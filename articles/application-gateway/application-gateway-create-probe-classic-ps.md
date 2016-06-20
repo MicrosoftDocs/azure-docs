@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma" />
 
 # Create a custom probe for Azure Application Gateway (classic) by using PowerShell
@@ -110,7 +110,8 @@ Copy the following text to Notepad.
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
-    <BackendAddressPools>
+      </Probes>
+     <BackendAddressPools>
         <BackendAddressPool>
             <Name>pool1</Name>
             <IPAddresses>

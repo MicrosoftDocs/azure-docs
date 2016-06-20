@@ -41,12 +41,8 @@ Azure blob includes the following actions. There are no triggers.
 All connectors support data in JSON and XML formats.
 
 ## Create a connection to Azure blob
-When you add this Connector to your logic apps, enter the following storage account values: 
 
-|Property| Required|Description|
-| ---|---|---|
-|Azure storage account name | yes | The name of your blob storage account|
-|Azure storage account access key | yes | The access key to your blob storage account|
+>[AZURE.INCLUDE [Steps to create a connection to Azure Blob Storage](../../includes/connectors-create-api-azureblobstorage.md)]
 
 After you create the connection, you enter the blob properties, like folder path or file name. The **REST API reference** in this topic describes these properties.
 

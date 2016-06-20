@@ -46,8 +46,11 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
 	![New data factory blade](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
 	> [AZURE.IMPORTANT] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “GetStartedDF” is not available**, change the name of the data factory (for example, yournameGetStartedDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
-	>  
+	> 
 	> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+	> 
+	> To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
+
 
 3.	Select the **Azure subscription** where you want the data factory to be created. 
 4.	Select existing **resource group** or create a new resource group. For the purpose of the tutorial, create a resource group named: **ADFGetStartedRG**.    

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="06/06/2016"
    ms.author="larryfr"/>
 
 # Use MapReduce with Hadoop on HDInsight with SSH
@@ -41,7 +41,7 @@ Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by u
 
 **If you provided a certificate key for SSH authentication** when you created the HDInsight cluster, you may need to specify the location of the private key on your client system, for example:
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+	ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 
 **If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
 

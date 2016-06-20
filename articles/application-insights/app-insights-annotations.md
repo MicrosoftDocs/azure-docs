@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="06/09/2016"
     ms.author="awills"/>
 
 # Release annotations in Application Insights

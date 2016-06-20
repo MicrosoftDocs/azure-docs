@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure Disk Encryption for Windows and Linux IaaS VMs| Microsoft Azure"
    description="The paper provides an overview of Microsoft Azure Disk Encryption for for Windows and Linux IaaS VMs."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/23/2016"
    ms.author="devtiw"/>
 
 
@@ -36,7 +36,7 @@ The Azure Disk Encryption solution supports the following customer scenarios:
 - Enable encryption on new IaaS VM’s created from pre-encrypted VHD and encryption keys
 - Enable encryption on new IaaS VM’s created from the Azure Gallery images 
 - Enable encryption on existing IaaS VM’s already running in Azure 
-- Disable encryption on Windows IaaS VMs  
+- Disable encryption on Windows IaaS VMs 
 
 The solution supports the following for IaaS VMs when enabled in Microsoft Azure:
 
@@ -78,10 +78,10 @@ When you enable and deploy Azure disk encryption for Azure IaaS VMs, the followi
 - Encryption of OS volume to protect boot volume at rest in customer storage
 
 	- Encryption of OS volume on Linus IaaS VM already running in Azure is not support currently. Encryption of OS volume for Linux IaaS VM is supported only for pre-encrypted VHD scenario
-	
+
 - Encryption of Data volume/s to protect the data volumes at rest in customer storage
 
-- Disable encryption on Windows IaaS VMs 
+- Disable encryption on Windows IaaS VMs
 
 - Safeguarding the encryption keys and secrets in customer Azure key vault subscription
 
@@ -125,7 +125,7 @@ The high level steps required to enable disk encryption for Windows and Linux VM
 
 The high level steps required to disable disk encryption for Windows IaaS VM’s are:
 
-1. Customer choose to disable encryption (decryption) on a running Windows IaaS VM in Azure 
+1. Customer choose to disable encryption (decryption) on a running Windows IaaS VM in Azure
 via the Azure disk encryption ARM template or PS cmdlets and specifies the decryption configuration.
 
 2. The disable encryption step is supported only on Windows IaaS VM and is not supported on Linux IaaS VM.
@@ -587,11 +587,11 @@ You can get the encryption status of the IaaS VM from disk encryption CLI comman
 
 #### Disable Encryption on running Windows IaaS VM
 
-You can disable encryption on a running Windows IaaS VM via the Azure disk encryption ARM template or PS cmdlets and specifies the decryption configuration. The disable encryption step is supported only on Windows IaaS VM and is not supported on Linux IaaS VM. The disable encryption step disables encryption of the OS or data volume or both on the running Windows IaaS VM. You cannot disable the OS volume and leave the data volume encrypted. When the disable encryption step is performed, Azure service management updates the VM service model and the Windows IaaS VM is marked decrypted. The contents of the VM are not encrypted at rest anymore. The disable encryption does not delete the customer key vault and the encryption key material, which is BitLocker Encryption Keys for Windows and Passphrase for Linux. 
+You can disable encryption on a running Windows IaaS VM via the Azure disk encryption ARM template or PS cmdlets and specifies the decryption configuration. The disable encryption step is supported only on Windows IaaS VM and is not supported on Linux IaaS VM. The disable encryption step disables encryption of the OS or data volume or both on the running Windows IaaS VM. You cannot disable the OS volume and leave the data volume encrypted. When the disable encryption step is performed, Azure service management updates the VM service model and the Windows IaaS VM is marked decrypted. The contents of the VM are not encrypted at rest anymore. The disable encryption does not delete the customer key vault and the encryption key material, which is BitLocker Encryption Keys for Windows and Passphrase for Linux.
 
 ##### Disable encryption on existing/running IaaS Windows in Azure using ARM template
 
-Disk encryption can be disabled on running Windows IaaS VM using the ARM template published  [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM. 
+Disk encryption can be disabled on running Windows IaaS VM using the ARM template published  [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
 
 ARM template parameters details for disabling encryption on running Windows IaaS VM:
 
@@ -604,7 +604,7 @@ ARM template parameters details for disabling encryption on running Windows IaaS
 
 To disable using the PS cmdlet, [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/library/azure/mt715776.aspx) cmdlet disables encryption on an infrastructure as a service (IaaS) virtual machine. This cmdlet is only supported on Windows virtual machines and not Linux virtual machines. This cmdlet installs an extension on the virtual machine to disable encryption. If the Name parameter is not specified, an extension with the default name "AzureDiskEncryption for Windows VMs" is created. 
 
-**Note**: This cmdlet reboots the virtual machine. 
+**Note**: This cmdlet reboots the virtual machine.
 
 ## Appendix
 

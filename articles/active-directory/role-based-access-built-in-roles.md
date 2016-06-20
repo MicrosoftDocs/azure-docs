@@ -416,7 +416,7 @@ Can manage user access to Azure resources
 | **Actions** ||
 | ------- | ------ |
 | */read | Read resources of all Types, except secrets. |
-| Microsoft.Authorization/* | Read authorization |
+| Microsoft.Authorization/* | Manage authorization |
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Classic Virtual Machine Contributor

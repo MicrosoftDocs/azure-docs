@@ -353,7 +353,18 @@ Before you use the GE Historian store in a Data Factory solution, verify whether
 
 Read the article from the beginning for a detailed overview of using ODBC data stores as source data stores in a copy operation.  
 
-[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
+## Troubleshoot connectivity issues
+Use the **Diagnostics** tab of **Data Management Gateway Configuration Manager** to troubleshoot connection issues. 
+
+1. Launch **Data Management Gateway Configuration Manager**. You can either run "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" directly (or) search for **Gateway** to find a link to **Microsoft Data Management Gateway** application as shown in the following image. 
+
+	![Search gateway](./media/data-factory-odbc-connector/search-gateway.png)
+2. Switch to the **Diagnostics** tab.
+
+	![Gateway diagnostics](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
+3. Select the **type** of data store (linked service). 
+4. Specify **authentication** and enter **credentials** (or) enter **connection string** to connect to the data store. 
+5. Click **Test connection** to test the connection to the data store. 
 
 ## Performance and Tuning  
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

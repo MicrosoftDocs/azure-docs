@@ -3,7 +3,7 @@
     description="Use C# database development techniques to manage an Azure SQL Database elastic database pool."
     services="sql-database"
     documentationCenter=""
-    authors="sidneyh"
+    authors="srinia"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Monitor and manage an elastic database pool with C&#x23; 
 
@@ -173,7 +173,7 @@ Create a console app and replace the contents of Program.cs with the following. 
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
 
             // Open the portal so we can see our operations in action
-            string portalPage = @"https://ms.portal.azure.com/#resource/subscriptions/"
+            string portalPage = @"https://portal.azure.com/#resource/subscriptions/"
                 + subscriptionId
                 + @"/resourceGroups/"
                 + resourceGroupName

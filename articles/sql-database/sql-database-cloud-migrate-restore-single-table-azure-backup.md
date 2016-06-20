@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/02/2016"
 	ms.author="daleche"/>
 
 
 # How to restore a single table from an Azure SQL Database backup
 
-You may encounter a situation in which you accidentally modified some data in a SQL database and now you want to recover the single affected table. This article describes how to restore a single table in a database from one of the backups that are automatically that are performed by Azure SQL Database, based on your selected performance tier.
+You may encounter a situation in which you accidentally modified some data in a SQL database and now you want to recover the single affected table. This article describes how to restore a single table in a database from one of the [backups that are automatically](sql-database-automated-backups.md) that are performed by Azure SQL Database, based on your selected performance tier.
 
 ## Preparation steps: Rename the table and restore a copy of the database
 1. Identify the table in your Azure SQL database that you want to replace with the restored copy. Use Microsoft SQL Management Studio to rename the table. For example, rename the table as &lt;table name&gt;_old.
 
 	**Note** To avoid being blocked, make sure that there's no activity running on the table that you are renaming. If you encounter issues, make sure that perform this procedure during a maintenance window.
 
-2. Restore a backup of your database to a point in time that you want to recover to. To do this, see the steps in [Recover an Azure SQL Database from a user error](../sql-database/sql-database-user-error-recovery.md).
+2. Restore a backup of your database to a point in time that you want to recover to. To do this, see the steps in [Recover an Azure SQL Database from a user error](sql-database-user-error-recovery.md).
 
 	**Notes**:
 	- The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to let the user verify the restored database before they drop their current database and rename the restored database for production use.
@@ -71,3 +71,7 @@ You may encounter a situation in which you accidentally modified some data in a 
 
 ## Verification step
 1. Query and test the newly copied table to make sure that the data is intact. Upon confirmation, you can drop the renamed table form **Preparation steps** section. (for example, &lt;table name&gt;_old).
+
+## Next steps
+
+[SQL Database automatic backups](sql-database-automated-backups.md)

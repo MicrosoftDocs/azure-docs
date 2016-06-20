@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines-linux"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
    ms.date="05/12/2016"
@@ -57,7 +57,7 @@ If you get an error when trying to create a new cloud service, either retry at a
 
 > [AZURE.IMPORTANT] The new cloud service will have a new name and VIP, so you will need to change that information for all the dependencies that use that information for the existing cloud service.
 
-## Issue: Error when restarting an existing VM
+## Issue: Error when resizing an existing VM
 
 You try to resize an existing VM but get an allocation failure.
 

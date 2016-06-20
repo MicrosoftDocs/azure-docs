@@ -238,7 +238,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 ##Support for relative sizes
 
-When encoding your video or generating thumbnails off of it, you do not need to always specify output width and height in pixels. You can specify them in percentages, in the range [1%, …, 100%].
+When generating thumbnails off of it, you do not need to always specify output width and height in pixels. You can specify them in percentages, in the range [1%, …, 100%].
 
 ###JSON preset 
 	

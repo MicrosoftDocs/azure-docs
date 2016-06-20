@@ -20,6 +20,10 @@
 
 # Azure Functions C# developer reference
 
+> [AZURE.SELECTOR]
+- [C# script](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.js](../articles/azure-functions/functions-reference-node.md)
+ 
 The C# experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
@@ -52,7 +56,7 @@ To log output to your streaming logs in C#, you can include a `TraceWriter` type
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -160,7 +164,10 @@ To use NuGet packages in a C# function, upload a *project.json* file to the the 
 }
 ```
 
+Only the .NET Framework 4.6 is supported, so make sure that your *project.json* file specifies `net46` as shown here.
+
 When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. Just add the required `using` statements to your *run.csx* file to use the types defined in the NuGet packages.
+
 
 ### How to upload a project.json file
 

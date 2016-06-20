@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/26/2016" 
-    ms.author="ddove;sidneyh" />
+    ms.date="05/27/2016" 
+    ms.author="ddove" />
 
 # Moving data between scaled-out cloud databases
 

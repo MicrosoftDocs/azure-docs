@@ -37,13 +37,13 @@ To use PowerShell with your Log Analytics workspace you must have:
 + An Azure subscription, and 
 + Your Azure Log Analytics workspace linked to your Azure subscription.
 
-If you have created an OMS workspace, but not yet linked it to an Azure subscription you can create the link in the Azure portal, OMS portal or using the Get-AzureRMOperationalInsightsLinkTargets and New-AzureRMOperationalInsightsWorkspace cmdlets.
+If you have created an OMS workspace, but not yet linked it to an Azure subscription you can create the link in the Azure portal, OMS portal or using the Get-AzureRmOperationalInsightsLinkTargets and New-AzureRmOperationalInsightsWorkspace cmdlets.
 
 ## Create a Log Analytics Workspace, add solutions and saved searches
 
 The following script sample illustrates how to:
 
-1.	Create a Workspace
+1.	Create a workspace
 2.	List the available solutions
 3.	Add solutions to the workspace
 4.	Import saved searches
@@ -90,8 +90,8 @@ New-AzureRmOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName
 Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Add solutions
-foreach ($soln in $Solutions) {
-    Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $soln -Enabled $true
+foreach ($solution in $Solutions) {
+    Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
 #List enabled solutions
@@ -110,7 +110,7 @@ foreach ($search in $ExportedSearches) {
 
 ## Configuring Log Analytics to index Azure diagnostics 
 
-For agentless monitoring of Azure resources, including as web and worker roles, service fabric clusters, network security groups, key vaults and application gateways the resources first need to have Azure diagnostics enabled to write to a storage account and then Log Analytics can be configured to collect the logs from the storage account.
+For agentless monitoring of Azure resources, including web and worker roles, service fabric clusters, network security groups, key vaults, and application gateways, the resources first need to have Azure diagnostics enabled to write to a storage account and then Log Analytics can be configured to collect the logs from the storage account.
 
 You can also use PowerShell to configure a Log Analytics workspace in one Azure subscription to collect logs from different Azure subscriptions.
 
@@ -125,7 +125,7 @@ The following example shows how to:
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
 $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two with the storage account resource id and the storage account key for the storage account you want to Log Analytics to  
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to  
 $storageId = "/subscriptions/ec11ca60-1234-491e-5678-0ea07feae25c/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 

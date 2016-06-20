@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
-   ms.author="tomfitz"/>
+   ms.date="05/26/2016"
+   ms.author="magoedte;tomfitz"/>
 
 # Resource Manager providers, regions, API versions and schemas
 
@@ -138,7 +138,7 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| Automation | Yes |          |        | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
+| Automation | Yes | [Automation REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) |        | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | Key Vault | Yes | [Key Vault REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [Key vault](resource-manager-template-keyvault.md)<br />[Key vault secret](resource-manager-template-keyvault-secret.md)   | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
 | Operational Insights | Yes |          |        | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
 | Recovery Services | Yes |  |  |  |

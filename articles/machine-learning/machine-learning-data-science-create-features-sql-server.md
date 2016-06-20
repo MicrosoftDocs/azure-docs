@@ -102,7 +102,7 @@ The above location based features can be further used to generate additional cou
 
 ###<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
-The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module in Azure ML as shown below:
+The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module in Azure ML as shown below:
 
 ![azureml readers](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png) 
 

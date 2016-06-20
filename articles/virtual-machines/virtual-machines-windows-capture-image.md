@@ -3,7 +3,7 @@
 	description="Learn how to capture an image of a Windows-based Azure virtual machine (VM) created with the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/13/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # How to capture a Windows virtual machine in the Resource Manager deployment model
 

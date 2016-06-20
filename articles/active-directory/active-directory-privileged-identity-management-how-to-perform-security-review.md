@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # How to perform a security review in Azure AD Privileged Identity Management
 
 Azure Active Directory (AD) Privileged Identity Management simplifies how enterprises manage privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.  
 
-If you have been assigned to an administrative role, you may be asked by your organization's security administrator to regularly review and confirm that you still need that role for your job. You might get an email that includes a link, or you an go straight to the [Azure portal](https://portal.azure.com). Follow the steps in this article to perform a self-review of your assigned roles.
+If you have been assigned to an administrative role, you may be asked by your organization's privileged role administrator to regularly review and confirm that you still need that role for your job. You might get an email that includes a link, or you an go straight to the [Azure portal](https://portal.azure.com). Follow the steps in this article to perform a self-review of your assigned roles.
 
-If you're a security administrator interested in security reviews, get more details at [How to start a security review](active-directory-privileged-identity-management-how-to-start-security-review.md).
+If you're a privileged role administrator interested in security reviews, get more details at [How to start a security review](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## Add the Privileged Identity Management application
 

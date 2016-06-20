@@ -51,7 +51,7 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\iothub_http\\Debug\\iothub_http_hl.dll",
+            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\iothubhttp\\Debug\\iothubhttp_hl.dll",
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
@@ -60,7 +60,7 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name" : "mapping",
-            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\mac_iothub_id_map\\Debug\\mac_iothub_id_map_hl.dll",
+            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\identitymap\\Debug\\identitymap_hl.dll",
             "args" : 
             [
                 {

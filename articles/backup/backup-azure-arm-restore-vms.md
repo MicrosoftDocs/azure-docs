@@ -34,7 +34,7 @@ You protect your data with the Backup service by taking snapshots of your data a
 
 ## Restore a recovery point
 
-1. Sign in to the [Azure portal](http://ms.portal.azure.com/)
+1. Sign in to the [Azure portal](http://portal.azure.com/)
 
 2. On the Azure menu, click **Browse** and in the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
 
@@ -153,7 +153,7 @@ It is possible to backup and restore VMs with the following special network conf
 
 In order to fully recreate the virtual machines after restoring to disk, follow these steps:
 
-1. Restore the disks from a recovery services vault using [PowerShell](backup-azure-vms-automation.md/#restore-an-azure-vm)
+1. Restore the disks from a recovery services vault using [PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
 
 2. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
 	- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)

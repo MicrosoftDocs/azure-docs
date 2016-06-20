@@ -3,7 +3,7 @@
 	description="The latest updates for Visual Studio tools for Developer Analytics."
 	services="application-insights"
     documentationCenter=""
-	authors="aruna"
+	authors="acearun"
 	manager="douge"/>
 <tags
 	ms.service="application-insights"
@@ -11,11 +11,26 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/09/2016"
 	ms.author="acearun"/>
 
 # Release Notes - Developer Analytics Tools
 ##### Application Insights and HockeyApp analytics in Visual Studio
+## Version 7.0.1
+Application Insights now supports ASP.NET Core RC2 projects in Visual Studio. You can add Application Insights to new ASP.NET Core RC2 projects from the New Project dialog, or to an existing project by right-clicking the project in the Solution Explorer and choosing "Add Application Insights Telemetry..."
+
+![.NET Core Support](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
+
+ASP.NET 5 RC1 and ASP.NET Core RC2 projects also have new support in the Diagnostic Tools window. You'll see Application Insights events like requests and exceptions from your ASP.NET app while debugging locally on your PC. From each event, you can drill down for more information by clicking "Search."
+
+![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
+
+Other new features:
+
+* We've made the Application Insights Search experience faster and more intuitive by automatically applying time ranges and detail filters as you select them
+* In Application Insights Search, there's now an option to Go to Code from request telemetry
+* We've made improvements to the HockeyApp sign-in experience.
+
 ## Version 5.2
 We are happy to announce the introduction of HockeyApp scenarios in Visual Studio. The first integration we have enabled is beta distribution of Universal Windows and Windows Forms apps within VS.
 

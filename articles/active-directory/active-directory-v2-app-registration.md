@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # How to register an app with the v2.0 endpoint

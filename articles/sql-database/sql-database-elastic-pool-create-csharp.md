@@ -3,7 +3,7 @@
     description="Use C# database development techniques to create a scalable elastic database pool in Azure SQL Database so you can share resources across many databases."
     services="sql-database"
     documentationCenter=""
-    authors="sidneyh"
+    authors="srinia"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Create a new elastic database pool with C&#x23;
 

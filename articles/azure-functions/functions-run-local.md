@@ -142,6 +142,8 @@ If your purpose is to contribute to the WebJobs.SDK project, you need all of the
 		Host.Functions.TimerTrigger-CSharp
 		Job host started
 
+	If you're starting the WebHost project, you get a blank browser page because there is no content to serve at the base URL of the project. See the [API keys](#apikeys) section for information about URLs to use for HTTP trigger functions.
+
 ## Viewing function output
 
 Go to the dashboard for your function app to see function invocations and log output for them.
@@ -198,6 +200,10 @@ Files that are named *{function name}.json* contain the API key for a particular
   "key": "844f2mdhn844f2mb7hyexydhln844f2mb7"
 }
 ```
+
+## Using NuGet package references in functions  
+
+Due to the way NuGet references are currently processed, make sure that you "touch" the *project.json* file while the host is running. The host watches for file modifications and initiates a restore when it detects changes. Also, *NuGet.exe* (3.3.0 recommended) must either be in your path or you must have an environment variable named AzureWebJobs_NuGetPath set, with the path to *NuGet.exe*.
 
 ## Troubleshooting
 

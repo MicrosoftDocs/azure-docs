@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analytics with Application Insights" 
+	pageTitle="Analytics with Application Insights | Microsoft Azure" 
 	description="Device and web app analytics. Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
 	services="application-insights" 
     documentationCenter=""
@@ -116,16 +116,19 @@ For more details, choose your app type under Get Started in the navigation bar o
 
 * Questions and Issues:
  * [Troubleshooting][qna]
- * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bugs:
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+* Blog:
+ * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
 
 
 ## Videos
 
+[![Animated introduction](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 

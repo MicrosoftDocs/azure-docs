@@ -58,8 +58,7 @@ All connectors support data in JSON and XML formats.
 
 When you add this connector to your logic apps, you must sign-in to your Office 365 Users account and allow logic apps to connect to your account.
 
-1. Sign in to your Office 365 Users account.
-2. Allow your logic apps to connect and use your Office 365 account. 
+>[AZURE.INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 
 After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this topic describes these properties.
 

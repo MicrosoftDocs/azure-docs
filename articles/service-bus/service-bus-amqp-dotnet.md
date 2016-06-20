@@ -171,7 +171,7 @@ Ready to learn more? Visit the following links:
 - [AMQP 1.0 support for Service Bus partitioned queues and topics]
 - [AMQP in Service Bus for Windows Server]
 
-  [How to Use Service Bus Queues]: service-bus-dotnet-how-to-use-queues.md
+  [How to Use Service Bus Queues]: service-bus-dotnet-get-started-with-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx

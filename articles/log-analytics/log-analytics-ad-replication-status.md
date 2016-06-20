@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="06/01/2016"
 	ms.author="banders"/>
 
 # Active Directory Replication Status solution in Log Analytics
@@ -25,7 +25,7 @@ The AD Replication Status solution pack regularly monitors your Active Directory
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-- You must have at least one domain controller connected to your OMS workspace. To understand how to connect a domain controller directly to OMS, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). If your domain controller is already part of an existing System Center Operations Manager environment that you’d like to connect to OMS, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
+- Agents must be installed on domain controllers that are members of the domain to be evaluated, or on member servers configured to send AD replication data to OMS. To understand how to connect Windows computers to OMS, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). If your domain controller is already part of an existing System Center Operations Manager environment that you’d like to connect to OMS, see [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
 - Add the Active Directory Replication Status solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
 

@@ -46,7 +46,7 @@ This example uses the Web linked service with anonymous authentication. See [Web
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -76,8 +76,8 @@ Setting **external**  to **true** and specifying **externalData** policy (option
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -101,7 +101,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties":
 	        {
-	            "folderPath": "MSFTHistoricalPrices"
+	            "folderPath": "adfgetstarted/Movies"
 	        },
 	        "availability":
 	        {
@@ -173,10 +173,9 @@ The following table provides description for JSON elements specific to Web linke
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **Web** | Yes | 
 | Url | URL to the Web source | Yes |
+| authenticationType | Anonymous or Basic. | Yes |
 | userName | Username for Basic authentication. | Yes (for Basic Authentication)
 | password | Password for Basic authentication. | Yes (for Basic Authentication)
-| authenticationType | Anonymous, Basic, or WebApi. | Yes |
-| apiKey | ApiKey for WebApi authentication. | Yes (for WebApi authentication)|   
 
 ### Using Anonymous authentication
 
@@ -188,7 +187,7 @@ The following table provides description for JSON elements specific to Web linke
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -233,8 +232,8 @@ index | The index of the table in the resource. See [Get index of a table in an 
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {

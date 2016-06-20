@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analytics - the powerful search tool of Application Insights" 
+	pageTitle="Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
 	description="Overview of Analytics, 
 	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
@@ -24,7 +24,6 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
  
 A typical query is a *source* table followed by a series of *operators* separated by `|`. 

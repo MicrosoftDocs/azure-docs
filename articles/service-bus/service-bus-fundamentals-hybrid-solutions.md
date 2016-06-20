@@ -115,7 +115,7 @@ Connecting applications has always been part of building complete solutions, and
 
 Now that you've learned the fundamentals of Azure Service Bus, follow these links to learn more.
 
-- How to use [Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+- How to use [Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 - How to use [Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - How to use [Service Bus relay](service-bus-dotnet-how-to-use-relay.md)
 - [Service Bus samples](service-bus-samples.md)

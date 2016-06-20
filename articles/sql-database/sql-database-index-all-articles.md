@@ -103,7 +103,7 @@ This topic lists every topic that applies directly to the SQL Database service o
 | 44 | [Connect to SQL Database by using Node.js](sql-database-develop-nodejs-simple.md) | Presents a Node.js code sample you can use to connect to Azure SQL Database. |
 | 45 | [Connect to SQL Database by using Python](sql-database-develop-python-simple.md) | Presents a Python code sample you can use to connect to Azure SQL Database. |
 | 46 | [Connect to SQL Database by using Ruby](sql-database-develop-ruby-simple.md) | Give a Ruby code sample you can run to connect to Azure SQL Database. |
-| 47 | [Connecting to SQL Database: Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md) | A starting point topic that gathers together links and best practice recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP. |
+| 47 | [SQL Database Development Overview](sql-database-develop-overview.md) | A starting point topic that gathers together links and best practice recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP. |
 | 48 | [Create and deploy a secure ASP.NET Web Forms app with Membership, OAuth, and SQL Database to Azure App Service](web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database.md) | This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure. |
 | 49 | [Get the client id and key for connecting to SQL Database from code](sql-database-client-id-keys.md) | Get the client id and key for accessing SQL Database from code. |
 | 50 | [Getting Started with Temporal Tables in Azure SQL Database](sql-database-temporal-tables.md) | Learn how to get started with using Temporal Tables in Azure SQL Database. |
@@ -211,7 +211,7 @@ This topic lists every topic that applies directly to the SQL Database service o
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
 | 105 | [Business Continuity FAQ](sql-database-bcdr-faq.md) | Common questions and answers that customers ask about built-in and optional features for business continuity and disaster recovery with Azure SQL Database. |
-| 106 | [Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Learn how to design cloud disaster recovery solutions for business continuity planning using geo-replication for app data backup with Azure SQL Database. |
+| 106 | [Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Learn how to design cloud disaster recovery solutions for business continuity planning using Geo-Replication for app data backup with Azure SQL Database. |
 | 107 | [Design for business continuity](sql-database-business-continuity-design.md) | Guidance for choosing In this section, guidance will be provided for how to choose which BCDR features should be used and when. This will include descriptions of what you automatically get by using SQL DB. |
 | 108 | [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md) | Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Classic Portal, Azure Classic Portal |
 | 109 | [How to restore a single table from an Azure SQL Database backup](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Learn how to restore a single table from Azure SQL Database backup. |
@@ -302,14 +302,14 @@ This topic lists every topic that applies directly to the SQL Database service o
 | 159 | [Ring Buffer target code for extended events in SQL Database](sql-database-xevent-code-ring-buffer.md) | Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database. |
 
 
-## Geo replication
+## Geo-Replication
 
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 160 | [Configure geo-replication for Azure SQL Database with PowerShell](sql-database-geo-replication-powershell.md) | geo-replication for Azure SQL Database using PowerShell |
-| 161 | [Configure geo-replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md) | Configure geo-replication for Azure SQL Database using the Azure portal |
-| 162 | [Configure geo-replication for Azure SQL Database with Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configure geo-replication for Azure SQL Database using Transact-SQL |
+| 160 | [Configure Geo-Replication for Azure SQL Database with PowerShell](sql-database-geo-replication-powershell.md) | Geo-Replication for Azure SQL Database using PowerShell |
+| 161 | [ConfigureGeo-Replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md) | Configure Geo-Replication for Azure SQL Database using the Azure portal |
+| 162 | [Configure Geo-Replication for Azure SQL Database with Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configure Geo-Replication for Azure SQL Database using Transact-SQL |
 | 163 | [How to manage security after disaster recovery](sql-database-geo-replication-security-config.md) | This topic explains security considerations for managing Active Geo-Replication scenarios for SQL Database. |
 | 164 | [Overview: SQL Database Active Geo-Replication](sql-database-geo-replication-overview.md) | Active Geo-Replication enables you to setup 4 replicas of your database in any of the Azure datacenters. |
 

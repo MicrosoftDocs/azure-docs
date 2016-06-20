@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -657,21 +657,21 @@ In this step, you will create datasets to represent input and output data.
 
 See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
 
-The Data Factory service creates a job in Azure Batch with the name: **adf-<pool name>:job-xxx**. A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
+### Data Factory and Batch integration
+The Data Factory service creates a job in Azure Batch with the name: **adf-poolname:job-xxx**. 
 
-	
-![Batch Explorer tasks](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
+![Azure Data Factory - Batch jobs](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-> [AZURE.NOTE] Download the source code for [Azure Batch Explorer tool][batch-explorer], compile, and use it to create and monitor Batch pools. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
+
+![Azure Data Factory - Batch job tasks](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
+
+The following diagram illustrates the relationship between Azure Data Factory and Batch tasks. 
 
 ![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
-You can see the Azure Batch tasks associated with processing the slices in the Azure Batch Explorer as shown in the following diagram.
 
-![Azure Batch tasks][image-data-factory-azure-batch-tasks]
-
-
-### Debug the pipeline
+## Debug the pipeline
 Debugging consists of a few basic techniques:
 
 1.	If the input slice is not set to **Ready**, confirm that the input folder structure is correct and **file.txt** exists in the input folders. 
@@ -689,6 +689,10 @@ Debugging consists of a few basic techniques:
 4.	All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 5.	Ensure that the **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the Azure blob storage that contains the zip file) are set to correct values. 
 6.	If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and click **Run**. 
+7.	The custom activity does not use the **app.config** file from your package, so if your code reads any connection strings from the configuration file, it won't work at runtime. The best practice when using Azure Batch is to hold any secrets in a **Azure KeyVault**, use a certificate-based service principal to protect the **keyvault**, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This is a generic solution and can scale to any type of secret, not just connection string.
+
+	There is an easier workaround (but not a best practice): you can create a new **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
+
 
 
 ## Update the custom activity
@@ -853,8 +857,6 @@ Sample | What custom activity does
 [Azure Data Factory Updates: Execute ADF Custom .NET activities using Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
-[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch-create-account]: ../batch/batch-account-create-portal.md
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
@@ -883,5 +885,3 @@ Sample | What custom activity does
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
-
-[image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png

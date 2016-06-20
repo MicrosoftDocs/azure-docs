@@ -3,7 +3,7 @@
 	description="This article provides an overview of DPM/Azure Backup server protection of a SharePoint farm to Azure"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
+	authors="nkolli1"
 	manager="shreeshd"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="06/06/2015"
 	ms.author="giridham;jimpark"/>
 
 

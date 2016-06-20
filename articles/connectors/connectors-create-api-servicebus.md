@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="05/23/2016"
 ms.author="deonhe"/>
 
 # Get started with the Azure Service Bus connector 
@@ -53,25 +53,7 @@ You can listen for these event(s):
 ## Create a connection to Azure Service Bus
 To use the Azure Service Bus connector , you first create a **connection** then provide the details for these properties: 
 
-|Property| Required|Description|
-| ---|---|---|
-|ConnectionString|Yes|Provide Azure Service Bus Connection String|  
-
-Follow these steps to create a service bus **connection** that you can then use in your logic app:
-
-1. Select **Recurrence**
-2. Select a **Frequency** and enter an **Interval**     
-![Configure Service Bus][1] 
-3. Select **Add an action**     
- ![Configure Service Bus][2]   
-4. Enter **Service Bus** in the search box and wait for the search to return all entries with Service Bus in the name
-5. Select **Service Bus - Send message**  
-![Configure Service Bus][3]
-7. Enter a **Connection name** and a **Connection string** then select **Create connection**:      
-![Configure Service Bus][4]
-7. After the connection is created, you'll be presented with the **Send message** dialog. Enter all the required information for sending a message.  
-![Configure Service Bus][5]
-8. Select the **Save** button on the menu above to save your work.    
+>[AZURE.INCLUDE [Steps to create a connection to ServiceBus](../../includes/connectors-create-api-servicebus.md)]    
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 
@@ -163,9 +145,3 @@ ContentTransferEncoding
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-[1]: ./media/connectors-create-api-servicebus/connectionconfig1.png
-[2]: ./media/connectors-create-api-servicebus/connectionconfig2.png 
-[3]: ./media/connectors-create-api-servicebus/connectionconfig3.png
-[4]: ./media/connectors-create-api-servicebus/connectionconfig4.png
-[5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
-[6]: ./media/connectors-create-api-servicebus/connectionconfig6.png

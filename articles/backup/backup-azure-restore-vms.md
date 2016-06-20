@@ -100,7 +100,7 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 
 ![Restore job complete](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](virtual-machines-set-up-endpoints) for the virtual machine in the Azure portal.
+After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) for the virtual machine in the Azure portal.
 
 ## Backup for Restored VMs
 If you have restored VM to same cloud service with the same name as originally backed up VM, backup will continue on the VM post restore. If you have either restored Vm to a different cloud service or specified a different name for restored VM, this will be treated as a new VM and you need to setup backup for restored VM.
@@ -142,7 +142,7 @@ PowerShell has the ability to just restore the VM disks from backup and not crea
 
 In order to fully recreate the virtual machine post restoring disks, follow these steps:
 
-1. Restore the disks from backup vault using [Azure Backup PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Restore the disks from backup vault using [Azure Backup PowerShell](../backup-azure-vms-classic-automation.md#restore-an-azure-vm)
 
 2. Create the VM config required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
 	- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)

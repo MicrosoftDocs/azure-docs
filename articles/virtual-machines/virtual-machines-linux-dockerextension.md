@@ -22,6 +22,7 @@ Docker is a popular container management and imaging platform that allows you to
 
 - To quickly prototype an app, or if you already know and use Docker Machine, you can [use the Docker Machine Azure driver](./virtual-machines-linux-docker-machine.md) to deploy Docker hosts within Azure.
 - For a template based deployment, the Docker VM extension for Azure virtual machines can be used. This approach can integrate with Azure Resource Manager template deployments and includes all of the related benefits such as role base access, diagnostics, and post deployment configuration.
+- The Docker VM extension also supports Docker Compose, which uses a declarative YAML file to take a developer-modeled application across any environment and generate a consistent deployment.  
 - You can also [deploy a full Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md) for production-ready, scalable deployments that leverage the additional scheduling and management tools provided by Swarm.
 
 This article focuses on using resource manager templates to deploy the Docker VM Extension in a custom, production-ready environment that you define.
@@ -135,4 +136,5 @@ Read more detailed steps for the different deployment options:
 
 1. [Use Docker Machine with the Azure driver](./virtual-machines-linux-docker-machine.md)  
 2. [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](./virtual-machines-linux-classic-cli-use-docker.md)  
+3. [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Deploy an Azure Container Service cluster](../container-service/container-service-deployment.md)

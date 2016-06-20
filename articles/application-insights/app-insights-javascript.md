@@ -17,6 +17,9 @@
 
 # Application Insights for web pages
 
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 Find out about the performance and usage of your web page or app. Add Visual Studio Application Insights to your page script, and you'll get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as counts of users and sessions. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can also set alerts on failure counts or slow page loading.
 
 You can use Application Insights with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md), you can integrate telemetry from your server and clients.

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/23/2016"
    ms.author="terrylan"/>
 
 # Microsoft Trust Center
@@ -26,13 +26,13 @@ And we have answers. Because it’s your data, you decide who has access, and yo
 
 Here's what you’ll find at the Microsoft Trust Center:
 
-- [Security](https://www.microsoft.com/TrustCenter/Security/default.aspx) – Learn how all the Microsoft Cloud services are secured.
-- [Privacy](https://www.microsoft.com/TrustCenter/Privacy/default.aspx) – Understand how Microsoft ensures privacy of your Data in the Microsoft cloud.
-- [Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx) – Discover how Microsoft helps organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals’ data.
-- [Transparency](https://www.microsoft.com/TrustCenter/Transparency/default.aspx) – View how Microsoft believes that you control your data in the cloud and how Microsoft helps you know as much as possible about how that data is handled.
-- [Products and Services](https://www.microsoft.com/TrustCenter/CloudServices/default.aspx) – See all the Microsoft Cloud products and services in one place
-- [Service Trust Portal](https://www.microsoft.com/TrustCenter/STP/default.aspx) – Obtain copies of independent audit reports of Microsoft cloud services, risk assessments, security best practices, and related materials.
-- [What’s New](https://www.microsoft.com/TrustCenter/Whats-New/default.aspx) – Find out what’s new in Microsoft Cloud Trust
-- [Resources](https://www.microsoft.com/TrustCenter/Resources/default.aspx) – Investigate white papers, videos, and case studies on Microsoft Trusted Cloud
+- [Security](https://aka.ms/tcsecurity) – Learn how all the Microsoft Cloud services are secured.
+- [Privacy](https://aka.ms/tcprivacy) – Understand how Microsoft ensures privacy of your Data in the Microsoft cloud.
+- [Compliance](https://aka.ms/tccompliance) – Discover how Microsoft helps organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals’ data.
+- [Transparency](https://aka.ms/tctransparency) – View how Microsoft believes that you control your data in the cloud and how Microsoft helps you know as much as possible about how that data is handled.
+- [Products and Services](https://aka.ms/tcproductsservices) – See all the Microsoft Cloud products and services in one place
+- [Service Trust Portal](https://aka.ms/tcservicetrportal) – Obtain copies of independent audit reports of Microsoft cloud services, risk assessments, security best practices, and related materials.
+- [What’s New](https://aka.ms/tcwhatsnew) – Find out what’s new in Microsoft Cloud Trust
+- [Resources](https://aka.ms/tcresources) – Investigate white papers, videos, and case studies on Microsoft Trusted Cloud
 
 The [Microsoft Trust Center](https://www.microsoft.com/trustcenter) has what you need to understand what we do to secure the Microsoft Cloud.

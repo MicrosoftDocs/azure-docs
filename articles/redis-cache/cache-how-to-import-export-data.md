@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Import and Export data in Azure Redis Cache
@@ -94,6 +94,7 @@ This section contains frequently asked questions about the Import/Export feature
 -	[Can I import data from any Redis server?](#can-i-import-data-from-any-redis-server)
 -	[Will my cache be available during an Import/Export operation?](#will-my-cache-be-available-during-an-importexport-operation)
 -	[Can I use Import/Export with Redis cluster?](#can-i-use-importexport-with-redis-cluster)
+-	[How does Import/Export work with a custom databases setting?](#how-does-importexport-work-with-a-custom-databases-setting)
 -	[How is Import/Export different from Redis persistence?](#how-is-importexport-different-from-redis-persistence)
 -	[Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 -	[I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
@@ -116,7 +117,16 @@ Yes, in addition to importing data exported from Azure Redis Cache instances, yo
 
 ### Can I use Import/Export with Redis cluster?
 
-Yes, and you can import/export between a clustered cache and a non-clustered cache. Since Redis cluster only supports database 0, you can't import data that was stored in a database other than 0. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
+Yes, and you can import/export between a clustered cache and a non-clustered cache. Since Redis cluster [only supports database 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 won't be imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster. 
+
+### How does Import/Export work with a custom databases setting?
+
+Some pricing tiers have different [databases limits](cache-configure.md#databases), so there are some considerations when importing if you configured a custom value for the `databases` setting during cache creation.
+
+-	When importing to a pricing tier with a lower `databases` limit than the tier from which you exported:
+	-	If you are using the default number of `databases` which is 16 for all pricing tiers, no data is lost.
+	-	If you are using a custom number of `databases` that falls within the limits for the tier to which you are importing, no data is lost.
+	-	If your exported data contained data in a database that exceeds the limits of the new tier, the data from those higher databases is not imported.
 
 ### How is Import/Export different from Redis persistence?
 

@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="douge"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/27/2016"
+	ms.date="05/25/2016"
 	ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management

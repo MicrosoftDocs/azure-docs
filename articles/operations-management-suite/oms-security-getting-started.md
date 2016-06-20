@@ -9,11 +9,11 @@
 
 <tags
    ms.service="operations-management-suite"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2016"
+   ms.date="06/14/2016"
    ms.author="yurid"/>
  
 # Getting started with Operations Management Suite Security and Audit Solution
@@ -34,7 +34,9 @@ The OMS Security and Audit solution provides a comprehensive view into your orga
 
 If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case it will be normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
 
-> [AZURE.NOTE] solutions are a collection of logic, visualization and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
+> [AZURE.NOTE] The agent will collect the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
+
+Solutions are a collection of logic, visualization and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
 
 The OMS Security and Audit dashboard is organized in four major categories:
 
