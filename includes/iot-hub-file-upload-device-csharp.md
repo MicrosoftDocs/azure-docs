@@ -40,4 +40,4 @@ In this section, you'll modify the simulated device application you created in [
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 <!-- Images -->
-[1]: ././media/iot-hub-csharp-csharp-file-upload/image-properties.png
+[1]: ../articles/iot-hub/media/iot-hub-csharp-csharp-file-upload/image-properties.png
