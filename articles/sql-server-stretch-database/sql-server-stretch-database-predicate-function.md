@@ -18,7 +18,7 @@
 
 # Select rows to migrate by using a filter predicate (Stretch Database)
 
-If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both current and historical data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate is an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
+If you store cold data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both hot and cold data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate is an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
 
 >   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
