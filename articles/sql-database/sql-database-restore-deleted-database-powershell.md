@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/09/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -49,15 +49,14 @@
 
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Restore a deleted database](sql-database-restore-deleted-database.md)
-- [Restore a deleted database using the Azure Portal](sql-database-restore-deleted-database-portal.md)
-- [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [SQL Database automated backups](sql-database-automated-backups.md)
+- For detailed steps on how to restore a deleted database using the Azure portal, see [Restore a deleted database using the Azure Portal](sql-database-restore-deleted-database-portal.md).
+- For information about how to restore a deleted database, see [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- For detailed information about restoring a deleted database, see [Restore a deleted database](sql-database-restore-deleted-database.md)
+- For detailed information regarding Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 
 ## Additional resources
 
-- [Point-in-time restore](sql-database-point-in-time-restore.md)
+- [Point-In-Time Restore](sql-database-point-in-time-restore.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)

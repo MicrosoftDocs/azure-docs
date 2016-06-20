@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2016"
+   ms.date="06/17/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -68,10 +68,12 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Supported | Supported | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |  Supported | Supported | Amsterdam |
+| **GÉANT** | Coming soon | Coming soon | Amsterdam+ |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Supported | Supported | Osaka, Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Supported | Supported | Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supported | Supported | Amsterdam, London |
 | **Interxion** | Supported | Supported | Amsterdam, London |
+| **Jisc** | Coming soon | Coming soon | London+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Supported | Supported | Dallas, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
 | **MTN** | Supported | Supported | London |

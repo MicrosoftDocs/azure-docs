@@ -39,9 +39,9 @@ All resources must be deployed in a resource group. See [Azure Resource Manager 
 
 1. Get a list of available locations where resources can be created.
 
-	    Get-AzureLocation | sort Name | Select Name
-
-2. Replace the value of **$locName** with a location from the list, for example **Central US**. Create the variable.
+	    Get-AzureRmLocation | sort Location | Select Location
+        
+2. Replace the value of **$locName** with a location from the list, for example **centralus**. Create the variable.
 
         $locName = "location name"
         
@@ -65,13 +65,13 @@ A storage account is needed to store the template that you are going to create a
 1. Replace the value of $stName with the name (lowercase letters and numbers only) of the storage account. Test the name for uniqueness.
 
         $stName = "storage account name"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    If this command returns **False**, your proposed name is unique.
+    If this command returns **True**, your proposed name is unique.
     
 2. Now, run this command to create the storage account.
     
-        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 3. Replace {blob-storage-endpoint} with endpoint of the blob storage in your account. Replace {storage-account-name} with the name of your storage account. Replace {primary-storage-key} with the primary access key. Run these commands to create the container where the files are stored. You can get the endpoint and key values from the Azure portal. 
 

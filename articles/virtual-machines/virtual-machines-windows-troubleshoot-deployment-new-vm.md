@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="06/17/2016"
+  ms.date="06/20/2016"
   ms.author="cjiang"/>
 
 # Troubleshoot Resource Manager deployment issues with creating a new Windows virtual machine in Azure
@@ -83,4 +83,4 @@ This error arises in situations when the new VM request is pinned to a cluster t
   - Add the new VM to the same virtual network.
 
 ## Next steps
-If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
+If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).

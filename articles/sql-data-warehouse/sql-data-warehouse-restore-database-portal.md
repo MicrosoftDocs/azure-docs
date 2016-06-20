@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="06/17/2016"
    ms.author="elfish;barbkess;sonyama;nicw"/>
 
 # Restore an Azure SQL Data Warehouse (Portal)
@@ -36,7 +36,7 @@ In this article you will learn how to restore an Azure SQL Data Warehouse using 
 To restore a database:
 
 1. Log in to the [Azure portal][]
-2. On the left side of the screen select **Browse** and then select **SQL Servers**
+2. On the left side of the screen select **Browse** and then select **SQL servers**
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
     
@@ -60,12 +60,15 @@ To restore a database:
 8. Click **OK**
 9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+
+
 ## Restore a deleted database
 
 To restore a deleted database:
 
 1. Log in to the [Azure portal][]
-2. On the left side of the screen select **Browse** and then select **SQL Servers**
+2. On the left side of the screen select **Browse** and then select **SQL servers**
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 
@@ -89,6 +92,8 @@ To restore a deleted database:
 8. Click **OK**
 9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+
 
 ## Next steps
 To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
@@ -101,6 +106,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[Finalize a recovered database]: ./sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 
