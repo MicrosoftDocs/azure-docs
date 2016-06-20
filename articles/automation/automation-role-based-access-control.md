@@ -36,7 +36,7 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 
 >[AZURE.NOTE] You cannot grant access rights to a specific runbook or runbooks, only to the resources and actions within the Automation account.  
 
-In this article we will walk you through how to set up RBAC in Azure Automation. But first, let's take a closer look at the individual permissions granted to the Contributor, Reader, Automation Operator and User Access Administrator so that we gain a good understanding before granting anyone rights to the Automation account.  Its really important you are cautious granting elevated privileges, otherwise it could result in unintended consequences.    
+In this article we will walk you through how to set up RBAC in Azure Automation. But first, let's take a closer look at the individual permissions granted to the Contributor, Reader, Automation Operator and User Access Administrator so that we gain a good understanding before granting anyone rights to the Automation account.  Otherwise it could result in unintended or undesirable consequences.     
 
 ## Contributor role permissions
 
