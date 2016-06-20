@@ -46,6 +46,7 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 	-	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 	-	[How can I run Redis commands?](#how-can-i-run-redis-commands)
 -	[Security]()
+	-	[Security best practices](#TODO)
 	-	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
 -	[Production]()
 	-	[Important details about ThreadPool growth](#important-details-about-threadpool-growth)
@@ -247,22 +248,39 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
   -	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 
 
+## Security
 
-      ## Security best practices
+-	[Security best practices](#TODO)
+-	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+
+### Security best practices
+
+<a name="cache-ssl"></a>
+### When should I enable the non-SSL port for connecting to Redis?
+
+Redis server does not support SSL out of the box, but Azure Redis Cache does. If you are connecting to Azure Redis Cache and your client supports SSL, like StackExchange.Redis, then you should use SSL.
+
+Note that the non-SSL port is disabled by default for new Azure Redis Cache instances. If your client does not support SSL, then you must enable the non-SSL port by following the directions in the [Access ports](cache-configure.md#access-ports) section of the [Configure a cache in Azure Redis Cache](cache-configure.md) article.
+
+Redis tools such as `redis-cli` do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+
+For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 
       ## Production best practices
 
-      ## Troubleshooting
+## Monitoring and troubleshooting
 
-      ## Prior cache offerings
+-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
+-	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+-	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
 
-      <a name="cache-timeouts"></a>
-## Why am I seeing timeouts?
+<a name="cache-timeouts"></a>
+### Why am I seeing timeouts?
 
 Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
 
 <a name="cache-monitor"></a>
-## How do I monitor the health and performance of my cache?
+### How do I monitor the health and performance of my cache?
 
 Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information on monitoring your caches, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
 
@@ -287,7 +305,7 @@ The following are some common reason for a cache disconnect.
 
 
 <a name="threadpool"></a>
-## Important details about ThreadPool growth
+### Important details about ThreadPool growth
 
 The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads.  
 
@@ -327,7 +345,7 @@ How to configure this setting:
 -	Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
 
 <a name="server-gc"></a>
-## Enable server GC to get more throughput on the client when using StackExchange.Redis
+### Enable server GC to get more throughput on the client when using StackExchange.Redis
 
 Enabling server GC can optimize the client and provide better performance and throughput when using StackExchange.Redis. For more information on server GC and how to enable it, see the following articles.
 
@@ -336,19 +354,14 @@ Enabling server GC can optimize the client and provide better performance and th
 -	[Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
 
 
-<a name="cache-ssl"></a>
-## When should I enable the non-SSL port for connecting to Redis?
-
-Redis server does not support SSL out of the box, but Azure Redis Cache does. If you are connecting to Azure Redis Cache and your client supports SSL, like StackExchange.Redis, then you should use SSL.
-
-Note that the non-SSL port is disabled by default for new Azure Redis Cache instances. If your client does not support SSL, then you must enable the non-SSL port by following the directions in the [Access ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) section of the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) article.
-
-Redis tools such as `redis-cli` do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
-
-For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 
 
-## Which Azure Cache offering is right for me?
+
+## Prior Cache offerings
+
+-	[Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
+
+### Which Azure Cache offering is right for me?
 
 >[AZURE.IMPORTANT]As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service will be retired on November 30, 2016. Our recommendation is to use [Azure Redis Cache](https://azure.microsoft.com/services/cache/). For information on migrating, please see [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md).
 
