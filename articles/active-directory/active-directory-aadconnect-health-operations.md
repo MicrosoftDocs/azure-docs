@@ -53,12 +53,14 @@ When deleting a server, be aware of the following:
 #### To delete a server from Azure AD Connect Health Service
 
 Azure AD Connect Health for AD FS & Azure AD Connect (Sync):
+
 1. Open the Server Blade from the Server List Blade by selecting the server name to be removed.
 2. On the Server Blade, click on the "Delete" button from the action bar.
 3. Confirm the action to delete the server by typing the server name in the confirmation box.
 4. Click on the "Delete" button.
 
-Azure AD Connect Health fro AD DS:
+Azure AD Connect Health for AD DS:
+
 1. Open the Domain Controllers, Domains and Sites dashboard. 
 2. Select the domain controller to be removed.
 3. Click on the "Delete Selected" button from the action bar. 
