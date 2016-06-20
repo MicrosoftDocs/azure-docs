@@ -31,6 +31,7 @@ In this section, you'll modify the simulated device application you created in [
     The `UploadToBlobAsync` method takes in the file name and stream source of the file to be uploaded and handles the upload to storage. The console application displays the time it takes to upload the file.
 
 5. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
+
         SendToBlobAsync();
 
 > [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
