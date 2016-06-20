@@ -112,7 +112,7 @@ an authorization code. Your application will use the authorization code to get a
 
 Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize endpoint:
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
 
 The query string parameters that are available for this request are described in the [Authorization Code Grant Flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) topic.
 
@@ -175,7 +175,7 @@ Once the **id_token** has been validated, use the oid claim value as the immutab
 Now that your application has received the authorization code from Azure AD, it is time to get the access token for Azure Resource Manager.  Post an OAuth2.0 Code Grant Token Request 
 to the Azure AD Token endpoint: 
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
 The query string parameters that are available for this request are described in the [Authorization Code Grant Flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) topic.
 
@@ -216,7 +216,7 @@ The lifetime of access tokens issued by
 Azure AD is one hour. It is unlikely that your web application will need to renew the (user + app) access token - however, if it does, you may use the refresh token that 
 your application receives in the token response. Post an OAuth2.0 Token Request to the Azure AD Token endpoint: 
 
-    http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
 The parameters to use with the refresh request are described in [Authorization Code Grant Flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
@@ -336,7 +336,7 @@ own Service Principal object, so we don't need a user + app access token for thi
 ### Get app-only access token for Azure AD Graph API
 
 To authenticate your app and get a token to Azure AD Graph API, issue a Client Credential Grant OAuth2.0 flow token request to Azure AD 
-token endpoint (**http://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+token endpoint (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 Lines 73-77 of [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L73) method of the ASP.net MVC 
 sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
