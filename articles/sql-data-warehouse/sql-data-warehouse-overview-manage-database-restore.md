@@ -32,9 +32,7 @@ This article describes the options for restoring a database in Azure SQL Data Wa
 
 **Recovering from user errors:** This scenario refers to recovering from unintentional or incidental data corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you want to ensure business continuity by restoring the database to an earlier point in time.
 
-## Snapshot policies
 
-[AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
 ## Database restore capabilities
 
