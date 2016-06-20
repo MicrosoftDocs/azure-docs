@@ -99,6 +99,29 @@ The following table presents the specific actions that can be performed by the A
 | Automation Runbook Draft Test Job | | | |  
 | Automation Webhook | | | |
 
+## User Access Administrator role permissions
+
+The following table presents the specific actions that can be performed by the User Access Administrator role in Automation.
+
+| **Resource Type** | **Read** | **Write** | **Delete** | **Other Actions** |
+|:--- |:---|:--- |:---|:--- |
+| Azure Automation Account | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Certificate Asset | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Connection Asset | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Connection Type Asset | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Credential Asset | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Schedule Asset | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Variable Asset | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Desired State Configuration | | | | |
+| Hybrid Runbook Worker Resource Type | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Azure Automation Job | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation Job Stream | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation Job Schedule | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Module | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Azure Automation Runbook | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Runbook Draft | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
+| Automation Runbook Draft Test Job | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | || | 
+| Automation Webhook | | | |
 
 ## Configure RBAC for your Automation Account using Azure Portal
 
