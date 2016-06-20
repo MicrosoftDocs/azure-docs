@@ -40,17 +40,21 @@ To configure a Docker client, simply open Windows PowerShell, and perform the fo
 
 	docker-machine ls 
 		
-	![][0]
+	![docker-machine ls output][0]
  
 1. Set default as the current host, and configure your shell.
 
-        docker-machine env default | Invoke-Expression
+    ```PowerShell
+    docker-machine env default | Invoke-Expression
+    ```
 
 1. Display the active Docker containers. The list should be empty.
 
+    ```PowerShell
 	docker ps
+    ```
 
-	![][1]
+	![docker ps output][1]
  
 > [AZURE.NOTE] Each time you reboot your development machine, you’ll need to restart your local docker host.
 > To do this, issue the following command at a command prompt: `docker-machine start default`.
