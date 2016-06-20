@@ -285,7 +285,7 @@ Timeouts happen in the client that you use to talk to Redis. For the most part R
 Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information on monitoring your caches, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
 
 <a name="cache-disconnect"></a>
-## Why was my client disconnected from the cache?
+### Why was my client disconnected from the cache?
 
 The following are some common reason for a cache disconnect.
 
