@@ -31,12 +31,12 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | Owner | The Owner role allows access to all resources and actions within an Automation account including providing access to other users, groups and applications to manage the Automation account. |
 | Contributor | The Contributor role allows you to manage everything except modifying other user’s access permissions to an Automation account. |
 | Reader | The Reader role allows you to view all the resources in an Automation account but cannot make any changes.|
-| Automation Operator | The Automation Operator role allows you to perform operational tasks such as start, stop, suspend, resume and schedule jobs. This role is helpful if you want to protect your Automation Account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. [Automation operator actions](../active-directory/role-based-access-built-in-roles.md#automation-operator) lists the actions supported by the Automation operator role on the Automation account and its resources. |
+| Automation Operator | The Automation Operator role allows you to perform operational tasks such as start, stop, suspend, resume and schedule jobs. This role is helpful if you want to protect your Automation Account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. |
 | User Access Administrator | The User Access Administrator role allows you to manage user access to Azure Automation accounts. |
 
 >[AZURE.NOTE] You cannot grant access rights to a specific runbook or runbooks, only to the resources and actions within the Automation account.  
 
-In this article we will walk you through how to set up RBAC in Azure Automation. 
+In this article we will walk you through how to set up RBAC in Azure Automation. But first, let's take a closer look at the individual permissions granted to the Contributor, Reader, Automation Operator and User Access Administrator so that we gain a good understanding before granting anyone rights to the Automation account.  Its really important you are cautious granting elevated privileges, otherwise it could result in unintended consequences.    
 
 ## Contributor role permissions
 
@@ -99,6 +99,8 @@ The following table presents the specific actions that can be performed by the A
 | Automation Runbook Draft Test Job | | | |  
 | Automation Webhook | | | |
 
+For further details, the [Automation operator actions](../active-directory/role-based-access-built-in-roles.md#automation-operator) lists the actions supported by the Automation operator role on the Automation account and its resources.
+
 ## User Access Administrator role permissions
 
 The following table presents the specific actions that can be performed by the User Access Administrator role in Automation.
@@ -120,8 +122,8 @@ The following table presents the specific actions that can be performed by the U
 | Automation Module | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Azure Automation Runbook | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Automation Runbook Draft | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | |
-| Automation Runbook Draft Test Job | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | || | 
-| Automation Webhook | | | |
+| Automation Runbook Draft Test Job | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | | 
+| Automation Webhook | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | |
 
 ## Configure RBAC for your Automation Account using Azure Portal
 
