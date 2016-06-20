@@ -20,8 +20,8 @@
 # Deploy and manage backup for Azure VMs using PowerShell
 
 > [AZURE.SELECTOR]
-- [ARM VM PowerShell](backup-azure-vms-automation.md)
-- [Classic VM PowerShell](backup-azure-vms-classic-automation.md)
+- [ARM](backup-azure-vms-automation.md)
+- [Classic](backup-azure-vms-classic-automation.md)
 
 This article shows you how to use Azure PowerShell for backup and recovery of Azure IaaS VMs.
 
@@ -341,3 +341,7 @@ $DAILYBACKUPSTATS | Out-GridView
 ```
 
 If you want to add charting capabilities to this report output, learn from the TechNet blog post [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
+
+## Next steps
+
+If you prefer using PowerShell to engage with your Azure resources, check out the PowerShell article for protecting Windows Server, [Deploy and Manage Backup for Windows Server](./backup-client-automation-classic.md). There is also a PowerShell article for managing DPM backups, [Deploy and Manage Backup for DPM](./backup-dpm-automation-classic.md). Both of these articles have a version for Resource Manager deployments as well as Classic deployments.

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/19/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Install Update 2.1 on your StorSimple device
@@ -82,14 +82,16 @@ The hotfix method involves the following three steps:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1.      | KB3162954 | Software update         |  Regular     | ~ 45 mins |
+| 1.      | KB3162954 | Software update &#42;          |  Regular     | ~ 45 mins |
 | 2.      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
 | 3.      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
 
 
+ &#42;  *Note, software update consists of two binary files: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` and `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. The device software update `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` must be installed before the Cis and Mds agent `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. You must also restart the active controller via the `Restart-HcsController` cmdlet after you apply the Cis and MDS agent update (and before applying the remaining updates).* 
+
 #### Download updates for a device running pre-Update 2 software
 
-**If your device is running versions 0.2, 0.3, 1.0, and 1.1**, you must download and install the LSI driver and firmware update. This update is already installed if you are running Update 1.2 or 2. 
+**If your device is running versions 0.2, 0.3, 1.0, and 1.1**, you must download and install the LSI driver and firmware update in addition to the software, iSCSI, and WMI updates. This update is already installed if you are running Update 1.2 or 2. 
  
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|

@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Load sample data into SQL Data Warehouse
 
-Once you've [created a SQL Data Warehouse database instance][create a SQL Data Warehouse database instance] the next step is to create and load some tables.  You can use the Adventure Works sample scripts we've created for SQL Data Warehouse to create and load tables for the fictional company called Adventure Works.  These scripts use sqlcmd to run SQL and bcp to load data.  If you don't already have these tools installed, follow these links to [install bcp][] and to [install sqlcmd][].
+Follow these simple steps to load and query the Adventure Works Sample database. These scripts first use sqlcmd to run SQL which will create tables and views. Once tables have been created, the scripts will use bcp to load data.  If you don't already have sqlcmd and bcp installed, follow these links to [install bcp][] and to [install sqlcmd][].
 
-Follow these simple steps to load the Adventure Works Sample database to SQL DW...
+##Load sample data
 
-1. Download [Adventure Works Sample Scripts for SQL Data Warehouse][].
+1. Download the [Adventure Works Sample Scripts for SQL Data Warehouse][] zip file.
 
 2. Extract the files from downloaded zip to a directory on your local machine.
 
@@ -44,7 +44,7 @@ This script will...
 	* Collect statistics on every column for each Adventure Works table
 
 
-##Query your sample data
+##Query sample data
 
 Once you've loaded some sample data into your SQL Data Warehouse, you can quickly run a few queries.  To run a query, connect to your newly created Adventure Works database in Azure SQL DW using Visual Studio and SSDT, as described in the [connect][] document.
 
@@ -86,7 +86,6 @@ Now that you've had a chance to try some queries with sample data, check out how
 [load]: ./sql-data-warehouse-overview-load.md
 [connect]: ./sql-data-warehouse-get-started-connect.md
 [migrate code]: ./sql-data-warehouse-migrate-code.md
-[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [install bcp]: ./sql-data-warehouse-load-with-bcp.md
 [install sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 

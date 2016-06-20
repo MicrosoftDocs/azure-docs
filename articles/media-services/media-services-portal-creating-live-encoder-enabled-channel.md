@@ -72,7 +72,7 @@ In this tutorial, the Azure Classic Portal is used to accomplish the following t
 The following are required to complete the tutorial.
 
 - To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
-For details, see [Azure Free Trial](azure.microsoft.com).
+For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - A webcam and an encoder that can send a single bitrate live stream.
 
@@ -174,7 +174,7 @@ Each program is associated with an Asset. To publish the program you must create
 
 A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
-You should not reuse existing programs for new events. Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.
+You should not reuse existing programs for new events. Instead, create and start a new program for each event.
 
 Start the program when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event. 
 

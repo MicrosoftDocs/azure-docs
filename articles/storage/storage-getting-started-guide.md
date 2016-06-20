@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="02/14/2016" 
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 # Get started with Azure Storage in five minutes 

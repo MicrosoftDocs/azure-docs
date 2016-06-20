@@ -89,4 +89,4 @@ while(true)
 See the following articles for more information about Service Bus queues:
 
 - [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- How to use [Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+- How to use [Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

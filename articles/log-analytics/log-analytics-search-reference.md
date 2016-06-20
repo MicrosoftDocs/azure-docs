@@ -292,8 +292,7 @@ Examples:
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] Wildcards cannot be used within quotations today. Message=`"\*This text\*"` will consider the (\*) used as a literal (\*) character.
-
+>[AZURE.NOTE] Wildcards cannot be used within quotations today. Message=`"*This text*"` will consider the (\*) used as a literal (\*) character.
 ## Commands
 
 The commands apply to the results that are returned by the query. Use the pipe character ( | ) to apply a command to the retrieved results. Multiple commands must be separated by the pipe character.
@@ -350,7 +349,7 @@ Example:
 
 	Type:Alert errors detected | select Name, Severity
 
-Limits the returned results fields to *Name** and *Severity*.
+Limits the returned results fields to *Name* and *Severity*.
 
 ### Measure
 

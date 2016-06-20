@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="02/12/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Configure CHAP for your StorSimple device
@@ -54,6 +54,7 @@ In unidirectional authentication, the target authenticates the initiator. This a
 	3. Confirm the password.
 
 4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
+
 #### To configure one-way authentication on the Windows host server
 
 1. On the Windows host server, start the iSCSI Initiator.

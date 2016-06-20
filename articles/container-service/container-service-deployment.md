@@ -26,57 +26,57 @@ This document walks you through deploying an Azure Container Service cluster by 
 
 ## Create a service by using the Azure portal
 
-Log into the Azure portal, select new, and search the Azure market place for **Azure Container Service**.
+Sign in to the Azure portal, select **New**, and search the Azure Marketplace for **Azure Container Service**.
 
-![Create deployment](media/acs-portal1.png)  <br /> 
+![Create deployment 1](media/acs-portal1.png)  <br />
 
-Select **Azure Container Service** and click **Create**.
+Select **Azure Container Service**, and click **Create**.
 
-![Create deployment](media/acs-portal2.png)  <br /> 
+![Create deployment 2](media/acs-portal2.png)  <br />
 
 Enter the following information:
 
-- User Name – This is the user name that will be used for an account on each of the virtual machines and virtual machine scale sets in the Azure Container Service cluster.
-- Subscription – select an Azure subscription.
-- Resource Group – select an existing Resource Group, or create a new one.
-- Location – select an Azure region for the Azure Container Service deployment.
-- SSH public key – Add the public key that will be used for authentication against Azure Container Service Virtual Machines. It is very important that this key contains no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like the following, "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" For guidance on creating SSH keys, see the [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) and [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) articles.
+- **User name**: This is the user name that will be used for an account on each of the virtual machines and virtual machine scale sets in the Azure Container Service cluster.
+- **Subscription**: Select an Azure subscription.
+- **Resource group**: Select an existing resource group, or create a new one.
+- **Location**: Select an Azure region for the Azure Container Service deployment.
+- **SSH public key**: Add the public key that will be used for authentication against Azure Container Service virtual machines. It is very important that this key contains no line breaks, and that it includes the 'ssh-rsa' prefix and the 'username@domain' postfix. It should look something like the following: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. For guidance on creating Secure Shell (SSH) keys, see the [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) and [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) articles.
 
-Click **OK** when ready to proceed.
+Click **OK** when you're ready to proceed.
 
-![Create deployment](media/acs-portal3.png)  <br /> 
+![Create deployment 3](media/acs-portal3.png)  <br />
 
 Select an Orchestration type. The options are:
 
-- DC/OS – deploys a DC/OS cluster.
-- Swarm – deploys a Docker Swarm cluster.
+- **DC/OS**: Deploys a DC/OS cluster.
+- **Swarm**: Deploys a Docker Swarm cluster.
 
-Click **OK** when ready to proceed.
+Click **OK** when you're ready to proceed.
 
-![Create deployment](media/acs-portal4.png)  <br /> 
+![Create deployment 4](media/acs-portal4.png)  <br />
 
 Enter the following information:
 
-- Master count – the number of masters in the cluster.
-- Agent count – For Docker Swarm this will be the initial number of agents in the agent scale set. For DC/OS, this will be the initial number of agents in a private scale set. Additionally, a public scale set is created, containing a pre-determined number of agents. The number of agents in this public scale set is determent on how many masters have been created in the cluster, 1 public agent for 1 master, and 2 public agents for 3 or 5 masters.
-- Agent virtual machine size – the size of the agent virtual machines.
-- DNS prefix – A world unique name that will be used to prefix key parts of the fully qualified domain names for the service. 
+- **Master count**: The number of masters in the cluster.
+- **Agent count**: For Docker Swarm, this will be the initial number of agents in the agent scale set. For DC/OS, this will be the initial number of agents in a private scale set. Additionally, a public scale set is created, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster--one public agent for one master, and two public agents for three or five masters.
+- **Agent virtual machine size**: The size of the agent virtual machines.
+- **DNS prefix**: A world unique name that will be used to prefix key parts of the fully qualified domain names for the service.
 
-Click **OK** when ready to proceed.
+Click **OK** when you're ready to proceed.
 
-![Create deployment](media/acs-portal5.png)  <br /> 
+![Create deployment 5](media/acs-portal5.png)  <br />
 
-Click **OK** once service validation has completed.
+Click **OK** after service validation has finished.
 
-![Create deployment](media/acs-portal6.png)  <br /> 
+![Create deployment 6](media/acs-portal6.png)  <br />
 
 Click **Create** to start the deployment process.
 
-![Create deployment](media/acs-portal7.png)  <br /> 
+![Create deployment 7](media/acs-portal7.png)  <br />
 
-If you have elected to pin the deployment to the Azure portal, deployment status can be seen.
+If you've elected to pin the deployment to the Azure portal, you can see the deployment status.
 
-![Create deployment](media/acs-portal8.png)  <br /> 
+![Create deployment 8](media/acs-portal8.png)  <br />
 
 When the deployment has completed, the Azure Container Service cluster is ready for use.
 
@@ -106,14 +106,14 @@ Next, configure the Azure CLI tools to use Azure Resource Manager.
 azure config mode arm
 ```
 
-Create an Azure Resource Group and Container Service cluster with the following command, where:
+Create an Azure resource group and Container Service cluster with the following command, where:
 
-- **RESOURCE_GROUP** is the name of the Resource Group you want to use for this service.
-- **LOCATION** is the Azure region where the Resource Group and Azure Container Service deployment will be created.
-- **TEMPLATE_URI** is the location of the deployment file. **Note** - this must be the RAW file, not a pointer to the GitHub UI. To find this URL select the azuredeploy.json file in GitHub and click the RAW button:
+- **RESOURCE_GROUP** is the name of the resource group that you want to use for this service.
+- **LOCATION** is the Azure region where the resource group and Azure Container Service deployment will be created.
+- **TEMPLATE_URI** is the location of the deployment file. Note that this must be the Raw file, not a pointer to the GitHub UI. To find this URL, select the azuredeploy.json file in GitHub, and click the **Raw** button.
 
-> Note - when running this command, the shell will prompt you for deployment parameter values.
- 
+> [AZURE.NOTE] When you run this command, the shell will prompt you for deployment parameter values.
+
 ```bash
 # sample deployment
 
@@ -161,7 +161,7 @@ If you need to sign in to Azure, use the `Login-AzureRMAccount` command:
 Login-AzureRmAccount
 ```
 
-If you are deploying to a new resource group, you must first create the resource group. To create a new resource group, use the `New-AzureRmResourceGroup` command, specifying a resource group name and destination region:
+If you're deploying to a new resource group, you must first create the resource group. To create a new resource group, use the `New-AzureRmResourceGroup` command, and specify a resource group name and destination region:
 
 ```powershell
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
@@ -177,7 +177,7 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
 
 ### Provide template parameters
 
-If you are familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses the parameters, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
+If you're familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses the parameters, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
 
 Below is the full command, with parameters included. You can provide your own values for the names of the resources.
 
@@ -188,9 +188,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 ```
 
 ## Next steps
- 
-Now that you have a functioning cluster, visit these documents for connection and management details.
- 
-[Connect with an Azure Container Service cluster](container-service-connect.md)
-[Working with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
-[Working with Azure Container Service and Docker Swarm](container-service-docker-swarm.md)
+
+Now that you have a functioning cluster, see these documents for connection and management details:
+
+- [Connect to an Azure Container Service cluster](container-service-connect.md)
+- [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
+- [Work with Azure Container Service and Docker Swarm](container-service-docker-swarm.md)

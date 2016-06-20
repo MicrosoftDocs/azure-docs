@@ -20,7 +20,7 @@
 
 [Return to the Security Boundary Best Practices Page][HOME]
 
-This example will create a DMZ with a firewall, four windows servers, User Defined Routing, IP Forwarding, and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is a also a Traffic Scenario section to provide a in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
+This example will create a DMZ with a firewall, four windows servers, User Defined Routing, IP Forwarding, and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
 
 ![Bi-directional DMZ with NVA, NSG, and UDR][1]
 
@@ -28,7 +28,7 @@ This example will create a DMZ with a firewall, four windows servers, User Defin
 In this example there is a subscription that contains the following:
 
 - Three cloud services: “SecSvc001”, “FrontEnd001”, and “BackEnd001”
-- A Virtual Network, “CorpNetwork”, with three subnets; “SecNet”, “FrontEnd”, and “BackEnd”
+- A Virtual Network “CorpNetwork”, with three subnets: “SecNet”, “FrontEnd”, and “BackEnd”
 - A network virtual appliance, in this example a firewall, connected to the SecNet subnet
 - A Windows Server that represents an application web server (“IIS01”)
 - Two windows servers that represent application back end servers (“AppVM01”, “AppVM02”)
@@ -36,7 +36,7 @@ In this example there is a subscription that contains the following:
 
 In the references section below there is a PowerShell script that will build most of the environment described above. Building the VMs and Virtual Networks, although are done by the example script, are not described in detail in this document.
 
-To build the environment;
+To build the environment:
 
   1.	Save the network config xml file included in the references section (updated with names, location, and IP addresses to match the given scenario)
   2.	Update the user variables in the script to match the environment the script is to be run against (subscriptions, service names, etc)
@@ -44,7 +44,7 @@ To build the environment;
 
 **Note**: The region signified in the PowerShell script must match the region signified in the network configuration xml file.
 
-Once the script runs successfully the following post-script steps may be taken;
+Once the script runs successfully the following post-script steps may be taken:
 
 1.	Set up the firewall rules, this is covered in the section below titled: Firewall Rule Description.
 2.	Optionally in the references section are two scripts to set up the web server and app server with a simple web application to allow testing with this DMZ configuration.
@@ -110,22 +110,22 @@ For this example, the following commands are used to build the route table, add 
 
 2.	Once the route table is created, specific user defined routes can be added. In this snipped, all traffic (0.0.0.0/0) will be routed through the virtual appliance (a variable, $VMIP[0], is used to pass in the IP address assigned when the virtual appliance was created earlier in the script). In the script, a corresponding rule is also created in the Frontend table.
 
-		Get-AzureRouteTable $BERouteTableName |`
+		Get-AzureRouteTable $BERouteTableName | `
 		    Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
 		    -NextHopType VirtualAppliance `
 		    -NextHopIpAddress $VMIP[0]
 
 3. The above route entry will override the default "0.0.0.0/0" route, but the default 10.0.0.0/16 rule still existing which would allow traffic within the VNet to route directly to the destination and not to the Network Virtual Appliance. To correct this behavior the follow rule must be added.
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
 	        -NextHopType VirtualAppliance `
 	        -NextHopIpAddress $VMIP[0]
 
 4. At this point there is a choice to be made. With the above two routes all traffic will route to the firewall for assessment, even traffic within a single subnet. This may be desired, however to allow traffic within a subnet to route locally without involvement from the firewall a third, very specific rule can be added. This route states that any address destine for the local subnet can just route there directly (NextHopType = VNETLocal).
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
 	        -NextHopType VNETLocal
 
 5.	Finally, with the routing table created and populated with a user defined routes, the table must now be bound to a subnet. In the script, the front end route table is also bound to the Frontend subnet. Here is the binding script for the back end subnet.
@@ -145,8 +145,8 @@ Setting up IP Forwarding is a single command and can be done at VM creation time
 
 1.	Call the VM instance that is your virtual appliance, the firewall in this case, and enable IP Forwarding (Note; any item in red beginning with a dollar sign (e.g.: $VMName[0]) is a user defined variable from the script in the reference section of this document. The zero in brackets, [0], represents the first VM in the array of VMs, for the example script to work without modification, the first VM (VM 0) must be the firewall):
 
-		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
-		   |Set-AzureIPForwarding -Enable
+		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+		   Set-AzureIPForwarding -Enable
 
 ## Network Security Groups (NSG)
 In this example, a NSG group is built and then loaded with a single rule. This group is then bound only to the Frontend and Backend subnets (not the SecNet). Declaratively the following rule is being built:
@@ -533,7 +533,7 @@ Save the Full Script in a PowerShell script file. Save the Network Config into a
 Modify the user defined variables as needed. Run the script, then follow the Firewall rule setup instruction above.
 
 #### Full Script
-This script will, based on the user defined variables;
+This script will, based on the user defined variables:
 
 1.	Connect to an Azure subscription
 2.	Create a new storage account
