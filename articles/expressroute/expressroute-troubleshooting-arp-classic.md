@@ -159,7 +159,7 @@ The ARP table of a peering can be used to validate layer 2 configuration and con
  - You will not see an ARP table shown for a peering if there are issues on the Microsoft side.
  -  Open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specify that you have an issue with layer 2 connectivity.
 
-## Next Steps
+## Next steps
 
  - Validate Layer 3 configurations for your ExpressRoute circuit
 	 - Get a route summary to determine the state of BGP sessions.
