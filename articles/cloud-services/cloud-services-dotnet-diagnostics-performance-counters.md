@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="02/29/2016"
    ms.author="robb" />
 
 # Create and use performance counters in an Azure application
@@ -179,7 +179,7 @@ Perform the following steps to create a simple custom performance counter named 
 2. Add the Runtime element to the WebRole or WorkerRole element to allow execution with elevated privileges:
 
     ```
-    <RuntimeexecutionContext="elevated"/>
+    <runtime executioncontext="elevated"/>
     ```
 3. Save the file.
 4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration 
@@ -318,9 +318,4 @@ Entities map to C# objects using a custom class derived from **TableEntity**. T
 
 
 ## Next Steps
-
-Now that you've learned the basics of collecting performance counters, follow these links to learn how to implement more complex troubleshooting scenarios.
-
-[Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/library/azure/hh771389.aspx)
-
-[How to Monitor Cloud Services](./how-to-monitor-a-cloud-service.md)
+[View additional articles on Azure Diagnostics] (../azure-diagnostics.md)

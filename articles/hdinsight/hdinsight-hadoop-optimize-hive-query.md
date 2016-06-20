@@ -22,12 +22,6 @@
 
 By default, Hadoop clusters are not optimized for performance. This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.
 
-
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)] 
-
-
-* [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
-
 ##Scale out worker nodes
 
 Increasing the number of worker nodes in a cluster can leverage more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
@@ -64,6 +58,7 @@ You can make any Hive query Tez enabled by prefixing the query with the setting 
 
 For Windows-based HDInsight clusters, Tez must be enabled at the provision time. The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	$clusterName = "[HDInsightClusterName]"
 	$location = "[AzureDataCenter]" #i.e. West US
@@ -215,11 +210,11 @@ There are more optimization methods that you can consider, for example:
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
-- [Use Apache Hive in HDInsight](../hdinsight-using-hive.md)
+- [Use Apache Hive in HDInsight](hdinsight-use-hive.md)
 - [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 - [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
 - [Analyze sensor data using the Hive Query Console on Hadoop in HDInsight](hdinsight-hive-analyze-sensor-data.md)
-- [Use Hive with HDInsight to analyze logs from websites](../hdinsight-hive-analyze-web-site-log.md)
+- [Use Hive with HDInsight to analyze logs from websites](hdinsight-hive-analyze-website-log.md)
 
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png

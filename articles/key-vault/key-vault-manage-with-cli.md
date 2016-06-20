@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Manage Key Vault using CLI | Microsoft Azure"
 	description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
 	services="key-vault"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Manage Key Vault using CLI #
@@ -31,11 +31,10 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites
-
 To complete this tutorial, you must have the following:
 
 - A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../pricing/free-trial).
-- Command-Line Interface version 0.9.1 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli-install.md).
+- Command-Line Interface version 0.9.1 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](../xplat-cli-install.md).
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 ## Getting help with Azure Cross-Platform Command-Line Interface
@@ -54,8 +53,8 @@ When in doubt about the parameters needed by a command, refer to help using --he
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
 
-- [How to install and configure Azure Cross-Platform Command Line Interface](xplat-cli-install.md)
-- [Using Azure Cross-Platform Command-Line Interface with Azure Resource Manager](xplat-cli-azure-resource-manager.md)
+- [How to install and configure Azure Cross-Platform Command Line Interface](../xplat-cli-install.md)
+- [Using Azure Cross-Platform Command-Line Interface with Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 
 
 ## Connect to your subscriptions
@@ -79,7 +78,7 @@ If you do not currently have an organizational account, and are using a Microsof
 4.	From the portal, select Settings and then select Administrators. Select Add, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
 5.	Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
 
-For more information about using an organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+For more information about using an organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](../active-directory/sign-up-organization.md).
 
 If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:
 
@@ -89,7 +88,7 @@ Then, to specify the subscription to use, type:
 
     azure account set <subscription name>
 
-For more information about configuring Azure Cross-Platform Command-Line Interface, see [How to Install and Configure Azure Cross-Platform Command-Line Interface](xplat-cli-install.md).
+For more information about configuring Azure Cross-Platform Command-Line Interface, see [How to Install and Configure Azure Cross-Platform Command-Line Interface](../xplat-cli-install.md).
 
 
 ## Switch to using Azure Resource Manager
@@ -106,6 +105,12 @@ When using Azure Resource Manager, all related resources are created inside a re
 
 The first parameter is resource group name and the second parameter is the location. For location, use the command `azure location list` to identify how to specify an alternative location to the one in this example. If you need more information, type: `azure help location`
 
+## Register the Key Vault resource provider
+Make sure that Key Vault resource provider is registered in your subscription:
+
+`azure provider register Microsoft.KeyVault`
+
+This only needs to be done once per subscription.
 
 
 ## Create a key vault
@@ -185,11 +190,13 @@ To authorize the application to access the key or secret in the vault, use the `
 
 For example, if your vault name is ContosoKeyVault and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, then run the following:
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '["decrypt","sign"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
+
+>[AZURE.NOTE] If you are running on Windows command prompt, you should replace single quotes with double quotes, and also escape the internal double quotes. For example: "[\"decrypt\",\"sign\"]".
 
 If you want to authorize that same application to read secrets in your vault, run the following:
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
 
 ## If you want to use a hardware security module (HSM) ##
 

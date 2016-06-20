@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,11 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # Manage and secure your PowerApps
+
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about the available connections in PowerApps, go to [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/). 
+
+<!--Archived
 You create your app service environment, and add APIs and their connections. Now users in your organization can start consuming these APIs and connections. You can also manage all apps created in your organization. These options include:
 
 - See the different apps within your app service environment, including PowerApps, web apps, logic apps, mobile apps, and more.
@@ -51,7 +58,7 @@ When you add Administrators to PowerApps Enterprise, the users and groups you ad
 - Manage all apps as well as their user access.
 - Cannot change the billing.
 
-> [AZURE.IMPORTANT] PowerApps Administrators cannot make changes to the App Service Environment until they are given the Owner role on the app service environment's resource group. To do this, see [this article](powerapps-get-started-azure-portal.md).
+> [AZURE.IMPORTANT] PowerApps Administrators cannot make changes to the App Service Environment until they are given the Owner role on the app service environment's resource group. To do this, see [Get started with PowerApps Enterprise](powerapps-get-started-azure-portal.md).
 
 Once given the Owner role on the app service environment's resource group, the PowerApps administrators can also: 
 
@@ -78,7 +85,7 @@ Once you enable PowerApps and your app service environment, you can add other ap
 You cannot add an app through the Azure portal. Currently, go to the [PowerApps portal](http://go.microsoft.com/fwlink/p/?LinkId=715583).
 
 #### Delete your apps created in PowerApps
-As a PowerApps Admin, you can delete any app, including apps created in PowerApps and other types of apps in your app service environment. To delete your app, select the **All apps** tile, select your app, and then select **Delete**:    
+As a PowerApps Admin, you can delete any app, including apps created in PowerApps and other types of apps in your app service environment. To delete your app, select the **All apps** tile, select your app, and then select **Delete**:  
 ![][4]
 
 
@@ -164,7 +171,7 @@ Now that your Azure portal experience is configured, let's start creating your a
 - [Create an app from a template in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715536) 
 - [Create an app from data in PowerApps](http://go.microsoft.com/fwlink/?LinkId=715539) 
 - [Create an app from scratch in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715538)
-
+-->
 
 [1]: ./media/powerapps-manage-monitor-usage/addadmin.png
 [2]: ./media/powerapps-manage-monitor-usage/selectrole.png

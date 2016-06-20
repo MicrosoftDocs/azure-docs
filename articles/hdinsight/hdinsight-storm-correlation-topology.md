@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="02/01/2016"
+ ms.date="04/19/2016"
  ms.author="larryfr"/>
 
 # Correlate events over time with Storm and HBase on HDInsight
@@ -194,6 +194,10 @@ Searching for END events works the same as START events. However, END events are
 ##Stop the topology
 
 When you are ready to stop the topology, return to the **CorrelationTopology** project in Visual Studio. In the **Storm Topology View**, select the topology and then use the **Kill** button at the top of the topology view.
+
+##Delete your cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Next steps
 

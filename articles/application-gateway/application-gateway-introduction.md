@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="02/18/2016"
    ms.author="joaoma"/>
 
-# What is Application Gateway?
-
+# Application Gateway overview
 
 Microsoft Azure Application Gateway provides an Azure-managed HTTP load-balancing solution based on layer-7 load balancing.
 
@@ -26,8 +25,8 @@ Application Gateway currently supports layer-7 application delivery for the foll
 
 - HTTP load balancing
 - Cookie-based session affinity
-- Secure Sockets Layer (SSL) offload
-
+- [Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)
+- [URL based content routing](application-gateway-url-route-overview.md) 
 
 ## HTTP layer 7 load balancing
 
@@ -40,6 +39,8 @@ HTTP layer 7 load balancing is useful for:
 - Applications that require requests from the same user/client session to reach the same back-end virtual machine . Examples of this would be shopping cart apps and web mail servers.
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
+
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 
 ## Gateway sizes and instances
@@ -59,9 +60,14 @@ The table below shows an average performance throughput for each application gat
 
 >[AZURE.NOTE] This is an approximate guidance for an application gateway throughput. The actual throughput is dependent on various environment details, such as average page size, location of back-end instances, and processing time to serve a page.
 
+
 ## Health monitoring
 
 Azure Application Gateway automatically monitors the health of the back-end instances. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
+
+
+
+
 
 ## Configuring and managing
 
@@ -71,4 +77,6 @@ You can create and manage an application gateway by using REST APIs and by using
 ## Next steps
 
 After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway.md) or you can [create an application gateway SSL offload](application-gateway-ssl.md) to load-balance HTTPS connections.
+
+To learn how to create an application gateway using URL based content routing, go to [Create an application gateway using URL based routing](application-gateway-create-url-route-arm-ps.md) for more information.
 

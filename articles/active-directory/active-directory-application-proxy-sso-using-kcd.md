@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Single-sign-on with Application Proxy | Microsoft Azure"
-	description="Covers how to provide single-sign using Azure AD Application Proxy."
+	pageTitle="Single sign-on with Application Proxy | Microsoft Azure"
+	description="Covers how to provide single sign-on using Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 
-# Single-sign-on with Application Proxy
+# Single sign-on with Application Proxy
 
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
-Single-sign-on is a key element of Azure AD Application Proxy. It provides the best user experience: a user signs in to the cloud, all security validations happen in the cloud (preauthentication) and then, when the request is sent to the on-prem application, the Application Proxy Connector impersonates the user so the backend application thinks that this is a regular user coming from a domain-joined device.
+Single sign-on is a key element of Azure AD Application Proxy. It provides the best user experience with the following steps:
+1. A user signs in to the cloud
+2. All security validations happen in the cloud (preauthentication)
+3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user so the backend application thinks that this is a regular user coming from a domain-joined device.
 
 ![Access diagram from end user, through Application Proxy, to the corporate network](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
@@ -34,9 +37,9 @@ You can enable single sign-on to your applications using Integrated Windows Auth
 
 ### Network diagram
 
-![Microsoft AAD authentication flow diagram](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
+This diagram explains the flow when a user attempts to access an on-prem application that uses IWA.
 
-This diagram explains the flow when a user attempts to access an on-prem application that uses IWA. The general flow is:
+![Microsoft AAD authentication flow diagram](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
 
 1. The user enters the URL to access the on-prem application through Application Proxy.
 2. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
@@ -49,9 +52,9 @@ This diagram explains the flow when a user attempts to access an on-prem applica
 
 ### Prerequisites
 
-1. Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-2. Create Service Principal Names for your applications.
-3. Make sure that the server running the Connector and the server running the app you are publishing are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
+- Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+- Create Service Principal Names for your applications.
+- Make sure that the server running the Connector and the server running the app you are publishing are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
 
 
 ### Active Directory configuration
@@ -95,7 +98,7 @@ The Active Directory configuration varies, depending on whether your Application
 
 |  |  |
 | --- | --- |
-| Internal Authentication Method | If you use Azure AD for preauthentication, you can set an internal authentication method to enable your users to benefit from single-sign on (SSO) to this application. <br><br> Select **Integrated Windows Authentication** (IWA) if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. <br><br> Select **None** if your application does not use IWA. |
+| Internal Authentication Method | If you use Azure AD for preauthentication, you can set an internal authentication method to enable your users to benefit from single sign-on (SSO) to this application. <br><br> Select **Integrated Windows Authentication** (IWA) if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. <br><br> Select **None** if your application does not use IWA. |
 | Internal Application SPN | This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Azure AD. The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using KCD. |
 
 
@@ -149,24 +152,13 @@ But, in some cases, the request will be successfully sent to the backend applica
 
 
 ## See also
-There's a lot more you can do with Application Proxy:
-
 
 - [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
-- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
 - [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
+- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
 
-## Learn more about Application Proxy
-- [Take a look at our online help](active-directory-application-proxy-enable.md)
-- [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-- [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## Additional Resources
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-- [Sign up for Azure as an organization](sign-up-organization.md)
-- [Azure Identity](fundamentals-identity.md)
+For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
 
 <!--Image references-->

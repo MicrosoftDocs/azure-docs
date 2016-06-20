@@ -1,11 +1,11 @@
 <properties
-	pageTitle="How to use Blob storage from Ruby | Microsoft Azure"
-	description="Learn how to use Blob storage to upload, download, list, and delete blob content. Samples written in Ruby."
+	pageTitle="How to use Blob storage (object storage) from Ruby | Microsoft Azure"
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="tomfitz"/>
+    ms.date="04/29/2016"
+	ms.author="robmcm"/>
 
 
 # How to use Blob storage from Ruby
@@ -22,6 +22,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
+
+Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
 
 This guide will show you how to perform common scenarios using Blob storage. The samples are written using the Ruby API. The scenarios covered include **uploading, listing, downloading,** and **deleting** blobs.
 
@@ -31,8 +33,8 @@ This guide will show you how to perform common scenarios using Blob storage. The
 
 ## Create a Ruby application
 
-Create a Ruby application. For instructions,
-see [Create a Ruby application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Create a Ruby application. For instructions, 
+see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)
 
 ## Configure your application to access Storage
 
@@ -59,12 +61,21 @@ for information required to connect to your Azure storage account. If these envi
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
 
-To obtain these values:
+To obtain these values from a Classic or ARM Storage Account in the Azure Portal:
 
 1. Log in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
-3. Click **MANAGE KEYS** at the bottom of the navigation pane.
-4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
+3. In the Settings blade on the right, click **Access Keys**.
+4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these. 
+5. Click the copy icon to copy the key to the clipboard. 
+
+To obtain these values from a Classic Storage Account in the Classic Portal:
+
+1. Log in to the [Classic Portal](https://manage.windowsazure.com).
+2. Navigate to the storage account you want to use.
+3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
+4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one. 
+5. Click the copy icon to copy the key to the clipboard.
 
 ## Create a container
 
@@ -147,4 +158,4 @@ To learn about more complex storage tasks, follow these links:
 
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)

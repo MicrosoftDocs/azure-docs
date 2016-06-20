@@ -3,7 +3,7 @@
    description="Lists the various available reports in Azure Active Directory reporting"
    services="active-directory"
    documentationCenter=""
-   authors="curtand"
+   authors="dhanyahk"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/10/2016"
-   ms.author="curtand;kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Getting started with Azure Active Directory Reporting
 
@@ -24,13 +24,13 @@ Azure Active Directory (Azure AD) includes security, activity, and audit reports
 
 ### Security reports
 
-- Sign ins from unknown sources
-- Sign ins after multiple failures
-- Sign ins from multiple geographies
-- Sign ins from IP addresses with suspicious activity
-- Irregular sign in activity
-- Sign ins from possibly infected devices
-- Users with anomalous sign in activity
+- Sign-ins from unknown sources
+- Sign-ins after multiple failures
+- Sign-ins from multiple geographies
+- Sign-ins from IP addresses with suspicious activity
+- Irregular sign-in activity
+- Sign-ins from possibly infected devices
+- Users with anomalous sign-in activity
 
 ### Activity reports
 
@@ -65,9 +65,9 @@ The reporting pipeline consists of three main steps. Every time a user signs in,
 
 ### Report generation times
 
-Due to the large volume of authentications and sign ins processed by the Azure AD platform, the most recent sign ins processed are, on average, one hour old. In rare cases, it may take up to 8 hours to process the most recent sign ins.
+Due to the large volume of authentications and sign ins processed by the Azure AD platform, the most recent sign-ins processed are, on average, one hour old. In rare cases, it may take up to 8 hours to process the most recent sign-ins.
 
-You can find the most recent processed sign in by examining the help text at the top of each report.
+You can find the most recent processed sign-in by examining the help text at the top of each report.
 
 ![Help text at the top of each report](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
@@ -92,13 +92,13 @@ If this is your first time viewing the reports, you'll need to agree to a dialog
 
 ### Explore each report
 
-Navigate into each report to see the data being collected and the sign ins processed. You can find a [list of all the reports here](active-directory-reporting-guide.md).
+Navigate into each report to see the data being collected and the sign-ins processed. You can find a [list of all the reports here](active-directory-reporting-guide.md).
 
 ![All reports](./media/active-directory-reporting-getting-started/reportsMain.png)
 
 ### Download the reports as CSV
 
-Each report can be downloaded as a CSV (comma separated value) file. You can use these files in Excel, PowerBI or third-party analysis programs to further analyze your data.
+Each report can be downloaded as a CSV (comma-separated value) file. You can use these files in Excel, PowerBI or third-party analysis programs to further analyze your data.
 
 To download any report as a CSV, navigate to the report and click "Download" at the bottom.
 
@@ -118,7 +118,7 @@ Navigate to the "Configure" tab of your directory.
 
 Scroll to the "Notifications" section.
 
-Enable or disable the "Email Notifications of Anomalous sign ins" section.
+Enable or disable the "Email Notifications of Anomalous sign-ins" section.
 
 ![The Notifications section](./media/active-directory-reporting-getting-started/notificationsSection.png)
 
@@ -152,6 +152,6 @@ See [Getting started with the Reporting API](active-directory-reporting-api-gett
 
 ### Get in touch
 
-Email [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) for feedback, help, or any questions you might have!
+Email [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) for feedback, help, or any questions you might have.
 
 > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).

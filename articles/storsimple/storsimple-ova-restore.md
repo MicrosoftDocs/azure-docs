@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restore from a backup of your StorSimple Virtual Array (Preview)"
+   pageTitle="Restore from a backup of your StorSimple Virtual Array"
    description="Learn more about how to restore a backup of your StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
@@ -13,25 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
-# Restore from a backup of your StorSimple Virtual Array (Preview)
+# Restore from a backup of your StorSimple Virtual Array
 
 ## Overview 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (Public Preview) only. This article describes step-by-step how to restore from a backup set of your shares or volumes for your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
-
-> [AZURE.IMPORTANT]
-> 
-> - This public preview is intended for evaluation and deployment planning purposes only. Installing this preview in a production environment is not supported.
-> - If you experience any issues with StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=StorSimple).
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later. This article describes step-by-step how to restore from a backup set of your shares or volumes on your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
 
 
 ## Restore shares from a backup set
 
 
-Before you try to restore shares, ensure that you have sufficient space on the device to complete this operation. To restore from a backup, in the [Azure classic portal](https://manage.windowsazure.com/), perform the following steps.
+**Before you try to restore shares, ensure that you have sufficient space on the device to complete this operation.** To restore from a backup, in the [Azure classic portal](https://manage.windowsazure.com/), perform the following steps.
 
 #### To restore a share
 
@@ -100,12 +95,11 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 
 3.  You can track the progress of the restore job. When the restore is 100% complete, navigate back to the **Volumes** page on your device.
 
-4.  You can now view the new restored volume in the list of volumes on your device. 
+4.  You can now view the new restored volume in the list of volumes on your device. Note that restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
 
-	> [AZURE.NOTE] Restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
+> [AZURE.IMPORTANT] When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this target volume or share in the portal to minimize any 	future issues arising from this element.
 
 ## Item-level recovery (ILR)
-
 
 This release introduces the item-level recovery (ILR) on a StorSimple virtual device configured as a file server. The feature allows you to do granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. Users can retrieve deleted files from recent backups using a self-service model.
 
@@ -113,7 +107,7 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 1.  When performing the ILR, you can view the backups through Windows Explorer. Click the specific share that you want to look at the backup for. You will see a *.backups* folder created under the share that stores all the backups. Expand the *.backups* folder to view the backups. The folder will then show the exploded view of the entire backup hierarchy. This view is created on-demand and usually takes only a couple of seconds to create.
 
-	The last 5 backups are displayed in this way. This includes both the default scheduled and the manual backups.
+	The last 5 backups are displayed in this way and can be used to perform an item-level recovery. The 5 recent backups include both the default scheduled and the manual backups.
 
 	
 	-   **Scheduled backups** named as &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.

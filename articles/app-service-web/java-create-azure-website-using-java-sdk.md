@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/25/2016" 
 	ms.author="v-donntr"/>
 
 
@@ -610,8 +610,8 @@ This procedure creates an App Service web app. You will be billed for the resour
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
 [Azure classic portal]: https://manage.windowsazure.com
 [What is an Azure AD directory]: http://technet.microsoft.com/library/jj573650.aspx
-[Create and Upload a Management Certificate for Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Create and Upload a Management Certificate for Azure]: ../cloud-services/cloud-services-certs-create.md
 [Key and Certificate Management Tool (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
-[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Azure Portal]: https://portal.azure.com

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="06/12/2016" 
 	ms.author="awills"/>
  
 # Usage analysis for web applications with Application Insights
@@ -153,32 +153,22 @@ But you'd still like Application Insights to log the number of times each game i
 
 ## Custom events
 
-Use custom events to . You can send them from device apps, web pages or a web server:
-
-*JavaScript*
+Write custom telemetry to log specific events. Particularly in a single-page app, you'll want to know how often the user performs particular actions or achieves certain goals: 
 
     appInsights.trackEvent("GameEnd");
 
-*C#*
+For example, to log clicking a link:
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
-    tc.TrackEvent("GameEnd");
-
-*VB*
-
-    Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
-    tc.TrackEvent("GameEnd")
+    <a href="target.htm" onclick="appInsights.trackEvent('linkClick');return true;">my link</a>
 
 
-The most frequent custom events are listed on the overview blade.
+## View counts of custom events
 
-![On the Overview blade, scroll down to and click Custom Events.](./media/app-insights-web-track-usage/04-events.png)
-
-Click the head of the table to see total numbers of events. You can segment the chart by various attributes such as the event name: 
+Open Metrics Explorer and add a chart to show Events. Segment by name:
 
 ![Select a chart that shows just one metric. Switch on Grouping. Choose a property. Not all properties are available.](./media/app-insights-web-track-usage/06-eventsSegment.png)
 
-The particularly useful feature of timelines is that you can correlate changes with other metrics and events. For example, at times when more games are played, you'd expect to see a rise in abandoned games as well. But the rise in abandoned games is disproportionate, you'd want to find out whether the high load is causing problems that users find unacceptable.
+
 
 ## Drill into specific events
 
@@ -318,12 +308,13 @@ You can set up a universal initializer so that all new TelemetryClients automati
 
 ```C#
 
+
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 ```
@@ -335,7 +326,7 @@ In the app initializer such as Global.asax.cs:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 ```

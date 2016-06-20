@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter=""
 	authors="schabungbam"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,10 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/25/2015"
+   ms.date="05/02/2016"
    ms.author="sameerch"/>
 
-# Create a new Dynamics CRM Online API in your organization's app service environment
+# Create a new Dynamics CRM Online API in PowerApps Enterprise
+
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about the available connections in PowerApps, go to [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/). 
+
+<!--Archived
+Add the Dynamics CRM Online API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
 
@@ -37,10 +45,10 @@
 
 6. Enter a descriptive **name** for your API.  
 
-7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Dynamics CRM Online**:
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Dynamics CRM Online**:  
 ![Select Dynamics CRM Online API][5]
 
-8. Select **Settings - Configure required settings**:
+8. Select **Settings - Configure required settings**:  
 ![Configure Dynamics CRM Online API settings][6]
 
 9. Enter **Client Id** and **App Key** of your Dynamics CRM Online Azure Active Directory (AAD) application.  If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
@@ -67,17 +75,17 @@ When finished, a new Dynamics CRM Online API is added to your app service enviro
 
 5. In **Add application**:  
 
-	a) Enter a **Name** for your application.  
-	b) Leave the application type as **Web**.  
-	c) Select **Next**.
+	1. Enter a **Name** for your application.  
+	2. Leave the application type as **Web**.  
+	3. Select **Next**.
 
 	![Add AAD application - app info][9]
 
 6. In **App Properties**:  
 
-	a) Enter the **SIGN-ON URL** of your application.  Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
-	b) Enter a valid **APP ID URI** for your app.  
-	c) Select **OK**.  
+	1. Enter the **SIGN-ON URL** of your application.  Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	2. Enter a valid **APP ID URI** for your app.  
+	3. Select **OK**.  
 
 	![Add AAD application - app properties][10]
 
@@ -91,10 +99,17 @@ When finished, a new Dynamics CRM Online API is added to your app service enviro
 
 A new Azure Active Directory app is created. You can use this app in your Dynamics CRM Online API configuration in the Azure portal.
 
+## See the REST APIs
+
+[Dynamics CRM Online REST API](../connectors/connectors-create-api-crmonline.md) reference.
+
+
 ## Summary and next steps
 In this topic, you added the Dynamics CRM Online API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps:
 
 [Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!-- References -->
 

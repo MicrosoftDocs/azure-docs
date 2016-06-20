@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/22/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # How to manage your account profile and test devices
  
-This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. 
  
 To get to the my account page, click on your account on the top of the page.
 
@@ -27,7 +27,7 @@ The My Account section of the UI is where you can view and change the settings a
 ![MyAccount1][7]  
 
 ## Profile:
-You can view or change any of your account settings shown below. You can also give another user permission to use your application based on their e-mail address from the [Home](mobile-engagement-interface-home.md).
+You can view or change any of your account settings shown below. You can also give another user permission to use your application based on their e-mail address from the [Home](mobile-engagement-user-interface-home.md).
 
 ![MyAccount2][8]  
 

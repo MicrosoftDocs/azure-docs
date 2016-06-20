@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the Microsoft SQL Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the Azure SQL 2015-08-01-preview schema version, click [SQL Azure API](../connectors/connectors-create-api-sqlazure.md).
+
 Connect to an on-premises SQL Server or an Azure SQL Database to create and change your information or data. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the SQL Connector in your workflow, you can achieve a variety of scenarios. For example, you can:
 
 - Expose a section of the data residing in your SQL database using a web or mobile application.

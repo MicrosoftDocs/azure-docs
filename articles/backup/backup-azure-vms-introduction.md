@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Planning your VM backup infrastructure in Azure | Microsoft Azure"
-	description="Important considerations for planning your VM backup infrastructure in Azure"
+	description="Important considerations when planning to back up virtual machines in Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="backup vms, back up virtual machines"/>
 
 <tags
 	ms.service="backup"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="05/16/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Plan your VM backup infrastructure in Azure
-This article covers the key considerations that you should keep in mind when planning your virtual machine (VM) backup infrastructure. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [backing up your VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
+This article covers the key things to keep in mind when planning to back up virtual machines in Azure. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [to backup VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## How does Azure back up virtual machines?
 When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. This snapshot is taken in coordination with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the disks in the virtual machine without having to shut it down.
@@ -84,6 +85,16 @@ While a majority of the backup time is spent in reading and copying data, there 
 - Time needed to [install or update the backup extension](backup-azure-vms.md#offline-vms).
 - Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
 - Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the Azure backup vault might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
+
+## Best Practices
+We suggest following Best Practices while configuring backups for virtual machines
+
+- Please don't schedule more than 4 classic VMs from same cloud service to backup at the same time. We suggest staggering backup schedules by an hour if you want to configure more VMs from same cloud service for backup. 
+- Please don't schedule more than 40 Resource Manager VMs to backup at the same time.
+- Schedule backups during non-peak hours for VMs so that backup service gets IOPS for transferring data from customer storage account to backup vault. 
+- Please make sure that in a policy VMs are spread from different storage accounts. We suggest that if the total number of disks stored in a single storage account from VMs is more than 20, spread the VMs into different backup schedules to get required IOPS during transfer phase of the backup.
+- Restoring the VM running on Premium storage to same storage account is not recommended as this operation can get into backup operation and will reduce the number of IOPS available for backup. 
+- It is suggested to keep each Premium VM on different premium storage account to get good backup time performance. 
 
 ## Data encryption
 

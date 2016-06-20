@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="06/16/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -93,30 +93,6 @@ The following example converts the user-provided parameter value to Integer.
     }
 
 
-<a id="length" />
-### length
-
-**length(array or string)**
-
-Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-
-Or, you can use with a string:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-
 <a id="mod" />
 ### mod
 
@@ -163,6 +139,7 @@ Resource Manager provides the following functions for working with strings:
 
 - [base64](#base64)
 - [concat](#concat)
+- [length](#length)
 - [padLeft](#padleft)
 - [replace](#replace)
 - [split](#split)
@@ -228,15 +205,15 @@ The next example shows how to combine two arrays.
 <a id="padleft" />
 ### padLeft
 
-**padLeft(stringToPad, totalLength, paddingCharacter)**
+**padLeft(valueToPad, totalLength, paddingCharacter)**
 
 Returns a right-aligned string by adding characters to the left until reaching the total specified length.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| stringToPad                        |   Yes    | The string to right-align.
+| valueToPad                         |   Yes    | The string or int to right-align.
 | totalLength                        |   Yes    | The total number of characters in the returned string.
-| paddingCharacter                   |   Yes    | The character to use for left-padding until the total length is reached.
+| paddingCharacter                   |   No     | The character to use for left-padding until the total length is reached. The default value is a space.
 
 The following example shows how to pad the user-provided parameter value by adding the zero character until the string reaches 10 characters. If the original parameter value is longer than 10 characters, no characters are added.
 
@@ -279,7 +256,7 @@ Returns an array of strings that contains the substrings of the input string tha
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| inputString                        |   Yes    | The string to to be splitted.
+| inputString                        |   Yes    | The string to split.
 | delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
 
 The following example splits the input string with a comma.
@@ -296,19 +273,35 @@ The following example splits the input string with a comma.
 
 **string(valueToConvert)**
 
-Converts the specified value to String.
+Converts the specified value to a string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| valueToConvert                     |   Yes    | The value to convert to String. The type of value can only be Boolean, Integer or String.
+| valueToConvert                     |   Yes    | The value to convert to string. Any type of value can be converted, including objects and arrays.
 
-The following example converts the user-provided parameter value to String.
+The following example converts the user-provided parameter values to strings.
 
     "parameters": {
-        "appId": { "type": "int" }
+      "jsonObject": {
+        "type": "object",
+        "defaultValue": {
+          "valueA": 10,
+          "valueB": "Example Text"
+        }
+      },
+      "jsonArray": {
+        "type": "array",
+        "defaultValue": [ "a", "b", "c" ]
+      },
+      "jsonInt": {
+        "type": "int",
+        "defaultValue": 5
+      }
     },
     "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
+      "objectString": "[string(parameters('jsonObject'))]",
+      "arrayString": "[string(parameters('jsonArray'))]",
+      "intString": "[string(parameters('jsonInt'))]"
     }
 
 <a id="substring" />
@@ -398,14 +391,14 @@ The following example trims the white-space characters from the user-provided pa
 
 **uniqueString (stringForCreatingUniqueString, ...)**
 
-Performs a 64-bit hash of the provided strings to create a unique string. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
+Creates a unique string based on the values provided as parameters. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | stringForCreatingUniqueString      |   Yes    | The base string used in the hash function to create a unique string.
-| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level for uniqueness.
+| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
 
-The returned value is not a completely random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a more friendly name.
+The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize.
 
 The following examples show how to use uniqueString to create a unique value for a different commonly-used levels.
 
@@ -450,11 +443,96 @@ The following example shows how to construct a link to a nested template based o
 
 Resource Manager provides several functions for working with array values.
 
-To combine multiple arrays into a single array, use [concat](#concat).
+- [concat](#concat)
+- [length](#length)
+- [take](#take)
+- [skip](#skip)
+- [split](#split)
 
-To get the number of elements in an array, use [length](#length).
+<a id="length" />
+### length
 
-To divide a string value into an array of string values, use [split](#split).
+**length(array or string)**
+
+Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+Or, you can use with a string:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Returns an array or string with the specified number of elements or characters from the start of the array or string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The array or string to take the elements or characters from.
+| numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
+
+The following example takes the specified number of elements from the array.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="skip" />
+### skip
+**skip(originalValue, numberToSkip)**
+
+Returns an array or string with all of the elements or characters after the specified number in the array or string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The array or string to use for skipping the elements or characters.
+| numberToSkip                       |   Yes    | The number of elements or characters to skip. If this value is 0 or less, all of the elements in the array or string are returned. If it is larger than the length of the array or string, an empty array or string is returned. 
+
+The following example skips the specified number of elements in the array.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
 
 ## Deployment value functions
 
@@ -557,6 +635,7 @@ Returns the value of variable. The specified variable name must be defined in th
 Resource Manager provides the following functions for getting resource values:
 
 - [listkeys](#listkeys)
+- [list*](#list)
 - [providers](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
@@ -570,11 +649,11 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 **listKeys (resourceName or resourceIdentifier, apiVersion)**
 
-Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
+Returns the keys for any resource type that supports the listKeys operation. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Unique identifier of a storage account.
+| resourceName or resourceIdentifier |   Yes    | Unique identifier for the resource.
 | apiVersion                         |   Yes    | API version of resource runtime state.
 
 The following example shows how to return the keys from a storage account in the outputs section.
@@ -585,6 +664,19 @@ The following example shows how to return the keys from a storage account in the
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### list*
+
+**list* (resourceName or resourceIdentifier, apiVersion)**
+
+Any operation that starts with **list** can be used a function in your template. This includes **listKeys**, as shown above, but also operations like **list**, **listAdminKeys**, and **listStatus**. When calling the function, use the actual name of the function not list*. To determine which resource types have a list operation, use the following PowerShell command.
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+Or, retrieve the list with Azure CLI. The following example retrieves all of the operations for **apiapps**, and uses the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
 
 <a id="providers" />
 ### providers
@@ -598,7 +690,7 @@ Return information about a resource provider and its supported resource types. I
 | providerNamespace                  |   Yes    | Namespace of the provider
 | resourceType                       |   No     | The type of resource within the specified namespace.
 
-Each supported type is returned in the following format:
+Each supported type is returned in the following format; array ordering is not guaranteed:
 
     {
         "resourceType": "",
@@ -659,15 +751,6 @@ You can retrieve a particular value from the returned object, such as the blob e
 		}
 	}
 
-If you do now wish to directly specify the API version in your template, you can use the [providers](#providers) function and retrieve one the values, such as the latest version as shown below.
-
-    "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
-
 The following example references a storage account in a different resource group.
 
     "outputs": {
@@ -705,7 +788,7 @@ The following example uses the resource group location to assign the location fo
 <a id="resourceid" />
 ### resourceId
 
-**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
 
@@ -713,6 +796,7 @@ Returns the unique identifier of a resource. You use this function when the reso
       
 | Parameter         | Required | Description
 | :---------------: | :------: | :----------
+| subscriptionId    |   No     | Optional subscription id. Default value is the current subscription. Specify this value when you are retrieving a resource in another subscription.
 | resourceGroupName |   No     | Optional resource group name. Default value is current resource group. Specify this value when you retrieving a resource in another resource group.
 | resourceType      |   Yes    | Type of resource including resource provider namespace.
 | resourceName1     |   Yes    | Name of resource.
@@ -721,7 +805,7 @@ Returns the unique identifier of a resource. You use this function when the reso
 The following example shows how to retrieve the resource ids for a web site and a database. The web site exists in a resource group named **myWebsitesGroup** and the database exists in the current resource group for this template.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
 
@@ -774,8 +858,9 @@ Often, you need to use this function when using a storage account or virtual net
 Returns details about the subscription in the following format.
 
     {
-        "id": "/subscriptions/#####"
-        "subscriptionId": "#####"
+        "id": "/subscriptions/#####",
+        "subscriptionId": "#####",
+        "tenantId": "#####"
     }
 
 The following example shows the subscription function called in the outputs section. 

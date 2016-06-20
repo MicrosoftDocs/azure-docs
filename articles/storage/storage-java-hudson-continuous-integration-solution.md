@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 # Using Azure Storage with a Hudson Continuous Integration solution
@@ -28,7 +28,7 @@ In this tutorial you will be using the Azure Storage plugin for Hudson CI made a
 
 Hudson enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This article will show how to use Azure Blob storage as the repository of the build artifacts. It will also show how to download dependencies from Azure Blob storage.
 
-More information about Hudson can be found at [Meet Hudson][].
+More information about Hudson can be found at [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## Benefits of using the Blob service ##
 
@@ -62,7 +62,7 @@ You will need the following to use the Blob service with your Hudson CI solution
 
 - An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
 
-- An Azure storage account. If you don't already have a storage account, you can create one using the steps at [How to Create a Storage Account][].
+- An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
 
 - Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
@@ -121,7 +121,7 @@ For instruction purposes, first we'll need to create a job that will create seve
 
     Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Hudson. Click that link to learn the environment variable names and descriptions. Note that environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
 
-8. Click **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access. That is beyond the scope of this article. You can learn more about shared access signatures at [Creating a Shared Access Signature](http://go.microsoft.com/fwlink/?LinkId=279889).)
+8. Click **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access. That is beyond the scope of this article. You can learn more about shared access signatures at [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).)
 9. [Optional] Click **Clean container before uploading** if you want the container to be cleared of contents before build artifacts are uploaded (leave it unchecked if you do not want to clean the contents of the container).
 10. For **List of Artifacts to upload**, enter **text/*.txt**.
 11. For **Common virtual path for uploaded artifacts**, enter **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -161,7 +161,7 @@ The following provides an overview of the Blob service components.
 
 - **Storage account**: All access to Azure Storage is done through a storage account. This is the highest level of the namespace for accessing blobs. An account can contain an unlimited number of containers, as long as their total size is under 100 TB.
 - **Container**: A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs.
-- **Blob**: A file of any type and size. There are two types of blobs that can be stored in Azure Storage: block and page blobs. Most files are block blobs. A single block blob can be up to 200 GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1 TB in size, and are more efficient when ranges of bytes in a file are modified frequently. For more information about blobs, see [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+- **Blob**: A file of any type and size. There are two types of blobs that can be stored in Azure Storage: block and page blobs. Most files are block blobs. A single block blob can be up to 200 GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1 TB in size, and are more efficient when ranges of bytes in a file are modified frequently. For more information about blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 - **URL format**: Blobs are addressable using the following URL format:
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -174,5 +174,10 @@ The following provides an overview of the Blob service components.
 
 ## Next steps
 
-  [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
-  [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
+- [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+- [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
+- [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
+- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx )
+- [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+
+For more information, also see the [Java Developer Center](https://azure.microsoft.com/develop/java/).

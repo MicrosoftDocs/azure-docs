@@ -1,41 +1,48 @@
-<properties 
-	pageTitle="Extended events in SQL Database | Microsoft Azure" 
-	description="Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
+<properties
+	pageTitle="Extended events in SQL Database | Microsoft Azure"
+	description="Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor=""
 	tags=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/07/2016"
 	ms.author="genemi"/>
 
 
 # Extended events in SQL Database
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 This topic explains how the implementation of extended events in Azure SQL Database is slightly different compared to extended events in Microsoft SQL Server.
 
 
 - SQL Database V12 gained the extended events feature in the second half of calendar 2015.
 - SQL Server has had extended events since 2008.
-- The feature set of extended events on SQL Database is a robust subset of the features on SQL Server. 
+- The feature set of extended events on SQL Database is a robust subset of the features on SQL Server.
 
 
 *XEvents* is an informal nickname that is sometimes used for 'extended events' in blogs and other informal locations.
 
 
 > [AZURE.NOTE] As of October 2015, the extended event session feature is activated in Azure SQL Database at the Preview level. The General Availability (GA) date is not yet set.
-> 
+>
 > The Azure [Service Updates](https://azure.microsoft.com/updates/?service=sql-database) page has posts when GA announcements are made.
+
+
+Additional information about extended events, for Azure SQL Database and Microsoft SQL Server, is available at:
+
+- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
+- [Extended Events](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
 ## Prerequisites
@@ -58,7 +65,7 @@ Prior exposure to the following items is helpful when choosing the Event File as
 
 
 - PowerShell
- - [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+ - [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
 
 
 ## Code samples
@@ -244,12 +251,12 @@ The **Event File** target might experience network latency or failures while per
 ## Related links
 
 
-- [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
 - [Azure Storage Cmdlets](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
-- [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md)
+- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+- [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)

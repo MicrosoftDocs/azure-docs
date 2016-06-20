@@ -27,7 +27,7 @@
         
             func loginAndGetData() {
                 
-                guard let client = self.table?.client where client.currentUser != nil else {
+                guard let client = self.table?.client where client.currentUser == nil else {
                     return
                 }
                 

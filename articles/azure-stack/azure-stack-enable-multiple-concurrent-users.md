@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="04/26/2016"
 	ms.author="erikje"/>
 
 # Enable multiple concurrent user connections in Azure Stack
@@ -74,9 +74,9 @@ This step explains how to configure a point to site VPN connection into the Azur
 
 	>[AZURE.NOTE] These commands produce some output including **The following helper DLL cannot be loaded: WCNNETSH.DLL.** You may ignore this.
 
-2.  For the VPN users, you must set up a local user account on the NATVM. Open **Control Panel**, click **User Accounts,** click **User Accounts,** click **User Accounts** again**,** click **Manage another account**, and then click **Add a user account**.
+2.  For the VPN users, you must set up a local user account on the NATVM. On the NATVM, open **Control Panel**, click **User Accounts,** click **User Accounts,** click **User Accounts** again**,** click **Manage another account**, and then click **Add a user account**.
 
-  **Important**: You may have to add additional accounts to increase the amount of concurrent users.
+    **Important**: You may have to add additional accounts to increase the amount of concurrent users.
 
 	![](media/azure-stack-enable-multiple-concurrent-users/image1.png)
 

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/> 
 
 
@@ -28,7 +28,7 @@ For example,  “If Output Events for the last 15 minutes is <100,  send email n
 
 Rules can be set up on metrics through the portal, or can be configured [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) over Operation Logs data.
 
-## Set up alerts through the Azure Portal
+## Set up alerts through the Azure Classic Portal
 
 There are two ways to setup alerts in the Azure Management portal:  
 
@@ -51,7 +51,7 @@ There are two ways to setup alerts in the Azure Management portal:
 
 ## Set up alerts through the Operations logs
 
-1.	Go to the **Alerts** tab in Management Services in the [Azure Portal](https://manage.windowsazure.com).  
+1.	Go to the **Alerts** tab in Management Services in the [Azure Classic Portal](https://manage.windowsazure.com).  
 2.	Click on **Add Rule**  
 
     ![Criteria](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)  
@@ -60,19 +60,19 @@ There are two ways to setup alerts in the Azure Management portal:
 
     ![Define Alert](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)  
 
-## Set up alerts in the Azure Preview portal ##
+## Set up alerts in the Azure Portal ##
 
-In the Azure Preview portal, browse to the Stream Analtyics job you are interested in alerting on and click the **Monitoring** section.  In the **Metric** blade that opens, click the **Add alert** command.
+In the Azure Portal, browse to the Stream Analtyics job you are interested in alerting on and click the **Monitoring** section.  In the **Metric** blade that opens, click the **Add alert** command.
 
-  ![Azure preview portal setup](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+  ![Azure Portal setup](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
 You can name your alert rule, and choose a description that will show up in the notification email.
 
 When you select Metrics you'll choose a condition and threshold Value for the metric.
 
-  ![Azure preview portal select metric](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)  
+  ![Azure Portal select metric](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)  
 
-For more detail on configuring alerts in the Azure Preview portal, see [Receive alert notifications](./azure-portal/insights-receive-alert-notifications.md).  
+For more detail on configuring alerts in the Azure Portal, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md).  
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

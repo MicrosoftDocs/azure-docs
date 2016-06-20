@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/21/2016"
 	ms.author="micurd"/>
 
 # How to use Blob Storage from Xamarin (Preview)
@@ -49,14 +49,13 @@ The shared access signature URI for the new container should be similar to the f
 
 The shared access signature that you created on the container will be valid for the next day. The signature grants full permissions (*e.g.*, read, write, delete, and list) to blobs within the container.
 
-For more information about shared access signatures, see the [SAS tutorial for .NET](storage-dotnet-shared-access-signature-part-2.md).
+For more information about shared access signatures, see [Shared Access Signatures: Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Create a new Xamarin Application
 
 For this tutorial, we'll be creating our Xamarin application in Visual Studio. Follow these steps to create the application:
 
-1. Download and install [Visual Studio](https://www.visualstudio.com/).
-2. Download and install [Xamarin](http://xamarin.com/platform).
+1. Run the [Visual Studio 2015 installer](https://www.visualstudio.com/), selecting a **Custom** install and checking checking the box under **Cross-Platform Mobile Development > C#/.NET (Xamarin)**. If you already have Visual Studio installed, download and install [Xamarin](http://xamarin.com/platform) directly. For complete instructions for Visual Studio and Xamarin, see [Setup and Install](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN.
 3. Open Visual Studio, and select **File > New > Project > Android > Blank App(Android)**.
 4. Right-click your project in the Solution Explorer pane and select **Manage NuGet Packages**. Then search for **Azure Storage** and install **Azure Storage 4.4.0-preview**.
 
@@ -173,8 +172,9 @@ In this tutorial, you learned how to use Azure Blob storage and SAS with a Xamar
 
 Learn more about blobs, tables, and queues by checking out the following links:
 
-[Introduction to Microsoft Azure Storage](storage-introduction.md)  
-[How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)  
-[How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)  
-[How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
-[Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- [Introduction to Microsoft Azure Storage](storage-introduction.md)
+- [Get started with Azure Blob Storage using .NET](storage-dotnet-how-to-use-blobs.md)
+- [Get started with Azure Table Storage using .NET](storage-dotnet-how-to-use-tables.md)
+- [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
+- [Get started with Azure File Storage on Windows](storage-dotnet-how-to-use-files.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)

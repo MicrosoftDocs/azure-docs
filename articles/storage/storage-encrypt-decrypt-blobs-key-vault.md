@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault | Microsoft Azure"
+   pageTitle="Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault | Microsoft Azure"
    description="This tutorial walks you through how to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault."
    services="storage"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="01/06/2016"
+   ms.date="03/31/2016"
    ms.author="lakasa"/>
 
-# Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
+# Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
 
 ## Introduction
 
@@ -24,9 +24,9 @@ This tutorial covers how to make use of client-side storage encryption with Azur
 
 **Estimated time to complete:** 20 minutes
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault/key-vault-whatis.md).
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md).
 
-For overview information about client-side encryption for Azure Storage, see [Get Started with Client-Side Encryption for Microsoft Azure Storage](storage-client-side-encryption.md).
+For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md).
 
 
 ## Prerequisites
@@ -40,7 +40,7 @@ To complete this tutorial, you must have the following:
 
 ## Overview of client-side encryption
 
-For an overview of client-side encryption for Azure Storage, see [Get Started with Client-Side Encryption for Microsoft Azure Storage](storage-client-side-encryption.md)
+For an overview of client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md)
 
 Here is a brief description of how client side encryption works:
 
@@ -51,7 +51,7 @@ Here is a brief description of how client side encryption works:
 
 
 ## Set up your Azure Key Vault
-In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [Get started with Azure Key Vault](key-vault/key-vault-get-started.md):
+In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md):
 
 - Create a key vault.
 - Add a key or secret to the key vault.

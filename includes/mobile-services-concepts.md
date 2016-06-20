@@ -22,4 +22,4 @@ The following are important features and concepts in the Mobile Services:
 + **Scale:** The ability to add, for an additional cost, more processing power, performance, and storage as your app becomes more popular.
 + **Scheduled job:** Custom code that is run either on a pre-determined schedule or on-demand.
 
-For more information, see [Mobile Services Concepts](mobile-services-concepts-links.md).
+For more information, see [Mobile Services Concepts](../articles/mobile-services/mobile-services-concepts-links.md).

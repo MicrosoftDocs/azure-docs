@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Concurrency and workload management in SQL Data Warehouse
@@ -21,10 +21,12 @@ To deliver predictable performance at scale SQL Data Warehouse implements mechan
 
 This article introduces you to the concepts of concurrency and workload management; explaining how both features have been implemented and how you can control them in your data warehouse.
 
-## Concurrency
-It is important to understand that concurrency in SQL Data Warehouse is governed by two concepts; **concurrent queries** and **concurrency slots**. 
+>[AZURE.NOTE] SQL Data Warehouse supports multi-user, not multi-tenant workloads.
 
-Concurrent queries equates to the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries**. Each query execution counts as a single query regardless of whether it is a serial query (single threaded) or parallel query (multi-threaded). This is a fixed cap and applies to all service levels and all queries. 
+## Concurrency
+It is important to understand that concurrency in SQL Data Warehouse is governed by two concepts; **concurrent queries** and **concurrency slots**.
+
+Concurrent queries equates to the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries**. Each query execution counts as a single query regardless of whether it is a serial query (single threaded) or parallel query (multi-threaded). This is a fixed cap and applies to all service levels and all queries.
 
 Concurrency slots is a more dynamic concept and is relative to the Data Warehouse Unit (DWU) service level objective for your data warehouse. As you increase the number of DWU allocated to SQL Data Warehouse more compute resources are assigned. However, increasing DWU also increases the number of **concurrency slots** available.
 
@@ -32,9 +34,9 @@ As a general rule, each concurrently executing query consumes one or more concur
 
 1. The DWU setting for the SQL Data Warehouse
 2. The **resource class** that the user belongs to
-3. Whether the query or operation is governed by the concurrency slot model 
+3. Whether the query or operation is governed by the concurrency slot model
 
-> [AZURE.NOTE] It is worth noting that not every query is governed by the concurrency slot query rule. However, most user queries are. Some queries and operations do not consume concurrency slots at all. These queries and operations are still limited by the concurrent query limit which is why both rules are described. Please refer to the [resource class exceptions](#exceptions) section below for more details. 
+> [AZURE.NOTE] It is worth noting that not every query is governed by the concurrency slot query rule. However, most user queries are. Some queries and operations do not consume concurrency slots at all. These queries and operations are still limited by the concurrent query limit which is why both rules are described. Please refer to the [resource class exceptions](#exceptions) section below for more details.
 
 The table below describes the limits for both concurrent queries and concurrency slots; assuming your query is resource governed.
 
@@ -46,8 +48,8 @@ The table below describes the limits for both concurrent queries and concurrency
 -->
 
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
-| Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
+| Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     |
 | Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     |
 
 SQL Data Warehouse query workloads have to live within these thresholds. If there are more than 32 concurrent queries or you exceed the number of concurrency slots then the query will be queued until both thresholds can be satisfied.
@@ -73,7 +75,7 @@ SQL Data Warehouse has implemented resource classes through the use of database 
 
 ### Resource class membership
 
-You can add and remove yourself to the workload management database role using the `sp_addrolemember` and `sp_droprolemember` procedures. Note you will require `ALTER ROLE` permission to do this. You are not able to use the ALTER ROLE DDL syntax. You must use the aforementioned stored procedures. A full example of how to create logins and users is provided in the [managing users)[#managing-users] section at the end of this article. 
+You can add and remove yourself to the workload management database role using the `sp_addrolemember` and `sp_droprolemember` procedures. Note you will require `ALTER ROLE` permission to do this. You are not able to use the ALTER ROLE DDL syntax. You must use the aforementioned stored procedures. A full example of how to create logins and users is provided in the [managing users)[#managing-users] section at the end of this article.
 
 > [AZURE.NOTE] Rather than adding a user into and out of a workload management group it is often simpler to initiate those more intensive operations through a separate login/user that is permanently assigned to the higher resource class.
 
@@ -145,16 +147,16 @@ Below is a list of statements and operations that **are** governed by resource c
 - ALTER TABLE REBUILD
 - CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
-- CREATE TABLE AS SELECT 
-- Data loading 
+- CREATE TABLE AS SELECT
+- Data loading
 - Data movement operations conducted by the Data Movement Service (DMS)
 
 The following statements **do not** honor resource classes:
 
 - CREATE TABLE
-- ALTER TABLE ... SWITCH PARTITION 
-- ALTER TABLE ... SPLIT PARTITION 
-- ALTER TABLE ... MERGE PARTITION 
+- ALTER TABLE ... SWITCH PARTITION
+- ALTER TABLE ... SPLIT PARTITION
+- ALTER TABLE ... MERGE PARTITION
 - DROP TABLE
 - ALTER INDEX DISABLE
 - DROP INDEX
@@ -181,14 +183,14 @@ The following statements **do not** honor resource classes:
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
-- REDISTRIBUTE 
+- REDISTRIBUTE
 -->
-   
+
 > [AZURE.NOTE] It is worth highlighting that `SELECT` queries executing exclusively against dynamic management views and catalog views are **not** governed by resource classes.
 
 It is important to remember that the majority of end user queries are likely to be governed by resource classes. The general rule is that the active query workload must fit inside both the concurrent query and concurrency slot thresholds unless it has been specifically excluded by the platform. As an end user you cannot choose to exclude a query from the concurrency slot model. Once either threshold has been exceeded queries will begin to queue. Queued queries will be addressed in priority order followed by submission time.
 
-### Internals 
+### Internals
 
 Under the covers of SQL Data Warehouse's workload management things are a little bit more complicated. The resource classes are dynamically mapped to a generic set of workload management groups within resource governor. The groups used will depend on the DWU value for the warehouse. However, there are total of eight workload groups used by SQL Data Warehouse. They are:
 
@@ -225,7 +227,7 @@ So, for example, if DW500 is the current DWU setting for your SQL Data Warehouse
 
 To look at the differences in memory resource allocation in detail from the perspective of the resource governor use the following query:
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -248,7 +250,7 @@ AS
 	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
 	WHERE   wg.name like 'SloDWGroup%'
 	AND     rp.name = 'SloDWPool'
-) 
+)
 SELECT	pool_name
 ,		pool_max_mem_MB
 ,		group_name
@@ -261,14 +263,14 @@ SELECT	pool_name
 ,       group_active_request_count
 ,       group_queued_request_count
 FROM	rg
-ORDER BY 
+ORDER BY
 	node_name
 ,	group_request_max_memory_grant_pcnt
 ,	group_importance
 ;
 ```
 
-> [AZURE.NOTE] The query above can also be used to analyse active and historic usage of the workload groups when troubleshooting 
+> [AZURE.NOTE] The query above can also be used to analyse active and historic usage of the workload groups when troubleshooting
 
 ## Workload management examples
 
@@ -280,7 +282,7 @@ To grant access to a user to the SQL Data Warehouse they will first need a login
 
 Open a connection to the master database for your SQL Data Warehouse and execute the following commands:
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -292,19 +294,19 @@ Once the login has been created then a user account now needs to be added.
 
 Open a connection to the SQL Data Warehouse database and execute the following command:
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 Once complete permissions will need to be granted to the user. The example below grants `CONTROL` on the SQL Data Warehouse database. `CONTROL` at the database level is the equivalent of db_owner in SQL Server.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 To see the workload management roles use the following query:
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -314,21 +316,21 @@ AND     ro.[is_fixed_role]  = 0
 
 To add a user to an increase workload management role use the following query:
 
-``` 
-EXEC sp_addrolemember 'largerc', 'newperson' 
+```sql
+EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 To remove a user from an workload management role use the following query:
 
-``` 
-EXEC sp_droprolemember 'largerc', 'newperson' 
+```sql
+EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
 > [AZURE.NOTE] It is not possible to remove a user from the smallrc.
 
 To see which users are members of a given role use the following query:
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -341,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### Queued query detection
 To identify queries that are held in a concurrency queue you can always refer to the `sys.dm_pdw_exec_requests` DMV.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -352,10 +354,10 @@ FROM    sys.dm_pdw_exec_requests r
 ;
 ```
 
-SQL Data Warehouse has specific wait types for measuring concurrency. 
+SQL Data Warehouse has specific wait types for measuring concurrency.
 
 They are:
- 
+
 - LocalQueriesConcurrencyResourceType
 - UserConcurrencyResourceType
 - DmsConcurrencyResourceType
@@ -372,7 +374,7 @@ The BackupConcurrencyResourceType can be seen when a database is being backed up
 
 To perform analysis of currently queued queries to find out what resources a request is waiting for please refer to the `sys.dm_pdw_waits` DMV.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -407,9 +409,9 @@ WHERE	w.[session_id] <> SESSION_ID()
 ;
 ```
 
-To view just the resource waits consumed by a given query you can refer to the `sys.dm_pdw_resource_waits` DMV. Resource wait time only measures the time waiting for resources to be provided as opposed to signal wait time which is the time it takes for the underlying SQL Server's to schedule the query onto the CPU. 
+To view just the resource waits consumed by a given query you can refer to the `sys.dm_pdw_resource_waits` DMV. Resource wait time only measures the time waiting for resources to be provided as opposed to signal wait time which is the time it takes for the underlying SQL Server's to schedule the query onto the CPU.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -428,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 Finally, for historic trend analysis of waits then SQL Datawarehouse provides the `sys.dm_pdw_wait_stats` DMV.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -452,5 +454,3 @@ For more development tips, see [development overview][].
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-
-

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016"
 	ms.author="sunliangms;fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Process Azure blob data with advanced analytics
@@ -25,7 +25,7 @@ In order to do explore and manipulate a dataset, it must be downloaded from the 
 
 1. Download the data from Azure blob with the following sample Python code using blob service. Replace the variable in the code below with your specific values: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -48,6 +48,7 @@ In order to do explore and manipulate a dataset, it must be downloaded from the 
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 Now you are ready to explore the data and generate features on this dataset.
+
 
 ##<a name="blob-dataexploration"></a>Data Exploration
 
@@ -149,6 +150,7 @@ For generating binned features, we proceed as follows:
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
+
 ##<a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
 
 After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure blob and consume it in Azure Machine Learning using the following steps:
@@ -159,7 +161,7 @@ Note that additional features can be created in the Azure Machine Learning Studi
 
 2. Upload the data to Azure blob as follows:
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -179,7 +181,7 @@ Note that additional features can be created in the Azure Machine Learning Studi
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Now the data can be read from the blob using the Azure Machine Learning [Reader][reader] module as shown in the screen below:
+3. Now the data can be read from the blob using the Azure Machine Learning [Import Data][import-data] module as shown in the screen below:
  
 ![reader blob][1]
 
@@ -187,5 +189,5 @@ Note that additional features can be created in the Azure Machine Learning Studi
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  

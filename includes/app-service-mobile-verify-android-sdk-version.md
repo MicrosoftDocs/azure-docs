@@ -14,7 +14,7 @@ If either of these appear, the version of the Android SDK installed in Android S
 2. In the Project Explorer tab, under **Gradle Scripts**, open the file **build.gradle (modeule: app)**. Ensure that the **compileSdkVersion** and **buildToolsVersion** are set to the latest  SDK version installed. The tags might look like this:
  
 	 	    compileSdkVersion 'Google Inc.:Google APIs:23'
-    		buildToolsVersion "23.0.0"
+    		buildToolsVersion "23.0.2"
 	
 3. In the Android Studio Project Explorer right-click the project node, choose **Properties**, and in the left column choose **Android**. Ensure that the **Project Build Target** is set to the same SDK version as the **targetSdkVersion**.
 

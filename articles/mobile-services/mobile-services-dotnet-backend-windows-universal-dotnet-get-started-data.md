@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="03/07/2016"
 	ms.author="glenga"/>
 
 # Add Mobile Services to an existing app
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [How to use the managed client for Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md).
 
 ##Overview
 
@@ -31,9 +31,7 @@ This topic shows you how to use Azure Mobile Services as a backend data source f
 
 The mobile service that you will create in this tutorial is a .NET backend mobile service. .NET backend enables you to use .NET languages and Visual Studio for server-side business logic in the mobile service, and you can run and debug your mobile service on your local computer. To create a mobile service that lets you write your server-side business logic in JavaScript, see the JavaScript backend version of this topic.
 
->[AZURE.NOTE]This topic shows you how to use the tooling in Visual Studio Professional 2013 with Update 3 to connect a new mobile service to a universal Windows app. The same steps can be used to connect a mobile service to a Windows Store or Windows Phone Store 8.1 app. To connect a mobile service to a Windows Phone 8.0 or Windows Phone Silverlight 8.1 app, see [Get started with data for Windows Phone](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
-
-> If you cannot upgrade to Visual Studio Professional 2013 Update 3 or you prefer manually add your mobile service project to a Windows Store app solution, see [this version](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md) of the topic.
+>[AZURE.NOTE]This topic shows you how to use the tooling in Visual Studio Professional 2013 with Update 3 to connect a new mobile service to a universal Windows app. The same steps can be used to connect a mobile service to a Windows Store or Windows Phone Store 8.1 app. To connect a mobile service to a Windows Phone 8.0 or Windows Phone Silverlight 8.1 app, see [Get started with data for Windows Phone](mobile-services-windows-phone-get-started-data.md).
 
 ##Prerequisites
 
@@ -104,7 +102,7 @@ This tutorial demonstrated the basics of enabling a universal Windows app projec
 * [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
 
-* [Mobile Services C# How-to Conceptual Reference](mobile-services-windows-dotnet-how-to-use-client-library.md)
+* [Mobile Services C# How-to Conceptual Reference](mobile-services-dotnet-how-to-use-client-library.md)
   <br/>Learn more about how to use Mobile Services with .NET.
 
 

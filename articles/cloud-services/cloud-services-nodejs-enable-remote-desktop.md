@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 # Enabling Remote Desktop in Azure
@@ -39,7 +39,7 @@ configuration with a username, password, and certificate.
 
 Perform the following steps from a computer that contains the source files for your app.
 
-1. Run **Azure PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**.)
+1. Run **Windows PowerShell** as Administrator. (From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**.)
 
 2.  Navigate to the directory that contains the service definition (.csdef) and
 service configuration (.cscfg) files.

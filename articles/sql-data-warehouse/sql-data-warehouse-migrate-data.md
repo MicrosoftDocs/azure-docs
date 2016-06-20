@@ -3,7 +3,7 @@
    description="Tips for migrating your data to Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="05/31/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migrate Your Data
-The primary objective when migrating data is to populate your SQLDW database. This process can be achieved in a number of ways. ADF Copy, SSIS and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
+Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
 
 This article firstly discusses the simple migration scenarios of ADF Copy, SSIS and bcp. It then look a little deeper into how the migration can be optimized.
 
 ## Azure Data Factory (ADF) copy
 [ADF Copy][] is part of [Azure Data Factory][]. You can use ADF Copy to export your data to flat files residing on local storage, to remote flat files held in Azure blob storage or directly into SQL Data Warehouse.
 
-If your data starts in flat files then you will first need to transfer it to Azure storage blob before initiating a load it into SQL Data Warehouse. Once the data is transferred into Azure blob storage you can choose to use [ADF Copy][] again to push the data into SQL Data Warehouse. 
+If your data starts in flat files then you will first need to transfer it to Azure storage blob before initiating a load it into SQL Data Warehouse. Once the data is transferred into Azure blob storage you can choose to use [ADF Copy][] again to push the data into SQL Data Warehouse.
 
 PolyBase also provides a very high performance option for loading the data. However, that does mean using two tools instead of one. If you need the best performance then use PolyBase. If you want a single tool experience (and the data is not massive) then ADF is your answer.
 
 > [AZURE.NOTE] PolyBase requires your data files to be in UTF-8. This is ADF Copy's default encoding so there is nothing to change. This is just a reminder to not change the default behavior of ADF Copy.
 
-Head over to the following article for some great [ADF Copy examples].
+Head over to the following article for some great [ADF Copy examples][].
 
 ## Integration Services ##
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.
@@ -104,7 +104,7 @@ One of the slowest parts of data migration is the transfer of the data to Azure.
 Fortunately you have several options to improve the speed and resilience of this process:
 
 ### [ExpressRoute][]
-You may want to consider using [ExpressRoute][] to speed up the transfer. [ExpressRoute][]provides you with an established private connection to Azure so the connection does not go over the public internet. This is by no means a mandatory step. However, it will improve throughput when pushing data to Azure from an on-premises or co-location facility.
+You may want to consider using [ExpressRoute][] to speed up the transfer. [ExpressRoute][] provides you with an established private connection to Azure so the connection does not go over the public internet. This is by no means a mandatory step. However, it will improve throughput when pushing data to Azure from an on-premises or co-location facility.
 
 The benefits of using [ExpressRoute][] are:
 
@@ -161,7 +161,7 @@ PolyBase can read gzip compressed data. If you are able to compress your data to
 ### Multiple files
 Breaking up large tables into several files not only helps to improve export speed, it also helps with transfer re-startability, and the overall manageability of the data once in the Azure blob storage. One of the many nice features of PolyBase is that it will read all the files inside a folder and treat it as one table. It is therefore a good idea to isolate the files for each table into its own folder.
 
-PolyBase also supports a feature known as "recursive folder traversal". You can use this feature to further enhance the organization of your exported data to improve your data management. 
+PolyBase also supports a feature known as "recursive folder traversal". You can use this feature to further enhance the organization of your exported data to improve your data management.
 
 To learn more about loading data with PolyBase, see [Use PolyBase to load data into SQL Data Warehouse][].
 
@@ -194,4 +194,3 @@ For more development tips, see [development overview][].
 [preview version]: http://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
-

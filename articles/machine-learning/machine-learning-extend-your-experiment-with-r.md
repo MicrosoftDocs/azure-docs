@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/02/2016"
 	ms.author="garye" />
 
 
@@ -31,12 +31,19 @@ You access each input port of the module by using code similar to the following:
 
 ##Listing all currently-installed packages
 
-The list of installed packages can change. To get the complete list, include the following lines in the [Execute R Script][execute-r-script] module to send the list to the output dataset:
+The list of installed packages can change. To get the complete, current list of installed packages, including the description of each package, enter the following code into the [Execute R Script][execute-r-script] module:
 
-    out <- data.frame(installed.packages())
-    maml.mapOutputPort("out")
+    out <- data.frame(installed.packages(,,,fields="Description"))
+	maml.mapOutputPort("out")
 
-To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**.
+This sends the list of packages to the output port of the [Execute R Script][execute-r-script] module.
+To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the left output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**. 
+
+![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+
+<!--
+For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+-->
 
 ##Importing packages
 
@@ -46,6 +53,8 @@ You also can import packages that are not already installed from a staged ML Stu
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
 
 where the `my_favorite_package.zip` contains the zip of your package.
+
+<!--
 
 ##List of installed packages
 
@@ -497,6 +506,7 @@ To get the complete list of packages that are currently available, see the secti
 | zipfR | Statistical models for word frequency distributions |
 | zoo | S3 Infrastructure for Regular and Irregular Time Series (Z's ordered observations) |
 
+-->
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/

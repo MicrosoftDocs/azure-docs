@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Azure Service Bus
 
-Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
+Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Microsoft Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
 
 ## Service Bus fundamentals
 
@@ -115,7 +115,7 @@ Connecting applications has always been part of building complete solutions, and
 
 Now that you've learned the fundamentals of Azure Service Bus, follow these links to learn more.
 
-- How to use [Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+- How to use [Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 - How to use [Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - How to use [Service Bus relay](service-bus-dotnet-how-to-use-relay.md)
 - [Service Bus samples](service-bus-samples.md)

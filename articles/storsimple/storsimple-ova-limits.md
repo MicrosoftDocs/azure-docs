@@ -12,21 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
 
-# StorSimple Virtual Array limits (preview)
+# StorSimple Virtual Array limits
 
 ##Overview
 
-Consider these limits as you plan, deploy, and operate your Microsoft Azure StorSimple Virtual Array (in preview). The following table describes these limits for the virtual device.
-
->[AZURE.IMPORTANT] 
->
->- The StorSimple Virtual Array is in preview and is intended for evaluation and deployment planning purposes. Installing this preview in a production environment is not supported. 
->
->- If you experience any issues with the StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
+Consider these limits as you plan, deploy, and operate your Microsoft Azure StorSimple Virtual Array. The following table describes these limits for the virtual device.
 
 ## StorSimple Virtual Array limits 
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="10/22/2015"
+   ms.date="02/26/2016"
    ms.author="piyushjo"/>
 
 # Azure Mobile Engagement - Troubleshooting Guide
@@ -28,7 +28,7 @@ In general, you should always ensure the following:
 1. Ensure that you have gone through all the steps required for integration as described in our [Getting Started tutorials](mobile-engagement-windows-store-dotnet-get-started.md)
 2. You are using the latest version of the platform SDKs. 
 3. Test on both an actual device and an emulator because some issues are specific to emulator only. 
-4. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](azure-subscription-service-limits.md)
+4. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](../azure-subscription-service-limits.md)
 5. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/status/)
 
 ## 'Monitor' issues
@@ -89,7 +89,8 @@ More platform specific troubleshooting instructions below:
 	
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
-	- Ensure that you are not missing or mis-configured any permissions in the Android Manifest file. 
+	- Ensure that you are not missing or mis-configured any permissions in the Android Manifest file 
+	- Ensure that the Project number you are adding to your client app is from the same account where you got the GCM Server Key. Any mismatch between the two will prevent your pushes from going out. 
 	- If you are receiving system notifications but not in-app then review the [Specify an icon for notifications section](mobile-engagement-android-get-started.md) as likely you are not specifying the correct icon in the Android Manifest file. 
 	- If you are sending a BigPicture notification, then ensure that if you have external image servers then they need to be able to support HTTP "GET" and "HEAD".
 

@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="na" 
 	authors="pablissima" 
-	manager="paulettm="" 
+	manager="paulettm" 
 	tags=""/>
 <tags
 	ms.service="hdinsight"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/25/2015"
+	ms.date="02/16/2016"
 	ms.author="paulettm"/>
 # HDInsight Application Partners
 

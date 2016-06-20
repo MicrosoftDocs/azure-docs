@@ -47,17 +47,19 @@ The following table shows the allowed changes to a service during an update:
 |---|---|---|---|
 |Operating system version|Yes|Yes|Yes
 |.NET trust level|Yes|Yes|Yes|
-|Virtual machine size|Yes*|Yes|Yes|
-|Local storage settings|Increase only*|Yes|Yes|
+|Virtual machine size<sup>1</sup>|Yes<sup>2</sup>|Yes|Yes|
+|Local storage settings|Increase only<sup>2</sup>|Yes|Yes|
 |Add or remove roles in a service|Yes|Yes|Yes|
 |Number of instances of a particular role|Yes|Yes|Yes|
-|Number or type of endpoints for a service|Yes*|No|Yes|
+|Number or type of endpoints for a service|Yes<sup>2</sup>|No|Yes|
 |Names and values of configuration settings|Yes|Yes|Yes|
 |Values (but not names) of configuration settings|Yes|Yes|Yes|
 |Add new certificates|Yes|Yes|Yes|
 |Change existing certificates|Yes|Yes|Yes|
 |Deploy new code|Yes|Yes|Yes|
-\*Requires Azure SDK 1.5 or later versions.
+<sup>1</sup>Size change limited to the subset of sizes available for the cloud service.
+
+<sup>2</sup>Requires Azure SDK 1.5 or later versions.
 
 > [AZURE.WARNING] Changing the virtual machine size will destroy local data.
 
@@ -119,8 +121,8 @@ This next diagram illustrates how the update proceeds if you are upgrading only 
 
 During an automatic update, the Azure Fabric Controller periodically evaluates the health of the cloud service to determine when it’s safe to walk the next UD. This health evaluation is performed on a per-role basis and considers only instances in the latest version (i.e. instances from UDs that have already been walked). It verifies that a minimum number of role instances, for each role, have achieved a satisfactory terminal state.
 
-### Role Instance Start Timeout 
-The Fabric Controller will wait 30 minutes for each role instance to reach a Started state. If the timeout duration elapses, the Fabric Controller will continue walking to the next role instance. 
+### Role Instance Start Timeout
+The Fabric Controller will wait 30 minutes for each role instance to reach a Started state. If the timeout duration elapses, the Fabric Controller will continue walking to the next role instance.
 
 ## Rollback of an update
 Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations, is set to true.
@@ -180,4 +182,4 @@ The following diagram illustrates how a service than contains two roles are dist
 ## Next steps
 [How to Manage Cloud Services](cloud-services-how-to-manage.md)<br>
 [How to Monitor Cloud Services](cloud-services-how-to-monitor.md)<br>
-[How to Configure Cloud Services](cloud-services-how-to-cofigure.md)<br>
+[How to Configure Cloud Services](cloud-services-how-to-configure.md)<br>

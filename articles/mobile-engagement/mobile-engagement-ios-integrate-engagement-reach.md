@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #How to Integrate Engagement Reach on iOS
@@ -86,7 +86,7 @@ To enable this functionality, you'll have to prepare your application for Apple 
 
 ### Prepare your application for Apple push notifications
 
-Please follow the guide : How to Prepare your Application for Apple Push Notifications.
+Please follow the guide : [How to Prepare your Application for Apple Push Notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 ### Add the necessary client code
 

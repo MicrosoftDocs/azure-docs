@@ -13,23 +13,23 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="12/07/2015"
 	ms.author="femila"/>
 
 
-# Determine hybrid identity lifecycle adoption strategy 
-In this task, you’ll define the identity management strategy for your hybrid identity solution to meet the business requirements that you defined in [Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md).
+# Determine hybrid identity lifecycle adoption strategy
+In this task, you’ll define the identity management strategy for your hybrid identity solution to meet the business requirements that you defined in [Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
 
 
-To define the hybrid identity management tasks according to the end-to-end identity lifecycle presented earlier in this step, you will have to consider the options available for each lifecycle phase. 
+To define the hybrid identity management tasks according to the end-to-end identity lifecycle presented earlier in this step, you will have to consider the options available for each lifecycle phase.
 
-## Access management and provisioning 
-With a good account access management solution, your organization can track precisely who has access to what information across the organization. 
+## Access management and provisioning
+With a good account access management solution, your organization can track precisely who has access to what information across the organization.
 
 Access control is a critical function of a centralized, single-point provisioning system. Besides protecting sensitive information, access controls expose existing accounts that have unapproved authorizations or are no longer necessary. To control obsolete accounts, the provisioning system links together account information with authoritative information about the users who own the accounts. Authoritative user identity information is typically maintained in the databases and directories of human resources.
 
-Accounts in sophisticated IT enterprises include hundreds of parameters that define the authorities, and these details can be controlled by your provisioning system. New users can be identified with the data that you provide from the authoritative source. The access request approval capability initiates the processes that approve (or reject) resource provisioning for them. 
+Accounts in sophisticated IT enterprises include hundreds of parameters that define the authorities, and these details can be controlled by your provisioning system. New users can be identified with the data that you provide from the authoritative source. The access request approval capability initiates the processes that approve (or reject) resource provisioning for them.
 
 
 | Lifecycle management phase          | On premises                                                                                                                                                                                                                                                       | Cloud                                                                                                                                                                                                                                                                                                                     | Hybrid                                                                                   |
@@ -41,7 +41,7 @@ Role-based access control (RBAC) uses roles and provisioning policies to evaluat
 Azure AD RBAC enables the company to restrict the amount of operations that an individual can do once he has access to Azure Management Portal. By using RBAC to control access to the portal, IT Admins ca delegate access by using the following access management approaches:
 
 - **Group-based role assignment**: You can assign access to Azure AD groups that can be synced from your local Active Directory. This enables you to leverage the existing investments that your organization has made in tooling and processes for managing groups. You can also use the delegated group management feature of Azure AD Premium.
-- **Leverage built in roles in Azure**: You can use three roles — Owner, Contributor, and Reader, to ensure that users and groups have permission to do only the tasks they need to do their jobs. 
+- **Leverage built in roles in Azure**: You can use three roles — Owner, Contributor, and Reader, to ensure that users and groups have permission to do only the tasks they need to do their jobs.
 - **Granular access to resources**: You can assign roles to users and groups for a particular subscription, resource group, or an individual Azure resource such as a website or database. In this way, you can ensure that users have access to all the resources they need and no access to resources that they do not need to manage.
 
 ## Provisioning and other customization options
@@ -62,7 +62,7 @@ You can use groups you synchronize from on-premises AD or manage in Azure AD. Pa
 When your organization starts to provision resources across all internal organizations, you implement the self-regulating user administration capability. You can realize the advantages and benefits of provisioning users across organizational boundaries. In this environment, a change in a user's status is automatically reflected in access rights across organization boundaries and geographies. You can reduce provisioning costs and streamline the access and approval processes. The implementation realizes the full potential of implementing role-based access control for end-to-end access management in your organization. You can reduce administrative costs through automated procedures for governing user provisioning. You can improve security by automating security policy enforcement, and streamline and centralize user lifecycle management and resource provisioning for large user populations.
 
 >[AZURE.NOTE]
-For more information, see Setting up Azure AD for self service application access management 
+For more information, see Setting up Azure AD for self service application access management
 
 License-based (Entitlement-based) Azure AD services work by activating a subscription in your Azure AD directory/service tenant. Once the subscription is active the service capabilities can be managed by directory/service administrators and used by licensed users. For more information, see How does Azure AD licensing work?
 Integration with other 3rd party providers
@@ -72,12 +72,12 @@ Azure Active Directory provides single-sign on and enhanced application access s
 ## Define synchronization management
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. With this integration users and organizations can take advantage of the following:
 
-- Organizations can provide users with a common hybrid identity across on-premises or cloud-based services leveraging Windows Server Active Directory and then connecting to Azure Active Directory. 
+- Organizations can provide users with a common hybrid identity across on-premises or cloud-based services leveraging Windows Server Active Directory and then connecting to Azure Active Directory.
 - Administrators can provide conditional access based on application resource, device and user identity, network location and multi-factor authentication.
 - Users can leverage their common identity through accounts in Azure AD to Office 365, Intune, SaaS apps and third-party applications.
 - Developers can build applications that leverage the common identity model, integrating applications into Active Directory on-premises or Azure for cloud-based applications
 
-The following figure has an example of a high-level view of identity synchronization process. 
+The following figure has an example of a high-level view of identity synchronization process.
 
 ![](./media/hybrid-id-design-considerations/identitysync.png)
 

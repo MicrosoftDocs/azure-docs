@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Determine multi-factor authentication requirements for your hybrid identity solution

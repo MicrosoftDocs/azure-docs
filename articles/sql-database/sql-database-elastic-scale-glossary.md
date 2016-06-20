@@ -3,7 +3,7 @@
     description="Explanation of terms used for elastic database tools" 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove" 
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/01/2016" 
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/27/2016" 
+    ms.author="ddove"/>
 
 # Elastic Database tools glossary
 The following terms are defined for the [Elastic Database tools](sql-database-elastic-scale-introduction.md), a feature of Azure SQL Database. The tools are used to manage [shard maps](sql-database-elastic-scale-shard-map-management.md), and include the [client library](sql-database-elastic-database-client-library.md), the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](sql-database-elastic-pool.md), and [queries](sql-database-elastic-query-overview.md). 
@@ -34,6 +34,14 @@ These terms are used in [Adding a shard using Elastic Database tools](sql-databa
 **Local shard map**: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
 
 **Multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **data dependent routing**.
+
+**Multi-tenant** and **Single-tenant**: This shows a single-tenant database and a multi-tenant database:
+
+![Single and multi-tenant databases](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+
+Here is a representation of **sharded** single and multi-tenant databases. 
+
+![Single and multi-tenant databases](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
 **Range shard map**: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values. 
 

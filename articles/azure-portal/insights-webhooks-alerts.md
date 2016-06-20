@@ -1,8 +1,8 @@
 <properties
 	pageTitle="How to configure Azure alerts to send to other systems"
 	description="Reroute Azure alerts to other non-Azure systems."
-	authors="rboucher"
-	manager="ronmart"
+	authors="kamathashwin"
+	manager=""
 	editor=""
 	services="azure-portal"
 	documentationCenter="na"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
-	ms.author="robb"/>
+	ms.date="02/16/2016"
+	ms.author="ashwink"/>
 
 # How to configure webhooks for alerts
 

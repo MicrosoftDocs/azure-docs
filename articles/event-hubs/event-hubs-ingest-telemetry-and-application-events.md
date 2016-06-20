@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/15/2016" 
 	ms.author="sethm"/>
 
 # Ingest telemetry and application events at scale
  
-Modern applications create a large amount of information while they are running. Whether user actions in a mobile app or clickstreams on a website, this telemetry data is valuable for both long-term analytics and real-time health monitoring or decision support. Service Bus provides the tools you need to capture and process this information.
+Modern applications create a large amount of information while they are running. Whether user actions in a mobile app or clickstreams on a website, this telemetry data is valuable for both long-term analytics and real-time health monitoring or decision support. Microsoft Azure Event Hubs provides the tools you need to capture and process this information.
 
 
 ## Explore

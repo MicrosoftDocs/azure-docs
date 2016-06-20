@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/10/2016"
+	ms.author="andkjell;markvi"/>
 
 
 # Azure AD Connect sync: Configure Filtering
@@ -51,6 +51,14 @@ The filtering configurations will be retained when you install or upgrade to a n
 If you have more than one forest, then the filtering configurations described in this topic must be applied to every forest (assuming you want the same configuration for all of them).
 
 ### Disable scheduled task
+To disable the built-in scheduler which will trigger a synchronization cycle every 30 minutes, follow these steps:
+
+1. Go to a PowerShell prompt.
+2. Run `Set-ADSyncScheduler -SyncCycleEnabled $False` to disable the scheduler.
+3. Make the changes as documented in this topic.
+4. Run `Set-ADSyncScheduler -SyncCycleEnabled $True` to enable the scheduler again.
+
+**If you use an Azure AD Connect build before 1.1.105.0**  
 To disable the scheduled task which will trigger a synchronization cycle every 3 hours, follow these steps:
 
 1. Start **Task Scheduler** from the start menu.
@@ -75,6 +83,10 @@ You can use multiple filtering options at the same time. For example you can use
 
 ## Domain-based filtering
 This section provides you with the steps you need to perform to configure your domain filter. If you have added or removed domains in your forest after you have installed Azure AD Connect you also have to update the filtering configuration.
+
+The preferred way to change domain-based filtering is by running the installation wizard and change [domain and OUs filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
+
+You should only follow these steps if you for some reason are unable to run the installation wizard.
 
 Domain-based filtering configuration consists of these steps:
 
@@ -133,6 +145,10 @@ To close the **Configure Run Profiles** dialog, click **OK**.
 - To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
 ## Organizational-unit–based filtering
+The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
+
+You should only follow these steps if you for some reason are unable to run the installation wizard.
+
 **To configure organizational-unit–based filtering, perform the following steps:**
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.

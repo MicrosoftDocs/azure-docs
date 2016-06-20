@@ -3,8 +3,8 @@
 	description="This topic gives an overview of Media Encoder Standard formats and codecs." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
-	ms.author="juliako"/>
+	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Media Encoder Standard Formats and Codecs
 

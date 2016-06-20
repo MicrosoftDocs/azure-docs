@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/25/2016"
 	ms.author="juliako"/>
 
 
@@ -139,7 +139,7 @@ Note that in addition to being able to use the dynamic packaging capabilities, O
 
 ### Encode
 
-This section describes the steps you can take to encode your content with Azure Media Encoder using the Azure Classic Portal.
+This section describes the steps you can take to encode your content with Media Encoder Standard using the Azure Classic Portal.
 
 1.  Select the file that you would like to encode.
 	If encoding is supported for this file type, the **PROCESS** button will be enabled on the bottom of the CONTENT page.

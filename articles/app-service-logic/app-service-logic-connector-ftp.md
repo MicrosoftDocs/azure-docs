@@ -2,7 +2,7 @@
 	pageTitle="Using the FTP Connector in Logic Apps | Microsoft Azure App Service"
 	description="How to create and configure the FTP Connector or API app and use it in a logic app in Azure App Service"
 	authors="rajram"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # Get started with the FTP Connector and add it to your Logic App
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [FTP API](../connectors/connectors-create-api-ftp.md).
+
 Connect to an FTP server to move data or files. Key features of the FTP connector include:
 
 - Pulling files from the FTP server on demand

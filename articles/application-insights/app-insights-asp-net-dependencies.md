@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 
@@ -46,6 +46,10 @@ You can write your own SDK calls to monitor other dependencies using the [TrackD
 You need a [Microsoft Azure](http://azure.com) subscription.
 
 ### If your app runs on your IIS server
+
+If your web app runs on .NET 4.6 or later, you can either [install the Application Insights SDK](app-insights-asp-net.md) in your app, or install Application Insights Status Monitor. You don't need both.
+
+Otherwise, install Application Insights Status Monitor on the server:
 
 1. On your IIS web server, login with administrator credentials.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -91,7 +95,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ### If it's an Azure cloud services project
 
-[Add scripts to web and worker roles](app-insights-cloudservices.md).
+[Add scripts to web and worker roles](app-insights-cloudservices.md#dependencies). Or [install .NET framework 4.6 or later](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a> Diagnosing dependency performance issues
 
@@ -166,11 +170,17 @@ For example, if you build your code with an assembly that you didn't write yours
 
 If you want to switch off the standard dependency tracking module, remove the reference to DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
+## Troubleshooting
+
+*Dependency success flag always shows either true or false.*
+
+* Upgrade to the latest version of the SDK. If your .NET version is less than 4.6, install [Status monitor](app-insights-monitor-performance-live-website-now.md).
+
 ## Next steps
 
-- [Exceptions](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
-- [User & page data](../article/application-insights/app-insights-asp-net-client.md#selector1)
-- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Exceptions](app-insights-asp-net-exception-mvc.md#selector1)
+- [User & page data](app-insights-asp-net-client.md#selector1)
+- [Availability](app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -185,7 +195,6 @@ If you want to switch off the standard dependency tracking module, remove the re
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md

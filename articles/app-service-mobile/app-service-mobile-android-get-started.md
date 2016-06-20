@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter="android"
     authors="ysxu"
-    manager="dwrede"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
     ms.workload="na"
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
-    ms.topic="article"
-    ms.date="02/04/2016"
-    ms.author="yuaxu"/>
+    ms.topic="hero-article"
+    ms.date="05/03/2016"
+    ms.author="yuaxu;ricksal"/>
 
 #Create an Android app
 

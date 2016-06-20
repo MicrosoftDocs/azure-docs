@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/17/2015"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Get started with the BizTalk X12 API App and add it to your Logic App
+
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 Use the BizTalk X12 service to receive and send messages per the X12 protocol in business to business communications. X12 is also commonly referred to as ASC X12 or Accredited Standards Committee X12 and is widely used across industries.
 
 You can add the BizTalk X12 API App to your business workflow and process data as part of a business-to-business workflow within a Logic App. 
@@ -75,7 +79,7 @@ Now that the connector is created, you can add it to a business flow using a Log
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 
 <!--References -->

@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device in the Government Portal (Update 2)
@@ -127,7 +127,7 @@ Perform the following steps in the Government Portal.
 
 Use Windows PowerShell for StorSimple to complete the initial setup of your StorSimple device as explained in the following procedure. You will need to use terminal emulation software to complete this step. For more information, see [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console).
 
-[AZURE.INCLUDE [storsimple-configure-and-register-device-gov](../../includes/storsimple-configure-and-register-device-gov.md)]
+[AZURE.INCLUDE [storsimple-configure-and-register-device-gov](../../includes/storsimple-configure-and-register-device-gov-u2.md)]
 
 ## Step 4: Complete minimum device setup
 
@@ -234,11 +234,11 @@ Multipath I/O (MPIO) is an optional feature and is not installed on Windows Serv
 
 For MPIO installation instructions for a StorSimple device connected to a Linux host, go to [Configure MPIO for your Linux host](storsimple-configure-mpio-on-linux.md).
 
-> [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device. 
+> [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device in Azure. 
 
 ## Next steps
 
-- Configure a [virtual device](storsimple-virtual-device.md).
+- Configure a [virtual device](storsimple-virtual-device-u2.md).
 
 - Use the [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx) to manage your StorSimple device.
  

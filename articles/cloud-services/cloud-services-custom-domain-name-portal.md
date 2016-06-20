@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="05/02/2016"
 	ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service
@@ -69,7 +69,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
             
         **OR**
   
-    * Install and configure [Azure Powershell](../install-configure-powershell.md), and then use the following command:
+    * Install and configure [Azure Powershell](../powershell-install-configure.md), and then use the following command:
 
         ```powershell
         Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +111,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
         **OR**
 
-    * Install and configure [Azure Powershell](../install-configure-powershell.md), and then use the following command:
+    * Install and configure [Azure Powershell](../powershell-install-configure.md), and then use the following command:
 
         ```powershell
         get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip

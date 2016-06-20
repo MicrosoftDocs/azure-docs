@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
     ms.author="wesmc"/>
 
 # Enable offline sync for your Xamarin.Android mobile app
@@ -27,12 +27,6 @@ This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamar
 In this tutorial, you will update the client project from the tutorial [Create a Xamarin Android app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
-
-## Requirements
-
-* Visual Studio 2013
-* Visual Studio [Xamarin extension] **or** [Xamarin Studio]
-* Completion of the tutorial [Create a Xamarin Android app]. This tutorial uses the completed app covered in that tutorial.
 
 ## Review the client sync code
 
@@ -129,7 +123,7 @@ In this section, you will modify the client app to simulate an offline scenario 
 
 5. (Optional) Use Visual Studio to view your Azure SQL Database table to see that the data in the backend database has not changed.
 
-   In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
+   	In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
 
 6. (Optional) Use a REST tool such as Fiddler or Postman to query your mobile backend, using a GET query in the form `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
@@ -138,7 +132,7 @@ In this section, you will modify the client app to simulate an offline scenario 
 
 In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you perform the refresh gesture, data will be synced to your mobile backend.
 
-1. Open `ToDoActivity.cs`. Correct the `applicationURL` to point to the correct URLs.
+1. Open `ToDoActivity.cs`. Correct the `applicationURL` to point to the correct URL.
 
 2. Rebuild and run the app. The app attempts to sync with the Azure Mobile App backend after launching. Verify no exception dialogs are created.
 

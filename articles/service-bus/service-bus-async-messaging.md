@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="sethmanheim"
    manager="timlt"
-   editor="tysonn" /> 
+   editor="" /> 
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="03/16/2016"
    ms.author="sethm" />
 
 # Asynchronous messaging patterns and high availability
@@ -63,7 +63,7 @@ Other components within Azure can occasionally have service issues. For example,
 
 With any application, circumstances can cause an internal component of Service Bus can become inconsistent. When Service Bus detects this, it collects data from the application to aid in diagnosing what happened. Once the data is collected, the application is restarted in an attempt to return it to a consistent state. This process happens fairly quickly, and results in an entity appearing to be unavailable for up to a few minutes, though typical downtimes are much shorter.
 
-In these cases, the client application generates a [System.TimeoutException][] or [MessagingException][] exception. The Service Bus .NET SDK contains a mitigation for this issue in the form of automated client retry logic. Once the retry period is exhausted and the message is not delivered, you can explore using other features such as [paired namespaces][]. Paired namespaces have other caveats which are discussed later in this document.
+In these cases, the client application generates a [System.TimeoutException][] or [MessagingException][] exception. The Service Bus .NET SDK contains a mitigation for this issue in the form of automated client retry logic. Once the retry period is exhausted and the message is not delivered, you can explore using other features such as [paired namespaces][]. Paired namespaces have other caveats that are discussed in the article [Paired Namespace implementation details and cost implications](service-bus-paired-namespaces.md).
 
 ### Failure of Service Bus within an Azure datacenter
 
@@ -149,7 +149,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## Next steps
 
-Now that you've learned the basics of asynchronous messaging in Service Bus, read more details about [paired namespaces and cost implications][].
+Now that you've learned the basics of asynchronous messaging in Service Bus, read more details about [paired namespaces][].
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -169,5 +169,4 @@ Now that you've learned the basics of asynchronous messaging in Service Bus, rea
   [IsTransient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx
   [UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
-  [paired namespaces and cost implications]: service-bus-paired-namespaces.md
   [paired namespaces]: service-bus-paired-namespaces.md

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
-	ms.date="12/09/2015"
+	ms.date="03/21/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Hadoop stack trace errors in HDInsight: Index of troubleshooting articles
@@ -30,7 +30,7 @@ Use this index of Hadoop stack trace errors to troubleshoot in HDInsight. Articl
 ## More troubleshooting articles for HDInsight
 
 * [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)
-* [Debug Hadoop in HDInsight: View logs and interpret error messages](hhdinsight-debug-jobs.md)
+* [Debug Hadoop in HDInsight: View logs and interpret error messages](hdinsight-debug-jobs.md)
 * [Access YARN application logs on Hadoop in HDInsight programmatically](hdinsight-hadoop-access-yarn-app-logs.md)
 * [Collect heap dumps in Blob storage to debug and analyze Hadoop services](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Release notes for Hadoop components on Azure HDInsight](hdinsight-release-notes.md)

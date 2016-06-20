@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="05/31/2016"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -21,7 +21,7 @@
 
 This tutorial describes the steps required to fail over a StorSimple device in the event of a disaster. A failover will allow you to migrate your data from a source device in the datacenter to another physical or even a virtual device located in the same or a different geographical location. 
 
-Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the Devices page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
+Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
 
 ![Devices page](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
@@ -59,6 +59,19 @@ Use the following table to determine if you can fail over to another device runn
 | Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 | Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 
+
+#### Partial failover across software versions
+
+Follow this guidance if you intend to perform a partial failover using a StorSimple source device running pre-Update 1 to a target running Update 1 or later. 
+
+
+| Partial failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+|Pre-Update 1 (Release, 0.1, 0.2, 0.3) to Update 1 or later  | Yes, see below for the best practice tip.                                                                                                                                                                               | Yes, see below for the best practice tip.                                                    |
+
+
+>[AZURE.TIP] There was a cloud metadata and data format change in Update 1 and later versions. Hence, we do not recommend a partial failover from pre-Update 1 to Update 1 or later versions. If you need to perform a partial failover, we recommend that you first apply Update 1 or later on both the devices (source and target) and then proceed with the failover. 
+
 ## Fail over to another physical device
 
 Perform the following steps to restore your device to a target physical device.
@@ -76,6 +89,7 @@ Perform the following steps to restore your device to a target physical device.
 1. In the wizard that opens up, under **Choose volume container to failover**:
 
 	1. In the list of volume containers, select the volume containers you would like to fail over.
+	
 
 		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 

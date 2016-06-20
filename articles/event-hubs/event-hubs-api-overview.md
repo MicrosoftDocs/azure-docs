@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Overview of the Azure Event Hubs APIs | Microsoft Azure"
-   description="A summary of some of the key Event Hubs .NET client APIs."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Overview of the Azure Event Hubs APIs | Microsoft Azure"
+    description="A summary of some of the key Event Hubs .NET client APIs."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Event Hubs API overview
 

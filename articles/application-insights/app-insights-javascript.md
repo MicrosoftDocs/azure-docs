@@ -12,10 +12,11 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="05/18/2016"
 	ms.author="awills"/>
 
 # Application Insights for web pages
+
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -89,8 +90,14 @@ The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/b
     // Don't log browser exceptions.
     disableExceptionTracking: true,
 
+    // Don't log ajax calls.
+    disableAjaxTracking: boolean,
+
     // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
+
+    // Time page load up to execution of first trackPageView().
+    overridePageViewDuration: boolean,
 
     // Set these dynamically for an authenticated user.
     appUserId: string,
@@ -170,7 +177,7 @@ Click any row for specific details.
 
 > [AZURE.NOTE] If you delete the Browsers filter on the blade, both server and AJAX dependencies will be included in these charts. Click Restore Defaults to reconfigure the filter.
 
-**To drill into failed Ajax calls** one quick way is to change the failures chart to a grid, and then click a row to see specific instances.
+**To drill into failed Ajax calls** scroll down to the Dependency failures grid, and then click a row to see specific instances.
 
 ![](./media/app-insights-javascript/37.png)
 
@@ -204,7 +211,11 @@ Select any event to see more detail. In the details page, click "..." to see eve
 
 ### Page view properties
 
-* **Page view duration** The time it takes to load the page and start running scripts. Specifically, the interval between starting to load the page and execution of the trackPageView. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.
+* **Page view duration** 
+
+ * By default, the time it takes to load the page, from client request to full load (including auxiliary files but excluding asynchronous tasks such as Ajax calls). 
+ * If you set `overridePageViewDuration` in the [page configuration](#detailed-configuration), the interval between client request to execution of the first `trackPageView`. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.
+ * If `overridePageViewDuration` is set and a duration argument is provided in the `trackPageView()` call, then the argument value will be used instead. 
 
 
 ## Custom page counts

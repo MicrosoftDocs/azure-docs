@@ -12,14 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
 
 ## Overview
 
-The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power and Cooling Modules (PCMs), disk drives, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling. 
+The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power and Cooling Modules (PCMs), disk drives, storage capacity, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling.
+
 
 ## Power and Cooling Module specifications  
 
@@ -59,6 +60,24 @@ The following table lists the typical power consumption data (actual values may 
 ## Disk drive specifications  
 
 Your StorSimple device supports up to 12 3.5-inch form factor Serial Attached SCSI (SAS) disk drives. The actual drives can be a mix of solid-state drives (SSDs) or hard disk drives (HDDs), depending on the product configuration. The 12 disk drive slots are located in a 3 by 4 configuration in front of the enclosure. The EBOD enclosure allows for additional storage for another 12 disk drives. These are always HDDs.  
+
+## Storage specifications
+The StorSimple devices have a mix of hard disk drives and solid state drives for both the 8100 and 8600. The total usable capacity for the 8100 and 8600 are roughly 15 TB and 38 TB respectively. The following table documents the details of SSD, HDD, and cloud capacity in the context of the StorSimple solution capacity.
+
+| Device model / Capacity                         | 8100                                                    | 8600                                                    |
+|------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
+| Number of hard disk drives (HDDs)              |   8                                                     |  19                                                     |
+| Number of solid state drives (SSDs)            |   4                                                     |  5                                                      |
+| Single HDD capacity                            |   4 TB                                                  |  4 TB                                                   |
+| Single SSD capacity                            |   400 GB                                                |  800 GB                                                 |
+| Spare capacity                                 |   4 TB                                                  | 4 TB                                                    |
+| Usable HDD capacity                            | 14 TB                                                   | 36 TB                                                   |
+| Usable SSD capacity                            | 800 GB                                                  | 2 TB                                                    |
+| Total usable capacity*                         | ~ 15 TB                                                 | ~ 38 TB                                                 |
+| Maximum solution capacity (including cloud)    | 200 TB                                                  | 500 TB                                                  |
+
+
+<sup>* </sup>- *The total usable capacity includes the capacity available for data, metadata, and buffers.*
 
 ## Enclosure dimensions and weight specifications  
 

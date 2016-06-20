@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with API Apps and ASP.NET in Azure App Service | Microsoft Azure"
+	pageTitle="Get started with API Apps and ASP.NET in App Service | Microsoft Azure"
 	description="Learn how to create, deploy, and consume an ASP.NET API app in Azure App Service, by using Visual Studio 2015."
 	services="app-service\api"
 	documentationCenter=".net"
@@ -13,48 +13,58 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="05/27/2016"
 	ms.author="tdykstra"/>
 
-# Get started with API Apps and ASP.NET in Azure App Service
+# Get started with API Apps, ASP.NET, and Swagger in Azure App Service
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
-## Overview
+This is the first in a series of tutorials that show how to use features of Azure App Service that are helpful for developing and hosting RESTful APIs.  This tutorial covers support for API metadata in Swagger format.
 
-This is the first in a series of tutorials that show how to use features of Azure App Service that are helpful for developing and hosting APIs:
+You'll learn:
 
-* Integrated support for API metadata
-* CORS support
-* Authentication and authorization support
+* How to create and deploy [API apps](app-service-api-apps-why-best-platform.md) in Azure App Service by using tools built into Visual Studio 2015.
+* How to automate API discovery by using the Swashbuckle NuGet package to dynamically generate Swagger API metadata.
+* How to use Swagger API metadata to automatically generate client code for an API app.
 
-You'll deploy a sample application to two [API apps](app-service-api-apps-why-best-platform.md) and a web app in Azure App Service. The sample application is a to-do list that has an AngularJS single-page application (SPA) front end, an ASP.NET Web API middle tier, and an ASP.NET Web API data tier, as shown in the diagram.
+## Sample application overview
 
-![](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
+In this tutorial, you work with a simple to-do list sample application. The application has a single-page application (SPA) front end, an ASP.NET Web API middle tier, and an ASP.NET Web API data tier.
 
-Here's a screen shot of the SPA front end.
+![API Apps sample application diagram](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
 
-![](./media/app-service-api-dotnet-get-started/todospa.png)
+Here's a screen shot of the [AngularJS](https://angularjs.org/) front end.
 
-On completing this tutorial, you'll have the two Web APIs up and running in App Service API apps. After completing the following tutorial you'll have the entire application running in the cloud, with the SPA in an App Service web app. In subsequent tutorials you add authentication and authorization.
+![API Apps sample application to do list](./media/app-service-api-dotnet-get-started/todospa.png)
 
-## What you'll learn
+The Visual Studio solution includes three projects:
 
-In this tutorial, you'll learn:
+![](./media/app-service-api-dotnet-get-started/projectsinse.png)
 
-* How to prepare your machine for Azure development by installing the Azure SDK for .NET.
-* How to work with API apps and web apps in Azure App Service by using tools built into Visual Studio 2015.
-* How to automate API discovery by using the Swashbuckle NuGet package to dynamically generate Swagger API definition JSON.
-* How to use automatically generated client code to consume an API app from a .NET client.
-* How to use the Azure portal to configure the endpoint for API app metadata.
+* **ToDoListAngular** - The front end: an AngularJS SPA that calls the middle tier. 
+
+* **ToDoListAPI** - The middle tier: an ASP.NET Web API project that calls the data tier to perform CRUD operations on to-do items.
+
+* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. 
+
+The three-tier architecture is one of many architectures that you can implement by using API Apps and is used here only for demonstration purposes. The code in each tier is as simple as possible to demonstrate API Apps features; for example, the data tier uses server memory rather than a database as its persistence mechanism.
+
+On completing this tutorial, you'll have the two Web API projects up and running in the cloud in App Service API apps.
+
+The next tutorial in the series deploys the SPA front end to the cloud.
 
 ## Prerequisites
 
-[AZURE.INCLUDE [prerequisites](../../includes/app-service-api-dotnet-get-started-prereqs.md)]
+* ASP.NET Web API - The tutorial instructions assume you have a basic knowledge of how to work with ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) in Visual Studio.
 
-[AZURE.INCLUDE [set-up-dev-environment](../../includes/install-sdk-2015-2013.md)]
+* Azure account - You can [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-This tutorial requires version 2.8.2 or later of the Azure SDK for .NET.
+	If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter app in App Service — no credit card required, and no commitments.
+
+* Visual Studio 2015 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=518003) - The SDK installs Visual Studio 2015 automatically if you don't already have it.
+
+	>[AZURE.NOTE] Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
 
 ## Download the sample application 
 
@@ -64,80 +74,37 @@ This tutorial requires version 2.8.2 or later of the Azure SDK for .NET.
 
 2. Open the ToDoList solution in Visual Studio 2015 or 2013.
 
-	The Visual Studio solution is a sample application that works with	simple to-do items that consist of a description and an owner.
-
-		public class ToDoItem 
-		{ 
-		    public int ID { get; set; } 
-		    public string Description { get; set; } 
-		    public string Owner { get; set; } 
-		} 
- 
-	The solution includes three projects:
-
-	![](./media/app-service-api-dotnet-get-started/projectsinse.png)
-
-	* **ToDoListAngular** - The front end: an AngularJS SPA that calls the middle tier. 
-
-	* **ToDoListAPI** - The middle tier: an ASP.NET Web API project that calls the data tier to perform CRUD operations on to-do items.
-
-	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. To-do items are stored in memory, which means that whenever the application is restarted all changes are lost. 
-
-	The middle tier provides the user ID in the `Owner` field when it calls the data tier. In the code that you download, the user ID is always "*". When you add authentication in later tutorials, the middle tier will provide the actual user ID to the data tier.
-
 2. Build the solution to restore the NuGet packages.
 
-### Optional: run the application locally
+	If you want to see the application in operation before you deploy it, you can run it locally. Just make sure that all three projects are startup projects. You'll need to use Internet Explorer or Edge since those browsers permit cross-origin JavaScript calls to `http://localhost` URLs. 
 
-In this section you verify that you can run the client locally and can call the API while it too is running locally.
+## Use Swagger API metadata and UI
 
-**Note:** These instructions work for Internet Explorer and Edge browsers because these browsers allow cross-origin JavaScript calls from and to `http://localhost` URLs. If you're using Chrome, start the browser with the `--disable-web-security` switch. If you're using Firefox, skip this section.
+Support for [Swagger](http://swagger.io/) 2.0 API metadata is built into Azure App Service. Each API app can specify a URL endpoint that returns metadata for the API in Swagger JSON format. The metadata returned from that endpoint can be used to generate client code. 
 
-1. Set all three projects as startup projects, with ToDoListDataAPI starting first, then ToDoListAPI, and then ToDoListAngular. (Right-click the solution, click **Properties**, select **Multiple startup projects**, put the projects in the correct order, and set **Action** to **Start** for each one.)  
+An ASP.NET Web API project can dynamically generate Swagger metadata by using the [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet package. The Swashbuckle NuGet package is already installed in the ToDoListDataAPI and ToDoListAPI projects that you downloaded.
 
-2. Press F5 to start the projects.
+In this section of the tutorial, you look at the generated Swagger 2.0 metadata, and then you try out a test UI that is based on the Swagger metadata.
 
-	Two browser windows open to HTTP 403 error pages, which is normal for Web API projects, and the third browser window shows the AngularJS UI. 
-
-3. In the browser window that shows the AngularJS UI, click the **To Do List** tab.
-
-	The UI shows two default to-do items.
-
-	![](./media/app-service-api-dotnet-get-started/todospa.png)
-
-4. Add, edit, and delete to-do items to see how the application works. 
-
-	Any changes you make are stored in memory and are lost the when you restart the application.
-
-3. Close the browser windows.
-
-## Use Swagger metadata and UI
-
-Support for [Swagger](http://swagger.io/) 2.0 API metadata is built into Azure App Service. Each API app specifies a URL endpoint that returns metadata for the API in Swagger JSON format. The metadata returned from that endpoint can be used to generate client code. 
-
-The [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet package provides Swagger 2.0 metadata for an ASP.NET Web API project. Swashbuckle uses Reflection to dynamically generate metadata. 
-
-The Swashbuckle NuGet package is already installed in the ToDoListDataAPI and ToDoListAPI projects that you downloaded, and it is already installed when you create a new project by using the **Azure API App** project template. (In Visual Studio: **File > New > Project > ASP.NET Web Application > Azure API App**.)
-
-In this section of the tutorial you take a look at the generated Swagger 2.0 metadata, and then you try out a test UI that is based on the Swagger metadata.
-
-2. Set the ToDoListDataAPI project as the startup project. 
+2. Set the ToDoListDataAPI project (**not** the ToDoListAPI project) as the startup project. 
  
-4. Press F5 to run the project in debug mode.
+4. Press F5 or click **Debug > Start Debugging** to run the project in debug mode.
 
 	The browser opens and shows the HTTP 403 error page.
 
-12. In your browser address bar, add `swagger/docs/v1` to the end of the line, and then press Return. (The URL will be `http://localhost:45914/swagger/docs/v1`.)
+12. In your browser address bar, add `swagger/docs/v1` to the end of the line, and then press Return. (The URL is `http://localhost:45914/swagger/docs/v1`.)
 
-	This is the default URL used by Swashbuckle to return Swagger 2.0 JSON metadata for the API. If you're using Internet Explorer, the browser prompts you to download a *v1.json* file.
+	This is the default URL used by Swashbuckle to return Swagger 2.0 JSON metadata for the API. 
 
-	![](./media/app-service-api-dotnet-get-started/iev1json.png)
+	If you're using Internet Explorer, the browser prompts you to download a *v1.json* file.
 
-	If you're using Chrome, Firefox, or Edge, the browser displays the JSON in the browser window.
+	![Download JSON metadata in IE](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-	![](./media/app-service-api-dotnet-get-started/chromev1json.png)
+	If you're using Chrome, Firefox, or Edge, the browser displays the JSON in the browser window. Different browsers handle JSON differently, and your browser window may not look exactly like the example.
 
-	The following sample shows the first section of the Swagger metadata for the API, with the definition for the Get method. This metadata is what drives the Swagger UI that you'll use in the following steps, and you'll use it in a later section of the tutorial to automatically generate client code.
+	![JSON metadata in Chrome](./media/app-service-api-dotnet-get-started/chromev1json.png)
+
+	The following sample shows the first section of the Swagger metadata for the API, with the definition for the Get method. This metadata is what drives the Swagger UI that you use in the following steps, and you use it in a later section of the tutorial to automatically generate client code.
 
 		{
 		  "swagger": "2.0",
@@ -174,7 +141,7 @@ In this section of the tutorial you take a look at the generated Swagger 2.0 met
 		        "deprecated": false
 		      },
 
-1. Close the browser.
+1. Close the browser and stop Visual Studio debugging.
 
 3. In the ToDoListDataAPI project in **Solution Explorer**, open the *App_Start\SwaggerConfig.cs* file, then scroll down to the following code and uncomment it.
 
@@ -186,33 +153,35 @@ In this section of the tutorial you take a look at the generated Swagger 2.0 met
 
 	The *SwaggerConfig.cs* file is created when you install the Swashbuckle package in a project. The file provides a number of ways to configure Swashbuckle.
 
-	The code you've uncommented enables the Swagger UI that you'll use in the following steps. When you create a Web API project by using the API app project template, this code is commented out by default as a security measure.
+	The code you've uncommented enables the Swagger UI that you use in the following steps. When you create a Web API project by using the API app project template, this code is commented out by default as a security measure.
 
 5. Run the project again.
 
-3. In your browser address bar, add `swagger` to the end of the line, and then press Return. (The URL will be `http://localhost:45914/swagger`.)
+3. In your browser address bar, add `swagger` to the end of the line, and then press Return. (The URL is `http://localhost:45914/swagger`.)
 
 4. When the Swagger UI page appears, click **ToDoList** to see the methods available.
 
-	![](./media/app-service-api-dotnet-get-started/methods.png)
+	![Swagger UI available methods](./media/app-service-api-dotnet-get-started/methods.png)
 
-5. Click **Get**.
+5. Click the first **Get** button in the list.
 
-6. Enter an asterisk as the value of the `owner` parameter, and then click **Try it out**.
+6. In the **Parameters** section, enter an asterisk as the value of the `owner` parameter, and then click **Try it out**.
 
-	![](./media/app-service-api-dotnet-get-started/gettryitout1.png)
+	When you add authentication in later tutorials, the middle tier will provide the actual user ID to the data tier. For now, all tasks will have asterisk as their owner ID while the application runs without authentication enabled.
 
-	The Swagger UI calls the ToDoList Get method and displays the JSON results.
+	![Swagger UI try it out](./media/app-service-api-dotnet-get-started/gettryitout1.png)
 
-	![](./media/app-service-api-dotnet-get-started/gettryitout.png)
+	The Swagger UI calls the ToDoList Get method and displays the response code and JSON results.
+
+	![Swagger UI try it out results](./media/app-service-api-dotnet-get-started/gettryitout.png)
 
 6. Click **Post**, and then click the box under **Model Schema**.
 
-	Clicking the model schema prefills the input box where you can specify the parameter value for the Post method. (If this doesn't work in Internet Explorer, use a different browser or enter the parameter value manually in the next step.  
+	Clicking the model schema prefills the input box where you can specify the parameter value for the Post method. (If this doesn't work in Internet Explorer, use a different browser or enter the parameter value manually in the next step.)  
 
-	![](./media/app-service-api-dotnet-get-started/post.png)
+	![Swagger UI try it out Post](./media/app-service-api-dotnet-get-started/post.png)
 
-7. Change the JSON in the `contact` parameter input box so that it looks like the following example, or substitute your own description text:
+7. Change the JSON in the `todo` parameter input box so that it looks like the following example, or substitute your own description text:
 
 		{
 		  "ID": 2,
@@ -224,248 +193,300 @@ In this section of the tutorial you take a look at the generated Swagger 2.0 met
 
 	The ToDoList API returns an HTTP 204 response code that indicates success.
 
-11. Click **Get > Try it out**.
+11. Click the first **Get** button, and then in that section of the page click the **Try it out** button.
 
 	The Get method response now includes the new to do item. 
 
-12. Try also the Put, Delete, and Get by ID methods, and then close the browser.
+12. Optional: Try also the Put, Delete, and Get by ID methods.
 
-Swashbuckle works with any ASP.NET Web API project. If you want to add Swagger metadata generation to an existing project, just install the Swashbuckle package. To create a new project, use the ASP.NET **Azure API App** project template, shown in the following illustration. This template creates a Web API project with Swashbuckle installed.
+14. Close the browser and stop Visual Studio debugging.
 
-![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
+Swashbuckle works with any ASP.NET Web API project. If you want to add Swagger metadata generation to an existing project, just install the Swashbuckle package. 
 
-**Note:** By default, Swashbuckle may generate duplicate Swagger operation IDs for your controller methods. This happens if your controller has overloaded HTTP methods, for example: `Get()` and `Get(id)`. For information about how to handle overloads, see [Customize Swashbuckle-generated API definitions](app-service-api-dotnet-swashbuckle-customize.md). If you create a Web API project in Visual Studio by using the Azure API App template, code that generates unique operation IDs is automatically added to the *SwaggerConfig.cs* file.  
+**Note:** Swagger metadata includes a unique ID for each API operation. By default, Swashbuckle may generate duplicate Swagger operation IDs for your Web API controller methods. This happens if your controller has overloaded HTTP methods, such as `Get()` and `Get(id)`. For information about how to handle overloads, see [Customize Swashbuckle-generated API definitions](app-service-api-dotnet-swashbuckle-customize.md). If you create a Web API project in Visual Studio by using the Azure API App template, code that generates unique operation IDs is automatically added to the *SwaggerConfig.cs* file.  
 
-## Create an API app in Azure and deploy the ToDoListAPI project to it
+## <a id="createapiapp"></a> Create an API app in Azure and deploy code to it
 
-In this section you use Azure tools that are integrated into the Visual Studio **Publish Web** wizard to create a new API app in Azure. Then you deploy the ToDoListDataAPI project to the new API app and call the API by running the Swagger UI again, this time while it runs in the cloud.
+In this section, you use Azure tools that are integrated into the Visual Studio **Publish Web** wizard to create a new API app in Azure. Then you deploy the ToDoListDataAPI project to the new API app and call the API by running the Swagger UI.
 
 1. In **Solution Explorer**, right-click the ToDoListDataAPI project, and then click **Publish**.
 
+	![Click Publish in Visual Studio](./media/app-service-api-dotnet-get-started/pubinmenu.png)
+
 3.  In the **Profile** step of the **Publish Web** wizard, click **Microsoft Azure App Service**.
 
-	![](./media/app-service-api-dotnet-get-started/selectappservice.png)
+	![Click Azure App Service in Publish Web](./media/app-service-api-dotnet-get-started/selectappservice.png)
 
 4. Sign in to your Azure account if you have not already done so, or refresh your credentials if they're expired.
 
 4. In the App Service dialog box, choose the Azure **Subscription** you want to use, and then click **New**.
 
-	![](./media/app-service-api-dotnet-get-started/clicknew.png)
+	![Click New in App Service dialog](./media/app-service-api-dotnet-get-started/clicknew.png)
 
-3. In the **Hosting** tab of the **Create App Service** dialog box, click **Change Type**, and then click **API App**.
+	The **Hosting** tab of the **Create App Service** dialog box appears.
 
-	![](./media/app-service-api-dotnet-get-started/apptype.png)
+	Because you're deploying a Web API project that has Swashbuckle installed, Visual Studio assumes that you want to create an API App. This is indicated by the **API App Name** title and by the fact that the **Change Type** drop-down list is set to **API App**.
 
-	Setting the type to **API App** doesn't determine the features that will be available to the new app. The API definition URL (which you'll see later in this tutorial), CORS support (which you'll see in the next tutorial), and authentication (which you'll see in the last 3 tutorials in this series) are available to web apps and mobile apps as well as API apps.  Creating an app as an API app has only the following effects:
+	![App type in App Service dialog](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	a. In the Azure portal, the app type icon or text appears in blade headings and lists of apps; and on the **Settings** blade, the API section appears earlier in the list for an API app compared to other app types.
+4. Enter an **API App Name** that is unique in the *azurewebsites.net* domain. You can accept the default name that Visual Studio proposes.
 
-	b. In Visual Studio with the Azure SDK for .NET 2.8.1, Visual Studio sets the API definition URL during creation of a new ASP.NET API app, but not for other app types.
+	If you enter a name that someone else has already used, you see a red exclamation mark to the right.
 
-4. Enter an **API App Name** that is unique in the *azurewebsites.net* domain, such as ToDoListDataAPI plus a number to make it unique. 
+	The URL of the API app will be `{APi app name}.azurewebsites.net`.
 
-	Visual Studio proposes a unique name by appending a date-time string to the project name.  You can accept that name if you prefer. 
+6. In the **Resource Group** drop-down, click **New**, and then enter "ToDoListGroup" or another name if you prefer. 
 
-	If you enter a name that someone else has already used, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.
+	A resource group is a collection of Azure resources such as API apps, databases, VMs, and so forth.	For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
 
-	Azure will use this name as the prefix for your application's URL. The complete URL will consist of this name plus *.azurewebsites.net*. For example, if the name is `ToDoListDataAPI`, the URL will be `todolistdataapi.azurewebsites.net`.
+	This box lets you select an existing [resource group](../azure-portal/resource-group-portal.md) or create a new one by typing in a name that is different from any existing resource group in your subscription.
 
-6. In the **Resource Group** drop-down, Enter "ToDoListGroup" or another name if you prefer.
+4. Click the **New** button next to the **App Service Plan** drop-down.
 
-	This box lets you select an existing [resource group](../azure-preview-portal-using-resource-groups.md) or create a new one by typing in a name that is different from any existing resource group in your subscription.
+	The screen shot shows sample values for **API App Name**, **Subscription**, and **Resource Group** -- your values will be different.
 
-	For this tutorial it's best to create a new one because that will make it easy to delete in one step all the Azure resources that you create for the tutorial.
+	![Create App Service dialog](./media/app-service-api-dotnet-get-started/createas.png)
 
-4. Click the **New** button next to the **App Service Plan** drop-down. 
-
-	![](./media/app-service-api-dotnet-get-started/createas.png)
-
-	For information about App Service plans, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	In the following steps you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your API app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For information about App Service plans, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. In the **Configure App Service Plan** dialog, enter "ToDoListPlan" or another name if you prefer.
 
 5. In the **Location** drop-down list, choose the location that is closest to you.
 
-	This setting specifies which Azure datacenter your app will run in. For this tutorial, you can select any region and it won't make a noticeable difference. But for a production app, you want your server to be as close as possible to the clients that are accessing it in order to minimize [latency](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	This setting specifies which Azure datacenter your app will run in. Choose a location close to you to minimize [latency](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. In the **Size** drop-down, click **Free**.
 
-	For this tutorial, The free pricing tier will provide sufficient performance.
+	For this tutorial, the free pricing tier will provide sufficient performance.
 
 6. In the **Configure App Service Plan** dialog, click **OK**.
 
-	![](./media/app-service-api-dotnet-get-started/configasp.png)
+	![Click OK in Configure App Service Plan](./media/app-service-api-dotnet-get-started/configasp.png)
 
 7. In the **Create App Service** dialog box, click **Create**.
 
-	Visual Studio creates the API app and creates a publish profile that has all of the required settings for the new API app. In the following steps you use the new publish profile to deploy the project. 
- 
-	**Note:** There are other ways to create API apps in Azure App Service. In Visual Studio the same dialogs are available while you're creating a new project. You can also create API apps by using the Azure portal, [Azure cmdlets for Windows PowerShell](../powershell-install-configure.md), or the [cross-platform command-line interface](../xplat-cli.md).
+	![Click Create in Create App Service dialog](./media/app-service-api-dotnet-get-started/clickcreate.png)
 
-8. In the **Connection** tab of the **Publish Web** wizard, click **Publish**.
+	Visual Studio creates the API app and a publish profile that has all of the required settings for the API app. Then it opens the **Publish Web** wizard, which you'll use to deploy the project.
 
-	![](./media/app-service-api-dotnet-get-started/clickpublish.png)
+	The **Publish Web** wizard opens on the **Connection** tab (shown below). 
 
-	Visual Studio deploys the ToDoListDataAPI project to the new API app and opens a browser to the URL of the API app. A "successfully created" page appears in the browser.
+	On the **Connection** tab, the **Server** and **Site name** settings point to your API app. The **User name** and **Password** are deployment credentials that Azure creates for you. After deployment, Visual Studio opens a browser to the **Destination URL** (that's the only purpose for **Destination URL**).  
 
-	![](./media/app-service-api-dotnet-get-started/appcreated.png)
+8. Click **Next**. 
 
-11. Add "swagger" to the URL in the browser's address bar, and then press Enter. (The URL will be `http://{apiappname}.azurewebsites.net/swagger`.)
+	![Click Next in Connection tab of Publish Web](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	The browser displays the same Swagger UI that you saw earlier, but it is now running in the cloud. Try out the Get method, and you see that you're back to the default 2 to-do items, because the changes you made earlier were saved in memory in the local machine.
+	The next tab is the **Settings** tab (shown below). Here you can change the build configuration tab to deploy a debug build for [remote debugging](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several **File Publish Options**:
+
+	* Remove additional files at destination
+	* Precompile during publishing
+	* Exclude files from the App_Data folder
+
+	For this tutorial you don't need any of these. For detailed explanations of what they do, see [How to: Deploy a Web Project Using One-Click Publish in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+
+14. Click **Next**.
+
+	![Click Next in Settings tab of Publish Web](./media/app-service-api-dotnet-get-started/settingsnext.png)
+
+	Next is the **Preview** tab (shown below), which gives you an opportunity to see what files are going to be copied from your project to the API app. When you're deploying a project to an API app that you already deployed to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
+
+15. Click **Publish**.
+
+	![Click Publish in Preview tab of Publish Web](./media/app-service-api-dotnet-get-started/clickpublish.png)
+
+	Visual Studio deploys the ToDoListDataAPI project to the new API app. The **Output** window logs successful deployment, and a "successfully created" page appears in a browser window opened to the URL of the API app.
+
+	![Output window successful deployment](./media/app-service-api-dotnet-get-started/deploymentoutput.png)
+
+	![New API app successfully created page](./media/app-service-api-dotnet-get-started/appcreated.png)
+
+11. Add "swagger" to the URL in the browser's address bar, and then press Enter. (The URL is `http://{apiappname}.azurewebsites.net/swagger`.)
+
+	The browser displays the same Swagger UI that you saw earlier, but now it's running in the cloud. Try out the Get method, and you see that you're back to the default 2 to-do items. The changes you made earlier were saved in memory in the local machine.
 
 12. Open the [Azure portal](https://portal.azure.com/).
+
+	The Azure portal is a web interface for managing Azure resources such as API apps.
  
-14. Click **Browse > API Apps > {your new API app}**.
+14. Click **Browse > App Services**.
 
-	![](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
+	![Browse App Services](./media/app-service-api-dotnet-get-started/browseas.png)
 
-16. Click **Settings**, and then in the **Settings** blade find the API section and click **API Definition**. 
+15. In the **App Services** blade, find and click your new API app. (In the Azure portal, windows that open to the right are called *blades*.)
 
-	![](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
+	![App Services blade](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
-	The API Definition blade lets you specify the URL that returns Swagger 2.0 metadata in JSON format. When Visual Studio creates the API app, it sets the API definition URL to the default value that you saw earlier, which is the API app's base URL plus `/swagger/docs/v1`. 
+	Two blades open. One blade has an overview of the API app, and one has a long list of settings that you can view and change.
 
-	![](./media/app-service-api-dotnet-get-started/apidefurl.png)
+16. In the **Settings** blade, find the **API** section and click **API Definition**. 
+
+	![API Definition in Settings blade](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
+
+	The **API Definition** blade lets you specify the URL that returns Swagger 2.0 metadata in JSON format. When Visual Studio creates the API app, it sets the API definition URL to the default value for Swashbuckle-generated metadata that you saw earlier, which is the API app's base URL plus `/swagger/docs/v1`. 
+
+	![API definition URL](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
 	When you select an API app to generate client code for it, Visual Studio retrieves the metadata from this URL. 
 
-### API definition URL in Azure Resource Manager tooling
-
-You can also configure the API definition URL for an API app by using Azure Resource Manager tooling such as Azure PowerShell, CLI or [Resource Explorer](https://resources.azure.com/). 
-
-To do that, you set the `apiDefinition` property on the `Microsoft.Web/sites/config` resource type for your `<site name>/web` resource. For example, in **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the `apiDefinition` property:
-
-		"apiDefinition": {
-		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
-		}
-
-To see an example of an Azure Resource Manager template that includes JSON for setting the API definition property, open the [azuredeploy.json file in the sample application repository](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
-
-## <a id="codegen"></a> Consume from a .NET client by using generated client code
+## <a id="codegen"></a> Generate client code for the data tier
 
 One of the advantages of integrating Swagger into Azure API apps is automatic code generation. Generated client classes make it easier to write code that calls an API app.
 
-In this section you see how to consume an API app from ASP.NET Web API code. 
+The ToDoListAPI project already has the generated client code, but in the following steps you'll delete it and regenerate it to see how to do the code generation.
 
-### Generate client code
+1. In Visual Studio **Solution Explorer**, in the ToDoListAPI project, delete the *ToDoListDataAPI* folder. **Caution: Delete only the folder, not the ToDoListDataAPI project.**
 
-You can generate client code for an API app by using Visual Studio or from the command line. For this tutorial you'll use Visual Studio. For information about how to do it from the command line, see the readme file of the [Azure/autorest](https://github.com/azure/autorest) repository on GitHub.com.
-
-The ToDoListAPI project already has the generated client code, but you'll delete it and regenerate it, which will reset the default target URL to your own API app.
-
-1. In Visual Studio **Solution Explorer**, in the ToDoListAPI project, delete the *ToDoListDataAPI* folder.
+	![Delete generated client code](./media/app-service-api-dotnet-get-started/deletecodegen.png)
 
 	This folder was created by using the code generation process that you're about to go through.
 
-	![](./media/app-service-api-dotnet-get-started/deletecodegen.png)
-
 2. Right-click the ToDoListAPI project, and then click **Add > REST API Client**.
 
-	![](./media/app-service-api-dotnet-get-started/codegenmenu.png)
+	![Add REST API client in Visual Studio](./media/app-service-api-dotnet-get-started/codegenmenu.png)
 
 3. In the **Add REST API Client** dialog box, click **Swagger URL**, and then click **Select Azure Asset**.
 
-	![](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
+	![Select Azure Asset](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
 8. In the **App Service** dialog box, expand the resource group you're using for this tutorial and select your API app, and then click **OK**.
 
-	This dialog box gives more than one way to organize API apps in the list, in case you have too many to scroll through. It also lets you enter a search string to filter API apps by name.
-
-	![](./media/app-service-api-dotnet-get-started/codegenselect.png)
-
-	If you don't see the API app in the list, chances are that when you were creating the API app you accidentally omitted the step that changed the type from web app to API app. In that case, you can create a new API app by repeating the steps you did earlier. You'll need to choose a different name for the API app. 
+	![Select API app for code generation](./media/app-service-api-dotnet-get-started/codegenselect.png)
 
 	Notice that when you return to the **Add REST API Client** dialog, the text box has been filled in with the API definition URL value that you saw earlier in the portal. 
 
-	![](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
+	![API Definition URL](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
-	An alternative way to get metadata for code generation is to enter the URL directly instead of going through the browse dialog. For example, if you deployed your API to a web app and it doesn't show up in the browse dialog, you can manually enter the URL that returns Swagger metadata here.
-
-	Another alternative way to get metadata is to use the **Select an existing Swagger metadata file** option. For example, if you want to generate client code before deploying to Azure, you could run locally, download the Swagger JSON file, and select it here.
+	>[AZURE.TIP] An alternative way to get metadata for code generation is to enter the URL directly instead of going through the browse dialog. Or if you want to generate client code before deploying to Azure, you could run the Web API project locally, go to the URL that provides the Swagger JSON file, save the file, and use the **Select an existing Swagger metadata file** option.
 
 9. In the **Add REST API Client** dialog box, click **OK**.
 
 	Visual Studio creates a folder named after the API app and generates client classes.
 
-	![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
+	![Code files for generated client](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
 5. In the ToDoListAPI project, open *Controllers\ToDoListController.cs* to see the code that calls the API by using the generated client. 
 
 	The following snippet shows how the code instantiates the client object and calls the Get method.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-		
-		public ActionResult Index()
+		private static ToDoListDataAPI NewDataAPIClient()
 		{
-		    return View(db.Contacts.Get());
+		    var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+		    return client;
+		}
+		
+		public async Task<IEnumerable<ToDoItem>> Get()
+		{
+		    using (var client = NewDataAPIClient())
+		    {
+		        var results = await client.ToDoList.GetByOwnerAsync(owner);
+		        return results.Select(m => new ToDoItem
+		        {
+		            Description = m.Description,
+		            ID = (int)m.ID,
+		            Owner = m.Owner
+		        });
+		    }
 		}
 
-	The constructor parameter gets the endpoint URL from  the `toDoListDataAPIURL` app setting. In the Web.config file, that value is set to the local IIS Express URL of the API project in the `toDoListDataAPIURL` setting so that you can run the the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
+	The constructor parameter gets the endpoint URL from  the `toDoListDataAPIURL` app setting. In the Web.config file, that value is set to the local IIS Express URL of the API project so that you can run the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
 
-6. Your client class will be generated with a different name based on your API app name; change this code so that the type name matches what was generated in your project. For example, if you named your API App ToDoListDataAPI0121, the code would look like the following example:
+6. Your client class will be generated with a different name based on your API app name; change the code in *Controllers\ToDoListController.cs* so that the type name matches what was generated in your project. For example, if you named your API App ToDoListDataAPI0121, you would change this code:
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-		
-		public ActionResult Index()
+		private static ToDoListDataAPI NewDataAPIClient()
 		{
-		    return View(db.Contacts.Get());
-		}
+		    var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
-#### Create an API app to host the middle tier
+to this:
 
-1. In **Solution Explorer**, right-click the ToDoListAPI project, and then click **Publish**.
+		private static ToDoListDataAPI0121 NewDataAPIClient()
+		{
+		    var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+
+
+## Create an API app to host the middle tier
+
+Earlier you [created the data tier API app and deployed code to it](#createapiapp).  Now you follow the same procedure for the middle tier API app. 
+
+1. In **Solution Explorer**, right-click the middle tier ToDoListAPI  project (not the data tier ToDoListDataAPI), and then click **Publish**.
+
+	![Click Publish in Visual Studio](./media/app-service-api-dotnet-get-started/pubinmenu2.png)
 
 3.  In the **Profile** tab of the **Publish Web** wizard, click **Microsoft Azure App Service**.
 
 5. In the **App Service** dialog box, click **New**.
 
-3. In the **Hosting** tab of the **Create App Service** dialog box, click **Change Type**, and change the type to **API App**.
+3. In the **Hosting** tab of the **Create App Service** dialog box, accept the default **API App Name** or enter a name that is unique in the *azurewebsites.net* domain. 
 
-4. Enter an **API App Name** that is unique in the *azurewebsites.net* domain. 
-
-5. Choose the Azure **Subscription** you want to work with.
+5. Choose the Azure **Subscription** you have been using.
 
 6. In the **Resource Group** drop-down, choose the same resource group you created earlier.
 
-4. In the **App Service Plan** drop-down, choose the same plan you created earlier. 
+4. In the **App Service Plan** drop-down, choose the same plan you created earlier. It will default to that value. 
 
 7. Click **Create**.
 
 	Visual Studio creates the API app, creates a publish profile for it, and displays the **Connection** step of the **Publish Web** wizard.
 
-### Set the data tier URL in middle tier app settings
-
-1. Go to the [Azure portal](https://portal.azure.com/), and then navigate to the **API App** blade for the API app that you created to host the TodoListAPI (middle tier) project.
-
-2. Click **Settings > Application Settings**.
-
-3. In the **App settings** section, add the following key and value:
-
-	|Key|Value|Example
-	|---|---|---|
-	|toDoListDataAPIURL|https://{your data tier API app name}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
-
-4. Click **Save**.
-
-	When the code runs in Azure, this value will now override the localhost URL that is in the Web.config file. 
-
-### Deploy the ToDoListAPI project to the new API app
-
 3.  In the **Connection** step of the **Publish Web** wizard, click **Publish**.
 
 	Visual Studio deploys the ToDoListAPI project to the new API app and opens a browser to the URL of the API app. The "successfully created" page appears.
 
-### Test to verify that ToDoListAPI calls ToDoListDataAPI
+## Configure the middle tier to call the data tier
 
-11. Add "swagger" to the URL in the browser's address bar, and then press Enter. (The URL will be `http://{apiappname}.azurewebsites.net/swagger`.)
+If you called the middle tier API app now, it would try to call the data tier using the localhost URL that is still in the Web.config file. In this section you enter the data tier API app URL into an environment setting in the middle tier API app. When the code in the middle tier API app retrieves the data tier URL setting, the environment setting will override what's in the Web.config file. 
+ 
+1. Go to the [Azure portal](https://portal.azure.com/), and then navigate to the **API App** blade for the API app that you created to host the TodoListAPI (middle tier) project.
 
-	The browser displays the same Swagger UI that you saw earlier for ToDoListDataAPI, but now `owner` is not a required field, because the middle tier API app is sending that value to the data tier API app for you.  
+2. In the API App's **Settings** blade, click **Application settings**.
+ 
+4. In the API App's **Application Settings** blade, scroll down to the **App settings** section and add the following key and value:
+
+	| **Key** | toDoListDataAPIURL |
+	|---|---|
+	| **Value** | https://{your data tier API app name}.azurewebsites.net |
+	| **Example** | https://todolistdataapi0121.azurewebsites.net |
+
+4. Click **Save**.
+
+	![Click Save for App Settings](./media/app-service-api-dotnet-get-started/asinportal.png)
+
+	When the code runs in Azure, this value will now override the localhost URL that is in the Web.config file. 
+
+## Test
+
+11. In a browser window, browse to the URL of the new middle tier API app that you just created for ToDoListAPI. You can get there by clicking the URL in the API app's main blade in the portal.
+
+13. Add "swagger" to the URL in the browser's address bar, and then press Enter. (The URL is `http://{apiappname}.azurewebsites.net/swagger`.)
+
+	The browser displays the same Swagger UI that you saw earlier for ToDoListDataAPI, but now `owner` is not a required field for the Get operation, because the middle tier API app is sending that value to the data tier API app for you. (When you do the authentication tutorials, the middle tier will send actual user IDs for the `owner` parameter; for now it is hard-coding an asterisk.)
 
 12. Try out the Get method and the other methods to validate that the middle tier API app is successfully calling the data tier API app.
 
-	![](./media/app-service-api-dotnet-get-started/midtierget.png)
+	![Swagger UI Get method](./media/app-service-api-dotnet-get-started/midtierget.png)
+
+## Troubleshooting
+
+In case you run into a problem as you go through this tutorial here are some troubleshooting ideas:
+
+* Make sure that you're using the latest version of the [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=518003).
+
+* Two of the project names are similar (ToDoListAPI, ToDoListDataAPI). If things don't look as described in the instructions when you are working with a project, make sure you have opened the correct project.
+
+* If you're on a corporate network and are trying to deploy to Azure App Service through a firewall, make sure that ports 443 and 8172 are open for Web Deploy. If you can't open those ports, you can use other deployment methods.  See [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md).
+
+* "Route names must be unique" errors -- you could get these if you accidentally deploy the wrong project to an API app and then later deploy the correct one to it. To correct this, redeploy the correct project to the API app, and on the **Settings** tab of the **Publish Web** wizard select **Remove additional files at destination**.
+
+After you have your ASP.NET API app running in Azure App Service, you may want to learn more about Visual Studio features that simplify troubleshooting. For information about logging, remote debugging, and more, see  [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Next steps
 
-In this tutorial, you've seen how to create API apps, deploy code to them, generate client code for them, and consume them from .NET clients. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
+You've seen how to deploy existing Web API projects to API apps, generate client code for API apps, and consume API apps from .NET clients. The next tutorial in this series shows how to [use CORS to consume API apps from JavaScript clients](app-service-api-cors-consume-javascript.md).
+ 
+For more information about client code generation, see the [Azure/AutoRest](https://github.com/azure/autorest) repository on GitHub.com. For help with problems using the generated client, open an [issue in the AutoRest repository](https://github.com/azure/autorest/issues).
+
+If you want to create new API app projects from scratch, use the **Azure API App** template.
+
+![API App template in Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
+
+The **Azure API App** project template is equivalent to choosing the **Empty** ASP.NET 4.5.2 template, clicking the check box to add Web API support, and installing the Swashbuckle NuGet package. In addition, the template adds some Swashbuckle configuration code designed to prevent the creation of duplicate Swagger operation IDs. Once you've created an API App project, you can deploy it to an API app the same way you saw in this tutorial.

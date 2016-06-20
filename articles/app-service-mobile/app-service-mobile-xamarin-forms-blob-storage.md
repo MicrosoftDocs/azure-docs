@@ -3,7 +3,7 @@
     description="Add images to the todo list Xamarin.Forms mobile app by connecting to Azure blob storage"
     documentationCenter="xamarin"
     authors="lindydonna"
-    manager="dwrede"
+    manager="erikre"
     editor=""
     services="app-service\mobile"/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/03/2016"
+    ms.date="05/10/2016"
     ms.author="donnam"/>
 
 #Connect to Azure Storage in your Xamarin.Forms app
@@ -30,15 +30,7 @@ In this tutorial, you will create a storage account and add a connection string 
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
-
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-
-* [Visual Studio Community 2013] or later.
-
-* A Mac with [Xcode](https://go.microsoft.com/fwLink/?LinkID=266532) v7.0 or later and [Xamarin Studio](http://xamarin.com/download) installed.
-
-* Completion of the tutorial [Create a Xamarin.Forms app]. This article uses the completed app from that tutorial.
+* Complete the [Create a Xamarin.Forms app] tutorial, which lists other prerequisites. This article uses the completed app from that tutorial.
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
 
@@ -50,7 +42,15 @@ To complete this tutorial, you need the following:
 
 3. Navigate to your mobile app backend. Under **All Settings** -> **Application Settings** -> **Connection Strings**, create a new key named `MS_AzureStorageAccountConnectionString` and use the value copied from your storage account. Use **Custom** as the key type.
 
-## Add a storage controller to your server project
+## Add a storage controller to the server
+
+You need to add a new controller to your server project that will respond to requests for a SAS token for Azure Storage, as well as return a list of files that correspond to a record:
+
+- [Add a storage controller to your server project](#add-controller-code)
+- [Routes registered by the storage controller](#routes-registered)
+- [Client and server communication](#client-communication)
+
+###<a name="add-controller-code"></a>Add a storage controller to your server project
 
 1. In Visual Studio, open your .NET server project. Add the NuGet package [Microsoft.Azure.Mobile.Server.Files]. Be sure to select **Include prerelease**.
 
@@ -99,7 +99,7 @@ To complete this tutorial, you need the following:
 
 7. Publish your server project to your mobile app backend.
 
-###Routes registered by the storage controller
+###<a name="routes-registered"></a>Routes registered by the storage controller
 
 The new `TodoItemStorageController` exposes two sub-resources under the record it manages:
 
@@ -119,9 +119,9 @@ The new `TodoItemStorageController` exposes two sub-resources under the record i
     
         `/tables/TodoItem/{id}/MobileServiceFiles/{fileid}`
 
-###Client and server communication
+###<a name="client-communication"></a>Client and server communication
 
-Note that `TodoItemStorageController` does *not* have a route for uploading or downloading a blob. That is because a mobile client interacts with blob storage *directly* in order to perform these operations, after first getting a SAS token (Shared Access Signature) to securely access a particular blob or container. This is an important architectural design, as otherwise access to storage would be limited by the scability and availability of the mobile backend. Instead, by connecting directly to Azure Storage, the mobile client can take advantage of its features such as auto-partitioning and geo-distribution.
+Note that `TodoItemStorageController` does *not* have a route for uploading or downloading a blob. That is because a mobile client interacts with blob storage *directly* in order to perform these operations, after first getting a SAS token (Shared Access Signature) to securely access a particular blob or container. This is an important architectural design, as otherwise access to storage would be limited by the scalability and availability of the mobile backend. Instead, by connecting directly to Azure Storage, the mobile client can take advantage of its features such as auto-partitioning and geo-distribution.
 
 A shared access signature provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. To learn more, see [Understanding Shared Access Signatures].
 
@@ -131,11 +131,20 @@ The diagram below shows the client and server interactions. Before uploading a f
 
 ## Update your client app to add image support
 
-Open the Xamarin.Forms quickstart project in either Visual Studio or Xamarin Studio. 
+Open the Xamarin.Forms quickstart project in either Visual Studio or Xamarin Studio. You will install NuGet packages and update the portable library project and the iOS, Android, and Windows client projects:
+
+- [Add NuGet packages](#add-nuget)
+- [Add IPlatform interface](#add-iplatform)
+- [Add FileHelper class](#add-filehelper)
+- [Add a file sync handler](#file-sync-handler)
+- [Update TodoItemManager](#update-todoitemmanager)
+- [Add a details view](#add-details-view)
+- [Update the main view ](#update-main-view)
+- [Update the Android project](#update-android), [iOS project](#update-ios), [Windows project](#update-windows)
 
 >[AZURE.NOTE] This tutorial only contains instructions for the Android, iOS, and Windows Store platforms, not Windows Phone.
 
-###Add NuGet packages
+###<a name="add-nuget"></a>Add NuGet packages
 
 Right-click the solution and select **Manage NuGet packages for solution**. Add the following NuGet packages to **all** projects in the solution. Be sure to check **Include prerelease**.
 
@@ -149,7 +158,7 @@ For convenience, this sample uses the [PCLStorage] library, but it is not requir
 
 [PCLStorage]: https://www.nuget.org/packages/PCLStorage/
 
-###Add IPlatform interface
+###<a name="add-iplatform"></a>Add IPlatform interface
 
 Create a new interface `IPlatform` in the main portable library project. This follows the [Xamarin.Forms DependencyService] pattern to load the right platform-specific class at runtime. You will later add platform specific implementations in each of the client projects.
 
@@ -172,7 +181,7 @@ Create a new interface `IPlatform` in the main portable library project. This fo
             Task DownloadFileAsync<T>(IMobileServiceSyncTable<T> table, MobileServiceFile file, string filename);
         }
 
-###Add FileHelper class
+###<a name="add-filehelper"></a>Add FileHelper class
 
 1. Create a new class `FileHelper` in the main portable library project. Add the following using statements:
 
@@ -230,7 +239,7 @@ Create a new interface `IPlatform` in the main portable library project. This fo
             }
         }
 
-### Add a file sync handler
+###<a name="file-sync-handler"></a> Add a file sync handler
 
 Create a new class `TodoItemFileSyncHandler` in the main portable library project. This class contains callbacks from the Azure SDK to notify your code when a file is added or removed.
 
@@ -272,7 +281,7 @@ The Azure Mobile Client SDK does not store actually store any file data: the cli
             }
         }
 
-###Update TodoItemManager
+###<a name="update-todoitemmanager"></a>Update TodoItemManager
 
 1. In **TodoItemManager.cs**, uncomment the line `#define OFFLINE_SYNC_ENABLED`.
 
@@ -324,7 +333,7 @@ The Azure Mobile Client SDK does not store actually store any file data: the cli
             return await this.todoTable.GetFilesAsync(todoItem);
         }
 
-###Add a details view
+###<a name="add-details-view"></a>Add a details view
 
 In this section, you will add a new details view for a todo item. The view is created when the user selects a todo item and it allows new images to be added to an item.
 
@@ -457,7 +466,7 @@ In this section, you will add a new details view for a todo item. The view is cr
             }
         }
 
-###Update the main view 
+###<a name="update-main-view"></a>Update the main view 
 
 Update the main view to open the details view when a todo item is selected.
 
@@ -476,7 +485,7 @@ In **TodoList.xaml.cs**, replace the implementation of `OnSelected` with the fol
         todoList.SelectedItem = null;
     }
 
-###Update the Android project
+###<a name="update-android"></a>Update the Android project
 
 Add platform-specific code to the Android project, including code for downloading a file and using the camera to capture a new image. 
 
@@ -548,7 +557,7 @@ This code uses the Xamarin.Forms [DependencyService](https://developer.xamarin.c
 
         App.UIContext = this;
 
-###Update the iOS project
+###<a name="update-ios"></a>Update the iOS project
 
 Add platform-specific code to the iOS project.
 
@@ -611,7 +620,7 @@ Add platform-specific code to the iOS project.
 
 3. Edit **AppDelegate.cs** and uncomment the call to `SQLitePCL.CurrentPlatform.Init()`.
 
-###Update the Windows project
+###<a name="update-windows"></a>Update the Windows project
 
 1. Install the Visual Studio extension [SQLite for Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). 
 For more information, see the tutorial [Enable offline sync for your Windows app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
@@ -713,12 +722,12 @@ This article described how to use the new file support in the Azure Mobile clien
 
     The reason for this requirement is that some mobile clients will already have the record in local storage. When these clients perform an incremental pull, this record will not be returned and the client will not query for the new associated files. To avoid this problem, it is recommended that you update the record timestamp when performing any blob storage change that does not use the Azure Mobile client SDK.
 
-- The client project uses the [Xamarin.Forms DependencyService] pattern to load the right platform-specific class at runtime. In this sample, we defined an interface `IPlatform` with implementations in each of the platform-specific projects.
+- The client project uses the [Xamarin.Forms DependencyService] pattern to load the right platform-specific class at run time. In this sample, we defined an interface `IPlatform` with implementations in each of the platform-specific projects.
 
 <!-- URLs. -->
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-[Create a Xamarin.Forms app]: ../app-service-mobile-xamarin-forms-get-started.md
+[Create a Xamarin.Forms app]: app-service-mobile-xamarin-forms-get-started.md
 [Xamarin.Forms DependencyService]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/

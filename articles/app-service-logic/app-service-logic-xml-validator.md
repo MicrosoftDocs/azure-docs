@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/07/2015"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # BizTalk XML Validator
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use the BizTalk XML Validator connector in your app to validate XML data against predefined XML schemas. Users can use existing schemas or generate schemas based on a flat file instance, JSON instance, or existing connectors.
 

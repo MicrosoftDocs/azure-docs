@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Use Key Vault secret with Resource Manager template | Microsoft Azure"
+   pageTitle="Key Vault secret with Resource Manager template | Microsoft Azure"
    description="Shows how to pass a secret from a key vault as a parameter during deployment."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="tomfitz"/>
 
 # Pass secure values during deployment
@@ -21,8 +21,6 @@
 When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an [Azure Key Vault](./key-vault/key-vault-whatis.md) and reference the value in other Resource Manager templates. You include only a reference to the secret 
 in your template so the secret is never exposed, and you do not need to manually enter the value for the secret each time you deploy the resources. You specify which users or 
 service principals can access the secret.  
-
-> [AZURE.NOTE] Currently, only Azure CLI supports the ability to reference a key vault secret. Azure PowerShell will add this ability as soon as possible. 
 
 ## Deploy a key vault and secret
 

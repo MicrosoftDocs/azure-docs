@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 # Get started creating an Internet facing load balancer in Resource Manager using PowerShell
@@ -137,9 +137,16 @@ Create a load balancer rule.
 
 ### Step 3
 
-Create a health probe.
-
+Create a health probe. There are two ways to configure a probe:
+ 
+HTTP probe
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+or
+
+TCP probe
+	
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### Step 4
 
@@ -227,7 +234,7 @@ Expected output:
 
 Use the `Add-AzureRmVMNetworkInterface` cmdlet to assign the NICs to different VMs.
 
-You can find guidance on how to create a virtual machine, and assign a NIC in [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), using option 5 in the example. 
+You can find guidance on how to create a virtual machine, and assign a NIC in [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example), using option 5 in the example. 
 
 
 or if you already have a virtual machine created, you can add the network interface with the following steps:
@@ -296,7 +303,7 @@ Use the command `Remove-AzureLoadBalancer` to delete a previously created load b
 
 ## Next steps
 
-[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 

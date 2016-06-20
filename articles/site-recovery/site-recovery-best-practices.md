@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prepare for Site Recovery deployment | Microsoft Azure"
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises servers to Azure or to a secondary datacenter."
+	description="This article describes how to get ready to deploy replication with Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,65 +13,79 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/07/2015"
+	ms.date="03/29/2016"
 	ms.author="raynew"/>
 
 # Prepare for Azure Site Recovery deployment
 
-## About this article
+Read this article for a high level overview of the deployment requirements for each replication scenario supported by the Azure Site Recovery service. After you read the general requirements for each scenario link to specific deployment details in the prerequisites section of each deployment article.
 
-This article describes how to prepare for your Azure Site Recovery deployment. If you have any questions after reading this article post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+After reading this article post any comments or questions at the bottom of the article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Protecting Hyper-V virtual machines
+## Overview
 
-You have a couple of deployment choices for protecting Hyper-V virtual machines. You can replicate on-premises Hyper-VMs to Azure, or  to a secondary datacenter. There are different requirements for each deployment.
+Organizations need a business continuity and disaster recovery (BCDR) strategy that a determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy center's around solutions that keep business data safe and recoverable, and workloads continuously available, when disaster occurs.
 
-**Requirement** | **Replicate to Azure (with VMM)** | **Replicate Hyper-V VMs to Azure (no VMM)** | **Replicate Hyper-V VMs to secondary site (with VMM)** | **Details**
----|---|---|---|---
-**VMM** | VMM running on System Center 2012 R2 <br/><br/>At least one VMM cloud that contains one or more VMM host groups. | NA | VMM servers in the primary and secondary sites running on at least System Center 2012 SP1 with latest updates. <br/><br/> At least one cloud on each VMM server. Clouds should have the Hyper-V capacity profile set.<br/><br/> The source cloud should have at least one VMM host group. | Optional. You don't need to have System Center VMM deployed in order to replicate Hyper-V virtual machines to Azure but if you do you'll need to make sure the VMM server is set up properly. That includes making sure you're running the right VMM version, and that clouds are set up.
-**Hyper-V** | At least one Hyper-V host server in the on-premises datacenter running at least Windows Server 2012 R2 | At least one Hyper-V server in the source and target sites running at least Windows Server 2012 R2, and connected to the internet.<br/><br/> The Hyper-V servers must be in a host group in a VMM cloud. | At least one Hyper-V server in the source and target sites running at least Windows Server 2012 with the latest updates installed, and connected to the internet.<br/><br/> The Hyper-V servers must be located in a host group in a VMM cloud. |
-**Virtual machines** | At least one VM on the source Hyper-V host server | At least one VM on the Hyper-V host server in the source VMM cloud | At least one VM on the Hyper-V host server in the source VMM cloud. |  VMs replicating to Azure must conform with [Azure virtual machine prerequisites](site-recovery-best-practices.md/#virtual-machines)
-**Azure account** | You'll need an [Azure](https://azure.microsoft.com/) account and a subscription to the Site Recovery service. | You'll need an [Azure](https://azure.microsoft.com/) account and a subscription to the Site Recovery service. | NA | If you don't have an account, start with a [free trial](pricing/free-trial/). Read about [pricing](pricing/details/site-recovery/) for the service.
-**Azure storage** | You'll need a subscription for an Azure storage account that has geo-replication enabled. | You'll need a subscription for an Azure storage account that has geo-replication enabled. | NA | The account should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Read more about storage](../storage/storage-introduction.md).
-**Storage mapping** | NA | NA | You can optionally set up storage mapping to make sure that virtual machines are optimally connected to storage after failover. When you replicate between two on-premises VMM sites, by default the replica virtual machine will be stored on the located indicated on the target Hyper-V host server. You can configure mapping between VMM storage classifications on source and target VMM servers.  | To use this feature you'll need storage classifications set up before you begin deployment. [Read more](site-recovery-storage-mapping.md).
-**SAN replication** | NA | NA | If you want to replicate between two on-premises VMM sites with SAN replication, you can use your existing SAN environment. | You'll need a [supported SAN array](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx), and SAN storage must be discovered and classified in VMM.<br/><br/>If you aren't currently replicating you'll need to create LUNs and allocate storage in the VMM console. If you're already replicating you can skip this step.
-**Networking** | Set up network mapping to ensure that all machines that fail over on the same Azure network can connect to each other, irrespective of which recovery plan they are in. In addition if a network gateway is configure on the target Azure network, virtual machines can connect to other on-premises virtual machines. If you don't set up network mapping only machines that fail over in the same recovery plan can connect. | NA |  <br/><br/>Set up network mapping to ensure that virtual machines are connected to appropriate networks after failover, and that replica virtual machines are optimally placed on Hyper-V host servers. If you don't configure network mapping replicated machines won't be connected to any VM network after failover. | [Read more](site-recovery-network-mapping) about network mapping. <br/><br/> To set up network mapping with VMM you'll need to make sure that VMM logical and VM networks are configured correctly. [Learn more](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) and [VM networks](https://technet.microsoft.com/library/jj721575.aspx). In addition read about [network considerations for VMM](site-recovery-network-design.md/#vmm-design).  
-**Providers and agents** | During deployment you'll install the Azure Site Recovery Provider on VMM servers. On Hyper-V servers in VMM clouds you'll install the Azure Recovery Services agent. | During deployment you'll install both the Azure Site Recovery Provider and the Azure Recovery Services agent on the Hyper-V host server or cluster| During deployment you'll install the Azure Site Recovery Provider on VMM servers. On Hyper-V servers in VMM clouds you'll install the Azure Recovery Services agent. | Providers and agents connect to Site Recovery over the internet using an encrypted HTTPS connection. You don't need to add firewall exceptions or create a specific proxy for the Provider connection, but if you do want to use a custom proxy you should allow these URLs through the firewall before you begin deployment: <br/><br/>  *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net<br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/>*.store.core.windows.net
-**Internet connectivity** | Only the VMM servers need an internet connection | Only the Hyper-V host servers need an internet connection | Only VMM servers need an internet connection | Virtual machines don't need anything installed on them and don't connect directly to the internet.
+Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary site to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Site Recovery can be used in a number of scenarios and can protect a number of workloads. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
 
 
+## Requirements for replicating Hyper-V virtual machines
 
-## Protect VMware virtual machines or physical servers
+**Component** | **Replicate to Azure (with VMM)** | **Replicate to Azure (without VMM)** | **Replicate to secondary site (with VMM)**
+---|---|---|---
+**VMM** | One or more VMM servers running on System Center 2012 R2. The VMM server should have at least one cloud containing one or more VMM host groups. | Not applicable | At least one VMM server running on System Center 2012 R2. We recommend a VMM server in each site. The VMM server should have at least one cloud containing one or more VMM host groups. Clouds should have the Hyper-V capability profile set.
+**Hyper-V** | One or more Hyper-V host servers in the on-premises datacenter running at least Windows Server 2012 R2. The Hyper-V server must be located in a host group in a VMM cloud. | One or more Hyper-V servers in the source and target sites running at least Windows Server 2012 R2. | One or more Hyper-V servers in the source and target sites running at least Windows Server 2012 with the latest updates. The Hyper-V server must be located in a host group in a VMM cloud.
+**Virtual machines** | You'll need at least one VM on the source Hyper-V server. VMs replicating to Azure must conform with [Azure virtual machine prerequisites](#azure-virtual-machine-requirements). <br> Install or upgrade [Integration Services](https://technet.microsoft.com/library/dn798297.aspx) in the VM using the steps given [here](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4). | At least one VM on the source Hyper-V server. VMs replicating to Azure must conform with [Azure virtual machine prerequisites](#azure-virtual-machine-requirements). <br> Install or upgrade [Integration Services](https://technet.microsoft.com/library/dn798297.aspx) in the VM using the steps given [here](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4). | At least one VM in the source VMM cloud.  <br> Install or upgrade [Integration Services](https://technet.microsoft.com/library/dn798297.aspx) in the VM using the steps given [here](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4).
+**Azure account** | You'll need an [Azure](https://azure.microsoft.com/) account and subscription. | Not applicable | You'll need an [Azure](https://azure.microsoft.com/) account and subscription.
+**Azure storage** | You'll need an [Azure storage account](../storage/storage-redundancy.md#geo-redundant-storage) to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. | Not applicable | You'll need an [Azure storage account](../storage/storage-redundancy.md#geo-redundant-storage) to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs.
+**Providers/Agents** | During deployment you'll install the Azure Site Recovery Provider on VMM servers and the Azure Recovery Services agent on Hyper-V host servers. The Provider communicates with Azure Site Recovery. The agent handles data replication between source and target Hyper-V servers. Nothing is installed on VMs. | During deployment you'll install both the Azure Site Recovery Provider and the Azure Recovery Services agent on a Hyper-V host server or cluster. Nothing is installed on VMs. | During deployment you'll install the Azure Site Recovery Provider on VMM servers to communicate with Azure Site Recovery. Replication occurs between Hyper-V source and target servers over the LAN/VPN.
+**Provider/agent connectivity** | If the Provider will connect to the Site Recovery service via a proxy you'll need to make sure the proxy can access the Site Recovery URLs. | If the Provider will connect to Site Recovery via a proxy you'll need to make sure the proxy can access the Site Recovery URLs. | If the Provider will connect to Site Recovery via a proxy you'll need to make sure the proxy can access the Site Recovery URLs.
+**Internet connectivity** |  From the VMM server and Hyper-V hosts. | From the Hyper-V hosts. | On the VMM server only.
+**Network mapping** | Set up network mapping so that all machines that fail over on the same Azure network can connect to each other, irrespective of which recovery plan they are in. If there's a network gateway on the target Azure network, virtual machines can also connect to on-premises virtual machines. If you don't set up network mapping only machines that fail over in the same recovery plan can connect. | Not applicable | Set up network mapping so that virtual machines are connected to appropriate networks after failover, and replica virtual machines are optimally placed on target Hyper-V host servers. If you don't configure network mapping replicated machines won't be connected to any VM network after failover.
+**Storage mapping** | Not applicable | Not applicable | You can optionally set up storage mapping to make sure that virtual machines are optimally connected to storage after failover (by default the replica VM will be stored in the location indicated on the target Hyper-V server).
+**SAN replication** | Not applicable | Not applicable |  If you want to replicate between two on-premises VMM sites with SAN replication, you can use your existing SAN environment. View [supported SAN arrays](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).
+**More information** | [Detailed deployment prerequisites](site-recovery-vmm-to-azure.md#before-you-start) | [Detailed deployment prerequisites](site-recovery-hyper-v-site-to-azure.md#before-you-start#before-you-start) | [Detailed deployment prerequisites](site-recovery-vmm-to-vmm.md#before-you-start)
 
-You have a couple of deployment choices for protecting VMware virtual machines or Windows/Linux physical servers. You can replicate them to Azure, or  to a secondary datacenter. There are different requirements for each deployment.
 
-**Requirement** | **Replicate VMware VMs/physical servers to Azure)** | * **Replicate VMware VMs/physical servers to secondary site**  
+
+
+## Requirements for replicating VMware VMs and physical servers
+
+The table summarizes the requirements for replicating VMware VMs and Windows/Linux physical servers to Azure and to a secondary site.
+
+>[AZURE.NOTE] You can replicate VMware VMs and physical servers to Azure using an [enhanced](site-recovery-vmware-to-azure-classic.md) deployment model, or with a [legacy](site-recovery-vmware-to-azure-classic-legacy.md) model that was used for older deployments. The table below includes deployment requirements for the enhanced model.
+
+**Component** | **Replicate to Azure (enhanced)** | **Replicate to secondary site**
 ---|---|---
-**Primary site** | **Process server**: a dedicated Windows server (physical or virtual) | **Process server**: a dedicated Windows server (physical or VMware virtual machine<br/><br/>  
-**Secondary on-premises site** | NA | **Configuration server**: a dedicated Windows server (physical or virtual) <br/><br/> **Master target server**: a dedicated server (physical or virtual). Configure with Windows to protect Windows machines, or Linux to protect Linux.
-**Azure** | **Subscription**: You'll need a subscription for the Site Recovery service. Read about [pricing](pricing/details/site-recovery/) <br/><br/> **Storage account**: You'll need a storage account with geo-replication enabled. The account should be in the same region as the Site Recovery vault and be associated with the same subscription. [Read more](../storage/storage-introduction.md).<br/><br/> **Configuration server**: You'll need to set up the configuration server as an Azure VM <br/><br/> **Master target server**: You'll need to set up the master target server as an Azure VM <br/><br/> Configure with Windows to protect Windows machines, or Linux to protect Linux.<br/><br/> **Azure virtual network**:  You'll need an Azure virtual network on which the configuration server and master target server will be deployed. It should be in the same subscription and region as the Azure Site Recovery vault | NA  
-**Virtual machines/physical servers** | At least one VMware virtual machine or physical Windows/Linux server.<br/><br/>During deployment the Mobility service will be installed on each machine| At least one VMware VM or physical Windows/Linux server.<br/><br/> During deployment the Unified agent is installed on each machine.
-
-
+**On-premises primary site** | You install a management server that runs all of the Site Recovery components (configuration, process, master target). | You install a process server  for caching, compressing and encrypting replication data before sending it to the secondary site. You can install additional process servers for load balancing or for fault tolerance.
+**On-premises secondary site** | Not applicable | You install a single configuration server that's used for configuring, managing and monitoring the deployment.<br/><br>We recommend you install a vContinuum server for easy configuration server management.<br/><br/>You'll need to set up the master target server as a VM running on the secondary vSphere server.
+**VMware vCenter/ESXi** | If you're replicating VMware VMs (or want to fail back physical servers) in your primary site you'll need a vSphere ESX/ESXi in your primary site. We also recommend a vCenter server to manage your ESXi hosts. | In your primary and secondary site you'll need one or more VMware ESXi hosts (and optionally a vCenter server).
+**Failback** | You need a VMware environment to fail back from Azure, even if you're replicating physical servers.<br/><br/>You'll need to set up a process server as an Azure VM <br/><br/>The configuration server acts as a master target server, but if you're failing back large traffic volumes you might want to set up an additional on-premises master target server. [Learn more](site-recovery-failback-azure-to-vmware-classic.md)| Failback from the secondary site to the primary site is to VMware only, even if you failed over a physical machine. For failback you'll need to set up a master target server as a VM on the primary vSphere server.
+**Azure account** | You'll need an [Azure](https://azure.microsoft.com/) account and subscription. | Not applicable
+**Azure storage** | You'll need an [Azure storage account](../storage/storage-redundancy.md#geo-redundant-storage) to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. | Not applicable
+**Azure virtual network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. To fail back after failover you’ll need a VPN connection (or Azure ExpressRoute) set up from the Azure network to the on-premises site. | Not applicable
+**Protected machines** | At least one VMware virtual machine or physical Windows/Linux server. During deployment the Mobility service is installed on each machine you want to replicate. | At least one VMware virtual machine or physical Windows/Linux server. During deployment the Unified agent will be installed on each machine you want to replicate.
+**Connectivity** | If the management server will connect to Site Recovery via a proxy you'll need to make sure the proxy server can connect to specific URLs. | The configuration server needs internet access.
+**More information** | [Detailed deployment prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment). | [Download](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) the InMage Scout user guide.
 
 
 ## Azure virtual machine requirements
 
-You can deploy Site Recovery to replicate virtual machines and physical servers running any operating system supported by Azure. This includes most versions of Windows and Linux. You will need to make sure that on-premises virtual machines that you want to protect conform with Azure requirements.
+You can deploy Site Recovery to replicate virtual machines and physical servers running any operating system supported by Azure. This includes most versions of Windows and Linux. You'll need to make sure that on-premises virtual machines that you want to protect conform with Azure requirements.
 
 
-**Feature** | **Support** | **Details**
+**Feature** | **Requirements** | **Details**
 ---|---|---
-Hyper-V host operating system | Windows Server 2012 R2 | Prerequisites check will fail if unsupported
-VMware hypervisor operating system | Running a supported operating system | [Details](site-recovery-vmware-to-azure.md/#before-you-start)
-Guest operating system |  For Hyper-V to Azure replication Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure.md/#before-you-start) | Prerequisites check will fail if unsupported.
+Hyper-V host | Should be running Windows Server 2012 R2 | Prerequisites check will fail if operating system unsupported
+VMware hypervisor  | Supported operating system | [Check requirements](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+Guest operating system | Hyper-V to Azure replication: Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication: Check the Windows and Linux [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | Prerequisites check will fail if unsupported.
 Guest operating system architecture | 64-bit | Prerequisites check will fail if unsupported
 Operating system disk size |  Up to 1023 GB | Prerequisites check will fail if unsupported
 Operating system disk count | 1 | Prerequisites check will fail if unsupported.
 Data disk count | 16 or less (maximum value is a function of the size of the virtual machine being created. 16 = XL) | Prerequisites check will fail if unsupported
 Data disk VHD size | Upto 1023 GB | Prerequisites check will fail if unsupported
 Network adapters | Multiple adapters are supported |
-Static IP address | Supported | If the primary virtual machine is using a static IP address you can specify the static IP address for the virtual machine that will be created in Azure
+Static IP address | Supported | If the primary virtual machine is using a static IP address you can specify the static IP address for the virtual machine that will be created in Azure. Note that static IP address for a linux virtual machine running on Hyper-v is not supported.
 iSCSI disk | Not supported | Prerequisites check will fail if unsupported
 Shared VHD | Not supported | Prerequisites check will fail if unsupported
 FC disk | Not supported | Prerequisites check will fail if unsupported
@@ -89,7 +103,7 @@ Use the following tips to help you optimize and scale your deployment.
 - **Data disk size**: If you're replicating to Azure you can have up to 32 data disks on a virtual machine, each with a maximum of 1 TB. You can effectively replicate and fail over a ~32 TB virtual machine.
 - **Recovery plan limits**: Site Recovery can scale to thousands of virtual machines. Recovery plans are designed as a model for applications that should fail over together so we limit the number of machines in a recovery plan to 50.
 - **Azure service limits**: Every Azure subscription comes with a set of default limits on cores, cloud services etc. We recommend that you run a test failover to validate the availability of resources in your subscription. You can modify these limits via Azure support.
-- **Capacity planning**: Read the [capacity planner](http://www.microsoft.com/download/details.aspx?id=39057) if you're replicating Hyper-V VMs.
+- **Capacity planning**: Read about [capacity planning](site-recovery-capacity-planner.md) for Site Recovery.
 - **Replication bandwidth**: If you're short on replication bandwidth note that:
 	- **ExpressRoute**: Site Recovery works with Azure ExpressRoute and WAN optimizers such as Riverbed. [Read more](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) about ExpressRoute.
 	- **Replication traffic**: Site Recovery uses performs a smart initial replication using only data blocks and not the entire VHD. Only changes are replicated during ongoing replication.
@@ -98,15 +112,29 @@ Use the following tips to help you optimize and scale your deployment.
 - **RPO**: Site Recovery supports a near-synchronous recovery point objective (RPO) when you replicate to Azure. This assumes sufficient bandwith between your datacenter and Azure.
 
 
+##Service URLs
+Make sure these URLs are accessible from the server
 
+
+**URLs** | **VMM to VMM** | **VMM to Azure** | **Hyper-V Site to Azure** | **VMware to Azure**
+---|---|---|---|---
+ \*.accesscontrol.windows.net | Access required  | Access required  | Access required  | Access required
+ \*.backup.windowsazure.com |  | Access required  | Access required  | Access required
+ \*.hypervrecoverymanager.windowsazure.com | Access required  | Access required  | Access required  | Access required
+ \*.store.core.windows.net | Access required  | Access required  | Access required  | Access required
+ \*.blob.core.windows.net |  | Access required  | Access required  | Access required
+ https://www.msftncsi.com/ncsi.txt | Access required  | Access required  | Access required  | Access required
+ https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi | | | | Access required
 
 
 ## Next steps
 
-After reviewing these best practices you can start deploying Site Recovery:
+After learning and comparing general deployment requirements you can read the detailed prerequisites and start deploying each scenario.
 
-- [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md)
-- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
-- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san.md)
-- [Set up protection with a single VMM server](site-recovery-single-vmm.md)
+- [Replicate VMware virtual machines to Azure](site-recovery-vmware-to-azure-classic.md)
+- [Replicate physical servers to Azure](site-recovery-vmware-to-azure-classic.md)
+- [Replicate Hyper-V server in VMM clouds to Azure](site-recovery-vmm-to-azure.md)
+- [Replicate Hyper-V virtual machines (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md)
+- [Replicate Hyper-V VMs to a secondary site](site-recovery-vmm-to-vmm.md)
+- [Replicate Hyper-V VMs to a secondary site with SAN](site-recovery-vmm-san.md)
+- [Replicate Hyper-V VMs with a single VMM server](site-recovery-single-vmm.md)

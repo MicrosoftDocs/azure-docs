@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Active Directory Report Retention Policies | Microsoft Azure"
+	pageTitle="Azure Active Directory report retention policies | Microsoft Azure"
 	description="Retention policies on report data in your Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
+	authors="dhanyahk"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,24 +13,24 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
-# Azure Active Directory Report Retention Policies
+# Azure Active Directory report retention policies
 
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-Azure AD's reports retain data for a certain number of days, indicated here.
+Azure Active Directory (Azure AD) reports retain data for a certain number of days, indicated here.
 
 Report                                                  | Description
 ------------------------------------------------------- | -----------
-Sign ins from unknown sources                           | 30 days
-Sign ins after multiple failures                        | 30 days
-Sign ins from multiple geographies                      | 30 days
-Sign ins from IP addresses with suspicious activity     | 30 days
-Sign ins from possibly infected devices                 | 30 days
-Irregular sign in activity                              | 30 days
-Users with anomalous sign in activity                   | 30 days
+Sign-ins from unknown sources                           | 30 days
+Sign-ins after multiple failures                        | 30 days
+Sign-ins from multiple geographies                      | 30 days
+Sign-ins from IP addresses with suspicious activity     | 30 days
+Sign-ins from possibly infected devices                 | 30 days
+Irregular sign-in activity                              | 30 days
+Users with anomalous sign-in activity                   | 30 days
 Users with leaked credentials                           | 30 days
 Audit report                                            | 180 days
 Password reset activity (Azure AD)                      | 30 days

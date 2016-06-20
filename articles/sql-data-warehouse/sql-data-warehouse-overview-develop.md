@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Design decisions and coding techniques for SQL Data Warehouse
@@ -62,7 +62,6 @@ Once you have been through the development articles take a look through the [Tra
 [labels]: sql-data-warehouse-develop-label.md
 [looping]: sql-data-warehouse-develop-loops.md
 [pivoting data]: sql-data-warehouse-develop-pivot-unpivot.md
-[renaming objects]: sql-data-warehouse-develop-rename.md
 [statistics]: sql-data-warehouse-develop-statistics.md
 [stored procedures]: sql-data-warehouse-develop-stored-procedures.md
 [table design]: sql-data-warehouse-develop-table-design.md
@@ -76,5 +75,6 @@ Once you have been through the development articles take a look through the [Tra
 [Transact-SQL reference]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->

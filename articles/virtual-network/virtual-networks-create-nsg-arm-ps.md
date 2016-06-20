@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to create NSGs in ARM mode using PowerShell| Microsoft Azure"
-   description="Learn how to create and deploy NSGs in ARM using PowerShell"
+   pageTitle="How to create NSGs in Azure Resource Manager by using PowerShell| Microsoft Azure"
+   description="Learn how to create and deploy NSGs in Azure Resource Manager by using PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# How to create NSGs in PowerShell
+# How to create NSGs in Resource Manager by using PowerShell
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
@@ -30,11 +30,11 @@
 The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 ## How to create the NSG for the front end subnet
-To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below.
+To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below:
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
 3. Create a security rule allowing access from the Internet to port 3389.
 
@@ -123,7 +123,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
->[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the **Set-AzureRmVirtualNetwork** cmdlet to save these settings to Azure.
+>[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the `Set-AzureRmVirtualNetwork` cmdlet to save these settings to Azure.
 
 7. Save the new VNet settings to Azure.
 
@@ -136,7 +136,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 		}
 
 ## How to create the NSG for the back end subnet
-To create an NSG named named *NSG-BackEnd* based on the scenario above, follow the steps below.
+To create an NSG named *NSG-BackEnd* based on the scenario above, follow the steps below:
 
 1. Create a security rule allowing access from the front end subnet to port 1433 (default port used by SQL Server).
 
@@ -154,7 +154,7 @@ To create an NSG named named *NSG-BackEnd* based on the scenario above, follow t
 
 5. Add the rules created above to a new NSG named **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Associate the NSG created above to the *BackEnd* subnet.

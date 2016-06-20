@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="CDN - Analyze Edge Performance" 
-	description="Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Analyze Edge Performance"
+	description="Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Analyze edge node performance in Microsoft Azure CDN
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Overview
 Edge performance analytics provides granular information traffic and bandwidth usage for the CDN. This information can then be used to generate trending statistics, which allow you to gain insight on how your assets are being cached and delivered to your clients. In turn, this allows you to form a strategy on how to optimize the delivery of your content and to determine what issues should be tackled to better leverage the CDN. As a result, not only will you be able to improve data delivery performance, but you will also be able to reduce your CDN costs.
 
-> [AZURE.NOTE] Edge performance analytics is a feature of the Premium CDN tier.  For a comparison of Standard and Premium CDN features, see [Azure CDN Overview](cdn-overview.md).
->
-> All reports use UTC/GMT notation when specifying a date/time.
+> [AZURE.NOTE] All reports use UTC/GMT notation when specifying a date/time.
 
 ## Reports and log collection
 
@@ -46,11 +46,11 @@ This dashboard consists of:
 1. From the CDN profile blade, click the **Manage** button.
 
 	![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	The CDN management portal opens.
-	
+
 2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **Dashboard**.
-	
+
 	The edge node analytics dashboard is displayed.
 
 ### Chart
@@ -111,7 +111,7 @@ Bytes Remote | Indicates the amount of data, in bytes, sent from CDN and custome
 
 #### Performance Metrics
 
-The purpose of these metrics is to track overall CDN performance for your traffic. 
+The purpose of these metrics is to track overall CDN performance for your traffic.
 
 Field | Description
 ------|------------
@@ -143,13 +143,13 @@ Each report in this module contains a chart and statistics on bandwidth and traf
 1. From the CDN profile blade, click the **Manage** button.
 
 	![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	The CDN management portal opens.
-	
+
 2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **HTTP Large Object**.
-	
+
 	The edge node analytics reports screen is displayed.
-	
+
 Report | Description
 -------|------------
 Daily Summary | Allows you to view daily traffic trends over a specified time period. Each bar on this graph represents a particular date. The size of the bar indicates the total number of hits that occurred on that date.
@@ -157,7 +157,7 @@ Hourly Summary | Allows you to view hourly traffic trends over a specified time 
 Protocols | Displays the breakdown of traffic between the HTTP and HTTPS protocols. A donut chart indicates the percentage of hits that occurred for each type of protocol.
 HTTP Methods | Allows you to get a quick sense of which HTTP methods are being used to request your data. Typically, the most common HTTP request methods are GET, HEAD, and POST. A donut chart indicates the percentage of hits that occurred for each type of HTTP request method.
 URLs | Contains a graph that displays the top 10 requested URLs. A bar is displayed for each URL. The height of the bar indicates how many hits that particular URL has generated over the time span covered by the report. Statistics for the top 100 requested URLs are displayed directly below this graph.
-CNAMEs | Contains a graph that displays the top 10 CNAMEs used to request assets over the time span of a report. Statistics for the top 100 requested CNAMEs are displayed directly below this graph. 
+CNAMEs | Contains a graph that displays the top 10 CNAMEs used to request assets over the time span of a report. Statistics for the top 100 requested CNAMEs are displayed directly below this graph.
 Origins | Contains a graph that displays the top 10 CDN or customer origin servers from which assets were requested over a specified period of time. Statistics for the top 100 requested CDN or customer origin servers are displayed directly below this graph. Customer origin servers are identified by the name defined in the Directory Name option.
 Geo POPs | Shows how much of your traffic is being routed through a particular point-of-presence (POP). The three-letter abbreviation represents a POP in our CDN network.
 Clients | Contains a graph that displays the top 10 clients that requested assets over a specified period of time. For the purposes of this report, all requests that originate from the same IP address are considered to be from the same client. Statistics for the top 100 clients are displayed directly below this graph. This report is useful for determining download activity patterns for your top clients.
@@ -191,6 +191,3 @@ HTTP Response Codes | Provides a breakdown of the HTTP status codes (e.g., 200 O
 * [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
 * [Advanced HTTP Reports](cdn-advanced-http-reports.md)
-
-
-

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="05/12/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # How to get started using and managing pushes to reach out to your end users
