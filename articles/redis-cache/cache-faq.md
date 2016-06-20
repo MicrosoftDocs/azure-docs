@@ -26,13 +26,12 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 
 
 
-
-
-
-
+Put stunnel back into the development node
+Monitor and Troubleshooting - the current self help blade - Redis Advisor and the self help blade
 
 -	[Planning](#planning)
 	-	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
+		-	[How do the difference sizes and tiers of cache perform?](#cache-performance)
 	-	[In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 	-	[How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
 	-	[What are some common cache patterns and considerations?](#what-are-some-common-cache-patterns-and-considerations)
@@ -41,14 +40,13 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 	-	[What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
 	-	[What Redis cache clients can I use?](#TODO)
 	-	[Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
--	[Redis server]()
-	-	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
-	-	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 	-	[How can I run Redis commands?](#how-can-i-run-redis-commands)
 -	[Security]()
 	-	[Security best practices](#TODO)
 	-	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
 -	[Production]()
+	-	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
+	-	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 	-	[Important details about ThreadPool growth](#important-details-about-threadpool-growth)
 	-	[Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 -	[Monitoring and troubleshooting]()
@@ -147,6 +145,7 @@ Because each client is different, there is not one centralized class reference o
 -	[What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
 -	[What Redis cache clients can I use?](#TODO)
 -	[Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
+-	[How can I run Redis commands?](#how-can-i-run-redis-commands)
 
 <a name="cache-configuration"></a>
 ### What do the StackExchange.Redis configuration options do?
@@ -205,34 +204,6 @@ private static Lazy<ConnectionMultiplexer>
 
     You can optionally configure a [redis.conf](http://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Redis Cache if desired.
 
-
-
-## Redis server
-
--	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
--	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
--	[How can I run Redis commands?](#how-can-i-run-redis-commands)
-
-<a name="cache-redis-commands"></a>
-### What are some of the considerations when using common Redis commands?
-
--	You should not run certain Redis commands which take a long time to complete without understanding the impact of these commands.
--	For example, do not run the [KEYS](http://redis.io/commands/keys) command in production as it could take a long time to return depending on the number of keys. Redis is a single-threaded server and it processes commands one at a time. If you have other commands issued after KEYS, they will not be processed until Redis processes the KEYS command.
--	Key sizes - should I use small key/values or large key/values? In general it depends on the scenario. If your scenario requires larger keys then you can adjust the ConnectionTimeout and retry values and adjust your retry logic. From a Redis server perspective, smaller values are observed to have better performance.
--	This does not mean that you can't store larger values in Redis; you must be aware of the following considerations. Latencies will be higher. If you have one set of data that is larger and one that is smaller, you can use multiple ConnectionMultiplexer instances, each configured with a different set of timeout and retry values, as described in the previous [What do the StackExchange.Redis configuration options do](#cache-configuration) section.
-
-
-
-<a name="cache-benchmarking"></a>
-### How can I benchmark and test the performance of my cache?
-
--	[Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
--	You can use redis-benchmark.exe to load test your Redis server.
--	Ensure that the load testing client and the Redis cache are in the same region.
--	Use redis-cli.exe and monitor the cache using the INFO command.
--	If your load is causing high memory fragmentation then you should scale up to a larger cache size.
--	For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
-
 <a name="cache-commands"></a>
 ### How can I run Redis commands?
 
@@ -246,6 +217,8 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 .redis.cache.windows.net -a <key>
   `
   -	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+
+
 
 
 ## Security
@@ -276,11 +249,40 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 ## Production
 
-## Production best practices
+-	[What are Redis production best practices](#TODO)
+-	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
+-	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+
+### Production best practices
 
 •Use SSL
 •Use connectionstring correctly
 •Use VNET
+
+
+
+
+<a name="cache-redis-commands"></a>
+### What are some of the considerations when using common Redis commands?
+
+-	You should not run certain Redis commands which take a long time to complete without understanding the impact of these commands.
+-	For example, do not run the [KEYS](http://redis.io/commands/keys) command in production as it could take a long time to return depending on the number of keys. Redis is a single-threaded server and it processes commands one at a time. If you have other commands issued after KEYS, they will not be processed until Redis processes the KEYS command.
+-	Key sizes - should I use small key/values or large key/values? In general it depends on the scenario. If your scenario requires larger keys then you can adjust the ConnectionTimeout and retry values and adjust your retry logic. From a Redis server perspective, smaller values are observed to have better performance.
+-	This does not mean that you can't store larger values in Redis; you must be aware of the following considerations. Latencies will be higher. If you have one set of data that is larger and one that is smaller, you can use multiple ConnectionMultiplexer instances, each configured with a different set of timeout and retry values, as described in the previous [What do the StackExchange.Redis configuration options do](#cache-configuration) section.
+
+
+
+<a name="cache-benchmarking"></a>
+### How can I benchmark and test the performance of my cache?
+
+-	[Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+-	You can use redis-benchmark.exe to load test your Redis server.
+-	Ensure that the load testing client and the Redis cache are in the same region.
+-	Use redis-cli.exe and monitor the cache using the INFO command.
+-	If your load is causing high memory fragmentation then you should scale up to a larger cache size.
+-	For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
+
+
 
 
 ## Monitoring and troubleshooting
