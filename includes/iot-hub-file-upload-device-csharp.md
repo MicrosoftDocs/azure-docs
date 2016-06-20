@@ -1,3 +1,6 @@
+## Associate an Azure Storage account to IoT Hub
+Since the simulated device will upload a file in an Azure Storage blob, you must have an Azure Storage account associated to IoT Hub. You can use an existing one, or follow the instructions in [About Azure Storage] to create a new one. You can associate an Azure Storage account to IoT Hub by following the instructions in [Manage IoT hubs through the Azure portal].
+
 ## Upload a file from a simulated device
 
 In this section, you'll modify the simulated device application you created in [Send Cloud-to-Device messages with IoT Hub] to receive cloud-to-device messages from the IoT hub.
@@ -39,6 +42,8 @@ In this section, you'll modify the simulated device application you created in [
 <!-- Links -->
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Manage IoT hubs through the Azure portal]: ../articles/iot-hub-manage-through-portal/#file-upload
 
 <!-- Images -->
 [1]: ../articles/iot-hub/media/iot-hub-csharp-csharp-file-upload/image-properties.png
