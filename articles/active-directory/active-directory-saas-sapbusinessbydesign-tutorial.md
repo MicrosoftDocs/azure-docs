@@ -46,7 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Scenario Description
+## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment.
 
 The scenario outlined in this tutorial consists of two main building blocks:
@@ -103,7 +103,7 @@ To configure and test Azure AD single sign-on with SAP Business ByDesign, you ne
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SAP Business ByDesign application.
 
@@ -131,7 +131,7 @@ SAP Business ByDesign application expects the SAML assertions in a specific form
 	b. From the Mail list, select the user attribute you want to use for your implementation. 
 	For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**. 
 
-	b. Click **Complete**. 
+	c. Click **Complete**. 
 	
 
 4. In the classic portal, on the **SAP Business ByDesign** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
@@ -302,14 +302,14 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	![Assign User][205]
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the SAP Business ByDesign tile in the Access Panel, you should get automatically signed-on to your SAP Business ByDesign application.
 
 
-## Additional Resources
+## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
