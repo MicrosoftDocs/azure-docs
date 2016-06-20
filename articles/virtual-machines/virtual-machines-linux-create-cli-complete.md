@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a Linux VM from the ground up using the Azure CLI | Microsoft Azure"
-   description="Create a Linux VM, Storage, Virtual Network & subnet, NIC, Public IP, Network Security Group all from the ground up using the Azure CLI."
+   pageTitle="Create a complete Linux environment using the Azure CLI | Microsoft Azure"
+   description="Create a Linux VM, Storage, Virtual Network & subnet, load balancer, NIC, Public IP, Network Security Group all from the ground up using the Azure CLI."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="iainfoulds"
@@ -17,7 +17,7 @@
    ms.date="06/10/2016"
    ms.author="iainfou"/>
 
-# Create a Linux VM from the ground up using the Azure CLI
+# Create a complete Linux environment using the Azure CLI
 
 Let's build a simple network with a load balancer and a pair of VMs useful to development and simple compute. You'll walk through the entire environment imperatively, command by command, until you have working, secure Linux VMs to which you can connect from anywhere on the internet. Then you'll be able to move on to more complex networks and environment.
 
@@ -1260,9 +1260,8 @@ To create a new environment from your template:
 azure group deployment create -f TestRG.json -g NewRGFromTemplate
 ```
 
-You may want to read [more details on deploying from templates](../resource-group-template-deploy-cli.md), including how to incrementally update environments, use the parameters file, access templates from a single storage location, etc.
-
+You may want to read [more details on deploying from templates](../resource-group-template-deploy-cli.md), including how to incrementally update environments, use the parameters file, and access templates from a single storage location.
 
 ## Next steps
 
-Now you're ready to begin with multiple networking components and VMs.
+Now you're ready to begin with multiple networking components and VMs. You can use this sample environment to build out your application using the core components introduced here.
