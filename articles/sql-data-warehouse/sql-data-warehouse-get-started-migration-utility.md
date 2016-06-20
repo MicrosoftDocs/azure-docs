@@ -13,20 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
 # Data Warehouse Migration Utility (Preview)
-The Data Warehouse Migration Utility is a tool designed to migrate schema and data from SQL Server and Azure SQL Database to Azure SQL Data Warehouse.  During schema migration, the tool automatically maps the corresponding schema from source to destination.  After the schema has been migrated, users are also presented with the option of moving data through automatically generated scripts.
+The Data Warehouse Migration Utility is a tool which will help you migrate your schemas and data to Azure SQL Data Warehouse from SQL Server and Azure SQL Database.  During schema migration, the tool maps schemas from source to destination.  After the schema has been migrated, you will be presented with the option of moving data through automatically generated scripts.
 
-In addition to schema and data migration, this tool gives users the option to generate compatibility reports which summarize incompatibilities between the target and source instances which would prevent streamlined migration.
+In addition to schema and data migration, this tool generates compatibility reports which summarize incompatibilities between the target and source instances, giving you insight into any changes needed for a sucessful migration.
 
 ## Get Started
 The Data Warehouse Migration Utility can be downloaded [here][].  As a prerequisite for installation, you will need the BCP command-line utility to run migration scripts and Office to view the compatibility report.  After launching the executable that is downloaded you will be prompted to accept a standard EULA before the tool will be installed.
 
+>[AZURE.NOTE] You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
+
+
 ### Launching the tool and Connecting
-The tool can easily be launched by clicking on the desktop icon that will appear post install.  On opening the tool you will be prompted with an initial connection page where you can choose your source and destination for the migration tool.  At this time we support SQL Server and Azure SQL Database as sources and SQL Data Warehouse as a destination.  After selecting this you will be asked to connect to your source server by filling in server name and authenticating and then clicking ‘Connect’.
+To launch the tool, double click on the desktop icon that will appearo once installation is complete.  On opening the tool you will be prompted with an initial connection page where you can choose your source and destination for the migration tool.  At this time we support SQL Server and Azure SQL Database as sources and SQL Data Warehouse as a destination.  After selecting this you will be asked to connect to your source server by filling in server name and authenticating and then clicking ‘Connect’.
 
 After authenticating, the tool will show a list of databases that are present in the server you have connected to.  You can begin the migration by selecting a database that you would like to migrate and then clicking on ‘Migrate selected’
 
@@ -56,3 +59,4 @@ Now that you've migrated some data, check out how to [develop][].
 [migration documentation]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [here]:https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
