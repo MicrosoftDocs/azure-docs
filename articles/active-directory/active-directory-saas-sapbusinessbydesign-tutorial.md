@@ -234,6 +234,7 @@ In this section, you create a test user in the classic portal called Britta Simo
 	![Creating an Azure AD test user](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png) 
 
 5. On the **Tell us about this user** dialog page, perform the following steps:
+	
 	![Creating an Azure AD test user](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_05.png) 
 
     a. As Type Of User, select New user in your organization.
@@ -243,6 +244,7 @@ In this section, you create a test user in the classic portal called Britta Simo
     c. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps:
+	
 	![Creating an Azure AD test user](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png) 
 
     a. In the **First Name** textbox, type **Britta**.  
