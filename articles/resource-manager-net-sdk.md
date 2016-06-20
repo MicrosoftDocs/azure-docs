@@ -42,7 +42,7 @@ The examples in this topic require two NuGet packages (in addition to the Azure 
 Authentication for Resource Manager is handled by Azure Active Directory (AD). In order to connect to any API you first need to authenticate 
 with Azure AD to receive an authentication token that you can pass on to every request. To get this token you first need to create 
 what is called an Azure AD Application and a Service Principal that will be used to login with. 
-For step-by-step instructions, follow one of: [Use Azure PowerShell to create an Active Directory application to access resources](resource-group-authenticate-service-principal.md), [Use Azure CLI to create an Active Directory application to access resources](resource-group-authenticate-service-principal-cli.md), or [Use portal to create Active Directory application that can access resources](resource-group-create-service-principal-portal).
+For step-by-step instructions, follow one of: [Use Azure PowerShell to create an Active Directory application to access resources](resource-group-authenticate-service-principal.md), [Use Azure CLI to create an Active Directory application to access resources](resource-group-authenticate-service-principal-cli.md), or [Use portal to create Active Directory application that can access resources](resource-group-create-service-principal-portal.md).
 
 After creating the service principal, you should have:
 
