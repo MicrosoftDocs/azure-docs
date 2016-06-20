@@ -52,10 +52,6 @@ In this section, you'll write a Windows console app that receives file upload no
         ReceiveFileUploadNotificationAsync().Wait();
         Console.ReadLine();
 
-7. From within Visual Studio, right-click your solution, and select **Set StartUp projects...**. Select **Multiple startup projects**, then select the **Start** action for **ReadFileUploadNotification** and **SimulatedDevice**.
-
-8. Press **F5**. Both applications should start. You should see the upload completed in one console app and the upload notification message being received by the other console app.
-
 <!-- Links -->
 
 [IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
