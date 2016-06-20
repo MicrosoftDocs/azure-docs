@@ -86,9 +86,9 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
 	        "linkedServiceName": "MyAzureMLLinkedService",
             "typeProperties":
             {
-                "webServiceInput": "DecisionTreeInputBlob ",
+                "webServiceInput": "DecisionTreeInputBlob",
                 "webServiceOutputs": {
-                    "output1": "DecisionTreeResultBlob "
+                    "output1": "DecisionTreeResultBlob"
                 }                
             },
 	        "policy": {
@@ -242,9 +242,9 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 		        "linkedServiceName": "MyAzureMLLinkedService",
                 "typeProperties":
                 {
-                    "webServiceInput": "DecisionTreeInputBlob ",
+                    "webServiceInput": "DecisionTreeInputBlob",
                     "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob "
+                        "output1": "DecisionTreeResultBlob"
                     }                
                 },
 		        "policy": {

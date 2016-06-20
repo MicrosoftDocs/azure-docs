@@ -72,13 +72,13 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 	a. Choose a name for your node type (1 to 12 characters containing only letters and numbers).
 
-	b. The minumum size of VMs for the primary node type is driven by the durablity tier you choose for the cluster. The default for the durablity tier is Bronze. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
+	b. The minimum size of VMs for the primary node type is driven by the durablity tier you choose for the cluster. The default for the durablity tier is Bronze. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
 
 	b. Select the VM size/pricing tier. The default is D4 Standard, but if you are just going to use this cluster for testing your application, you can select D2 or any smaller VM.
 
-	c. The minumum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
+	c. The minimum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
 
-	c. Choose the number of VMs for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minumum is driven by the reliablity level that you have choosen. Other node types can have a minumum of 1 VM.
+	c. Choose the number of VMs for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minimum is driven by the reliablity level that you have choosen. Other node types can have a minimum of 1 VM.
 
 
   	![Screen shot of creating a node type.][CreateNodeType]
@@ -102,15 +102,11 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 15. Optionally: Set the Service **Fabric cluster settings**, With this is advanced option, you can change the default settings for the Service Fabric cluster. We recommended that you do not change the defaults unless you are certain that your application or cluster requires it.
 
-
-
 ## Step 3- Configure security
 
-At this time, Service Fabric supports securing clusters only via an X509 certificate. Before starting this process, you will need to upload your certificate to Key Vault. Refer to [Service Fabric cluster security](service-fabric-cluster-security.md) for more details on how to do this.
+Security scenarios and concepts are documented at [Service Fabric cluster security](service-fabric-cluster-security.md). At this time, Service Fabric supports securing clusters only via an X509 certificate, refer to [Secure a Service Fabric cluster on Azure using certificates](service-fabric-secure-azure-cluster-with-certs.md) for steps on how to do this.
 
-Securing your cluster is optional but is highly recommended. If you choose not to secure your cluster, toggle the **Security Mode** to **UnSecure**. Please note - you **will not** be able to update an unsecure cluster to a secure one at a later time.
-
-Security considerations and instructions are documented at [Service Fabric cluster security](service-fabric-cluster-security.md).
+Securing your cluster is optional but is highly recommended. If you choose not to secure your cluster, toggle the **Security Mode** to **Unsecure**. Please note - you **will not** be able to update an unsecure cluster to a secure one at a later time.
 
 ![Screen shot of security configurations on Azure portal.][SecurityConfigs]
 

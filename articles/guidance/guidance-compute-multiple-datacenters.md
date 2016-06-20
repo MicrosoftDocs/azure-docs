@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Virtual datacenter with high availability | Reference Architecture | Microsoft Azure"
+   pageTitle="Running VMs in multiple datacenters for high availability | Reference Architecture | Microsoft Azure"
    description="How to deploy VMs in multiple datacenters on Azure for high availability and resiliency."
    services=""
    documentationCenter="na"
@@ -14,20 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
+   ms.date="06/06/2016"
    ms.author="mikewasson"/>
 
-# Azure reference architecture: Virtual datacenter with high availability 
+# Running VMs in multiple datacenters on Azure for high availability
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-In this article, we recommend a set of practices to run Windows VMs in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
+In this article, we recommend a set of practices to run Windows virtual machines (VMs) in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource groups] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Architecture diagram
 
-The following diagram builds on the architecture shown in [Azure reference architecture: Virtual datacenter](guidance-compute-n-tier-vm.md).
+The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm.md).
 
 ![IaaS: multiple datacenters](media/blueprints/compute-multi-dc.png)
 

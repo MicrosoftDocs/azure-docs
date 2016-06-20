@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configuring and Using the Storage Emulator with Visual Studio
@@ -35,7 +35,7 @@ You can specify that when you run or debug your service in Visual Studio, Visual
 
 The first time you run or debug your service from Visual Studio, the storage emulator launches an initialization process. This process reserves local ports for the storage emulator and creates the storage emulator database. Once complete, this process does not need to run again unless the storage emulator database is deleted.
 
->[AZURE.NOTE] Starting with the June 2012 release of the Azure Tools, the storage emulator runs, by default, in SQL Express LocalDB. In earlier releases of the Azure Tools, the storage emulator runs against a default instance of SQL Express 2005 or 2008, which you must install before you can install the Azure SDK. You can also run the storage emulator against a named instance of SQL Express or a named or default instance of Microsoft SQL Server. If you need to configure the storage emulator to run against an instance other than the default instance, see [Use the Azure Storage Emulator for Development and Testing](./storage/storage-use-emulator/).
+>[AZURE.NOTE] Starting with the June 2012 release of the Azure Tools, the storage emulator runs, by default, in SQL Express LocalDB. In earlier releases of the Azure Tools, the storage emulator runs against a default instance of SQL Express 2005 or 2008, which you must install before you can install the Azure SDK. You can also run the storage emulator against a named instance of SQL Express or a named or default instance of Microsoft SQL Server. If you need to configure the storage emulator to run against an instance other than the default instance, see [Use the Azure Storage Emulator for Development and Testing](./storage/storage-use-emulator.md).
 
 The storage emulator provides a user interface to view the status of the local storage services and to start, stop, and reset them. Once the storage emulator service has been started, you can display the user interface or start or stop the service by right-clicking the notification area icon for the Microsoft Azure Emulator in the Windows taskbar.
 

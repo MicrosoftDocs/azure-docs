@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connect to SQL Data Warehouse with Visual Studio | Microsoft Azure"
-   description="Get started with connecting to SQL Data Warehouse and running some queries."
+   pageTitle="Connect to Azure SQL Data Warehouse | Microsoft Azure"
+   description="Connection overview for connecting to Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,27 +13,23 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/16/2016"
    ms.author="sonyama;barbkess"/>
 
-# Connect to SQL Data Warehouse with Visual Studio
+# Connect to Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [Overview](sql-data-warehouse-connect-overview.md)
+- [Authentication](sql-data-warehouse-authentication.md)
+- [Drivers](sql-data-warehouse-connection-strings.md)
 
-This walkthrough shows you how to get connected to an Azure SQL Data Warehouse in just a few minutes by using the SQL Server Data Tools (SSDT) extention in Visual Studio. Once connected, you will run a simple query.
+Overview of connecting to Azure SQL Data Warehouse. 
 
-## Prerequisites
+## Discover connection string from portal
 
-+ AdventureWorksDW sample data in SQL Data Warehouse. To create this, see [Create a SQL Data Warehouse][].
-+ SQL Server Data Tools for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT][].
+Your SQL Data Warehouse is associated with an Azure SQL server. To connect you need the fully qualified name of the server (**servername**.database.windows.net*).
 
-## Step 1: Find the fully qualified Azure SQL server name
-
-Your SQL Data Warehouse database is associated with an Azure SQL Server. To connect to your database you need the fully qualified name of the server (**servername**.database.windows.net*).
-
-To find the fully qualified server name.
+To find the fully qualified server name:
 
 1. Go to the [Azure portal][].
 2. Click **SQL databases** and click the database you want to connect to. This example uses the AdventureWorksDW sample database.
@@ -41,76 +37,87 @@ To find the fully qualified server name.
 
     ![Full server name][1]
 
-## Step 2: Connect to your SQL Data Warehouse
+## Connection settings
+SQL Data Warehouse standardizes a few settings during connection and object creation. These cannot be overridden.
 
-1. Open Visual Studio 2013 or 2015.
-2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
+| Database Setting   | Value                        |
+| :----------------- | :--------------------------- |
+| ANSI_NULLS         | ON                           |
+| QUOTED_IDENTIFIERS | ON                           |
+| NO_COUNT           | OFF                          |
+| DATEFORMAT         | mdy                          |
+| DATEFIRST          | 7                            |
+| Database Collation | SQL_Latin1_General_CP1_CI_AS |
 
-    ![SQL Server Object Explorer][2]
+## Sessions and requests
+Once a connection has been made and a session has been established you are ready to write and submit queries to SQL Data Warehouse.
 
-3. Click the **Add SQL Server** icon.
+Each query will be represented by one or more request identifiers. All queries submitted on that connection are part of a single session and will therefore be represented by a single session id.
 
-    ![Add SQL Server][3]
+However, as SQL Data Warehouse is a distributed MPP (Massively Parallel Processing) system both session and request identifiers are exposed a little differently when compared to SQL Server.
 
-4. Fill in the fields in the Connect to Server window.
+Sessions and requests are logically represented by their respective identifiers.
 
-    ![Connect to Server][4]
+| Identifier | Example value |
+| :--------- | :------------ |
+| Session ID | SID123456     |
+| Request ID | QID123456     |
 
-    - **Server name**. Enter the **server name** previously identified.
-    - **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
-    - **User Name** and **Password**. Enter user name and password if SQL Server Authentication was selected above.
-    - Click **Connect**.
+Notice that the Session ID is prefixed by SID - shorthand for Session ID - and the requests are prefixed by QID which is shorthand for Query ID.
 
-5. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
+You will need this information to help you identify your query when monitoring your query performance. You can monitor your query performance by using either the [Azure Portal] and the dynamic management views.
 
-    ![Explore AdventureWorksDW][5]
+This query identifies your current session.
 
-## Step 3: Run a sample query
+```sql
+SELECT SESSION_ID()
+;
+```
 
-Now that a connection has been established to your database, let's write a query.
+To view all the queries that are either running or have recently run against your data warehouse you can use the following example. This creates a view and then runs the view.
 
-1. Right-click your database in SQL Server Object Explorer.
+```sql
+CREATE VIEW dbo.vSessionRequests
+AS
+SELECT 	 s.[session_id]									AS Session_ID
+		,s.[status]										AS Session_Status
+		,s.[login_name]									AS Session_LoginName
+		,s.[login_time]									AS Session_LoginTime
+        ,r.[request_id]									AS Request_ID
+		,r.[status]										AS Request_Status
+		,r.[submit_time]								AS Request_SubmitTime
+		,r.[start_time]									AS Request_StartTime
+		,r.[end_compile_time]							AS Request_EndCompileTime
+		,r.[end_time]									AS Request_EndTime
+		,r.[total_elapsed_time]							AS Request_TotalElapsedDuration_ms
+        ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
+        ,DATEDIFF(ms,[start_time],[end_compile_time])	AS Request_CompileDuration_ms
+        ,DATEDIFF(ms,[end_compile_time],[end_time])		AS Request_ExecDuration_ms
+		,[label]										AS Request_QueryLabel
+		,[command]										AS Request_Command
+		,[database_id]									AS Request_Database_ID
+FROM    sys.dm_pdw_exec_requests r
+JOIN    sys.dm_pdw_exec_sessions s	ON	r.[session_id] = s.[session_id]
+WHERE   s.[session_id] <> SESSION_ID()
+;
 
-2. Select **New Query**. A new query window opens.
-
-    ![New query][6]
-
-3. Copy this TSQL query into the query window:
-
-    ```sql
-    SELECT COUNT(*) FROM dbo.FactInternetSales;
-    ```
-
-4. Run the query. To do this, click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
-
-    ![Run query][7]
-
-5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
-
-    ![Query results][8]
+SELECT * FROM dbo.vSessionRequests;
+```
 
 ## Next steps
 
-Now that you can connect and query, try [visualizing the data with PowerBI][].
+To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio][].
 
-To configure your environment for Windows authentication, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication][].
 
 <!--Arcticles-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
-[Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication]: ../sql-database/sql-database-aad-authentication.md
-[visualizing the data with PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md  
+
+[Query with Visual Studio]: sql-data-warehouse-query-visual-studio
 
 <!--Other-->
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
-[2]: ./media/sql-data-warehouse-get-started-connect/open-ssdt.png
-[3]: ./media/sql-data-warehouse-get-started-connect/add-server.png
-[4]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
-[5]: ./media/sql-data-warehouse-get-started-connect/explore-sample.png
-[6]: ./media/sql-data-warehouse-get-started-connect/new-query2.png
-[7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
-[8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
+[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+
+

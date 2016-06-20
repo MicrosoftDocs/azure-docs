@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="01/28/2016"
-   ms.author="jimpark;nkolli;trinadhk"/>
+   ms.date="06/14/2016"
+   ms.author="jimpark;nkolli;trinadhk;saurse"/>
 
 # Offline Backup workflow in Azure Backup
 Azure Backup has lot of efficeincies built in to save network and storage costs.  Azure Backup not only compresses data but also backs up full content only once and deltas/incrementals after that.  So, if there is a 10TB file volume that is being backed up, Azure Backup will send 10TB as part of Initial Replication (IR) and only deltas as part of Delta Replication.  So, maximum WAN bandwidth required during IR.  To reduce the dependency of WAN at IR, Azure Backup supports offline backup using Azure Import/Export Service.  

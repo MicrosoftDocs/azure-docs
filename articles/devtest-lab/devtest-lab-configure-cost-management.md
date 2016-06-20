@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Monthly estimated cost trend
@@ -30,15 +30,15 @@ In order to view the Monthly Estimated Cost Trend chart, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+1. Select **Browse**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab.   
+1. From the list of labs, select the desired lab.   
 
-1. Tap **Settings**.
+1. Select **Settings**.
 
 	![Settings](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. On the lab's **Settings** blade, under **Cost Management**, tap **Thresholds**.
+1. On the lab's **Settings** blade, under **Cost Management**, select **Thresholds**.
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  

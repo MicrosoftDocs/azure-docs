@@ -440,17 +440,17 @@ Our model building process in Azure Machine Learning will follow these steps:
 5. [Evaluate the model](#step5)
 6. [Publish the model as a web-service to be consumed](#step6)
 
-Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We will use the Azure Machine Learning **Reader** module to read this data. The credentials to access the storage account of this cluster are provided below.
+Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We will use the Azure Machine Learning **Import Data** module to read this data. The credentials to access the storage account of this cluster are provided below.
 
-### <a name="step1"></a> Step 1: Get data from Hive tables into Azure Machine Learning using the Reader module and select it for a machine learning experiment
+### <a name="step1"></a> Step 1: Get data from Hive tables into Azure Machine Learning using the Import Data module and select it for a machine learning experiment
 
-Start by selecting a **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Then, from the **Search** box on the top left, search for "Reader". Drag and drop the **Reader** module on to the experiment canvas (the middle portion of the screen) to use the module for data access.
+Start by selecting a **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Then, from the **Search** box on the top left, search for "Import Data". Drag and drop the **Import Data** module on to the experiment canvas (the middle portion of the screen) to use the module for data access.
 
-This is what the **Reader** looks like while getting data from the Hive table:
+This is what the **Import Data** looks like while getting data from the Hive table:
 
-![Reader gets data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
+![Import Data gets data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-For the **Reader** module, the values of the parameters that are provided in the graphic are just examples of the sort of values you will need to provide. Here is some general guidance on how to fill out the parameter set for the **Reader** module.
+For the **Import Data** module, the values of the parameters that are provided in the graphic are just examples of the sort of values you will need to provide. Here is some general guidance on how to fill out the parameter set for the **Import Data** module.
 
 1. Choose "Hive query" for **Data Source**
 2. In the **Hive database query** box, a simple SELECT * FROM <your\_database\_name.your\_table\_name> - is enough.
@@ -463,11 +463,11 @@ For the **Reader** module, the values of the parameters that are provided in the
 9. **Azure container name**: If the cluster name is "abc", then this is simply "abc", usually.
 
 
-Once the **Reader** finishes getting data (you see the green tick on the Module), save this data as a Dataset (with a name of your choice). What this looks like:
+Once the **Import Data** finishes getting data (you see the green tick on the Module), save this data as a Dataset (with a name of your choice). What this looks like:
 
-![Reader save data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
+![Import Data save data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
-Right click on the output port of the **Reader** module. This reveals a **Save as dataset** option and a **Visualize** option. The **Visualize** option, if clicked, displays 100 rows of the data, along with a right panel that is useful for some summary statistics. To save data, simply select **Save as dataset** and follow instructions.
+Right click on the output port of the **Import Data** module. This reveals a **Save as dataset** option and a **Visualize** option. The **Visualize** option, if clicked, displays 100 rows of the data, along with a right panel that is useful for some summary statistics. To save data, simply select **Save as dataset** and follow instructions.
 
 To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown below. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
@@ -627,13 +627,13 @@ Note: for the input data format, we will now use the OUTPUT of the **Count Featu
 
 #### Scoring experiment for publishing webservice
 
-First, we show what this looks like. The essential structure is a **Score Model** module that accepts our trained model object and a few lines of input data that we generated in the previous steps using the **Count Featurizer** module. We use "Project Columns" to project out the Scored labels and the Score probabilities.
+First, we show what this looks like. The essential structure is a **Score Model** module that accepts our trained model object and a few lines of input data that we generated in the previous steps using the **Count Featurizer** module. We use "Select Columns in Dataset" to project out the Scored labels and the Score probabilities.
 
-![Project Columns](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
+![Select Columns in Dataset](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
-Notice how the **Project Columns** module can be used for 'filtering' data out from a dataset. We show the contents below:
+Notice how the **Select Columns in Dataset** module can be used for 'filtering' data out from a dataset. We show the contents below:
 
-![Filtering with the Project Columns module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
+![Filtering with the Select Columns in Dataset module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
 To get the blue input and output ports, you simply click **prepare webservice** at the bottom right. Running this experiment also allows us to publish the web service  by clicking the **PUBLISH WEB SERVICE** icon at the bottom right, shown below.
 

@@ -173,7 +173,7 @@ Create a console app and replace the contents of Program.cs with the following. 
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
 
             // Open the portal so we can see our operations in action
-            string portalPage = @"https://ms.portal.azure.com/#resource/subscriptions/"
+            string portalPage = @"https://portal.azure.com/#resource/subscriptions/"
                 + subscriptionId
                 + @"/resourceGroups/"
                 + resourceGroupName

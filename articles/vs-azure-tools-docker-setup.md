@@ -1,9 +1,9 @@
 <properties
    pageTitle="Configure a Docker Host with VirtualBox | Microsoft Azure"
    description="Step-by-step instructions to configure a default Docker instance using Docker Machine and VirtualBox"
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/27/2016"
-   ms.author="tarcher" />
+   ms.date="06/08/2016"
+   ms.author="allclark" />
 
 # Configure a Docker Host with VirtualBox
 
@@ -38,7 +38,7 @@ To configure a Docker client, simply open Windows PowerShell, and perform the fo
  
 1. Verify the default instance is configured and running. (You should see an instance named `default' running.
 
-		docker-machine ls 
+	docker-machine ls 
 		
 	![][0]
  
@@ -48,11 +48,12 @@ To configure a Docker client, simply open Windows PowerShell, and perform the fo
 
 1. Display the active Docker containers. The list should be empty.
 
-		docker ps
+	docker ps
 
 	![][1]
  
-> [AZURE.NOTE] Each time you reboot your development machine, you’ll need to restart your local docker host. To do this, issue the following command at a command prompt: `docker-machine start default`
+> [AZURE.NOTE] Each time you reboot your development machine, you’ll need to restart your local docker host.
+> To do this, issue the following command at a command prompt: `docker-machine start default`.
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png

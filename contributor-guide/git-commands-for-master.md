@@ -44,6 +44,11 @@ Follow the steps in this article to create a local working branch on your comput
         git add <file path>
         git commit –m "<comment>"
 
+   If you deleted files, you have to use this:
+   
+        git add --all
+        git commit -m "<comment>"
+
 9. Update your local working branch with changes from upstream:
 
         git pull upstream master

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use a filter predicate to select rows to migrate (Stretch Database) | Microsoft Azure"
-	description="Learn how to use a filter predicate to select the rows to migrate."
+	pageTitle="Select rows to migrate by using a filter predicate (Stretch Database) | Microsoft Azure"
+	description="Learn how to select rows to migrate by using a filter predicate."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
-# Use a filter predicate to select rows to migrate (Stretch Database)
+# Select rows to migrate by using a filter predicate (Stretch Database)
 
 If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both current and historical data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate is an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
 
@@ -24,7 +24,7 @@ If you store historical data in a separate table, you can configure Stretch Data
 
 If you don't specify a filter predicate, the entire table is migrated.
 
-When you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
+When you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple predicate in the wizard. If you want to use a different type of filter predicate to select rows to migrate, do one of the following things.
 
 -   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate.
 
@@ -32,7 +32,7 @@ When you run the Enable Database for Stretch Wizard, you can migrate an entire t
 
 The ALTER TABLE syntax for adding a predicate is described later in this topic.
 
-## Basic requirements for the inline table\-valued function
+## Basic requirements for the filter predicate
 The inline table\-valued function required for a Stretch Database filter predicate looks like the following example.
 
 ```tsql
@@ -155,6 +155,58 @@ After you bind the function to the table as a predicate, the following things ar
 -   The columns used by the function are schema bound. You can't alter these columns as long as a table is using the function as its filter predicate.
 
 You can't drop the inline table\-valued function as long as a table is using the function as its filter predicate.
+
+>   [AZURE.NOTE] To improve the performance of the filter function, create an index on the columns used by the function.
+
+### Passing column names to the filter predicate
+When you assign a filter function to a table, specify the column names passed to the filter function with a one-part name. If you specify a three-part name when you pass the column names, subsequent queries against the Stretch\-enabled table will fail.
+
+For example, if you specify a three-part column name as shown in the following example, the statement will run successfully, but subsequent queries against the table will fail.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(dbo.SensorTelemetry.ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+Instead, specify the filter function with a one-part column name as shown in the following example.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON  (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+## <a name="addafterwiz"></a>Add a filter predicate after running the Wizard  
+
+If you want use a predicate that you can't create in the **Enable Database for Stretch** Wizard, you can run the ALTER TABLE statement to specify a predicate after you exit the wizard. Before you can apply a predicate, however, you have to stop the data migration that's already in progress and bring back migrated data. (For more info about why this is necessary, see [Replace an existing filter predicate](#replacePredicate).  
+
+1. Reverse the direction of migration and bring back the data already migrated. You can't cancel this operation after it starts. You also incur costs on Azure for outbound data transfers \(egress\). For more info, see [How Azure pricing works](https://azure.microsoft.com/pricing/details/data-transfers/).  
+
+    ```tsql  
+    ALTER TABLE <table name>  
+         SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
+    ```  
+
+2. Wait for migration to finish. You can check the status in **Stretch Database Monitor** from SQL Server Management Studio, or you can query the **sys.dm_db_rda_migration_status** view. For more info, see [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md) or [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx).  
+
+3. Create the filter predicate that you want to apply to the table.  
+
+4. Add the predicate to the table and restart data migration to Azure.  
+
+    ```tsql  
+    ALTER TABLE <table name>  
+        SET ( REMOTE_DATA_ARCHIVE  
+            (           
+                FILTER_PREDICATE = <predicate>,  
+                MIGRATION_STATE = OUTBOUND  
+            )  
+        );   
+    ```  
 
 ## Filter rows by date
 The following example migrates rows where the **date** column contains a value earlier than January 1, 2016.
@@ -405,7 +457,7 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 If the function returns a non\-empty result for the row, the row is eligible to be migrated.
 
-## Replace an existing filter predicate
+## <a name="replacePredicate"></a>Replace an existing filter predicate
 You can replace a previously specified filter predicate by running the ALTER TABLE statement again and specifying a new value for the FILTER\_PREDICATE parameter. For example:
 
 ```tsql
@@ -419,7 +471,7 @@ The new inline table\-valued function has the following requirements.
 
 -   All the operators that existed in the old function must exist in the new function.
 
--   The new function can't contain operators that don’t exist in the old function.
+-   The new function can't contain operators that don't exist in the old function.
 
 -   The order of operator arguments can't change.
 
@@ -503,6 +555,13 @@ After you remove the filter predicate, all rows in the table are eligible for mi
 
 ## Check the filter predicate applied to a table
 To check the filter predicate applied to a table, open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column. If the value is null, the entire table is eligible for archiving. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+
+## Security notes for filter predicates  
+A compromised account with db_owner privileges can do the following things.  
+
+-   Create and apply a table-valued function that consumes large amounts of server resources or waits for an extended period resulting in a denial of service.  
+
+-   Create and apply a table-valued function that makes it possible to infer the content of a table for which the user has been explicitly denied read access.  
 
 ## See also
 
