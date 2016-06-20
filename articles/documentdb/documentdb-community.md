@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="06/15/2016"
+  ms.date="06/20/2016"
   ms.author="andrl"/>
 
 # Community portal
@@ -125,7 +125,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                     | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [BizTalk to Logic Apps and Back](http://www.integrationusergroup.com/biztalk-to-logic-apps-and-back/?event_date=2016-06-20) | Howard S. Edidin | Webcast | June 20, 2016 | n/a |
+| [Do Logic Apps support error handling?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/?event_date=2016-06-20) | Howard S. Edidin | Webcast | June 20, 2016 | n/a |
 
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
