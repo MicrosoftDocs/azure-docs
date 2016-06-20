@@ -37,7 +37,7 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
-## Next Steps
+## Next steps
 
 - [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -46,7 +46,7 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 - [Import a BACPAC to Azure SQL Database Azure Portal](sql-database-import.md)
 - [Import a BACPAC to Azure SQL Database PowerShell](sql-database-import-powershell.md)
 
-## Learn More
+## Additional resources
 
 - [SQL Database V12](sql-database-v12-whats-new.md)
 - [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)

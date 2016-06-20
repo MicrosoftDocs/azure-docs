@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Security Architecture Overview | Microsoft Azure"
+   pageTitle="Security architecture overview | Microsoft Azure"
    description="The article provides a security architecture overview of Azure and a curated list of related articles."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="06/14/2016"
    ms.author="yurid"/>
 
-# Security Architecture Overview
+# Security architecture overview
 
 Having a strong architectural foundation is one of the keys to success when it comes to secure solution deployments in Azure. With this knowledge you’re able to better understand your requirements by knowing the right questions to ask and more equipped to find the right answers to your questions. Getting right answers to the right questions goes a long way toward optimizing the security of your deployments.
 
@@ -24,4 +24,4 @@ In this section you’ll see articles on Azure Security Architecture that will h
 
 - [Data Classification for Cloud Readiness](azure-security-data-classification.md)
 - [Application Architecture on Microsoft Azure](security-application-architecture-on-azure.md)
-- [Azure Security Best Practices and Patterns](azure-security-best-practices-and-patterns.md)
+- [Azure Security Best Practices and Patterns](security-best-practices-and-patterns.md)

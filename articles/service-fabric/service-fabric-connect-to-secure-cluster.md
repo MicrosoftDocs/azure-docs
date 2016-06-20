@@ -37,6 +37,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
+<a id="connectsecurecluster"></a>
 ## Connect to a secure cluster using PowerShell
 
 Run the following PowerShell command to connect to a secure cluster. The certificate details must match a certificate on the cluster nodes.

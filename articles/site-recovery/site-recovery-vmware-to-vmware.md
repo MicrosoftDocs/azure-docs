@@ -3,7 +3,7 @@
 	description="Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
-	authors="rayne-wiselman"
+	authors="nsoneji"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="raynew"/>
+	ms.date="06/14/2016"
+	ms.author="nisoneji"/>
 
 
 # Replicate on-premises VMware virtual machines or physical servers to a secondary site
@@ -57,52 +57,87 @@ Read about the latest [updates](#updates). You'll install the update files in th
 3. Process servers
 3. Master target servers.
 4. vContinuum servers.
+5. Source server (only for Windows server)
 
 Install as follows:
 
-1. Download the [update](http://aka.ms/scoutupdates) zip file. This zip file contains the following files:
+1. Download the [update](https://aka.ms/asr-scout-update3) zip file. This zip file contains the following files:
 
-	-  RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz
-	-  CX_Windows_8.0.2.0_GA_Update_2_4306954_21Aug15.exe
-	-  UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe
-	-  UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz
-	-  vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe
+	-  RX_8.0.3.0_GA_Update_3_6684045_17Mar16.tar.gz
+	-  CX_Windows_8.0.3.0_GA_Update_3_5048668_16Mar16.exe
+	-  UA_Windows_8.0.3.0_GA_Update_3_7101745_04Apr16.exe
+	-  UA_RHEL6-64_8.0.3.0_GA_Update_3_7101745_04Apr16.zip
+	-  vCon_Windows_8.0.3.0_GA_Update_3_6873369_16Mar16.exe
+
 2. Extract the zip files.
-2. **RX server**: Copy **RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz** to the RX server and extract it. In the extracted folder run **/Install**.
-2. **Configuration server/process server**: Copy **CX_Windows_8.0.2.0_GA_Update_2_4306954_21Aug15.exe** to the configuration server and process server. Double click to run it.
-3. **Windows master target server**: To update the  unified agent copy **UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe** to the master target server. Double click it to run it. Note that the unified agent for Windows isn't applicable on the source server. It should be installed on the Windows master target server only.
-4. **Linux master target server**:  To update the unified agent copy **UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz** to the master target server and extract it. In the extracted folder run **/Install**.
-5. **vContinuum server**: Copy **vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe** to the vContinuum server. Make sure you've closed the vContinuum Wizard. Double click on the file to run it.
+3. **RX server**: Copy **RX_8.0.3.0_GA_Update_3_6684045_17Mar16.tar.gz** to the RX server and extract it. In the extracted folder run **/Install**.
+4. **Configuration server/process server**: Copy **CX_Windows_8.0.3.0_GA_Update_3_5048668_16Mar16.exe** to the configuration server and process server. Double click to run it.
+5. **Windows master target server**: To update the  unified agent copy **UA_Windows_8.0.3.0_GA_Update_3_7101745_04Apr16.exe** to the master target server. Double click it to run it. Note that the unified agent is also applicable for the source server. It should be installed on the source server as well as mentioned below.
+6. **Linux master target server**:  To update the unified agent copy **UA_RHEL6-64_8.0.3.0_GA_Update_3_7101745_04Apr16.zip** to the master target server and extract it. In the extracted folder run **/Install**.
+7. **vContinuum server**: Copy **vCon_Windows_8.0.3.0_GA_Update_3_6873369_16Mar16.exe** to the vContinuum server. Make sure you've closed the vContinuum Wizard. Double click on the file to run it.
+8. **Windows source server**: To update the unified agent copy **UA_Windows_8.0.3.0_GA_Update_3_7101745_04Apr16.exe** to the source server. Double click it to run it. 
 
 ## Step 4: Set up replication
-5. Set up replication between the source and target VMware sites.
-6. For guidance, use the InMage Scout documentation that's downloaded with the product. Alternatively you can access the documentation as follows:
+1. Set up replication between the source and target VMware sites.
+2. For guidance, use the InMage Scout documentation that's downloaded with the product. Alternatively you can access the documentation as follows:
 
-	- [Release notes](http://download.microsoft.com/download/4/5/0/45008861-4994-4708-BFCD-867736D5621A/InMage_Scout_Standard_Release_Notes.pdf)
-	- [Compatibility matrix](http://download.microsoft.com/download/C/D/A/CDA1221B-74E4-4CCF-8F77-F785E71423C0/InMage_Scout_Standard_Compatibility_Matrix.pdf)
-	- [User guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
-	- [RX user guide](http://download.microsoft.com/download/A/7/7/A77504C5-D49F-4799-BBC4-4E92158AFBA4/InMage_ScoutCloud_RX_User_Guide_8.0.1.pdf)
-	- [Quick installation guide](http://download.microsoft.com/download/6/8/5/685E761C-8493-42EB-854F-FE24B5A6D74B/InMage_Scout_Standard_Quick_Install_Guide.pdf)
+	- [Release notes](https://aka.ms/asr-scout-release-notes)
+	- [Compatibility matrix](https://aka.ms/asr-scout-cm)
+	- [User guide](https://aka.ms/asr-scout-user-guide)
+	- [RX user guide](https://aka.ms/asr-scout-rx-user-guide)
+	- [Quick installation guide](https://aka.ms/asr-scout-quick-install-guide)
 
 
 ## Updates
 
-### ASR Scout 8.0.1 Update 03Dec15
+### ASR Scout 8.0.1 Update 3
+Update 3 includes following bug fixes and enhancements :
 
-Fixes in Update 03-Dec-15 includes:
+1. Configuration server and RX  failed to register to ASR vault when they are behind the proxy.
+2. Number of hours RPO not met is not getting updated in the health report.
+3. Configuration Server is not syncing with RX when ESX hardware details or network details contains any UTF-8 characters.
+4. Windows 2008 Server R2 DC machines fails to boot after recovery.
+5. Offline sync is not working as expected. 
+6. After VM failover, replication pair deletion get stuck in CX UI for long time  and user cannot do failback resume operation.
+7. Optimized overall snapshot operations done by consistency job to help reduce the application disconnects like SQL Clients.
+8. Improved the VACP's  performance by reducing the memory usage required for creating snapshots on Windows..
+9. Push install service get crashed when password is > 16 characters
+10. vContinuum is not checking & prompting for new vCenter credentials when the credentials is changed.
+11. On Linux Master target cache manger(cachemgr) is not downloading files from process server resulting replication pair throttling.
+12. When Physical MSCS cluster disks order are not same on all the nodes, replication are not set for some of the cluster volumes. 
+<br/>NOTE: To make avail of this fix, cluster need to be re-protected.  
+13. SMTP functionality is not working as expected after RX is upgraded from Scout 7.1 to Scout 8.0.1.
+14. Added more stats in the log for the rollback operation to track the time it has taken to complete it.
+15. Support added for Linux Operating systems on the source server 
+	- RHEL 6 update 7
+	- CentOS 6 update 7 
+16. CX and RX UI can now show the notification for the pair which goes into bitmap mode.
+17. Following security fixes are added in RX.
+
+**#**|**Issue Description**|**Implementation Procedures**
+---|---|---
+1. |Authorization bypass via parameter tampering|Access restricted to non-applicable users
+2. |Cross-site request forgery|Implemented page-token concept which generate randomly for every page. <br/>With this you will see <br/>1) only single login instance for the same user.,br/>2) Page refresh will not work which will redirect to dashboard. <br/>
+3. |Malicious file upload|Restricted files to certain extensions. Allowed are : 7z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, zip
+4. | Persistent cross-site scripting | Added input validations
+
+
+>[AZURE.NOTE]
+>
+>-	All ASR updates are cumulative. Update3 has all the fixes of update1 and update2. Update 3 can be directly applied on 8.0.1 GA.
+>-	The CS and RX updates can’t be rolled back once it is applied on the system.
+
+### ASR Scout 8.0.1 Update 03Dec15 (Update2)
+
+Fixes in Update 2 includes:
 
 - **Configuration server** —Fixes an issue that prevented the 31-day free metering feature from working as expected when the configuration server was registered in Site Recovery.
 - **Unified agent** —Fixes an issue in Update 1 for the Master Target, that resulted in the update not being installed on the master target server when it’s upgraded from version 8.0 to 8.0.1.
 
->[AZURE.NOTE]
->
->-	All ASR updates are cumulative.
->-	The CS and RX updates can’t be rolled back once it is applied on the system.
-
 
 ### ASR Scout 8.0.1 Update 1
 
-This latest update includes bug fixes and new features:
+Update 1 includes bug fixes and new features:
 
 - 31 days of free protection per server instances. This enables you to test functionality or set up a proof-of-concept.
 	- All operations on the server, including failover and failback are free for the first 31 days starting from the time that a server is first protected using ASR Scout.

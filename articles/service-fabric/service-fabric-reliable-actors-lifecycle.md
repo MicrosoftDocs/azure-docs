@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="06/13/2016"
    ms.author="amanbha"/>
 
 
@@ -104,7 +104,7 @@ ActorId actorToDelete = new ActorId(id);
 
 IActorService myActorServiceProxy = ActorServiceProxy.Create(
     new Uri("fabric:/MyApp/MyService"), actorToDelete);
-            
+
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
 
@@ -125,6 +125,6 @@ Note that an actor cannot call delete on itself from one of its actor methods be
  - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Sample code](https://github.com/Azure/servicefabric-samples)
 
- 
+
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

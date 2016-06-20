@@ -28,6 +28,7 @@ There are three distinct steps:
 2. Upload the certificate to Azure Key Vault.
 3. Provide the location and details of the certificate to the Service Fabric cluster creation process.
 
+<a id="acquirecerts"></a>
 ## Step 1: Acquire the X.509 certificate(s)
 
 For clusters that are running production workloads, you must use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed X.509 certificate to secure the cluster. For details on obtaining these certificates, go to [How to: Obtain a Certificate](http://msdn.microsoft.com/library/aa702761.aspx).

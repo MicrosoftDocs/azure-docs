@@ -48,6 +48,6 @@ This sample shows the changes to an Entity Framework application that are needed
 
 This sample is a multitenant web application, called Surveys, that allows users to create online surveys. The sample demonstrates some key concerns when managing user identities in a multitenant application, including sign-up, authentication, authorization, and app roles. To run this sample, see [How to run the Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md).
 
-## Next Steps
+## Next steps
 
 [Explore Azure SQL Database Tutorials](sql-database-explore-tutorials.md)

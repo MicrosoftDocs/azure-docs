@@ -47,7 +47,7 @@ VNets that are currently associated with affinity groups are enabled for migrati
 
 1. Save your changes and [import](virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
 
->[AZURE.INFO] This migration does NOT cause any downtime to your services.
+>[AZURE.NOTE] This migration does NOT cause any downtime to your services.
 
 ## Affinity groups and VMs
 
