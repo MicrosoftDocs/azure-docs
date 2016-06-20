@@ -78,6 +78,7 @@ The following table presents the specific actions that can be performed by the R
 ## Automation Operator role permissions
 
 The following table presents the specific actions that can be performed by the Automation Operator role in Automation.
+
 | **Resource Type** | **Read** | **Write** | **Delete** | **Other Actions** |
 |:--- |:---|:--- |:---|:--- |
 | Azure Automation Account | ![Green Status](media/automation-role-based-access-control/green-checkmark.png) | | | 
