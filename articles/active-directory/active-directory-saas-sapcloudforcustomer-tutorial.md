@@ -94,21 +94,17 @@ In this section, you configure and test Azure AD single sign-on with SAP Cloud f
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in SAP Cloud for Customer is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SAP Cloud for Customer needs to be established.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in SAP Cloud for Customer.
-
 To configure and test Azure AD single sign-on with SAP Cloud for Customer, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a SAP Cloud for Customer test user](#creating-a-predictix-price-reporting-test-user)** - to have a counterpart of Britta Simon in SAP Cloud for Customer that is linked to the Azure AD representation of her.
+3. **[Creating a SAP Cloud for Customer test user](#creating-an-sap-business-bydesign-test-user)** - to have a counterpart of Britta Simon in SAP Cloud for Customer that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SAP Cloud for Customer application.
-
-SAP Cloud for Customer application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SAP Cloud for Customer application. 
 
 
 **To configure Azure AD single sign-on with SAP Cloud for Customer, perform the following steps:**
@@ -123,17 +119,20 @@ SAP Cloud for Customer application expects the SAML assertions in a specific for
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png) 
 
-3. On the Edit User Attribute dialog, perform the following steps:
+3. On the **Edit User Attribute** dialog, perform the following steps:
 
-	a. From the Attribute Value list, select the **ExtractMailPrefix()** fuction
-	b. In the Mail value list select the user attribute you want to use for your implementation. 
-	For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select user.extensionattribute2. 
-
-	b. Click **Complete**. 
-	
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png) 
 
-4. In the classic portal, on the **SAP Cloud for Customer** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+	a. From the **Attribute Value** list, select the **ExtractMailPrefix()** fuction.
+	
+	b. From the **Mail** list, select the user attribute you want to use for your implementation. 
+	For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select user.extensionattribute2. 
+
+	c. Click **Complete**. 
+	
+
+4. In the classic portal, on the **SAP Cloud for Customer** application integration page, click **Configure single sign-on**.
 	 
 	![Configure Single Sign-On][6] 
 
@@ -145,7 +144,7 @@ SAP Cloud for Customer application expects the SAML assertions in a specific for
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SAP Cloud for Customer application using the following pattern: **https://\<servername\>.crm.ondemand.com**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SAP Cloud for Customer application using the following pattern: `https://<server name>.crm.ondemand.com`
 	
 	b. click **Next**
  
@@ -158,34 +157,34 @@ SAP Cloud for Customer application expects the SAML assertions in a specific for
     b. Click **Next**.
 
 
-8. To get SSO configured for your application, please follow the below steps in SAP Cloud for Customer environment.
+8. To get SSO configured, perform the following steps:
 
 	a. Login into SAP Cloud for Customer portal with administrator rights.
 
-	b. Navigate to **Application and User Management Common Task** and choose **Identity Provider** tab
+	b. Navigate to the **Application and User Management Common Task** and click the **Identity Provider** tab.
 
-	c. Click **New Identity Provider** and select the metadata XML file that you have downloaded from Azure AD in step 4a. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
+	c. Click **New Identity Provider** and select the metadata XML file you have downloaded from the Azure classic portal. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_54.png)
 
 	d. Azure AD requires the element Assertion Consumer Service URL in the SAML request, so select the **Include Assertion Consumer Service URL** checkbox.
 
-	e. Once you have configured your IdP, activate SSO in your solution. To do so, click Activate Single Sign-On.
+	e. Click **Activate Single Sign-On**.
 
 	f. Save your changes.
 
-	g. Now click on **My System** tab
+	g. Click the **My System** tab.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_52.png)
 
-	h. Copy the SSO URL and paste it in the Azure AD Sign On URL textbox as shown in step 3
+	h. Copy the **SSO URL** and paste it into the **Azure AD Sign On URL** textbox.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_53.png)
 
-	i. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting the Manual Identity Provider Selection checkbox.
+	i. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting the **Manual Identity Provider Selection**.
 
-	j. In the SSO URL section, specify which URL should be used by the employee to logon to the system. 
-	In the URL Sent to Employee dropdown list, you can choose between the following options:
+	j. In the **SSO URL** section, specify the URL that should be used by your employees to sign on to the system. 
+	In the **URL Sent to Employee** list, you can choose between the following options:
 	
 	**Non-SSO URL**
  
@@ -211,7 +210,7 @@ SAP Cloud for Customer application expects the SAML assertions in a specific for
 
 
 ### Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+In this section, you create a test user in the Azure classic portal called Britta Simon.
 
 
 ![Create Azure AD User][20]
