@@ -38,7 +38,9 @@ To configure a Docker client, simply open Windows PowerShell, and perform the fo
  
 1. Verify the default instance is configured and running. (You should see an instance named `default' running.
 
+    ```PowerShell
 	docker-machine ls 
+    ```
 		
 	![docker-machine ls output][0]
  
