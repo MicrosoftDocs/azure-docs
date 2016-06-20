@@ -253,7 +253,15 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 -	[Security best practices](#TODO)
 -	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
 
-### Security best practices
+## Security best practices
+
+- By default Azure Redis Cache is secure
+- Use SSL
+- Use Stunnel and then connect using redis tools such as redis-cli
+- Use Access Key
+- Storing data inside Redis - Customer controls what data is stored.
+- Use VNET to further enhance isolation and access
+- Compliance
 
 <a name="cache-ssl"></a>
 ### When should I enable the non-SSL port for connecting to Redis?
@@ -266,7 +274,14 @@ Redis tools such as `redis-cli` do not work with the SSL port, but you can use a
 
 For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 
-      ## Production best practices
+## Production
+
+## Production best practices
+
+•Use SSL
+•Use connectionstring correctly
+•Use VNET
+
 
 ## Monitoring and troubleshooting
 
