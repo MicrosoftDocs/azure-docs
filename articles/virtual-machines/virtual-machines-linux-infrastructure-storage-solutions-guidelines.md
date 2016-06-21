@@ -3,7 +3,7 @@
 	description="Learn about the key design and implementation guidelines for deploying storage solutions in Azure infrastructure services."
 	documentationCenter=""
 	services="virtual-machines-linux"
-	authors="vlivech"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,74 +14,74 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
-	ms.author="v-livech"/>
+	ms.date="06/21/2016"
+	ms.author="iainfou"/>
 
 # Azure Storage Solutions Infrastructure Guidelines
 
-This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding storage needs and design considerations for achieving optiumum virtual machine (VM) performance.
 
 ## Storage
 
-Azure Storage is an integral part of many Azure solutions. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting virtual machines.
+Azure Storage is a key part of deploying and managing VMs and applications. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting VMs.
 
-There are two types of storage accounts available from Azure. A standard storage account gives you access to blob storage (used for storing Azure virtual machine disks), table storage, queue storage, and file storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure virtual machine disks only.
+There are two types of storage accounts available:
 
-Storage accounts are bound to scalability targets. See [Microsoft Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
+- Standard storage account gives you access to blob storage (used for storing Azure VM disks), table storage, queue storage, and file storage
+- Premium storage delivers high-performance, low-latency disk support for I/O intensive workloads, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure VM disks only.
 
-Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, because the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
+Azure creates VMs with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. Take care when designing applications to only use this temporary disk for non-persistent data as the VM may be migrated between hosts during a maintenance event. Any data stored on the temporary disk would be lost.
 
-Operating system disks and data disks have a maximum size of 1023 gigabytes (GB) because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can implement disk striping in Windows to surpass this limit.
+Durability and high availability is provided by the underlying Azure Storage environment in order to ensure that your data remains protected against unplanned maintenance or hardware failures. As you design your Azure Storage environment, you can choose to replicate VM storage locally within a given Azure datacenter, across Azure datacenters within a given region, or even across Azure datacenters across different regions. You can read [more about the replication options for high availability](../storage/storage-introduction.md#replication-for-durability-and-high-availability).
+
+Operating system disks and data disks have a maximum size of 1023 gigabytes (GB) because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can use Logical Volume Manager (LVM) to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
+
+There are some scalability limits when designing your Azure Storage deployments - see [Microsoft Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md#storage-limits) for more details. Also see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
 
 ## Striped disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+Azure imposes limits on the amount of data disks and bandwidth available, depending on the VM size. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
 - Data disks should always be the maximum size (1023 GB)
-- Attach the maximum data disks allowed for the virtual machine size
-- Use storage spaces configuration
-- Use storage striping configuration
+- Attach the maximum data disks allowed for the VM size
+- Use LVM
 - Avoid using Azure data disk caching options (caching policy = None)
 
 For more information, see [Storage spaces - designing for performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ## Multiple storage accounts
 
-Using multiple storage accounts to back the disks associated with many virtual machines ensures that the aggregated I/O of those disks is well below the scalability targets for each one of those storage accounts.
+When designing out your Azure Storage environment, you can make use of multiple storage accounts as the number of VMs you deploy increases. This helps distribute out the I/O across the underlying Azure Storage infrastructure in order to maintain optimum performance for your VMs and applications. As you design the applications that will be deployed, consider the I/O requirements each VM will have and balance out those VMs across Azure Storage accounts. Try to avoid grouping all the high I/O demanding VMs being grouped together in just one or two accounts.
 
-We recommend that you start with the deployment of one virtual machine per storage account.
-
-## Storage layout design
-
-To implement these strategies to implement the disk subsystem of the virtual machines with good performance, an IT workload or infrastructure typically takes advantage of many storage accounts. These host many VHD blobs. In some instances, more than one blob is associated to one single volume in a virtual machine.
-
-This situation can add complexity to the management tasks. Designing a sound strategy for storage, including appropriate naming for the underlying disks and associated VHD blobs is key.
+For more information as to the I/O capabilities of the different Azure Storage options and some recommend maximums, see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
 
 ## Implementation guidelines recap for storage
 
 Decisions:
 
-- Do you need disk striping to create disks larger than 500 terabytes (TB)?
-- Do you need disk striping to achieve optimal performance for your workload?
+- Do you need to use Standard or Premium storage for your workload?
+- Do you need disk striping to create disks larger than 1023 GB?
+- Do you need disk striping to achieve optimal I/O performance for your workload?
 - What set of storage accounts do you need to host your IT workload or infrastructure?
 
 Task:
 
-- Create the set of storage accounts using your naming convention. You can use the Azure portal, the Azure classic portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
+- Review I/O demands of the applications you will be deploying and plan the appropriate number and type of storage accounts.
+- Create the set of storage accounts using your naming convention. You can use the Azure CLI or the portal.
 
 ## Next steps
 
-Now that you have read about Azure Availability Sets you can read up on the guidelines for other Azure services.
+Now that you have read about Azure storage you can read up on the guidelines for other Azure services.
 
+* [Azure Availability Sets Infrastructure Guidelines](virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
 * [Azure Cloud Services Infrastructure Guidelines](virtual-machines-linux-infrastructure-cloud-services-guidelines.md)
 * [Azure Subscription and Accounts Guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 * [Azure Infrastructure Naming Guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md)
 * [Azure Virtual Machines Guidelines](virtual-machines-linux-infrastructure-virtual-machine-guidelines.md)
 * [Azure Networking Infrastructure Guidelines](virtual-machines-linux-infrastructure-networking-guidelines.md)
-* [Azure Storage Solutions Infrastructure Guidelines](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md)
 * [Azure Example Infrastructure Walkthrough](virtual-machines-linux-infrastructure-example.md)
 
 Once you have reviewed the guidelines documents you can move over to the [Azure Concepts section](virtual-machines-linux-azure-overview.md) to start building your new infrastructure on Azure.
