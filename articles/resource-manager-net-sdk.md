@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
+   ms.date="06/21/2016"
    ms.author="navale;tomfitz;"/>
 
 # Azure Resource Manager SDK for .Net  
@@ -55,7 +55,7 @@ The authentication token can easily be acquired with the below lines of code, pa
 Application Client ID and the Azure AD Application Client Secret. Save the token for several requests since it by default is valid for 1 hour.
 
 ```csharp
-private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
+private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenantId, string clientId, string clientSecret)
 {
     Console.WriteLine("Aquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
@@ -64,7 +64,7 @@ private static AuthenticationResult GetAccessToken(string tenantId, string clien
 
     var credential = new ClientCredential(clientId, clientSecret);
 
-    var token = authContext.AcquireTokenAsync("https://management.azure.com/", credential).Result;
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", credential);
 
     Console.WriteLine($"Token: {token.AccessToken}");
     return token;
@@ -82,7 +82,7 @@ AuthenticationContext authContext = new AuthenticationContext
 You can get the access token for an Active Directory app that uses a certificate for authentication with:
 
 ```csharp
-private static AuthenticationResult GetAccessTokenFromCert(string tenantId, string clientId, string certName)
+private static async Task<AuthenticationResult> GetAccessTokenFromCertAsync(string tenantId, string clientId, string certName)
 {
     Console.WriteLine("Aquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
@@ -104,9 +104,9 @@ private static AuthenticationResult GetAccessTokenFromCert(string tenantId, stri
         store.Close();
     }
 
-    var certCred = new ClientAssertionCertificate(clientId, cert);
+    var certCredential = new ClientAssertionCertificate(clientId, cert);
 
-    var token = authContext.AcquireTokenAsync("https://management.azure.com/", certCred).Result;
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", certCredential);
 
     Console.WriteLine($"Token: {token.AccessToken}");
     return token;
