@@ -27,13 +27,13 @@ The Azure IoT Suite remote monitoring preconfigured solution demonstrates an app
 
 ## Context
 
-The remote monitoring preconfigured solution uses [Azure IoT Hub][lnk-iot-hub] to enable your devices to send data to the cloud. IoT Hub includes a [device identity registry][lnk-identity-registry] to control access to IoT Hub. The IoT Hub device identity registry is separate from the remote monitoring solution-specific device registry that stores device information metadata. The remote monitoring solution uses a [DocumentDB][lnk-docdb] database to store the device information metadata. The [Microsoft Azure IoT Reference Architecture][lnk-ref-arch] describes the role of the device registry in a typical IoT solution.
+The remote monitoring preconfigured solution uses [Azure IoT Hub][lnk-iot-hub] to enable your devices to send data to the cloud. IoT Hub includes a [device identity registry][lnk-identity-registry] to control access to IoT Hub. The IoT Hub device identity registry is separate from the remote monitoring solution-specific *device registry* that stores device information metadata. The remote monitoring solution uses a [DocumentDB][lnk-docdb] database to implement its device registry for storing device information metadata. The [Microsoft Azure IoT Reference Architecture][lnk-ref-arch] describes the role of the device registry in a typical IoT solution.
 
 > [AZURE.NOTE] The remote monitoring preconfigured solution keeps the device identity registry in sync with the device registry. Both use the same device id to uniquely identify each device connected to your IoT hub.
 
 ## Device information metadata
 
-A device information metadata JSON document stored in the DocumentDB database has the following structure:
+A device information metadata JSON document stored in the device registry DocumentDB database has the following structure:
 
 ```
 {
@@ -68,29 +68,37 @@ A device information metadata JSON document stored in the DocumentDB database ha
 
 ## Lifecycle
 
-When you first create a device in the solution portal, the solution creates an entry in the DocumentDB database as shown above. Much of the information is initially stubbed out and the **HubEnabledState** is set to **null**. At this point the solution also creates an entry in the for the device in the IoT Hub device identity registry which generates the keys the device uses to authenticate with IoT Hub.
+When you first create a device in the solution portal, the solution creates an entry in its device registry as shown above. Much of the information is initially stubbed out and the **HubEnabledState** is set to **null**. At this point the solution also creates an entry for the device in the IoT Hub device identity registry which generates the keys the device uses to authenticate with IoT Hub.
 
-When a device first connects to the solution, it sends a device information message. This device information message includes device properties such as the device manufacturer, model number, and serial number. A device information message also includes a list of the commands the device supports including information about any command parameters. When the solution receives this message, it updates the device information metadata in the solution device registry.
+When a device first connects to the solution, it sends a device information message. This device information message includes device properties such as the device manufacturer, model number, and serial number. A device information message also includes a list of the commands the device supports including information about any command parameters. When the solution receives this message, it updates the device information metadata its device registry.
 
 ### View and edit device information in the solution portal
 
-The device list in the solution portal displays the following device properties as columns: **Status**, **DeviceId**, **Manufacturer**, **Model Number**, **Serial Number**, **Firmware**, **Platform**, **Processor**, and **Installed RAM**. The device properties **Latitude** and **Longitude** drive the location in the Bing Map on the dashboard. If you click on **Edit** in the **Device Details** pane in the solution portal, you can edit all of these properties. Editing these properties updates the record for the device in the DocumentDB database; however, if a device sends an updated device info message, it overwrites any changes made in the solution portal. You cannot edit the **DeviceId**, **Hostname**, **HubEnabledState**, **CreatedTime**, **DeviceState**, and **UpdatedTime** properties in the solution portal because only the device has authority over these properties.
+The device list in the solution portal displays the following device properties as columns: **Status**, **DeviceId**, **Manufacturer**, **Model Number**, **Serial Number**, **Firmware**, **Platform**, **Processor**, and **Installed RAM**. The device properties **Latitude** and **Longitude** drive the location in the Bing Map on the dashboard. 
 
-You can use the solution portal to delete a device. When you delete a device, the solution removes the device information metadata from the solution device registry and deletes the device entry in the device identity registry.
+![Device list][img-device-list]
 
-## How the solution processes device information messages
+If you click on **Edit** in the **Device Details** pane in the solution portal, you can edit all of these properties. Editing these properties updates the record for the device in the DocumentDB database; however, if a device sends an updated device info message, it overwrites any changes made in the solution portal. You cannot edit the **DeviceId**, **Hostname**, **HubEnabledState**, **CreatedTime**, **DeviceState**, and **UpdatedTime** properties in the solution portal because only the device has authority over these properties.
 
-Device information messages sent by a device are distinct from telemetry messages in that they include information such as device properties, the commands a device can respond to, and any command history. IoT Hub itself has no knowledge of the metadata contained in a device information message and forwards the message in the same way it forwards any device-to-cloud message. In the remote monitoring solution, Azure Stream Analytics (ASA) receives the device information messages from IoT Hub. The **DeviceInfo** stream analytics job filters for messages that contain **"ObjectType": "DeviceInfo"** and forwards them to the **EventProcessorHost** host instance running in a web job. Logic in the **EventProcessorHost** instance uses the device id to find the DocumentDB record for the specific device and update the record. The record now includes information such as device properties, commands, and command history.
+![Device edit][img-device-edit]
+
+You can use the solution portal to remove a device from your solution. When you remove a device, the solution removes the device information metadata from the solution device registry and removes the device entry in the IoT Hub device identity registry. Before you can remove a device you must disable it.
+
+![Device remove][img-device-remove]
+
+## Device information message processing
+
+Device information messages sent by a device are distinct from telemetry messages in that they include information such as device properties, the commands a device can respond to, and any command history. IoT Hub itself has no knowledge of the metadata contained in a device information message and forwards the message in the same way it forwards any device-to-cloud message. In the remote monitoring solution, [Azure Stream Analytics][lnk-stream-analytics] (ASA) receives the device information messages from IoT Hub. The **DeviceInfo** stream analytics job filters for messages that contain **"ObjectType": "DeviceInfo"** and forwards them to the **EventProcessorHost** host instance that runs in a web job. Logic in the **EventProcessorHost** instance uses the device id to find the DocumentDB record for the specific device and update the record. The device registry record now includes information such as device properties, commands, and command history.
 
 > [AZURE.NOTE] A device information message is a standard device-to-cloud message. The solution distinguishes between device information messages and telemetry messages by using ASA queries.
 
-## Example device information metadata records
+## Example device information records
 
-The remote monitoring preconfigured solution uses two types of device information records: records for the simulated devices deployed with the solution and records for custom devices you connect to the solution.
+The remote monitoring preconfigured solution uses two types of device information records: records for the simulated devices deployed with the solution and records for the custom devices you connect to the solution.
 
 ### Simulated device
 
-The following is an example of the JSON record for a simulated device information record. The record includes some common device properties, defines the six commands the simulated devices support, and has the **IsSimulatedDevice** flag set to **1**.
+The following example shows a the JSON device information record for a simulated device. This record has a value set for **UpdatedTime** which indicates the device has sent a **DeviceInfo** message to IoT Hub. The record includes some common device properties, defines the six commands the simulated devices support, and has the **IsSimulatedDevice** flag set to **1**.
 
 ```
 {
@@ -172,7 +180,7 @@ The following is an example of the JSON record for a simulated device informatio
 
 ### Custom device
 
-The following is an example of the JSON record for a custom device information record and has the **IsSimulatedDevice** flag set to **0**. This record has a value set for **UpdatedTime** which indicates the device has sent a **DeviceInfo** message. You can also see that this custom device supports two commands and that the solution portal has sent a **SetTemperature** command to the device:
+The following example shows the JSON device information record for a custom device and has the **IsSimulatedDevice** flag set to **0**. You can see that this custom device supports two commands and that the solution portal has sent a **SetTemperature** command to the device:
 
 ```
 {
@@ -233,7 +241,7 @@ The following is an example of the JSON record for a custom device information r
 }
 ```
 
-The following shows the JSON **DeviceInfo** message the device sent and which updated the device information metadata:
+The following shows the JSON **DeviceInfo** message the device sent to update the device information metadata:
 
 ```
 { "ObjectType":"DeviceInfo",
@@ -254,9 +262,14 @@ You can read more about sending device information messages from your custom dev
 You can read more about how to customize the preconfigured solutions in [Customize a preconfigured solution][lnk-customize].
 
 <!-- Images and links -->
+[img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png
+[img-device-edit]: media/iot-suite-remote-monitoring-device-info/image2.png
+[img-device-remove]: media/iot-suite-remote-monitoring-device-info/image3.png
+
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-identity-registry]: https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#device-identity-registry
 [lnk-docdb]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-ref-arch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-connect-custom]: https://azure.microsoft.com/documentation/articles/iot-suite-connecting-devices/
 [lnk-customize]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
+[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
