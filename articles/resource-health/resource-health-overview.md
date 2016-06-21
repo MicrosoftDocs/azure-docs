@@ -66,6 +66,7 @@ Another API allows users to request the historical health of a single resource. 
 
 Before using the API to query Resource health, the subscription needs to be registered with the service by submitting a POST request to the following URL: 
 
+        // Register the subscription with the Resource health resource provider
         https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 Below are examples on how to call the Resource health API
