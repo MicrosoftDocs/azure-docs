@@ -5,10 +5,10 @@ Limits depend on the [pricing tier](https://azure.microsoft.com/pricing/details/
 **Resource** | **Default Limit** | **Maximum Limit**
 -------- | ------------- | -------------
 Session data points<sup>1, 2</sup> per month | unlimited | 
-Request, event, dependency, trace, exception, page view data points per month | 5 million | 50 million<sup>3</sup>
-[Trace or Log](../articles/application-insights/app-insights-search-diagnostic-logs.md) data rate | 200 dp/s | 500 dp/s
+Total data points per month for request, event, dependency, trace, exception, and page view | 5 million | 50 million<sup>3</sup>
+[Trace and Log](../articles/application-insights/app-insights-search-diagnostic-logs.md) data rate | 200 dp/s | 500 dp/s
 [Exception](../articles/application-insights/app-insights-asp-net-exceptions.md) data rate | 50 dp/s | 50 dp/s
-Other telemetry data rate | 200 dp/s | 500 dp/s
+Total data rate for request, event, dependency, and page view telemetry | 200 dp/s | 500 dp/s
 [Raw data](../articles/application-insights/app-insights-diagnostic-search.md) retention | 7 days
 [Aggregated data](../articles/application-insights/app-insights-metrics-explorer.md) retention | 90 days
 [Property](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
