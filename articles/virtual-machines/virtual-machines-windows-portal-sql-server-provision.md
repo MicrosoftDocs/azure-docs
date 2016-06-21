@@ -253,4 +253,4 @@ For other information about using SQL Server in Azure, see [SQL Server on Azure 
 
 For a video overview of SQL Server on Azure Virtual Machines, watch [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
-[Explore the Learning Path](https://azure.microsoft.com/en-us/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines.
+[Explore the Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines.
