@@ -129,7 +129,7 @@ For the purpose of this example, imagine that your existing DW on Standard Stora
 > [AZURE.NOTE] These settings will not carry over as part of the migration:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Next steps
 If you encounter any issues with your Data Warehouse, please [create a support ticket][] and reference “Migration to Premium Storage” as the possible cause.
