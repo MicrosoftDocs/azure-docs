@@ -20,8 +20,6 @@ ms.service="virtual-machines-windows"
 
 The following benchmark scores show compute performance for Azure's high performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](virtual-machines-linux-compute-benchmark-scores.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 Windows numbers were computed by running [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) on Windows Server. SPECint was run using the base rate option (SPECint_rate2006), with one copy per core. SPECint consists of 12 separate tests, each run three times, taking the median value from each test and weighting them to form a composite score.  Those were then run across multiple VMs to provide the average scores shown.
 
 
@@ -35,7 +33,7 @@ Standard_A9 | 16 | 2 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz | 10 | 450.3 | 7.0
 Standard_A10 | 8 | 1 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz | 5 | 235.6 | 0.9
 Standard_A11 | 16 | 2 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz |7 | 454.7 | 4.8
 
-### Dv2-series
+## Dv2-series
 
 
 Size | vCPUs | NUMA nodes | CPU | Runs | Avg base rate | StdDev

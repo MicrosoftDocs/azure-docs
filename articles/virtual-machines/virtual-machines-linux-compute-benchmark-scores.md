@@ -20,8 +20,6 @@ ms.service="virtual-machines-linux"
 
 The following benchmark scores show compute performance for Azure's high performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](virtual-machines-windows-compute-benchmark-scores.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 Linux numbers were computed by running [CoreMark](http://www.eembc.org/coremark/faq.php) on Ubuntu. CoreMark was configured with the number of threads set to the number of virtual CPUs and concurrency set to PThreads. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer), with the final score representing the number of iterations completed divided by the number of seconds it took to run the test.  Each test was run at least seven times on each VM.  Tests were run in October 2015 on multiple VMs in every Azure public region the VM was supported in on the date run.
 
 
