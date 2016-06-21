@@ -74,10 +74,10 @@ An **access token** contain claims. Claims are assertions (facts) about the subj
 
 For example, the "scope" (scp) claim provides the permission(s) granted to a delegated client application, limiting the operations the client application can perform on behalf of the resource owner. The actual values contained in the scope claim are based on the list of space-delimited case-sensitive strings defined by resource server. 
 
-See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details. [AAD-Security-Token-Claims]
+See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 
 ### client application  
-See [OAuth2 Authorization Framework roles][oauth2-authorization-framework-roles]
+See [OAuth2 Authorization Framework roles](#oauth2-authorization-framework-roles)
 
 ### consent
 The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's **service principal** is also recorded in the tenant of the consenting user.
