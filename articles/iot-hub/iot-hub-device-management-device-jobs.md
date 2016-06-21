@@ -3,7 +3,7 @@
 	description="Azure IoT Hub for device management tutorial describing how to use device jobs to perform operations such as remote firmware update."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Tutorial: How to use device jobs to update device firmware (preview)
 
