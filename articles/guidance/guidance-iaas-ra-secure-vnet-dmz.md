@@ -3,8 +3,8 @@
    description="How to implement a secure hybrid network architecture with Internet access in Azure."
    services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network"
    documentationCenter="na"
-   authors="JohnPWSharp"
-   manager="telmosampaio"
+   authors="telmosampaio"
+   manager="roshar"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
-   ms.author="v-josha"/>
+   ms.date="06/08/2016"
+   ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with Internet access in Azure
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for implementing a secure hybrid network that extends your on-premises network to Azure, but that also needs to provide access to requests arriving from the public Internet. This architecture extends that described in the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
+This article describes best practices for implementing a secure hybrid network that extends your on-premises network to Azure, but also accepts traffic from the public Internet. This architecture extends that described in the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments. 
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
 Typical use cases for this architecture include:
 
@@ -31,11 +31,9 @@ Typical use cases for this architecture include:
 
 - Infrastructure that requires a more granular control over traffic entering an Azure VNet from a public network such as the Internet.
 
-An [Azure Resource Manager (ARM) template][azuredeploy] is available that you can use as a starting point to implement the architecture described in this document.
-
 ## Architecture diagram
 
-The following diagram highlights the important components in this architecture (*click to zoom in*). This document focusses on the structures required for securing the network for controlled access from the Internet. For more information about the greyed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]:
+The following diagram highlights the important components in this architecture (*click to zoom in*). For more information about the greyed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]:
 
 [![0]][0]
 
@@ -45,27 +43,27 @@ The following diagram highlights the important components in this architecture (
 
 - **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, WAN optimization (including network compression), custom routing, or a variety of other operations.
 
-- **Public DMZ inbound subnet.** This subnet faces the Azure load balancer. Incoming requests received through this subnet pass to one of the NVAs.
+- **Public DMZ inbound network.** This network faces the Azure load balancer. Incoming requests received through this network pass to one of the NVAs.
 
-- **Public DMZ outbound subnet.** This subnet is on the application side of the NVAs. Requests that are approved by the NVA pass through this subnet to the internal load balancer for the web tier.
+- **Public DMZ outbound network.** This network is on the application side of the NVAs. Requests that are approved by the NVA pass through this network to the internal load balancer for the web tier.
 
-Taken together, the public DMZ inbound subnet, NVAs, and public DMZ outbound subnet constitute a security perimeter for handling all requests arriving from the Internet.
+Taken together, the public DMZ inbound network, NVAs, and public DMZ outbound network constitute a security perimeter for handling all requests arriving from the Internet.
 
 ## Recommendations
 
-This section summarizes recommendations for providing public access to the application running in the cloud, covering:
+This section summarizes recommendations for providing public access to the application running in Azure, covering:
 
 - Using a separate set of NVAs to handle traffic received from the Internet.
 
-- Configuration of the public load balancer,
+- Configuration of the public load balancer.
 
 - Routing Internet traffic to the web tier through the NVAs in the public DMZ.
 
-For information and recommendations about the gateway, elements in the private DMZ, the management and monitoring subnet, and the application subnets, refer to the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
+For information and recommendations about the gateway, elements in the private DMZ, the management and monitoring subnet, and the application subnets, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
 
 ### NVA separation recommendations ###
 
-The traffic received from the Internet may need to be handled differently and be subjected to more stringent security checks than requests received from the on-premises network. Rather than try and route all on-premises and public traffic through the same set of NVAs, it is preferable to implement separate sets of NVAs, effectively creating different security perimeters. This approach reduces the complexity of the security checking, making configuration less error-prone as each set of NVAs can be focussed on specific types of traffic (Intranet or Internet). Additionally, the routing performed by the NVAs in the public security perimeter is significantly different from that provided by the NVAs in the private security perimeter.
+Internet traffic may need to be handled differently requests from the on-premises network, and be subjected to more stringent security checks. Rather than route all on-premises and public traffic through the same set of NVAs, it is preferable to implement separate sets of NVAs, effectively creating different security perimeters. This approach reduces the complexity of the security checking, making configuration less error-prone, because each set of NVAs can be focussed on specific types of traffic (intranet or Internet). Additionally, the routing performed by the NVAs in the public security perimeter is significantly different from that provided by the NVAs in the private security perimeter.
 
 ### Public load balancer recommendations ###
 
@@ -75,25 +73,25 @@ Do not open ports in the load balancer unnecessarily. For example, consider rest
 
 ### Public DMZ routing recommendations ###
 
-The web tier comprises VMs fronted by a internal load balancer. You should not expose any of these items directly to the Internet; all traffic should pass through the NVAs in the security perimeter. Configure the NVAs to route validated incoming requests to the internal load balancer for the web tier. This routing should be transparent to the users making the requests. For example, if the NVAs are Linux VMs, you can use the [iptables][iptables] command to filter incoming traffic and implement NAT routing to direct it through the public outbound DMZ subnet to the internal load balancer for the web tier.
+The web tier comprises VMs fronted by a internal load balancer. You should not expose any of these items directly to the Internet; all traffic should pass through the NVAs in the security perimeter. Configure the NVAs to route validated incoming requests to the internal load balancer for the web tier. This routing should be transparent to the users making the requests. For example, if the NVAs are Linux VMs, you can use the [iptables][iptables] command to filter incoming traffic and implement NAT routing to direct it through the public outbound DMZ network to the internal load balancer for the web tier.
 
 ## Solution components
 
-The solution provided for this architecture utilizes the same ARM templates as those for the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], with the following additions:
+The solution provided for this architecture uses the same ARM templates as those for the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], with the following additions:
 
-- [azuredeploy.json][azuredeploy]. This is an extended version of the template used by the architecture described in [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]. This template creates the additional subnets for the public security perimeter (inbound and outbound).
+- [azuredeploy.json][azuredeploy]. This is an extended version of the template that creates . It creates the additional subnets for the public security perimeter (inbound and outbound).
 
 - [ibb-dmz.json][ibb-dmz]. This template creates the public IP address, load balancer, and NVAs for the public security perimeter. Note that the public IP address is statically allocated, as are the IP addresses for the NVAs. 
 
 > [AZURE.NOTE] Best practice is to use static IP addresses for NVAs; using dynamic addresses can cause them to change if the VM is deprovisioned and restarted. 
 
-The solution also includes a bash script named [azuredeploy.sh][azuredeploy-script] that invokes invokes the templates to construct the system.
+The solution also includes a bash script named [azuredeploy.sh][azuredeploy-script] that deploys the templates.
 
 The following sections provide more details on the key resources created for this architecture by the templates.
 
 ### Load balancing the NVAs in the public security perimeter ###
 
-The [ibb-dmz.json][ibb-dmz] template creates the NVAs for the security perimeter in an availability set. An Azure load balancer with a public IP address distributes requests to ports 80 and 443 across the availability set. The JSON snippet below shows how the template creates the load balancer. In this snippet, the publicIPAddressID parameter contains the public IP address of the load balancer, and the variable ilbBEName refers to the availability set containing the NVA VMs. The lbFEId and lbBEId variables referenced by the load balancing rules hold the internal IDs of these items.
+The [ibb-dmz.json][ibb-dmz] template creates the NVAs for the security perimeter in an availability set. An Azure load balancer with a public IP address distributes requests to ports 80 and 443 across the availability set. The JSON snippet below shows how the template creates the load balancer. In this snippet, the `publicIPAddressID` parameter contains the public IP address of the load balancer, and the variable `ilbBEName` refers to the availability set containing the NVA VMs. The `lbFEId` and `lbBEId` variables referenced by the load balancing rules hold the internal IDs of these items.
 
 ```
 "type": "Microsoft.Network/loadBalancers",
@@ -196,9 +194,9 @@ DEBIAN_FRONTEND=noninteractive aptitude install -y -q iptables-persistent
 update-rc.d iptables-persistent defaults
 ```
 
-The first two lines configure IP forwarding for the NICs; traffic received in the NIC associated with the public DMZ inbound subnet will be passed to the NIC attached to the public DMZ outbound subnet. The next block configures NAT routing to direct incoming traffic on ports 80 and 443 to the internal load balancer for the web tier at address 10.0.1.254. The final three lines save these changes using the iptables-persistent service and ensure that the configuration is restored whenever the machine restarts.
+The first two lines configure IP forwarding for the NICs. Traffic received in the NIC associated with the public DMZ inbound subnet will be passed to the NIC attached to the public DMZ outbound subnet. The next block configures NAT routing to direct incoming traffic on ports 80 and 443 to the internal load balancer for the web tier at address 10.0.1.254. The final three lines save these changes using the iptables-persistent service and ensure that the configuration is restored whenever the machine restarts.
 
-> [AZURE.NOTE] Remember that the IP addresses for the NVAs are allocated statically. This is important, as it means that the IP routing tables saved by using the iptables-persistent package will still be valid even if the VMs are de-provisioned and restarted.
+> [AZURE.NOTE] The IP addresses for the NVAs are allocated statically. This is important, as it means that the IP routing tables saved by using the iptables-persistent package will still be valid even if the VMs are de-provisioned and restarted.
 
 ## Deploying the sample solution
 
@@ -302,7 +300,11 @@ To run the script that deploys the solution:
 
 ### Customizing the solution
 
-You can modify the following variables in the [azuredeploy.sh][azuredeploy-script]. The script passes these variables as parameters to the [ibb-dmz.json][ibb-dmz] template:
+Before invoking each template, the [azuredeploy.sh][azuredeploy-script] script creates an inline JSON object named *PARAMETERS* which is passed to the template. The template uses this object to configure the resources created by the template. Most of the parameters are populated from variables defined in the script.
+
+> [AZURE.NOTE] Change the values of the variables rather than the PARAMETERS object. If you modify the PARAMETERS object directly, or try to add or remove parameters, the template might not run correctly. Also, do not modify parameters not specified in the following sections. 
+
+You can modify the following parameters referenced by the [ibb-dmz.json][ibb-dmz] template:
 
 - **ADMIN_USER_NAME** and **ADMIN_PASSWORD**. The login credentials to use for the NVAs.
 
@@ -312,7 +314,7 @@ You can modify the following variables in the [azuredeploy.sh][azuredeploy-scrip
 
 ## Availability considerations
 
-The load balancer requires each NVA to provide a health endpoint. An NVA that fails to respond on this endpoint is considered to be unavailable, and the load balancer will direct requests to other NVAs in the same availability set. If all NVAs fail to respond, the system becomes unavailable. Therefore, the more NVAs you deploy, the greater the availability of the system.
+The load balancer requires each NVA to provide a health endpoint. An NVA that fails to respond on this endpoint is considered to be unavailable, and the load balancer will direct requests to other NVAs in the same availability set. If all NVAs fail to respond, the system becomes unavailable. Therefore, the more NVAs you deploy, the greater the availability of the system. For more information, see [Load Balancer probes][lb-probe].
 
 You can implement simple health checking by installing a service such as Apache on each NVA; the default Apache configuration will respond to requests received on port 80. If necessary, you can implement a custom service that performs more comprehensive checking of the state of the NVA to establish that it is functioning correctly.
 
@@ -328,11 +330,11 @@ This architecture provides three points of defence:
 
 ## Scalability considerations
 
-Do not connect the PIP directly to an NVA, even if the NVA availability set only contains a single device and there is no immediate need for a load balancer. This approach enables you to more easily add NVAs in the future without the need to reconfigure the system. It can also provide increased protection.
+Do not connect the PIP directly to an NVA, even if the NVA availability set only contains a single device and there is no immediate need for a load balancer. This approach makes it easier to add NVAs in the future without reconfiguring the system. It can also provide increased protection.
 
 ## Monitoring considerations
 
-The NVAs in the public security perimeter should not be directly accessible to the Internet. Use the resources in the management subnet to connect to the NVAs and perform monitoring. The example in the [Architecture diagram][architecture] section depicts a jump box which provides access to DevOps staff, and a separate monitoring server. Depending on the size of the network and the monitoring workload, the jump box and monitoring server could be combined into a single machine, or monitoring functions could be spread across several VMs.
+The NVAs in the public security perimeter should not be directly accessible to the outside world. Use the resources in the management subnet to connect to the NVAs and perform monitoring. The example in the [Architecture diagram][architecture] section depicts a jump box which provides access to DevOps staff, and a separate monitoring server. Depending on the size of the network and the monitoring workload, the jump box and monitoring server could be combined into a single machine, or monitoring functions could be spread across several VMs.
 
 If the NVAs are protected by using NSG rules, it may also be necessary to open port 22 (for SSH access), or any other ports used by management and monitoring tools to enable requests from the data management subnet.
 
@@ -346,13 +348,14 @@ If the NVAs are protected by using NSG rules, it may also be necessary to open p
 [security]: #security
 [recommendations]: #recommendations
 [vpn-failover]: ./guidance-hybrid-network-expressroute-vpn-failover.md
-[cli-install]: https://azure.microsoft.com/documentation/articles/xplat-cli-install
+[cli-install]: ../xplat-cli-install.md
 [github-desktop]: https://desktop.github.com/
 [ra-vpn]: ./guidance-hybrid-network-vpn.md
 [ra-expressroute]: ./guidance-hybrid-network-expressroute.md
 [implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
-[network-security-group]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[availability-set]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/
+[lb-probe]: ../load-balancer/load-balancer-custom-probe-overview.md
+[network-security-group]: ../virtual-network/virtual-networks-nsg.md
+[availability-set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [iptables]: https://help.ubuntu.com/community/IptablesHowTo
 [azuredeploy-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/azuredeploy.sh
 [azuredeploy]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-iaas-ra-pub-dmz/Templates/ra-secure-vnet-pub-dmz/azuredeploy.json
