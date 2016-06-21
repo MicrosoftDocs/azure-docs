@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Single Sign On SAML Protocol | Microsoft Azure"
-	description="This article describes the Single Sign On SAML profile in Azure Active Directory"
+	description="This article describes the Single Sign On SAML protocol in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Single Sign-On SAML protocol

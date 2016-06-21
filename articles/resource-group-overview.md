@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/27/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -127,10 +127,10 @@ Azure Resource Manager supports cross-origin resource sharing (CORS). With CORS,
 
 ## Next steps
 
-- To learn about creating templates, see [Authoring templates](resource-group-authoring-templates.md)
-- To deploy the template you created, see [Deploying templates](resource-group-template-deploy.md)
+- For a simple introduction to working with templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
+- For a more thorough walkthrough of creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
 - To understand the functions you can use in a template, see [Template functions](resource-group-template-functions.md)
-- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md)
+- For information about using Visual Studio with Resource Manager, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 Here's a video demonstration of this overview:
 

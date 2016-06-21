@@ -75,7 +75,7 @@ To create any Azure service client you must use the **ServicesBuilder** class. Y
 For the examples outlined here, the connection string is passed directly.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 	
@@ -91,7 +91,7 @@ You can perform management operations for Service Bus topics via the **ServiceBu
 The following example shows how to instantiate a **ServiceBusRestProxy** and call **ServiceBusRestProxy->createTopic** to create a topic named `mytopic` within a `MySBNamespace` namespace:
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -126,7 +126,7 @@ Topic subscriptions are also created with the **ServiceBusRestProxy->createSubsc
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named 'mysubscription' and uses the default **MatchAll** filter.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -192,7 +192,7 @@ To send a message to a Service Bus topic, your application calls the **ServiceBu
 `MySBNamespace` service namespace.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -250,7 +250,7 @@ In **PeekLock** mode, receiving a message becomes a two stage operation, which m
 The following example shows how to receive and process a message using **PeekLock** mode (not the default mode). 
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -303,7 +303,7 @@ To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic*
 The following example shows how to delete a topic named `mytopic` and its registered subscriptions.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\ServiceBus\ServiceBusService;
 use WindowsAzure\ServiceBus\ServiceBusSettings;

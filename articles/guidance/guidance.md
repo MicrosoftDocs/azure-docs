@@ -116,33 +116,45 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 We're creating a new set of guidance we're calling _reference architectures_. Each reference architecture offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these reference architectures, and some are available for preview. We're very intereseted in your feedback.
 
-- [Running a Single Windows VM on Azure][ref-arch-single-vm-windows]
-- [Running multiple Windows VM instances on Azure (single tier, Internet-facing)][ref-arch-multi-vm-windows]
-- [Running Windows VMs for an N-tier architecture on Azure][ref-arch-3-tier-windows]
-- [Adding reliability to an N-tier architecture on Azure (Windows VMs)][ref-arch-n-tier-windows]
-- [Running Windows VMs in multiple datacenters on Azure][ref-arch-multi-dc]
-- [Extending an on-premises network to Azure using a site-to-site virtual private network][ref-arch-hybrid-network-vpn]
-- [Implementing a highly available hybrid network architecture in Azure by using failover between ExpressRoute and VPN gateway](guidance-hybrid-network-expressroute-vpn-failover.md)
+Running virtual machines on Azure:
+
+- [Running a Windows VM on Azure][ref-arch-single-vm-windows]
+- [Running a Linux VM on Azure][ref-arch-single-vm-linux]
+- [Running multiple VMs for scalability and availability][ref-arch-multi-vm-windows]
+- [Running VMs for an N-tier architecture][ref-arch-3-tier-windows]
+- [Adding reliability to an N-tier architecture][ref-arch-n-tier-windows]
+- [Running VMs in multiple datacenters for high availability][ref-arch-multi-dc]
+
+Hybrid network architectures:
+
+- [Implementing a hybrid network architecture with Azure and on-premises VPN][ref-arch-hybrid-network-vpn]
+- [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
+- [Implementing a secure hybrid network architecture in Azure](guidance-iaas-ra-secure-vnet-hybrid.md)
+
+Web applications (PaaS):
+
+- [Basic web application](guidance-web-apps-basic.md)
+- [Improving scalability in a web application](guidance-web-apps-scalability.md)
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
 [PerformanceOptimization]: https://github.com/mspnp/performance-optimization
 
-[APIDesign]: ../best-practices-api-design/
-[APIImplementation]: ../best-practices-api-implementation/
-[AutoscalingGuidance]: ../best-practices-auto-scaling/
-[BackgroundJobsGuidance]: ../best-practices-background-jobs/
-[CDNGuidance]: ../best-practices-cdn/
-[CachingGuidance]: ../best-practices-caching/
-[DataPartitioningGuidance]: ../best-practices-data-partitioning/
-[MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring/
-[RetryGeneralGuidance]: ../best-practices-retry-general/
-[RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific/
+[APIDesign]: ../best-practices-api-design.md
+[APIImplementation]: ../best-practices-api-implementation.md
+[AutoscalingGuidance]: ../best-practices-auto-scaling.md
+[BackgroundJobsGuidance]: ../best-practices-background-jobs.md
+[CDNGuidance]: ../best-practices-cdn.md
+[CachingGuidance]: ../best-practices-caching.md
+[DataPartitioningGuidance]: ../best-practices-data-partitioning.md
+[MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring.md
+[RetryGeneralGuidance]: ../best-practices-retry-general.md
+[RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific.md
 [RetryPolicies]: Retry-Policies.md
-[ScalabilityChecklist]: ../best-practices-scalability-checklist/
-[AvailabilityChecklist]: ../best-practices-availability-checklist/
-[naming-conventions]: ../guidance-naming-conventions/
+[ScalabilityChecklist]: ../best-practices-scalability-checklist.md
+[AvailabilityChecklist]: ../best-practices-availability-checklist.md
+[naming-conventions]: guidance-naming-conventions.md
 
 <!-- guidance projects -->
 [elasticsearch]: guidance-elasticsearch.md
@@ -150,6 +162,7 @@ We're creating a new set of guidance we're calling _reference architectures_. Ea
 
 <!-- reference architectures -->
 [ref-arch-single-vm-windows]: guidance-compute-single-vm.md
+[ref-arch-single-vm-linux]: guidance-compute-single-vm-linux.md
 [ref-arch-multi-vm-windows]: guidance-compute-multi-vm.md
 [ref-arch-3-tier-windows]: guidance-compute-3-tier-vm.md
 [ref-arch-n-tier-windows]: guidance-compute-n-tier-vm.md

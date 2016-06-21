@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="04/27/2016"
-    ms.author="jimpark; markgal"/>
+    ms.author="jimpark; markgal;genli"/>
 
 # Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
 
@@ -109,7 +109,7 @@ If the backup extension still fails to update or load, you can force the VMSnaps
 
 ### To uninstall the extension
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 2. Locate the particular VM that has backup problems.
 3. Click **Settings**.
 4. Click **Extensions**.

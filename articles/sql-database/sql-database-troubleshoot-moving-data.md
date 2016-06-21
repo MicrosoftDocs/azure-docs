@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Move databases between servers, between subscriptions, and in and out of Azure
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 ##To move a database to a different server in the same subscription
 - In the [Azure Portal](https://portal.azure.com), click **SQL databases**, select a database from the list, and then click **Copy**. See [Copy an Azure SQL database](sql-database-copy.md) for more detail.
 

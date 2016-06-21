@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Reference in Analytics in Application Insights" 
+	pageTitle="Reference in Analytics in Application Insights | Microsoft Azure" 
 	description="Reference for statements in Analytics, 
 	             the powerful search tool of Application Insights. " 
 	services="application-insights" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -23,32 +23,23 @@
  Analytics query lanquage.
 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+## Index
 
-| | | | | 
-|---|---|---|---|---
-|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[summarize op](#summarize-operator)
-|[ago](#ago)|[dayofyear](#dayofyear)|[join op](#join-operator)|[range](#range)|[take op](#take-operator)
-|[any](#any)|[dcount](#dcount)|[JSON Path expressions](#json-path-expressions)|[range op](#range-operator)|[todatetime](#todatetime)
-|[argmax](#argmax)|[dcountif](#dcountif)|[let clause](#let-clause)|[reduce op](#reduce-operator)|[todouble](#todouble)
-|[argmin](#argmin)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[limit op](#limit-operator)|[render directive](#render-directive)|[todynamic](#todynamic)
-|[Arithmetic ops](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
-|[Array and object literals](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[restrict clause](#restrict-clause)|[tolong](#tolong)
-|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Scalar comparisons](#scalar-comparisons)|[tolower](#tolower)
-|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[sort op](#sort-operator)|[top op](#top-operator)
-|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[top-nested op](#top-nested-operator)
-|[Boolean Literals](#boolean-literals)|[extend op](#extend-operator)|[mvexpand op](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
-|[Boolean ops](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Casts](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
-|[count](#count)|[getmonth](#getmonth)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[union op](#union-operator)
-|[count op](#count-operator)|[gettype](#gettype)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
-|[countif](#countif)|[getyear](#getyear)|[parse op](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
-|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[where op](#where-operator)
-|[Date and time expressions](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[String Literals](#string-literals)
-|[Date and time literals](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
-|[datepart](#datepart)|[isnotempty](#isnotempty)|[project op](#project-operator)|[substring](#substring)
-|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[project-away op](#project-away-operator)|[sum](#sum)
+**Queries and operators** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [let clause](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
+
+**Scalars** [Boolean Literals](#boolean-literals) | [Boolean operators](#boolean-operators) | [Casts](#casts) | [Scalar comparisons](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
+
+**Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+
+**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+
+
 
 
 
@@ -64,7 +55,7 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](##scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](#scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
 
 Queries may contain single line breaks, but are terminated by a blank line. They may contain comments between `//` and end of line.
 
@@ -351,8 +342,13 @@ Splits an exception record into rows for each item in the details field.
 
 ### parse operator
 
-    T | parse "I got socks for my birthday when I was 63 years old" 
-    with * "got" present "for" * "was" year:long * 
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
+
+
+    T | parse kind=relaxed
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
 
     T |  parse kind=regex "I got socks for my 63rd birthday" 
     with "(I|She) got" present "for .*?" year:long * 
@@ -369,6 +365,7 @@ Extracts values from a string. Can use simple or regular expression matching.
 * `T`: The input table.
 * `kind`: 
  * `simple` (default): the `Match` strings are plain strings.
+ * `relaxed`: if the text doesn't parse as the type of a column, the column is set to null and the parse continues 
  * `regex`: the `Match` strings are regular expressions.
 * `Text`: A column or other expression that evaluates to or can be converted to a string.
 * *Match:* Match the next part of the string, and discard it.
@@ -384,11 +381,11 @@ The elements in the `with` clause are matched against the source text in turn. E
 
 * A literal string or regular expression moves the matching cursor by the length of the match.
 * In a regex parse, a regular expression can use the minimization operator '?' to move as soon as possible to the following match.
-* A column name with a type parses the text as the specified type.
+* A column name with a type parses the text as the specified type. Unless kind=relaxed, an unsuccessful parse invalidates matching the whole pattern.
 * A column name without a type, or with the type 'string', copies the minimum number of characters to get to the following match.
-* '*' Skips the minimum number of characters to get to the following match. You can use '*' at the start and end of the pattern, or after a type other than string, or between string matches.
+* ' * ' Skips the minimum number of characters to get to the following match. You can use '*' at the start and end of the pattern, or after a type other than string, or between string matches.
 
-
+All of the elements in a parse pattern must match correctly; otherwise, no results will be produced. The exception to this rule is that when kind=relaxed, if parsing a typed variable fails, the rest of the parse continues.
 
 **Examples**
 
@@ -398,10 +395,12 @@ The elements in the `with` clause are matched against the source text in turn. E
 
 // Test without reading a table:
  range x from 1 to 1 step 1 
- | parse "I got socks for my birthday when I was 63 years old" 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
     with 
      *   // skip until next match
      "got" 
+     counter: long // read a number
+     " " // separate fields
      present // copy string up to next match
      "for" 
      *  // skip until next match
@@ -410,9 +409,38 @@ The elements in the `with` clause are matched against the source text in turn. E
      *  // skip rest of string
 ```
 
-x | present | Year
+x | counter | present | Year
+---|---|---|---
+1 | 2 | socks | 63
+
+*Relaxed:*
+
+When the input contains a correct match for every typed column, a relaxed parse produces the same results as a simple parse. But if one of the typed columns doesn't parse correctly, a relaxed parse continues to process the rest of the pattern, whereas a simple parse stops and fails to generate any result.
+
+
+```AIQL
+
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
+```
+
+
+x  | present | Year
 ---|---|---
-1 | socks | 63
+1 |  socks | 63
 
 
 *Regex:*
@@ -986,7 +1014,7 @@ Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predic
 
 **Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
 
-> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
+> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points retained in Application Insights will be less than the number of original events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
 
 ### countif
 
@@ -1080,15 +1108,25 @@ Calculates the minimum of *Expr*.
 
 <a name="percentile"></a>
 <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentilew"></a>
+<a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
 Returns an estimate for *Expression* of the specified percentile in the group. The accuracy depends on the density of population in the region of the percentile.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Like `percentile()`, but calculates a number of percentile values (which is faster than calculating each percentile individually).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Weighted percentile. Use this for pre-aggregated data.  `WeightExpression` is an integer that indicates how many original rows are represented by each aggregated row.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Like `percentilew()`, but calculates a number of percentile values.
 
 **Examples**
 
@@ -1113,7 +1151,6 @@ Simultaneously calculate several percentiles for different request names:
 
 The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
 
-
 Calculate multiple statistics:
 
     requests 
@@ -1123,7 +1160,43 @@ Calculate multiple statistics:
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Estimation error in percentiles
+#### Weighted percentiles
+
+Use the weighted percentile functions in cases where the data has been pre-aggregated. 
+
+For example, suppose your app performs many thousands of operations per second, and you want to know their latency. The simple solution would be to generate an Application Insights request or custom event for each operation. This would create a lot of traffic, although adaptive sampling would take effect to reduce it. But you decide to implement an even better solution: you will write some code in your app to aggregate the data before sending it to Application Insights. The aggregated summary will be sent at regular intervals, reducing the data rate perhaps to a few points per minute.
+
+Your code takes a stream of latency measurements in milliseconds. For example:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+It counts the measurements in the following bins: `{ 10, 20, 30, 40, 50, 100 }`
+
+Periodically, it makes a series of TrackEvent calls, one for each bucket, with custom measurements in each call: 
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+In Analytics, you see one such group of events like this:
+
+`opCount` | `latency`| meaning
+---|---|---
+8 | 10 | = 8 operations in the 10ms bin
+6 | 20 | = 6 operations in the 20ms bin
+3 | 30 | = 3 operations in the 30ms bin
+1 | 40 | = 1 operations in the 40ms bin
+
+To get an accurate picture of the original distribution of event latencies, we use `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+The results are the same as if we had used plain `percentiles` on the original set of measurements.
+
+> [AZURE.NOTE] Weighted percentiles are not applicable to [sampled data](app-insights-sampling.md), where each sampled row represents a random sample of original rows, rather than a bin. The plain percentile functions are appropriate for sampled data.
+
+#### Estimation error in percentiles
 
 The percentiles aggregate provides an approximate value using [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf). 
 
@@ -1348,7 +1421,6 @@ The evaluated argument. If the argument is a table, returns the first column of 
 
 
 
-## Boolean 
 
 ### Boolean Literals
 
@@ -2089,7 +2161,7 @@ Converts a string to upper case.
 
 
 
-## GUIDs
+### GUIDs
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -2199,7 +2271,7 @@ T
 ```
 
 
-## Dynamic object functions
+### Dynamic object functions
 
 |||
 |---|---|
@@ -2408,7 +2480,7 @@ An array of path expressions.
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
 
-## Names
+### Names
 
 Names can be up to 1024 characters long. They are case-sensitive and may contain letters, digits and underscores (`_`). 
 

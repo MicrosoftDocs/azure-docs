@@ -3,7 +3,7 @@
     description="Learn how to use PowerShell to manage an elastic database pool."  
 	services="sql-database" 
     documentationCenter="" 
-    authors="stevestein" 
+    authors="srinia" 
     manager="jhubbard" 
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/10/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Monitor and manage an elastic database pool with PowerShell 
 

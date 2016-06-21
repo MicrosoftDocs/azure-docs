@@ -4,15 +4,15 @@
 	keywords="elastic database,sql databases"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="srinia"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/23/2016"
-	ms.author="sidneyh"
+	ms.date="05/27/2016"
+	ms.author="srinia"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -22,7 +22,7 @@
 
 Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
-> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US, Brazil South, West India, India South and China North where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US, Brazil South, West India, and China North where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
 
 ## How it works
 

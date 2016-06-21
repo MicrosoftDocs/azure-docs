@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # Overview of Service Fabric
 Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications. By using Service Fabric, developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
@@ -24,9 +24,9 @@ Service Fabric enables you to build and manage scalable and reliable application
 
 Why is a microservices approach important? The two main reasons are:
 
-1. They enable you to scale different parts of your application depending on its needs
+1. They enable you to scale different parts of your application depending on its needs.
 
-2. Development teams are able to be more agile in rolling out changes and thereby provide features to your customers faster and more frequently. 
+2. Development teams are able to be more agile in rolling out changes and thereby provide features to your customers faster and more frequently.
 
 Service Fabric powers many Microsoft services today, including Azure SQL Database, Azure DocumentDB, Cortana, Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT, Skype for Business, and many core Azure services to name a few.
 
@@ -39,7 +39,7 @@ Service Fabric provides comprehensive runtime and lifecycle management capabilit
 For more on the microservices approach read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 
 ## Create Service Fabric clusters anywhere
-You can create Service Fabric clusters in many environments to deploy your applications to. This can be in Azure or on premises, on Windows Server or on Linux. In addition the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it will deploy to the same cluster in other environments. 
+You can create Service Fabric clusters in many environments to deploy your applications to. This can be in Azure or on premises, on Windows Server or on Linux. In addition the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it will deploy to the same cluster in other environments.
 
 For more information read [Deploy anywhere on Windows Server or Linux with Service Fabric](service-fabric-deploy-anywhere.md)
 
@@ -62,7 +62,7 @@ Service Fabric provides first-class support for the full application lifecycle m
 
 The Service Fabric ALM capabilities enable application administrators/IT operators to use simple, low-touch workflows to provision, deploy, patch, and monitor applications. These built-in workflows greatly reduce the burden on IT operators to keep applications continuously available.
 
-Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes that are deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances, each of which can be managed and upgraded independently. Importantly, Service Fabric is able to deploy *any* executables or runtime and make these reliable. For example, it can be used to deploy ASP.NET Core 1, node.js, Java VMs, scripts, or anything else that makes up your application.
+Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes that are deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances, each of which can be managed and upgraded independently. Importantly, Service Fabric is able to deploy *any* executables or runtime and make these reliable. For example, it can be used to deploy ASP.NET Core 1, Node.js, Java VMs, scripts, or anything else that makes up your application.
 
 For more information on application lifecycle management, read [Application lifecycle](service-fabric-application-lifecycle.md) and on deploying any code see [Deploy a guest executable](service-fabric-deploy-existing-app.md)
 
@@ -71,7 +71,7 @@ By using Service Fabric, you can:
 
 - Develop massively scalable applications that are self-healing.
 
-- Develop applications composed of microservices, using the Service Fabric programmming model, or simply host guest executables, and other application frameworks of your choice, such as ASP.NET Core 1, node.js, etc.
+- Develop applications composed of microservices, using the Service Fabric programming model, or simply host guest executables, and other application frameworks of your choice, such as ASP.NET Core 1, Node.js, etc.
 
 - Develop stateless and stateful microservices and make these highly reliable.
 
@@ -83,7 +83,7 @@ By using Service Fabric, you can:
 
 - Deploy applications in seconds.
 
-- Deploy applications at higher density than virtual machines, deploying hundreds or thousand of applications per machine.
+- Deploy applications at higher density than virtual machines, deploying hundreds or thousands of applications per machine.
 
 - Deploy different versions of the same application side by side, each independently upgradable.
 
@@ -103,8 +103,8 @@ By using Service Fabric, you can:
 ## Next steps
 
 * For more information:
-	* [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
-	* [Terminology overview](service-fabric-technical-overview.md)
+    * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
+    * [Terminology overview](service-fabric-technical-overview.md)
 * Setting up your Service Fabric [development environment](service-fabric-get-started.md)  
 * [Choosing a programming model framework](service-fabric-choose-framework.md) for your service
 

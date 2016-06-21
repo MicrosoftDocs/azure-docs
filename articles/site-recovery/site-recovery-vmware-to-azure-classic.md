@@ -43,7 +43,7 @@ This article includes contains instructions for an enhanced deployment in the cl
 
 The enhanced deployment is a major update. Here's a summary of the improvements we've made:
 
-- **No infrastructure VMs in Azure**: Data replicates directly to an Azure storage account. In addition for replication and failover there's no set up any infrastructure VMs (configuration server, master target server) as we needed in the legacy deployment.  
+- **No infrastructure VMs in Azure**: Data replicates directly to an Azure storage account. In addition for replication and failover there's no need to set up any infrastructure VMs (configuration server, master target server) as we needed in the legacy deployment.  
 - **Unified installation**: A single installation provides simple setup and scalability for on-premises components.
 - **Secure deployment**: All traffic is encrypted and replication management communications are sent over HTTPS 443.
 - **Recovery points**: Support for crash and application-consistent recovery points for Windows and Linux environments, and supports both single VM and multi-VM consistent configurations.

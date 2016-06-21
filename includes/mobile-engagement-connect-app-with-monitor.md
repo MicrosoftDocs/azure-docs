@@ -8,7 +8,7 @@ This section shows you how to connect your app to the Mobile Engagement backend 
 
 3. The monitor is ready to show you any device in real time, which will start your app.
 	 
-4. Start your app either in the emulator/simulator or on a connected device. You should see one session in the monitor if your integration is correct which means that your app is now connected to the Mobile Engagement backend and is sending data to it.  
+4. Start your app now. You should see one session in the monitor if your integration is correct which means that your app is now connected to the Mobile Engagement backend and is sending data to it.  
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="06/01/2016"
 	ms.author="banders"/>
 
 # Optimize your environment with the Active Directory Assessment solution in Log Analytics
@@ -36,12 +36,15 @@ After you've added the solution and an assessment is completed, summary informat
 ## Installing and configuring the solution
 Use the following information to install and configure the solutions.
 
+- Agents must be installed on domain controllers that are members of the domain to be evaluated.
 - The Active Directory Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
 - Add the Active Directory Assessment solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
     >[AZURE.NOTE] After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
 
-## Assessment data collection details
+## Active Directory Assessment data collection details
+
+Active Directory Assessment collects WMI data, registry data, and performance data using the agents that you have enabled.
 
 The following table shows data collection methods for agents, whether Operations Manager (SCOM) is required, and how often data is collected by an agent.
 

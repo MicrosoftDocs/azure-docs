@@ -36,6 +36,7 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[Can I configure an OAUth 2.0 Authorization Server with ADFS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[What routing method does API Management use when deployed to multiple geographic locations?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[Can I create an API Management service instance using an ARM template?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
+-	[Can I use a self-signed SSL certificate for a backend?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 
 
 
@@ -138,3 +139,11 @@ API Management uses the [Performance traffic routing method](../traffic-manager/
 ### Can I create an API Management service instance using an ARM template?
 
 Yes, see the [Azure API Management Service](http://aka.ms/apimtemplate) quickstart templates.
+
+### Can I use a self-signed SSL certificate for a backend
+
+Yes. Please follow below steps:
+
+1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity using the Management API
+2. Set the skipCertificateChainValidation property to true
+3. Once you no longer want to allow self-signed certificate, you can delete the Backend entity or set the skipCertificateChainValidation property to false

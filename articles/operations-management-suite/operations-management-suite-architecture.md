@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Operations Management Suite (OMS) architecture | Microsoft Azure"
-   description="Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  This article identifies the different services included in OMS and provides links to their detailed content."
+   description="Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  This article identifies the different services included in OMS and provides links to their detailed content."
    services="operations-management-suite"
    documentationCenter=""
    authors="bwren"
@@ -9,7 +9,7 @@
 <tags 
    ms.service="operations-management-suite"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/16/2016"
@@ -17,7 +17,7 @@
 
 # OMS architecture
 
-[Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) is a collection of cloud based services for managing your on-premise and cloud environments.  This article describes the different on-premise and cloud components of OMS and their high level cloud computing architecture.  You can refer to the documentation for each service for further details.
+[Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) is a collection of cloud-based services for managing your on-premises and cloud environments.  This article describes the different on-premises and cloud components of OMS and their high level cloud computing architecture.  You can refer to the documentation for each service for further details.
 
 ## Log Analytics
 
@@ -29,14 +29,14 @@ All data collected by [Log Analytics](https://azure.microsoft.com/documentation/
 
 Data sources define the data that Log Analytics collects from connected sources including event logs and performance counters.  Solutions add functionality to OMS and can easily be added to your workspace from the [OMS Solutions Gallery](../log-analytics/log-analytics-add-solutions.md).  Some solutions may require a direct connection to Log Analytics from SCOM agents while others may require an additional agent to be installed.
 
-Log Analytics has a web based portal that you can use to manage OMS resources, add and configure OMS solutions, and view and analyze data in the OMS repository.
+Log Analytics has a web-based portal that you can use to manage OMS resources, add and configure OMS solutions, and view and analyze data in the OMS repository.
 
 ![Log Analytics high level architecture](media/operations-management-suite-architecture/log-analytics.png)
 
 
 ## Azure Automation
 
-[Azure Automation runbooks](http://azure.microsoft.com/documentation/services/automation) are executed in the Azure cloud and can access resources that are in Azure, in other cloud services, or accessible from the public Internet.  You can also designate on-premise machines in your local data center using [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) so that runbooks can access local resources.
+[Azure Automation runbooks](http://azure.microsoft.com/documentation/services/automation) are executed in the Azure cloud and can access resources that are in Azure, in other cloud services, or accessible from the public Internet.  You can also designate on-premises machines in your local data center using [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) so that runbooks can access local resources.
 
 [DSC configurations](../automation/automation-dsc-overview.md) stored in Azure Automation can be directly applied to Azure virtual machines.  Other physical and virtual machines can request configurations from the Azure Automation DSC pull server.
 
@@ -51,7 +51,7 @@ Protected data in [Azure Backup](http://azure.microsoft.com/documentation/servic
 Azure Backup has three fundamental scenarios.
 
 - Windows machine with Azure Backup agent.  This allows you to backup files and folders from any Windows server or client directly to your Azure backup vault.  
-- System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server.  Server. This allows you to leverage DPM or Microsoft Azure Backup Server to backup files and folders in addition to application workloads such as SQL and SharePoint to local storage and then replicate to your Azure backup vault.
+- System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server. This allows you to leverage DPM or Microsoft Azure Backup Server to backup files and folders in addition to application workloads such as SQL and SharePoint to local storage and then replicate to your Azure backup vault.
 - Azure Virtual Machine Extensions.  This allows you to backup Azure virtual machines to your Azure backup vault.
 
 Azure Backup has an OMS solution that displays statistics and links to launch the Azure portal for any operations.

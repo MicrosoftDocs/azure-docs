@@ -92,7 +92,7 @@ If you will be creating these Azure SQL resources again or a similar ones, you c
 - Save this as a PowerShell script file (*.ps1)
 - Save this as an Azure automation runbook in the Automation section of the Azure Classic Portal 
 
-## Next Steps
+## Next steps
 
 Combine commands and automate. For example, replace everything within the quotes, including the < and > characters, with your values to create a server, firewall rule and database:
 

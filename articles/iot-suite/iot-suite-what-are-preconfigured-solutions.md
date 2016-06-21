@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/25/2016"
  ms.author="dobett"/>
 
 # What are the Azure IoT Suite preconfigured solutions?
@@ -28,13 +28,13 @@ Each preconfigured solution is a complete, end-to-end implementation using simul
 
 In addition to deploying and running the solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
 
-> [AZURE.NOTE] To deploy one of the preconfigured solutions, visit [Microsoft Azure IoT Suite][lnk-azureiotsuite]. The article [Get started with the IoT preconfigured solutions][lnk-preconf-get-started] provides more informatin about how to deploy and run one of the solutions.
+> [AZURE.NOTE] To deploy one of the preconfigured solutions, visit [Microsoft Azure IoT Suite][lnk-azureiotsuite]. The article [Get started with the IoT preconfigured solutions][lnk-preconf-get-started] provides more information about how to deploy and run one of the solutions.
 
 The following table shows how the solutions map to specific IoT features:
 
 | Solution | Data Ingestion | Device Identity | Command and Control | Rules and Actions | Predictive Analytics |
 |------------------------|-----|-----|-----|-----|-----|
-| [Remote monitoring][lnk-remote-monitoring] | Yes | Yes | Yes | Yes | -   |
+| [Remote monitoring][lnk-preconf-get-started] | Yes | Yes | Yes | Yes | -   |
 | [Predictive maintenance][lnk-predictive-maintenance] | Yes | Yes | Yes | Yes | Yes |
 
 - *Data ingestion*: Ingress of data at scale to the cloud.
@@ -53,7 +53,7 @@ The following diagram illustrates the key elements of the remote monitoring solu
 
 ## Devices
 
-When you deploy the remote monitoring preconfigured solution, four simulated devices are pre-provisioned in the solution that simulate a cooling device. These simulated devices have a built in temperature and humidity model that emits telemetry. These simulated devices are included to illustrate the end-to-end flow of data through the solution, and to provide a convenient source of telemetry and a target for commands if you are a back-end developer using the solution as a starting point for a custom implementation.
+When you deploy the remote monitoring preconfigured solution, four simulated devices are pre-provisioned in the solution that simulate a cooling device. These simulated devices have a built-in temperature and humidity model that emits telemetry. These simulated devices are included to illustrate the end-to-end flow of data through the solution, and to provide a convenient source of telemetry and a target for commands if you are a back-end developer using the solution as a starting point for a custom implementation.
 
 When a device first connects to IoT Hub in the remote monitoring preconfigured solution, the device information message sent to the IoT hub enumerates the list of commands that the device can respond to. In the remote monitoring preconfigured solution, the commands are: 
 
@@ -124,13 +124,12 @@ Explore these resources to learn more about IoT preconfigured solutions:
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: event-hubs-programming-guide.md#event-processor-host
-[lnk-web-job]: web-sites-create-web-jobs.md
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
 [lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
-[lnk-identity-registry]: iot-hub-devguide.md#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md

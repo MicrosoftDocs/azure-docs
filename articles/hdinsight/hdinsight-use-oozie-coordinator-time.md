@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/26/2016"
 	ms.author="jgao"/>
 
 
 # Use time-based Oozie coordinator with Hadoop in HDInsight to define workflows and coordinate jobs
 
-In this article, you'll learn how to define workflows and coordinators, and how to trigger the coordinator jobs, based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before you read this article. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory](../data-factory/data-factory-data-transformation-activities.md).
+In this article, you'll learn how to define workflows and coordinators, and how to trigger the coordinator jobs, based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before you read this article. In addition to Oozie, you can also schedule jobs using Azure Data Factory. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory](../data-factory/data-factory-data-transformation-activities.md).
 
 > [AZURE.NOTE] This article requires a Windows-based HDInsight cluster. For information on using Oozie, including time-based jobs, on a Linux-based cluster, see [Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight](hdinsight-use-oozie-linux-mac.md)
 
-##<a id="whatisoozie"></a>What is Oozie
+##What is Oozie
 
 Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, such as Java programs or shell scripts.
 
@@ -57,7 +57,7 @@ The workflow contains two actions:
 > [AZURE.NOTE] For supported Oozie versions on HDInsight clusters, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
 
 
-##<a id="prerequisites"></a>Prerequisites
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
@@ -65,9 +65,7 @@ Before you begin this tutorial, you must have the following:
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-    To execute Windows PowerShell scripts, you must run Azure PowerShell as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
-
-- **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Provision HDInsight clusters][hdinsight-provision], or [Get started with HDInsight][hdinsight-get-started]. You will need the following data to go through the tutorial:
+- **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Create HDInsight clusters][hdinsight-provision], or [Get started with HDInsight][hdinsight-get-started]. You will need the following data to go through the tutorial:
 
 	<table border = "1">
 	<tr><th>Cluster property</th><th>Windows PowerShell variable name</th><th>Value</th><th>Description</th></tr>
@@ -94,7 +92,7 @@ Before you begin this tutorial, you must have the following:
 > [AZURE.NOTE] Fill-in the values in the tables. It will be helpful for going through this tutorial.
 
 
-##<a id="defineworkflow"></a>Define Oozie workflow and the related HiveQL script
+##Define Oozie workflow and the related HiveQL script
 
 Oozie workflows definitions are written in hPDL (an XML process definition language). The default workflow file name is *workflow.xml*.  You will save the workflow file locally, and then deploy it to the HDInsight cluster by using Azure PowerShell later in this tutorial.
 
@@ -241,7 +239,7 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 
 2. Save the file as **C:\Tutorials\UseOozie\coordinator.xml** by using the ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.)
 
-##<a id="deploy"></a>Deploy the Oozie project and prepare the tutorial
+##Deploy the Oozie project and prepare the tutorial
 
 You will run an Azure PowerShell script to perform the following:
 
@@ -379,7 +377,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
 	![Tutorial preparation output][img-preparation-output]
 
-##<a id="run"></a>Run the Oozie project
+##Run the Oozie project
 
 Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the **Invoke-RestMethod** cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight cluster version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight cluster version 2.1).
 
@@ -687,7 +685,7 @@ Here is a sample Windows PowerShell script that you can use:
 	$conn.close()
 
 
-##<a id="nextsteps"></a>Next steps
+##Next steps
 In this tutorial, you learned how to define an Oozie workflow and an Oozie coordinator, and how to run an Oozie coordinator job by using Azure PowerShell. To learn more, see the following articles:
 
 - [Get started with HDInsight][hdinsight-get-started]
