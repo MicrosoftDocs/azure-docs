@@ -240,7 +240,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 <a name="cache-benchmarking"></a>
 ### How can I benchmark and test the performance of my cache?
 
--	[Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+-	[Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 -	You can use redis-benchmark.exe to load test your Redis server.
 -	Ensure that the load testing client and the Redis cache are in the same region.
 -	Use redis-cli.exe and monitor the cache using the INFO command.
@@ -310,7 +310,7 @@ Enabling server GC can optimize the client and provide better performance and th
 <a name="cache-monitor"></a>
 ### How do I monitor the health and performance of my cache?
 
-Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
+Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](cache-how-to-monitor.md).
 
 The **Support + troubleshooting** section of the Redis Cache **Settings** blade also contains several tools for monitoring and troubleshooting your caches. 
 
