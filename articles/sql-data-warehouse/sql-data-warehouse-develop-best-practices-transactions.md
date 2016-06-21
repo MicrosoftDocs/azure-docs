@@ -407,16 +407,16 @@ The best scenario is to let in flight data modification transactions complete pr
 
 ## Next steps
 
-See [Transactions in SQL Data Warehouse][] to learn more about isolation levels and transactional limits.  
-To learn more about transaction in 
+See [Transactions in SQL Data Warehouse][] to learn more about isolation levels and transactional limits.  For and overview of other Best Practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
-<!--ACOM references-->
+<!--Article references-->
 [Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
 [table partition]: ./sql-data-warehouse-develop-table-partitions.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [alter index]:https://msdn.microsoft.com/library/ms188388.aspx
