@@ -21,12 +21,7 @@
 This article contains definitions for a list of core Azure Active Directory (AD) development concepts. These are helpful during when learning about Azure AD [application development][AAD-Dev-Guide], including [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
 
 ### access token  
-A type of security token used by a [client application][#client-application] to access a protected resource, serving as a form of credential, typically in the form of a JSON Web Token (JWT). The token embodies/encapsulates delegated permissions from the **resource owner** and the applicable claims about the subject, enabling the client application to use it as a form of credential in order to access a given resource. Examples of claims:  
-
-- Authentication Methods References (amr): provided by OpenID Connect, specifies authentication method identifiers
-- Scope (scp): scope of desired access specified by delegated client, limiting what the resource owner can do when operating through client; list of space-delimited case-sensitive strings defined by resource server (can use to identify an App+User token, delegated client) 
-
-See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
+A type of security token used by a [client application](#client-application) to access a protected resource, serving as a form of credential, typically in the form of a JSON Web Token (JWT). The token embodies/encapsulates delegated permissions from the **resource owner** and the applicable claims about the subject, enabling the client application to use it as a form of credential in order to access a given resource. 
 
 ### active / passive client  
 Used to define whether the client application is involved in generating the user interface:  
@@ -66,6 +61,14 @@ A credential representing the resource owner's authorization to access its prote
 - client credentials: App authenticates,Client owns the resource(s) -> App-Only Access Token
 - implicit: used by SPA, simplified Authorization Code, client gets Access Token directly, no Authorization Code
 - resource owner password credentials (aka: user Ccedentials) : RO provides username/password to Client to get token directly; only supported in AAD for native clients
+
+## claim
+An **access token** contain claims. Claims are assertions about the subject that have been authenticated by the **authorization server** (ie: Azure AD). The claims present in a given security token are dependent upon the type of token, the type of credential used to authenticate the subject, and the application configuration. Examples of claims include:  
+
+- Authentication Methods References (amr): provided by OpenID Connect, specifies authentication method identifiers
+- Scope (scp): scope of desired access specified by delegated client, limiting what the resource owner can do when operating through client; list of space-delimited case-sensitive strings defined by resource server (can use to identify an App+User token, delegated client) 
+
+See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 
 ## client application  
  The SaaS application that requests authorization from a resource owner to participate in an OAuth2 authorization grant flow, to access APIs/data on their behalf. We will cover examples of both a Web client application accessed from a browser, and a Native client application installed on a device, which need to access the customer tenant's Graph API to access directory data on behalf of the signed in user. 
