@@ -214,18 +214,7 @@ Because each client is different, there is not one centralized class reference o
 
 ## Security
 
--	[Security best practices](#TODO)
 -	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
-
-## Security best practices
-
-- By default Azure Redis Cache is secure
-- Use SSL
-- Use Stunnel and then connect using redis tools such as redis-cli
-- Use Access Key
-- Storing data inside Redis - Customer controls what data is stored.
-- Use VNET to further enhance isolation and access
-- Compliance
 
 <a name="cache-ssl"></a>
 ### When should I enable the non-SSL port for connecting to Redis?
@@ -244,14 +233,6 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 -	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 -	[Important details about ThreadPool growth](#important-details-about-threadpool-growth)
 -	[Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
-
-### Production best practices
-
-•Use SSL
-•Use connectionstring correctly
-•Use VNET
-
-
 
 
 <a name="cache-redis-commands"></a>
@@ -351,7 +332,7 @@ These tools enable you to monitor the health of your Azure Redis Cache instances
 <a name="cache-timeouts"></a>
 ### Why am I seeing timeouts?
 
-Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
+Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
 ### Why was my client disconnected from the cache?
