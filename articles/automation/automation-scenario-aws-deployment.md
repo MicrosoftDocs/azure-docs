@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
+   ms.date="06/21/2016"
    ms.author="tiandert; bwren" />
 
 # Azure Automation scenario - provision an AWS virtual machine 
@@ -74,14 +74,14 @@ Once the AWS PowerShell Module has been deployed, we can now author a runbook to
 		#Sample to get the AWS VM available images
 		#Please provide the path where you have downloaded the AWS PowerShell module
 		Import-Module AWSPowerShell
-		$AWSRegion = "us-west-2"
-		$AWSCred = Get-Credential
-		$AWSAccessKeyId = $AWSCred.UserName
-		$AWSSecretKey = $AWSCred.GetNetworkCredential().Password
+		$AwsRegion = "us-west-2"
+		$AwsCred = Get-Credential
+		$AwsAccessKeyId = $AwsCred.UserName
+		$AwsSecretKey = $AwsCred.GetNetworkCredential().Password
 
 		# Set up the environment to access AWS
-		Set-AWSCredentials -AccessKey $AWSAccessKeyId -SecretKey $AWSSecretKey -StoreAs AWSProfile
-		Set-DefaultAWSRegion -Region $AWSRegion
+		Set-AwsCredentials -AccessKey $AwsAccessKeyId -SecretKey $AwsSecretKey -StoreAs AWSProfile
+		Set-DefaultAWSRegion -Region $AwsRegion
 
 		Get-EC2ImageByName -ProfileName AWSProfile
    The following output is returned:<br>
@@ -93,7 +93,7 @@ Once the AWS PowerShell Module has been deployed, we can now author a runbook to
 ### Testing the AWS VM runbook
 Before we proceed with testing the runbook, we need to verify a few things. Specifically:
 
-   -  An asset for authenticating against AWS has been created and named **AWScred** or the script has been updated to reference the name of your credential asset.  
+   -  An asset for authenticating against AWS has been created called **AWScred** or the script has been updated to reference the name of your credential asset.  
    -  The AWS PowerShell module has been imported in Azure Automation
    -  A new runbook has been created and parameter values have been verified and updated where necessary
    -  **Log verbose records** and optionally **Log progress records** under the runbook setting **Logging and tracing** have been set to **On**.<br> ![Runbook Logging and Tracing](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)
