@@ -20,13 +20,20 @@
 
 > [AZURE.SELECTOR]
 - [Overview][]
+- [Data Types][]
 - [Distribute][]
 - [Index][]
 - [Partition][]
-- [Data Types][]
 - [Statistics][]
+- [Temporary][]
 
 ## Introduction to distributed tables
+
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  This is an important core concept...
+
+It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By dividing the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.
+
+When a table is created in SQL Data Warehouse, it is actually spread across all of the the distributions.
 
 Making smart hash distribution decisions is one of the most important ways to improve query performance.  
 
@@ -417,11 +424,12 @@ To learn more about table design, see the [Distribute][], [Index][], [Partition]
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Distribute][] ./sql-data-warehouse-tables-distribute.md
-[Index][] ./sql-data-warehouse-tables-index.md
-[Partition][] ./sql-data-warehouse-tables-partition.md
-[Data Types][] ./sql-data-warehouse-tables-data-types.md
-[Statistics][] ./sql-data-warehouse-tables-statistics.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
