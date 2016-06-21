@@ -25,11 +25,10 @@ A type of security token used by a [client application](#client-application) to 
 
 [TODO] Discuss App+User and App-Only
 
-### active / passive client  
-Used to define whether the client application is involved in generating the user interface:  
+### active client  
+Used to define whether the client application is involved in generating the user interface. An active client has a user interface that is rendered by a native application, or where there is no user interface at all. 
 
-- active client: The user interface that is rendered by a native application, or where there is no user interface at all 
-- passive client: The user interface is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render.
+Compared to a [passive client](#passive-client) which has user interface that is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render.
 
 ### application manifest  
 An Azure classic portal concept, which provides a JSON representation of the application's identity configuration, and used as a mechanism for updating the application entity and it's related service principal entity. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
@@ -83,10 +82,15 @@ We will use the [OAuth 2.0 "Authorization Code" grant flow][OAuth2-AuthZ-Code-Gr
 The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's **service principal** is also recorded in the tenant of the consenting user.
 
 ### ID token
-An [OpenID Connect security token][[OpenIDConnect-ID-Token]] that contains claims about the authentication of an End-User resource owner by an Authorization Server (when using a client application to access resources), and potentially other requested claims. Like a security token, ID tokens are also represented as a [JSON Web Token (JWT)][JWT]. 
+An [OpenID Connect security token][OpenIDConnect-ID-Token]] that contains [claims](#claim) pertaining to the authentication of an End-User resource owner by an [authorization server](#authorization-server), when using a client application to access resources), by an Authorization Server, and potentially other requested claims. Like an access token, ID tokens are also represented as a [JSON Web Token (JWT)][JWT]. 
 
 **multi-tenant application**  
 A type of client application registered in Azure AD, that is designed to permit sign ins from user accounts that are provisioned in any Azure AD tenant, including ones other than the one where the application itself is registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. 
+
+### passive client  
+Used to define whether the client application is involved in generating the user interface. A passive client has a user interface that is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render.
+
+Compared to an [active client](#active-client), which has a user interface that is rendered by a native application, or where there is no user interface at all. 
 
 **permissions / scopes**  
 When we refer to permissions in general, or permission scopes in particular, we are referring to the available permissions that a Web API has declared through it's Azure AD configuration. These are the same permission definitions a client application must declare in it's Azure AD configuration in order to access the API. <br/><br/>These permissions will be surfaced to the resource owner/user during the consent process, so they know what they are granting the client permission to access on their behalf. For a detailed discussion of the permission scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes].
