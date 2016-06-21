@@ -1,5 +1,5 @@
 <properties
-   pageTitle="ExpressRoute troubleshooting guide--Getting ARP tables | Microsoft Azure"
+   pageTitle="ExpressRoute troubleshooting guide: Getting ARP tables | Microsoft Azure"
    description="This page provides instructions for getting the ARP tables for an ExpressRoute circuit."
    documentationCenter="na"
    services="expressroute"
@@ -15,13 +15,13 @@
    ms.date="06/06/2016"
    ms.author="ganesr"/>
 
-# ExpressRoute troubleshooting guide--Getting ARP tables in the classic deployment model
+# ExpressRoute troubleshooting guide: Getting ARP tables in the classic deployment model
 
 > [AZURE.SELECTOR]
 [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resourcemanager.md)
 [PowerShell - Classic](expressroute-troubleshooting-arp-classic.md)
 
-This article walks you through the steps for getting the ARP tables for your Azure ExpressRoute circuit.
+This article walks you through the steps for getting the Address Resolution Protocol (ARP) tables for your Azure ExpressRoute circuit.
 
 >[AZURE.IMPORTANT] This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. If you are can't solve the problem by using the following guidance, open a support request with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -132,9 +132,9 @@ The ARP table of a peering can be used to validate Layer 2 configuration and con
 
 ### ARP table when a circuit is in an operational (expected) state
 
- - The ARP table has an entry for the on-premises side with a valid IP  and MAC address, and a similar entry for the Microsoft side.
+ - The ARP table has an entry for the on-premises side with a valid IP and MAC address, and a similar entry for the Microsoft side.
  - The last octet of the on-premises IP address is always an odd number.
- - The last octet of the Microsoft IP address is always be an even number.
+ - The last octet of the Microsoft IP address is always an even number.
  - The same MAC address appears on the Microsoft side for all three peerings (primary/secondary).
 
 
