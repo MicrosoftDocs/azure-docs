@@ -152,7 +152,7 @@ This script can be run on any machine that has admin access to all the machines 
 ```
 ## Next steps
 
-How to create a secure cluster, also be sure to secure it:
+Understanding Cluster Security:
 - [Cluster security](service-fabric-cluster-security.md)
 
 Read the following to get started on app development and deployment:
