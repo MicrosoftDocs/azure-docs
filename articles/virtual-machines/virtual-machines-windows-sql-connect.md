@@ -96,4 +96,6 @@ To see provisioning instructions along with these connectivity steps, see [Provi
 
 It is important to review all of the security best practices for SQL Server running on an Azure virtual machine. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
+[Explore the Learning Path](https://azure.microsoft.com/en-us/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines.
+
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md). 
