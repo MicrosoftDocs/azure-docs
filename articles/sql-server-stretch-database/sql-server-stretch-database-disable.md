@@ -57,7 +57,7 @@ If you simply want to pause data migration, see [Pause and resume Stretch Databa
     This command can't be canceled.
 
     ```tsql
-		USE <Stretch-enabled database name>;
+	USE <Stretch-enabled database name>;
     GO
     ALTER TABLE <Stretch-enabled table name>  
        SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;
