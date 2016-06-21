@@ -346,7 +346,7 @@ Splits an exception record into rows for each item in the details field.
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
-    T | parse kind="relaxed"
+    T | parse kind=relaxed
           "I got no socks for my birthday when I was 63 years old" 
     with * "got" counter:long " " present "for" * "was" year:long * 
 

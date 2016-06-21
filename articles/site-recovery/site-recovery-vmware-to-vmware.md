@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="raynew"/>
+	ms.date="06/14/2016"
+	ms.author="nisoneji"/>
 
 
 # Replicate on-premises VMware virtual machines or physical servers to a secondary site

@@ -12,15 +12,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/08/2016"
+	ms.date="06/14/2016"
 	ms.author="magoedte;bwren" />
 
 
 # Runbook and module galleries for Azure Automation
 
-Rather than creating your own runbooks and modules in Azure Automation, you can access a variety of solutions that have already been built by Microsoft and the community.  You can either use these solution without modification or you can use them as a starting point and edit them for your specific requirements.
+Rather than creating your own runbooks and modules in Azure Automation, you can access a variety of scenarios that have already been built by Microsoft and the community.  You can either use these scenarios without modification or you can use them as a starting point and edit them for your specific requirements.
 
-You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) and modules from the [PowerShell Gallery](#modules-in-powerShell-gallery).  You can also contribute to the community by sharing solutions that you develop.
+You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) and modules from the [PowerShell Gallery](#modules-in-powerShell-gallery).  You can also contribute to the community by sharing scenarios that you develop.
 
 ## Runbooks in Runbook Gallery
 
@@ -68,7 +68,7 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 
 - You must specify *Windows Azure* for the **Category** and *Automation* for the **Subcategory** for the runbook to be displayed in the wizard.  
 
-- The upload must be a single .ps1 or .graphrunbook file.  If the runbook requires any modules, child runbooks, or assets, then you should list those in the description of the submission and in the comments section of the runbook.  If you have a solution requiring multiple runbooks, then upload each separately and list the names of the related runbooks in each of their descriptions. Make sure that you use the same tags so that they will show up in the same category. A user will have to read the description to know that other runbooks are required the solution to work.
+- The upload must be a single .ps1 or .graphrunbook file.  If the runbook requires any modules, child runbooks, or assets, then you should list those in the description of the submission and in the comments section of the runbook.  If you have a scenario requiring multiple runbooks, then upload each separately and list the names of the related runbooks in each of their descriptions. Make sure that you use the same tags so that they will show up in the same category. A user will have to read the description to know that other runbooks are required the scenario to work.
 
 - Add the tag "GraphicalPS" if you are publishing a **Graphical runbook** (not a Graphical Workflow). 
 

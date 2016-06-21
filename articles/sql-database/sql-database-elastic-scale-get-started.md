@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	manager="jhubbard" 
 	authors="ddove" 
-	editor="sidneyh"/>
+	editor="carlrabeler"/>
 
 <tags 
 	ms.service="sql-database" 

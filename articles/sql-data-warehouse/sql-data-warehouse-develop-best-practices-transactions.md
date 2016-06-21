@@ -420,7 +420,7 @@ For more development tips and content related to the examples shown please refer
 - [Table partitioning][]
 - [Concurrency][]
 - [CTAS][]
-- [RENAME OBJECT][]
+- [RENAME (Transact-SQL)][]
 
 <!--Image references-->
 
@@ -431,7 +431,8 @@ For more development tips and content related to the examples shown please refer
 [table partition]: sql-data-warehouse-develop-table-partitions.md
 [Concurrency]: sql-data-warehouse-develop-concurrency.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
-[RENAME OBJECT]: sql-data-warehouse-develop-rename.md
+
 
 <!--MSDN references-->
-[alter index]:https://msdn.microsoft.com/en-us/library/ms188388.aspx
+[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
+[RENAME (Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx

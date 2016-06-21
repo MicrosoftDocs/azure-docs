@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
+   ms.date="06/17/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Restore an Azure SQL Data Warehouse  (PowerShell)
@@ -80,7 +80,8 @@ $RestoredDatabase.status
 
 ```
 
-After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+
 
 ## Restore a deleted database
 
@@ -116,7 +117,8 @@ $RestoredDatabase.status
 
 ```
 
-After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+
 
 ## Restore from an Azure geographical region
 
@@ -146,14 +148,8 @@ $GeoRestoredDatabase.status
 
 ```
 
-### Configure your database after performing a geo-restore
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
-This is a checklist to help get your recovered database production ready.
-
-1. **Update Connection Strings**: Verify connection strings of your client tools are pointing to the newly recovered database.
-2. **Modify Firewall Rules**: Verify the firewall rules on the target server and make sure connections from your client computers or Azure to the server and the newly recovered database are enabled.
-3. **Verify Server Logins and Database Users**: Verify if all the logins used by your application exist on the server which is hosting your recovered database. Re-create the missing logins and grant them appropriate permissions on the recovered database. 
-4. **Enable Auditing**: If auditing is required to access your database, you need to enable Auditing after the database recovery.
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 
@@ -171,6 +167,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[Finalize a recovered database]: ./sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx

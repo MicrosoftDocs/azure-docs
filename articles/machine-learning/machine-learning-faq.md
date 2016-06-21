@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="06/13/2016"
 	ms.author="garye"/>
 
 # Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -51,7 +51,9 @@ For billing and pricing information, see [Machine Learning Pricing](https://azur
 
 **Does Machine Learning have a free trial?**
 
- When you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about the Azure free trial, visit [Azure Free Trial FAQ](/pricing/free-trial-faq/).
+ Azure Machine Learning has a free subscription option (see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) for details), and Machine Learning Studio has an 8-hour quick evaluation trial available (log in to [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) for this trial).
+ 
+ In addition, when you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about the Azure free trial, visit [Azure Free Trial FAQ](/pricing/free-trial-faq/).
 
 ## Machine Learning Studio questions
 
@@ -226,7 +228,7 @@ See [Retrain Machine Learning models programmatically](machine-learning-retrain-
 
 **How do I monitor my web service deployed in production?**
 
-Once a predictive model has been deployed, you can monitor it from the Azure classic portal. Each deployed service has its own dashboard where you can see monitoring information for that service.
+Once a predictive model has been deployed, you can monitor it from the Azure classic portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information on managing your deployed web services, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 
 **Is there a place where I can see the output of my RRS/BES?**
 
