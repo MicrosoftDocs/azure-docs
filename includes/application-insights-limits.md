@@ -4,8 +4,8 @@ Limits depend on the [pricing tier](https://azure.microsoft.com/pricing/details/
 
 **Resource** | **Default Limit** | **Maximum Limit**
 -------- | ------------- | -------------
-Session data points<sup>1</sup> per month | unlimited | 
-Other data points per month | 5 million | 50 million<sup>2</sup>
+Session data points<sup>1, 2</sup> per month | unlimited | 
+Request, event, dependency, trace, exception, page view data points per month | 5 million | 50 million<sup>3</sup>
 [Trace or Log](../articles/application-insights/app-insights-search-diagnostic-logs.md) data rate | 200 dp/s | 500 dp/s
 [Exception](../articles/application-insights/app-insights-asp-net-exceptions.md) data rate | 50 dp/s | 50 dp/s
 Other telemetry data rate | 200 dp/s | 500 dp/s
@@ -21,6 +21,8 @@ Metric name length |  100 |
 
 <sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
 
-<sup>2</sup> You can purchase additional capacity beyond 50 million.
+<sup>2</sup> A session data point logs the start or end of a session, and logs user identity.
+
+<sup>3</sup> You can purchase additional capacity beyond 50 million.
  
 [About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md)
