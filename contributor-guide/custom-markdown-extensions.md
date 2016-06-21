@@ -103,7 +103,7 @@ Reusable text in our GitHub repository resides in files that we call "includes".
 
 - Don't share media between files. Use a separate file with a unique name for each include and article. Store the media file in the media folder associated with the include.
 
-- Don't use an includes as the only content of an article.  Includes are meant to be supplemental to the content in the rest of the article.
+- Don't use an include as the only content of an article.  Includes are meant to be supplemental to the content in the rest of the article.
 
 - Because all includes must be in the /includes directory, the path to an include from an article is always
 
