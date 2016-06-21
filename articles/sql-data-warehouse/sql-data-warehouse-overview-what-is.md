@@ -33,7 +33,7 @@ This article describes the key features of SQL Data Warehouse.
 
 SQL Data Warehouse uses the Microsoft massively parallel processing (MPP) architecture, designed to run some of the world's largest on-premises data warehouses.
 
-Currently, MPP architecture spreads your data across 60 shared-nothing storage and processing units. The data is stored in premium locally redundant storage, and linked to compute nodes for query execution. With this architecture, SQL Data Warehouse takes a "divide and conquer" approach to running complex T-SQL queries. When processing, the Control node optimizes each query and then passes the work to the Compute nodes, each of which runs its portion of the data in parallel.
+Currently, MPP architecture spreads your data across 60 shared-nothing storage and processing units. The data is stored in Premium locally redundant storage, and linked to compute nodes for query execution. With this architecture, SQL Data Warehouse takes a "divide and conquer" approach to running complex T-SQL queries. When processing, the Control node optimizes each query and then passes the work to the Compute nodes, each of which runs its portion of the data in parallel.
 
 By combining MPP architecture and Azure storage capabilities, SQL Data Warehouse can:
 
@@ -100,7 +100,7 @@ When you need faster results, increase your DWUs and pay for greater performance
 
 - When you don't need to run queries, perhaps in the evenings or weekends, quiesce your queries. Then pause your compute resources to avoid paying for DWUs when you don't need them.
 
-- When your system has low demand, consider reducing DWU to a small size. Users can still access the data, but at a significant cost savings.
+- When your system has low demand, consider reducing DWU to a small size. You can still access the data, but at a significant cost savings.
 
 - When performing a heavy data loading or transformation operation, you may want to scale up so that your data is available more quickly.
 
@@ -136,7 +136,7 @@ Using SQL Data Warehouse with PolyBase gives users unprecedented ability to move
 
 Polybase allows you to leverage your data from different sources by using familiar T-SQL commands. Polybase enables you to query non-relational data held in Azure Blob storage as though it is a regular table. Use Polybase to query non-relational data, or to import non-relational data into SQL Data Warehouse.
 
-- PolyBase uses external tables to access non-relational data. The table definitions are stored in SQL Data Warehouse, and can be accessed by SQL and tools like you would access normal relational data.
+- PolyBase uses external tables to access non-relational data. The table definitions are stored in SQL Data Warehouse, and you can access them by using SQL and tools like you would access normal relational data.
 
 - Polybase is agnostic in its integration. It exposes the same features and functionality to all the sources that it supports. The data read by Polybase can be in a variety of formats, including delimited files or ORC files.
 
