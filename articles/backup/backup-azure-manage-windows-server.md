@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="06/21/2016"
 	ms.author="jimpark; markgal"/>
 
 
@@ -42,7 +42,7 @@ In this article you'll find an overview of the backup management tasks available
     ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-dashboard.png) <br/>
 
 ## Monitor jobs and alerts
-You monitor jobs and alerts from the Recovery Services vault dashboard, where you can see:
+You monitor jobs and alerts from the Recovery Services vault dashboard, where you see:
 
 - Backup alerts details
 - Files and folders, as well as Azure virtual machines protected in cloud
@@ -57,8 +57,7 @@ From the top of the Dashboard:
 
 - Settings provides access available backup tasks.
 - Backup - helps you back up new files and folders (or Azure VMs) to the Recovery Services vault.
-- **Replicate (jimpark - need PM clarification on Replicate functionality - does this work? if so, can you provide a sentence or two?)**
-- Delete - If a recovery services vault is no longer being used, you can delete it to free up storage space. Delete is only enabled after all registered servers have been deleted from the vault.
+- Delete - If a recovery services vault is no longer being used, you can delete it to free up storage space. Delete is only enabled after all protected servers have been deleted from the vault.
 
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -74,7 +73,7 @@ The Backup Alerts tile shows you the number of:
 
 Clicking on each of these links takes you to the **Backup Alerts** blade with a filtered view of these alerts (critical or warning).
 
-From the Backup Alerts blade, you can:
+From the Backup Alerts blade, you:
 
 - Choose the appropriate information to include with your alerts.
 
@@ -107,7 +106,7 @@ You choose the columns you want to appear as part of the alert with the **Choose
 ## Manage Backup items
 Managing on-premises backups is now available in the management portal. In the Backup section of the dashboard, the **Backup Items** tiles shows the number of backup items protected to the vault.
 
-Click **File-Folders** in the Backup Items tile. The Backup Items blade opens with the filter set to File-Folder where you can see each specific backup item listed.
+Click **File-Folders** in the Backup Items tile. The Backup Items blade opens with the filter set to File-Folder where you see each specific backup item listed.
 
 ![Backup items](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
@@ -127,11 +126,11 @@ In the Backup section of the dashboard, the Backup job tile shows the number of 
 
 To manage your backup jobs, click the **Backup Jobs** tile, which opens the Backup Jobs blade.
 
+![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs.png)
+
 You modify the information available in the Backup Jobs blade with the **Choose columns** button at the top of the page.
 
 Use the **Filter** button to select between Files and folders and Azure virtual machine backup.
-
-**(jimpark - need a vault with file and folder backup jobs to work with)**
 
 If you don't see your backed up files and folders, click **Filter** button at the top of the page and select **Files and folders** from the Item Type menu.
 
@@ -153,11 +152,11 @@ The Production Servers blade lists of all your available production servers. Cli
 
 ## Open the backup agent
 
-Open the **Microsoft Azure Backup agent** (you can find it by searching your machine for *Microsoft Azure Backup*).
+Open the **Microsoft Azure Backup agent** (you find it by searching your machine for *Microsoft Azure Backup*).
 
 ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
-From the **Actions** available at the right of the backup agent console you can perform the following management tasks:
+From the **Actions** available at the right of the backup agent console you perform the following management tasks:
 
 - Register Server
 - Schedule Backup
