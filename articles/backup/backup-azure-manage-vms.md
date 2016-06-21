@@ -234,7 +234,7 @@ You can review the operation and event logs to see the management operations per
 
 There are multiple ways to filter and view the operations. The quickest way to view operations that threw a critical or warning event, in the dashboard, is to use the **Backup Alerts** tile. For a comprehensive, and customizable view of events, you can also use the **Audit Logs** setting to view the logs for all operations in the subscription. For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md). The **Audit logs** setting provides information about the events and operations logs specific to a Recovery Services vault or to a vault item.
 
-### Use the Backup Alerts tile to view alerts
+### Alert notifications
 
 The **Backup Alerts** tile provides shortcuts to filtered views of Critical or Warning-level alerts. To open one of these filtered views:
 
