@@ -22,6 +22,9 @@ If you're looking to implement great search experiences over your DocumentDB dat
 
 To set this up, you have to [setup an Azure Search account](../search/search-create-service-portal.md) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
 
+In order send requests to interact with the REST APIs, you can use [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler), or any tool of your preference.
+
+
 ##<a id="Concepts"></a>Azure Search indexer concepts
 
 Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
