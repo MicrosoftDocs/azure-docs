@@ -1,18 +1,18 @@
 ## Receive a file upload notification
 
-In this section, you'll write a Windows console app that receives file upload notification messages from IoT Hub.
+In this section, you write a Windows console app that receives file upload notification messages from IoT Hub.
 
-1. In the current Visual Studio solution, create a new Visual C# Desktop App project by using the **Console Application** project template. Name the project **ReadFileUploadNotification**.
+1. In the current Visual Studio solution, create a new Visual C# Windows project by using the **Console Application** project template. Name the project **ReadFileUploadNotification**.
 
     ![New project in Visual Studio][2]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution..."
+2. In Solution Explorer, right-click the **ReadFileUploadNotification** project, and then click **Manage NuGet Packages**.
 
     This displays the Manage NuGet Packages window.
 
-2. Search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use. 
+2. Search for `Microsoft.Azure.Devices`, click **Install**, and accept the terms of use. 
 
-	This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package].
+	This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package] in the **ReadFileUploadNotification** project.
 
 3. In the **Program.cs** file, add the following statements at the top of the file:
 
