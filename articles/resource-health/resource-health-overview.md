@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm"/>
+   ms.author="BernardoAMunoz"/>
 
 # Azure Resource health overview
 
