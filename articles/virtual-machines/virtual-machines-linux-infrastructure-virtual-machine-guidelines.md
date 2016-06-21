@@ -45,7 +45,7 @@ Tasks:
 
 Now that you have read about virtual machines you can read up on the guidelines for other Azure services.
 
-* [Azure Availability Set Guidelines](availability-sets-guidelines.md)
+* [Azure Availability Set Guidelines](virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
 * [Azure Cloud Services Infrastructure Guidelines](virtual-machines-linux-infrastructure-cloud-services-guidelines.md)
 * [Azure Subscription and Accounts Guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 * [Azure Infrastructure Naming Guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md)
