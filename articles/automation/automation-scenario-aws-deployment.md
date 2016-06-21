@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="06/20/2016"
    ms.author="tiandert; bwren" />
 
-# Azure Automation solution - provision an AWS virtual machine 
+# Azure Automation scenario - provision an AWS virtual machine 
 
 In this article, we demonstrate how you can leverage Azure Automation to provision a virtual machine in your Amazon Web Service (AWS) subscription and give that VM a specific name – which AWS refers to as “tagging” the VM.
 
@@ -75,12 +75,12 @@ Once the AWS PowerShell Module has been deployed, we can now author a runbook to
 		#Please provide the path where you have downloaded the AWS PowerShell module
 		Import-Module AWSPowerShell
 		$AWSRegion = "us-west-2"
-		$AwsCred = Get-Credential
-		$AwsAccessKeyId = $AwsCred.UserName
-		$AwsSecretKey = $AwsCred.GetNetworkCredential().Password
+		$AWSCred = Get-Credential
+		$AWSAccessKeyId = $AWSCred.UserName
+		$AWSSecretKey = $AWSCred.GetNetworkCredential().Password
 
 		# Set up the environment to access AWS
-		Set-AWSCredentials -AccessKey $AwsAccessKeyId -SecretKey $AwsSecretKey -StoreAs AWSProfile
+		Set-AWSCredentials -AccessKey $AWSAccessKeyId -SecretKey $AWSSecretKey -StoreAs AWSProfile
 		Set-DefaultAWSRegion -Region $AWSRegion
 
 		Get-EC2ImageByName -ProfileName AWSProfile
@@ -93,12 +93,12 @@ Once the AWS PowerShell Module has been deployed, we can now author a runbook to
 ### Testing the AWS VM runbook
 Before we proceed with testing the runbook, we need to verify a few things. Specifically:
 
-   -  Assets for authenticating against AWS have been created and have been named **AWScred** or the script has been updated to reference the name of your credential asset.  
+   -  An asset for authenticating against AWS has been created and named **AWScred** or the script has been updated to reference the name of your credential asset.  
    -  The AWS PowerShell module has been imported in Azure Automation
    -  A new runbook has been created and parameter values have been verified and updated where necessary
    -  **Log verbose records** and optionally **Log progress records** under the runbook setting **Logging and tracing** have been set to **On**.<br> ![Runbook Logging and Tracing](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)
 
-1. We want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook blade opens.
+1. We want to start the runbook, so click **Start** and then click **OK** when the Start Runbook blade opens.
 2. On the Start Runbook blade, provide a **VMname**.  Accept the default values for the other parameters that you preconfigured in the script earlier.  Click **OK** to start the runbook job.<br> ![Start New-AwsVM runbook](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 3. A job pane is opened for the runbook job that we just created. Close this pane.
 4. We can view progress of the job and view output **Streams** by selecting the **All Logs** tile from the runbook job blade.<br> ![Stream output](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
