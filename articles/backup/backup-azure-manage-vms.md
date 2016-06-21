@@ -218,7 +218,7 @@ To delete backup data on a virtual machine with the *Backup disabled*:
     A notification message lets you know the backup data has been deleted.
 
 ## Auditing Operations
-You can review the operation and event logs to see the management operations performed on the Recovery Services vault. Operations logs enable great post-mortem and audit support for the backup operations. The following operations are logged in Audit logs:
+You can review the operation and event logs to see the management operations performed on the Recovery Services vault. Event logs enable great post-mortem and audit support for the backup operations. The following operations are available logged in Audit logs:
 
 - Register
 - Unregister
@@ -232,27 +232,29 @@ You can review the operation and event logs to see the management operations per
 - Update policy
 - Cancel job
 
-There are multiple ways to filter and view the operations. The quickest way to view operations that threw a critical or warning event, in the dashboard, is to use the **Backup Alerts** tile. For a comprehensive, and customizable view of events, you can also use the **Audit Logs** setting to view the logs for all operations in the subscription. For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md). The **Audit logs** setting provides information about the events and operations logs specific to a Recovery Services vault or to a vault item.
+There are multiple ways to filter and view events. In the vault dashboard the **Backup Alerts** tile shows the counts for events with severity equal to Critical or Warning. Use the **Audit Logs** setting to view any event for any operations in the subscription. You can also use **Audit Logs** setting to customize the view of events for Recovery Services vaults or vault items however you like. The following section, [Alert notifications](backup-azure-manage-vms.md#alert-notifications), provides information on using alerts with Recovery Service vaults. For additional information on events, operations, and audit logs in Azure, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md). 
 
 ### Alert notifications
 
-The **Backup Alerts** tile provides shortcuts to filtered views of Critical or Warning-level alerts. To open one of these filtered views:
+The **Backup Alerts** tile provides shortcuts to filtered views of Critical or Warning-level alerts.
+>[AZURE.TIP] You can configure the service to send email notifications when a particular alert occurs, or each hour. For details see Configure event notifications.
+To open one of these filtered views:
 
 1. On the **Backup Alerts** tile on the vault dashboard, click **Critical** or **Warning** to view the operation logs filtered to show just those event levels.
 
     ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-tile.png)
 
-    The Backup Alerts blade opens and displays the filtered alerts.
+    The **Backup Alerts** blade opens and displays the filtered alerts.
 
     ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-critical.png)
 
-2. To view detailed information about a particular alert, from the list click the alert to open its Detail blade.
+2. To view detailed information about a particular alert, from the list click the alert to open its **Details** blade.
 
-    ![Event Detail](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
+    ![Event Detail](./media/backup-azure-manage-vms/audit-logs-event-detail.png)
 
     To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-manage-vms.md#view-additional-event-attributes)
 
-### Use the Audit logs to view the operations and events for a Recovery Services vault:
+### Customize your view of events
 
 1. In the [vault dashboard](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
 
@@ -302,7 +304,8 @@ Using the **Columns** button, you can enable additional event attributes to appe
 2. Click the checkbox to select that attribute. The attribute checkbox toggles on and off.
 
 3. Click **Reset** to reset the list of attributes in the **Events** blade. After adding or removing attributes from the list, use **Reset** to view the new list of Event attributes.
-    Click **Update** to update the data in the Event attributes. The following table provides information about each attribute.
+
+4. Click **Update** to update the data in the Event attributes. The following table provides information about each attribute.
 
 | Column name      |Description|
 | -----------------|-----------|
@@ -321,7 +324,7 @@ Using the **Columns** button, you can enable additional event attributes to appe
 
 
 
-## Alert notifications
+## Customized alerts
 You can get custom alert notifications for the jobs in the portal. To get these jobs, define PowerShell-based alert rules on the operational logs events. Use *PowerShell version 1.3.0 or later*.
 
 To define a custom notification to alert for backup failures, use a command like this:
