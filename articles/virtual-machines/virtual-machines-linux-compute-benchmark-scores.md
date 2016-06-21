@@ -8,10 +8,10 @@
  editor=""
  tags="azure-resource-manager,azure-service-management"/>
 <tags
-ms.service="virtual-machines-windows"
+ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
- ms.tgt_pltfrm="vm-windows"
+ ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
  ms.date="06/20/2016"
  ms.author="danlep"/>
