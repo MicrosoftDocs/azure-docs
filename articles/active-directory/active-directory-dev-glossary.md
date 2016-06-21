@@ -18,26 +18,26 @@
 
 # Azure Active Directory developer glossary
 
-This article contains definitions for a list of core Azure Active Directory (AD) development concepts. These are helpful during initial learning about Azure AD [application development][AAD-Dev-Guide], including [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
+This article contains definitions for a list of core Azure Active Directory (AD) development concepts. These are helpful during when learning about Azure AD [application development][AAD-Dev-Guide], including [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
 
-**access token**  
-A type of security token used by a **client application** to access a protected resource, serving as a form of credential, typically in the form of a JSON Web Token (JWT). The token embodies/encapsulates delegated permissions from the **resource owner** and the applicable claims about the subject, enabling the client application to use it as a form of credential in order to access a given resource. Examples of claims:  
+### access token  
+A type of security token used by a [client application][#client-application] to access a protected resource, serving as a form of credential, typically in the form of a JSON Web Token (JWT). The token embodies/encapsulates delegated permissions from the **resource owner** and the applicable claims about the subject, enabling the client application to use it as a form of credential in order to access a given resource. Examples of claims:  
 
 - Authentication Methods References (amr): provided by OpenID Connect, specifies authentication method identifiers
 - Scope (scp): scope of desired access specified by delegated client, limiting what the resource owner can do when operating through client; list of space-delimited case-sensitive strings defined by resource server (can use to identify an App+User token, delegated client) 
 
 See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 
-**active / passive client**  
+### active / passive client  
 Used to define whether the client application is involved in generating the user interface:  
 
 - active client: The user interface that is rendered by a native application, or where there is no user interface at all 
 - passive client: The user interface is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render.
 
-**application manifest**  
+### application manifest  
 An Azure classic portal concept, which provides a JSON representation of the application's identity configuration, and used as a mechanism for updating the application entity and it's related service principal entity. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
-**application object**  
+### application object  
 An application's one and only application object lives in the Azure AD tenant where the application was registered. Think of it as a design-time concept that expresses the application's identity configuration data, the template from which it's corresponding service principal object(s) are later derived for use at run-time. <br/><br/>For our scenario, we will create an application object during registration of the client application, in the developer tenant. We will discuss this later during application registration, but also note that many types of applications are supported by Azure AD, including both a client application (which can have multiple profiles), and a resource server that exposes a Web API. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for more information. 
 
 **An Application object**, which represents the base *definition* of the application. The one-and-only Application object therefore has a 1:1 relationship with the application, and is the basis from which the application's Service Principal(s) are derived. Your tenant is considered the application's "home" tenant.
@@ -67,11 +67,7 @@ A credential representing the resource owner's authorization to access its prote
 - implicit: used by SPA, simplified Authorization Code, client gets Access Token directly, no Authorization Code
 - resource owner password credentials (aka: user Ccedentials) : RO provides username/password to Client to get token directly; only supported in AAD for native clients
 
-
-**tenant**  
-An Azure AD tenant provides a variety of features, of which we will focus on a subset: registry services for integrated applications, authentication of user accounts and registered applications, and the OAuth 2.0 Authorization Server that brokers the interactions between a user (resource owner), a client application, and Web API(s) exposed by a protected resource server. Note that Azure AD also happens to function as a protected resource server, providing the Graph API to enable querying/updating of it's directory data.<br/><br/> We will create two Azure AD tenants, supporting the IDMaaS needs of a customer that wants to grant a SaaS client application limited access to data secured by their Azure AD tenant, and a SaaS developer that built the client application:<br/><br/>The **customer tenant** authenticates it's user accounts that sign in to the client application, and uses consent to secure the client application's access to the data *provided* by the Web API(s) registered in it. It also *consumes* the client application's application object from the developer tenant, which defines the access intent of the client (via permission scopes), among other things. Once consent is given, a service principal object is derived from the same application object, and persisted in the customer tenant for future use.<br/><br/>The **developer tenant** stores the client application's identity configuration (embodied in the application object). Among other things, it contains the credentials it uses to authenticate with Azure AD and a declaration of the APIs it is interesting in accessing, allowing it to obtain authorization from the authenticated user to access data secured by the customer tenant. It *provides* the client application's application object, and *consumes* the definition of the desired Web APIs and related permission scopes implemented by the customer tenant. 
-
-**client application**  
+## client application  
  The SaaS application that requests authorization from a resource owner to participate in an OAuth2 authorization grant flow, to access APIs/data on their behalf. We will cover examples of both a Web client application accessed from a browser, and a Native client application installed on a device, which need to access the customer tenant's Graph API to access directory data on behalf of the signed in user. 
 
 We will use the [OAuth 2.0 "Authorization Code" grant flow][OAuth2-AuthZ-Code-Grant-Flow] in this article, as it allows the resource owner to delegate authorization to the client application, but please note there are other types of OAuth2 grant flows.
@@ -97,6 +93,8 @@ As mentioned above, a service principal object for the client application will a
 
 **A Service Principal (SP) object**, which represents the identity configuration used by a specific application *instance*, from an Azure AD tenant's perspective. This identity configuration is used to govern the instance's access to resources secured by the tenant where the SP lives. More specifically, the SP is the security principal that represents the identity configuration of the application instance at runtime, much like a user principal represents a user at runtime. The identity configuration is derived from the application's Application object at the point in time at which the Service Principal is created, including the access policies required. You can apply policies to Service Principal objects, such as assigning permissions, allowing it to reflect the type of access (scope-based or role-based) required by the application instance. 
 
+**tenant**  
+An Azure AD tenant provides a variety of features, of which we will focus on a subset: registry services for integrated applications, authentication of user accounts and registered applications, and the OAuth 2.0 Authorization Server that brokers the interactions between a user (resource owner), a client application, and Web API(s) exposed by a protected resource server. Note that Azure AD also happens to function as a protected resource server, providing the Graph API to enable querying/updating of it's directory data.<br/><br/> We will create two Azure AD tenants, supporting the IDMaaS needs of a customer that wants to grant a SaaS client application limited access to data secured by their Azure AD tenant, and a SaaS developer that built the client application:<br/><br/>The **customer tenant** authenticates it's user accounts that sign in to the client application, and uses consent to secure the client application's access to the data *provided* by the Web API(s) registered in it. It also *consumes* the client application's application object from the developer tenant, which defines the access intent of the client (via permission scopes), among other things. Once consent is given, a service principal object is derived from the same application object, and persisted in the customer tenant for future use.<br/><br/>The **developer tenant** stores the client application's identity configuration (embodied in the application object). Among other things, it contains the credentials it uses to authenticate with Azure AD and a declaration of the APIs it is interesting in accessing, allowing it to obtain authorization from the authenticated user to access data secured by the customer tenant. It *provides* the client application's application object, and *consumes* the definition of the desired Web APIs and related permission scopes implemented by the customer tenant. 
 
 
 |  Concept                 | Definition |
