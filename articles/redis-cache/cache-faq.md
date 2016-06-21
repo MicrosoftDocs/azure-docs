@@ -22,7 +22,7 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 
 -	[Planning](#planning)
 	-	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
-		-	[How do the difference sizes and tiers of cache perform?](#cache-performance)
+	-	[Azure Redis Cache performance](#azure-redis-cache-performance)
 	-	[In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 	-	[How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
 	-	[What are some common cache patterns and considerations?](#what-are-some-common-cache-patterns-and-considerations)
@@ -52,6 +52,7 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 ## Planning
 
 -	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
+-	[Azure Redis Cache performance](#azure-redis-cache-performance)
 -	[In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 -	[How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
 -	[What are some common cache patterns and considerations?](#what-are-some-common-cache-patterns-and-considerations)
@@ -76,6 +77,8 @@ The following are considerations for choosing a Cache offering.
 -	**Performance improvements**: Caches in the Premium tier are deployed on hardware which have faster processors and gives better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
 
 <a name="cache-performance"></a>
+### Azure Redis Cache performance
+
 The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. Note that these values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
 
 From this table we can draw the following conclusions.
