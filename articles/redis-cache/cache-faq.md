@@ -25,7 +25,6 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 	-	[Azure Redis Cache performance](#azure-redis-cache-performance)
 	-	[In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 	-	[How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
-	-	[What are some common cache patterns and considerations?](#what-are-some-common-cache-patterns-and-considerations)
 -	[Development](#development)
 	-	[What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
 	-	[What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
@@ -54,7 +53,6 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 -	[Azure Redis Cache performance](#azure-redis-cache-performance)
 -	[In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 -	[How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
--	[What are some common cache patterns and considerations?](#what-are-some-common-cache-patterns-and-considerations)
 
 <a name="cache-size"></a>
 ### What Redis Cache offering and size should I use?
@@ -114,15 +112,6 @@ For best performance and lowest latency, locate your Azure Redis Cache in the sa
 ### How am I billed for Azure Redis Cache?
 
 Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
-
-<a name="cache-common-patterns"></a>
-### What are some common cache patterns and considerations?
-
-Microsoft Patterns & Practices has the following cache patterns and guidance.
-
--	[Caching guidance](https://github.com/mspnp/azure-guidance/blob/master/Caching.md)
--	[Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance)
--	[Common cache patterns with Azure Redis Cache](cache-howto-common-cache-patterns.md)
 
 ## Development
 
