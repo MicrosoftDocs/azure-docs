@@ -364,7 +364,7 @@ With this approach the code in source control remains static and the partitionin
 
 ## Next steps
 
-To learn more about table design, see the [Overview][], [Distribute][], [Index][], [Data Types][], [Statistics][] and [Temporary][Temporary Table] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+To learn more about table design, see the [Overview][], [Distribute][], [Index][], [Data Types][], [Statistics][] and [Temporary][] table articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
