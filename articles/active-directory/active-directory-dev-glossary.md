@@ -21,7 +21,9 @@
 This article contains definitions for a list of core Azure Active Directory (AD) development concepts. These are helpful during when learning about Azure AD [application development][AAD-Dev-Guide], including [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
 
 ### access token  
-A type of security token used by a [client application](#client-application) to access a protected resource, serving as a form of credential, typically in the form of a JSON Web Token (JWT). The token embodies/encapsulates delegated permissions from the **resource owner** and the applicable claims about the subject, enabling the client application to use it as a form of credential in order to access a given resource. 
+A type of security token used by a [client application](#client-application) to access a protected resource, serving as a form of credential, typically in the form of a [JSON Web Token (JWT)][JWT]. The token embodies/encapsulates delegated permissions from the **resource owner** and the applicable claims about the subject, enabling the client application to use it as a form of credential in order to access a given resource. 
+
+[TODO] Discuss App+User and App-Only
 
 ### active / passive client  
 Used to define whether the client application is involved in generating the user interface:  
@@ -54,6 +56,9 @@ The act of granting permission to perform a given operation. There are two uses 
 **authorization code**
 A secure code provided to a *client application*, in response to authentication of a **resource owner** during an "authorization code" grant, indicating that resource owner has delegated permission to the client application to access resources on behalf of the resource owner. The code is later redeemed for an **access token**.
 
+**authorization endpoint**  
+Provides authorization code during "authorization code" grant. (refer to token endpoint)
+
 **authorization grant**  
 A credential representing the resource owner's authorization to access its protected resources, used by a **client applicatio** in order to obtain an **access token**. The OAuth2 spec [currently defines four types][OAuth2-AuthZ-Grant-Types] :  
 
@@ -63,20 +68,22 @@ A credential representing the resource owner's authorization to access its prote
 - resource owner password credentials (aka: user Ccedentials) : RO provides username/password to Client to get token directly; only supported in AAD for native clients
 
 ## claim
-An **access token** contain claims. Claims are assertions about the subject that have been authenticated by the **authorization server** (ie: Azure AD). The claims present in a given security token are dependent upon the type of token, the type of credential used to authenticate the subject, and the application configuration. Examples of claims include:  
+An **access token** contain claims. Claims are assertions (facts) about the subject (the principal that was authenticated by the **authorization server**, ie: Azure AD). The claims present in a given security token are dependent upon the type of token, the type of credential used to authenticate the subject, and the application configuration. 
 
-- Authentication Methods References (amr): provided by OpenID Connect, specifies authentication method identifiers
-- Scope (scp): scope of desired access specified by delegated client, limiting what the resource owner can do when operating through client; list of space-delimited case-sensitive strings defined by resource server (can use to identify an App+User token, delegated client) 
+For example, the "scope" (scp) claim provides the permission(s) granted to a delegated client application, limiting the operations the client application can perform on behalf of the resource owner. The actual values contained in the scope claim are based on the list of space-delimited case-sensitive strings defined by resource server. 
 
-See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
+See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details. [AAD-Security-Token-Claims]
 
-## client application  
+### client application  
  The SaaS application that requests authorization from a resource owner to participate in an OAuth2 authorization grant flow, to access APIs/data on their behalf. We will cover examples of both a Web client application accessed from a browser, and a Native client application installed on a device, which need to access the customer tenant's Graph API to access directory data on behalf of the signed in user. 
 
 We will use the [OAuth 2.0 "Authorization Code" grant flow][OAuth2-AuthZ-Code-Grant-Flow] in this article, as it allows the resource owner to delegate authorization to the client application, but please note there are other types of OAuth2 grant flows.
 
 **consent**  
-The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. We will discuss the entire process in more detail later when we break down the Azure AD consent framework, including how you can add a "sign up" feature to your application to manage user registration and consent.
+The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's **service principal** is also recorded in the tenant of the consenting user.
+
+### ID token
+An [OpenID Connect security token][[OpenIDConnect-ID-Token]] that contains claims about the authentication of an End-User resource owner by an Authorization Server (when using a client application to access resources), and potentially other requested claims. Like a security token, ID tokens are also represented as a [JSON Web Token (JWT)][JWT]. 
 
 **multi-tenant application**  
 A type of client application registered in Azure AD, that is designed to permit sign ins from user accounts that are provisioned in any Azure AD tenant, including ones other than the one where the application itself is registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. 
@@ -96,8 +103,23 @@ As mentioned above, a service principal object for the client application will a
 
 **A Service Principal (SP) object**, which represents the identity configuration used by a specific application *instance*, from an Azure AD tenant's perspective. This identity configuration is used to govern the instance's access to resources secured by the tenant where the SP lives. More specifically, the SP is the security principal that represents the identity configuration of the application instance at runtime, much like a user principal represents a user at runtime. The identity configuration is derived from the application's Application object at the point in time at which the Service Principal is created, including the access policies required. You can apply policies to Service Principal objects, such as assigning permissions, allowing it to reflect the type of access (scope-based or role-based) required by the application instance. 
 
+**sign-in**
+
+**sign-out**
+
 **tenant**  
 An Azure AD tenant provides a variety of features, of which we will focus on a subset: registry services for integrated applications, authentication of user accounts and registered applications, and the OAuth 2.0 Authorization Server that brokers the interactions between a user (resource owner), a client application, and Web API(s) exposed by a protected resource server. Note that Azure AD also happens to function as a protected resource server, providing the Graph API to enable querying/updating of it's directory data.<br/><br/> We will create two Azure AD tenants, supporting the IDMaaS needs of a customer that wants to grant a SaaS client application limited access to data secured by their Azure AD tenant, and a SaaS developer that built the client application:<br/><br/>The **customer tenant** authenticates it's user accounts that sign in to the client application, and uses consent to secure the client application's access to the data *provided* by the Web API(s) registered in it. It also *consumes* the client application's application object from the developer tenant, which defines the access intent of the client (via permission scopes), among other things. Once consent is given, a service principal object is derived from the same application object, and persisted in the customer tenant for future use.<br/><br/>The **developer tenant** stores the client application's identity configuration (embodied in the application object). Among other things, it contains the credentials it uses to authenticate with Azure AD and a declaration of the APIs it is interesting in accessing, allowing it to obtain authorization from the authenticated user to access data secured by the customer tenant. It *provides* the client application's application object, and *consumes* the definition of the desired Web APIs and related permission scopes implemented by the customer tenant. 
+
+**token endpoint**  
+Provides access token in exchange for an authorization code, during the authorization code grant flow. (refer to authorization endpoint)
+
+
+
+
+
+
+
+
 
 
 |  Concept                 | Definition |
@@ -135,14 +157,18 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 
+[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 
 [AZURE-Azure-classic-portal]: https://manage.windowsazure.com
+
+[JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 
 [OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 
+[OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 
 
 
