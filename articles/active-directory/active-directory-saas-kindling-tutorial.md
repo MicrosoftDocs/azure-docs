@@ -139,7 +139,7 @@ To configure single sign-on for Kindling, you need a registered domain. If you d
 
     a. Click **Download certificate**, and then save the file on your computer.
 
-    c. Click **Next**.
+    b. Click **Next**.
 
 
 
