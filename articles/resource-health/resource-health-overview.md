@@ -3,7 +3,7 @@
    description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardm"
+   authors="bernardoamunoz"
    manager=""
    editor=""/>
 
@@ -60,23 +60,27 @@ Clicking the tile opens the Resource health subscription blade which will list a
 ![Resource health tile](./media/resource-health-overview/resourceHealthTile.png)
 
 ### Resource health API
-Along with the Azure portal experience, there is also an API that can be used to query Resource health. The API supports calls to obtain the health of all resources in a subscription, all resources in a resource group or the health of a specific resource. 
+Along with the Azure portal experience, there is a set of APIs that can be used to query Resource health. The available APIs allow users to request the current health of all resources in a subscription, all resources in a resource group or the health of a single resource. 
+
+Another API allows users to request the historical health of a single resource. The response is a collection of Resource health states for the last 14 days. If the resource may have been impacted by a declared outage, the health state will include an annotation called serviceImpactingEvents, with more details on the outage. 
 
 Before using the API to query Resource health, the subscription needs to be registered with the service by submitting a POST request to the following URL: 
 
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 Below are examples on how to call the Resource health API
 
         // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET the health of a single resource:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/<ResourceProvider>/<ResourceType>/<ResourceName>/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
-
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        
+        //GET the historical health of a single resource:
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-
 
 ## What does my Resource health status mean?
 There are 4 different health statuses that you might see for your resource.
