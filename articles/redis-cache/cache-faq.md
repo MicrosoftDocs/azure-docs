@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="06/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -32,19 +32,18 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 	-	[Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
 	-	[How can I run Redis commands?](#how-can-i-run-redis-commands)
 	-	[Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
--	[Security]()
-	-	[Security best practices](#TODO)
+-	[Security](#security)
 	-	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
--	[Production]()
+-	[Production](#production)
 	-	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 	-	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 	-	[Important details about ThreadPool growth](#important-details-about-threadpool-growth)
 	-	[Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
--	[Monitoring and troubleshooting]()
+-	[Monitoring and troubleshooting](#monitoring-and-troubleshooting)
 	-	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 	-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 	-	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
--	[Prior cache offerings]()
+-	[Prior cache offerings](#prior-cache-offerings)
 	-	[Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
 
 
@@ -119,7 +118,8 @@ Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/
 <a name="cache-common-patterns"></a>
 ### What are some common cache patterns and considerations?
 
-Microsoft Patterns & Practices has the following guidance.
+Microsoft Patterns & Practices has the following cache patterns and guidance.
+
 -	[Caching guidance](https://github.com/mspnp/azure-guidance/blob/master/Caching.md).
 -	[Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance)
 -	[Common cache patterns with Azure Redis Cache](cache-howto-common-cache-patterns.md)
