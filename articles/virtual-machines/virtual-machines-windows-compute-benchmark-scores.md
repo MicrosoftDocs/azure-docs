@@ -18,7 +18,7 @@ ms.service="virtual-machines-windows"
 
 # Compute benchmark scores for Windows VMs
 
-The following benchmark scores show compute performance for Azure's high performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](virtual-machines-linux-compute-benchmark-sclres.md).
+The following benchmark scores show compute performance for Azure's high performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](virtual-machines-linux-compute-benchmark-scores.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
