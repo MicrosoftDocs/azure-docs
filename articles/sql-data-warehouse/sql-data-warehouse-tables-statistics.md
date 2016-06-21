@@ -38,6 +38,20 @@ Column-level statistics in SQL Data Warehouse are user-defined.
 
 In other words we have to create them ourselves. As we have just learned, this is not something to overlook. This is an important difference between SQL Server and SQL Data Warehouse. SQL Server will automatically create statistics when columns are queried. By default, SQL Server will also automatically update those statistics. However, in SQL Data Warehouse statistics need to be created manually and managed manually.
 
+### Recommendations
+
+Apply the following recommendations for generating statistics:
+
+1. Create Single column statistics on columns used in `WHERE`, `JOIN`, `GROUP BY`, `ORDER BY` and `DISTINCT` clauses
+2. Generate multi-column statistics on composite clauses
+3. Update statistics periodically. Remember that this is not done automatically!
+
+>[AZURE.NOTE] It is common for SQL Server Data Warehouse to rely solely on `AUTOSTATS` to keep the column statistics up to date. This is not a best practice even for SQL Server data warehouses. `AUTOSTATS` are triggered by a 20% rate of change which for large fact tables containing millions or billions of rows may not be sufficient. It is therefore always a good idea to keep on top of statistics updates to ensure that the statistics accurately reflect the cardinality of the table.
+
+## Next steps
+
+To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], and [Statistics][] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
 [Distribute][] ./sql-data-warehouse-tables-distribute.md
@@ -45,3 +59,4 @@ In other words we have to create them ourselves. As we have just learned, this i
 [Partition][] ./sql-data-warehouse-tables-partition.md
 [Data Types][] ./sql-data-warehouse-tables-data-types.md
 [Statistics][] ./sql-data-warehouse-tables-statistics.md
+[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
