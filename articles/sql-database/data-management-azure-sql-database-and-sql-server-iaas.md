@@ -154,4 +154,4 @@ Choose **SQL Server on Azure VMs** if:
 - See [SQL Database tutorial: Create a SQL database in minutes using the Azure portal](sql-database-get-started.md) to get started with SQL Database.
 - See [SQL Database pricing] (https://azure.microsoft.com/pricing/details/sql-database/).
 - See [Provision a SQL Server virtual machine in Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) to get started with SQL Server on Azure VMs.
-- See [SQL Server on an Azure Virtual Machine: Learning Path](https://azure.microsoft.com/en-us/documentation/learning-paths/sql-azure-vm/).
+- See [SQL Server on an Azure Virtual Machine: Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
