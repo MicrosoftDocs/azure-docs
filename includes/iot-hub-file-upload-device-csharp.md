@@ -20,15 +20,16 @@ In this section, you modify the simulated device application you created in [Sen
          
         private static async void SendToBlobAsync()
         {
-            const string FilePath = "image.jpg";
-            var fileStreamSource = new FileStream(FilePath, FileMode.Open);
-            var fileName = Path.GetFileName(fileStreamSource.Name);
-
+            string fileName = "image.jpg";
             Console.WriteLine("Uploading file: {0}", fileName);
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            await deviceClient.UploadToBlobAsync(fileName, fileStreamSource);
-            watch.Stop();
 
+            using (var sourceData = new FileStream(@"image.jpg", FileMode.Open))
+            {
+                await deviceClient.UploadToBlobAsync(fileName, sourceData);
+            }
+
+            watch.Stop();
             Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
         }
 
