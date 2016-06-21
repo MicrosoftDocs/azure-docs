@@ -129,8 +129,8 @@ StackExchange.Redis has many options. This section talks about some of the commo
 ConfigurationOptions|Description|Recommendation
 ---|---|---
 AbortOnConnectFail|When set to true, the connection will not reconnect after a network failure.|Set to false and let StackExchange.Redis reconnect automatically.
-ConnectRetry|The number of times to repeat connection attempts during initial connect.||
-ConnectTimeout|Timeout in ms for connect operations.|
+ConnectRetry|The number of times to repeat connection attempts during initial connect.| See below for guidance. |
+ConnectTimeout|Timeout in ms for connect operations.| See below for guidance. |
 
 In most cases the default values of the client are sufficient. You can fine tune the options based on your workload.
 
