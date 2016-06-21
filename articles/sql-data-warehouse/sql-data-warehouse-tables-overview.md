@@ -59,7 +59,7 @@ SQL Data Warehouse does not use or support these features:
 
 ## Next steps
 
-To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary][Temporary Table] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary][] table articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
