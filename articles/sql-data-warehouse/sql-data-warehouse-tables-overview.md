@@ -25,6 +25,7 @@
 - [Partition][]
 - [Data Types][]
 - [Statistics][]
+- [Temporary][]
 
 ## Introduction
 
@@ -58,17 +59,18 @@ SQL Data Warehouse does not use or support these features:
 
 ## Next steps
 
-To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], and [Statistics][] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary][Temporary Table] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Distribute][] ./sql-data-warehouse-tables-distribute.md
-[Index][] ./sql-data-warehouse-tables-index.md
-[Partition][] ./sql-data-warehouse-tables-partition.md
-[Data Types][] ./sql-data-warehouse-tables-data-types.md
-[Statistics][] ./sql-data-warehouse-tables-statistics.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [Assigning Surrogate Keys]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 
