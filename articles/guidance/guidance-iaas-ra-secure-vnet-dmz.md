@@ -87,7 +87,7 @@ The solution provided for this architecture uses the same ARM templates as those
 
 > [AZURE.NOTE] Best practice is to use static IP addresses for NVAs; using dynamic addresses can cause them to change if the VM is deprovisioned and restarted. 
 
-The solution also includes a bash script named [azuredeploy.sh][azuredeploy-script] that deploys the templates to construct the system.
+The solution also includes a bash script named [azuredeploy.sh][azuredeploy-script] that deploys the templates.
 
 The following sections provide more details on the key resources created for this architecture by the templates.
 
@@ -328,7 +328,7 @@ This architecture provides three points of defence:
 
 ## Scalability considerations
 
-Do not connect the PIP directly to an NVA, even if the NVA availability set only contains a single device and there is no immediate need for a load balancer. This approach make it easier add NVAs in the future without reconfiguring the system. It can also provide increased protection.
+Do not connect the PIP directly to an NVA, even if the NVA availability set only contains a single device and there is no immediate need for a load balancer. This approach makes it easier add NVAs in the future without reconfiguring the system. It can also provide increased protection.
 
 ## Monitoring considerations
 
