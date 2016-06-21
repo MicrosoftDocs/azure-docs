@@ -25,7 +25,7 @@ This article covers the best practices implemented during the initial setup, dep
 
 We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
-## Best practices for configuration 
+## Configuration best practices 
 
 These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These include best practices related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
 
