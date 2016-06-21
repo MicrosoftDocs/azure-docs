@@ -4,7 +4,7 @@
    keywords="business continuity,cloud business continuity,database disaster recovery,database recovery"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-business-continuity"
    ms.date="06/09/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Overview: Cloud business continuity and database disaster recovery with Azure SQL Database
 

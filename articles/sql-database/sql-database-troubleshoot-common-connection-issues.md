@@ -27,7 +27,7 @@ If you encounter the connection issues, try the troubleshoot steps that are desc
 
 Connection problems may be caused by any of the following:
 
-- Failure to apply [best practices and design guidelines](sql-database-connect-central-recommendations.md) during the application design process.
+- Failure to apply best practices and design guidelines during the application design process.  See [SQL Database Development Overview](sql-database-develop-overview.md) to get started.
 - SQL Azure database reconfiguration
 - Firewall settings
 - Connection time-out
@@ -80,7 +80,7 @@ The following table lists every connection problem topic that applies directly t
 | 5 | [Troubleshoot "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" error](sql-database-troubleshoot-connection.md) | Describes how to identify and resolve a 40613 error: "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later." |
 | 6 | [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) | Provides info about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. |
 | 7 | [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) | Provides guidance to help you determine which service tier is right for your application. Also provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
-| 8 | [Connecting to SQL Database: Best practices and design guidelines](sql-database-connect-central-recommendations.md) | Provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
+| 8 | [SQL Database Development Overview](sql-database-develop-overview.md) | Provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
 | 9 | Upgrade to Azure SQL Database v12 page ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Provides directions for upgrading existing Azure SQL Database V11 servers and databases to Azure SQL Database V12 by using Azure portal or PowerShell. |
 
 
@@ -95,7 +95,7 @@ The following table lists every connection problem topic that applies directly t
 
 ## Additional resources
 
-- [Connecting to SQL Database: Best practices and design guidelines](sql-database-connect-central-recommendations.md)
+- [SQL Database Development Overview](sql-database-develop-overview.md)
 - [General transient fault-handling guidance](../best-practices-retry-general.md)
 - [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 - [The learning path for using Azure SQL Database](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
