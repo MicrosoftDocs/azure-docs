@@ -43,7 +43,7 @@ Today every Azure subscription can be associated with an Azure Active Directory.
 
 ## Authorization and access control
 
-Once a user is authenticated by AAD to access Azure Data Lake Store, authorization controls access permissions for the Data Lake Store. Data Lake Store leverages [role-based access control](../active-directory/role-based access control-what-is.md) (RBAC) provided by Azure for account management, and supports POSIX ACL for accessing data in the store.
+Once a user is authenticated by AAD to access Azure Data Lake Store, authorization controls access permissions for the Data Lake Store. Data Lake Store separates authorization for account-related and data-related activities in the following manner. account management from data managemn [role-based access control](../active-directory/role-based access control-what-is.md) (RBAC) provided by Azure for account management, and supports POSIX ACL for accessing data in the store.
 
 ### Using RBAC for account management
 
@@ -56,14 +56,12 @@ Note that while the purpose of assigning these roles is for account management, 
 | Roles                    | Management rights               | Data access rights | Explanation |
 |--------------------------|---------------------------------|--------------------|-------------|
 | No role assigned         | None                            | Governed by ACL    | In such cases, users cannot use the Azure Portal or the Azure PowerShell Cmdlets to browse Data Lake Store. Such users will have to rely solely on command line tools. |
-| Owner  | All  | All  | Owner is a superuser, thus the Owner role lets you manage everything and have full access to data | 
-| Reader   | Read-only  | Governed by ACL    | Reader can view everything regarding account management but can't make any change   |
-| Contributor              | All except add and remove roles | Governed by ACL    | Contributor lets you manage everything except access to accounts |
+| Owner  | All  | All  | Owner is a superuser, thus the Owner role lets you manage everything and has full access to data | 
+| Reader   | Read-only  | Governed by ACL    | Reader can view everything regarding account management, such as which user is assigned to which role, but can't make any changes   |
+| Contributor              | All except add and remove roles | Governed by ACL    | Contributor can manage other aspects of an account such as creating/managing alerts, deployment, etc. A contributor cannot add or remove roles |
 | User access administrator | Add and remove roles            | Governed by ACL    | User access administrator lets you manage user access to accounts. |
 
 For instructions, see [Assign users or security groups to Azure Data Lake Store accounts](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
-
-<< TBD: Get more clarity in this table >>
 
 ### Using ACLs for operations on file systems
 
@@ -81,7 +79,9 @@ Azure Data Lake Store enables you to further lock down access to your data store
 
 ## Data Protection
 
-Organizations want to ensure that their business critical data is secured throughout its life cycle. For data in transit, Data Lake Store uses industry-standard TLS (Transport Layer Security protocol) to secure data between client and Data Lake Security.
+Organizations want to ensure that their business critical data is secured throughout its life cycle. For data in transit, Data Lake Store uses industry-standard TLS (Transport Layer Security protocol) to secure data between client and Data Lake Security. 
+
+Data protection for data at rest will also be available in the future releases.
 
 ## Auditing and diagnostic logs
 
@@ -100,11 +100,17 @@ For account management audit trails, you can view and choose the columns of inte
 
 ### Diagnostic logs
 
-You can enable the data access audit trails from the Azure portal and provide an Azure Blob storage account where the logs will be stored.
+You can enable the data access audit trails from the Azure portal (**Diagnostic Settings**) and provide an Azure Blob storage account where the logs will be stored.
 
 ![Diagnostic logs](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostic logs")
 
-<< TBD: What is the Diagnostic Logs option in the Settings blade? >>
+Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
+
+## Summary
+
+Enterprise customers demand a data analytics cloud platform that is secure and easy to use. Azure Data Lake Store has been designed to address these requirements with identity management and authentication via Azure Active Direction integration, ALCs based authorization, network isolation, data encryption in transit and at rest (coming in the future), and auditing. 
+
+If you want to see new features included in Data Lake Store, send us your feedback at [Uservoice forum](https://feedback.azure.com/forums/327234-data-lake).
 
 ## See also
 
