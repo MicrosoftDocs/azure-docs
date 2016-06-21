@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Distributed Tables in SQL Data Warehouse | Microsoft Azure"
-   description=Distributed Tables in SQL Data Warehouse in Azure SQL Data Warehouse."
+   pageTitle="Distributing Tables in SQL Data Warehouse | Microsoft Azure"
+   description="Distributing Tables in SQL Data Warehouse in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,7 +16,7 @@
    ms.date="06/21/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Distributed Tables in SQL Data Warehouse
+# Distributing Tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -26,7 +26,7 @@
 - [Data Types][]
 - [Statistics][]
 
-This article will introduce you to distributed tables in SQL Data Warehouse.
+This article will introduce you to distributing tables in SQL Data Warehouse.
 
 
 <!--Article references-->
