@@ -18,7 +18,7 @@ ms.service="virtual-machines-linux"
 
 # Compute benchmark scores for Linux VMs
 
-The following benchmark scores show compute performance for Azure's high performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](virtual-machines-windows-compute-benchmark-sclres.md).
+The following benchmark scores show compute performance for Azure's high performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](virtual-machines-windows-compute-benchmark-scores.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -79,4 +79,4 @@ Standard_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 @ 2 GHz | 84 | 357,396 | 16,228
 
 * For storage capacities, disk details, and additional considerations for choosing among VM sizes, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
-* To run the CoreMark scripts on Linux VMs, download the [CoreMark script pack](./media/virtual-machines-linux-compute-benchmark-scores/AzureCoreMarkScriptPack.zip).
+* To run the CoreMark scripts on Linux VMs, download the [CoreMark script pack](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
