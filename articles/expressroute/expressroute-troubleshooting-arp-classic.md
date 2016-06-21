@@ -23,7 +23,7 @@
 
 This article walks you through the steps for getting the ARP tables for your Azure ExpressRoute circuit.
 
->[AZURE.IMPORTANT] This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. If you are can't solve the problem by using the following guidance, open a support ticket with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+>[AZURE.IMPORTANT] This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. If you are can't solve the problem by using the following guidance, open a support request with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Address Resolution Protocol (ARP) and ARP tables
 ARP is a Layer 2 protocol that's defined in [RFC 826](https://tools.ietf.org/html/rfc826). ARP is used to map an Ethernet address (MAC address) to an IP address.
@@ -157,7 +157,7 @@ The ARP table of a peering can be used to validate Layer 2 configuration and con
 ### ARP table when the Microsoft side has problems
 
  - You will not see an ARP table shown for a peering if there are issues on the Microsoft side.
- -  Open a support ticket with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specify that you have an issue with Layer 2 connectivity.
+ -  Open a support request with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specify that you have an issue with Layer 2 connectivity.
 
 ## Next steps
 
@@ -165,4 +165,4 @@ The ARP table of a peering can be used to validate Layer 2 configuration and con
 	 - Get a route summary to determine the state of BGP sessions.
 	 - Get a route table to determine which prefixes are advertised across ExpressRoute.
  - Validate data transfer by reviewing bytes in and out.
- - Open a support ticket with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you are still experiencing issues.
+ - Open a support request with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you are still experiencing issues.
