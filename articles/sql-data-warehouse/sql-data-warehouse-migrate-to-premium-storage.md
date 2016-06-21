@@ -57,7 +57,7 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 | East US2            | June 23, 2016                | July 1,2016                  |
 | India Central       | June 23, 2016                | July 1,2016                  |
 | India South         | June 23, 2016                | July 1,2016                  |
-| India Wast          | Not determined yet           | Not determined yet           |
+| India West          | Not determined yet           | Not determined yet           |
 | Japan East          | Not determined yet           | Not determined yet           |
 | Japan West          | Not determined yet           | Not determined yet           |
 | North Central US    | Not determined yet           | Not determined yet           |
