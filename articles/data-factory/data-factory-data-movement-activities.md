@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Data movement activities" 
-	description="Learn about Data Factory entities that you can use in a Data Factory pipelines to move data." 
+	description="Learn about data movement in Data Factory pipelines: data migration between cloud stores, between on-premises and cloud. Use the Copy Activity." 
+	keywords="data movement, data migration"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,7 +17,7 @@
 	ms.date="05/31/2016" 
 	ms.author="spelluru"/>
 
-# Data movement activities
+# Data movement and the Copy Activity
 The [Copy Activity](#copyactivity) performs the data movement in Azure Data Factory and the activity is powered by a [globally available service](#global) that can copy data between various data stores in a secure, reliable, and scalable way. The service automatically chooses the most optimal region to perform the data movement. The region closest to the sink data store is used.
  
 Let’s understand how this data movement occurs in different scenarios.
