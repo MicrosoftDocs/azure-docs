@@ -23,7 +23,8 @@ This article contains definitions for a list of core Azure Active Directory (AD)
 ## Glossary
 
 ### access token  
-A type of security token used by a [client application](#client-application) to access a protected resource, serving as a form of credential, typically in the form of a [JSON Web Token (JWT)][JWT]. The token embodies/encapsulates delegated permissions from the **resource owner** and the applicable claims about the subject, enabling the client application to use it as a form of credential in order to access a given resource. 
+A type of security token issued by an [authorization server][] and used by a [client application](#client-application) in order to access a protected resource. Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#oauth2-authorization-framework-roles). The token contains all applicable claims about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
+
 
 [TODO] Discuss App+User and App-Only
 
@@ -63,7 +64,7 @@ Provides authorization code during "authorization code" grant. (refer to token e
 ### authorization grant
 A credential representing the resource owner's authorization to access its protected resources, used by a **client applicatio** in order to obtain an **access token**. The OAuth2 spec [currently defines four types][OAuth2-AuthZ-Grant-Types] :  
 
-- authorization code: RO authenticates, RO owns the resource(s) -> App+User Access Token
+- authorization code: RO authenticates, RO owns the resource(s) -> App+User Access Token. The [OAuth 2.0 "Authorization Code" grant flow][OAuth2-AuthZ-Code-Grant-Flow] in this article, as it allows the resource owner to delegate authorization to the client application, but please note there are other types of OAuth2 grant flows.
 - client credentials: App authenticates,Client owns the resource(s) -> App-Only Access Token
 - implicit: used by SPA, simplified Authorization Code, client gets Access Token directly, no Authorization Code
 - resource owner password credentials (aka: user Ccedentials) : RO provides username/password to Client to get token directly; only supported in AAD for native clients
@@ -76,18 +77,24 @@ For example, the "scope" (scp) claim provides the permission(s) granted to a del
 See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details. [AAD-Security-Token-Claims]
 
 ### client application  
- The SaaS application that requests authorization from a resource owner to participate in an OAuth2 authorization grant flow, to access APIs/data on their behalf. We will cover examples of both a Web client application accessed from a browser, and a Native client application installed on a device, which need to access the customer tenant's Graph API to access directory data on behalf of the signed in user. 
-
-We will use the [OAuth 2.0 "Authorization Code" grant flow][OAuth2-AuthZ-Code-Grant-Flow] in this article, as it allows the resource owner to delegate authorization to the client application, but please note there are other types of OAuth2 grant flows.
+See [OAuth2 Authorization Framework roles][oauth2-authorization-framework-roles]
 
 ### consent
 The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's **service principal** is also recorded in the tenant of the consenting user.
 
 ### ID token
-An [OpenID Connect security token][OpenIDConnect-ID-Token]] that contains [claims](#claim) pertaining to the authentication of an End-User resource owner by an [authorization server](#authorization-server), when using a client application to access resources), by an Authorization Server, and potentially other requested claims. Like an access token, ID tokens are also represented as a [JSON Web Token (JWT)][JWT]. 
+An [OpenID Connect security token][OpenIDConnect-ID-Token]] that contains [claims](#claim) pertaining to the authentication of an end-user resource owner by an [authorization server](#authorization-server), when using a client application to access resources), by an Authorization Server, and potentially other requested claims. Like an access token, ID tokens are also represented as a [JSON Web Token (JWT)][JWT]. 
 
 ### multi-tenant application
 A type of client application registered in Azure AD, that is designed to permit sign ins from user accounts that are provisioned in any Azure AD tenant, including ones other than the one where the application itself is registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. 
+
+### OAuth2 Authorization Framework roles
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def]:
+
+- resource owner: an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
+- resource server: the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens. Also known as a protected resource server.
+- client: An application making protected resource requests on behalf of the resource owner and with its authorization.  The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices). The SaaS application that requests authorization from a resource owner to participate in an OAuth2 authorization grant flow, to access APIs/data on their behalf. We will cover examples of both a Web client application accessed from a browser, and a Native client application installed on a device, which need to access the customer tenant's Graph API to access directory data on behalf of the signed in user.
+- authorization server: the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization. Note, as in the case of Azure AD, some authorization servers also function as a resource server.
 
 ### passive client  
 Used to define whether the client application is involved in generating the user interface. A passive client has a user interface that is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render.
