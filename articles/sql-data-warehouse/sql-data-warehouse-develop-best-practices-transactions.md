@@ -18,7 +18,7 @@
 
 # Optimizing transactions for SQL Data Warehouse
 
-This article explains optimize your transactional code to achieve the best performance while minimizing risk for long rollbacks.
+This article explains how to optimize the performance of your transactional code while minimizing risk for long rollbacks.
 
 ## Transactions and logging
 
