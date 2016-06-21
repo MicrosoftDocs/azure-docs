@@ -120,7 +120,7 @@ Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/
 
 Microsoft Patterns & Practices has the following cache patterns and guidance.
 
--	[Caching guidance](https://github.com/mspnp/azure-guidance/blob/master/Caching.md).
+-	[Caching guidance](https://github.com/mspnp/azure-guidance/blob/master/Caching.md)
 -	[Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance)
 -	[Common cache patterns with Azure Redis Cache](cache-howto-common-cache-patterns.md)
 
