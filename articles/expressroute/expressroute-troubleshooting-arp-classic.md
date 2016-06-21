@@ -64,13 +64,13 @@ This section provides instructions about how to view the ARP tables for each typ
 ### ARP tables for Azure private peering
 The following cmdlet provides the ARP tables for Azure private peering:
 
-		# Required Variables
+		# Required variables
 		$ckt = "<your Service Key here>
 
-		# ARP table for Azure private peering - Primary path
+		# ARP table for Azure private peering--primary path
 		Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Private -Path Primary
 
-		# ARP table for Azure private peering - Secondary path
+		# ARP table for Azure private peering--secondary path
 		Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Private -Path Secondary
 
 Sample output is shown below for one of the paths:
@@ -84,13 +84,13 @@ Sample output is shown below for one of the paths:
 ### ARP tables for Azure public peering:
 The following cmdlet provides the ARP tables for Azure public peering:
 
-		# Required Variables
+		# Required variables
 		$ckt = "<your Service Key here>
 
-		# ARP table for Azure public peering - Primary path
+		# ARP table for Azure public peering--primary path
 		Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Primary
 
-		# ARP table for Azure public peering - Secondary path
+		# ARP table for Azure public peering--secondary path
 		Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Secondary
 
 Sample output is shown below for one of the paths:
@@ -112,10 +112,10 @@ Sample output is shown below for one of the paths:
 ### ARP tables for Microsoft peering
 The following cmdlet provides the ARP tables for Microsoft peering:
 
-    # ARP table for Microsoft peering - Primary path
+    # ARP table for Microsoft peering--primary path
     Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Microsoft -Path Primary
 
-    # ARP table for Microsoft peering - Secondary path
+    # ARP table for Microsoft peering--secondary path
     Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Microsoft -Path Secondary
 
 
