@@ -40,7 +40,7 @@ Unlike fully logged operations, which use the transaction log to keep track of e
 
 The following operations are capable of being minimally logged:
 
-- CREATE TABLE AS SELECT (CTAS)
+- CREATE TABLE AS SELECT ([CTAS][])
 - INSERT..SELECT
 - CREATE INDEX
 - ALTER INDEX REBUILD
@@ -172,7 +172,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 ## Optimizing with partition switching
 
-When faced with large scale modifications inside a partition then a partition switching pattern makes a lot of sense. If the data modification is significant and spans multiple partitions then simply iterating over the partitions achieves the same result.
+When faced with large scale modifications inside a [table partition][], then a partition switching pattern makes a lot of sense. If the data modification is significant and spans multiple partitions then simply iterating over the partitions achieves the same result.
 
 The steps to perform a partition switch are as follows:
 1. Create an empty out partition
@@ -227,7 +227,7 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-This procedure maximises code re-use and keeps the partition switching example more compact.
+This procedure maximizes code re-use and keeps the partition switching example more compact.
 
 The code below demonstrates the five steps mentioned above to achieve a full partition switching routine.
 
@@ -396,7 +396,7 @@ END
 
 ## Pause and scaling guidance
 
-Azure SQL Data Warehouse lets you pause, resume and scale your data warehouse on demand. When you pause or scale your SQL Data Warehouse it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation then this work will need to be undone. This may impact the time it takes to fully pause your Azure SQL Data Warehouse database. 
+Azure SQL Data Warehouse lets you pause, resume and scale your data warehouse on demand. When you pause or scale your SQL Data Warehouse it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation then this work will need to be undone. This may impact the time it takes to pause or scale your Azure SQL Data Warehouse database. 
 
 > [AZURE.IMPORTANT] Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations. 
 
@@ -410,21 +410,17 @@ The best scenario is to let in flight data modification transactions complete pr
 See [Transactions in SQL Data Warehouse][] to learn more about isolation levels and transactional limits.  
 To learn more about transaction in 
 
-- [Transactions][]
-- [Table partitioning][]
-- [Concurrency][]
-- [CTAS][]
-
 <!--Image references-->
 
 <!--ACOM references-->
-[Transactions in SQL Data Warehouse]: sql-data-warehouse-develop-transactions.md
-[Table partitioning]: sql-data-warehouse-develop-table-partitions.md
-[table partition]: sql-data-warehouse-develop-table-partitions.md
-[Concurrency]: sql-data-warehouse-develop-concurrency.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-
+[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[table partition]: ./sql-data-warehouse-develop-table-partitions.md
+[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
 
 <!--MSDN references-->
 [alter index]:https://msdn.microsoft.com/library/ms188388.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
+
+<!-- Other web references -->
+
