@@ -20,15 +20,6 @@
 
 Learn the answers to common questions, patterns and best practices for Azure Redis Cache.
 
-
-
-
-
-
-
-Put stunnel back into the development node
-Monitor and Troubleshooting - the current self help blade - Redis Advisor and the self help blade
-
 -	[Planning](#planning)
 	-	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
 		-	[How do the difference sizes and tiers of cache perform?](#cache-performance)
@@ -50,8 +41,9 @@ Monitor and Troubleshooting - the current self help blade - Redis Advisor and th
 	-	[Important details about ThreadPool growth](#important-details-about-threadpool-growth)
 	-	[Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 -	[Monitoring and troubleshooting]()
-	-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 	-	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+		-	[Support & troubleshooting](#support-troubleshooting-section)
+	-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 	-	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
 -	[Prior cache offerings]()
 	-	[Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
@@ -287,19 +279,31 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 ## Monitoring and troubleshooting
 
--	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 -	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+	-	[Support & troubleshooting](#support-troubleshooting-section)
+-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 -	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
+
+<a name="cache-monitor"></a>
+### How do I monitor the health and performance of my cache?
+
+Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
+
+<a name="support-troubleshooting-section"></a>
+
+The **Support + troubleshooting** section of the Redis Cache **Settings** blade also contains several tools for monitoring and troubleshooting your caches. 
+
+-	**Troubleshoot** provides information about common issues and strategies for resolving them.
+-	**Audit logs** provides information on actions performed on your cache. You can also use filtering to expand this view to include other resources.
+-	**Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../resource-health/resource-health-overview.md).
+-	**New support request** provides options to open a support request for your cache.
+
+These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see [Support & troubleshooting settings](cache-configure.md#support-amp-troubleshooting-settings).
 
 <a name="cache-timeouts"></a>
 ### Why am I seeing timeouts?
 
 Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
-
-<a name="cache-monitor"></a>
-### How do I monitor the health and performance of my cache?
-
-Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information on monitoring your caches, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
 
 <a name="cache-disconnect"></a>
 ### Why was my client disconnected from the cache?
