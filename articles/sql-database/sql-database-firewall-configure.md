@@ -18,7 +18,7 @@
    ms.date="06/10/2016"
    ms.author="rickbyh"/>
 
-# How to configure an Azure SQL server firewall \- overview
+# Configure Azure SQL Database firewall rules \- overview
 
 
 > [AZURE.SELECTOR]
@@ -135,11 +135,25 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 
  - Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
-## See also
+## Next steps
 
-[How to: Configure an Azure SQL server firewall using the Azure Portal](sql-database-configure-firewall-settings.md)
+For how to articles on creating server-level and database-level firewall rules, see:
 
-[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
+- [Configure Azure SQL Database server-level firewall rules using the Azure Portal](sql-database-configure-firewall-settings.md)
+- [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md)
+- [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [Configure Azure SQL Database server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md)
+
+For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
+For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+To understand how to navigate to databases see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+
+
+
+## Additional resources
+
+- [Securing your database](sql-database-security.md)
+- [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png

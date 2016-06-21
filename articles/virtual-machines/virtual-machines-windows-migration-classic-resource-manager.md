@@ -81,14 +81,12 @@ The following features are not supported for public preview. You can optionally 
 
 Resource provider | Feature
 ---------- | ------------
-Compute | Boot diagnostics.
 Compute | Unassociated virtual machine disks.
 Compute | Virtual machine images.
 Network | Unassociated reserved IPs (if not attached to a VM). Reserved IPs attached to VMs are supported.
 Network | Unassociated network security groups (if not attached to a virtual network or network interface). NSGs referenced by virtual networks are supported.
 Network | Endpoint ACLs.
 Network | Virtual network gateways (site to site, Azure ExpressRoute, point to site).
-Storage | Storage accounts.
 
 ### Unsupported configurations
 
@@ -103,7 +101,6 @@ Compute | Virtual machines that have alerts, Autoscale policies | At this time, 
 Compute | XML VM extensions (Visual Studio Debugger, Web Deploy, and Remote Debugging) | This is not supported. We recommend that you remove these extensions from the virtual machine to continue migration.
 Compute | Cloud services that contain web/worker roles | This is currently not supported.
 Network | Virtual networks that contain virtual machines and web/worker roles |  This is currently not supported.
-Network | Subnets that contain spaces in the name | This is currently not supported.
 Azure App Service | Virtual networks that contain App Service environments | This is currently not supported.
 Azure HDInsight | Virtual networks that contain HDInsight services | This is currently not supported.
 Microsoft Dynamics Lifecycle Services | Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services | This is currently not supported.

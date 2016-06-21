@@ -39,7 +39,7 @@ In addition, migrating to an [elastic database pool](sql-database-elastic-pool.m
 
 You can easily auto-migrate databases from V11 servers directly into elastic database pools following the steps in this article.
 
-Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade.
+Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connectivity-issues.md) then it is sufficient to protect against dropped connections at the end of the upgrade.
 
 Upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11.
 

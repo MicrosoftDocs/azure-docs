@@ -105,7 +105,7 @@ In the following tutorials, you will learn about [migrating an existing SQL Serv
 
 ##Develop
 
-In the following tutorials, you will learn about [client connectivity to Azure SQL Database](sql-database-connect-central-recommendations.md) and using [connectivity libraries](sql-database-libraries.md).
+In the following tutorials, you will learn about [SQL Database Development](sql-database-develop-overview.md) and using [connectivity libraries](sql-database-libraries.md).
 
 | Tutorial  | Description  |
 |---|---|---|
