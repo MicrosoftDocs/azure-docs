@@ -3,7 +3,7 @@
    description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardoamunoz"
+   authors="BernardoAMunoz"
    manager=""
    editor=""/>
 
