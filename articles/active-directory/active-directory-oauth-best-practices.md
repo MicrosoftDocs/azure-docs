@@ -19,8 +19,6 @@
 
 # Best practices for OAuth 2.0 in Azure Active Directory
 
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
-
 ## Use the State parameter
 
 The `state` parameter is a randomly generated, non-reusable value (typically a GUID) that the client sends in the request. It is an optional parameter but it is strongly recommended in requests for the authorization code. The response also includes the same `state` value, and the application must verify that the state values are identical before using the response.

@@ -18,8 +18,6 @@
 
 # Error handling in OAuth 2.0
 
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
-
 In this article, we will learn some best practices for handling common classes of errors that you may encounter when authorizing your application with Azure Active Directory (Azure AD). For more information about the authorization endpoint and the token issuance endpoint, please see [Authentication flow for an application in Azure AD](active-directory-protocols-oauth-code.md).
 
 ## Authorization endpoint errors

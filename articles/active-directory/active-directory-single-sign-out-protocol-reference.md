@@ -19,8 +19,6 @@
 
 # Single Sign-Out SAML Protocol
 
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
-
 Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, Azure AD must register its metadata URL during application registration. Azure AD gets the logout URL and the signing key of the cloud service from the metadata. Azure AD uses the signing key to verify the signature on the incoming LogoutRequest, and it uses the LogoutURL to redirect users after they are signed out.
 
 If the cloud service does not support a metadata endpoint, after the application is registered, the developer must contact Microsoft support to provide the logout URL and signing key.

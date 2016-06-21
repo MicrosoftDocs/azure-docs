@@ -19,8 +19,6 @@
 
 # Authorize access to web applications using OAuth 2.0 and Azure Active Directory
 
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
-
 Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1) . It is used to perform authentication and authorization in the majority of app types, including web apps and natively installed apps.
@@ -83,8 +81,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | admin_consent | The value is True if an administrator consented to a consent request prompt.|
 | code | The authorization code that the application requested. The application can use the authorization code to request an access token for the target resource. |
 | session_state | A unique value that identifies the current user session. This value is a GUID, but should be treated as an opaque value that is passed without examination. |
-| state | If a state parameter is included in the request, the same value should appear in the response. The application should verify that the state values in the request
-If a state parameter was included in the request, the same value appears in the response. It's a good practice for the application to verify that the state values in the request and response are identical before using the response. This helps to detect [cross-site request forgery (CSRF) attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.  
+| state | If a state parameter is included in the request, the same value should appear in the response. It's a good practice for the application to verify that the state values in the request and response are identical before using the response. This helps to detect [Cross-Site Request Forgery (CSRF) attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.  
 
 ### Error response
 

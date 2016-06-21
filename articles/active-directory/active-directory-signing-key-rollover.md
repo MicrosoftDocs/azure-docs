@@ -18,8 +18,6 @@
 
 # Signing key rollover in Azure Active Directory
 
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
-
 This topic discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a 6 week schedule. In an emergency, a key could be changed much sooner than 6 weeks. All applications that use Azure AD should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, and how to update your application to handle key rollover.
 
 ## Overview of signing keys in Azure AD
