@@ -28,7 +28,7 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 	-	[What are some common cache patterns and considerations?](#what-are-some-common-cache-patterns-and-considerations)
 -	[Development](#development)
 	-	[What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
-	-	[What Redis cache clients can I use?](#TODO)
+	-	[What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
 	-	[Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
 	-	[How can I run Redis commands?](#how-can-i-run-redis-commands)
 	-	[Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
@@ -124,7 +124,7 @@ Microsoft Patterns & Practices has the following guidance.
 ## Development
 
 -	[What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
--	[What Redis cache clients can I use?](#TODO)
+-	[What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
 -	[Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
 -	[How can I run Redis commands?](#how-can-i-run-redis-commands)
 -	[Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
@@ -142,22 +142,22 @@ ConnectTimeout|Timeout in ms for connect operations.|
 
 In most cases the default values of the client are sufficient. You can fine tune the options based on your workload.
 
--	Retries
--	For ConnectRetry and ConnectTimeout the general guidance is to fail fast and retry again. This is based on your workload and how much time on average it takes for your client to issue a Redis command and receive a response.
--	Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
--	Snowballing - sometimes you may run into an issue where you are retrying and this snowballs and never recovers. In this case you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](https://github.com/mspnp/azure-guidance/blob/master/Retry-General.md) published by the Microsoft Patterns & Practices group.
--	Timeout values
--	Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
--	Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
--	Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect).
--	Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
--	Use multiple `ConnectionMultiplexer` instances for custom workloads.
--	You can follow this model if you have varying load in your application. For example:
--	You can have one multiplexer for dealing with large keys.
--	You can have one multiplexer for dealing with small keys.
--	You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
--	Set the `ClientName` property on each multiplexer to help with diagnostics.
--	This will lead to more streamlined latency per `ConnectionMultiplexer`.
+-	**Retries**
+	-	For ConnectRetry and ConnectTimeout the general guidance is to fail fast and retry again. This is based on your workload and how much time on average it takes for your client to issue a Redis command and receive a response.
+	-	Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
+	-	Snowballing - sometimes you may run into an issue where you are retrying and this snowballs and never recovers. In this case you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](https://github.com/mspnp/azure-guidance/blob/master/Retry-General.md) published by the Microsoft Patterns & Practices group.
+-	**Timeout values**
+	-	Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
+	-	Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
+	-	Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect).
+	-	Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
+	-	Use multiple `ConnectionMultiplexer` instances for custom workloads.
+	-	You can follow this model if you have varying load in your application. For example:
+	-	You can have one multiplexer for dealing with large keys.
+	-	You can have one multiplexer for dealing with small keys.
+	-	You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
+	-	Set the `ClientName` property on each multiplexer to help with diagnostics.
+	-	This will lead to more streamlined latency per `ConnectionMultiplexer`.
 
 ### What Redis cache clients can I use?
 
@@ -207,9 +207,9 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 <a name="cache-reference"></a>
 ### Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?
 
-Microsoft Azure Redis Cache is based on the popular open source Redis Cache, giving you access to a secure, dedicated Redis cache, managed by Microsoft. A variety of [Redis clients](http://redis.io/clients) are available for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
+Microsoft Azure Redis Cache is based on the popular open source Redis Cache and can be accessed by a wide variety of [Redis clients](http://redis.io/clients) which are available for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
 
-Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials on Azure.com showing how to get started with Azure Redis Cache using different languages and cache clients on the [Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/) page.
+Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials showing how to get started with Azure Redis Cache using different languages and cache clients. To access these tutorials, see [How to use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and click the desired language from the language switcher at the top of the article.
 
 
 ## Security
@@ -240,9 +240,10 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 ## Production
 
--	[What are Redis production best practices](#TODO)
 -	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 -	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-	[Important details about ThreadPool growth](#important-details-about-threadpool-growth)
+-	[Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 
 ### Production best practices
 
@@ -272,53 +273,6 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 -	Use redis-cli.exe and monitor the cache using the INFO command.
 -	If your load is causing high memory fragmentation then you should scale up to a larger cache size.
 -	For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
-
-
-
-
-## Monitoring and troubleshooting
-
--	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
--	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
--	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
-
-<a name="cache-monitor"></a>
-### How do I monitor the health and performance of my cache?
-
-Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
-
-The **Support + troubleshooting** section of the Redis Cache **Settings** blade also contains several tools for monitoring and troubleshooting your caches. 
-
--	**Troubleshoot** provides information about common issues and strategies for resolving them.
--	**Audit logs** provides information on actions performed on your cache. You can also use filtering to expand this view to include other resources.
--	**Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../resource-health/resource-health-overview.md).
--	**New support request** provides options to open a support request for your cache.
-
-These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see [Support & troubleshooting settings](cache-configure.md#support-amp-troubleshooting-settings).
-
-<a name="cache-timeouts"></a>
-### Why am I seeing timeouts?
-
-Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
-
-<a name="cache-disconnect"></a>
-### Why was my client disconnected from the cache?
-
-The following are some common reason for a cache disconnect.
-
--	Client-side causes
-	-	The client application was redeployed.
-	-	The client application performed a scaling operation.
-		-	In the case of Cloud Services or Web Apps, this may be due to auto-scaling.
-	-	The networking layer on the client side changed.
-	-	Transient errors occurred in the client or in the network nodes between the client and the server.
-	-	The bandwidth threshold limits were reached.
-	-	CPU bound operations took too long to complete.
--	Server-side causes
-	-	On the standard cache offering, the Azure Redis Cache service initiated a fail-over from the primary node to the secondary node.
-	-	Azure was patching the instance where the cache was deployed
-		-	This can be for Redis server updates or general VM maintenance.
-
 
 
 <a name="threadpool"></a>
@@ -369,6 +323,53 @@ Enabling server GC can optimize the client and provide better performance and th
 -	[To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
 -	[Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
 -	[Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
+
+
+
+
+
+## Monitoring and troubleshooting
+
+-	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
+-	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
+
+<a name="cache-monitor"></a>
+### How do I monitor the health and performance of my cache?
+
+Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
+
+The **Support + troubleshooting** section of the Redis Cache **Settings** blade also contains several tools for monitoring and troubleshooting your caches. 
+
+-	**Troubleshoot** provides information about common issues and strategies for resolving them.
+-	**Audit logs** provides information on actions performed on your cache. You can also use filtering to expand this view to include other resources.
+-	**Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../resource-health/resource-health-overview.md).
+-	**New support request** provides options to open a support request for your cache.
+
+These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see [Support & troubleshooting settings](cache-configure.md#support-amp-troubleshooting-settings).
+
+<a name="cache-timeouts"></a>
+### Why am I seeing timeouts?
+
+Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
+
+<a name="cache-disconnect"></a>
+### Why was my client disconnected from the cache?
+
+The following are some common reason for a cache disconnect.
+
+-	Client-side causes
+	-	The client application was redeployed.
+	-	The client application performed a scaling operation.
+		-	In the case of Cloud Services or Web Apps, this may be due to auto-scaling.
+	-	The networking layer on the client side changed.
+	-	Transient errors occurred in the client or in the network nodes between the client and the server.
+	-	The bandwidth threshold limits were reached.
+	-	CPU bound operations took too long to complete.
+-	Server-side causes
+	-	On the standard cache offering, the Azure Redis Cache service initiated a fail-over from the primary node to the secondary node.
+	-	Azure was patching the instance where the cache was deployed
+		-	This can be for Redis server updates or general VM maintenance.
 
 
 
