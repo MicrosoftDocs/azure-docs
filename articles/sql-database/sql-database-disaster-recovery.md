@@ -35,6 +35,8 @@ The recovery operation impacts the application. It requires changing the SQL con
 
 Depending on your application tolerance to downtime and possible business liability you can consider the following recovery options.
 
+Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
+
 ## Wait for service recovery
 
 The Azure teams work diligently to restore service availability as quickly as possible but depending on the root cause it can take hours or days.  If your application can tolerate significant downtime you can simply wait for the recovery to complete. In this case, no action on your part is required.  You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/). After the recovery of the region your application’s availability will be restored.

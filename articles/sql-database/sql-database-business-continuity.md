@@ -13,14 +13,14 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-business-continuity"
+   ms.workload="sqldb-bcdr"
    ms.date="06/09/2016"
    ms.author="carlrab"/>
 
 # Overview: Cloud business continuity and database disaster recovery with Azure SQL Database
 
 > [AZURE.SELECTOR]
-- [Point-in-time restore](sql-database-point-in-time-restore.md)
+- [Point-In-Time Restore](sql-database-point-in-time-restore.md)
 - [Restore deleted database](sql-database-restore-deleted-database.md)
 - [Geo-Restore](sql-database-geo-restore.md)
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
