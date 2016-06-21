@@ -26,12 +26,12 @@ Linux numbers were computed by running [CoreMark](http://www.eembc.org/coremark/
 ## A-series - compute-intensive
 
 
-Size | vCPUs | NUMA nodes | CPU | Runs | Interations/sec | StdDev
+Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev
 ------- | ------ | ---- | -------| ---- | ---- | -----
 Standard_A8 | 8 | 1 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz| 179 | 110,294 | 554
 Standard_A9 | 16 | 2 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz| 189 | 210,816| 2,126
-Standard_A10 | 8 | 1 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz| 179 | 110,025 | 1,045
-Standard_A11 | 16 | 2 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz| 189 | 210,816| 2,126
+Standard_A10 | 8 | 1 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz| 188 | 110,025 | 1,045
+Standard_A11 | 16 | 2 | Intel Xeon CPU E5-2670 0 @ 2.6 GHz| 188 | 210,727| 2,073
 
 ## Dv2-series
 
