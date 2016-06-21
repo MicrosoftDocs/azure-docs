@@ -1,11 +1,12 @@
 ## Associate an Azure Storage account to IoT Hub
-Since the simulated device will upload a file in an Azure Storage blob, you must have an Azure Storage account associated to IoT Hub. You can use an existing one, or follow the instructions in [About Azure Storage] to create a new one. You can associate an Azure Storage account to IoT Hub by following the instructions in [Manage IoT hubs through the Azure portal].
+
+Because the simulated device uploads a file in an Azure Storage blob, you must have an Azure Storage account associated to IoT Hub. You can use an existing storage account, or follow the instructions in [About Azure Storage] to create a new one. You can associate an Azure Storage account to IoT Hub by following the instructions in [Manage IoT hubs through the Azure portal].
 
 ## Upload a file from a simulated device
 
-In this section, you'll modify the simulated device application you created in [Send Cloud-to-Device messages with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+In this section, you modify the simulated device application you created in [Send Cloud-to-Device messages with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
-1. In Visual Studio, right-click the **SimulatedDevice** project, click **Add**, and then click **Existing Item...**. Navigate to an image file and include it in your project. This tutorial assumes the image is named `image.jpg`.
+1. In Visual Studio, right-click the **SimulatedDevice** project, click **Add**, and then click **Existing Item**. Navigate to an image file and include it in your project. This tutorial assumes the image is named `image.jpg`.
 
 2. Right-click on the image, and then click **Properties**. Make sure that **Copy to Output Directory** is set to **Copy always**.
 
