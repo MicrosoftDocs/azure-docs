@@ -23,18 +23,18 @@
 
 ## Resource Groups
 
-In Azure, you can group together related resources in order to deploy, manage, and maintain them as a single entity. Using Resource Groups, you can logically bring together storage accounts, virtual networks, IP addresses, virtual machines (VMs), load balancers, etc. and maintain them in a single pane. This makes it easier to deploy applications and keep all the related resources together from a management or maintenance perspective, or to grant others access to that particular application.
+In Azure, you can logically group together related resources such as storage accounts, virtual networks, and virtual machines (VMs) in order to deploy, manage, and maintain them as a single entity. This makes it easier to deploy applications while keeping all the related resources together from a management perspective, or to grant others access to that group of resources.
 
-A key component to Resource Groups is to build our your environment using a JSON file that declares the building blocks for storage, networking, compute, and any related custom scripts or configurations to apply. By using these JSON templates, you can create consistent, reproducible deployments for your applications. This makes it easy to build out an environment in development and then use that same template to create a production deployment, or vice versa.
+A key feature to Resource Groups is to build our your environment using a JSON file that declares the building blocks for storage, networking, compute, and any related custom scripts or configurations to apply. By using these JSON templates, you can create consistent, reproducible deployments for your applications. This makes it easy to build out an environment in development and then use that same template to create a production deployment, or vice versa.
 
-There are two different approaches you could take when designing your environment with Resource Groups:
+There are two different approaches you can take when designing your environment with Resource Groups:
 
-- Resource Groups for each application deployment, combining the storage accounts, virtual networks and subnets, VMs, load balancers, etc.
-- Centralized Resource Groups that contain your core virtual networking and subnets, or storage accounts, with your applications in their own Resource Groups that only contain VMs, load balancers, network interfaces, etc.
+- Resource Groups for each application deployment that combines the storage accounts, virtual networks and subnets, VMs, load balancers, etc.
+- Centralized Resource Groups that contain your core virtual networking and subnets or storage accounts, with your applications in their own Resource Groups that only contain VMs, load balancers, network interfaces, etc.
 
-As you scale out, creating Resource Groups for your virtual networking and subnets makes it easier to make cross-premises network connections for hybrid connectivity options, rather than each application having their own virtual network that requires configuration and maintenance. Your application owners only then have access to the application components within their Resource Group and not the core Azure infrastructure of your environment.
+As you scale out, creating centralized Resource Groups for your virtual networking and subnets makes it easier to build cross-premises network connections for hybrid connectivity options, rather than each application having their own virtual network that requires configuration and maintenance. Your application owners only then have access to the application components within their Resource Group and not the core Azure infrastructure of your environment.
 
-Role-Based Access Controls also then allow you to very granular in how you assign out access to Resource Groups. For production applications, you can control users that can access those resources, or for the core infrastructure resources you can limit only infrastructure engineers to work with them. As you design our your environment, consider which users will require access to resources and try to design your Resource Groups accordingly. 
+Role-Based Access Controls provide a granular way to control access to Resource Groups. For production applications, you can control the users that may access those resources, or for the core infrastructure resources you can limit only infrastructure engineers to work with them. As you design our your environment, consider which users will require access to resources and try to design your Resource Groups accordingly. 
 
 ## Implementation guidelines recap for Resource Groups
 
