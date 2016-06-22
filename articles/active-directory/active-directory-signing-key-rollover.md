@@ -20,32 +20,111 @@
 
 [AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
-This topic discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a periodic basis and, in an emergency, could roll over out of band. All applications that use Azure AD should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, how to assess the impact of the rollover to your application and how to update your application to handle key rollover if necessary.
+This topic discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a periodic basis and, in an emergency, could be rolled over immediately. All applications that use Azure AD should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, how to assess the impact of the rollover to your application and how to update your application to handle key rollover if necessary.
 
-> [AZURE.IMPORTANT] The next signing key will occur in August 15th, 2016.
+> [AZURE.IMPORTANT] The next signing key rollover will occur in August 15th, 2016 and will *not* affect Gallery Applications or application in B2C tenants.
 
 ## Overview of signing keys in Azure AD
 
-Azure AD uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: Azure AD uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses Azure AD for authentication, Azure AD creates a security token that contains information about the user. This token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s [OpenID Connect discovery document](http://openid.net/specs/openid-connect-discovery-1_0.html) or [federation metadata document](active-directory-federation-metadata.md). This public key – and the signing key from which it derives – is the same one used for all tenants in Azure AD.
+Azure AD uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: Azure AD uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses Azure AD for authentication, Azure AD creates a security token that contains information about the user. This token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s [OpenID Connect discovery document](http://openid.net/specs/openid-connect-discovery-1_0.html) or [federation metadata document](active-directory-federation-metadata.md).
 
-For security purposes, Azure AD’s public key rolls on a periodic basis and, in the case of an emergency, it could roll over out of band. Any application that integrates with Azure AD should be prepared to handle a key rollover event no matter how frequently it may occur. Depending on when you created your application and what authentication protocol and authentication library it is using, your application may or may not have the necessary logic to handle key rollover. If it doesn’t, and your application attempts to use an expired public key to verify the signature on a token, the sign-in request will fail.
+For security purposes, Azure AD’s signing key rolls on a periodic basis and, in the case of an emergency, could be rolled over immediately. Any application that integrates with Azure AD should be prepared to handle a key rollover event no matter how frequently it may occur. If it doesn’t, and your application attempts to use an expired key to verify the signature on a token, the sign-in request will fail.
 
-Because a key may be rolled at any moment, there is always more than one valid public key available in the OpenID Connect discovery document and the federation metadata document. Your application should be prepared to use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.
+Because a key may be rolled at any moment, there is always more than one valid key available in the OpenID Connect discovery document and the federation metadata document. Your application should be prepared to use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.
 
 ## How to assess if your application will be affected
 
 How your application handles key rollover depends on variables such as what identity protocol and library was used or type of application. Each section below will assess the impact of the key rollover in the most common application types and configurations and provide guidance on how update the application to support automatic rollover or manually update the key.
 
+* [Web applications / APIs using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
+* [Web applications / APIs using .NET Core OpenID Connect or  JwtBearerAuthentication middleware](#owincore)
+* [Web applications / APIs using Node.js passport-azure-ad module](#passport)
+* [Web applications / APIs using Java ADAL4J library](#adal4j)
 * [Web applications / APIs created with Visual Studio 2015](#vs2015)
 * [Web applications created with Visual Studio 2013](#vs2013)
 * [Web APIs created with Visual Studio 2013](#vs2013_webapi)
 * [Web applications created with Visual Studio 2012](#vs2012)
 * [Web applications created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
-* [Web applications / APIs using .NET OWIN OpenID Connect or WS-Fed middleware](#owin)
-* [Web applications / APIs using .NET Core X middleware](#owincore)
-* [Web applications / APIs using Node.js passport-azure-ad module](#passport)
-* [Web applications / APIs using Java ADAL4J library](#adal4j)
 * [Web applications / APIs using any other libraries or manually implementing any of the supported protocols](#other)
+
+### <a name="owin"></a> Web applications / APIs using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware
+
+If your application is using the .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware, it already has the necessary logic to handle key rollover.
+
+You can confirm that your application is using any of these by looking for any of the following snippets in your application's Startup.cs or Startup.Auth.cs
+
+```
+app.UseOpenIdConnectAuthentication(
+	 new OpenIdConnectAuthenticationOptions
+	 {
+		 // ...
+	 });
+```
+```
+app.UseWsFederationAuthentication(
+    new WsFederationAuthenticationOptions
+    {
+	 // ...
+ 	});
+```
+```
+ app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+	 new WindowsAzureActiveDirectoryBearerAuthenticationOptions
+	 {
+	 // ...
+	 });
+```
+
+### <a name="owincore"></a> Web applications / APIs using .NET Core OWIN OpenID Connect or JwtBearerAuthentication middleware
+
+If your application is using the .NET Core OWIN OpenID Connect  or JwtBearerAuthentication middleware, it already has the necessary logic to handle key rollover.
+
+You can confirm that your application is using any of these by looking for any of the following snippets in your application's Startup.cs or Startup.Auth.cs
+
+```
+app.UseOpenIdConnectAuthentication(
+	 new OpenIdConnectAuthenticationOptions
+	 {
+		 // ...
+	 });
+```
+```
+app.UseJwtBearerAuthentication(
+    new JwtBearerAuthenticationOptions
+    {
+	 // ...
+ 	});
+```
+
+### <a name="passport"></a> Web applications / APIs using Node.js passport-ad module
+
+If your application is using the Node.js passport-ad module, it already has the necessary logic to handle key rollover.
+
+You can confirm that your application passport-ad by searching for the following snippet in your application's app.js
+
+```
+var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
+
+passport.use(new OIDCStrategy({
+	//...
+));
+```
+
+### <a name="adal4j"></a> Web applications / APIs using Java ADAL4J library
+
+If your application is using the Java ADAL4J library, it already has the necessary logic to handle key rollover.
+
+You can confirm that your application is using ADAL4J by confirming it's present as a dependency in  your project's `pom.xml`:
+```
+<dependencies>
+	<dependency>
+		<groupId>com.microsoft.azure</groupId>
+		<artifactId>adal4j</artifactId>
+		<version>1.1.1</version>
+	</dependency>
+	<!-- ... -->
+<dependencies>
+```
 
 ### <a name="vs2015"></a> Web applications / APIs created with Visual Studio 2015
 
@@ -225,22 +304,6 @@ If you built an application on WIF v1.0, there is no provided mechanism to autom
 3. From the prompt, select **Update** to begin updating your federation metadata. If you have access to the server environment where the application is hosted, you can optionally use FedUtil’s [automatic metadata update scheduler](https://msdn.microsoft.com/library/ee517272.aspx).
 4. Click **Finish** to complete the update process.
 
-### <a name="owin"></a> Web applications / APIs using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware
-
-If your application is using the .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware, it already has the necessary logic to handle key rollover.
-
-### <a name="owincore"></a> Web applications / APIs using .NET Core OWIN OpenID Connect or JwtBearerAuthentication middleware
-
-If your application is using the .NET Core OWIN OpenID Connect  or JwtBearerAuthentication middleware, it already has the necessary logic to handle key rollover.
-
-### <a name="passport"></a> Web applications / APIs using Node.js passport-ad module
-
-If your application is using the Node.js passport-ad module, it already has the necessary logic to handle key rollover.
-
-### <a name="adal4j"></a> Web applications / APIs using Java ADAL4J library
-
-If your application is using the Java ADAL4J library, it already has the necessary logic to handle key rollover.
-
 ### <a name="other"></a> Web applications / APIs using any other libraries or manually implementing any of the supported protocols.
 
 If you are using some other library or manually implemented any of the supported protocols, you'll need to review the library or your implementation to ensure that the key is being retrieved from either the OpenID Connect discovery document or the federation metadata document. One way to check for this is to do a search in your code or the library's code for any calls out to either the OpenID discovery document or the federation metadata document.
@@ -251,7 +314,7 @@ To manually retrieve the latest key from the OpenID discovery document:
 
 1. In your web browser, go to `https://login.microsoftonline.com/your_directory_name/.well-known/openid-configuration`. You will see the contents of the OpenID Connect discovery document. For more information about this document, see the [OpenID Discovery Document specification](http://openid.net/specs/openid-connect-discovery-1_0.html).
 2. Copy the link in value of jwks_uri
-3. Open a new tab in your browser, and go to the URL that you just copied. You will see the contents of the Federation Metadata XML document.
+3. Open a new tab in your browser, and go to the URL that you just copied. You will see the contents of the JSON Web Key Set document.
 4. For the purposes of updating an application to use a new key, locate each **x5c** element, and then copy the value of each. For example:
 ```
 keys: [
