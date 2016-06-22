@@ -33,7 +33,7 @@ Follow the steps to activate the log reports that are needed to compute all stat
 [Download the Azure Mobile Engagement Web SDK](http://aka.ms/P7b453).
 The Mobile Engagement Web SDK is shipped as a single JavaScript file, azure-engagement.js, which you have to include in each page of your site or web application.
 
-> [AZURE.IMPORTANT] Before you run this script, you must first run a script or code snippet that you write to configure Mobile Engagement for your application.
+> [AZURE.IMPORTANT] Before you run this script, you must run a script or code snippet that you write to configure Mobile Engagement for your application.
 
 ## Browser compatibility
 
