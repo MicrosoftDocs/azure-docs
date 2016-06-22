@@ -117,7 +117,7 @@ The circuit owner can add authorizations by using the following cmdlet:
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
 	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-	Set-AzureRmExpressRouteCircuit -Circuit $circuit	
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
 
 ### Circuit user operations
 
