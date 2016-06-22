@@ -25,7 +25,7 @@
 
 This article provides guidance on how to manage the backups for your virtual machines (VM), as well as explain the backup alerts information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of virtual machines, nor does it explain how to protect virtual machines. For a primer on protecting Azure Resource Manager-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
 
-## Access vaults and protected virtual machines
+## Manage vaults and protected virtual machines
 
 In the Azure portal, the Recovery Services vault dashboard provides access to information about the vault including:
 
@@ -92,7 +92,7 @@ In the previous procedure you opened the vault dashboard. To open the vault item
 
 For the following procedures, the starting point is the vault item dashboard.
 
-## Change policies or Create a new backup policy
+## Manage backup policies
 
 1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **All Settings** to open the **Settings** blade.
 
@@ -111,6 +111,8 @@ For the following procedures, the starting point is the vault item dashboard.
     ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
     For instructions on creating a backup policy, see [Defining a backup policy](backup-azure-manage-vms.md#defining-a-backup-policy).
+
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 
 ## On-demand backup of a virtual machine
@@ -236,38 +238,68 @@ There are multiple ways to filter and view events. In the vault dashboard the **
 
 ### Alert notifications
 
-Alerts are responses that a threshold has been met or surpassed. The **Backup Alerts** tile in the vault dashboard displays the number of events with a Severity level of Critical or Warning. The complete view of alert information is on the **Backup Alert** blade in Settings. Click the **Backup Alerts** tile to access the **Backup Alerts** blade.
+Alerts are responses that a threshold has been met or surpassed. The **Backup Alerts** tile in the vault dashboard displays the number of events with a Severity level of Critical or Warning. The complete view of alert information is on the **Backup Alerts** blade in Settings.
 
+![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-critical.png)
 
->[AZURE.TIP] You can configure the service to send email notifications when a particular alert occurs, or each hour. For details see Configure event notifications.
+>[AZURE.TIP] You can configure the service to send email notifications when a particular alert occurs, or each hour.
 
-To view the **Backup Alerts** blade:
+For details on setting up email notifications, see [Configure event notifications](backup-azure-manage-vms.md#configure-event-notifications).
+
+#### Open the Backup Alerts blade
+
+There are two ways to open the **Backup Alerts** blade: either from the **Backup Alerts** tile in the vault dashboard, or from the Alerts and Events blade.
+
+To open the **Backup Alerts** blade from **Backup Alerts** tile:
 
 - On the **Backup Alerts** tile on the vault dashboard, click **Critical** or **Warning** to view the operational events for that severity level.
 
     ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-tile.png)
 
-    Alternatively, from the vault dashboard you can click **All Settings**. On the Settings blade, click **Alerts and Events**, and on the Alerts and Events blade, click **Backup Alerts**.
+
+To open the **Backup Alerts** blade from the Alerts and Events blade:
+
+1. From the vault dashboard click **All Settings**. ![All Settings button](./media/backup-azure-manage-vms/all-settings-button.png)
+
+2. On the **Settings** blade, click **Alerts and Events**. ![Alerts and Events button](./media/backup-azure-manage-vms/alerts-and-events-button.png)
+
+3. On the **Alerts and Events** blade, click **Backup Alerts**. ![Backup Alerts button](./media/backup-azure-manage-vms/backup-alerts.png)
 
     The **Backup Alerts** blade opens and displays the filtered alerts.
 
     ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-critical.png)
 
-To set up email notifications for alerts
-
-1. On the Backup Alerts menu, click **Configure notifications**
-
-    The Configure notifications blade opens.
-
-2. On the Configure notifications blade, for Email notifications, click **On**.
-
-3. In the **Recipients** dialog
-
-3. To view detailed information about a particular alert, from the list click the alert to open its **Details** blade.
+4. To view detailed information about a particular alert, from the list of events, click the alert to open its **Details** blade.
 
     ![Event Detail](./media/backup-azure-manage-vms/audit-logs-event-detail.png)
 
     To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-manage-vms.md#view-additional-event-attributes)
+
+#### Configure event notifications
+
+Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. You can configure the service to send email notifications with the alerts that occurred over the past hour, or when particular types of events occur.
+
+To set up email notifications for alerts
+
+1. On the Backup Alerts menu, click **Configure notifications**
+
+    ![Backup Alerts menu](./media/backup-azure-manage-vms/backup-alerts-menu.png)
+
+    The Configure notifications blade opens.
+
+    ![Configure notifications blade](./media/backup-azure-manage-vms/configure-notifications.png)
+
+2. On the Configure notifications blade, for Email notifications, click **On**.
+
+    The Recipients and Severity dialogs have a star next to them because that information is required. You must provide at least one email address, and select at least one Severity.
+
+3. In the **Recipients (Email)** dialog, type the email address(es) for who will receive the notifications. Use the format: username@domainname.com. Separate multiple email addresses with a semicolon (;).
+
+4. In the **Notify** area, choose **Per Alert** to send notification each time the specified alert occurs, or **Hourly Digest** to send notifications about the specified alerts that occurred in the past hour.
+
+5. In the **Severity** dialog, choose one or more levels that you want to trigger email notification.
+
+6. Click **Save**.
 
 ### Customize your view of events
 
@@ -394,7 +426,6 @@ Event-based alerts are subjected to the following limitations:
 2. This feature is in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
 3. Alerts are sent from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
-[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Next steps
 
