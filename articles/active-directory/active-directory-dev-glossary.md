@@ -50,8 +50,8 @@ The act of challenging a party for for legitimate credentials, to be used during
 ### authorization
 The act of granting permission to perform a given operation. There are two uses in the Azure AD programming model:
 
-- During **authorization grant**: Resource owner authorizes client to access a resource on behalf of resource owner. Also known as delegated authorization.
-- During resource access:  Implemented by the **resource server**, using the claim values present in the **access token** to make access control decisions based upon them 
+- During the [authorization grant](#authorization-grant) flow: when the [resource owner](#resource-owner) authorizes the [client application](#client-application) to access a resource on behalf of  the resource owner. Also known as delegated authorization.
+- During resource access:  as implemented by the [resource server](#resource-server), using the claim values present in the [access token](#access-token) to make access control decisions based upon them.
 
 ### authorization code
 A secure code provided to a *client application*, in response to authentication of a **resource owner** during an "authorization code" grant, indicating that resource owner has delegated permission to the client application to access resources on behalf of the resource owner. The code is later redeemed for an **access token**.
@@ -67,6 +67,10 @@ A credential representing the resource owner's authorization to access its prote
 - implicit: used by SPA, simplified Authorization Code, client gets Access Token directly, no Authorization Code
 - resource owner password credentials (aka: user Ccedentials) : RO provides username/password to Client to get token directly; only supported in AAD for native clients
 
+### authorization server
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining its authorization. Note, as in the case of Azure AD, some authorization servers also function as a resource server, implementing APIs that can be access via an access token (ie: the Azure AD Graph API).
+
+
 ### claim
 An **access token** contain claims. Claims are assertions (facts) about the subject (the principal that was authenticated by the **authorization server**, ie: Azure AD). The claims present in a given security token are dependent upon the type of token, the type of credential used to authenticate the subject, and the application configuration. 
 
@@ -75,7 +79,9 @@ For example, the "scope" (scp) claim provides the permission(s) granted to a del
 See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 
 ### client application  
-As defined by the [OAuth2 Authorization Framework roles](#oauth2-authorization-framework-roles), a client application requests authorization from a resource owner to participate in an OAuth2 authorization grant flow, to access APIs/data on their behalf. Examples include both a Web client application accessed from a browser, and a Native client application installed on a device, both of which could access Azure AD Graph API protecting the resource owner's tenant, to access directory data on behalf of the signed in user.
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an application that makes protected resource requests on behalf of the resource owner and with its authorization. The term "client" does not imply any particular hardware implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices).  
+
+A client application requests authorization from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, to access APIs/data on its behalf. Examples include a Web client application accessed from a browser, and a Native client application installed on a device, both of which could access Azure AD Graph API protecting the resource owner's tenant, to access directory data on behalf of the signed in user.
 
 ### consent
 The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's **service principal** is also recorded in the tenant of the consenting user.
@@ -86,14 +92,6 @@ An [OpenID Connect security token][OpenIDConnect-ID-Token]] that contains [claim
 ### multi-tenant application
 A type of client application registered in Azure AD, that is designed to permit sign ins from user accounts that are provisioned in any Azure AD tenant, including ones other than the one where the application itself is registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. 
 
-### OAuth2 Authorization Framework roles
-As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def]:
-
-- resource owner: an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
-- resource server: the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens. Also known as a protected resource server.
-- client: An application making protected resource requests on behalf of the resource owner and with its authorization.  The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices). 
-- authorization server: the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization. Note, as in the case of Azure AD, some authorization servers also function as a resource server.
-
 ### passive client  
 Used to define whether the client application is involved in generating the user interface. A passive client has a user interface that is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render.
 
@@ -102,10 +100,15 @@ Compared to an [active client](#active-client), which has a user interface that 
 ### permissions / scopes [TODO-break]
 When we refer to permissions in general, or permission scopes in particular, we are referring to the available permissions that a Web API has declared through it's Azure AD configuration. These are the same permission definitions a client application must declare in it's Azure AD configuration in order to access the API. <br/><br/>These permissions will be surfaced to the resource owner/user during the consent process, so they know what they are granting the client permission to access on their behalf. For a detailed discussion of the permission scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes].
 
-### resource application
-Exposes APIs and enforces the permissions scopes that allow client applications to access it's protected resources through the APIs, using the OAuth 2.0 Authorization Framework. Examples include the Azure AD Graph API that provides access to Azure AD tenant data, and the Office 365 APIs the provide access to data such as mail, calendar, and documents.  
+### resource server
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server hosting the protected resources, capable of accepting and responding to protected resource requests by [client applications](#client-applications) using access tokens. Also known as a protected resource server, or resource application.
+
+A resource server exposes APIs and enforces the scopes that allow client applications to access it's protected resources, using the OAuth 2.0 Authorization Framework. Examples include the Azure AD Graph API that provides access to Azure AD tenant data, and the Office 365 APIs the provide access to data such as mail, calendar, and documents.  
 
 Just like a client application, a Web API (aka: resource) application's identity configuration is established via registration in an Azure AD tenant, providing both the application and service principal object. (note: there are special considerations for Microsoft-provided APIs such as the Azure AD Graph API, as it's service principal object is made available in all tenants by default)
+
+### resource owner
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
 
 ### service principal
 The client application is registered in the developer tenant via the [Azure classic portal][AZURE-Azure-classic-portal], which will create both it's application and service principal objects. We mentioned that the application object is more like a template, and the service principal object is *derived* from the application object. It's important to also note that it is the service principal object to which policy and permissions are applied, so think of it as a concept that is also applicable at run-time. When the application object is modified, the corresponding service principal object in it's tenant is also kept in sync. 
