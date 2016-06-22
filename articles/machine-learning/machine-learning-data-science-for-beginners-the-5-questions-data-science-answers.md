@@ -27,11 +27,11 @@ This video series if helpful you're interested in doing data science--or work wi
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
-Hi! Welcome to the video series Data Science for Beginners.
+Hi! Welcome to the video series *Data Science for Beginners*.
 
 Data Science can be intimidating, so I'll introduce the basics here without any equations or computer programming jargon.
 
-In this first video, we'll talk about The 5 questions that data science can answer.
+In this first video, we'll talk about "The 5 questions that data science can answer."
 
 Data Science uses numbers and names (also known as categories or labels) to predict answers to questions.
 
@@ -45,7 +45,6 @@ It might surprise you, but *there are only five questions that data science answ
 
   Each one of these questions is answered by a separate family of machine learning methods, called algorithms.
 
-## An algorithm is like a recipe
 
 It's helpful to think about an algorithm as a recipe and your data as the ingredients. An algorithm tells how to combine and mix the data in order to get an answer. Computers are like a blender. They do most of the hard work of the algorithm for you and they do it pretty fast.
 
@@ -107,7 +106,7 @@ Common examples of clustering questions are:
 
 By understanding how data is organized, you can better understand--and predict--behaviors and events.  
 
-Question 5: What should I do now? uses reinforcement learning algorithms
+## Question 5: What should I do now? uses reinforcement learning algorithms
 
 The last question – What should I do now? – uses a family of algorithms called reinforcement learning.
 
@@ -122,14 +121,16 @@ Questions it answers are always about what action should be taken--usually by a 
   •	For a robot vacuum: Keep vacuuming, or go back to the charging station?
 
 Reinforcement learning algorithms gather data as they go, learning from trial and error.
-So that's it--The 5 questions data science can answer.
+So that's it - The 5 questions data science can answer.
 
-## Conclusion
-
-Be sure to check out the other 4 videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
 
 ## Next steps
 
-  * Look for next week's Data Science for Beginners video "Is your data ready for data science?"
+Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
 
-  * [Try your first data science experiment](../machine-learning-create-experiment.md) with Azure Machine Learning.
+  * Next week: "Is your data ready for data science?"
+  * Coming up:
+
+Do an easy data science experiment:
+
+  * [Try your first data science experiment](machine-learning-create-experiment.md) with Azure Machine Learning.
