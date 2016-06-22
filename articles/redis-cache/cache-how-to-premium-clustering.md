@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="06/22/2016" 
 	ms.author="sdanie"/>
 
 # How to configure Redis clustering for a Premium Azure Redis Cache
@@ -58,31 +58,6 @@ Once the cache is created you connect to it and use it just like a non-clustered
 
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-<a name="move-exceptions"></a>
-
->[AZURE.IMPORTANT] When connecting to an Azure Redis Cache with clustering enabled using StackExchange.Redis, you may experience an issue and receive `MOVE` exceptions. This occurs because it takes a short interval for the StackExchange.Redis cache client to gather information about the nodes in the cache cluster. These exceptions can occur if you connect to the cache for the first time and immediately make calls to the cache before the client has finished gathering this information. The simplest way to resolve this in your application is by connecting to the cache and then waiting for one second before making any calls to the cache. You can do this by adding a `Thread.Sleep(1000)` as shown in the following sample code. Note that the `Thread.Sleep(1000)` only occurs during the initial connection to the cache. For more information, see [StackExchange.Redis.RedisServerException - MOVED  #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). A fix for this issue is being developed and any updates will be posted here. **Update**: This issue is resolved in the latest [prerelease 1.1.572-alpha](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha) build of StackExchange.Redis. Check the [StackExchange.Redis NuGet page](https://www.nuget.org/packages/StackExchange.Redis/) for the latest build. 
-
-
-	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	{
-        // Connect to the Redis cache for the first time
-	    var connection =  ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
-		// Wait for 1 second
-		Thread.Sleep(1000);
-
-		// Return the connected ConnectionMultiplexer
-		return connection;
-	});
-	
-	public static ConnectionMultiplexer Connection
-	{
-	    get
-	    {
-	        return lazyConnection.Value;
-	    }
-	}
-
 <a name="cluster-size"></a>
 ## Change the cluster size on a running premium cache
 
@@ -107,6 +82,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 -	[Can I configure clustering for a previously created cache?](#can-i-configure-clustering-for-a-previously-created-cache)
 -	[Can I configure clustering for a basic or standard cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
 -	[Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+-	[I am getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
 
 ### Do I need to make any changes to my client application to use clustering?
 
@@ -172,6 +148,11 @@ Clustering is only available for premium caches.
 
 -	**Redis Output Cache provider** - no changes required.
 -	**Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+
+<a name="move-exceptions"></a>
+### I am getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
+
+If you are using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you are using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## Next steps
 Learn how to use more premium cache features.
