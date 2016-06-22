@@ -136,7 +136,8 @@ So that's it - The 5 questions data science can answer.
 
 Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
 
-  * Next week: Video 2: Is your data ready for data science?
+  * Next week:
+      * Video 2: Is your data ready for data science?
   * Later:  
       * Video 3: Ask a question you can answer with data      
       * Video 4: Predict an answer with a simple model      
