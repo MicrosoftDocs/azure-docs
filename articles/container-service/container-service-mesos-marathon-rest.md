@@ -24,8 +24,8 @@ DC/OS provides an environment for deploying and scaling clustered workloads, whi
 
 Although frameworks are available for many popular workloads, this document describes how you can create and scale container deployments by using Marathon. Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
-- [Deploying an Azure Container Service cluster](./container-service-deployment.md)
-- [Connecting to an Azure Container Service cluster](./container-service-connect.md)
+- [Deploying an Azure Container Service cluster](container-service-deployment.md)
+- [Connecting to an Azure Container Service cluster](container-service-connect.md)
 
 After you are connected to the Azure Container Service cluster, you can access the DC/OS and related REST APIs through http://localhost:local-port. The examples in this document assume that you are tunneling on port 80. For example, the Marathon endpoint can be reached at `http://localhost/marathon/v2/`. For more information on the various APIs, see the Mesosphere documentation for the [Marathon
 API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the
@@ -54,7 +54,7 @@ curl localhost/marathon/v2/apps
 
 ## Deploy a Docker-formatted container
 
-You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. Also note that the ‘acceptedResourceRoles’ property is set to ‘slave_public’. This will deploy the container to an agent in the public facing agent scale set.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. Also note that the ‘acceptedResourceRoles’ property is set to ‘slave_public’. This will deploy the container to an agent in the public-facing agent scale set.
 
 ```json
 {
@@ -179,8 +179,5 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## Next steps
 
-[Read more about the Meso HTTP endpoints]( http://mesos.apache.org/documentation/latest/endpoints/).
-[Read more about the Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).
-
-
-
+- [Read more about the Mesos HTTP endpoints]( http://mesos.apache.org/documentation/latest/endpoints/).
+- [Read more about the Marathon REST API]( https://mesosphere.github.io/marathon/docs/rest-api.html).

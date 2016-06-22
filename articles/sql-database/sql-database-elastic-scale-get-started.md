@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	manager="jhubbard" 
 	authors="ddove" 
-	editor="sidneyh"/>
+	editor="carlrabeler"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2016" 
-	ms.author="ddove;sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 # Get started with Elastic Database tools
 
 This document introduces you to the developer experience by running the sample app. The sample creates a simple sharded application and explores key capabilities of elastic database tools. The sample demonstrates functions of the [elastic database client library](sql-database-elastic-database-client-library.md)
+
+To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Note that the library is installed with the sample app described below.
 
 ## Prerequisites
 
@@ -84,6 +86,7 @@ For more information about the elastic database tools, see:
 -    Blog: [Elastic Scale Announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 -    Channel 9: [Elastic Scale Overview Video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 -    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+-    To measure performance: [Performance counters for shard map manager](sql-database-elastic-database-client-library.md)
 
 
 <!--Anchors-->

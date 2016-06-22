@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/22/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search in the portal
@@ -23,7 +23,7 @@ This code-free introduction gets you started with Microsoft Azure Search using c
 
 The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
 
-> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](../../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
+> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](../../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). 
  
 ## Find your service
 

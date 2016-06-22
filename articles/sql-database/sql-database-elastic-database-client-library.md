@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/24/2016"
+    ms.author="ddove"/>
 
 # Building scalable cloud databases
 
@@ -37,6 +37,7 @@ To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](
 * [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 * [Elastic database client library with Dapper](sql-database-elastic-scale-working-with-dapper.md)
 * [Split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md)
+* [Performance counters for shard map manager](sql-database-elastic-database-client-library.md) 
 * [FAQ for Elastic database tools](sql-database-elastic-scale-faq.md)
 
 ## Client capabilities

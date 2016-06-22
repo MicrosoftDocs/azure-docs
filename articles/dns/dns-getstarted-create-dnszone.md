@@ -67,7 +67,7 @@ Open your PowerShell console and connect to your account. For more information, 
 
 Use the following sample to help you connect:
 
-	Login-AzureRmAccountt
+	Login-AzureRmAccount
 
 Check the subscriptions for the account.
 

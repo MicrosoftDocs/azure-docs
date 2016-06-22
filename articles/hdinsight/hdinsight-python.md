@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="04/26/2016" 
+	ms.date="05/20/2016" 
 	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
@@ -46,7 +46,7 @@ Python can be used as a UDF from Hive through the HiveQL **TRANSFORM** statement
 	add file wasb:///streaming.py;
 
 	SELECT TRANSFORM (clientid, devicemake, devicemodel)
-	  USING 'streaming.py' AS
+	  USING 'python streaming.py' AS
 	  (clientid string, phoneLable string, phoneHash string)
 	FROM hivesampletable
 	ORDER BY clientid LIMIT 50;
@@ -191,7 +191,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 		add file wasb:///streaming.py;
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
-		  USING 'streaming.py' AS
+		  USING ' pythonstreaming.py' AS
 		  (clientid string, phoneLabel string, phoneHash string)
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
@@ -242,10 +242,9 @@ These steps use Azure PowerShell. If this is not already installed and configure
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
 
 		#Create a storage content and upload the file
         $context = New-AzureStorageContext `
@@ -282,10 +281,9 @@ The following script will run the __streaming.py__ script. Before running, it wi
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=Get-AzureRmStorageAccountKey `
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup `
-        | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
         -StorageAccountName $storageAccountName `
@@ -349,10 +347,9 @@ The following will use the __jython.py__ script. Before running, it will prompt 
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=Get-AzureRmStorageAccountKey `
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup `
-        | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
     
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `

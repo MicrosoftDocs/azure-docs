@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
 
 # Sample data in Azure HDInsight Hive tables
-
-## Introduction
 
 In this article, we describe how to down-sample data stored in Azure HDInsight Hive tables using Hive queries. We cover three popularly used sampling methods: 
 

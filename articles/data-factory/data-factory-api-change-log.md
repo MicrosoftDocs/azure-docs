@@ -19,6 +19,21 @@
 # Azure Data Factory - .NET API change log 
 This article provides information about changes to Azure Data Factory SDK in a specific version. You can find the latest Nuget package for Azure Data Factory [here](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories) 
 
+## Version 4.7.0
+Release date: 2016-05-20
+
+### Feature Additions
+* Added new StorageFormat type [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) type to copy files in optimized row columnar (ORC) format.
+* Add [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) and PolyBaseSettings properties to SqlDWSink.
+    * Enables the use of PolyBase to copy data into SQL Data Warehouse.
+
+## Version 4.6.1
+Release date: 2016-04-26
+
+### Bug Fixes
+* Fixes HTTP request for listing activity windows.
+    * Removes the resource group name and the data factory name from the request payload.
+
 ## Version 4.6.0
 Release date: 2016.04.14
 

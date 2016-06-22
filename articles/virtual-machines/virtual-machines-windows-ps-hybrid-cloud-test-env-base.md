@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Set up a hybrid cloud environment for testing
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
  
 This topic steps you through creating a hybrid cloud environment with Microsoft Azure for testing. Here is the resulting configuration.
 

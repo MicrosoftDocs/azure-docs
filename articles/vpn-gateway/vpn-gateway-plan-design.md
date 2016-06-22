@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 # Planning and design for VPN Gateway
@@ -23,7 +23,7 @@ Planning and designing your cross-premises and VNet-to-VNet configurations can b
 ## Planning
 
 
-### <a name="compare"></a>1. Compare cross-premises connectivity options
+### <a name="compare"></a>Cross-premises connectivity options
 
 If you have decided that you want to connect your on-premises sites securely to a virtual network, you have three different ways to do so: Site-to-Site, Point-to-Site, and ExpressRoute. Compare the different cross-premises connections that are available. The option you choose can depend on a variety of considerations, such as:
 
@@ -44,7 +44,7 @@ The table below can help you decide the best connectivity option for your soluti
 
 
 
-### <a name="gwrequire"></a>2. Consider gateway requirements by VPN type and SKU
+### <a name="gwrequire"></a>Gateway requirements by VPN type and SKU
 
 
 When you create a VPN gateway, you'll need to specify the gateway SKU that you want to use. 
@@ -58,7 +58,7 @@ There are 3 VPN Gateway SKUs:
 
 
 
-### 3. Gateway types and aggregate throughput estimates
+### <a name="aggthroughput"></a>Gateway types and aggregate throughput estimates
 
 The table below shows the gateway types and the estimated aggregate throughput. The estimated aggregate throughput may be a deciding factor for your design.
 Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
@@ -67,7 +67,7 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 
 
-### <a name="wf"></a>4. Workflow
+### <a name="wf"></a>Workflow
 
 The following list outlines the common workflow for cloud connectivity:
 
@@ -80,11 +80,11 @@ The following list outlines the common workflow for cloud connectivity:
 
 ## Design
 
-### 1. Select a connection topology
+### <a name="topologies"></a>Connection topologies
 
-Start by looking at the [Connection toplogies](vpn-gateway-topology.md) article. The article contains basic diagrams, the deployment models for each topology (Resource Manager or classic), and which deployment tools you can use to deploy your configuration. 
+Start by looking at the diagrams in the [Connection toplogies](vpn-gateway-topology.md) article. The article contains basic diagrams, the deployment models for each topology (Resource Manager or classic), and which deployment tools you can use to deploy your configuration. 
 
-### 2. Understand the design basics
+### <a name="designbasics"></a>Design basics
 
 The sections below discuss the VPN gateway basics. Additionally, you will want to take into consideration the [Networking services limitations](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -115,7 +115,7 @@ The gateway types are:
 - Vpn
 - ExpressRoute
 
-#### About connection types
+#### <a name="connectiontype"></a>About connection types
 
 Each configuration requires a specific connection type. The connection types are:
 
@@ -136,27 +136,28 @@ The tables below show the VPN type as it maps to each connection configuration. 
 
 [AZURE.INCLUDE [vpn-gateway-table-vpntype](../../includes/vpn-gateway-table-vpntype-include.md)] 
 
-### <a name="devices"></a>3. Select a VPN device for Site-to-Site connections
+### <a name="devices"></a>VPN devices for Site-to-Site connections
 
 To configure a Site-to-Site connection, regardless of deployment model, you will need the following items:
 
 - A VPN device that is compatible with Azure VPN gateways
 - A public-facing IPv4 IP address that is not behind a NAT
 
-You will need to have experience configuring your VPN device to create a Site-to-Site configuration. For more information about VPN devices, see [About VPN devices](vpn-gateway-about-vpn-devices.md). The VPN devices article contains information about validated devices, requirements for devices that have not been validated, and links to the device configuration documents for each device if they are available.
+You will need to have experience configuring your VPN device. For more information about VPN devices, see [About VPN devices](vpn-gateway-about-vpn-devices.md). The VPN devices article contains information about validated devices, requirements for devices that have not been validated, and links to the device configuration documents for each device if they are available.
 
-### <a name="forcedtunnel"></a>4. Consider forced-tunnel routing
+### <a name="forcedtunnel"></a>Consider forced tunnel routing
 
 For most configurations, you can configure forced tunneling. Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. 
 
-Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches. For more information about configuring forced tunneling, see [About forced tunneling for the classic deployment model](vpn-gateway-about-forced-tunneling.md) and [About forced tunneling for the Resource Manager deployment model](vpn-gateway-about-forced-tunneling.md).
+Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
-**Forced-tunneling diagram**
+For more information about configuring forced tunneling, see [About forced tunneling for the classic deployment model](vpn-gateway-about-forced-tunneling.md) and [About forced tunneling for the Resource Manager deployment model](vpn-gateway-about-forced-tunneling.md).
+
+**Forced tunneling diagram**
 
 ![Forced Tunneling connection](./media/vpn-gateway-plan-design/forced-tunnel.png "forced tunneling")
 
-
-This table lists the deployment model that forced-tunneling is available for, the deployment tools that you can use to configure forced-tunneling, and links directly to an article if an article is available. We update the tables frequently as new articles become available for you to use.
+A forced tunneling connection can be configured in both deployment models and by using different tools. See the table below for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
 
 [AZURE.INCLUDE [vpn-gateway-table-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)] 
 
@@ -164,7 +165,9 @@ This table lists the deployment model that forced-tunneling is available for, th
 
 ## Next steps
 
-See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateways](vpn-gateway-about-vpngateways.md) for more information to help you with your design. For more information on connection topologies, see [Connection toplogies](vpn-gateway-topology.md).
+See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateway](vpn-gateway-about-vpngateways.md) articles for more information to help you with your design. 
+
+For more information about connection topologies, see [Connection toplogies](vpn-gateway-topology.md).
 
 
 

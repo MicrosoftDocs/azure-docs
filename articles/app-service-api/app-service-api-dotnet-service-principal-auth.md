@@ -403,7 +403,7 @@ For information about how to  create an AngularJS single-page application with a
 
 ## Next steps
 
-This is the last article in the getting started with API Apps series. 
+This is the last tutorial in the API Apps series. 
 
 For more information about Azure Active Directory, see the following resources.
 

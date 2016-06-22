@@ -4,7 +4,7 @@
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe"/>
+	manager="paulettm"/>
 
 <tags 
 	ms.service="search" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="02/18/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Azure Search Developer Case Study

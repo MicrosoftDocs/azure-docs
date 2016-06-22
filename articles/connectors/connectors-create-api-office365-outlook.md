@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Office 365 Outlook API in PowerApps Enterprise or Logic Apps | Microsoft Azure"
-	description="Overview of Office 365 Outlook API with REST API parameters"
-	services=""	
-	documentationCenter="" 	
-	authors="msftman"	
-	manager="erikre"	
-	editor="" 
-	tags="connectors" />
+    pageTitle="Add the Office 365 Outlook connector in PowerApps Enterprise or Logic Apps | Microsoft Azure"
+    description="Overview of Office 365 Outlook connector with REST API parameters"
+    services=""    
+    documentationCenter=""     
+    authors="msftman"    
+    manager="erikre"    
+    editor="" 
+    tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Get started with the Office 365 Outlook API 
+# Get started with the Office 365 Outlook connector 
 
-Connect to Office 365 Outlook to get email, reply to an email, update your calendar and contacts, and more. The Office 365 Outlook API can be used from:
+Connect to Office 365 Outlook to get email, reply to an email, update your calendar and contacts, and more. The Office 365 Outlook connector can be used from:
 
 - Logic apps 
 - PowerApps
@@ -37,26 +37,26 @@ With Office 365 Outlook, you can:
 - Build your business flow based on the data you get from Office 365 Outlook. 
 - Use a trigger when there is a new email, when you create a new contact, and more.
 - Use actions that reply to an email, create a new calendar event, and more. These actions get a response, and then make the output available for other actions. For example, when there is a new object in Salesforce, you can take that object and update your Office 365 Outlook contacts. 
-- Add the Office 365 Outlook API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Office 365 Outlook connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 
-The Office 365 Outlook API has the following triggers and actions available. 
+The Office 365 Outlook connector has the following triggers and actions available. 
 
 | Triggers | Actions|
 | --- | --- |
 |<ul><li>On event starting soon</li><li>On new email</li><li>On new items</li><li>On updated items</li></ul>| <ul><li>Create contact</li><li>Create event</li><li>Send approval email</li><li>Send email</li><li>Delete contact</li><li>Delete email</li><li>Delete event</li><li>Get attachment</li><li>Get calendars</li><li>Get contact</li><li>Get contact folders</li><li>Get contacts</li><li>Get emails</li><li>Get event</li><li>Get events</li><li>Mark as read</li><li>On event starting soon</li><li>On new email</li><li>On new items</li><li>On updated items</li><li>Reply to message</li><li>Send email with options</li><li>Update contact</li><li>Update event</li></ul> |
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 
 ## Create a connection to Office365
 
-When you add this API to your logic apps, you must sign-in to your Office 365 Outlook account and allow logic apps to connect to your account.
+When you add this connector to your logic apps, you must sign-in to your Office 365 Outlook account and allow logic apps to connect to your account.
 
 1. Sign in to your Office 365 Outlook account account.
 2. Allow your logic apps to connect and use your Office 365 account. 

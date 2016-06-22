@@ -3,7 +3,7 @@
    description="Use Visual Studio to create, develop, package, deploy, and debug your Service Fabric applications and services."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/02/2016"
-   ms.author="jesseb"/>
+   ms.author="seanmck"/>
 
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
 

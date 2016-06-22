@@ -34,7 +34,7 @@ Learn how to create a new SQL database using PowerShell cmdlets. (For creating e
 
 ## Database setup: Create a resource group, server, and firewall rule
 
-Now you have access to run cmdlets against your selected Azure subscription so the next step is establishing the resource group that contains the server where the database will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRmLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
+Now you have access to run cmdlets against your selected Azure subscription so the next step is establishing the resource group that contains the server where the database will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** to get a list of valid locations.
 
 Run the following command to create a new resource group:
 

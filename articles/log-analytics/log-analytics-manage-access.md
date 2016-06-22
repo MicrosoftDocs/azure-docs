@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -41,17 +41,17 @@ It is possible to create multiple OMS Log Analytics workspaces and for users to 
 
 Today a log analytics workspace provides:
 
-- A geographic location for data to be stored. 
-- Granularity for billing 
-- Data isolation 
+- A geographic location for data to be stored.
+- Granularity for billing
+- Data isolation
 
 Based on the above characteristics, you may want to create multiple workspaces if:
 
-- You are a global company and you need data stored in specific regions for data sovereignty / compliance reasons. 
+- You are a global company and you need data stored in specific regions for data sovereignty / compliance reasons.
 - You are using Azure and you want to avoid outbound data transfer charges by having a Log Analytics workspace in the same region as the Azure resources it manages.
 - You want to allocate charges to different departments/business groups based on their usage. By creating a workspace for each department/business group your Azure bill and usage statement will show the charges for each workspace separately.
-- You are a managed service provider and need to keep the log analytics data for each customer you manage isolated from other customer’s data. 
-- You manage multiple customers and you want each customer/department/business group to see their own data but not the data for other customers/departments/business groups. 
+- You are a managed service provider and need to keep the log analytics data for each customer you manage isolated from other customer’s data.
+- You manage multiple customers and you want each customer/department/business group to see their own data but not the data for other customers/departments/business groups.
 
 When using agents to collect data you can configure each agent to report to the required workspace.
 
@@ -65,12 +65,12 @@ By default, the Microsoft account or Organizational account used to create the w
 
 Giving people access to the OMS workspace can be controlled in 2 places:
 
-- Using Azure role based access control you can provide access to the Azure subscription and the associated Azure resources. This is also used for PowerShell and REST API access.
+- Using Azure role-based access control you can provide access to the Azure subscription and the associated Azure resources. This is also used for PowerShell and REST API access.
 - Access to just the OMS portal and not the associated Azure subscription, can be managed within the OMS portal.
 
-If you have given people access to the OMS portal but not to the Azure subscription that it is linked to, then the Automation, Backup and, Site Recovery solution tiles will not show any data for the user when they log into the OMS portal.
+If you have given people access to the OMS portal but not to the Azure subscription that it is linked to, then the Automation, Backup, and Site Recovery solution tiles will not show any data for the user when they log into the OMS portal.
 
-To allow all users to see the data in these solutions, ensure they have at least **reader** access for the Automation Account, Backup Vault and Site Recovery vault that is linked to the OMS workspace.   
+To allow all users to see the data in these solutions, ensure they have at least **reader** access for the Automation Account, Backup Vault, and Site Recovery vault that is linked to the OMS workspace.   
 
 ### Managing access to Log Analytics using the Azure portal
 
@@ -78,12 +78,12 @@ If you give people access to the Log Analytics workspace using Azure permissions
 
 Four things to know:
 
-1. This is not Role Based Access Control. If you have “Reader” access permissions in the Azure portal for the log analytics workspace, you will have the ability to make changes via the OMS portal. The OMS portal has a concept of Administrator, Contributor and ReadOnly User. If the account you are logged in with is in the Azure Active Directory linked to the workspace you will be an Administrator in the OMS portal, otherwise you will be a Contributor.
-2. If you are logging into the OMS portal via mms.microsoft.com then by default when you see the “Select a workspace” list it will only contain workspaces that you have been added to in the OMS portal. To see the workspaces you have access to via Azure subscriptions you need to specify a tenant as part of the URL: 
+1. This is not Role-Based Access Control. If you have “Reader” access permissions in the Azure portal for the log analytics workspace, you will have the ability to make changes via the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are logged in with is in the Azure Active Directory linked to the workspace you will be an Administrator in the OMS portal, otherwise you will be a Contributor.
+2. If you are logging into the OMS portal via mms.microsoft.com then by default when you see the “Select a workspace” list it will only contain workspaces that you have been added to in the OMS portal. To see the workspaces you have access to via Azure subscriptions you need to specify a tenant as part of the URL:
 e.g. mms.microsoft.com/?tenant=contoso.com (the tenant identifier is often that last part of the e-mail address you sign in with)
-3. If the account you login with is an account in the tenant AAD (this will usually be the case unless you’re signing in as a CSP) then you will be an Admin in the OMS portal. If your account is not in the tenant AAD then you will be a User in the OMS portal.
+3. If the account you log in with is an account in the tenant AAD (this will usually be the case unless you’re signing in as a CSP) then you will be an Administrator in the OMS portal. If your account is not in the tenant AAD then you will be a User in the OMS portal.
 4. If you want to navigate directly to a portal that you have access to via Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL via PowerShell e.g. (Get-AzureRmOperationalInsightsWorkspace).PortalUrl
-The URL will look like: 
+The URL will look like:
 https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12
 
 
@@ -103,10 +103,10 @@ Use the following steps to add a user or group to an OMS workspace. The user or 
 2. Click the **Accounts** tab.
 3. In the **Manage Users** section, choose the account type to add: **Organizational Account**, **Microsoft Account**, **Microsoft Support**.
     - If  you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
-    - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or  group.
+    - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or group.
     - Use Microsoft Support to give a Microsoft Support engineer temporary access to your workspace to help with troubleshooting.
 
-    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to two—one for administrators, one for contributors and one for readonly users. Using more groups might impact the performance of Log Analytics.
+    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
 7. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
 8. Click **Add**.
@@ -119,15 +119,15 @@ Use the following steps to add a user or group to an OMS workspace. The user or 
 
 You can change the account role for a user associated with your OMS account. You have the following role options:
 
- - *Administrator*: Can manage users, view and act on all alerts, and add and remove servers
+ - *Administrator*: Can manage users, view and act on all alerts, and add and remove servers
 
  - *Contributor*: Can view and act on all alerts, and add and remove servers
 
- - *ReadOnly User*: Users marked as read-only will not be able to: 
+ - *ReadOnly User*: Users marked as read-only will not be able to:
    1. Add/remove solutions (the solution gallery is hidden)
    2. Add/modify/remove tiles on ‘My Dashboard’
    3. View the Setting pages (the pages are hidden)
-   4. In the Search view: PowerBI configuration, Saved Searches and Alerts tasks are hidden
+   4. In the Search view: PowerBI configuration, Saved Searches, and Alerts tasks are hidden
 
 
 #### To edit an account
@@ -180,13 +180,13 @@ It is possible to create a workspace from the [microsoft.com/oms](https://micros
 
 ## Upgrade a workspace to a paid data plan
 
-There are three workspace data plan types for OMS: **Free**, **Standard** and **Premium**.  If you are on a *free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a '**pay-as-you-go plan**' in order to collect data beyond this limit. At any time you can convert your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+There are three workspace data plan types for OMS: **Free**, **Standard**, and **Premium**.  If you are on a *Free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a '**pay-as-you-go plan**' in order to collect data beyond this limit. At any time you can convert your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
 >[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace with the [OMS website](http://www.microsoft.com/oms), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#link-an-existing-workspace-to-an-azure-subscription).
 
-### Using entitlements from the OMS Add On for System Center
+### Using entitlements from the OMS Add-On for System Center
 
-The OMS Add On for System Center provides an entitlement for the Premium plan of OMS Log Analytics, described at [OMS Pricing](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+The OMS Add-On for System Center provides an entitlement for the Premium plan of OMS Log Analytics, described at [OMS Pricing](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
 When you purchase the OMS add-on for System Center, the OMS add-on is added as an entitlement on your System Center agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
 
@@ -197,15 +197,15 @@ To ensure that usage of an OMS workspace is applied to your entitlements from th
 
 When you review your usage in the Azure or OMS portal, you won’t see the OMS add-on entitlements. However, you can see entitlements in the Enterprise Portal.  
 
-If you need to change the Azure subscription that your OMS workspace is linked to, you can use the Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
+If you need to change the Azure subscription that your OMS workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
 
 ### Using Azure Commitment from an Enterprise Agreement
 
 If you choose to use standalone pricing for OMS components, you will pay for each component of OMS separately and the usage will appear on your Azure bill.
 
-If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit agains any remaining monetary commit. 
+If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit agains any remaining monetary commit.
 
-If you need to change the Azure subscription that the OMS workspace is linked to you can use the Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
+If you need to change the Azure subscription that the OMS workspace is linked to you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
 
 
@@ -227,7 +227,7 @@ Now you can collect data beyond the "free" data cap.
 
 ## Add an Azure Active Directory Organization to an existing workspace
 
-You can associate your Operational Insights (OMS) workspace with an Azure Active Directory domain. This enables you to add users from Active Directory directly to your OMS workspace without requiring a separate Microsoft account.
+You can associate your Log Analytics (OMS) workspace with an Azure Active Directory domain. This enables you to add users from Active Directory directly to your OMS workspace without requiring a separate Microsoft account.
 
 When you create the workspace from the Azure portal, or link your workspace to an Azure subscription your Azure Active Directory will be linked as your organizational account.
 

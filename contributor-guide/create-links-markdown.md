@@ -45,6 +45,7 @@ You do not have to create anchors - they are automatically generated at publishi
   `[link text](../service-directory/article-name.md#anchor-name)`
   `[Configure your profile](../service-directory/media-services-create-account.md#configure-your-profile)`
 
+One way to automate the process of creating links in your articles to auto-generated anchor links is [MarkdownAnchorLinkGenerator - a tool to generate anchor links for ACOM in the proper format](https://github.com/Azure/Azure-CSI-Content-Tools/tree/master/Tools/ACOMMarkdownAnchorLinkGenerator).
 
 ## Links from includes
 

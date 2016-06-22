@@ -183,7 +183,7 @@ Yes. You can deploy any distro of Linux supported by Azure.
 
 ### Can I reserve an internal IP address for a VM that I will create at a later time?
 
-No. You cannot reserve an internal IP address. If an iternal IP address is available it will be assigned to a VM or role instance by the DHCP server. That VM may or may not be the one that you want the internal IP address to be assigned to. You can, however, change the internal IP address of an already created VM to any available internal IP address. 
+No. You cannot reserve an internal IP address. If an internal IP address is available it will be assigned to a VM or role instance by the DHCP server. That VM may or may not be the one that you want the internal IP address to be assigned to. You can, however, change the internal IP address of an already created VM to any available internal IP address. 
 
 ### Do internal IP addresses change for VMs in a VNet?
 

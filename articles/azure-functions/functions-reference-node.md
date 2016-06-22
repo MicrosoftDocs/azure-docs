@@ -20,6 +20,10 @@
 
 # Azure Functions NodeJS developer reference
 
+> [AZURE.SELECTOR]
+- [C# script](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.js](../articles/azure-functions/functions-reference-node.md)
+
 The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
@@ -162,6 +166,27 @@ module.exports = function(context) {
     // Using our imported underscore.js library
     var matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
+```
+
+## Environment variables
+
+To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
+    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    
+    context.done();
+};
+
+function GetEnvironmentVariable(name)
+{
+    return name + ": " + process.env[name];
+}
 ```
 
 ## TypeScript/CoffeeScript support

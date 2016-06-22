@@ -24,7 +24,7 @@ You will need a few items to install Azure Stack Web Apps:
 - Enough space in your Azure Stack system for a small deployment of Azure Stack Web Apps.  The required space is roughly 20GB of disk space.
 - [A server that's running SQL Server](#SQL-Server).
 
-NOTE: The following steps ALL take place on the Client VM.
+>[AZURE.NOTE] The following steps ALL take place on the Client VM.
 
 ## Before you deploy Azure Stack Web Apps
 

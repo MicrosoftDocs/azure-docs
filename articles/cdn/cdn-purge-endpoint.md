@@ -24,6 +24,8 @@ Azure CDN edge nodes will cache assets until the asset's time-to-live (TTL) expi
 
 Sometimes you may wish to purge cached content from all edge nodes and force them all to retrieve new updated assets.  This might be due to updates to your web application, or to quickly update assets that contain incorrect information.
 
+> [AZURE.TIP] Note that purging only clears the cached content on the CDN edge servers.  Any downstream caches, such as proxy servers and local browser caches, may still hold a cached copy of the file.  It's important to remember this when you set a file's time-to-live.  You can force a downstream client to request the latest version of your file by giving it a unique name every time you update it, or by taking advantage of [query string caching](cdn-query-string.md).  
+
 This tutorial walks you through purging assets from all edge nodes of an endpoint.
 
 ## Walkthrough

@@ -31,7 +31,7 @@ To move a VM, run the Set-AzureSubnet PowerShell cmdlet, using the example below
 	| Set-AzureSubnet –SubnetNames Subnet-2 `
 	| Update-AzureVM
 
-If you specified a static DIP for your VM, you'll have to clear that setting before you can move the VM to a new subnet. In that case, use the following:
+If you specified a static internal private IP for your VM, you'll have to clear that setting before you can move the VM to a new subnet. In that case, use the following:
 
 	Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
 	| Remove-AzureStaticVNetIP `

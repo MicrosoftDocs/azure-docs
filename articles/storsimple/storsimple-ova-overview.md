@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Introduction to the StorSimple Virtual Array
@@ -57,10 +57,10 @@ The following table describes some of the key benefits that the Virtual Array so
 
 | Feature | Benefit |
 |---------|---------|
-| Transparent integration | The Virtual Array supports the iSCSI or the SMB protocol. This ensures that data stored in the cloud, at the datacenter, or on remote servers appears to be stored at a single location.|
-| Reduced storage costs | With StorSimple, you provision sufficient local storage to meet current demands. As storage needs grow, StorSimple tiers data to cost-effective cloud storage. In the cloud, it uses deduplication and compression to further reduce storage requirements and expense.|
-| Simplified storage management | StorSimple provides centralized management in the cloud. You can use the web-based tools to configure and manage data stored on the Virtual Array, on a remote server, and in the cloud.| 
-| Improved disaster recovery and compliance | StorSimple does not require extended recovery time. Instead, it restores metadata immediately and stored data as it is needed. This means normal operations can continue with minimal disruption.|
+| Transparent integration | The Virtual Array supports the iSCSI or the SMB protocol. The data movement between the local tier and the cloud tier is seamless and transparent to the user.|
+| Reduced storage costs | With StorSimple, you provision sufficient local storage to meet current demands for the most used hot data. As storage needs grow, StorSimple tiers cold data into cost-effective cloud storage. The data is deduplicated and compressed before sending to the cloud to further reduce storage requirements and expense.|
+| Simplified storage management | StorSimple provides centralized management in the cloud using StorSimple Manager to manage multiple devices.| 
+| Improved disaster recovery and compliance | StorSimple facilitates faster disaster recovery by restoring the metadata immediately and restoring the data as needed. This means normal operations can continue with minimal disruption.|
 | Data mobility | Data tiered to the cloud can be accessed from other sites for recovery and migration purposes. Note that you can restore data only to the original Virtual Array. However, you use disaster recovery features to restore the entire Virtual Array to another Virtual Array.|
 
 ## Workflows

@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric on Linux
 
 Service Fabric is currently available as a limited preview on Linux, enabling you to build, deploy, and manage highly available, highly scalable applications in that environment just as you would on Windows. In addition, the high-level Service Fabric frameworks (Reliable Services and Reliable Actors) can now be built in Java.
+
+> [AZURE.VIDEO service-fabric-linux-preview]
 
 ## Supported operating systems and programming languages
 

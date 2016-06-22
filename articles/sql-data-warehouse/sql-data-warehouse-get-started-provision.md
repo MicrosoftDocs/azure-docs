@@ -14,10 +14,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# Create a SQL Data Warehouse
+# Create an Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-data-warehouse-get-started-provision.md)
@@ -44,7 +44,7 @@ In this tutorial you will use the Azure Portal to create a SQL Data Warehouse th
 
 	- **Database name**:The name that will be used to reference the SQL Data Warehouse.  It must be unique to the server.
 	
-    - **Performance**: We recommend starting with 400 DWUs. You can move the slider to the left or right to adjust the performance of your data warehouse, or scale up or down after creation.  To learn more about DWUs see our documentation on [scaling](./sql-data-warehouse-overview-scalability.md) or our [pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/). 
+    - **Performance**: We recommend starting with 400 DWUs. You can move the slider to the left or right to adjust the performance of your data warehouse, or scale up or down after creation.  To learn more about DWUs see our documentation on [scaling](./sql-data-warehouse-manage-compute-overview.md) or our [pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/). 
 
     - **Subscription**: Select the subscription that this SQL Data Warehouse will bill to.
 
@@ -54,7 +54,7 @@ In this tutorial you will use the Azure Portal to create a SQL Data Warehouse th
 
 4. Click **Create** to create your SQL Data Warehouse.
 
-5. Wait for a few minutes and your SQL Data Warehouse will be ready. When finished, you should be returned to the [Azure Portal](https://portal.azure.com). You can find your SQL Data Warehouse on your dashboard, listed under your SQL Databases, or in the resource group that you used to create it. 
+5. Wait for a few minutes and your SQL Data Warehouse will be ready. When finished, you should be returned to the [Azure portal](https://portal.azure.com). You can find your SQL Data Warehouse on your dashboard, listed under your SQL Databases, or in the resource group that you used to create it. 
 
     ![Portal view](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -62,7 +62,7 @@ In this tutorial you will use the Azure Portal to create a SQL Data Warehouse th
 
 ## Next steps
 
-Now that you have created a SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-get-started-connect.md) and begin querying.
+Now that you have created a SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-connect-overview.md) and begin querying.
 
 To load data into SQL Data Warehouse, see the [loading overview](./sql-data-warehouse-overview-load.md).
 

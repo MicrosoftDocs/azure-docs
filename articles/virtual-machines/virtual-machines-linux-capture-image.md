@@ -20,9 +20,6 @@
 
 # How to capture a Linux virtual machine to use as a Resource Manager template
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-classic-capture-image.md).
-
-
 Use the Azure Command-Line Interface (CLI) to capture an Azure virtual machine running Linux so you can use it as an Azure Resource Manager template to create other virtual machines. This template specifies the OS disk and data disks attached to the virtual machine. It doesn't include the virtual network resources you'll need to create an Azure Resource Manager VM, so in most cases you'll need to set those up separately before you create another virtual machine that uses the template.
 
 ## Before you begin

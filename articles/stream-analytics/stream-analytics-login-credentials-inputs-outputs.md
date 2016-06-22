@@ -34,7 +34,7 @@ This part is applicable to the following inputs/outputs:
 
 For other inputs/outputs, proceed with Part 2.
 
-###Blog storage/Table storage
+###Blob storage/Table storage
 1.  Go to the Storage extention on the Azure Management Portal:  
 ![graphic1][graphic1]
 2.  Locate the storage used by your job and go into it:  

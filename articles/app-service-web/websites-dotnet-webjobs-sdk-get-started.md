@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/01/2016"
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob in Azure App Service
@@ -36,7 +36,13 @@ The tutorial was written for Visual Studio 2013. If you don't have Visual Studio
 
 The tutorial can be used with Visual Studio 2015, but before you run the application locally you have to change the `Data Source` part of the SQL Server LocalDB connection string in the Web.config and App.config files from `Data Source=(localdb)\v11.0` to `Data Source=(LocalDb)\MSSQLLocalDB`. 
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
+> [AZURE.NOTE] <a name="note"></a>You need an Azure account to complete this tutorial:
+  >
+  > + You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+  >
+  > + You can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+  >
+  >If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## <a id="learn"></a>What you'll learn
 
@@ -299,7 +305,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 In this section you use **Server Explorer** to set connection string values in Azure.
 
-7. In **Server Explorer**, right-click your web app under **Azure > {your resource group}**, and then click **View Settings**.
+7. In **Server Explorer**, right-click your web app under **Azure > App Service > {your resource group}**, and then click **View Settings**.
 
 	The **Azure Web App** window opens on the **Configuration** tab.
 

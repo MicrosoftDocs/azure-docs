@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provision the Linux Data Science Virtual Machine 
 
-## Introduction
 
 The Linux Data Science Virtual Machine is an Azure virtual machine (VM) image that is pre-installed and configured with a collection of tools that are commonly used for doing data analytics and machine learning. The key software components included are:
 

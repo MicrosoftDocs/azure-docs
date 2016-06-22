@@ -58,7 +58,9 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
 Once you have configured your Mobile App backend, you can either create a new client app or modify an existing app to connect to Azure. In this section, you download a UWP app template project that is customized to connect to your Mobile App backend.
 
-1. Back in the **Get started** blade for your Mobile App backend, click **Create a new app** > **Download**, then extract the compressed project files to your local computer.
+1. Back in the **Quick start** blade for your Mobile App backend, click **Create a new app** > **Download**, then extract the compressed project files to your local computer.
+
+	![Download Windows quickstart project](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 
 3. (Optional) Add the UWP app project to the same solution as the server project. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution, if you choose to do so. To add a UWP app project to the solution, you must be using Visual Studio 2015 or a later version.
 
@@ -66,13 +68,13 @@ Once you have configured your Mobile App backend, you can either create a new cl
 
 5. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
+	![Windows quickstart complete desktop](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
 	This sends a POST request to the new mobile app backend that's hosted in Azure.
 
 6. (Optional) Stop the app and restart it on a different device or mobile emulator.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
+	![Windows quickstart complete phone](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
 
 	Notice that data saved from the previous step is loaded from Azure after the UWP app starts. 
 
@@ -92,4 +94,4 @@ Once you have configured your Mobile App backend, you can either create a new cl
 <!-- URLs. -->
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203

@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/03/2016" 
-	ms.author="sidneyh"/>
+	ms.author="ddove"/>
 
 # Elastic database tools FAQ 
 

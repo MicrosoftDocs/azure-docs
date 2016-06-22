@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand;viviali"/>
 
 # Add users from other directories or partner companies in Azure Active Directory
@@ -74,6 +74,7 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 - External users can't consent to multi-tenant applications in directories outside of their home directory
 - PowerBI doesn't currently support access by external users
 - Office Portal doesn't support licensing external users
+- With respect to Azure AD PowerShell, external users are logged into their home directory and cannot manage directories in which they are external users
 
 
 ## What's next

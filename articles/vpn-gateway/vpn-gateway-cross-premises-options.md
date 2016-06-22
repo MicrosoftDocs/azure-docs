@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
 # About secure cross-premises connectivity for virtual networks
 
-This article discusses the different ways you can connect your on-premises site to an Azure virtual network.  This article applies to both the Resource Manager and classic deployment models. 
+This article discusses the different ways you can connect your on-premises site to an Azure virtual network. This article applies to both the Resource Manager and classic deployment models. If you are looking for VPN Gateway connection diagrams, see [Azure VPN Gateway connection topolgies](vpn-gateway-topology.md).
 
 There are three connection options available: Site-to-Site, Point-to-Site, and ExpressRoute. The option you choose can depend on a variety of considerations, such as:
 
@@ -31,20 +31,7 @@ There are three connection options available: Site-to-Site, Point-to-Site, and E
 
 The table below can help you decide the best connectivity option for your solution.
 
-
-|  -                            | **Point-to-Site**                                                                            | **Site-to-Site**                                                                                        | **ExpressRoute**                                                                                                                     |
-|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Azure Supported Services** | Cloud Services and Virtual Machines                                                          | Cloud Services and Virtual Machines                                                                     | [Services list](../expressroute/expressroute-faqs.md#supported-services)                                                       |
-| **Typical Bandwidths**       | Typically < 100 Mbps aggregate                                                               | Typically < 100 Mbps aggregate                                                                          | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps                                                               |
-| **Protocols Supported**      | Secure Sockets Tunneling Protocol (SSTP)                                                     | IPsec                                                | Direct connection over VLANs, NSP's VPN technologies (MPLS, VPLS,...)                                                                                                    |
-| **Routing**                  | Route-based (dynamic)                                                                        | We support policy-based (static routing) and route-based (dynamic routing VPN)                 | BGP                                                                                                                                  |
-| **Connection resiliency**    | active-passive                                                                               | active-passive                                                                                          | active-active                                                                                                                        |
-| **Typical use case**         | Prototyping, dev / test / lab scenarios for cloud services and virtual machines              | Dev / test / lab scenarios and small scale production workloads for cloud services and virtual machines | Access to all Azure services (validated list), Enterprise-class and mission critical workloads, Backup, Big Data, Azure as a DR site |
-| **SLA**                      | [SLA](https://azure.microsoft.com/support/legal/sla/)                                        | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                   | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                                                |
-| **Pricing**                  | [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/)                           | [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/)                                      | [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)                                                                   |
-| **Technical Documentation**  | [VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/)            | [ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/)                                        |
-| **FAQ**                     | [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)                                                    | [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)                                                               | [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)                                                                             |
-
+[AZURE.INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]                                                                    
 
 ## Site-to-Site connections
 
@@ -60,10 +47,12 @@ A Site-to-Site VPN allows you to create a secure connection between your on-prem
 
 - The on-premises VPN device must have an Internet-facing IPv4 IP address. This cannot be behind a NAT.
 - You must have VPN device that is compatible. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). 
-- The VPN device you use must be compatible with the gateway type that is required for your solution. See [About VPN Gateways](vpn-gateway-about-vpngateways.md).
-- The Gateway SKU will also impact aggregate throughput. See [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus) for more information. 
+- The VPN device you use must be compatible with the gateway type that is required for your solution. See [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+- The Gateway SKU will also impact aggregate throughput. See [Gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku) for more information. 
 
-For information about configuring a Site-to-Site VPN gateway connection using the Azure Classic Portal and the classic deployment model, see [Configure a virtual network with a Site-to-Site VPN connection for the classic deployment model](vpn-gateway-site-to-site-create.md). For information about configuring a Site-to-Site VPN using the Resource Manager deployment model, see [Create a virtual network with a Site-to-Site VPN connection for the Resource Manager deployment model](vpn-gateway-create-site-to-site-rm-powershell.md).
+**Available deployment models and methods for S2S**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
 
 ## Point-to-Site connections
@@ -84,7 +73,9 @@ Point-to-Site and Site-to-Site configurations can exist concurrently, but unlike
 
 - You do not have an Internet facing IPv4 IP address for your VPN device.
 
-For more information about configuring a Point-to-Site connection for the classic deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the classic deployment model](vpn-gateway-point-to-site-create.md). For more information about configuring a Point-to-Site connection for the Resource Manager deployment model, see [Configure a Point-to-Site VPN connection to a virtual network for the Resource Manager deployment model](vpn-gateway-howto-point-to-site-rm-ps.md). 
+**Available deployment models and methods for P2S**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
 ## ExpressRoute connections
 
@@ -92,12 +83,16 @@ Azure ExpressRoute lets you create private connections between Azure datacenters
 
 In some cases, using ExpressRoute connections to transfer data between on-premises and Azure can also yield significant cost benefits. With ExpressRoute, you can establish connections to Azure at an ExpressRoute location (Exchange Provider facility) or directly connect to Azure from your existing WAN network (such as a MPLS VPN) provided by a network service provider.
 
-For more information about ExpressRoute, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
+For more information about ExpressRoute, see the ExpressRoute [Technical Overview](../expressroute/expressroute-introduction.md).
 
 
-## Next Steps
+## Next steps
 
-See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
+- For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md), the 
+VPN Gateway [FAQ](vpn-gateway-vpn-faq.md), and the [Planning and Design](vpn-gateway-plan-design.md) articles.
+
+- For more information about ExpressRoute, see the ExpressRoute [Technical Overview](../expressroute/expressroute-introduction.md), the [FAQ](../expressroute/expressroute-faqs.md), and [Workflows](../expressroute/expressroute-workflows.md).
+
 
 
 

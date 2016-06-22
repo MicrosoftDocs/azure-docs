@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Different ways to create a Linux VM | Microsoft Azure"
-	description="Lists the different ways to create a Linux virtual machine on Azure and gives links to further instructions"
+	description="Lists the different ways to create a Linux virtual machine on Azure and links to tools and tutorials for each method"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,20 +14,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 # Different ways to create a Linux virtual machine with Resource Manager
 
 Azure offers different ways to create a VM using the Resource Manager deployment model, to suit different users and purposes. This article summarizes these differences and the choices you can make for creating your Linux virtual machines (VMs).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+## Azure CLI 
 
-## Tool choices
-
-### Command shell: Azure CLI 
-
-From the CLI, use the Azure command-line interface. You can read more about [how to install the Azure CLI](../xplat-cli-install.md) via npm, Docker container, or install script. The following tutorials provide examples on using the Azure CLI:
+You can read more about [how to install the Azure CLI](../xplat-cli-install.md) via npm, Docker container, or install script. The following tutorials provide examples on using the Azure CLI:
 
 * [Create a Linux VM from the Azure CLI for dev and test](virtual-machines-linux-quick-create-cli.md) 
 
@@ -35,11 +31,11 @@ From the CLI, use the Azure command-line interface. You can read more about [how
 
 * [Create a Linux VM from the ground up using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
 
-### GUI: Azure portal
+## Azure portal
 
 The graphical user interface of the [Azure portal](https://portal.azure.com) is an easy way to try out a VM, especially if you're just starting out with Azure since there is nothing to install on your system. Use the Azure portal to create the VM:
 
-* [Create a virtual machine running Linux using the Azure portal](virtual-machines-linux-portal-create.md) 
+* [Create a virtual machine running Linux using the Azure portal](virtual-machines-linux-quick-create-portal.md) 
 
 ## Operating system and image choices
 
@@ -61,7 +57,7 @@ If you require specific customizations, you can use an image based on an existin
 
 ## Next steps
 
-* Try one of the tutorials to create a Linux VM from the [portal](virtual-machines-linux-portal-create.md), with the [CLI](virtual-machines-linux-quick-create-cli.md), or using an Azure Resource Manager [template](virtual-machines-linux-cli-deploy-templates.md).
+* Try one of the tutorials to create a Linux VM from the [portal](virtual-machines-linux-quick-create-portal.md), with the [CLI](virtual-machines-linux-quick-create-cli.md), or using an Azure Resource Manager [template](virtual-machines-linux-cli-deploy-templates.md).
 
 * After creating a Linux VM, you can easily [add a data disk](virtual-machines-linux-add-disk.md).
 

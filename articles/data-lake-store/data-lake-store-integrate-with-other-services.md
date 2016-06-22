@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="05/17/2016"
    ms.author="nitinme"/>
 
 # Integrating Data Lake Store with other Azure Services
@@ -72,6 +72,10 @@ You can use Data Lake Store as one of the outputs to store data streamed using A
 ## Use Data Lake Store with Power BI
 
 You can use Power BI to import data from a Data Lake Store account to analyze and visualize the data. For more information, see [Analyze data in Data Lake Store using Power BI](data-lake-store-power-bi.md).
+
+## Use Data Lake Store with Data Catalog
+
+You can register data from Data Lake Store into the Azure Data Catalog to make the data discoverable throughout the organization. For more information see [Register data from Data Lake Store in Azure Data Catalog](data-lake-store-with-data-catalog.md).
 
 
 ## See also
