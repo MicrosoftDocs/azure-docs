@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="IP addresses used by Application Insights" 
+	pageTitle="IP addresses used by Application Insights" | Microsoft Azure"
 	description="List of static addresses" 
 	services="application-insights"
     documentationCenter=".net"

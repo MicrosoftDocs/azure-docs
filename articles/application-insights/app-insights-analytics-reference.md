@@ -65,6 +65,9 @@
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
+    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+
 A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
 
 **Syntax**
@@ -74,6 +77,8 @@ A let clause binds a [name](#names) to a tabular result, scalar value or functio
     let name = query ; query
 
     let name = (parameterName : type [, ...]) { plain_query }; query
+
+    let name = (parameterName : type [, ...]) { scalar_expression }; query
 
 * *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
 * *plain_query:* A query not prefixed by a let-clause.
