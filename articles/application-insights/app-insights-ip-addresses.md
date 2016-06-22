@@ -26,10 +26,13 @@ The [Visual Studio Application Insights](app-insights-overview.md) service uses 
 
 You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
 
-+ Telemetry - these are needed all the time:
- +	`dc.services.visualstudio.com:80` = 40.114.241.141
- +	`dc.services.visualstudio.com:443` = 40.114.241.141
- +	`dc.applicationinsights.microsoft.com` = 40.114.241.141
+|Purpose|URL|IP|Ports
+|---|---|---|---
+| Telemetry|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|80,443
+|LiveStream|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable|80,443
+
+
+
 + Status Monitor Configuration - needed only when making changes:
  -	`management.core.windows.net:443` 
  -	`management.azure.com:443`
