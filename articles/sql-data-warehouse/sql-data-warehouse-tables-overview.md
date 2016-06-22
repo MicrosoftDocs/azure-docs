@@ -53,20 +53,22 @@ Temporary tables are tables which only exist for the duration of your logon and 
 
 External tables, also known as Polybase tables, are tables which can be queried from SQL Data Warehouse, but point to data external from SQL Data Warehouse.  For example, you can create an external table which points to files on Azure Blob Storage.  For more details on how to create and query an external table, see [Load data with Polybase][].  
 
-## Unsupported table features
+## Unsupported features
 
 While SQL Data Warehouse contains many of the same table features offered by other databases, there are some features which are not yet supported.  Below is a list of some of the table features which are not yet supported.
 
-- [Identity Property][], for workaround see [Assigning Surrogate Keys][]
-- [Table Constraints][] including primary key, foreign keys, check constraints, and unique constraints
-- [Unique Indexes][]
-- [Computed Columns][]
-- [Sparse Columns][]
-- [User-Defined Types][]
-- [Sequence][]
-- [Triggers][]
-- [Indexed Views][]
-- [Synonyms][]
+| Unsupported features |
+| --- |
+|[Identity Property][] (see [Assigning Surrogate Key Workaround][])|
+|Primary key, Foreign keys, Unique and Check [Table Constraints][]|
+|[Unique Indexes][]|
+|[Computed Columns][]|
+|[Sparse Columns][]|
+|[User-Defined Types][]|
+|[Sequence][]|
+|[Triggers][]|
+|[Indexed Views][]|
+|[Synonyms][]|
 
 ## Next steps
 
@@ -89,7 +91,7 @@ To learn more, see the articles on [Table Data Types][Data Types], [Distributing
 
 <!--Other Web references-->
 [Identity Property]: https://msdn.microsoft.com/en-us/library/ms186775.aspx
-[Assigning Surrogate Keys]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 [Table Constraints]: https://msdn.microsoft.com/en-us/library/ms188066.aspx
 [Computed Columns]: https://msdn.microsoft.com/en-us/library/ms186241.aspx
 [Sparse Columns]: https://msdn.microsoft.com/en-us/library/cc280604.aspx
