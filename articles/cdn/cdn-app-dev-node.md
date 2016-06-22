@@ -38,13 +38,13 @@ You will then be presented a series of questions to initialize your project.  Fo
 
 ![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  Let's add those to the project as dependencies.
+Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll be using the Azure Client Runtime for Node.js (ms-rest-azure) and the Azure CDN Client Library for Node.js (azure-arm-cd).  Let's add those to the project as dependencies.
 ``` 
 npm install --save ms-rest-azure
 npm install --save azure-arm-cdn
 ```
 
-Assuming the packages installed with no errors, if we view the *package.json* file, it should look similar to this (version numbers may differ):
+After the packages are done installing, the *package.json* file should look similar to this (version numbers may differ):
 
 ```
 {
@@ -66,26 +66,300 @@ Assuming the packages installed with no errors, if we view the *package.json* fi
 
 Finally, using your text editor, create a blank text file and save it in the root of our project folder as *app.js*.  We're now ready to begin writing code.
 
-## 
+## Requires, constants, authentication, and structure
+
+Let's get the basic structure of our program written.
+
+1. Add the "requires" for our NPM packages at the top with the following:
+
+	```
+	var msRestAzure = require('ms-rest-azure');
+	var cdnManagementClient = require('azure-arm-cdn');
+	```
+
+2. We need to define some constants our methods will use.  Add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
+
+	```
+	//Tenant app constants
+	const clientId = "<YOUR CLIENT ID>";
+	const clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
+	const tenantId = "<YOUR TENANT ID>";
+
+	//Application constants
+	const subscriptionId = "<YOUR SUBSCRIPTION ID>";
+	const resourceGroupName = "CdnConsoleTutorial";
+	const resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
+	```
+
+3. Next, we'll instantiate the CDN management client and give it our credentials.
+
+	```
+	var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
+	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
+	```
+	
+	If you are using individual user authentication, these two lines will look slightly different.
+
+	>[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.
+
+	```
+	var credentials = new msRestAzure.UserTokenCredentials(clientId, 
+		tenantId, '<username>', '<password>', '<redirect URI>');
+	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
+	```
+
+	Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.  For `<redirect URI>`,use the redirect URI you entered when you registered the application in Azure AD.
+	
+
+4.  Our Node.js console application is going to take some command line parameters.  Let's validate that at least one parameter was passed.
+
+	```
+	//Collect command line parameters
+	var parms = process.argv.slice(2);
+
+	//Do we have parameters?
+	if(parms == null || parms.length == 0)
+	{
+		console.log("Not enough parameters!");
+		console.log("Valid commands are list, delete, create, and purge.");
+		process.exit(1);
+	}
+	```
+
+5. That brings us to the main part of our program, where we'll branch off to other functions based on what parameters were passed.
+
+	```
+	switch(parms[0].toLowerCase())
+	{
+		case "list":
+			cdnList();
+			break;
+
+		case "create":
+			cdnCreate();
+			break;
+		
+		case "delete":
+			cdnDelete();
+			break;
+
+		case "purge":
+			cdnPurge();
+			break;
+
+		default:
+			console.log("Valid commands are list, delete, create, and purge.");
+			process.exit(1);
+	}
+	```
+
+6.  At several places in our program, we'll need to make sure the right number of parameters were passed in and display some help if they don't look correct.  Let's create functions to do that.
+
+	```
+	function requireParms(parmCount) {
+		if(parms.length < parmCount) {
+			usageHelp(parms[0].toLowerCase());
+			process.exit(1);
+		}
+	}
+
+	function usageHelp(cmd) {
+		console.log("Usage for " + cmd + ":");
+		switch(cmd)
+		{
+			case "list":
+				console.log("list profiles");
+				console.log("list endpoints <profile name>");
+				break;
+
+			case "create":
+				console.log("create profile <profile name>");
+				console.log("create endpoint <profile name> <endpoint name> <origin hostname>");
+				break;
+			
+			case "delete":
+				console.log("delete profile <profile name>");
+				console.log("delete endpoint <profile name> <endpoint name>");
+				break;
+
+			case "purge":
+				console.log("purge <profile name> <endpoint name> <path>");
+				break;
+
+			default:
+				console.log("Invalid command.");
+		}
+	}
+	```
+
+7. Finally, the functions we'll be using on CDN management client are asynchronous, so they need a method to callback when they're done.  Let's make one that can display the output from the CDN management client (if any) and exit the program gracefully.
+
+	```
+	function callback(err, result, request, response) {
+		if (err) {
+			console.log(err);
+			process.exit(1);
+		} else {
+			console.log((result == null) ? "Done!" : result);
+			process.exit(0);
+		}
+	}
+	```
+
+Now that the basic structure of our program is written, we should create the functions called based on our parameters.
+
+## List CDN profiles and endpoints
+
+Let's start with code to list our existing profiles and endpoints.  I'll provide code comments with the expected syntax so we know which parameter goes where.
+
+```
+// list profiles
+// list endpoints <profile name>
+function cdnList(){
+    requireParms(2);
+    switch(parms[1].toLowerCase())
+    {
+        case "profiles":
+            console.log("Listing profiles...")
+            cdnClient.profiles.listByResourceGroup(resourceGroupName, callback);
+            break;
+
+        case "endpoints":
+            requireParms(3)
+            console.log("Listing endpoints...")
+            cdnClient.endpoints.listByProfile(parms[2], resourceGroupName, callback);
+            break;
+
+        default:
+            console.log("Invalid parameter.");
+            process.exit(1);
+    }
+}
+```
+
+## Create CDN profiles and endpoints
+
+Next, we'll write the functions to create profiles and endpoints.
+
+```
+function cdnCreate() {
+    requireParms(2);
+    switch(parms[1].toLowerCase())
+    {
+        case "profile":
+            cdnCreateProfile();
+            break;
+
+        case "endpoint":
+            cdnCreateEndpoint();
+            break;
+
+        default:
+            console.log("Invalid parameter.");
+            process.exit(1);
+    }
+}
+
+// create profile <profile name>
+function cdnCreateProfile() {
+    requireParms(3);
+    console.log("Creating profile...")
+    var standardCreateParameters = {
+        location: resourceLocation,
+        sku: {
+            name: 'Standard_Verizon'
+        }
+    };
+
+    cdnClient.profiles.create(parms[2], standardCreateParameters, resourceGroupName, callback);
+}
+
+// create endpoint <profile name> <endpoint name> <origin hostname>        
+function cdnCreateEndpoint() {
+    requireParms(5);
+    console.log("Creating endpoint...")
+    var endpointProperties = {
+        location: resourceLocation,
+        origins: [{
+            name: parms[4],
+            hostName: parms[4]
+        }]
+    }
+
+    cdnClient.endpoints.create(parms[3], endpointProperties, parms[2], resourceGroupName, callback);
+}
+```
+
+## Purge an endpoint
+
+Assuming the endpoint has been created, one common task that we might want to perform in our program is purging content in our endpoint.
+
+```
+// purge <endpoint name> <path>
+function cdnPurge() {
+    requireParms(4);
+    console.log("Purging endpoint...")
+    var purgeContentPaths = [ parms[3] ];
+    cdnClient.endpoints.purgeContent(parms[2], parms[1], resourceGroupName, purgeContentPaths, callback);
+}
+```
+
+## Delete CDN profiles and endpoints
+
+The last function we will include deletes endpoints and profiles.
+
+```
+function cdnDelete() {
+    requireParms(2);
+    switch(parms[1].toLowerCase())
+    {
+        // delete profile <profile name>
+        case "profile":
+            requireParms(3);
+            console.log("Deleting profile...")
+            cdnClient.profiles.deleteIfExists(parms[2], resourceGroupName, callback);
+            break;
+
+        // delete endpoint <profile name> <endpoint name>
+        case "endpoint":
+            requireParms(4)
+            console.log("Deleting endpoint...")
+            cdnClient.endpoints.deleteIfExists(parms[3], parms[2], resourceGroupName, callback);
+            break;
+
+        default:
+            console.log("Invalid parameter.");
+            process.exit(1);
+    }
+}
+```
 
 ## Running the program
 
-We can now compile and run the program by clicking the **Start** button in Visual Studio.
+We can now execute our Node.js program using our favorite debugger or at the console.
 
-![Program running](./media/cdn-app-dev-net/cdn-program-running-1.png)
+> [AZURE.TIP] If you're using Visual Studio Code as your debugger, you'll need to setup your environment to pass in the command line parameters.  Visual Studio Code does this in the **lanuch.json** file.  Look for a property named **args** and add an array of string values for your parameters, so that it looks similar to this:  `"args": ["list", "profiles"]`.
 
-When the program reaches the above prompt, you should be able to return to your resource group in the Azure Portal and see that the profile has been created.
+Let's start by listing our profiles.
 
-![Success!](./media/cdn-app-dev-net/cdn-success.png)
+![List profiles](./media/cdn-app-dev-node/cdn-list-profiles.png)
 
-We can then confirm the prompts to run the rest of the program.
+We got back an empty array.  Since we don't have any profiles in our resource group, that's expected.  Let's create a profile now.
 
-![Program completing](./media/cdn-app-dev-net/cdn-program-running-2.png)
+![Create profile](./media/cdn-app-dev-node/cdn-create-profile.png)
+
+Now, let's add an endpoint.
+
+![Create endpoint](./media/cdn-app-dev-node/cdn-create-endpoint.png)
+
+Finally, let's delete our profile.
+
+![Delete profile](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## Next Steps
 
-To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-To find additional documentation on the Azure CDN Management Library for .NET, view the [reference on MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
+To find additional documentation on the Azure SDK for Node.js, view the [documentation](http://azure.github.io/azure-sdk-for-node/).
 
 
