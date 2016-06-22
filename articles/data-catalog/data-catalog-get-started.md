@@ -33,14 +33,14 @@ This tutorial helps you get started with Azure Data Catalog. You will perform th
 Before you begin this tutorial you must have the following:
 
 ### Azure Subscription
-To set up Azure Data Catalog, you must be the owner or co-owner of an Azure subscription.
+To set up Azure Data Catalog, you must be the **administrator or co-administrator** of the Azure subscription.
 
 Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles.md).
 
 If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 
 ### Azure Active Directory
-To set up Azure Data Catalog, you must be logged in using an Azure Active Directory user account.
+To set up Azure Data Catalog, you must be logged in using an Azure Active Directory user account and the user must be an administrator or co-administrator of the subscription as mentioned earlier.  
 
 Azure Active Directory (Azure AD) provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-on to any cloud and on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-on. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
@@ -48,13 +48,31 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 
 In some situations, users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on. This problem behavior may occur only when the user is on the company network, or may occur only when the user is connecting from outside the company network.
 
-The registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
+The registration tool uses **Forms Authentication** to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the **Global Authentication Policy** by an Active Directory administrator.
 
 The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections, as illustrated below. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
  ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
+
+## Provision Azure Data Catalog
+1. Navigate to [https://azure.microsoft.com/services/data-catalog](https://azure.microsoft.com/services/data-catalog). 
+
+	![Azure Data Catalog - marketing landing page](media/data-catalog-get-started/data-catalog-marketing-landing-page.png) and click **Get started**.
+2. Login using a user account that is an **administor or co-administrator** of the Azure subscription to see the following page.
+
+	![Azure Data Catalog - provision data catalog](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png) 
+2. Specify a **name** for the data catalog, **subscription** you want to use, and the **location** for the catalog. 
+3. Expand **Pricing** and specify that Azure Data Catalog **edition** (free and standard).
+	![Azure Data Catalog - select edition](media/data-catalog-get-started/data-catalog-create-catalog-select-edition.png)
+4. Expand **Catalog Users**, click **Add** to add users for the data catalog.
+	![Azure Data Catalog - users](media/data-catalog-get-started/data-catalog-add-catalog-user.png) 
+5. Expand **Catalog Administrators**, click **Add** to add additional administrators for the data catalog.
+	![Azure Data Catalog - administrators](media/data-catalog-get-started/data-catalog-add-catalog-admins.png) 
+6. Click **Create Catalog** button to create the data catalog for your organization. You should see home page for the data catalog after it is created successfully. 
+	![Azure Data Catalog - created](media/data-catalog-get-started/data-catalog-created.png)    
+
 
 ### Adventure Works sample database 
 This tutorial uses the Adventure Works sample database for SQL Server Database Engine, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
@@ -118,7 +136,10 @@ In this exercise you use the registration tool to register data assets from the 
 	
 		![Azure Data Catalog - registered objects](media/data-catalog-get-started/data-catalog-registered-objects.png)
 
-    g.	To see your registered data source objects, click **View Portal**.  
+    g.	To see your registered data source objects, click **View Portal**. In the **Azure Data Catalog** portal, confirm that you see all the four tables and the database in the grid view . 
+
+    ![Objects in Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
+  
 	
 In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise you learn how to discover registered data assets.
 
@@ -141,13 +162,7 @@ For details about **Azure Data Catalog** search, see [Data Catalog Search syntax
 
 	![Azure Data Catalog - basic text search results](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
 	
-	In the **Azure Data Catalog** portal, you can view data source objects in **Grid view** or a **List view**. Click the button as highlighted in the following image to switch between these views. 
-
-    ![Objects in Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
-
-	The following image shows the registered assets in a list view. You see the **Search** panel on the left and **Properties** panel on the right. The Search panel allows you to change search criteria and Properties panel displays properties of a selected object in the grid/list. 
-
-	![Data Catalog - objects in list view](media/data-catalog-get-started/data-catalog-portal-grid-view.png)
+	You see the **Search** panel on the left and **Properties** panel on the right. The Search panel allows you to change search criteria and Properties panel displays properties of a selected object in the grid/list. 
 
 	You can expand the left side panel to see seach filters and right side panel to see properties of a selected object. 
 
@@ -244,7 +259,15 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to a 
 
     ![Azure Data Catalog - product table in Excel](media/data-catalog-get-started/data-catalog-connect2.png)
 
-In this exercise you connected to data assets discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
+In this exercise you connected to data assets discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata. For example: you can use SQL Server Management Studio to connecto the AdventureWorks2014 database to access the data in the data assets registered in this tutorial. 
+
+1. Launch **SQL Server Management Studio**.
+2. In the **Connect to Server** dialog box, enter the **server name** from the **Properties** pane in the Azure Data Catalog portal. 
+3. Use appropriate **authentication** and **credentials** to access the data asset if you already have the access to the data asset. if you don't have the access, use  information in the Request Access field to get the access .
+
+	![Azure Data Catalog - request access](media/data-catalog-get-started/data-catalog-request-access.png) 
+
+Click **View Connection Strings** to view and copy ADF.NET, ODBC, and OLEDB connection strings to the clipboard for use in your application. 
 
 ## Manage data assets
 
@@ -270,7 +293,7 @@ In this exercise you will use the **Azure Data Catalog** portal to remove previe
 
 In **Azure Data Catalog**, you can delete an individual asset or delete multiple assets.
 
-### Here’s how to delete multiple data assets
+### Here’s how to delete data asset(s)
 
 1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) if you have closed the web browser. 
 2. In the search text box, enter **tags:cycles** and press **ENTER**.	
@@ -281,6 +304,10 @@ In **Azure Data Catalog**, you can delete an individual asset or delete multiple
 	If you are using the list view (instead of grid view), check box is to the left of the item as shown in the following image. 
 
 	![Azure Data Catalog - Delete list item](media/data-catalog-get-started/data-catalog-delete-list-item.png)
+
+	You can also select multiple data assets and delete them as shown below: 
+
+	![Azure Data Catalog - Delete multiple data assets](media/data-catalog-get-started/data-catalog-delete-assets.png)
 
 
 > [AZURE.NOTE] The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered. The management capabilities included in the **Standard Edition of Azure Data Catalog** provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.
