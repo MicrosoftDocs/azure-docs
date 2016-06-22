@@ -44,7 +44,7 @@ For **tenant-independent endpoints**, the `TenantDomainName` is `common`. This d
 
 For example, a tenant-specific endpoint might be `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. The tenant-independent endpoint is [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). You can view the federation metadata document by typing this URL in a browser.
 
-## Contents of federation eetadata
+## Contents of federation Metadata
 
 The following section provides information needed by services that consume the tokens issued by Azure AD.
 
