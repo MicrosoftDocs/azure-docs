@@ -19,13 +19,15 @@
 
 # Data Science for Beginners video 2: Is your data ready for data science?
 
-*Data Science for Beginners* is a quick introduction to data science in five short videos.
+Learn about evaluating your data to make sure it meets some basic criteria so that it's ready for data science.
 
 "Is your data ready for data science?" will be **available June 27.**
 
 ![Title slide - Data Science for Beginners video 2](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/ds-beginners-video-2-title-slide.png)
 
-## Other videos in the series:
+## Other videos in the series
+
+*Data Science for Beginners* is a quick introduction to data science in five short videos.
 
   * Video 1: [The 5 questions data science can answer](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Available now.**
   * Video 3: [Ask a question you can answer with data](). Available June 28.
