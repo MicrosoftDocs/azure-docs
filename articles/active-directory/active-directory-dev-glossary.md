@@ -92,11 +92,9 @@ A type of [client application](#client-application) that is installed natively o
 Sometimes referred to as an "active client", which is a client that generates/renders its user interface, or possibly has no user interface at all. Compared to a "passive client" which is synonymous with the definition of a [Web client](#web-client)
 
 ### permissions
-A [client application](#client-application) requests access to [scopes](#scope) exposed by a [resource server](#resource-server), by expressing permission requests. These are captured during [application registration](#application-registration) in the [Azure classic portal][AZURE-classic-portal]. 
+A [client application](#client-application) requests access to [scopes](#scopes) and [roles](#roles) exposed by a [resource server](#resource-server), by expressing permission requests. The client's [application object](#application-object) stores the declared permissions in it's [requiredResourceAccess property][AAD-Graph-App-Entity].
 
-Delegated Permissions, Application Permissions, and User Permissions (granted at runtime via an Authorization Grant flow)
-
-When we refer to permissions in general, or permission scopes in particular, we are referring to the available permissions that a Web API has declared through it's Azure AD configuration. These are the same permission definitions a client application must declare in it's Azure AD configuration in order to access the API. <br/><br/>These permissions will be surfaced to the resource owner/user during the consent process, so they know what they are granting the client permission to access on their behalf. For a detailed discussion of the permission scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes].
+A [client application](#client-application) can express [permission](#permissions) to access the scopes and application roles via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Application Permissions" using "Delegated Permissions" and "Application Permissions" respectively. 
 
 ### resource owner
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
@@ -111,14 +109,16 @@ Just like a client application, a Web API (aka: resource) application's identity
 ### roles
 A [resource server](#resource-server) declares and implements roles to enable “role-based-access” control. Both user and application roles can be defined by the resource server, in the [Azure classic portal][AZURE-classic-portal] via the resource application's [application manifest](#application-manifest). The resource's [application object](#application-object) stores the declared roles in it's [appRoles property][AAD-Graph-App-Entity].
 
+For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes].
+
 A [client application](#client-application) can express [permission](#permissions) to access the roles via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Application Permissions". 
 
 ### scopes
 A [resource server](#resource-server) declares and implement scopes to enable “scope-of-access” control. Scopes provide a way for a resource to give granular access to [client applications](#client-application) that use delegated access. The resource's [application object](#application-object) stores the declared roles in it's [oauth2Permissions property][AAD-Graph-App-Entity].
 
-A [client application](#client-application) can express [permission](#permissions) to access the scopes via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Delegated Permissions".
+For a detailed discussion of the scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. 
 
-TODO: Also Application & User Roles for “role-based-access” control (providing secure access to capabilities.
+A [client application](#client-application) can express [permission](#permissions) to access the scopes via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Delegated Permissions".
 
 ### security token
 A generic term for a token used in a security context. In the case of an OAuth 2.0 [authorization grant](#authorization-grant), an [access token](#access-token) (OAuth2) and an [ID Token](OpenID Connect) are a type of security token, both of which are implemented as a [JSON Web Token (JWT)][JWT].
