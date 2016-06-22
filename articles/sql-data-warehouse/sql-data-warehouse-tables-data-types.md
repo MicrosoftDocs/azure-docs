@@ -20,11 +20,12 @@
 
 > [AZURE.SELECTOR]
 - [Overview][]
+- [Data Types][]
 - [Distribute][]
 - [Index][]
 - [Partition][]
-- [Data Types][]
 - [Statistics][]
+- [Temporary][]
 
 This article will introduce you to data types for SQL Data Warehouse tables.
 
@@ -110,10 +111,21 @@ Partial support:
 > [AZURE.NOTE] If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, and load rows with BCP, you will not be be able to us Polybase to load this data quite yet.  Polybase support for wide rows will be added soon. Also, try to limit the size of your variable length columns for even better throughput for running queries.
 
 
+## Next steps
+
+To learn more, see the articles on [Table Overview][Overview], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
+
+<!--Image references-->
+
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Distribute][] ./sql-data-warehouse-tables-distribute.md
-[Index][] ./sql-data-warehouse-tables-index.md
-[Partition][] ./sql-data-warehouse-tables-partition.md
-[Data Types][] ./sql-data-warehouse-tables-data-types.md
-[Statistics][] ./sql-data-warehouse-tables-statistics.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+
+<!--MSDN references-->
+
+<!--Other Web references-->
