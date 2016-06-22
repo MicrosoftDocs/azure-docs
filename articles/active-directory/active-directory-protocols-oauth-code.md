@@ -58,8 +58,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode | recommended | Specifies the method that should be used to send the resulting token back to your app.  Can be `query` or `form_post`.  |
 | state | recommended | A value included in the request that will also be returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12).  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 | resource | optional | The App ID URI of the web API (secured resource). To find the App ID URI of the web API, in the Azure Management Portal, click **Active Directory**, click the directory, click the application and then click **Configure**. |
-| prompt | optional |  Indicate the type of user interaction that is required. <p>
-Valid values are: <p> *login*: The user should be prompted to re-authenticate. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
+| prompt | optional |  Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to re-authenticate. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
 | login_hint | optional | Can be used to pre-fill the username/email address field of the sign in page for the user, if you know their username ahead of time.  Often apps will use this parameter during re-authentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
 | domain_hint | optional | Provides a hint about the tenant or domain that the user should use to sign in. The value of the domain_hint is a registered domain for the tenant. If the tenant is federated to an on-premises directory, AAD redirects to the specified tenant federation server. |
 
@@ -170,10 +169,8 @@ A successful response could look like this:
 | access_token | The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API. |
 | token_type | Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about Bearer tokens, see [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)  |
 | expires_in | How long the access token is valid (in seconds). |
-| expires_on | The time when the access token expires. The date is represented as the number of seconds from
-1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
-| resource | 	
-The App ID URI of the web API (secured resource).|
+| expires_on | The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
+| resource | The App ID URI of the web API (secured resource).|
 | scope | Impersonation permissions granted to the client application. The default permission is `user_impersonation`. The owner of the secured resource can register additional values in Azure AD.|
 | refresh_token |  An OAuth 2.0 refresh token. The  app can use this token to acquire additional access tokens after the current access token expires.  Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. |
 | id_token | An unsigned JSON Web Token (JWT). The app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. |
