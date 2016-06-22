@@ -24,7 +24,7 @@
 - [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-The procedures in this article describe the simplest way to activate the analytics and monitoring functions in Microsoft Azure Mobile Engagement in your web application.
+The procedures in this article describe the simplest way to activate the analytics and monitoring functions in Azure Mobile Engagement in your web application.
 
 Follow the steps to activate the log reports that are needed to compute all statistics about users, sessions, activities, crashes, and technicals. For application-dependent statistics, such as events, errors, and jobs, you must activate log reports manually by using the Azure Mobile Engagement API. For more information, learn [how to use the advanced Mobile Engagement tagging API in a web application](mobile-engagement-web-use-engagement-api.md).
 
@@ -129,7 +129,7 @@ You can configure the 10-second delay in the global engagement object, as follow
 
 Optionally, if you want to report application-specific events, errors, and jobs, you need to use the Mobile Engagement API. You access the Mobile Engagement API through the `engagement.agent` object.
 
-In the Mobile Engagement API you can access all advanced capabilities in Mobile Engagement. The API is detailed in the article [How to use the advanced Mobile Engagement tagging API in a web application](mobile-engagement-web-use-engagement-api.md).
+You can access all of the advanced capabilities in Mobile Engagement in the Mobile Engagement API. The API is detailed in the article [How to use the advanced Mobile Engagement tagging API in a web application](mobile-engagement-web-use-engagement-api.md).
 
 ## Customize the URLs used for AJAX calls
 
