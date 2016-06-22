@@ -101,7 +101,7 @@ Since the head nodes are redundant and not all data nodes are impacted, any jobs
 
 ## Learn about IDE options for R Server on an HDInsight cluster
 
-The Linux edge node of an HDInsight Premium cluster is the landing zone for R-based analysis. After connecting to the cluster, you can launch the console interface to R Server by typing ‘R’ at the Linux command prompt. Use of the console interface is enhanced if you run a text editor for R script development in another window, and cut and paste sections of your script into the R console as needed.
+The Linux edge node of an HDInsight Premium cluster is the landing zone for R-based analysis. After connecting to the cluster, you can launch the console interface to R Server by typing **R** at the Linux command prompt. Use of the console interface is enhanced if you run a text editor for R script development in another window, and cut and paste sections of your script into the R console as needed.
 
 A more sophisticated tool for the development of your R script is the  R-based IDE for use on the desktop, such as Microsoft’s recently announced [R Tools for Visual Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx) (RTVS). This is a family of desktop and server tools from [RStudio](https://www.rstudio.com/products/rstudio-server/). You can also use Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet).
 
