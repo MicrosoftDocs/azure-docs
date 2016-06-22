@@ -46,7 +46,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 1. Click **Create vault**.
 2. On the **Recovery Services** page, click the vault to open the **Quick Start** page.
 3. In the dropdown list, select **Between two on-premises VMware sites**.
-4. Download InMage Scout. The setup files for all of the required components are in the downloaded zip file.
+4. Download InMage Scout. The setup files for all of the required components are in the downloaded .zip file.
 
 
 ## Step 3: Install component updates
@@ -105,7 +105,7 @@ Update 3 includes the following bug fixes and enhancements:
 9. The push install service crashes when the password is greater than 16 characters.
 10. vContinuum is not checking and prompting for new vCenter credentials when the credentials are changed.
 11. On Linux, the master target cache manager (cachemgr) is not downloading files from the process server, which results in replication pair throttling.
-12. When the physical failover (MSCS) cluster disk order is not the same on all the nodes, replication is not set for some of the cluster volumes.
+12. When the physical failover cluster (MSCS) disk order is not the same on all the nodes, replication is not set for some of the cluster volumes.
 <br/>Note that the cluster needs to be reprotected to take advantage of this fix.  
 13. SMTP functionality is not working as expected after RX is upgraded from Scout 7.1 to Scout 8.0.1.
 14. More stats have been added in the log for the rollback operation to track the time it has taken to complete it.
@@ -118,7 +118,7 @@ Update 3 includes the following bug fixes and enhancements:
 **#**|**Issue description**|**Implementation procedures**
 ---|---|---
 1. |Authorization bypass via parameter tampering|Restricted access to non-applicable users.
-2. |Cross-site request forgery|Implemented page-token concept, which generates randomly for every page. <br/>With this you will see: <br/>1) Only a single sign-in instance for the same user.,br/>2) Page refresh does not work--it will redirect to the dashboard. <br/>
+2. |Cross-site request forgery|Implemented page-token concept, which generates randomly for every page. <br/>With this you will see: <br/>1) There is only a single sign-in instance for the same user. <br/>2) Page refresh does not work--it will redirect to the dashboard. <br/>
 3. |Malicious file upload|Restricted files to certain extensions. Allowed extensions are: 7z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip.
 4. | Persistent cross-site scripting | Added input validations.
 
@@ -128,7 +128,7 @@ Update 3 includes the following bug fixes and enhancements:
 >-	All Site Recovery updates are cumulative. Update 3 has all the fixes of Update 1 and Update 2. Update 3 can be directly applied on 8.0.1 GA.
 >-	The configuration server and RX updates can’t be rolled back after they're applied on the system.
 
-### Azure Site Recovery Scout 8.0.1 Update 03Dec15 (Update 2)
+### Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 
 Fixes in Update 2 include:
 
@@ -152,11 +152,11 @@ Update 1 includes the following bug fixes and new features:
 	- CentOS 5 Update 11
 - Bug fixes to address the following issues:
 	- Vault registration fails for the configuration server or RX server.
-	- Cluster volumes don't appear as expected when clustered virtual machines are reprotected during resume.
+	- Cluster volumes don't appear as expected when clustered virtual machines are reprotected when they resume.
 	- Failback fails when the master target server is hosted on a different ESXi server from the on-premises production virtual machines.
-	- Configuration file permissions are changed when upgrading to 8.0.1, which affecting protection and operations.
+	- Configuration file permissions are changed when you upgrade to 8.0.1, which affects protection and operations.
 	- The resynchronization threshold isn't enforced as expected, which leads to inconsistent replication behavior.
-	- The RPO settings are not appearing correctly in the configuration server interface. Uncompressed data value incorrectly shows the compressed value.
+	- The RPO settings are not appearing correctly in the configuration server interface. The uncompressed data value incorrectly shows the compressed value.
 	-  The Remove operation doesn't delete as expected in the vContinuum wizard, and replication isn't deleted from the configuration server interface.
 	-  In the vContinuum wizard, the disk is automatically unselected when you click **Details** in the disk view during protection of MSCS virtual machines.
 	- During the physical-to-virtual (P2V) scenario, required HP services, such as CIMnotify and CqMgHost, aren't moved to manual in virtual machine recovery. This results in additional boot time.
