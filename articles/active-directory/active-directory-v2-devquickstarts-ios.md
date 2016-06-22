@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Azure AD v2.0 iOS App | Microsoft Azure"
-	description="How to build an iOS app that signs users in with both personal Microsoft Account and work or school accounts."
+	description="How to build an iOS app that signs users in with both personal Microsoft Account and work or school accounts using third party libraries."
 	services="active-directory"
 	documentationCenter=""
-	authors="dstrockis"
+	authors="brandwe"
 	manager="mbaldwin"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/22/2016"
 	ms.author="brandwe"/>
 
 # Add sign-in to an iOS app using a third party library with Graph API using the v2.0 endpoint
