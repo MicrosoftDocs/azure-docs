@@ -60,8 +60,8 @@ It's useful for any question that has just two possible answers.
 
 For example:
 
-  •	Will this tire fail in the next 1,000 miles: Yes or no?
-  •	Which brings in more customers: a $5 coupon or a 25% discount?
+  *	Will this tire fail in the next 1,000 miles: Yes or no?
+  *	Which brings in more customers: a $5 coupon or a 25% discount?
 
 This question can also be rephrased to include more than two options: Is this A or B or C or D, etc.?  This is called multiclass classification and it's useful when you have several—or several thousand— possible answers. Multiclass classification chooses the most likely one.
 
@@ -76,8 +76,8 @@ If you have a credit card, you’ve already benefitted from anomaly detection. Y
 
 This question can be useful in lots of ways. For instance:
 
-  •	If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
-  •	If you're monitoring the internet you’d want to know: Is this message from the internet typical?
+  *	If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
+  *	If you're monitoring the internet you’d want to know: Is this message from the internet typical?
 
 Anomaly detection flags unexpected or unusual events or behaviors. It gives clues where to look for problems.
 
@@ -92,8 +92,8 @@ Machine learning can also predict the answer to How much? or How many? The algor
 
 Regression algorithms make numerical predictions, such as:
 
-  •	What will the temperature be next Tuesday?
-  •	What will my fourth quarter sales be?
+  *	What will the temperature be next Tuesday?  
+  *	What will my fourth quarter sales be?
 
 They help answer any question that can asks for a number.
 
@@ -109,8 +109,8 @@ There are a lot of ways to tease out the structure of data. One approach is clus
 
 Common examples of clustering questions are:
 
-  •	Which viewers like the same types of movies?
-  •	Which printer models fail the same way?
+  *	Which viewers like the same types of movies?
+  *	Which printer models fail the same way?
 
 By understanding how data is organized, you can better understand--and predict--behaviors and events.  
 
@@ -126,9 +126,9 @@ Typically, reinforcement learning is a good fit for automated systems that have 
 
 Questions it answers are always about what action should be taken--usually by a machine or a robot. Examples are:
 
-  •	If I'm a temperature control system for a house: Adjust the temperature or leave it where it is?
-  •	If I'm a self-driving car: At a yellow light, brake or accelerate?
-  •	For a robot vacuum: Keep vacuuming, or go back to the charging station?
+  *	If I'm a temperature control system for a house: Adjust the temperature or leave it where it is?  
+  *	If I'm a self-driving car: At a yellow light, brake or accelerate?  
+  *	For a robot vacuum: Keep vacuuming, or go back to the charging station?
 
 Reinforcement learning algorithms gather data as they go, learning from trial and error.
 So that's it - The 5 questions data science can answer.
@@ -141,9 +141,9 @@ Be sure to check out the other four videos in *Data Science for Beginners* from 
 Look for weekly releases:
 
   * Next week: Video 2: Is your data ready for data science?
-  * Later:
-      * Video 3: Ask a question you can answer with data
-      * Video 4: Predict an answer with a simple model
+  * Later:  
+      * Video 3: Ask a question you can answer with data      
+      * Video 4: Predict an answer with a simple model      
       * Video 5: Copy others' work to do data science
 
 Do an easy data science experiment:
