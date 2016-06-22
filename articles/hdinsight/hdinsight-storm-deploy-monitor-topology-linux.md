@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="06/22/2016"
    ms.author="larryfr"/>
 
 # Deploy and manage Apache Storm topologies on Linux-based HDInsight
@@ -34,6 +34,8 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 ## Start a Storm topology
 
+### Using SSH and the Storm command
+
 1. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -53,6 +55,10 @@ In this document, learn the basics of managing and monitoring Storm topologies r
     > [AZURE.NOTE] When submitting topology to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. This can be accomplished using the `scp` command from the client where the file exists. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+
+### Programmatically
+
+You can programmatically deploy a topology to Storm on HDInsight by communicating with the Nimbus service hosted in your cluster. [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
 
 ##Monitor and manage using the storm command
 
