@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/16/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Migration to Premium Storage Details
@@ -37,7 +37,7 @@ The details below are steps that Microsoft is taking on your behalf to complete 
 > [AZURE.NOTE] These settings will not carry over as part of the migration:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ### Automatic migration schedule
 Automatic migration will occur from 6pm – 6am (local time for that region) at some point during the outage schedule listed below.
@@ -105,7 +105,7 @@ If you would like to control your downtime, you can self-migrate your Data Wareh
 > [AZURE.NOTE] These settings will not carry over as part of the migration:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 #### Optional: rename workaround 
 Two databases on the same logical server cannot have the same name. SQL Data Warehouse does not currently support the ability to rename a DW.  The instructions below will get you around this missing functionality during a self-migration (note: automatic migrations will not have this limitation).
