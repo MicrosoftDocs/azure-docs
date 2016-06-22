@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/21/2016"
+   ms.date="06/22/2016"
    ms.author="bryanla"/>
 
 # Azure Active Directory developer glossary
@@ -22,9 +22,9 @@ This article contains definitions for a list of core Azure Active Directory (AD)
 ## Glossary
 
 ### access token  
-A type of security token issued by an [authorization server][#authorization-server] and used by a [client application](#client-application) in order to access a protected resource. Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#oauth2-authorization-framework-roles). The token contains all applicable claims about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
+A type of [security token](#security-token) issued by an [authorization server][#authorization-server] and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#oauth2-authorization-framework-roles). The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
 
-[TODO] Discuss App+User and App-Only
+When the client application uses the [authorization code authorization grant](#authorization-grant), where the resource owner is an end-user, the token can sometimes also be referred to more specifically as an "App+User" token. Similarly, when the client application uses the [client credentials authorization grant](#authorization-grant), where the client is also functioning as the resource-owner, the token can sometimes be referred to as an "App-Only" token.
 
 ### active client  
 Used to define whether the client application is involved in generating the user interface. An active client has a user interface that is rendered by a native application, or where there is no user interface at all. 
@@ -109,6 +109,9 @@ Just like a client application, a Web API (aka: resource) application's identity
 
 ### resource owner
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
+
+### security token
+A generic term for a token used in a security context. In the case of an OAuth 2.0 [authorization grant](#authorization-grant), an [access token](#access-token) (OAuth2) and an [ID Token](OpenID Connect) are a type of security token, both of which are implemented as a [JSON Web Token (JWT)][JWT].
 
 ### service principal
 The client application is registered in the developer tenant via the [Azure classic portal][AZURE-Azure-classic-portal], which will create both it's application and service principal objects. We mentioned that the application object is more like a template, and the service principal object is *derived* from the application object. It's important to also note that it is the service principal object to which policy and permissions are applied, so think of it as a concept that is also applicable at run-time. When the application object is modified, the corresponding service principal object in it's tenant is also kept in sync. 
