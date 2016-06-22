@@ -274,7 +274,7 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | Error Code | Description | Client Action |
 |------------|-------------|---------------|
 | invalid_request | Protocol error, such as a missing required parameter. | Fix and resubmit the request |
-| invalid_grant | The authorization grant (or its parameters) or refresh token is invalid, expired, or revoked. | Fix and resubmit the request. |
+| invalid_grant | The authorization code is invalid or has expired. | Try a new request to the `/authorize` endpoint |
 | unauthorized_client | The authenticated client is not authorized to use this authorization grant type. | This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | invalid_client | Client authentication failed. | The client credentials are not valid. To fix, the application administrator updates the credentials. |
 | unsupported_grant_type | The authorization server does not support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
