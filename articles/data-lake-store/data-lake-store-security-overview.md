@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Overview of security in Data Lake Store | Azure" 
+   pageTitle="Overview of security in Data Lake Store | Microsoft Azure" 
    description="Understand how Azure Data Lake Store is a secure big data store" 
    services="data-lake-store" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/20/2016"
+   ms.date="06/22/2016"
    ms.author="nitinme"/>
 
 # Security in Azure Data Lake Store
@@ -27,7 +27,7 @@ Large number of enterprises are leveraging Big Data analytics to gain business i
 * Auditing
 
  
-## Authentication and Identity Management
+## Authentication and identity management
 
 Authentication is the process by which users prove their identity when interacting with Data Lake Store , or any services connecting to Data Lake Store. For Identity management and authentication, Data Lake Store uses [Azure Active Directory](../active-directory/active-directory-whatis.md) (AAD), a comprehensive identity and access management cloud solution that simplifies the management of users and groups.
 
@@ -77,7 +77,7 @@ Azure Data Lake Store enables you to further lock down access to your data store
 
 ![Firewall settings and IP access](./media/data-lake-store-security-overview/firewall-ip-access.png "Firewall settings and IP address")
 
-## Data Protection
+## Data protection
 
 Organizations want to ensure that their business critical data is secured throughout its life cycle. For data in transit, Data Lake Store uses industry-standard TLS (Transport Layer Security protocol) to secure data between client and Data Lake Security. 
 
