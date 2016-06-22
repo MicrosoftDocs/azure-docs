@@ -21,7 +21,7 @@
 
 Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful if you're interested in doing data science - or work with people who do data science - and you want to start with the most basic concepts.
 
-Each video introduces a few key concepts in data science. To get the most out of them, it's best to watch in order.
+To get the most out of them, it's best to watch in order.
 
 ## Transcript of video 1: The 5 questions that data science can answer
 
