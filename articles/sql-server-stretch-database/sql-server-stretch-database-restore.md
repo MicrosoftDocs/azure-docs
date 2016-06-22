@@ -81,11 +81,13 @@ After you restore the Azure database in a different region, you have to run the 
 
 	-   Specify whether to make a copy of the remote data and connect to the copy (recommended).  
 
-	```tsql  
-	DECLARE @credentialName nvarchar(128);   
-	SET @credentialName = N'<existing_database_scoped_credential_name>';   
-	EXEC sp_rda_reauthorize_db @credential = @credentialName, @with_copy = 1;  
-
+    ```tsql  
+    USE <Stretch-enabled database name>;
+	GO
+	EXEC sp_rda_reauthorize_db
+	    @credential = N'<existing_database_scoped_credential_name>',
+		@with_copy = 1 ;  
+	GO
 	```  
 
 ## See also
