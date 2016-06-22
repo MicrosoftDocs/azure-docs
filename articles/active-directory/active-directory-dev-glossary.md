@@ -39,8 +39,6 @@ When you register/update an application in the [Azure classic portal][AZURE-clas
 ### application registration  
 In order to allow an application to integrate with and delegate identity management functions to Azure AD, it must be registered with an Azure AD tenant. When you register your application with Azure AD, you are essentially providing an identity configuration for your application, allowing it to participate in the authentication and authorization services provided by Azure AD on behalf of a user (resource owner), to access the user's data in a protected resource server.
 
-We will focus on using the Azure classic portal for registration tasks, but please note that you can also register an application through other means, including the Azure AD Graph API, PowerShell cmdlets, and various tools that wrap them. Using the Azure classic portal for registration will create both the application and service principal object.
-
 [TODO]: Sign-on and Reply URL for Web clients? Redirect URI for Native clients?
 
 ### authentication
@@ -59,7 +57,7 @@ A secure code provided to a *client application*, in response to authentication 
 Provides an [authorization code](#authorization-code) to a [client application](#client-application), during the [authorization code grant](#authorization-grant) flow, upon successful authentication (and consent) of the [resource owner](#resource-owner). The client uses the authorization code later in the flow, to obtain an [access token](#access-token) from the [token endpoint](#token-endpoint), in exchange for the authorization code.
 
 ### authorization grant
-A credential representing the resource owner's authorization to access its protected resources, used by a [client application](#client-application) to acquire an [access token](#access-token). The OAuth2 spec [currently defines four types][OAuth2-AuthZ-Grant-Types] : authorization code, client credentials, implicit, and resource owner password credentials.
+A credential representing the [resource owner's](#resource-owner) authorization to access its protected resources, used by a [client application](#client-application) to acquire an [access token](#access-token). The OAuth2 spec [currently defines four types][OAuth2-AuthZ-Grant-Types] : authorization code, client credentials, implicit, and resource owner password credentials.
 
 ### authorization server
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining its authorization. In the case of Azure AD application integration, Azure AD implements the authorization server. Note, as in the case of Azure AD, some authorization servers also function as a resource server, implementing APIs that can be access via an access token (ie: the Azure AD Graph API).
