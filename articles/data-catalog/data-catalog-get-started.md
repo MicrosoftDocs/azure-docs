@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="05/06/2016"
-	ms.author="maroche"/>
+	ms.date="06/22/2016"
+	ms.author="spelluru"/>
 
 # Tutorial: Get started with Azure Data Catalog
 Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md). 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 
 In some situations, users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on. This problem behavior may occur only when the user is on the company network, or may occur only when the user is connecting from outside the company network.
 
-The data source registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
+The registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
 
 The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections, as illustrated below. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
@@ -73,7 +73,7 @@ Now, let's see how to register data assets from the Adventure Works sample datab
 
 ## Register data assets
 
-In this exercise you use the **Azure Data Catalog** publishing tool to register data assets from the Adventure Works database with the catalog. Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
+In this exercise you use the registration tool to register data assets from the Adventure Works database with the catalog. Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
 ### Here’s how to register a data source
 
@@ -84,11 +84,11 @@ In this exercise you use the **Azure Data Catalog** publishing tool to register 
 
     ![Azure Data Catalog - Publish Data button](media/data-catalog-get-started/data-catalog-publish-data.png)
 
-3.	Click **Launch Application** to download, install, and run the **publishing tool** on your computer.
+3.	Click **Launch Application** to download, install, and run the **registration tool** on your computer.
 
     ![Azure Data Catalog - Launch button](media/data-catalog-get-started/data-catalog-launch-application.png)
 
-4. In the **Welcome** page, click **Sign in**, and enter your credentials.	 The user account must be owner or co-owner of the Azure subscription.
+4. In the **Welcome** page, click **Sign in**, and enter your credentials.	 
 
 	![Azure Data Catalog - Welcome dialog](media/data-catalog-get-started/data-catalog-welcome-dialog.png)
 
@@ -107,28 +107,20 @@ In this exercise you use the **Azure Data Catalog** publishing tool to register 
 	3. Click the **move selected arrow** (**>**). This will move all selected Product objects into the **Objects to be registered** list.
 			
     	![Azure Data Catalog tutorial - browse and select objects](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
-	4. Select **Include a Preview** for users to be able to preview data before they consume it.
-	5. Select **Include Data Profile** for users to be able see profiling of the data (for example: minimum, maximum, and average values for a column, number of rows etc...).
+	4. Select **Include a Preview** to include a snapshot of the data for a preview. 
+	5. Select **Include Data Profile** to include a snapshot of the object statistics for the data profile (for example: minimum, maximum, and average values for a column, number of rows etc...).
 	5. In the **Add tags**, enter **adventure works, cycles**. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
 	6. (optional) Specify name of an expert on this data.
 
     	![Azure Data Catalog tutorial - objects to be registered](media/data-catalog-get-started/data-catalog-objects-register.png)
 
-    f.	Click **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from Adventure Works are registered.
+    f.	Click **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from Adventure Works are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently resides, and remains under the control of the administrators and policies of the current system.
 	
 		![Azure Data Catalog - registered objects](media/data-catalog-get-started/data-catalog-registered-objects.png)
 
-    g.	To see your registered data source objects, click **View Portal**. In the **Azure Data Catalog** portal, you can view data source objects in **Grid view** or a **List view**. Click the button as highlighted in the following image to switch between these views. 
-
-    ![Objects in Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
-
-	In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise you learn how to discover registered data assets.
-
-	The following image shows the registered assets in a list view. You see the **Search** panel on the left and **Properties** panel on the right. The Search panel allows you to change search criteria and Properties panel displays properties of a selected object in the grid/list. 
-
-	![Data Catalog - objects in list view](media/data-catalog-get-started/data-catalog-portal-grid-view.png)
-
-	You can expand the left side panel to see seach filters and right side panel to see properties of a selected object. 
+    g.	To see your registered data source objects, click **View Portal**.  
+	
+In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise you learn how to discover registered data assets.
 
 ## Discover data assets
 
@@ -148,6 +140,17 @@ For details about **Azure Data Catalog** search, see [Data Catalog Search syntax
 3. Confirm that you see all the four tables and the database (AdventureWorks2014) in the results. You can switch between **grid view** and **list view** by clicking buttons at the top as shown in the following image. Notice that the search keyword is highlighted in the search results as the **Highlight** option at the top is **ON**. You can also specify the number of **results per page** in search results. 
 
 	![Azure Data Catalog - basic text search results](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
+	
+	In the **Azure Data Catalog** portal, you can view data source objects in **Grid view** or a **List view**. Click the button as highlighted in the following image to switch between these views. 
+
+    ![Objects in Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
+
+	The following image shows the registered assets in a list view. You see the **Search** panel on the left and **Properties** panel on the right. The Search panel allows you to change search criteria and Properties panel displays properties of a selected object in the grid/list. 
+
+	![Data Catalog - objects in list view](media/data-catalog-get-started/data-catalog-portal-grid-view.png)
+
+	You can expand the left side panel to see seach filters and right side panel to see properties of a selected object. 
+
 4. Click on **Product** in the search results. Click on tabs titled **Preview**, **Columns**, **Data Profile**, and **Documenation** (or) use the **UP** arrow to expand the bottom pane in the middle.  
  
 	![Azure Data Catalog - bottom pane](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
