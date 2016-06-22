@@ -64,9 +64,9 @@ Along with the Azure portal experience, there is a set of APIs that can be used 
 
 Another API allows users to request the historical health of a single resource. The response is a collection of Resource health states for the last 14 days. If the resource may have been impacted by a declared outage, the health state will include an annotation called serviceImpactingEvents, with more details on the outage. 
 
-Before using the API to query Resource health, the subscription needs to be registered with the service by submitting a POST request to the following URL: 
-
-        // Register the subscription with the Resource health resource provider
+Before using the API to query Resource health, the subscription needs to be registered with the service by submitting a POST request to the following URL:  volume 
+ 
+        //Register the subscription with the Resource health resource provider
         https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 Below are examples on how to call the Resource health API
@@ -81,7 +81,8 @@ Below are examples on how to call the Resource health API
         https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
         
         //GET the historical health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+
 
 ## What does my Resource health status mean?
 There are 4 different health statuses that you might see for your resource.
@@ -118,7 +119,7 @@ It is important to note that this is not a definitive indication that there is s
 ![Resource health is unknown](./media/resource-health-overview/unknown.png)
 
 ## Service Impacting Events
-If the resource may be impacted by an ongoing Service Impacting Event, a banner will be displayed at the top of the Resource health blade. Clicking on the banner will open the Audit Events blade, where more information about the outage can be obtained.
+If the resource may be impacted by an ongoing Service Impacting Event, a banner will be displayed at the top of the Resource health blade. Clicking on the banner will open the Audit Events blade, which will display additional information about the outage.
 
 ![Resource health may be impacted by a SIE](./media/resource-health-overview/serviceImpactingEvent.png)
 
