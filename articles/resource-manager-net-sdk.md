@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/21/2016"
    ms.author="navale;tomfitz;"/>
 
 # Azure Resource Manager SDK for .Net  
-Azure Resource Manager (ARM) Preview SDKs are available for multiple languages and platforms. Each of these language implementations 
+Azure Resource Manager SDKs are available for multiple languages and platforms. Each of these language implementations 
 are available through their ecosystem package managers and GitHub.
 
 The code in each of these SDKs is generated from [Azure RESTful API specifications](https://github.com/azure/azure-rest-api-specs). 
@@ -25,38 +25,88 @@ These specifications are open source and based on the Swagger v2 specification. 
 called [AutoRest](https://github.com/azure/autorest). AutoRest transforms these RESTful API specifications into client libraries in multiple languages. 
 If there are any aspects of the generated code in the SDKs you would like to improve, the entire set of tools to create the SDKs are open, freely available and based in widely adopted API specification format.
 
-Azure SDK for .NET is provided as a set of NuGet Packages that helps you call most of the APIs exposed by Azure Resource Manager. If the SDK doesn't expose the required functionality you can easily combine the SDK with regular calls to the ARM REST API behind the scenes.
+[Azure SDK for .NET](https://azure.microsoft.com/downloads/) is provided as a set of NuGet Packages that helps you call most of the APIs exposed by Azure Resource Manager. If the SDK doesn't expose the required functionality you can easily combine the SDK with regular calls to the ARM REST API behind the scenes.
 
 This documentation is not intended to describe all aspects of Azure SDK for .NET, Azure ARM APIs or Visual Studio, but is rather provided as a fast way for you to get started.
 
 A full downloadable sample project from where all code snippets below have been taken, can be found [here](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net).
 
+## Install NuGet packages
+
+The examples in this topic require two NuGet packages (in addition to the Azure SDK for .NET). In Visual Studio, right-click your project and select **Manage NuGet packages**. 
+
+1. Search for **Microsoft.IdentityModel.Clients.ActiveDirectory** and install the latest stable version of the package.
+2. Search for **Microsoft.Azure.Management.ResourceManager** and select **Include prerelease**. Install the latest preview version (such as 1.1.2-preview).
+
 ## Authentication
-Authentication for ARM is handled by Azure Active Directory (AD). In order to connect to any API you first need to authenticate 
+Authentication for Resource Manager is handled by Azure Active Directory (AD). In order to connect to any API you first need to authenticate 
 with Azure AD to receive an authentication token that you can pass on to every request. To get this token you first need to create 
 what is called an Azure AD Application and a Service Principal that will be used to login with. 
-Follow [Create Azure AD Application and Service Principle](resource-group-create-service-principal-portal.md) for step by step instructions.
+For step-by-step instructions, follow one of: [Use Azure PowerShell to create an Active Directory application to access resources](resource-group-authenticate-service-principal.md), [Use Azure CLI to create an Active Directory application to access resources](resource-group-authenticate-service-principal-cli.md), or [Use portal to create Active Directory application that can access resources](resource-group-create-service-principal-portal.md).
 
 After creating the service principal, you should have:
-* Client id (GUID)
-* Client secret (string)
-* Tenant id (GUID) or domain name (string)
+
+- Client ID or application ID (GUID)
+- Client secret or password (string)
+- Tenant id (GUID) or domain name (string)
 
 ### Receiving the AccessToken from code
 The authentication token can easily be acquired with the below lines of code, passing in only your Azure AD Tenant ID, your Azure AD 
 Application Client ID and the Azure AD Application Client Secret. Save the token for several requests since it by default is valid for 1 hour.
 
 ```csharp
-private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
+private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenantId, string clientId, string clientSecret)
 {
     Console.WriteLine("Aquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
         ("https://login.windows.net/" /* AAD URI */
-            + $"{tenantId}.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            + $"{tenantId}" /* Tenant ID */);
 
     var credential = new ClientCredential(clientId, clientSecret);
 
-    AuthenticationResult token = authContext.AcquireToken("https://management.azure.com/", credential);
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", credential);
+
+    Console.WriteLine($"Token: {token.AccessToken}");
+    return token;
+}
+```
+
+Instead of using the tenant ID for logging in, you can use the Active Directory domain as shown below. Using this approach would require that you change the method signature to include the domain name instead of the tenant ID.
+
+```csharp
+AuthenticationContext authContext = new AuthenticationContext
+    ("https://login.windows.net/" /* AAD URI */
+    + $"{domain}.onmicrosoft.com");
+```
+
+You can get the access token for an Active Directory app that uses a certificate for authentication with:
+
+```csharp
+private static async Task<AuthenticationResult> GetAccessTokenFromCertAsync(string tenantId, string clientId, string certName)
+{
+    Console.WriteLine("Aquiring Access Token from Azure AD");
+    AuthenticationContext authContext = new AuthenticationContext
+        ("https://login.windows.net/" /* AAD URI */
+        + $"{tenantId}" /* Tenant ID or AAD domain */);
+
+    X509Certificate2 cert = null;
+    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+
+    try
+    {
+        store.Open(OpenFlags.ReadOnly);
+        var certCollection = store.Certificates;
+        var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false);
+        cert = certs[0];
+    }
+    finally
+    {
+        store.Close();
+    }
+
+    var certCredential = new ClientAssertionCertificate(clientId, cert);
+
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", certCredential);
 
     Console.WriteLine($"Token: {token.AccessToken}");
     return token;
@@ -98,7 +148,7 @@ async private static Task<List<string>> GetSubscriptionsAsync(string token)
 ```
 
 Notice that we do get a JSON response from Azure that we then extract the subscription IDs from in order to return a list of IDs. 
-All the subsequent calls to Azure ARM APIs in this documentation only uses a single Azure Subscription ID, so if your application is 
+All the subsequent calls to Azure Resource Manager APIs in this documentation use a single Azure Subscription ID, so if your application is 
 associated with several subscriptions, just pick the right one of them and pass as a parameter going forward.
 
 From here, every call we do against the Azure APIs will use the Azure SDK for .NET so the code will look a little bit different.
@@ -109,6 +159,12 @@ Such an object is easily created by just passing the raw token as a parameter to
 
 ```csharp
 var credentials = new TokenCredentials(token);
+```
+
+If you have an earlier version of the Resource Manager NuGet package (named **Microsoft.Azure.Management.Resources**), you need to use the following code:
+
+```csharp
+var credentials = new TokenCloudCredentials(subscriptionId, token.AccessToken);
 ```
 
 ## Creating a Resource Group

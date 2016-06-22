@@ -87,7 +87,7 @@ Set-AzureRmKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -Secre
 
 The Microsoft.Compute resource provider needs a URL to the secret inside the Key Vault while provisioning the VM. This enables the Microsoft.Compute resource provider to download the secret and create the equivalent certificate on the VM.
 
-*NOTE*: The URL of the secret needs to include the version as well. An example URL looks like below
+>[AZURE.NOTE]The URL of the secret needs to include the version as well. An example URL looks like below
 https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 
@@ -141,8 +141,9 @@ While creating a VM through templates, the certificate gets referenced in the se
           }
         },
 
-A sample template for the above can be found here - https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows
-Source code for this template can be found in Github - https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows
+A sample template for the above can be found here at [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
+
+Source code for this template can be found on [Github](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### PowerShell
 
