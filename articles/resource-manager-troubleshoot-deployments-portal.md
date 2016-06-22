@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="06/13/2016"
+   ms.date="06/15/2016"
    ms.author="tomfitz"/>
 
 # View deployment operations with Azure Portal
@@ -25,53 +25,9 @@
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. The Azure Portal provides an interface that enables you to easily find the errors and determine potential fixes.
+You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
-
-## Use audit logs to troubleshoot
-
-[AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
-
-To see errors for a deployment, use the following steps:
-
-1. View the audit logs through the portal by selecting **Browse** and **Audit Logs**.
-
-    ![select audit logs](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
-
-2. In the **Audit Logs** blade, you will see a summary of recent operations for all of the resource groups in your subscription. It includes a graphical representation of the time and status of the operations, as well as a list of the operations.
-
-    ![show actions](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
-
-3. You can select any of the operations in the list. Pick the operation that contains the error you wish to research.
-
-    ![select operation](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
-  
-4. You will see all of the events for that operation. Notice the **Correlation IDS** in the summary. This ID is used to track related events. It can be helpful when working with technical support to troubleshoot an issue. You can select any of event to see details about the event.
-
-    ![select event](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
-
-5. You will see details about the event. In particular, pay attention to the **Properties** for information about the error.
-
-    ![show audit log details](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
-
-You can filter your view of the audit logs to focus on particular conditions. To customize your view of the audit log:
-
-1. Select **Filter** at the top of the **Audit logs** blade.
-
-    ![filter logs](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
-
-2. From the **Filter** blade, select conditions to restrict your view of the audit logs to only those operations you want to see. For example, you can filter operations to only display errors for a particular resource group.
-
-    ![set filter options](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
-
-3. You can further filter operations by setting a time span. The following image filters the view to a particular 20 minute timespan.
-
-    ![set time](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
-
-After updating the view of the audit logs, you will only see the operations that meet the specified condition. Those settings are retained the next time you view the audit logs, so you may need to change those values to broaden your view of the operations.
-
-Hopefully, you have been able to find out why your deployment failed. You can also look at the deployment operations for information about the status, as shown in the next section.
 
 ## Use deployment operations to troubleshoot
 
@@ -85,15 +41,65 @@ To see the deployment operations, use the following steps:
 
     ![deployment status](./media/resource-manager-troubleshoot-deployments-portal/select-deployment.png)
 
-3. View the information about the deployment, and select the failed operation to see details about the error.
+3. Select **Failed. Click here for details** to see a description of why the deployment failed. In the image below, the DNS record is not unique.  
 
-    ![view failed deployment](./media/resource-manager-troubleshoot-deployments-portal/view-failed-deployment.png)
+    ![view failed deployment](./media/resource-manager-troubleshoot-deployments-portal/view-error.png)
 
-4. In the **Operations details** blade, you will see information about the failed operation. In particular, pay attention to the status message.
+    This error message should be enough for you to begin troubleshooting. However, if you need more details about which tasks were completed, you can view the operations as shown in the following steps.
 
-    ![view status message](./media/resource-manager-troubleshoot-deployments-portal/operations-status.png)
+4. You can view all of the deployment operations in the **Deployment** blade. Select any operation to see more details.
 
+    ![view operations](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
 
+    In this case, you see that the storage account, virtual network, and availability set were successfully created. The public IP address failed, and other resources were not attempted.
+
+5. You can view events for the deployment by selecting **Events**.
+
+    ![view events](./media/resource-manager-troubleshoot-deployments-portal/view-events.png)
+
+6. You see all of the events for the deployment and select any one for more details.
+
+    ![see events](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
+
+## Use audit logs to troubleshoot
+
+[AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
+
+To see errors for a deployment, use the following steps:
+
+1. View the audit logs for a resource group by selecting **Audit Logs**.
+
+    ![select audit logs](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
+
+2. In the **Audit Logs** blade, you will see a summary of recent operations for all of the resource groups in your subscription. It includes a graphical representation of the time and status of the operations, as well as a list of the operations.
+
+    ![show actions](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
+
+3. You can filter your view of the audit logs to focus on particular conditions. Select **Filter** at the top of the **Audit logs** blade.
+
+    ![filter logs](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
+
+4. From the **Filter** blade, select conditions to restrict your view of the audit logs to only those operations you want to see. For example, you can filter operations to only display errors for the resource group.
+
+    ![set filter options](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
+
+5. You can further filter operations by setting a time span. The following image filters the view to a particular 20-minute timespan.
+
+    ![set time](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
+
+6. You can select any of the operations in the list. Pick the operation that contains the error you wish to research.
+
+    ![select operation](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
+  
+7. You will see all of the events for that operation. Notice the **Correlation IDS** in the summary. This ID is used to track related events. It can be helpful when working with technical support to troubleshoot an issue. You can select any of event to see details about the event.
+
+    ![select event](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
+
+8. You will see details about the event. In particular, pay attention to the **Properties** for information about the error.
+
+    ![show audit log details](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
+
+The filter you applied to the audit log is retained the next time you view it, so you may need to change those values to broaden your view of the operations.
 
 ## Next steps
 

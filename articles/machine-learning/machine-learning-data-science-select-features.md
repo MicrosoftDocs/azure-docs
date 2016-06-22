@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Feature selection in the Cortana Analytics Process | Microsoft Azure" 
+	pageTitle="Feature selection in the Team Data Science Process | Microsoft Azure" 
 	description="Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning."
 	services="machine-learning"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="zhangya;bradsev" />
 
 
-# Feature selection in the Cortana Analytics Process
+# Feature selection in the Team Data Science Process (TDSP)
 
 This topic explains the purposes of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio. 
 
@@ -26,7 +26,7 @@ This topic explains the purposes of feature selection and provides examples of i
 
 This topic explains the purpose of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio. 
 
-The engineering and selection of features is one part of the CAP process outlined in the [What is the Cortana Analytics Process?](machine-learning-data-science-the-cortana-analytics-process.md) Feature engineering and selection are parts of the **Develop features** step of the CAP. 
+The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md) Feature engineering and selection are parts of the **Develop features** step of the TDSP. 
 * **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
 

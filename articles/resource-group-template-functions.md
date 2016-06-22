@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="06/16/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -93,30 +93,6 @@ The following example converts the user-provided parameter value to Integer.
     }
 
 
-<a id="length" />
-### length
-
-**length(array or string)**
-
-Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-
-Or, you can use with a string:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-
 <a id="mod" />
 ### mod
 
@@ -163,6 +139,7 @@ Resource Manager provides the following functions for working with strings:
 
 - [base64](#base64)
 - [concat](#concat)
+- [length](#length)
 - [padLeft](#padleft)
 - [replace](#replace)
 - [split](#split)
@@ -466,11 +443,96 @@ The following example shows how to construct a link to a nested template based o
 
 Resource Manager provides several functions for working with array values.
 
-To combine multiple arrays into a single array, use [concat](#concat).
+- [concat](#concat)
+- [length](#length)
+- [take](#take)
+- [skip](#skip)
+- [split](#split)
 
-To get the number of elements in an array, use [length](#length).
+<a id="length" />
+### length
 
-To divide a string value into an array of string values, use [split](#split).
+**length(array or string)**
+
+Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+Or, you can use with a string:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Returns an array or string with the specified number of elements or characters from the start of the array or string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The array or string to take the elements or characters from.
+| numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
+
+The following example takes the specified number of elements from the array.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="skip" />
+### skip
+**skip(originalValue, numberToSkip)**
+
+Returns an array or string with all of the elements or characters after the specified number in the array or string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The array or string to use for skipping the elements or characters.
+| numberToSkip                       |   Yes    | The number of elements or characters to skip. If this value is 0 or less, all of the elements in the array or string are returned. If it is larger than the length of the array or string, an empty array or string is returned. 
+
+The following example skips the specified number of elements in the array.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
 
 ## Deployment value functions
 

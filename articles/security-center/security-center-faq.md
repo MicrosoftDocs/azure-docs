@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -28,7 +28,7 @@ This FAQ answers questions about Azure Security Center, a service that helps you
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ### How do I get Azure Security Center?
-Azure Security Center is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). ([Sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Security Center**). You may see some security recommendations in the dashboard right away. That is because the service can assess the security state of some controls based on their configuration in Azure. In order to light up the full set of security monitoring, recommendations and alerting capabilities, you will need to [enable Data Collection](#data-collection).  
+Azure Security Center is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). ([Sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Security Center**).  
 
 ## Billing
 
@@ -37,24 +37,27 @@ See [Security Center Pricing](https://azure.microsoft.com/pricing/details/securi
 
 ## Data collection
 
-### How do I enable data collection?<a name=data-collection></a>
-You can enable data collection for your Azure subscription(s) in the Security policy. To enable data collection, [sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Security policy**. Set **Data collection** to **On** and configure the storage accounts where you want data to be collected to (see question “[Where is my data stored?](#where-is-my-data-stored)”). When **Data collection** is enabled, it automatically collects security configuration and event information from all supported virtual machines in the subscription.
+Security Center collects data from your virtual machines in order to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by [disabling data collection](#how-do-i-disable-data-collection) in the Security Center policy.
+
+### How do I disable data collection?
+
+You can disable **Data collection** for a subscription in the Security policy at any time. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.)  When you select a subscription, a new blade opens and provides you the option to turn **Data collection** off. Select the **Delete agents** option in the top ribbon to remove agents from existing virtual machines.
+
+> [AZURE.NOTE] Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn data collection off.
+
+### How do I enable data collection?
+You can enable data collection for your Azure subscription(s) in the Security policy. To enable data collection, [sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**. Set **Data collection** to **On** and configure the storage accounts where you want data to be collected to (see question “[Where is my data stored?](#where-is-my-data-stored)”). When **Data collection** is enabled, it automatically collects security configuration and event information from all supported virtual machines in the subscription.
 
 > [AZURE.NOTE] Security policies can be set at the Azure subscription level and resource group level but configuration of data collection occurs at the subscription level only.
 
-### What happens when I enable data collection?
+### What happens when data collection is enabled?
 Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries.  The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis.  This is the storage account you configured in the security policy. For more information about the storage account, see question “[Where is my data stored?](#where-is-my-data-stored)”
 
 ### Does the Monitoring Agent or Security Monitoring extension impact the performance of my server(s)?
 The agent and extension consumes a nominal amount of system resources and should have little impact on the performance.
 
-### How do I roll back if I no longer want Data Collection to be enabled?
-You can disable **Data collection** for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Security policy**.)  When you select a subscription, a new blade opens and provides you the option to turn Data collection off. Select the **Delete agents** option in the top ribbon to remove agents from existing virtual machines.
-
-> [AZURE.NOTE] Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn Data collection off.
-
-### Where is my data stored?<a name=where-is-my-data-stored></a>
-For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Security policy**.) When you click on a subscription, a new blade opens. Select **Choose storage accounts** to select a region.  Data collected is logically isolated from other customers’ data for security reasons.
+### Where is my data stored?
+For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.) When you click on a subscription, a new blade opens. Select **Choose storage accounts** to select a region.
 
 > [AZURE.NOTE] Security policies can be set at the Azure subscription level and resource group level but selecting a region for your storage account occurs at the subscription level only.
 

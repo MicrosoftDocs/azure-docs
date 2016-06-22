@@ -13,26 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Get started with Azure IoT Hub for .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
-## Introduction
-
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of Internet of Things (IoT) devices and a solution back end. One of the biggest challenges that IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
-
-- Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
-- Enables secure communications using per-device security credentials and access control.
-- Includes device libraries for the most popular languages and platforms.
-
-This tutorial shows you how to:
-
-- Use the Azure portal to create an IoT hub.
-- Create a device identity in your IoT hub.
-- Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
 
 At the end of this tutorial, you will have three Windows console applications:
 
@@ -262,7 +248,7 @@ In this tutorial, you configured a new IoT hub in the portal, and then created a
 
 - [Send Cloud-to-Device messages with IoT Hub][lnk-c2d-tutorial] shows how to send messages to devices, and process the delivery feedback produced by IoT Hub.
 - [Process Device-to-Cloud messages][lnk-process-d2c-tutorial] shows how to reliably process telemetry and interactive messages coming from devices.
-- [Uploading files from devices][lnk-upload-tutorial] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+- [Uploading files from devices][lnk-upload-tutorial] shows how to upload files from devices.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png

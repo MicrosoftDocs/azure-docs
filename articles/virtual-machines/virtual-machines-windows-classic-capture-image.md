@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 #Capture an image of an Azure Windows virtual machine created with the classic deployment model.
