@@ -67,7 +67,7 @@ Once you apply this recommendation it will enable forced parametrization within 
 
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor will continue to monitor and provide recommendations that can potentially improve your database's performance. 
 
- - See [SQL Database Advisor in the Azure portal](sql-database-advisor-porttal.md) for steps on how to use SQL Database Advisor in the Azure portal.
+ - See [SQL Database Advisor in the Azure portal](sql-database-advisor-portal.md) for steps on how to use SQL Database Advisor in the Azure portal.
  - See [Query Performance Insights](sql-database-query-performance.md) to learn about view the performance impact of your top queries.
 
 ## Additional resources
