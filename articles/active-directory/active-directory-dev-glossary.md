@@ -22,7 +22,7 @@ This article contains definitions for a list of core Azure Active Directory (AD)
 ## Glossary
 
 ### **access token**  
-A type of [security token](#security-token) issued by an [authorization server](#authorization-server) and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#resource-owner). The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
+A type of [security token](#security-token) issued by the [token endpoint](#token-endpoint) on an [authorization server](#authorization-server) and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#resource-owner). The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
 
 When a client uses the ["authorization code" authorization grant](#authorization-grant), an end-user authenticates as the resource owner and the client authenticates to obtain the access token, so the token can sometimes be referred to more specifically as an "App+User" token. Similarly, when a client uses the ["client credentials" authorization grant](#authorization-grant), the client is also functioning as the resource-owner, so the token can sometimes be referred to as an "App-Only" token.
 
@@ -51,13 +51,13 @@ The act of granting an authenticated security principal permission to perform a 
 - During resource access:  as implemented by the [resource server](#resource-server), using the claim values present in the [access token](#access-token) to make access control decisions based upon them.
 
 ### **authorization code**
-A secure code provided to a *client application*, in response to authentication of a **resource owner** during an "authorization code" grant, indicating that resource owner has delegated permission to the client application to access resources on behalf of the resource owner. The code is later redeemed for an **access token**.
+A secure code provided to a *client application*, in response to authentication of a [resource owner](#resource-owner) during an "authorization code" grant, indicating that resource owner has delegated permission to the client application to access resources on behalf of the resource owner. The code is later redeemed for an [access token](#access-token).
 
 ### **authorization endpoint**
-Provides authorization code during "authorization code" grant. (refer to token endpoint)
+Provides an [authorization code](#authorization-code) to a [client application](#client-application), during the [authorization code grant](#authorization-grant) flow, upon successful authentication (and consent) of the [resource owner](#resource-owner). The client uses the authorization code later in the flow, to obtain an [access token](#access-token) from the [token endpoint](#token-endpoint), in exchange for the authorization code.
 
 ### **authorization grant**
-A credential representing the resource owner's authorization to access its protected resources, used by a **client applicatio** in order to obtain an **access token**. The OAuth2 spec [currently defines four types][OAuth2-AuthZ-Grant-Types] :  
+A credential representing the resource owner's authorization to access its protected resources, used by a [client application](#client-application) to obtain an [access token](#access-token). The OAuth2 spec [currently defines four types][OAuth2-AuthZ-Grant-Types] :  
 
 - authorization code: RO authenticates, RO owns the resource(s) -> App+User Access Token. The [OAuth 2.0 "Authorization Code" grant flow][OAuth2-AuthZ-Code-Grant-Flow] in this article, as it allows the resource owner to delegate authorization to the client application, but please note there are other types of OAuth2 grant flows.
 - client credentials: App authenticates,Client owns the resource(s) -> App-Only Access Token
@@ -69,7 +69,7 @@ As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server 
 
 
 ### **claim**
-An **access token** contain claims. Claims are assertions (facts) about the subject (the principal that was authenticated by the **authorization server**, ie: Azure AD). The claims present in a given security token are dependent upon the type of token, the type of credential used to authenticate the subject, and the application configuration. 
+An [access token](#access-token) contain claims. Claims are assertions (facts) about the subject (the principal that was authenticated by the [authorization server](#authorization-server), ie: Azure AD). The claims present in a given security token are dependent upon the type of token, the type of credential used to authenticate the subject, and the application configuration. 
 
 For example, the "scope" (scp) claim provides the permission(s) granted to a delegated client application, limiting the operations the client application can perform on behalf of the resource owner. The actual values contained in the scope claim are based on the list of space-delimited case-sensitive strings defined by resource server. 
 
@@ -81,7 +81,7 @@ As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an applicat
 A client application requests authorization from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, to access APIs/data on its behalf. Examples include a [Web client](#web-client) application accessed from a browser, and a [native client](#native-client) application installed on a device, both of which could access Azure AD Graph API protecting the resource owner's tenant, to access directory data on behalf of the signed in user.
 
 ### **consent**
-The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's **service principal** is also recorded in the tenant of the consenting user.
+The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's [service principal](#service-principal) is also recorded in the tenant of the consenting user.
 
 ### **ID token**
 An [OpenID Connect security token][OpenIDConnect-ID-Token]] that contains [claims](#claim) pertaining to the authentication of an end-user resource owner by an [authorization server](#authorization-server), when using a client application to access resources), by an Authorization Server, and potentially other requested claims. Like an access token, ID tokens are also represented as a [JSON Web Token (JWT)][JWT]. 
@@ -118,18 +118,18 @@ When you register/update an application in the [Azure classic portal][AZURE-clas
 For a [multi-tenant](#multi-tenant-application) [Web application](#web-application), the service principal object is created in the end-user's Azure AD tenant after successful consent, acknowledging permission to access a protected resource on behalf of the user. Going forward, the service principal object will be consulted for future authorization requests. 
 
 ### **sign-in**
-The process of a [client application](#client-application) authenticating an end-user, for the purpose of scoping the application's session to the state associated with the specific user and the permissions granted to the client by the user. 
+The process of a [client application](#client-application) initiating end-user authentication and capturing related state following authentication, for the purpose of acquiring an [access token](#access-token) and scoping the application session to that state. State can include artifacts such as user tenant and profile information, and the permissions granted to the client by the end-user. 
 
-The sign-in function of an application is typically for purposes of implementing single-sign-on (SSO) and augmented by a prerequisite "sign-up" function, which is the entry point for an end-user to gain access to an application during initial sign-in. The sign-up function will typically gather and store additional state specific to the user, such as credential and profile info, which may also be used to drive [application consent](#consent) after sign-up.
+The sign-in function of an application is typically used to implement single-sign-on (SSO), and augmented by a prerequisite "sign-up" function which is the entry point for an end-user to gain access to an application (upon first sign-in). The sign-up function is used to gather and store additional state specific to the user, such as credential and profile info, and is used to drive the [application consent experience](#consent) after sign-up.
 
 ### **sign-out**
-The process of unauthenticating an end-user, detaching the user from the [client application](#client-application) session state captured during [sign-in](#sign-in)
+The process of unauthenticating an end-user, detaching the user state associated with the [client application](#client-application) session during [sign-in](#sign-in)
 
 ### **tenant**
 An instance of Azure AD is referred to as an Azure AD tenant. It provides a variety of features, including a registry service for integrated applications, authentication of user accounts and registered applications, and the [OAuth 2.0 authorization server](#authorization server) that brokers the interactions between the [OAuth2 Authorization Framework roles][OAuth2-Role-Def]. Azure AD also happens to function as a [protected resource server](#resource-server), providing the Azure AD Graph API to enable querying/updating of it's directory data.
 
 ### **token endpoint**
-Provides an access token in exchange for an authorization code, during the [authorization code grant](#authorization-grant) flow. (refer to authorization endpoint)
+Provides an [access token](#access-token) in exchange for an [authorization code](#authorization-code), during the [authorization code grant](#authorization-grant) flow. The [client application](#client-application) obtains the authorization code earlier in the flow, from the [authorization endpoint](#authorization-endpoint).
 
 ### **Web client**
 A type of [client application](#client-application) that runs as a Web application on a Web server. This type of client executes all code on the server, projecting it's user interface through a client-installed browser, and is therefore considered a "confidential" client due to it's ability to store credentials privately/confidentially on the server. See [OAuth2 client types and profiles](https://tools.ietf.org/html/rfc6749#section-2.1) for more details.
