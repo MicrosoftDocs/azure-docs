@@ -21,23 +21,20 @@ This article contains definitions for a list of core Azure Active Directory (AD)
 
 ## Glossary
 
-### access token  
-A type of [security token](#security-token) issued by an [authorization server](#authorization-server) and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#oauth2-authorization-framework-roles). The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
+### **access token**  
+A type of [security token](#security-token) issued by an [authorization server](#authorization-server) and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#resource-owner). The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
 
-When the client application uses the [authorization code authorization grant](#authorization-grant), where the resource owner is an end-user, the token can sometimes also be referred to more specifically as an "App+User" token. Similarly, when the client application uses the [client credentials authorization grant](#authorization-grant), where the client is also functioning as the resource-owner, the token can sometimes be referred to as an "App-Only" token.
-
-### active client  
-Used to define whether the client application is involved in generating the user interface. An active client has a user interface that is rendered by a native application, or where there is no user interface at all. 
-
-Compared to a [passive client](#passive-client) which has user interface that is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render.
+When a client uses the ["authorization code" authorization grant](#authorization-grant), an end-user authenticates as the resource owner and the client authenticates to obtain the access token, so the token can sometimes be referred to more specifically as an "App+User" token. Similarly, when a client uses the ["client credentials" authorization grant](#authorization-grant), the client is also functioning as the resource-owner, so the token can sometimes be referred to as an "App-Only" token.
 
 ### application manifest  
-An Azure classic portal concept, which provides a JSON representation of the application's identity configuration, and used as a mechanism for updating the application entity and it's related service principal entity. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
+An [Azure classic portal][AZURE-classic-portal] feature, which provides a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [application][AAD-Graph-App-Entity] and [service principal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
 ### application object  
-An application's one and only application object lives in the Azure AD tenant where the application was registered. Think of it as a design-time concept that expresses the application's identity configuration data, the template from which it's corresponding service principal object(s) are later derived for use at run-time. <br/><br/>For our scenario, we will create an application object during registration of the client application, in the developer tenant. We will discuss this later during application registration, but also note that many types of applications are supported by Azure AD, including both a client application (which can have multiple profiles), and a resource server that exposes a Web API. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for more information. 
+An Azure AD application is an overarching concept, *defined* by it's one and only application object which lives in the Azure AD tenant where the application was registered. The application object serves as the application's identity configuration, and is the template from which it's corresponding [service principal](#service-principal) object(s) are *derived* for use at run-time. The Azure AD Graph [application entity][AAD-Graph-App-Entity] defines the schema for an application object. The tenant in which the application object lives is considered the application's "home" tenant.
 
-**An Application object**, which represents the base *definition* of the application. The one-and-only Application object therefore has a 1:1 relationship with the application, and is the basis from which the application's Service Principal(s) are derived. Your tenant is considered the application's "home" tenant.
+The application object therefore has a 1:1 relationship with the application, and a 1:*n* relationship with it's corresponding service principal object(s). A single-tenant application will have only 1 service principal (in its home tenant); a [multi-tenant application](#multi-tenant-application) will have the same, plus a service principal in each tenant where the application has been given consent to access resources.
+
+When you register/update an application in the [Azure classic portal][AZURE-classic-portal], the portal creates/updates both the application object and it's corresponding service principal object for that tenant. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
 ### application registration  
 In order to allow an application to integrate with and delegate identity management functions to Azure AD, it must be registered with an Azure AD tenant. When you register your application with Azure AD, you are essentially providing an identity configuration for your application, allowing it to participate in the authentication and authorization services provided by Azure AD on behalf of a user (resource owner), to access the user's data in a protected resource server.
@@ -81,7 +78,7 @@ See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 ### client application  
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an application that makes protected resource requests on behalf of the resource owner and with its authorization. The term "client" does not imply any particular hardware implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices).  
 
-A client application requests authorization from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, to access APIs/data on its behalf. Examples include a Web client application accessed from a browser, and a Native client application installed on a device, both of which could access Azure AD Graph API protecting the resource owner's tenant, to access directory data on behalf of the signed in user.
+A client application requests authorization from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, to access APIs/data on its behalf. Examples include a [Web client](#web-client) application accessed from a browser, and a [native client](#native-client) application installed on a device, both of which could access Azure AD Graph API protecting the resource owner's tenant, to access directory data on behalf of the signed in user.
 
 ### consent
 The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's **service principal** is also recorded in the tenant of the consenting user.
@@ -90,15 +87,18 @@ The process of a resource owner granting authorization to the client application
 An [OpenID Connect security token][OpenIDConnect-ID-Token]] that contains [claims](#claim) pertaining to the authentication of an end-user resource owner by an [authorization server](#authorization-server), when using a client application to access resources), by an Authorization Server, and potentially other requested claims. Like an access token, ID tokens are also represented as a [JSON Web Token (JWT)][JWT]. 
 
 ### multi-tenant application
-A type of client application registered in Azure AD, that is designed to permit sign ins from user accounts that are provisioned in any Azure AD tenant, including ones other than the one where the application itself is registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. 
+A class of client application registered in Azure AD, that is designed to permit sign ins from user accounts that are provisioned in any Azure AD tenant, including ones other than the one where the application itself is registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. 
 
-### passive client  
-Used to define whether the client application is involved in generating the user interface. A passive client has a user interface that is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render.
+### native client
+A type of [client application](#client-application) that is installed natively on a device. This type of client executes all code on the client, and is therefore considered a "public" client due to it's lack of ability to store credentials privately/confidentially. See [OAuth2 client types and profiles](https://tools.ietf.org/html/rfc6749#section-2.1) for more details.
 
-Compared to an [active client](#active-client), which has a user interface that is rendered by a native application, or where there is no user interface at all. 
+Sometimes referred to as an "active client", which is a client that generates/renders its user interface, or possibly has no user interface at all. Compared to a "passive client" which is synonymous with the definition of a [Web client](#web-client)
 
 ### permissions / scopes [TODO-break]
 When we refer to permissions in general, or permission scopes in particular, we are referring to the available permissions that a Web API has declared through it's Azure AD configuration. These are the same permission definitions a client application must declare in it's Azure AD configuration in order to access the API. <br/><br/>These permissions will be surfaced to the resource owner/user during the consent process, so they know what they are granting the client permission to access on their behalf. For a detailed discussion of the permission scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes].
+
+### resource owner
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
 
 ### resource server
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server hosting the protected resources, capable of accepting and responding to protected resource requests by [client applications](#client-applications) using access tokens. Also known as a protected resource server, or resource application.
@@ -107,22 +107,22 @@ A resource server exposes APIs and enforces the scopes that allow client applica
 
 Just like a client application, a Web API (aka: resource) application's identity configuration is established via registration in an Azure AD tenant, providing both the application and service principal object. (note: there are special considerations for Microsoft-provided APIs such as the Azure AD Graph API, as it's service principal object is made available in all tenants by default)
 
-### resource owner
-As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
-
 ### security token
 A generic term for a token used in a security context. In the case of an OAuth 2.0 [authorization grant](#authorization-grant), an [access token](#access-token) (OAuth2) and an [ID Token](OpenID Connect) are a type of security token, both of which are implemented as a [JSON Web Token (JWT)][JWT].
 
 ### service principal
-The client application is registered in the developer tenant via the [Azure classic portal][AZURE-Azure-classic-portal], which will create both it's application and service principal objects. We mentioned that the application object is more like a template, and the service principal object is *derived* from the application object. It's important to also note that it is the service principal object to which policy and permissions are applied, so think of it as a concept that is also applicable at run-time. When the application object is modified, the corresponding service principal object in it's tenant is also kept in sync. 
+The [application object](#application-object) serves as the template for an application's identity configuration, from which its service principal object(s) are *derived*. It is the service principal object to which policy and permissions are applied, for use at run-time by the tenant in which it lives. A service principal object is required in each tenant for which an instance of the application must be represented, governing access to resources protected by user accounts from that tenant.
 
-As mentioned above, a service principal object for the client application will also be created in the customer tenant during consent by the signed in customer user, acknowledging permission to access a protected resource on behalf of the user. Think of the service principal object as representing persisted consent from the user, where it can be used for future authorization requests. We will discuss this later during application registration. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for more information.
+When you register/update an application in the [Azure classic portal][AZURE-classic-portal], the portal creates/updates both the application object and it's corresponding service principal object for that tenant. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
-**A Service Principal (SP) object**, which represents the identity configuration used by a specific application *instance*, from an Azure AD tenant's perspective. This identity configuration is used to govern the instance's access to resources secured by the tenant where the SP lives. More specifically, the SP is the security principal that represents the identity configuration of the application instance at runtime, much like a user principal represents a user at runtime. The identity configuration is derived from the application's Application object at the point in time at which the Service Principal is created, including the access policies required. You can apply policies to Service Principal objects, such as assigning permissions, allowing it to reflect the type of access (scope-based or role-based) required by the application instance. 
+For a [multi-tenant](#multi-tenant-application) [Web application](#web-application), the service principal object is created in the end-user's Azure AD tenant after successful consent, acknowledging permission to access a protected resource on behalf of the user. Going forward, the service principal object will be consulted for future authorization requests. 
 
 ### sign-in
+The process of a [client application](#client-application) authenticating an end-user, for the purpose of scoping the application's session to the state associated with the specific user and the permissions granted to the client by the user. 
+The sign-in function of an application is typically augmented by a prerequisite "sign-up" function, which is the entry point for an end-user to gain access to an application. The sign-up function will typically gather additional state specific to the user, such as credential and profile info, which may also be used to drive [application consent](#consent) after sign-up.
 
 ### sign-out
+The process of unauthenticating an end-user, detaching the user from the [client application](#client-application) session state captured during [sign-in](#sign-in)
 
 ### tenant
 An Azure AD tenant provides a variety of features, of which we will focus on a subset: registry services for integrated applications, authentication of user accounts and registered applications, and the OAuth 2.0 Authorization Server that brokers the interactions between a user (resource owner), a client application, and Web API(s) exposed by a protected resource server. Note that Azure AD also happens to function as a protected resource server, providing the Graph API to enable querying/updating of it's directory data.<br/><br/> We will create two Azure AD tenants, supporting the IDMaaS needs of a customer that wants to grant a SaaS client application limited access to data secured by their Azure AD tenant, and a SaaS developer that built the client application:<br/><br/>The **customer tenant** authenticates it's user accounts that sign in to the client application, and uses consent to secure the client application's access to the data *provided* by the Web API(s) registered in it. It also *consumes* the client application's application object from the developer tenant, which defines the access intent of the client (via permission scopes), among other things. Once consent is given, a service principal object is derived from the same application object, and persisted in the customer tenant for future use.<br/><br/>The **developer tenant** stores the client application's identity configuration (embodied in the application object). Among other things, it contains the credentials it uses to authenticate with Azure AD and a declaration of the APIs it is interesting in accessing, allowing it to obtain authorization from the authenticated user to access data secured by the customer tenant. It *provides* the client application's application object, and *consumes* the definition of the desired Web APIs and related permission scopes implemented by the customer tenant. 
@@ -130,6 +130,10 @@ An Azure AD tenant provides a variety of features, of which we will focus on a s
 ### token endpoint
 Provides access token in exchange for an authorization code, during the authorization code grant flow. (refer to authorization endpoint)
 
+### Web client
+A type of [client application](#client-application) that runs as a Web application on a Web server. This type of client executes all code on the server, projecting it's user interface through a client-installed browser, and is therefore considered a "confidential" client due to it's ability to store credentials privately/confidentially on the server. See [OAuth2 client types and profiles](https://tools.ietf.org/html/rfc6749#section-2.1) for more details.
+
+Sometimes referred to as a "passive client", which is a client that has a user interface that is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render. Compared to an "active client" which has which has a user interface that is rendered by a [native application](#native-application), or where there is no user interface at all. 
 
 ## Next steps
 Please use the Disqus comments section below to provide feedback and help us refine and shape our content.
@@ -142,10 +146,12 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes
+[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
+[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipalentity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AZURE-Azure-classic-portal]: https://manage.windowsazure.com
+[AZURE-classic-portal]: https://manage.windowsazure.com
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
