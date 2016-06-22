@@ -20,10 +20,10 @@
 
 > [AZURE.SELECTOR]
 - [Overview][]
+- [Data Types][]
 - [Distribute][]
 - [Index][]
 - [Partition][]
-- [Data Types][]
 - [Statistics][]
 - [Temporary][]
 
@@ -255,18 +255,18 @@ The main limitations are:
 - Global Temporary Tables are not supported
 - Views cannot be created on temporary tables
 
-## Next steps  
+## Next steps
 
- To learn more about table design, see the [Overview][], [Distribute][], [Index][], [Partition][], [Data Types][], and [Statistics][]  articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].  
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
