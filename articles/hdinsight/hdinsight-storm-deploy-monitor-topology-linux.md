@@ -58,7 +58,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 ### Programmatically
 
-You can programmatically deploy a topology to Storm on HDInsight by communicating with the Nimbus service hosted in your cluster. [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
+You can programmatically deploy a topology to Storm on HDInsight by communicating with the Nimbus service hosted in your cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
 
 ##Monitor and manage using the storm command
 
