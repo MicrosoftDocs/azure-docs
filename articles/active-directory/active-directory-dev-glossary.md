@@ -41,8 +41,10 @@ In order to allow an application to integrate with and delegate identity managem
 
 We will focus on using the Azure classic portal for registration tasks, but please note that you can also register an application through other means, including the Azure AD Graph API, PowerShell cmdlets, and various tools that wrap them. Using the Azure classic portal for registration will create both the application and service principal object.
 
+[TODO]: Sign-on and Reply URL for Web clients? Redirect URI for Native clients?
+
 ### **authentication**
-The act of challenging a party for for legitimate credentials, to be used during acquisition of an access token. Typically the part is filling the role of either resource owner or client.
+The act of challenging a party for legitimate credentials, providing the identity to be used during acquisition of an access token. Typically the party authenticating is filling the role of either resource owner or client application.
 
 ### **authorization**
 The act of granting an authenticated security principal permission to perform a given operation. There are two uses in the Azure AD programming model:
@@ -57,15 +59,10 @@ A secure code provided to a *client application*, in response to authentication 
 Provides an [authorization code](#authorization-code) to a [client application](#client-application), during the [authorization code grant](#authorization-grant) flow, upon successful authentication (and consent) of the [resource owner](#resource-owner). The client uses the authorization code later in the flow, to obtain an [access token](#access-token) from the [token endpoint](#token-endpoint), in exchange for the authorization code.
 
 ### **authorization grant**
-A credential representing the resource owner's authorization to access its protected resources, used by a [client application](#client-application) to obtain an [access token](#access-token). The OAuth2 spec [currently defines four types][OAuth2-AuthZ-Grant-Types] :  
-
-- authorization code: RO authenticates, RO owns the resource(s) -> App+User Access Token. The [OAuth 2.0 "Authorization Code" grant flow][OAuth2-AuthZ-Code-Grant-Flow] in this article, as it allows the resource owner to delegate authorization to the client application, but please note there are other types of OAuth2 grant flows.
-- client credentials: App authenticates,Client owns the resource(s) -> App-Only Access Token
-- implicit: used by SPA, simplified Authorization Code, client gets Access Token directly, no Authorization Code
-- resource owner password credentials (aka: user Ccedentials) : RO provides username/password to Client to get token directly; only supported in AAD for native clients
+A credential representing the resource owner's authorization to access its protected resources, used by a [client application](#client-application) to acquire an [access token](#access-token). The OAuth2 spec [currently defines four types][OAuth2-AuthZ-Grant-Types] : authorization code, client credentials, implicit, and resource owner password credentials.
 
 ### **authorization server**
-As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining its authorization. Note, as in the case of Azure AD, some authorization servers also function as a resource server, implementing APIs that can be access via an access token (ie: the Azure AD Graph API).
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining its authorization. In the case of Azure AD application integration, Azure AD implements the authorization server. Note, as in the case of Azure AD, some authorization servers also function as a resource server, implementing APIs that can be access via an access token (ie: the Azure AD Graph API).
 
 
 ### **claim**
@@ -107,7 +104,7 @@ A resource server exposes APIs and enforces the scopes that allow client applica
 
 Just like a client application, a Web API (aka: resource) application's identity configuration is established via registration in an Azure AD tenant, providing both the application and service principal object. (note: there are special considerations for Microsoft-provided APIs such as the Azure AD Graph API, as it's service principal object is made available in all tenants by default)
 
-### **security token**
+### security token
 A generic term for a token used in a security context. In the case of an OAuth 2.0 [authorization grant](#authorization-grant), an [access token](#access-token) (OAuth2) and an [ID Token](OpenID Connect) are a type of security token, both of which are implemented as a [JSON Web Token (JWT)][JWT].
 
 ### **service principal**
