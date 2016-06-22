@@ -29,21 +29,31 @@
 
 ## Introduction to distributed tables
 
-SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  This is an important core concept...
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  Essentially this means that behind the scenes, your data is divided across several databases.  By dividing the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Behind the scenes, SQL Data Warehouse divides your data into 60 distributed databases, as simply called **distributions**.
 
-It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By dividing the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.
+## Select distribution method
 
-When a table is created in SQL Data Warehouse, it is actually spread across all of the the distributions.
+SQL Data Warehouse needs an algorithm to distribute your data.  By default, when you do not define a data distribution method, your table will be distributed using a **round robin** algorithm.  However, as you become more sophisticated in your implementation, you will want to consider using **hash distributed** tables to optimize performance.
 
-Making smart hash distribution decisions is one of the most important ways to improve query performance.  
+### Round Robin Tables
 
-There are in fact three major factors:
+Using the Round Robin method of distributing data is very much how it sounds.  As your data is loaded, each row is simply sent to the next distribution.  This method of distributing the data will always distribute the data very evenly across all of the distributions.  By default, if no distribution method is choosen, this method will be used.  However, while round robin tables are easy to use, because data is randomly distributed across the system it means that the system can't guarantee which distribution each row is on.  As a result, the system some times needs to invoke a data movement operation to better organize your data before it can resolve a query.  This extra step can slow down your queries.  
 
-1. Minimize Data Movement
-2. Avoid Data Skew
-3. Provide Balanced Execution
+### Hash Distributed Tables
 
-## Minimize data movement
+Using a **Hash distributed** algorithm to distribute your tables can improve performance for many scenarios.  Hash distributed tables are **hashed** on a column which determines which distribution the 
+
+The distribution column is very much what it sounds like.  It is the column which is hashed in order to determine how the data in your tables is distributed across the compute node databases in your system.  Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse.  While round robin tables can be sufficient in some scenarios, defining distrubution columns can greatly reduce data movement during queries, thus optimizing performance.  Making smart hash distribution decisions is one of the most important ways you can improve query performance.
+
+## Select distribution column
+
+When you choose to **hash distributed** a table, you will need to select a distribution column.  When selecting a distribution column, there are three major factors to consider.  Select a column which will:
+
+1. Distribute evenly aross distributions
+2. Minimize data movement
+3. Not be updated
+
+### Minimize data movement
 Data Movement most commonly arises when tables are joined together or aggregations on tables are performed. Hash distributing tables on a shared key is one of the most effective methods for minimizing this movement.
 
 However, for the hash distribution to be effective in minimizing the movement the following criteria must all be true:
@@ -59,7 +69,7 @@ Data movement may also arise from query syntax (`COUNT DISTINCT` and the `OVER` 
 
 > [AZURE.NOTE] Round-Robin tables typically generate data movement. The data in the table has been allocated in a non-deterministic fashion and so the data must first be moved prior to most queries being completed.
 
-## Avoid data skew
+### Avoid data skew
 In order for hash distribution to be effective it is important that the column chosen exhibits the following properties:
 
 1. The column contains a significant number of distinct values.
@@ -71,7 +81,7 @@ Similarly, if all of the rows for the hashed column contained the same value the
 
 > [AZURE.NOTE] Round-robin tables do not exhibit signs of skew. This is because the data is stored evenly across the distributions.
 
-## Provide balanced execution
+### Provide balanced execution
 Balanced execution is achieved when each distribution has the same amount of work to perform. Massively Parallel Processing (MPP) is a team game; everyone has to cross the line before anyone can be declared the winner. If every distribution has the same amount of work (i.e. data to process) then all of the queries will finish at about the same time. This is known as balanced execution.
 
 As has been seen, data skew can affect balanced execution. However, so can the choice of hash distribution key. If a column has been chosen that appears in the `WHERE` clause of a query then it is quite likely that the query will not be balanced.  
@@ -417,7 +427,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Next steps
 
-To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary][Temporary Table] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary Tables][Temporary] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
 
 
 <!--Image references-->
