@@ -20,10 +20,10 @@
 
 > [AZURE.SELECTOR]
 - [Overview][]
+- [Data Types][]
 - [Distribute][]
 - [Index][]
 - [Partition][]
-- [Data Types][]
 - [Statistics][]
 - [Temporary][]
 
@@ -163,7 +163,7 @@ Heavy DML operations that update, and delete rows introduce inefficiency into th
 
 Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition aligned distribution will be written directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition aligned distribution is less than 102,400 then the rows will go to the delta store and will stay there until sufficient rows have been inserted or modified to close the rowgroup or the index has been rebuilt.
 
-### Small or Trickle load operations
+### Small or trickle load operations
 
 Small loads that flow into SQL Data Warehouse are also sometimes known as trickle loads. They typically represent a near constant stream of data being ingested by the system. However, as this stream is near continuous the volume of rows is not particularly large. More often than not the data is significantly under the threshold required for a direct load to columnstore format.
 
@@ -254,7 +254,7 @@ For more details about re-creating partitions using `CTAS`, see [Partition][] ar
 
 ## Next steps
 
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
@@ -266,7 +266,6 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
