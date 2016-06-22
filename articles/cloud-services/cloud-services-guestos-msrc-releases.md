@@ -35,7 +35,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-075 | [3164038] | Security Update for Windows SMB Server | 4.33, 3.40, 2.52 | June 14, 2016 |
 | MS16-076 | [3167691] | Security Update for Netlogon | 4.33 | June 14, 2016 |
 | MS16-077 | [3165191] | Security Update for WPAD | 4.33, 3.40, 2.52 | June 14, 2016 |
-| MS16-080 | [3164302] | Security Update for Microsoft Windows PDF | 4.33, 3.40, 2.52 | June 14, 2016 |
+| MS16-080 | [3164302] | Security Update for Microsoft Windows PDF | 4.33, 3.40 | June 14, 2016 |
 | MS16-081 | [3160352] | Security Update for Active Directory | 4.33, 3.40, 2.52 | June 14, 2016 |
 |  | [2922223] | You cannot change system time if RealTimeIsUniversal registry entry is enabled in Windows | 2.52 | June 14, 2016 |
 |  | [3121255] | "0x00000024" Stop error in FsRtlNotifyFilterReportChange and copy file may fail in Windows | 2.52 | June 14, 2016 |
