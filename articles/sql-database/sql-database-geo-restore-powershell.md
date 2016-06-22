@@ -12,19 +12,19 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.workload="sqldb-bcdr" 
+    ms.date="06/17/2016"
     ms.author="sstein"/>
 
 # Restore an Azure SQL Database from a geo-redundant backup using PowerShell
+
 
 > [AZURE.SELECTOR]
 - [Overview](sql-database-geo-restore.md)
 - [Azure Portal](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
-
-This article shows you how to restore your database into a new server using geo-restore using PowerShell.
+This article shows you how to restore your database into a new server using Geo-Restore using PowerShell.
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -51,11 +51,11 @@ This article shows you how to restore your database into a new server using geo-
 
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
+- For detailed steps on how to restore an Azure SQL Database using the Azure portal from a geo-redundant backup, see [Geo-Restore using the Azure Portal](sql-database-geo-restore-portal.md)
+- For detailed detailed information regarding restoring an Azure SQL Database from a geo-redundant backup, see[Geo-Restore using PowerShell](sql-database-geo-restore.md)
+- For a full discussion about how to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md)
 
 
 ## Additional resources
 
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Business Continuity Scenarios](sql-database-business-continuity-scenarios.md)

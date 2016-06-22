@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="carlrab"/>
 
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database  or SQL Server on Azure VMs (IaaS)
 
 Azure has two options for hosting SQL Server workloads in Microsoft Azure:
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A [SQL database](sql-database-technical-overview.md) native to Microsoft Azure, also known as a platform as a service (PaaS) database or a database as a service (DBaaS) that is optimized for [software-as-a-service (SaaS) app development](sql-database-design-patterns-multi-tenancy-saas-applications.md). It offers compatibility with the majority of SQL Server features.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database native to the cloud, also known as a platform as a service (PaaS) database or a database as a service (DBaaS) that is optimized for software-as-a-service (SaaS) app development. It offers compatibility with the majority of SQL Server features.
 * [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server installed and hosted in the cloud on Windows Server Virtual Machines (VMs) running on Azure, also known as an infrastructure as a service (IaaS).
 
 Learn how each option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
@@ -154,3 +154,4 @@ Choose **SQL Server on Azure VMs** if:
 - See [SQL Database tutorial: Create a SQL database in minutes using the Azure portal](sql-database-get-started.md) to get started with SQL Database.
 - See [SQL Database pricing] (https://azure.microsoft.com/pricing/details/sql-database/).
 - See [Provision a SQL Server virtual machine in Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) to get started with SQL Server on Azure VMs.
+- See [SQL Server on an Azure Virtual Machine: Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).

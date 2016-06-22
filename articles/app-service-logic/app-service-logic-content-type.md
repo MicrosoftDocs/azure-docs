@@ -26,7 +26,7 @@ To start simple, let's look at the two `Content-Types` that don't require any co
 
 ### Application/json
 
-The workflow engine relies on the `Content-Type` header from HTTP calls to determine the appropriate handling.  Any request of with the content type `application/json` will be stored and handled as a JSON Object.  In addition, JSON content can be parsed by default without needing any casting.  So a request that has the content-type header `application/json ` like this:
+The workflow engine relies on the `Content-Type` header from HTTP calls to determine the appropriate handling.  Any request with the content type `application/json` will be stored and handled as a JSON Object.  In addition, JSON content can be parsed by default without needing any casting.  So a request that has the content-type header `application/json ` like this:
 
 ```
 {

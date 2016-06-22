@@ -215,7 +215,7 @@ azure network route-table route create -a 0.0.0.0/0 -y VirtualNetworkGateway <<r
 <# Associate the route table with the business tier subnet: #>
 azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> <<business-tier-subnet-name>>
 ```
-The sample deployment script below does not enable forced tunneling. To enable forced tunnaling, uncomment the last lines in the scripts as shown below by removing the # character at the begining of each line.
+The sample deployment script below does not enable forced tunneling. To enable forced tunneling, uncomment the last lines in the scripts as shown below by removing the # character at the begining of each line.
 
 ```bash
 ############################################################################

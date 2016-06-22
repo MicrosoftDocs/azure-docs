@@ -56,7 +56,7 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
 
 This section describes all the certificates that you will need for securing your standalone Windows cluster. Enable certificate-based security by setting the values of **ClusterCredentialType** and **ServerCredentialType** to *X509*. 
 
->[AZURE.NOTE] A [thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) is the primary identity of a certificate. Read [How to retrieve thumbprint of a certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) to find out the thumbprint of the certificates that you create. 
+>[AZURE.NOTE] A [thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) is the primary identity of a certificate. Read [How to retrieve thumbprint of a certificate](https://msdn.microsoft.com/library/ms734695.aspx) to find out the thumbprint of the certificates that you create. 
 
 The following table lists out the actual certificates that you will need on your cluster setup:
 
@@ -65,7 +65,7 @@ The following table lists out the actual certificates that you will need on your
 |ClusterCertificate|This certificate is required to secure the communication between the nodes on a cluster. You can use two different certificates, a primary and a secondary for fall-over. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables.|
 |ServerCertificate|This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for *ClusterCertificate* and *ServerCertificate*. You can use two different server certificates, a primary and a secondary for fall-over. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables. |
 |ClientCertificateThumbprints|This is a set of certificates that you want to install on the authenticated clients. You can have a number of different client certificates installed on the machines that you want to allow access to the cluster and the applications running on it. Set the thumbprint of each certificate in the **CertificateThumbprint** variable. If you set the **IsAdmin** to *true*, then the client with this certificate installed on it can do various management activities for the cluster. If the **IsAdmin** is *false*, it can only access the applications running on the cluster.|
-|ClientCertificateCommonNames|Set the common name of the first client certificate for the **CertificateCommonName**. The **CertificateIssuerThumbprint** is the thumbprint for the issuer of this certificate. Read [Working with certificates](https://msdn.microsoft.com/library/ms731899(v=vs.110).aspx) to know more about common names and the issuer.|
+|ClientCertificateCommonNames|Set the common name of the first client certificate for the **CertificateCommonName**. The **CertificateIssuerThumbprint** is the thumbprint for the issuer of this certificate. Read [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx) to know more about common names and the issuer.|
 
 
 ## Install the certificates
