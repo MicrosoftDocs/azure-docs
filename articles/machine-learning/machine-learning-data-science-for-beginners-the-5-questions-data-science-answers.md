@@ -4,7 +4,7 @@
    keywords="doing data science,introduction to data science,data science for beginners, types of questions,data science questions, data science algorithms"
    services="machine-learning"
    documentationCenter="na"
-   authors="cjgronlund"
+   authors="brohrer-ms"
    manager="paulettm"
    editor="cjgronlund"/>
 

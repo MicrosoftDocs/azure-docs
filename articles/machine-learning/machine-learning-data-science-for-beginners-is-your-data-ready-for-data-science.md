@@ -4,7 +4,7 @@
    keywords="data evaluation,relevant data,evaluate data,prepare data,data criteria,data ready"
    services="machine-learning"
    documentationCenter="na"
-   authors="cjgronlund"
+   authors="brohrer-ms"
    manager="paulettm"
    editor="cjgronlund"/>
 
