@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Azure Subscription and Accounts Guidelines"
+	pageTitle="Azure Subscription and Accounts Guidelines | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for subscriptions and accounts on Azure."
 	documentationCenter=""
 	services="virtual-machines-linux"
-	authors="vlivech"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
-	ms.author="v-livech"/>
+	ms.date="06/22/2016"
+	ms.author="iainfou"/>
 
 # Azure Subscription and Accounts Guidelines
 
-This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
 
 ## Subscriptions and accounts
 
-In order to work with Azure, you need one or more Azure subscriptions. Resources, like cloud services or virtual machines, exist in the context of those subscriptions.
+In order to work with Azure, you need one or more Azure subscriptions. Resources like virtual machines (VMs) or virtual networks exist in of those subscriptions.
 
 - Enterprise customers typically have an Enterprise Enrollment, which is the top-most resource in the hierarchy, and is associated to one or more accounts.
 - For consumers and customers without an Enterprise Enrollment, the top-most resource is the account.
@@ -52,17 +52,20 @@ Microsoft provides detailed billing via a downloadable file for a single account
 Decision:
 
 - What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
+- How will you break down the hierachy to fit your organization?
 
 Task:
 
+- Define your logical organization hierachy as you would like to manage it from a subscription level.
+- Define the accounts required and subscriptions under each account to match this logical hierachy.
 - Create the set of subscriptions and accounts using your naming convention.
 
 ## Next steps
 
 Now that you have read about Azure Availability Sets you can read up on the guidelines for other Azure services.
 
-* [Azure Cloud Services Infrastructure Guidelines](virtual-machines-linux-infrastructure-cloud-services-guidelines.md)
-* [Azure Subscription and Accounts Guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
+* [Azure Availability Set Guidelines](virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
+* [Azure Resource Groups Infrastructure Guidelines](virtual-machines-linux-infrastructure-resource-groups-guidelines.md)
 * [Azure Infrastructure Naming Guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md)
 * [Azure Virtual Machines Guidelines](virtual-machines-linux-infrastructure-virtual-machine-guidelines.md)
 * [Azure Networking Infrastructure Guidelines](virtual-machines-linux-infrastructure-networking-guidelines.md)
