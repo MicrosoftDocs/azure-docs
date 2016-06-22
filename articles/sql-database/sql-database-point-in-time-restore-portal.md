@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/09/2016"
+	ms.date="06/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -45,15 +45,12 @@ To restore a database in the Azure Portal do the following:
 
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Point-in-time restore](sql-database-point-in-time-restore.md)
-- [Point-in-time restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [SQL Database automated backups](sql-database-automated-backups.md)
+- For detailed steps to recover to a point in time using PowerShell, see [Point-In-Time Restore using PowerShell](sql-database-point-in-time-restore-powershell.md).
+- For information about how to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+- For an overview of point in time restore, see [Point-In-Time Restore](sql-database-point-in-time-restore.md).
+ore.md)
+- For a full discussion about how to recover from a user or application error, see [User error recovery](sql-database-user-error-recovery.md).
 
 ## Additional resources
 
-- [Restore a deleted database](sql-database-restore-deleted-database.md)
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Business continuity scenarios](sql-database-business-continuity-scenarios.md)

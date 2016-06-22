@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/20/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Azure resiliency technical guidance: Recovery from local failures in Azure
@@ -98,7 +98,7 @@ Services benefit from replication just by using Azure Storage. The service devel
 
 ###Resource management
 
-Storage accounts created after June 7, 2012, can grow to up to 200 TB (the previous maximum was 100 TB). If additional space is required, applications must be designed to use multiple storage accounts.
+Storage accounts created after May 2014, can grow to up to 500 TB (the previous maximum was 200 TB). If additional space is required, applications must be designed to use multiple storage accounts.
 
 ###Virtual machine disks
 

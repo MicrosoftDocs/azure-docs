@@ -177,7 +177,15 @@ A task is a unit of computation that is associated with a job and runs on a node
 
 When you create a task, you can specify:
 
-- The **command line** of the task. This is the command line that runs your application or script on the compute node, and you format it for execution in the compute node's shell. It can contain multiple chained commands; each task can therefore execute one or more programs or scripts.
+- The **command line** of the task. This is the command line that runs your application or script on the compute node.
+
+	It is important to note that command line does not actually run under a shell, and therefore cannot natively take advantage of shell features such as [environment variable](#environment-settings-for-tasks) expansion (this includes the `PATH`). To take advantage of such features, you must **invoke the shell in the command line**. For example, by launching `cmd.exe` on Windows nodes or `/bin/sh` on Linux:
+
+	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
+
+	`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
+
+	If your tasks need to run an application or script not in the node's `PATH` or reference environment variables, invoke the shell explicitly in the task command line.
 
 - **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in a **General purpose** Azure Storage account before the task's command line is executed. For more information, see [Start task](#start-task) and [Files and directories](#files-and-directories) below.
 

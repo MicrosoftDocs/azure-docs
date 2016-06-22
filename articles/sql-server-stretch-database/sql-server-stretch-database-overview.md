@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Stretch Database overview | Microsoft Azure"
-	description="Learn how Stretch Database migrates your historical data transparently and securely to the Microsoft Azure cloud."
+	description="Learn how Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -18,7 +18,7 @@
 
 # Stretch Database overview
 
-Stretch Database migrates your historical data transparently and securely to the Microsoft Azure cloud.
+Stretch Database migrates your cold data transparently and securely to the Microsoft Azure cloud.
 
 If you just want to get started with Stretch Database right away, see [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
 
@@ -38,17 +38,17 @@ Reduce on\-premises maintenance and storage for your data. Backups for the cloud
 Enjoy peace of mind as you stretch your most important applications securely to the cloud. SQL Server’s Always Encrypted provides encryption for your data in motion. Row Level Security (RLS) and other advanced SQL Server security features also work with Stretch Database to protect your data.
 
 ## What does Stretch Database do?
-After you enable Stretch Database for a SQL Server instance, a database, and at least one table, it silently begins to migrate your historical data to Azure.
+After you enable Stretch Database for a SQL Server instance, a database, and at least one table, it silently begins to migrate your cold data to Azure.
 
--   If you store historical data in a separate table, you can migrate the entire table.
+-   If you store cold data in a separate table, you can migrate the entire table.
 
--   If your table contains both historical and current data, you can specify a filter predicate to select the rows to migrate.
+-   If your table contains both hot and cold data, you can specify a filter predicate to select the rows to migrate.
 
 Stretch Database ensures that no data is lost if a failure occurs during migration. It also has retry logic to handle connection issues that may occur during migration. A dynamic management view provides the status of migration.
 
 You can pause data migration to troubleshoot problems on the local server or to maximize the available network bandwidth.
 
-You don't have to change existing queries and client apps. You continue to have seamless access to both local and remote data, even during data migration. There is a small amount of latency for remote queries, but you only encounter this latency when you query the historical data.
+You don't have to change existing queries and client apps. You continue to have seamless access to both local and remote data, even during data migration. There is a small amount of latency for remote queries, but you only encounter this latency when you query the cold data.
 
 ![Stretch database overview][StretchOverviewImage1]
 
@@ -58,12 +58,12 @@ If you can make the following statements, Stretch Database may help to meet your
 |If you're a decision maker|If you're a DBA|
 |------------------------------|-------------------|
 |I have to keep transactional data for a long time.|The size of my tables is getting out of control.|
-|Sometimes I have to query the historical data.|My users say that they want access to historical data, but they only rarely use it.|
+|Sometimes I have to query the cold data.|My users say that they want access to cold data, but they only rarely use it.|
 |I have apps, including older apps, that I don’t want to update.|I have to keep buying and adding more storage.|
 |I want to find a way to save money on storage.|I can’t backup or restore such large tables within the SLA.|
 
 ## What kind of databases and tables are candidates for Stretch Database?
-Stretch Database targets transactional databases with large amounts of historical data, typically stored in a small number of tables. These tables may contain more than a billion rows.
+Stretch Database targets transactional databases with large amounts of cold data, typically stored in a small number of tables. These tables may contain more than a billion rows.
 
 If you use the temporal table feature of SQL Server 2016, use Stretch Database to migrate all or part of the associated history table to cost\-effective storage in Azure. For more info, see [Manage Retention of Historical Data in System-Versioned Temporal Tables](https://msdn.microsoft.com/library/mt637341.aspx).
 
