@@ -24,7 +24,7 @@
 This article focuses on understanding the required planning steps for creating and managing virtual machines (VMs) within your Azure environment.
 
 ## Implementation guidelines for VMs
-Decisions to be made:
+Decisions:
 
 - How many VMs do you require for your various application tiers and components of your infrastructure?
 - What CPU and memory resources does each VM need, and what are the storage requirements?

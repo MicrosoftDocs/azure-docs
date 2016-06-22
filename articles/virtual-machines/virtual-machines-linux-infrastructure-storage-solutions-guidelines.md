@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Azure Storage Solutions Infrastructure Guidelines"
+	pageTitle="Storage Solutions Guidelines | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for deploying storage solutions in Azure infrastructure services."
 	documentationCenter=""
 	services="virtual-machines-linux"
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -14,12 +14,30 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="06/22/2016"
 	ms.author="iainfou"/>
 
 # Azure Storage Solutions Infrastructure Guidelines
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding storage needs and design considerations for achieving optiumum virtual machine (VM) performance.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
+
+This article focuses on understanding storage needs and design considerations for achieving optiumum virtual machine (VM) performance.
+
+
+## Implementation guidelines for storage
+
+Decisions:
+
+- Do you need to use Standard or Premium storage for your workload?
+- Do you need disk striping to create disks larger than 1023 GB?
+- Do you need disk striping to achieve optimal I/O performance for your workload?
+- What set of storage accounts do you need to host your IT workload or infrastructure?
+
+Tasks:
+
+- Review I/O demands of the applications you will be deploying and plan the appropriate number and type of storage accounts.
+- Create the set of storage accounts using your naming convention. You can use the Azure CLI or the portal.
+
 
 ## Storage
 
@@ -38,6 +56,7 @@ Operating system disks and data disks have a maximum size of 1023 gigabytes (GB)
 
 There are some scalability limits when designing your Azure Storage deployments - see [Microsoft Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md#storage-limits) for more details. Also see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
 
+
 ## Striped disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
@@ -52,36 +71,14 @@ If you are using disk striping for Azure data disks, consider the following guid
 
 For more information, see [Storage spaces - designing for performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
+
 ## Multiple storage accounts
 
 When designing out your Azure Storage environment, you can make use of multiple storage accounts as the number of VMs you deploy increases. This helps distribute out the I/O across the underlying Azure Storage infrastructure in order to maintain optimum performance for your VMs and applications. As you design the applications that will be deployed, consider the I/O requirements each VM will have and balance out those VMs across Azure Storage accounts. Try to avoid grouping all the high I/O demanding VMs being grouped together in just one or two accounts.
 
 For more information as to the I/O capabilities of the different Azure Storage options and some recommend maximums, see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
 
-## Implementation guidelines recap for storage
-
-Decisions:
-
-- Do you need to use Standard or Premium storage for your workload?
-- Do you need disk striping to create disks larger than 1023 GB?
-- Do you need disk striping to achieve optimal I/O performance for your workload?
-- What set of storage accounts do you need to host your IT workload or infrastructure?
-
-Task:
-
-- Review I/O demands of the applications you will be deploying and plan the appropriate number and type of storage accounts.
-- Create the set of storage accounts using your naming convention. You can use the Azure CLI or the portal.
 
 ## Next steps
 
-Now that you have read about Azure storage you can read up on the guidelines for other Azure services.
-
-* [Azure Availability Sets Infrastructure Guidelines](virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
-* [Azure Resource Groups Infrastructure Guidelines](virtual-machines-linux-infrastructure-resource-groups-guidelines.md)
-* [Azure Subscription and Accounts Guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
-* [Azure Infrastructure Naming Guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md)
-* [Azure Virtual Machines Guidelines](virtual-machines-linux-infrastructure-virtual-machine-guidelines.md)
-* [Azure Networking Infrastructure Guidelines](virtual-machines-linux-infrastructure-networking-guidelines.md)
-* [Azure Example Infrastructure Walkthrough](virtual-machines-linux-infrastructure-example.md)
-
-Once you have reviewed the guidelines documents you can move over to the [Azure Concepts section](virtual-machines-linux-azure-overview.md) to start building your new infrastructure on Azure.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 

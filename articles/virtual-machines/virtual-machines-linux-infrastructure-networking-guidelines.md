@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Azure Networking Infrastructure Guidelines"
+	pageTitle="Networking Infrastructure Guidelines | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services."
 	documentationCenter=""
 	services="virtual-machines-linux"
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -14,12 +14,32 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="06/22/2016"
 	ms.author="iainfou"/>
 
 # Azure Networking Infrastructure Guidelines
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
+
+This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.
+
+
+## Implementation guidelines for virtual networks
+
+Decisions:
+
+- What type of virtual network do you need to host your IT workload or infrastructure (cloud-only or cross-premises)?
+- For cross-premises virtual networks, how much address space do you need to host the subnets and VMs now and for reasonable expansion in the future?
+- Are you going to create centralized virtual networks or create individual virtual networks for each resource group?
+
+Tasks:
+
+- Define the address space for the virtual networks to be created.
+- Define the set of subnets and the address space for each.
+- For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the VMs in the virtual network need to reach.
+- Work with on-premises networking team to ensure the appropriate routing is configured when creating cross-premises virtual networks.
+- Create the virtual network using your naming convention using the Azure CLI or portal.
+
 
 ## Virtual networks
 
@@ -65,32 +85,7 @@ Number of VMs needed | Number of host bits needed | Size of the subnet
 
 If you choose a subnet size that is too small, you will have to re-IP and redeploy the VMs in the subnet.
 
-## Implementation guidelines recap for virtual networks
-
-Decisions:
-
-- What type of virtual network do you need to host your IT workload or infrastructure (cloud-only or cross-premises)?
-- For cross-premises virtual networks, how much address space do you need to host the subnets and VMs now and for reasonable expansion in the future?
-- Are you going to create centralized virtual networks or create individual virtual networks for each resource group?
-
-Tasks:
-
-- Define the address space for the virtual networks to be created.
-- Define the set of subnets and the address space for each.
-- For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the VMs in the virtual network need to reach.
-- Work with on-premises networking team to ensure the appropriate routing is configured when creating cross-premises virtual networks.
-- Create the virtual network using your naming convention using the Azure CLI or portal.
 
 ## Next steps
 
-Now that you have read about virtual networking you can read up on the guidelines for other Azure services.
-
-* [Azure Availability Set Guidelines](virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
-* [Azure Resource Groups Infrastructure Guidelines](virtual-machines-linux-infrastructure-resource-groups-guidelines.md)
-* [Azure Subscription and Accounts Guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
-* [Azure Infrastructure Naming Guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md)
-* [Azure Virtual Machines Guidelines](virtual-machines-linux-infrastructure-virtual-machine-guidelines.md)
-* [Azure Storage Solutions Infrastructure Guidelines](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md)
-* [Azure Example Infrastructure Walkthrough](virtual-machines-linux-infrastructure-example.md)
-
-Once you have reviewed the guidelines documents you can move over to the [Azure Concepts section](virtual-machines-linux-azure-overview.md) to start building your new infrastructure on Azure.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 

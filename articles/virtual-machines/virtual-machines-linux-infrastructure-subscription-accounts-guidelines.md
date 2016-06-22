@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Subscription and Accounts Guidelines | Microsoft Azure"
+	pageTitle="Subscription and Accounts Guidelines | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for subscriptions and accounts on Azure."
 	documentationCenter=""
 	services="virtual-machines-linux"
@@ -19,7 +19,24 @@
 
 # Azure Subscription and Accounts Guidelines
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
+
+This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
+
+
+## Implementation guidelines for subscriptions and accounts
+
+Decisions:
+
+- What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
+- How will you break down the hierachy to fit your organization?
+
+Tasks:
+
+- Define your logical organization hierachy as you would like to manage it from a subscription level.
+- Define the accounts required and subscriptions under each account to match this logical hierachy.
+- Create the set of subscriptions and accounts using your naming convention.
+
 
 ## Subscriptions and accounts
 
@@ -47,29 +64,7 @@ The organization could look like this.
 
 Microsoft provides detailed billing via a downloadable file for a single account or for all accounts in an enterprise agreement. You can process this file, for example, by using Microsoft Excel. This process would ingest the data, partition the resources that encode more than one level of the hierarchy into separate columns, and use a pivot table or PowerPivot to provide dynamic reporting capabilities.
 
-## Implementation guidelines recap for subscriptions and accounts
-
-Decision:
-
-- What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
-- How will you break down the hierachy to fit your organization?
-
-Task:
-
-- Define your logical organization hierachy as you would like to manage it from a subscription level.
-- Define the accounts required and subscriptions under each account to match this logical hierachy.
-- Create the set of subscriptions and accounts using your naming convention.
 
 ## Next steps
 
-Now that you have read about Azure Availability Sets you can read up on the guidelines for other Azure services.
-
-* [Azure Availability Set Guidelines](virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
-* [Azure Resource Groups Infrastructure Guidelines](virtual-machines-linux-infrastructure-resource-groups-guidelines.md)
-* [Azure Infrastructure Naming Guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md)
-* [Azure Virtual Machines Guidelines](virtual-machines-linux-infrastructure-virtual-machine-guidelines.md)
-* [Azure Networking Infrastructure Guidelines](virtual-machines-linux-infrastructure-networking-guidelines.md)
-* [Azure Storage Solutions Infrastructure Guidelines](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md)
-* [Azure Example Infrastructure Walkthrough](virtual-machines-linux-infrastructure-example.md)
-
-Once you have reviewed the guidelines documents you can move over to the [Azure Concepts section](virtual-machines-linux-azure-overview.md) to start building your new infrastructure on Azure.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 

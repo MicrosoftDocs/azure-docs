@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Infrastructure Naming Guidelines | Microsoft Azure"
+	pageTitle="Infrastructure Naming Guidelines | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for naming in Azure infrastructure services."
 	documentationCenter=""
 	services="virtual-machines-linux"
@@ -19,7 +19,21 @@
 
 # Azure Infrastructure Naming Guidelines
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding how to approach naming conventions for all your various Azure resources in order to build a logical and easily identifiable set of resources across your environment.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
+
+This article focuses on understanding how to approach naming conventions for all your various Azure resources in order to build a logical and easily identifiable set of resources across your environment.
+
+## Implementation guidelines for naming conventions
+
+Decisions:
+
+- What are your naming conventions for Azure resources?
+
+Tasks:
+
+- Define the affixes that you will use across your resources to maintain consistency.
+- Define storage account names given the requirement for them to be globally unique.
+- Document the naming convention to be used and distribute to all parties involved to ensure consistency across deployments.
 
 ## Naming conventions
 
@@ -92,28 +106,6 @@ Storage accounts have special rules governing their names. You can only use lowe
 - mystorageaccount.table.core.windows.net
 - mystorageaccount.queue.core.windows.net
 
-## Implementation guidelines recap for naming conventions
-
-Decision:
-
-- What are your naming conventions for Azure resources?
-
-Task:
-
-- Define the affixes that you will use across your resources to maintain consistency.
-- Define storage account names given the requirement for them to be globally unique.
-- Document the naming convention to be used and distribute to all parties involved to ensure consistency across deployments.
 
 ## Next steps
-
-Now that you have read about Azure Availability Sets you can read up on the guidelines for other Azure services.
-
-* [Azure Availability Sets Guidelines](virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
-* [Azure Resource Groups Infrastructure Guidelines](virtual-machines-linux-infrastructure-resource-groups-guidelines.md)
-* [Azure Subscription and Accounts Guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
-* [Azure Virtual Machines Guidelines](virtual-machines-linux-infrastructure-virtual-machine-guidelines.md)
-* [Azure Networking Infrastructure Guidelines](virtual-machines-linux-infrastructure-networking-guidelines.md)
-* [Azure Storage Solutions Infrastructure Guidelines](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md)
-* [Azure Example Infrastructure Walkthrough](virtual-machines-linux-infrastructure-example.md)
-
-Once you have reviewed the guidelines documents you can move over to the [Azure Concepts section](virtual-machines-linux-azure-overview.md) to start building your new infrastructure on Azure.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 

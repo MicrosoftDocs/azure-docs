@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Azure Availability Sets Infrastructure Guidelines | Microsoft Azure"
+	pageTitle="Availability Set Guidelines | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for deploying Availability Sets in Azure infrastructure services."
 	documentationCenter=""
 	services="virtual-machines-linux"
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -14,12 +14,26 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="06/22/2016"
 	ms.author="iainfou"/>
 
 # Azure Availability Sets Infrastructure Guidelines
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
+
+This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
+
+## Implementation guidelines for availability sets
+
+Decisions:
+
+- How many availability sets do you need for the various roles and tiers in application infrastructure?
+
+Tasks:
+
+- Define the number of VMs in each application tier you require.
+- Understand [update and fault domains](virtual-machines-linux-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) and define if you need to adjust the number of domains in use for your application.
+- Define the required availability sets using your naming convention and what VMs will reside in them. A VM can only reside in one availability set. 
 
 ## Availability sets
 
@@ -33,28 +47,6 @@ Load balancers can be utilized in front of each application tier to work alongsi
 
 For more detailed information about availability sets and how VMs are distributed across update domains and fault domains, see [Manage the availability of virtual machines](virtual-machines-linux-manage-availability.md).
 
-## Implementation guidelines recap for availability sets
-
-Decision:
-
-- How many availability sets do you need for the various roles and tiers in your IT workload or infrastructure?
-
-Task:
-
-- Define the required availability sets using your naming convention. A VM can only reside in one availability set. 
-- Define the number of VMs in application tier you require.
-- Understand [update and fault domains](virtual-machines-linux-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) and define if you need to adjust the number of domains in use for your application
 
 ## Next steps
-
-Now that you have read about Azure Availability Sets you can read up on the guidelines for other Azure services.
-
-* [Azure Resource Groups Infrastructure Guidelines](virtual-machines-linux-infrastructure-resource-groups-guidelines.md)
-* [Azure Subscription and Accounts Guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
-* [Azure Infrastructure Naming Guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md)
-* [Azure Virtual Machines Guidelines](virtual-machines-linux-infrastructure-virtual-machine-guidelines.md)
-* [Azure Networking Infrastructure Guidelines](virtual-machines-linux-infrastructure-networking-guidelines.md)
-* [Azure Storage Solutions Infrastructure Guidelines](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md)
-* [Azure Example Infrastructure Walkthrough](virtual-machines-linux-infrastructure-example.md)
-
-Once you have reviewed the guidelines documents you can move over to the [Azure Concepts section](virtual-machines-linux-azure-overview.md) to start building your new infrastructure on Azure.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
