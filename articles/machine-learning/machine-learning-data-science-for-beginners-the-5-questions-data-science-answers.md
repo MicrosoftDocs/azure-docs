@@ -19,7 +19,7 @@
 
 # Data Science for Beginners video 1: The 5 questions that data science can answer
 
-Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series if helpful you're interested in doing data science - or work with people who do data science - and you want to start with the most basic concepts.
+Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful you're interested in doing data science - or work with people who do data science - and you want to start with the most basic concepts.
 
 ## Transcript: The 5 questions that data science can answer
 
