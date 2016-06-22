@@ -39,7 +39,7 @@ This article answers some of the most common questions about Azure Billing and S
 - [What is a trial subscription and how long does it last?](#what-is-a-trial-subscription-and-how-long-does-it-last)
 - [What resources are available when using a trial account?](#what-resources-are-available-when-using-a-trial-account)
 - [What happens if I remove the spending limit on my free trial?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
-- [Where can I get more details on Free Trial?](#where-can-I-get-more-details-on-free-trial)
+- [Where can I get more details on Free Trial?](#where-can-i-get-more-details-on-free-trial)
 
 **How to buy Azure**
 
@@ -74,6 +74,7 @@ This article answers some of the most common questions about Azure Billing and S
 - [Can I adjust the amount of the Spending Limit?](#can-i-adjust-the-amount-of-the-spending-limit)
 
 **Support Plans**
+
 - [How do I purchase Azure Support?](#how-do-i-purchase-azure-support)
 - [Does the monthly rate cover a single Azure plan or the entire account?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
 - [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
