@@ -400,6 +400,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.Res
 ```
 
 After the solution is enabled, the Service Fabric tile is added to your OMS Overview page, with a view of notable issues such as runAsync failures and cancellations that have occurred in the last 24 hours.
+
 ![Service Fabric tile](./media/log-analytics-service-fabric/sf2.png)
 
 ### View Service Fabric events
