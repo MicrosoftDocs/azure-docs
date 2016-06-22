@@ -117,9 +117,9 @@ This script can be run on any machine that has admin access to all the machines 
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.JSON -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
-**Note :** The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster powershell. You will find it in a subfolder called "DeploymentTraces" in the folder you ran the PS command from.
+>[AZURE.NOTE] The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster powershell. You will find it in a subfolder called "DeploymentTraces" in the folder you ran the PS command from.
 
-## Add nodes to your Azure Service Fabric cluster on-premises or in the cloud
+## Add nodes to your Service Fabric cluster 
 
 1. Prepare the VM/Machine you want to add to your cluster (refer to step #2 in Plan and prepare for cluster deployment section above). 
 2. Plan as to which Fault domain and Upgrade domain you are going to add this VM/ machine to.
@@ -131,7 +131,7 @@ This script can be run on any machine that has admin access to all the machines 
 .\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.52:19000 -UpgradeDomain UD1 -FaultDomain FD1
 ```
 
-## Remove nodes to your Azure Service Fabric cluster on-premises or in the cloud
+## Remove nodes to your Service Fabric cluster 
 
 1. TS into the VM/Machine you want to remove from the cluster
 2. Open up a powershell admin prompt, navigate to the location of the unzipped package
@@ -141,8 +141,7 @@ This script can be run on any machine that has admin access to all the machines 
 .\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
 ```
 
-## Delete your Azure Service Fabric cluster on-premises or in the cloud
-
+## Delete your Service Fabric cluster 
 1. TS into one of the VM/Machines that is a part of the the cluster
 2. Open up a powershell admin prompt, navigate to the location of the unzipped package
 5. Run RemoveNode.PS1
@@ -150,14 +149,10 @@ This script can be run on any machine that has admin access to all the machines 
 ```
 .\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
 ```
+
+
 ## Next steps
-
-Understanding Cluster Security:
-- [Cluster security](service-fabric-cluster-security.md)
-
-Read the following to get started on app development and deployment:
+- [Understanding Cluster Security](service-fabric-cluster-security.md)
 - [ Service Fabric SDK and getting started](service-fabric-get-started.md)
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-
-Read more about Azure clusters and standalone clusters:
 - [Overview of the standalone cluster creation feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md)
