@@ -18,7 +18,7 @@
 
 # Enable Stretch Database for a database
 
-To configure a database for Stretch Database, select **Tasks | Stretch | Enable** for a database in SQL Server Management Studio to open the **Enable Database for Stretch** wizard. You can also use Transact\-SQL to enable Stretch Database for a database.
+To configure an existing database for Stretch Database, select **Tasks | Stretch | Enable** for a database in SQL Server Management Studio to open the **Enable Database for Stretch** wizard. You can also use Transact\-SQL to enable Stretch Database for a database.
 
 If you select **Tasks | Stretch | Enable** for a table, and you have not yet enabled the database for Stretch Database, the wizard configures the database for Stretch Database and lets you configure tables as part of the process. Follow the steps in this topic instead of the steps in [Enable Stretch Database for a table](sql-server-stretch-database-enable-database.md).
 

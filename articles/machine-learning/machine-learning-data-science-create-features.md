@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -23,9 +23,9 @@ This topic explains the purposes of feature engineering and provides examples of
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Feature engineering attempts to increase the predictive power of learning algorithms by creating features from raw data that help facilitate the learning process. The engineering and selection of features is one part of the CAP process outlined in the [What is the Cortana Analytics Process?](machine-learning-data-science-the-cortana-analytics-process.md) Feature engineering and selection are parts of the **Develop features** step of the CAP. 
+Feature engineering attempts to increase the predictive power of learning algorithms by creating features from raw data that help facilitate the learning process. The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md) Feature engineering and selection are parts of the **Develop features** step of the CAP. 
 * **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase the predictive power of the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
 

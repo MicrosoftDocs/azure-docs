@@ -77,16 +77,22 @@ To configure an existing table for Stretch Database, run the ALTER TABLE command
 Here's an example that migrates the entire table and begins data migration immediately.
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <table name>  
+    SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
+GO
 ```
 Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE = ON (
-        FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
-        MIGRATION_STATE = PAUSED ) );
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <table name>  
+    SET ( REMOTE_DATA_ARCHIVE = ON (  
+        FILTER_PREDICATE = dbo.fn_stretchpredicate(),  
+        MIGRATION_STATE = PAUSED ) ) ;  
+ GO
 ```
 
 For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
@@ -97,16 +103,25 @@ To create a new table with Stretch Database enabled, run the CREATE TABLE comman
 Here's an example that migrates the entire table and begins data migration immediately.
 
 ```tsql
-CREATE TABLE <table name> ...
-    WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
+USE <Stretch-enabled database name>;
+GO
+CREATE TABLE <table name>
+    ( ... )  
+    WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
+GO
 ```
+
 Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
-CREATE TABLE <table name> ...
-    WITH ( REMOTE_DATA_ARCHIVE = ON (
-        FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
-        MIGRATION_STATE = PAUSED ) );
+USE <Stretch-enabled database name>;
+GO
+CREATE TABLE <table name>
+    ( ... )  
+    WITH ( REMOTE_DATA_ARCHIVE = ON (  
+        FILTER_PREDICATE = dbo.fn_stretchpredicate(),  
+        MIGRATION_STATE = PAUSED ) ) ;  
+GO  
 ```
 
 For more info, see [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
