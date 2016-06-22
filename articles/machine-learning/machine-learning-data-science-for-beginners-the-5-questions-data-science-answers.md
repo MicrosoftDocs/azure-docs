@@ -23,7 +23,7 @@ Get a quick introduction to data science from *Data Science for Beginners* in fi
 
 In these videos, Senior Data Scientist Brandon Rohrer makes data science approachable. To get the most out of the series, watch them in order. [Go to the list of videos](#)
 
-## Transcript of video 1: The 5 questions that data science can answer
+## Transcript: The 5 questions that data science can answer
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
