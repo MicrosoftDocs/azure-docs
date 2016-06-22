@@ -19,7 +19,7 @@
 
 # Data Science for Beginners video 1: The 5 questions that data science can answer
 
-Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series if helpful you're interested in doing data science--or work with people who do data science--and you want to start with the most basic concepts.
+Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series if helpful you're interested in doing data science - or work with people who do data science - and you want to start with the most basic concepts.
 
 ## Transcript: The 5 questions that data science can answer
 
@@ -99,7 +99,7 @@ They help answer any question that can asks for a number.
 
 Now the last two questions are a bit more advanced.
 
-Sometimes you want to understand the structure of a data set--How is this organized? For this question, you don’t have examples that you already know outcomes for.
+Sometimes you want to understand the structure of a data set - How is this organized? For this question, you don’t have examples that you already know outcomes for.
 
 There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering there is no one right answer.
 
@@ -110,7 +110,7 @@ Common examples of clustering questions are:
   *	Which viewers like the same types of movies?
   *	Which printer models fail the same way?
 
-By understanding how data is organized, you can better understand--and predict--behaviors and events.  
+By understanding how data is organized, you can better understand - and predict - behaviors and events.  
 
 ## Question 5: What should I do now? uses reinforcement learning algorithms
 
@@ -122,7 +122,7 @@ Typically, reinforcement learning is a good fit for automated systems that have 
 
 ![Reinforcement Learning algorithms: What should I do next?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-reinforcement-learning-algorithms.png)
 
-Questions it answers are always about what action should be taken--usually by a machine or a robot. Examples are:
+Questions it answers are always about what action should be taken - usually by a machine or a robot. Examples are:
 
   *	If I'm a temperature control system for a house: Adjust the temperature or leave it where it is?  
   *	If I'm a self-driving car: At a yellow light, brake or accelerate?  
@@ -132,11 +132,9 @@ Reinforcement learning algorithms gather data as they go, learning from trial an
 So that's it - The 5 questions data science can answer.
 
 
-## Next steps
+## Upcoming Data Science for Beginners videos
 
 Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
-
-Look for weekly releases:
 
   * Next week: Video 2: Is your data ready for data science?
   * Later:  
@@ -144,6 +142,6 @@ Look for weekly releases:
       * Video 4: Predict an answer with a simple model      
       * Video 5: Copy others' work to do data science
 
-Do an easy data science experiment:
+## Do an easy data science experiment
 
   * [Try your first data science experiment](machine-learning-create-experiment.md) with Azure Machine Learning.
