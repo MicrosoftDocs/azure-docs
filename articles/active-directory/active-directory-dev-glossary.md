@@ -17,14 +17,12 @@
    ms.author="bryanla"/>
 
 # Azure Active Directory developer glossary
-
-This article contains definitions for a list of core Azure Active Directory (AD) development concepts. These are helpful during when learning about Azure AD [application development][AAD-Dev-Guide], including [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
+This article contains definitions for a list of core Azure Active Directory (AD) development concepts, which are helpful when learning about Azure AD [application development][AAD-Dev-Guide] topics, including [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
 
 ## Glossary
 
 ### access token  
-A type of security token issued by an [authorization server][] and used by a [client application](#client-application) in order to access a protected resource. Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#oauth2-authorization-framework-roles). The token contains all applicable claims about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
-
+A type of security token issued by an [authorization server][#authorization-server] and used by a [client application](#client-application) in order to access a protected resource. Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#oauth2-authorization-framework-roles). The token contains all applicable claims about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
 
 [TODO] Discuss App+User and App-Only
 
@@ -77,7 +75,7 @@ For example, the "scope" (scp) claim provides the permission(s) granted to a del
 See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 
 ### client application  
-See [OAuth2 Authorization Framework roles](#oauth2-authorization-framework-roles)
+As defined by the [OAuth2 Authorization Framework roles](#oauth2-authorization-framework-roles), a client application requests authorization from a resource owner to participate in an OAuth2 authorization grant flow, to access APIs/data on their behalf. Examples include both a Web client application accessed from a browser, and a Native client application installed on a device, both of which could access Azure AD Graph API protecting the resource owner's tenant, to access directory data on behalf of the signed in user.
 
 ### consent
 The process of a resource owner granting authorization to the client application, allowing the application to access protected resources, on behalf of the resource owner. Note that both an administrator and user can consent to allow access to their organization/individual data respectively. During multi-tenant consent, the application's **service principal** is also recorded in the tenant of the consenting user.
@@ -93,7 +91,7 @@ As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def]:
 
 - resource owner: an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
 - resource server: the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens. Also known as a protected resource server.
-- client: An application making protected resource requests on behalf of the resource owner and with its authorization.  The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices). The SaaS application that requests authorization from a resource owner to participate in an OAuth2 authorization grant flow, to access APIs/data on their behalf. We will cover examples of both a Web client application accessed from a browser, and a Native client application installed on a device, which need to access the customer tenant's Graph API to access directory data on behalf of the signed in user.
+- client: An application making protected resource requests on behalf of the resource owner and with its authorization.  The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices). 
 - authorization server: the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization. Note, as in the case of Azure AD, some authorization servers also function as a resource server.
 
 ### passive client  
