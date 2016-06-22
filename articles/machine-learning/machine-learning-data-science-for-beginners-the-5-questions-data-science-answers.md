@@ -61,7 +61,7 @@ For example:
   *	Will this tire fail in the next 1,000 miles: Yes or no?
   *	Which brings in more customers: a $5 coupon or a 25% discount?
 
-This question can also be rephrased to include more than two options: Is this A or B or C or D, etc.?  This is called multiclass classification and it's useful when you have several—or several thousand— possible answers. Multiclass classification chooses the most likely one.
+This question can also be rephrased to include more than two options: Is this A or B or C or D, etc.?  This is called multiclass classification and it's useful when you have several—or several thousand—possible answers. Multiclass classification chooses the most likely one.
 
 ## Question 2: Is this weird? uses anomaly detection algorithms
 
