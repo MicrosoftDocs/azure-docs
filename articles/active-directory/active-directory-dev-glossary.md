@@ -109,12 +109,12 @@ A resource server exposes APIs and enforces the scopes that allow client applica
 Just like a client application, a Web API (aka: resource) application's identity configuration is established via registration in an Azure AD tenant, providing both the application and service principal object. (note: there are special considerations for Microsoft-provided APIs such as the Azure AD Graph API, as it's service principal object is made available in all tenants by default)
 
 ### roles
-A [resource server](#resource-server) declares and implements roles to enable “role-based-access” control. Both user and application roles can be defined in the [Azure classic portal][AZURE-classic-portal] via the resource application's [application manifest](#application-manifest).
+A [resource server](#resource-server) declares and implements roles to enable “role-based-access” control. Both user and application roles can be defined by the resource server, in the [Azure classic portal][AZURE-classic-portal] via the resource application's [application manifest](#application-manifest). The resource's [application object](#application-object) stores the declared roles in it's [appRoles property][AAD-Graph-App-Entity].
 
 A [client application](#client-application) can express [permission](#permissions) to access the roles via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Application Permissions". 
 
 ### scopes
-A [resource server](#resource-server) declares and implement scopes to enable “scope-of-access” control. 
+A [resource server](#resource-server) declares and implement scopes to enable “scope-of-access” control. Scopes provide a way for a resource to give granular access to [client applications](#client-application) that use delegated access. The resource's [application object](#application-object) stores the declared roles in it's [oauth2Permissions property][AAD-Graph-App-Entity].
 
 A [client application](#client-application) can express [permission](#permissions) to access the scopes via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Delegated Permissions".
 
