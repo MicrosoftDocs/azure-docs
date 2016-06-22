@@ -20,10 +20,10 @@
 
 > [AZURE.SELECTOR]
 - [Overview][]
+- [Data Types][]
 - [Distribute][]
 - [Index][]
 - [Partition][]
-- [Data Types][]
 - [Statistics][]
 - [Temporary][]
 
@@ -364,16 +364,16 @@ With this approach the code in source control remains static and the partitionin
 
 ## Next steps
 
-To learn more about table design, see the [Overview][], [Distribute][], [Index][], [Data Types][], [Statistics][] and [Temporary][] table articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [workload management]: sql-data-warehouse-develop-concurrency.md
