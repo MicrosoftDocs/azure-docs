@@ -45,9 +45,14 @@ It is important to understand the [different VM sizes](virtual-machines-linux-si
 
 Storage plays a key role in VM performance. You can use Standard storage that use regular spinning disks, or Premium storage for high I/O workloads and peak performance that use SSD disks. As with the VM size, there are cost considerations when it comes to selecting the storage medium. You can read the [storage infrastructure guidelines article](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md) to understand how to design appropriate storage for optimum performance of your VMs.
 
+
+## Resource groups
 Components such as VMs are logically grouped together for ease of management and maintenance using [Azure Resource Groups](../resource-group-overview.md). By using resource groups, you can create, manage, and monitor all the resources that make up a given application. You can also implement [role-based access controls](../active-directory/role-based-access-control-what-is.md) to grant access to others within your team to only the resources they require. Take time to plan out your resource groups and role assignments. There are different approaches to actually design and implement resource groups, so be sure to read the [resource groups guidelines article](virtual-machines-linux-infrastructure-resource-groups-guidelines.md) to understand how best to build out your VMs.
 
+
+## Templates 
 You can build templates, defined by declarative JSON files, to create your VMs. Templates will typically also build out the required storage, networking, network interfaces, IP addressing, etc. along with the VMs themselves. You can use templates to create consistent, reproducible environments for development and testing purposes to easily replicate production environments and vice versa. You can read more about [building and using templates](../resource-group-overview.md#template-deployment) to understand how you can use them for creating and deploying your VMs.
+
 
 ## Next steps
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 

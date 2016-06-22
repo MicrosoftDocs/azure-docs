@@ -6,6 +6,6 @@ The full series of guidelines helps you understand all the different design cons
 - [Azure Networking Guidelines](../articles/virtual-machines/virtual-machines-linux-infrastructure-networking-guidelines.md)
 - [Azure Storage Guidelines](../articles/virtual-machines/virtual-machines-linux-infrastructure-storage-solutions-guidelines.md)
 - [Azure Availability Set Guidelines](../articles/virtual-machines/virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
-- [Azure Virtual Machine Guidelines](../articles/virtual-machines/virtual-machines-linux-infrastructure-virtual-machines-guidelines.md)
+- [Azure Virtual Machine Guidelines](../articles/virtual-machines/virtual-machines-linux-infrastructure-virtual-machine-guidelines.md)
 
 - [Azure Example Infrastructure Walkthrough](../articles/virtual-machines/virtual-machines-linux-infrastructure-example.md)
