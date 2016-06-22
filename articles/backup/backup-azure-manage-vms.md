@@ -218,7 +218,7 @@ To delete backup data on a virtual machine with the *Backup disabled*:
     A notification message lets you know the backup data has been deleted.
 
 ## Auditing Operations
-You can review the operation and event logs to see the management operations performed on the Recovery Services vault. Event logs enable great post-mortem and audit support for the backup operations. The following operations are available logged in Audit logs:
+You can review the operation and event logs to see the management operations performed on the Recovery Services vault. Event logs enable great post-mortem and audit support for the backup operations. The following operations are logged in Audit logs:
 
 - Register
 - Unregister
@@ -232,23 +232,38 @@ You can review the operation and event logs to see the management operations per
 - Update policy
 - Cancel job
 
-There are multiple ways to filter and view events. In the vault dashboard the **Backup Alerts** tile shows the counts for events with severity equal to Critical or Warning. Use the **Audit Logs** setting to view any event for any operations in the subscription. You can also use **Audit Logs** setting to customize the view of events for Recovery Services vaults or vault items however you like. The following section, [Alert notifications](backup-azure-manage-vms.md#alert-notifications), provides information on using alerts with Recovery Service vaults. For additional information on events, operations, and audit logs in Azure, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md). 
+There are multiple ways to filter and view events. In the vault dashboard the **Backup Alerts** tile shows the counts for events with severity equal to Critical or Warning. Further into the vault dashboard, you can open the **Audit Logs** setting to view any event for any operations in the subscription. You can also use **Audit Logs** setting to customize the view of events for Recovery Services vaults or vault items however you like. The [Alert notifications](backup-azure-manage-vms.md#alert-notifications) section provides information on using alerts with Recovery Service vaults. For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
 
 ### Alert notifications
 
-The **Backup Alerts** tile provides shortcuts to filtered views of Critical or Warning-level alerts.
->[AZURE.TIP] You can configure the service to send email notifications when a particular alert occurs, or each hour. For details see Configure event notifications.
-To open one of these filtered views:
+Alerts are responses that a threshold has been met or surpassed. The **Backup Alerts** tile in the vault dashboard displays the number of events with a Severity level of Critical or Warning. The complete view of alert information is on the **Backup Alert** blade in Settings. Click the **Backup Alerts** tile to access the **Backup Alerts** blade.
 
-1. On the **Backup Alerts** tile on the vault dashboard, click **Critical** or **Warning** to view the operation logs filtered to show just those event levels.
+
+>[AZURE.TIP] You can configure the service to send email notifications when a particular alert occurs, or each hour. For details see Configure event notifications.
+
+To view the **Backup Alerts** blade:
+
+- On the **Backup Alerts** tile on the vault dashboard, click **Critical** or **Warning** to view the operational events for that severity level.
 
     ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-tile.png)
+
+    Alternatively, from the vault dashboard you can click **All Settings**. On the Settings blade, click **Alerts and Events**, and on the Alerts and Events blade, click **Backup Alerts**.
 
     The **Backup Alerts** blade opens and displays the filtered alerts.
 
     ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-critical.png)
 
-2. To view detailed information about a particular alert, from the list click the alert to open its **Details** blade.
+To set up email notifications for alerts
+
+1. On the Backup Alerts menu, click **Configure notifications**
+
+    The Configure notifications blade opens.
+
+2. On the Configure notifications blade, for Email notifications, click **On**.
+
+3. In the **Recipients** dialog
+
+3. To view detailed information about a particular alert, from the list click the alert to open its **Details** blade.
 
     ![Event Detail](./media/backup-azure-manage-vms/audit-logs-event-detail.png)
 
@@ -256,37 +271,51 @@ To open one of these filtered views:
 
 ### Customize your view of events
 
+The **Audit logs** setting comes with a pre-defined set of filters and columns showing operational event information. You can customize the view so that when the **Events** blade open, it shows you the information you want.
+
 1. In the [vault dashboard](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
 
     ![Audit Logs](./media/backup-azure-manage-vms/audit-logs-1606-1.png)
 
-    The Events blade opens to the operational events filtered just for the current vault.
+    The **Events** blade opens to the operational events filtered just for the current vault.
 
     ![Audit Logs Filter](./media/backup-azure-manage-vms/audit-logs-filter.png)
 
-    The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter** settings. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Show chart** to toggle the chart off. The default view of Events shows Operation, Level, Status, Resource, and Time, information. For information about exposing additional Event attributes, see the section [expanding Event information](backup-azure-manage-vms.md#view-additional-event-attributes).
+    The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter**. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Hide chart** to toggle the chart off. The default view of Events shows Operation, Level, Status, Resource, and Time information. For information about exposing additional Event attributes, see the section [expanding Event information](backup-azure-manage-vms.md#view-additional-event-attributes).
 
-2. For additional information on a particular operation, from the list of Operations, click that operation to open its blade. The blade contains detailed information about the operation, and a list of the Events that occurred in the Time span.
+2. For additional information on an operational event, in the **Operation** column, click an operational event to open its blade. The blade contains detailed information about the events. Events are grouped by their correlation ID and a list of the events that occurred in the Time span.
 
     ![Operation Details](./media/backup-azure-manage-vms/audit-logs-details-window.png)
 
-3. To view detailed information about a particular event, from the list of events, click the operation to open its Detail blade.
+3. To view detailed information about a particular event, from the list of events, click the event to open its **Details** blade.
 
     ![Event Detail](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
 
-    The Event-level information is as detailed as the information gets. The remainder of this procedure explains how to edit or alter the available information. If you like seeing this much information about each event, and would like to see this much detail to the **Events** blade, see the section [expanding Event information](backup-azure-manage-vms.md#view-additional-event-attributes).
+    The Event-level information is as detailed as the information gets. If you prefer seeing this much information about each event, and would like to add this much detail to the **Events** blade, see the section [expanding Event information](backup-azure-manage-vms.md#view-additional-event-attributes).
 
-4. To edit the list of available filters, on the **Events** menu, click **Filter** to open that blade.
+
+### Customize the event filter
+Use the **Filter** to adjust or choose the information that appears in a particular blade. To filter the event information:
+
+1. In the [vault dashboard](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
+
+    ![Audit Logs](./media/backup-azure-manage-vms/audit-logs-1606-1.png)
+
+    The **Events** blade opens to the operational events filtered just for the current vault.
+
+    ![Audit Logs Filter](./media/backup-azure-manage-vms/audit-logs-filter.png)
+
+2. On the **Events** menu, click **Filter** to open that blade.
 
     ![open filter blade](./media/backup-azure-manage-vms/audit-logs-filter-button.png)
 
-5. On the **Filter** blade, adjust the **Level**, **Time span**, and **Caller** filters. The other filters are not available since they were set to provide the current information for the Recovery Services vault.
+3. On the **Filter** blade, adjust the **Level**, **Time span**, and **Caller** filters. The other filters are not available since they were set to provide the current information for the Recovery Services vault.
 
     ![Audit Logs-query details](./media/backup-azure-manage-vms/filter-blade.png)
 
     You can specify the **Level** of event: Critical, Error, Warning, or Informational. You can choose any combination of event Levels, but you must have at least one Level selected. Toggle the Level on or off. The **Time span** filter allows you to specify the length of time for capturing events. If you use a custom Time span, you can set the start and end times.
 
-6. Once you are ready to query the operations logs using your filter, click **Update**. The results display in the **Events** blade.
+4. Once you are ready to query the operations logs using your filter, click **Update**. The results display in the **Events** blade.
 
     ![Operation Details](./media/backup-azure-manage-vms/edited-list-of-events.png)
 
