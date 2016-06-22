@@ -16,7 +16,7 @@
    ms.date="06/21/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
-# Overview of Table in SQL Data Warehouse
+# Overview of Tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
