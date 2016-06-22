@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Mobile Engagement SDK integration | Microsoft Azure"
-	description="The latest updates and procedures for the Azure Mobile Engagement SDK"
+	pageTitle="Azure Mobile Engagement Web SDK integration | Microsoft Azure"
+	description="The latest updates and procedures for the Azure Mobile Engagement Web SDK"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -16,7 +16,7 @@
 	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
-#How to integrate Azure Mobile Engagement in a web application
+#Integrate Azure Mobile Engagement in a web application
 
 > [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
@@ -30,14 +30,14 @@ Follow the steps to activate the log reports that are needed to compute all stat
 
 ## Introduction
 
-[Download the Azure Mobile Engagement SDK](http://aka.ms/P7b453).
-The SDK is shipped as a single JavaScript file, azure-engagement.js, which you have to include in each page of your site or web application.
+[Download the Azure Mobile Engagement Web SDK](http://aka.ms/P7b453).
+The Mobile Engagement Web SDK is shipped as a single JavaScript file, azure-engagement.js, which you have to include in each page of your site or web application.
 
-This script **MUST** be loaded **AFTER** a script or code snippet that you must write to configure Mobile Engagement for your application.
+> [AZURE.IMPORTANT] Before you run this script, you must first run a script or code snippet that you write to configure Mobile Engagement for your application.
 
 ## Browser compatibility
 
-The Mobile Engagement SDK uses native JSON encoding and decoding, in addition to cross-domain AJAX requests (relying on the W3C CORS specification). It's compatible with the following browsers:
+The Mobile Engagement Web SDK uses native JSON encoding and decoding, in addition to cross-domain AJAX requests (relying on the W3C CORS specification). It's compatible with the following browsers:
 
 * Microsoft Edge 12+
 * Internet Explorer 10+
@@ -81,9 +81,9 @@ Or this:
 
 ## Alias
 
-After it is loaded, the SDK script creates the **engagement** alias to access the SDK APIs (it can't be used to define the SDK configuration). This alias is used as a reference in this documentation.
+After the Mobile Engagement Web SDK script is loaded, it creates the **engagement** alias to access the SDK APIs. You cannot use this alias to define the SDK configuration. This alias is used as a reference in this documentation.
 
-Note that if the default alias conflicts with another global variable from your page, you can redefine it in the configuration before loading the SDK with the following:
+Note that if the default alias conflicts with another global variable from your page, you can redefine it in the configuration as follows before you load the Mobile Engagement Web SDK:
 
 	window.azureEngagement = {
 	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
@@ -123,7 +123,7 @@ You can configure the 10-second delay in the global engagement object, as follow
 	// or
 	engagement.sessionTimeout = 0; // end the session as soon as endActivity is called
 
-> [AZURE.NOTE] You cannot use `engagement.agent.endActivity` in the `onunload` callback because you cannot make Ajax calls at this stage.
+> [AZURE.NOTE] You cannot use `engagement.agent.endActivity` in the `onunload` callback because you cannot make AJAX calls at this stage.
 
 ## Advanced reporting
 
@@ -133,7 +133,7 @@ You can access all of the advanced capabilities in Mobile Engagement in the Mobi
 
 ## Customize the URLs used for AJAX calls
 
-You can customize URLs that the SDK uses. For example, to redefine the log URL (the SDK endpoint for logging), you can override the configuration like this:
+You can customize URLs that the Mobile Engagement Web SDK uses. For example, to redefine the log URL (the SDK endpoint for logging), you can override the configuration like this:
 
 	window.azureEngagement = {
 	  ...
