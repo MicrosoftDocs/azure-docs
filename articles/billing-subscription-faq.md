@@ -281,15 +281,15 @@ There are currently no plans to offer Azure or SQL Database through SPLA.
 
 An Azure trial subscription allows you a dollar amount of credit to use on Microsoft services based on your needs for a period of 30 days. To see what services free trial credits cover and do not cover, see the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
-You can sign up for a trial subscription [here](http://www.windowsazure.com/pricing/free-trial/).
+You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/).
 
 ### What resources are available when using a trial account?
 
-You receive $200 of Azure credits with the Free Trial. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/en-us/offers/ms-azr-0044p/) for more details.
+You receive $200 of Azure credits with the Free Trial. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details.
 
 ### What happens if I remove the spending limit on my free trial?
 
 Once you remove the spending limit, you start getting charged for consuming resources beyond the free trial credit. You will not be able to reset the spending limit once it has been removed.
 
 ### Where can I get more details on Free Trial?
-Visit the [Free Trial offer page](https://azure.microsoft.com/en-us/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/en-us/pricing/free-trial-faq/).
+Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
