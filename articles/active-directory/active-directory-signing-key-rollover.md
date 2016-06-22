@@ -253,6 +253,7 @@ If you are using some other library or manually implemented any of the supported
 If they key is being stored somewhere or hardcoded in your application, you can manually retrieve the key and update it accordingly. **It is strongly encouraged that you enhance your application to support automatic rollover** using any of the approaches outline in this article to avoid future disruptions and overhead if Azure AD increases it's rollover cadence or has an emergency out-of-band rollover.
 
 To manually retrieve the latest key from the OpenID discovery document:
+
 1. In your web browser, go to `https://login.microsoftonline.com/your_directory_name/.well-known/openid-configuration`. You will see the contents of the OpenID Connect discovery document. For more information about this document, see the [OpenID Discovery Document specification](http://openid.net/specs/openid-connect-discovery-1_0.html).
 2. Copy the link in value of jwks_uri
 3. Open a new tab in your browser, and go to the URL that you just copied. You will see the contents of the Federation Metadata XML document.
@@ -274,6 +275,7 @@ keys: [
 5. After you’ve copied the value of the **<X509Certificate>** element, open a plain text editor and paste the value. Make sure that you remove any trailing whitespace, and then save the file with a **.cer** extension.
 
 To manually retrieve the latest key from the federation metadata document:
+
 1. In a web browser, go to https://manage.windowsazure.com, sign in to your account, and then click on the Active Directory icon from the left menu.
 2. Click on the directory where your application is registered, and then click on the **View Endpoints** link on the command bar.
 3. From the list of single sign-on and directory endpoints, copy the **Federation Metadata Document** link.
