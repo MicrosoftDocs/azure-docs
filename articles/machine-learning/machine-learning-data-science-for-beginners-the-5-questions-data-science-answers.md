@@ -21,7 +21,7 @@
 
 Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful if you're interested in doing data science - or work with people who do data science - and you want to start with the most basic concepts.
 
-To get the most out of them, it's best to watch in order.
+In these videos, Senior Data Scientist Brandon Rohrer makes data science approachable. To get the most out of the series, watch them in order. [Go to the list of videos](#)
 
 ## Transcript of video 1: The 5 questions that data science can answer
 
@@ -133,18 +133,13 @@ Questions it answers are always about what action should be taken - usually by a
 Reinforcement learning algorithms gather data as they go, learning from trial and error.
 So that's it - The 5 questions data science can answer.
 
+## Other videos in this series
 
-## Upcoming Data Science for Beginners videos
-
-Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
-
-  * Next week:
-      * Video 2: Is your data ready for data science?
-
-  * Later:  
-      * Video 3: Ask a question you can answer with data      
-      * Video 4: Predict an answer with a simple model      
-      * Video 5: Copy others' work to do data science
+*Data Science for Beginners* is a quick introduction to data science in five short videos. Check out the other four videos:
+  * Video 2: [Is your data ready for data science?](). Available June 27.
+  * Video 3: [Ask a question you can answer with data](). Available June 28.
+  * Video 4: [Predict an answer with a simple model](). Available June 29.
+  * Video 5: [Copy other people's work to do data science](). Available June 30.
 
 ## Do an easy data science experiment
 
