@@ -3,7 +3,7 @@
 	description="Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="pingf" 
+	authors="alokkirpal" 
 	manager="paulettm"
 	editor="cgronlun" /> 
 
@@ -13,8 +13,8 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="06/01/2016" 
-	ms.author="pingf"/>
+	ms.date="06/22/2016" 
+	ms.author="alokkirpal"/>
 
 
 # Machine Learning Anomaly Detection Service#
@@ -189,7 +189,7 @@ The API runs all detectors on your time series data and returns anomaly scores a
 |---|---|
 |Time|Timestamps from raw data, or aggregated (and/or) imputed data if aggregation (and/or) missing data imputation is applied|
 |OriginalData|Values from raw data, or aggregated (and/or) imputed data if aggregation (and/or) missing data imputation is applied|
-|ProcessedData|Either of the following: * Seasonally adjusted time series if significant seasonality has been detected and deseason option selected; * seasonally adjusted and detrended time series if significant seasonality has been detected and deseasontrend option selected; * otherwise, this is the same as OriginalData|
+|ProcessedData|Either of the following: <ul><li>Seasonally adjusted time series if significant seasonality has been detected and deseason option selected;</li><li>seasonally adjusted and detrended time series if significant seasonality has been detected and deseasontrend option selected</li><li>otherwise, this is the same as OriginalData</li>|
 |TSpike|Binary indicator to indicate whether a spike is detected by TSpike Detector|
 |ZSpike|Binary indicator to indicate whether a spike is detected by ZSpike Detector|
 |Pscore|A floating number representing anomaly score on upward level change|
