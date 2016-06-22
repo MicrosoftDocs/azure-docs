@@ -20,9 +20,9 @@
 
 To configure a table for Stretch Database, select **Stretch | Enable** for a table in SQL Server Management Studio to open the **Enable Table for Stretch** wizard. You can also use Transact\-SQL to enable Stretch Database on an existing table, or to create a new table with Stretch Database enabled.
 
--   If you store historical data in a separate table, you can migrate the entire table.
+-   If you store cold data in a separate table, you can migrate the entire table.
 
--   If your table contains both historical and current data, you can specify a filter predicate to select the rows to migrate.
+-   If your table contains both hot and cold data, you can specify a filter predicate to select the rows to migrate.
 
 **Prerequisites**. If you select **Stretch | Enable** for a table, and you have not yet enabled Stretch Database for the database, the wizard first configures the database for Stretch Database. Follow the steps in [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) instead of the steps in this topic.
 
@@ -65,7 +65,7 @@ You can enable Stretch Database for an existing table or create a new table with
 ### Options
 Use the following options when you run CREATE TABLE or ALTER TABLE to enable Stretch Database on a table.
 
--   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify  a predicate to select rows to migrate if the table contains both historical and current data. The predicate must call an inline table\-valued function. For more info, see [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
+-   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify a predicate to select rows to migrate if the table contains both hot and cold data. The predicate must call an inline table\-valued function. For more info, see [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
 
     >   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 

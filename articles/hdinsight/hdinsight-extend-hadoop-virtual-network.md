@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2016"
+   ms.date="06/20/2016"
    ms.author="larryfr"/>
 
 
@@ -67,10 +67,6 @@ For more information on Virtual Network features, benefits, and capabilities, se
 ###Location-based Virtual networks
 
 Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
-
-###Subnets
-
-It is highly recommended that you create a single subnet for each HDInsight cluster.
 
 ###Classic or v2 Virtual Network
 
