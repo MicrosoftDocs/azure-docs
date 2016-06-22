@@ -27,89 +27,57 @@
 - [Statistics][]
 - [Temporary][]
 
-This article will introduce you to data types for SQL Data Warehouse tables.
-
 ## Supported data types
-SQL Data Warehouse supports the common business data types:
+SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.
 
-- **bigint**
-- **binary**
-- **bit**
-- **char**
-- **date**
-- **datetime**
-- **datetime2**
-- **datetimeoffset**
-- **decimal**
-- **float**
-- **int**
-- **money**
-- **nchar**
-- **nvarchar**
-- **real**
-- **smalldatetime**
-- **smallint**
-- **smallmoney**
-- **sysname**
-- **time**
-- **tinyint**
-- **uniqueidentifier**
-- **varbinary**
-- **varchar**
+||||
+|---|---|---|
+[bigint][]|[decimal][]|[smallint][]|
+[binary][]|[float][]|[smallmoney][]|
+[bit][]|[int][]|[sysname][]|
+[char][]|[money][]|[time][]|
+[date][]|[nchar][]|[tinyint][]|
+[datetime][]|[nvarchar][]|[uniqueidentifier][]|
+[datetime2][]|[real][]|[varbinary][]|
+[datetimeoffset][]|[smalldatetime][]|[varchar][]|
 
-You can identify columns in your data warehouse that contain incompatible types using the following query:
+## Performance Considerations
+
+ When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
+
+## Polybase limitation
+
+If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
+
+## Unsupported data types
+
+If you are migrating your database from another SQL platform like Azure SQL Database, as you migrate, you may encouter some data types that are not supported on SQL Data Warehouse.  Below are unsupported data types as well as some alternatives you can use in place of unsupported data types.
+
+|Data Type|Workaround|
+|---|---|
+|[geometry][]|[varbinary][]|
+|[geography][]|[varbinary][]|
+|[hierarchyid][]|[nvarchar][](4000)|
+|[image][ntext,text,image]|[varbinary][]|
+|[text][ntext,text,image]|[varchar][]|
+|[ntext][ntext,text,image]|[nvarchar][]|
+|[sql_variant][]|Split column into several strongly typed columns.|
+|[table][]|Convert to temporary tables.|
+|[timestamp][]|Re-work code to use [datetime2][] and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use [BINARY][](8) or [VARBINARY][BINARY](8) for NOT NULL or NULL row version values.|
+|[xml][]|[varchar][]|
+|[user defined types][]|convert back to their native types where possible|
+|default values|default values support literals and constants only.  Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.|
+
+To identify columns in your current SQL database which will not be supported by Azure SQL Data Warehouse:
 
 ```sql
-SELECT  t.[name]
-,       c.[name]
-,       c.[system_type_id]
-,       c.[user_type_id]
-,       y.[is_user_defined]
-,       y.[name]
+SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
 FROM sys.tables  t
 JOIN sys.columns c on t.[object_id]    = c.[object_id]
 JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
-WHERE y.[name] IN
-                (   'geography'
-                ,   'geometry'
-                ,   'hierarchyid'
-                ,   'image'
-                ,   'ntext'
-                ,   'sql_variant'
-                ,   'text'
-                ,   'timestamp'
-                ,   'xml'
-                )
-AND  y.[is_user_defined] = 1
-;
-
+WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
+ AND  y.[is_user_defined] = 1;
 ```
-
-The query includes any user-defined data types, which are not supported.  Below are some alternatives you can use in place of unsupported data types.
-
-Instead of:
-
-- **geometry**, use a varbinary type
-- **geography**, use a varbinary type
-- **hierarchyid**, CLR type not native
-- **image**, **text**, **ntext** when text based use varchar/nvarchar (smaller the better)
-- **sql_variant**, split column into several strongly typed columns
-- **table**, convert to temporary tables
-- **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use BINARY(8) or VARBINARY(8) for NOT NULL or NULL row version values.
-- **user defined types**, convert back to their native types where possible
-- **xml**, use a varchar(max) or smaller for better performance
-
-For better performance, instead of:
-
-- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
-- **varchar(max)**, use varchar(8000) or smaller for better performance
-
-Partial support:
-
-- Default constraints support literals and constants only. Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.
-
-> [AZURE.NOTE] If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, and load rows with BCP, you will not be be able to us Polybase to load this data quite yet.  Polybase support for wide rows will be added soon. Also, try to limit the size of your variable length columns for even better throughput for running queries.
-
 
 ## Next steps
 
@@ -129,3 +97,36 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 <!--MSDN references-->
 
 <!--Other Web references-->
+[bigint]: https://msdn.microsoft.com/en-us/library/ms187745.aspx
+[binary]: https://msdn.microsoft.com/en-us/library/ms188362.aspx
+[bit]: https://msdn.microsoft.com/en-us/library/ms177603.aspx
+[char]: https://msdn.microsoft.com/en-us/library/ms176089.aspx
+[date]: https://msdn.microsoft.com/en-us/library/bb630352.aspx
+[datetime]: https://msdn.microsoft.com/en-us/library/ms187819.aspx
+[datetime2]: https://msdn.microsoft.com/en-us/library/bb677335.aspx
+[datetimeoffset]: https://msdn.microsoft.com/en-us/library/bb630289.aspx
+[decimal]: https://msdn.microsoft.com/en-us/library/ms187746.aspx
+[float]: https://msdn.microsoft.com/en-us/library/ms173773.aspx
+[geometry]: https://msdn.microsoft.com/en-us/library/cc280487.aspx
+[geography]: https://msdn.microsoft.com/en-us/library/cc280766.aspx
+[hierarchyid]: https://msdn.microsoft.com/en-us/library/bb677290.aspx
+[int]: https://msdn.microsoft.com/en-us/library/ms187745.aspx
+[money]: https://msdn.microsoft.com/en-us/library/ms179882.aspx
+[nchar]: https://msdn.microsoft.com/en-us/library/ms186939.aspx
+[nvarchar]: https://msdn.microsoft.com/en-us/library/ms186939.aspx
+[ntext,text,image]: https://msdn.microsoft.com/en-us/library/ms187993.aspx
+[real]: https://msdn.microsoft.com/en-us/library/ms173773.aspx
+[smalldatetime]: https://msdn.microsoft.com/en-us/library/ms182418.aspx
+[smallint]: https://msdn.microsoft.com/en-us/library/ms187745.aspx
+[smallmoney]: https://msdn.microsoft.com/en-us/library/ms179882.aspx
+[sql_variant]: https://msdn.microsoft.com/en-us/library/ms173829.aspx
+[sysname]: https://msdn.microsoft.com/en-us/library/ms186939.aspx
+[table]: https://msdn.microsoft.com/en-us/library/ms175010.aspx
+[time]: https://msdn.microsoft.com/en-us/library/bb677243.aspx
+[timestamp]: https://msdn.microsoft.com/en-us/library/ms182776.aspx
+[tinyint]: https://msdn.microsoft.com/en-us/library/ms187745.aspx
+[uniqueidentifier]: https://msdn.microsoft.com/en-us/library/ms187942.aspx
+[varbinary]: https://msdn.microsoft.com/en-us/library/ms188362.aspx
+[varchar]: https://msdn.microsoft.com/en-us/library/ms186939.aspx
+[xml]: https://msdn.microsoft.com/en-us/library/ms187339.aspx
+[user defined types]: https://msdn.microsoft.com/en-us/library/ms131694.aspx
