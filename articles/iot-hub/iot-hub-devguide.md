@@ -492,7 +492,7 @@ IoT Hub has two REST endpoints to support file upload, one to get the SAS URI fo
 
 #### Notify IoT Hub of a completed file upload
 
-The device is responsible for uploading the file to storage using the Azure Storage SDKs. Once the upload is completed, the device sends a POST to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}` using the correlation ID received from the initial GET.
+The device is responsible for uploading the file to storage using the Azure Storage SDKs. Once the upload is completed, the device sends a POST to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications/{correlationId}` using the correlation ID received from the initial GET.
 
 #### File upload notifications
 

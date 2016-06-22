@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/29/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Disaster recovery strategies for applications using SQL Database Elastic Pool 
 
-Over the years we have learned that cloud services are not foolproof and catastrophic incidents can and will happen. SQL Database provides a number of capabilities to provide for the business continuity of your application when these incidents occur. Elastic pools and standalone databases support the same kind of disaster recovery capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
+Over the years we have learned that cloud services are not foolproof and catastrophic incidents can and will happen. SQL Database provides a number of capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](sql-database-elastic-pool.md) and standalone databases support the same kind of disaster recovery capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
 
 For the purposes of this article we will use the canonical SaaS ISV application pattern:
 
@@ -161,6 +161,9 @@ The main **trade-offs** are:
 
 This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The strategy you choose should be based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc.. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application will likely include other Azure components. So you should review their business continuity guidance and orchestrate the recovery of the database tier with them. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](./sql-database-designing-cloud-solutions-for-disaster-recovery.md) .  
 
+
+## Next steps
+
 The individual steps required for each scenario involve operations against a large number of databases. Consider using SQL Database Elastic Jobs to manage these operations at scale. For more information refer to [Managing scaled-out cloud databases](./sql-database-elastic-jobs-overview.md). The following pages will help you learn about the specific operations required to implement each of the scenarios in this article:
 
 - [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
@@ -169,7 +172,14 @@ The individual steps required for each scenario involve operations against a lar
 - [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 
+## Additional resources
 
-
-
+- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
+- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
+- [Geo-Restore](sql-database-geo-restore.md)
+- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
+- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
+- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
+- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
 
