@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Azure Virtual Machines Guidelines"
-	description="Learn about the key design and implementation guidelines for deploying virtual machines into Azure infrastructure services."
+	pageTitle="Linux Virtual Machines Guidelines | Microsoft Azure"
+	description="Learn about the key design and implementation guidelines for deploying Linux virtual machines into Azure"
 	documentationCenter=""
 	services="virtual-machines-linux"
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -14,43 +14,40 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="iainfouh"/>
+	ms.date="06/22/2016"
+	ms.author="iainfou"/>
 
 # Azure Virtual Machines Guidelines
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] This article focuses on understanding the required planning steps for creating and managing virtual machines (VMs) within your Azure environment.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 
-## Virtual machines
+This article focuses on understanding the required planning steps for creating and managing virtual machines (VMs) within your Azure environment.
 
-One of the main components within your Azure environment will likely be VMs. VMs will run your applications, databases, authentication services, etc.
+## Implementation guidelines for VMs
+Decisions to be made:
 
-It is important to understand the [different VM sizes](virtual-machines-linux-sizes.md) in order to correctly size your environment from a performance and cost perspective. If your VMs do not have an adequate amount of CPU cores or memory, performance of your application will suffer regardless of how well it is designed and developed. You should also read about [storage infrastructure guidelines](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md) to understand how to design appropriate storage for optimum performance of your VMs.
-
-Resources such as VMs are logically grouped together for ease of management and update cycles using [resource groups](../resource-group-overview.md). By using resource groups, you can create, manage, and monitor all the resources that make up a given application. You can also implement [role-based access controls](../active-directory/role-based-access-control-what-is.md) to grant access to others within your team to only the resources they require. Take time to plan out your resource groups and role assignments.
-
-## Implementation guidelines recap for virtual machines
-
-Decision:
-
-- How many VMs do you require for your various application tiers and components of your infrastructure and will you manage them?
+- How many VMs do you require for your various application tiers and components of your infrastructure?
+- What CPU and memory resources does each VM need, and what are the storage requirements?
 
 Tasks:
 
-- Define your VM naming convention.
+- Define the workloads for your application and the resources the VM will require.
+- Align the resource demands for each VM with the appropriate VM size and storage type.
 - Define your resource groups for the different tiers and components of your infrastructure.
-- Create your VMs using the Azure portal, the Azure CLI, or with Resource Manager templates.
+- Define your VM naming convention.
+- Create your VMs using the Azure CLI, web portal, or with Resource Manager templates.
+
+## Virtual machines
+
+One of the main components within your Azure environment will likely be VMs. This is where you will run your applications, databases, authentication services, etc.
+
+It is important to understand the [different VM sizes](virtual-machines-linux-sizes.md) in order to correctly size your environment from a performance and cost perspective. If your VMs do not have an adequate amount of CPU cores or memory, performance of your application will suffer regardless of how well it is designed and developed. Review the suggested workloads for each VM series as a starting point as you decide which size VM to use for each component in your infrastructure. You can [change the size of a VM](virtual-machines-linux-change-vm-size.md) after deployment, so one approach would be to deploy on the small size and scale up as needed.
+
+Storage plays a key role in VM performance. You can use Standard storage that use regular spinning disks, or Premium storage for high I/O workloads and peak performance that use SSD disks. As with the VM size, there are cost considerations when it comes to selecting the storage medium. You can read the [storage infrastructure guidelines article](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md) to understand how to design appropriate storage for optimum performance of your VMs.
+
+Components such as VMs are logically grouped together for ease of management and maintenance using [Azure Resource Groups](../resource-group-overview.md). By using resource groups, you can create, manage, and monitor all the resources that make up a given application. You can also implement [role-based access controls](../active-directory/role-based-access-control-what-is.md) to grant access to others within your team to only the resources they require. Take time to plan out your resource groups and role assignments. There are different approaches to actually design and implement resource groups, so be sure to read the [resource groups guidelines article](virtual-machines-linux-infrastructure-resource-groups-guidelines.md) to understand how best to build out your VMs.
+
+You can build templates, defined by declarative JSON files, to create your VMs. Templates will typically also build out the required storage, networking, network interfaces, IP addressing, etc. along with the VMs themselves. You can use templates to create consistent, reproducible environments for development and testing purposes to easily replicate production environments and vice versa. You can read more about [building and using templates](../resource-group-overview.md#template-deployment) to understand how you can use them for creating and deploying your VMs.
 
 ## Next steps
-
-Now that you have read about virtual machines you can read up on the guidelines for other Azure services.
-
-* [Azure Availability Set Guidelines](virtual-machines-linux-infrastructure-availability-sets-guidelines.md)
-* [Azure Resource Groups Infrastructure Guidelines](virtual-machines-linux-infrastructure-resource-groups-guidelines.md)
-* [Azure Subscription and Accounts Guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
-* [Azure Infrastructure Naming Guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md)
-* [Azure Networking Infrastructure Guidelines](virtual-machines-linux-infrastructure-networking-guidelines.md)
-* [Azure Storage Solutions Infrastructure Guidelines](virtual-machines-linux-infrastructure-storage-solutions-guidelines.md)
-* [Azure Example Infrastructure Walkthrough](virtual-machines-linux-infrastructure-example.md)
-
-Once you have reviewed the guidelines documents you can move over to the [Azure Concepts section](virtual-machines-linux-azure-overview.md) to start building your new infrastructure on Azure.
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
