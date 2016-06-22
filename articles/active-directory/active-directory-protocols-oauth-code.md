@@ -125,7 +125,8 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code
 &client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA
-&redirect_uri=https%3A%2F%2Flocalhost%2Fmyapp%2F&resource=https%3A%2F%2Fservice.contoso.com%2F
+&redirect_uri=https%3A%2F%2Flocalhost%2Fmyapp%2F
+&resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=p@ssw0rd
 
 //NOTE: client_secret only required for web apps
