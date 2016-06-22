@@ -27,7 +27,7 @@
 - [Statistics][]
 - [Temporary][]
 
-## Introduction to table design
+## Table design
 
 Getting started with creating tables in SQL Data Warehouse is simple.  The basic syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
 
@@ -41,7 +41,7 @@ A new fundamental attribute introduced by distributed systems like SQL Data Ware
 
 As you become more advanced in using SQL Data Warehouse and want to optimize performance, you'll want to learn more about Table Design.  To learn more, see the articles on [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index] and  [Partitioning a Table][Partition].
 
-## Statistics
+## Table statistics
 
 Statistics are a extremely important to getting the best performance out of your SQL Data Warehouse.  Since SQL Data Warehouse does not yet automatically create and update statistics for you, like you may have come to expect in Azure SQL Database, reading our article on [Statistics][] might be one of the most important articles you read to ensure that you get the best performance from your queries.
 
@@ -53,7 +53,7 @@ Temporary tables are tables which only exist for the duration of your logon and 
 
 External tables, also known as Polybase tables, are tables which can be queried from SQL Data Warehouse, but point to data external from SQL Data Warehouse.  For example, you can create an external table which points to files on Azure Blob Storage.  For more details on how to create and query an external table, see [Load data with Polybase][].  
 
-## Unsupported features
+## Unsupported table features
 
 While SQL Data Warehouse contains many of the same table features offered by other databases, there are some features which are not yet supported.  Below is a list of some of the table features which are not yet supported.
 
@@ -61,10 +61,10 @@ While SQL Data Warehouse contains many of the same table features offered by oth
 - [Table Constraints][] including primary key, foreign keys, check constraints, and unique constraints
 - [Unique Indexes][]
 - [Computed Columns][]
-- [Sequence][]
-- [Triggers][]
 - [Sparse Columns][]
 - [User-Defined Types][]
+- [Sequence][]
+- [Triggers][]
 - [Indexed Views][]
 - [Synonyms][]
 
@@ -92,10 +92,10 @@ To learn more, see the articles on [Table Data Types][Data Types], [Distributing
 [Assigning Surrogate Keys]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 [Table Constraints]: https://msdn.microsoft.com/en-us/library/ms188066.aspx
 [Computed Columns]: https://msdn.microsoft.com/en-us/library/ms186241.aspx
-[Sequence]: https://msdn.microsoft.com/en-us/library/ff878091.aspx
-[Triggers]: https://msdn.microsoft.com/en-us/library/ms189799.aspx
 [Sparse Columns]: https://msdn.microsoft.com/en-us/library/cc280604.aspx
 [User-Defined Types]: https://msdn.microsoft.com/en-us/library/ms131694.aspx
+[Sequence]: https://msdn.microsoft.com/en-us/library/ff878091.aspx
+[Triggers]: https://msdn.microsoft.com/en-us/library/ms189799.aspx
 [Indexed Views]: https://msdn.microsoft.com/en-us/library/ms191432.aspx
 [Synonyms]: https://msdn.microsoft.com/en-us/library/ms177544.aspx
 [Unique Indexes]: https://msdn.microsoft.com/en-us/library/ms188783.aspx
