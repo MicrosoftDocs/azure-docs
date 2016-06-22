@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="IP addresses used by Application Insights" 
 	description="List of static addresses" 
-    documentationCenter=""
+	services="application-insights"
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="douge"/>
 
