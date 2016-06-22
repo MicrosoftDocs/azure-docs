@@ -254,17 +254,17 @@ For more details about re-creating partitions using `CTAS`, see [Partition][] ar
 
 ## Next steps
 
-To learn more about table design, see the [Overview][], [Distribute][], , [Partition][], [Data Types][], [Statistics][] and [Temporary][] table articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Distribute][] ./sql-data-warehouse-tables-distribute.md
-[Index][] ./sql-data-warehouse-tables-index.md
-[Partition][] ./sql-data-warehouse-tables-partition.md
-[Data Types][] ./sql-data-warehouse-tables-data-types.md
-[Statistics][] ./sql-data-warehouse-tables-statistics.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
