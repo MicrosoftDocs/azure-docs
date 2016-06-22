@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="06/22/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -40,6 +40,8 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 	-	[Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 -	[Monitoring and troubleshooting](#monitoring-and-troubleshooting)
 	-	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+	-	[My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
+	-	[Why is diagnostics enabled for some new caches but not others?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
 	-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 	-	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
 -	[Prior cache offerings](#prior-cache-offerings)
@@ -153,7 +155,7 @@ In most cases the default values of the client are sufficient. You can fine tune
 
 ### What Redis cache clients can I use?
 
-One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](http://redis.io/clients). 
+One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](http://redis.io/clients). For tutorials that cover several different languages and clients, see [How to use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and click the desired language from the language switcher at the top of the article.
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -303,7 +305,11 @@ Enabling server GC can optimize the client and provide better performance and th
 
 ## Monitoring and troubleshooting
 
+The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md).
+
 -	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+-	[My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
+-	[Why is diagnostics enabled for some new caches but not others?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
 -	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 -	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -320,6 +326,15 @@ The **Support + troubleshooting** section of the Redis Cache **Settings** blade 
 -	**New support request** provides options to open a support request for your cache.
 
 These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see [Support & troubleshooting settings](cache-configure.md#support-amp-troubleshooting-settings).
+
+### My cache diagnostics storage account settings changed, what happened?
+
+Caches in the same region and subscription share the same diagnostics storage settings, and if the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region. If the diagnostics settings for your cache have changed, check to see if the diagnostic settings for another cache in the same subscription and region have changed. One way to check is to view the audit logs for your cache for a `Write DiagnosticSettings` event. For more information on working with audit logs, see [View events and audit logs](../azure-portal/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+
+### Why is diagnostics enabled for some new caches but not others?
+
+Caches in the same region and subscription share the same diagnostics storage settings. If you create a new cache in the same region and subscription as another cache that has diagnostics enabled, diagnostics is enabled on the new cache using the same settings.
+
 
 <a name="cache-timeouts"></a>
 ### Why am I seeing timeouts?
