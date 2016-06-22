@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="06/22/2016"
 	ms.author="jimpark; markgal;"/>
 
 # Manage and monitor Azure virtual machine backups
@@ -219,7 +219,7 @@ To delete backup data on a virtual machine with the *Backup disabled*:
 
     A notification message lets you know the backup data has been deleted.
 
-## Auditing Operations
+## Audit Backup Operations
 You can review the operation and event logs to see the management operations performed on the Recovery Services vault. Event logs enable great post-mortem and audit support for the backup operations. The following operations are logged in Audit logs:
 
 - Register
@@ -236,28 +236,24 @@ You can review the operation and event logs to see the management operations per
 
 There are multiple ways to filter and view events. In the vault dashboard the **Backup Alerts** tile shows the counts for events with severity equal to Critical or Warning. Further into the vault dashboard, you can open the **Audit Logs** setting to view any event for any operations in the subscription. You can also use **Audit Logs** setting to customize the view of events for Recovery Services vaults or vault items however you like. The [Alert notifications](backup-azure-manage-vms.md#alert-notifications) section provides information on using alerts with Recovery Service vaults. For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
 
-### Alert notifications
+## Alert notifications
 
-Alerts are responses that a threshold has been met or surpassed. The **Backup Alerts** tile in the vault dashboard displays the number of events with a Severity level of Critical or Warning. The complete view of alert information is on the **Backup Alerts** blade in Settings.
+Alerts are responses from the service that a event threshold has been met or surpassed. The Backup Alerts tile in the vault dashboard displays the number of events with a Severity level of Critical or Warning. The complete view of alert information is on the Backup Alerts blade in Settings.
 
-![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-critical.png)
-
->[AZURE.TIP] You can configure the service to send email notifications when a particular alert occurs, or each hour.
+>[AZURE.TIP] You can configure the service to send email notifications when alerts occur.
 
 For details on setting up email notifications, see [Configure event notifications](backup-azure-manage-vms.md#configure-event-notifications).
 
-#### Open the Backup Alerts blade
+To view information about the event that threw an alert, you must open the Backup Alerts blade. There are two ways to open the Backup Alerts blade: either from the Backup Alerts tile in the vault dashboard, or from the Alerts and Events blade.
 
-There are two ways to open the **Backup Alerts** blade: either from the **Backup Alerts** tile in the vault dashboard, or from the Alerts and Events blade.
-
-To open the **Backup Alerts** blade from **Backup Alerts** tile:
+To open the Backup Alerts blade from Backup Alerts tile:
 
 - On the **Backup Alerts** tile on the vault dashboard, click **Critical** or **Warning** to view the operational events for that severity level.
 
     ![Backup Alerts tile](./media/backup-azure-manage-vms/backup-alerts-tile.png)
 
 
-To open the **Backup Alerts** blade from the Alerts and Events blade:
+To open the Backup Alerts blade from the Alerts and Events blade:
 
 1. From the vault dashboard click **All Settings**. ![All Settings button](./media/backup-azure-manage-vms/all-settings-button.png)
 
@@ -275,9 +271,9 @@ To open the **Backup Alerts** blade from the Alerts and Events blade:
 
     To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-manage-vms.md#view-additional-event-attributes)
 
-#### Configure event notifications
+## Configure notifications
 
-Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. You can configure the service to send email notifications with the alerts that occurred over the past hour, or when particular types of events occur.
+Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. You can configure the service to send email notifications for the alerts that occurred over the past hour, or when particular types of events occur.
 
 To set up email notifications for alerts
 
@@ -301,7 +297,7 @@ To set up email notifications for alerts
 
 6. Click **Save**.
 
-### Customize your view of events
+## Customize your view of events
 
 The **Audit logs** setting comes with a pre-defined set of filters and columns showing operational event information. You can customize the view so that when the **Events** blade open, it shows you the information you want.
 
@@ -326,7 +322,7 @@ The **Audit logs** setting comes with a pre-defined set of filters and columns s
     The Event-level information is as detailed as the information gets. If you prefer seeing this much information about each event, and would like to add this much detail to the **Events** blade, see the section [expanding Event information](backup-azure-manage-vms.md#view-additional-event-attributes).
 
 
-### Customize the event filter
+## Customize the event filter
 Use the **Filter** to adjust or choose the information that appears in a particular blade. To filter the event information:
 
 1. In the [vault dashboard](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
@@ -385,7 +381,7 @@ Using the **Columns** button, you can enable additional event attributes to appe
 
 
 
-## Customized alerts
+## Use PowerShell to customize alerts
 You can get custom alert notifications for the jobs in the portal. To get these jobs, define PowerShell-based alert rules on the operational logs events. Use *PowerShell version 1.3.0 or later*.
 
 To define a custom notification to alert for backup failures, use a command like this:
