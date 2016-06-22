@@ -24,7 +24,7 @@ The new schema and API version for Logic apps has a number of improvements which
 1. Conditions and loops are first-class actions
 1. Execution ordering more verbose via `runAfter` property (which replaces `dependsOn`)
 
-For information on upgrading your logic apps from the 2015-08-01-preview schema to the 2016-04-01-preview schema, [check out the upgrade section below.](#Upgrading-to-2016-04-01-preview-schema)
+For information on upgrading your logic apps from the 2015-08-01-preview schema to the 2016-04-01-preview schema, [check out the upgrade section below.](#upgrading-to-2016-04-01-preview-schema)
 
 
 ## 1. Scopes
@@ -162,8 +162,8 @@ Actions can now have an additional property (sibling to `runAfter` and `type`) c
 ```
 
 ## Next Steps
-[Use the logic app workflow definition](app-service-logic-author-definitions.md)
-[Create a logic app deployment template](app-service-logic-create-deploy-template.md)
+- [Use the logic app workflow definition](app-service-logic-author-definitions.md)
+- [Create a logic app deployment template](app-service-logic-create-deploy-template.md)
 
 
 <!-- Image references -->
