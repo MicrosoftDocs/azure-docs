@@ -61,7 +61,7 @@ WITH
 
 Notice that there is no partitioning function or scheme in the definition. SQL Data Warehouse uses a simplified definition of partitions which is slightly different from SQL Server. All you have to do is identify the boundary points for the partitioned column.
 
-# Table partitions in SQL Data Warehouse
+## Table partitions in SQL Data Warehouse
 
 To migrate SQL Server partition definitions to SQL Data Warehouse:
 
