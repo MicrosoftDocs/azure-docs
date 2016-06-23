@@ -21,7 +21,7 @@ This article contains definitions for a list of core Azure Active Directory (AD)
 
 ## Glossary
 
-### access token. 
+### access token 
 A type of [security token](#security-token) issued by the [token endpoint](#token-endpoint) on an [authorization server](#authorization-server) and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#resource-owner). The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
 
 When a client uses the ["authorization code" authorization grant](#authorization-grant), an end-user authenticates as the resource owner and the client authenticates to obtain the access token, so the token can sometimes be referred to more specifically as an "App+User" token. Similarly, when a client uses the ["client credentials" authorization grant](#authorization-grant), the client is also functioning as the resource-owner, so the token can sometimes be referred to as an "App-Only" token.
