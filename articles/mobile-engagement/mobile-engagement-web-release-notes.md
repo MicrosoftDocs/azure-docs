@@ -31,6 +31,6 @@
 -   Added APIs to enable and disable the agent.
 -   Made security improvements.
 -   Updated to use native JSON APIs from browsers.
--   Removed API to send and receive messages between devices.
+-   Removed the API to send and receive messages between devices.
 -   Removed callbacks related to the deprecated XMPP connection.
 -   Removed support for the Reach feature.
