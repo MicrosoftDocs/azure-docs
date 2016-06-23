@@ -242,11 +242,12 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-- [Securing the TodoListService Web API with the v2.0 endpoint >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Securing the TodoListService Web API with the v2.0 endpoint](active-directory-v2-devquickstarts-dotnet-api.md)
 
-For additional resources, check out:
-- [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "msal" tag >>](http://stackoverflow.com/questions/tagged/msal)
+For additional resources, check out:  
+
+- [The v2.0 developer guide](active-directory-appmodel-v2-overview.md)  
+- [StackOverflow "msal" tag](http://stackoverflow.com/questions/tagged/msal)
 
 ## Get security updates for our products
 
