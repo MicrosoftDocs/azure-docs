@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="05/05/2016"
-   ms.author="eslesar"/>
+   ms.date="06/06/2016"
+   ms.author="magoedte;eslesar"/>
    
 
 # Getting started with Azure Automation DSC
@@ -31,7 +31,7 @@ environment, including an Azure VM that is managed by Azure Automation DSC.
 
 To complete the examples in this topic, the following are required:
 
-- An Azure Automation account. For instructions on creating an Azure Automation account, see [Configuring Azure Automation](automation-configuring.md).
+- An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
 - An Azure Resource Manager VM (not Classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see 
 [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 

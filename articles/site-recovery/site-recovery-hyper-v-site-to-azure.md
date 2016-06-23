@@ -283,7 +283,7 @@ Now that you have your basic infrastructure set up you can think about capacity 
 Site Recovery provides a capacity planner to help you allocate the right resources for your source environment, the site recovery components, networking and storage. You can run the planner in quick mode for estimations based on an average number of VMs, disks, and storage, or in detailed mode in which you’ll input figures at the workload level. Before you start you’ll need to:
 
 - Gather information about your replication environment, including VMs, disks per VMs, and storage per disk.
-- Estimate the daily change (churn) rate you’ll have for replicated data. You can use the [Capacity tool for Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057) to help you do this.
+- Estimate the daily change (churn) rate you’ll have for replicated data. You can use the [Capacity Planner for Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057) to help you do this.
 
 1.	Click **Download** to download the tool and then run it. [Read the article](site-recovery-capacity-planner.md) that accompanies the tool.
 2.	When you’re done select **Yes** in **Have you run the Capacity Planner**?
@@ -406,7 +406,7 @@ If you want to connect to Azure VMs using RDP after failover, make sure you do t
 
 **On the Azure VM after failover**:
 
-- Add a public endpoint for the RDP protocol (port 3389) and specify credentials for login.
+- Add a public IP Address to the NIC associated with the Azure VM to allow RDP.
 - Ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
 - Try to connect. If you can't connect verify that the VM is running. For more troubleshooting tips read this [article](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 

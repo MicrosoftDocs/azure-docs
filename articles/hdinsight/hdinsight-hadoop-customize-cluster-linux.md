@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="06/03/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -39,7 +39,7 @@ A Script Action is simply a Bash script that you provide a URL to, and parameter
 
 * Can be restricted to __run on only certain node types__, for example head nodes or worker nodes.
 
-    > [AZURE.NOTE] When used with HDInsight Premium, you can specify that the script should be used on the edge node. Support for using a script action with the edge node was added on 06/02/2016, and is currently available through the latest Azure PowerShell and the .NET SDK releases.
+    > [AZURE.NOTE] When used with HDInsight Premium, you can specify that the script should be used on the edge node.
 
 * Can be __persisted__ or __ad hoc__.
 

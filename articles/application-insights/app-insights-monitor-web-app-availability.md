@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/21/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -69,7 +69,7 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 - **Alerts** are, by default, sent to you if there are failures in three locations over five minutes. A failure in one location is likely to be a network problem, and not a problem with your site. But you can change the threshold to be more or less sensitive, and you can also change who the emails should be sent to.
 
-    You can set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised.
+    You can set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
 
 #### Test more URLs
 
@@ -238,6 +238,15 @@ Open an individual test to edit or disable it.
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
 
 You might want to disable web tests while you are performing maintenance on your service.
+
+## Performance tests
+
+You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
+
+From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Visual Studio Team Services account. 
+
+When the test is complete, you'll be shown response times and success rates.
+
 
 ## Automation
 

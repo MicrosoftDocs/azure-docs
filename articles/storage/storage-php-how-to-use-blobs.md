@@ -250,7 +250,7 @@ To delete a blob, pass the container name and blob name to **BlobRestProxy->dele
 
 
 	try	{
-		// Delete container.
+		// Delete blob.
 		$blobRestProxy->deleteBlob("mycontainer", "myblob");
 	}
 	catch(ServiceException $e){

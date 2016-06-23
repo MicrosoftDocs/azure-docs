@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/20/2016"
+ ms.date="06/03/2016"
  ms.author="larryfr"/>
 
 #Connect to Hive on Azure HDInsight using the Hive JDBC driver
@@ -161,15 +161,15 @@ __Symptoms__: When connecting to an HDInsight cluster that is version 3.3 or 3.4
     at java.util.concurrent.FutureTas...(FutureTask.java:122)
     at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
-__Cause__: This error is caused by a mismatch in the version of the common-codec.jar file used by SQuirreL and the one required by the Hive JDBC components downloaded from the HDInsight cluster.
+__Cause__: This error is caused by a mismatch in the version of the commons-codec.jar file used by SQuirreL and the one required by the Hive JDBC components downloaded from the HDInsight cluster.
 
 __Resolution__: To fix this error, use the following steps.
 
-1. Download the common-codec jar file from your HDInsight cluster.
+1. Download the commons-codec jar file from your HDInsight cluster.
 
-        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/common-codec*.jar ./common-codec.jar
+        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
-2. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system. In the SquirreL directory, under the `lib` directory, replace the existing common-codec.jar with the one downloaded from the HDInsight cluster.
+2. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system. In the SquirreL directory, under the `lib` directory, replace the existing commons-codec.jar with the one downloaded from the HDInsight cluster.
 
 3. Restart SQuirreL. The error should no longer occur when connecting to Hive on HDInsight.
 

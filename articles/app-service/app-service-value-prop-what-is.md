@@ -23,6 +23,10 @@
 
 App Service includes the web and mobile capabilities that we previously delivered separately as Azure Websites and Azure Mobile Services.  It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service lets you compose various components -- websites, mobile app back ends, RESTful APIs, and business processes -- into a single solution.
 
+The following 4-minute video provides a brief explanation of how App Service relates to earlier Azure offerings and what's new in it.
+
++[AZURE.VIDEO app-service-history-lesson] 
+
 ## Why use App Service?
 
 Here are some key features and capabilities of App Service: 
@@ -53,7 +57,7 @@ App Service offers several *app types*, each of which is  intended to host a spe
  
 - [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating the access and use of data across clouds without writing code.
 
-The word *app* here refers to the hosting resources dedicated to running a workload. "Web app" in general refers to both compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front-end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
+The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front-end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
 
 ## App Service Plans
 

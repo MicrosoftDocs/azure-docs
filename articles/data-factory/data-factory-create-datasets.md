@@ -13,17 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/08/2016" 
 	ms.author="spelluru"/>
 
 # Datasets in Azure Data Factory
 Datasets in Azure Data Factory are named references/pointers to the data that you want to use as an input or an output of an activity in a pipeline. Datasets identify data within different data stores including tables, files, folders, and documents. 
 
-When creating a data factory, you create linked services that link data stores to the data factory. A **linked service** defines the information needed for Azure Data Factory to **connect** to a data store, for example, Azure Storage Account and Azure SQL Database. The linked service defines the mechanism (address, protocol, authentication scheme, etc...) to access the data store. 
+A **linked service** defines the information needed for Azure Data Factory to **connect** to a **data store** (such as Azure Storage Account and Azure SQL Database) or a **compute** (such as Azure HDInsight and Azure Batch). The linked service defines the mechanism (address, protocol, authentication scheme, etc...) to access the data store or compute. 
 
-A **dataset** in Data Factory represents data structures (for example: blob container, SQL table) within this data store that can be used as input or output of an activity in a pipeline. After you create datasets, you can use them with activities in the pipeline. For example, you can have a dataset as an input/output dataset of a Copy Activity/HDInsightHive Activity. 
+For a list of supported data store linked services, see [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores). Click on a data source in the table to get to the topic that provides details on how to create/configure a linked service for that data store. 
+
+For a list of supported compute linked services, see [Compute linked services](data-factory-compute-linked-services.md). To understand the activities that use these linked services, see [Data Transformation Activities](data-factory-data-transformation-activities.md).
+
+A **dataset** in Data Factory represents data structures within a data store represented by a **data store linked service**, for example, a blob container in an Azure Storage Account, a table in an Azure SQL Database) . It can be used as input or output of an activity in a pipeline. After you create datasets, you can use them with activities in the pipeline. For example, you can have a dataset as an input/output dataset of a Copy Activity/HDInsightHive Activity. 
 
 > [AZURE.NOTE] If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service and [Build your first data factory](data-factory-build-your-first-pipeline.md) for a tutorial to create your first data factory. These two articles provide you background information you need to understand this article better. 
+
 
 ## Define datasets
 A dataset in Azure Data Factory is defined as follows: 

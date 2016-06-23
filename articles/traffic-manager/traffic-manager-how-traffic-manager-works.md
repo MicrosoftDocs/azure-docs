@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
+   ms.date="06/07/2016"
    ms.author="jonatul"/>
 
 # How Traffic Manager works
@@ -101,9 +101,28 @@ As explained [above](#how-clients-connect-using-traffic-manager), Traffic Manage
 
 Since clients connect to your service endpoints directly, there is no performance impact incurred when using Traffic Manager once the connection is established.
 
-The impact of Traffic Manager on DNS resolution time is minimal.  Traffic Manager uses a global network of name servers, and uses anycast networking to ensure DNS queries are always routed to the closest available name server.
+Since Traffic Manager integrates with applications at the DNS level, it does require an additional DNS lookup to be inserted into the DNS resolution chain (see [Traffic Manager examples](#traffic-manager-example)).  The impact of Traffic Manager on DNS resolution time is minimal.  Traffic Manager uses a global network of name servers, and uses anycast networking to ensure DNS queries are always routed to the closest available name server.  In addition, caching of DNS responses means that the additional DNS latency incurred by using Traffic Manager applies only to a fraction of sessions.
 
-In addition, caching of DNS responses means that the additional DNS latency incurred by using Traffic Manager applies only to a fraction of sessions.
+The net result is that the overall performance impact associated with incorporating Traffic Manager into your application should be minimal.  
+
+In addition, where Traffic Manager’s [‘Performance’ traffic-routing method](traffic-manager-routing-methods.md#performance-traffic-routing-method) is used, the increase in DNS latency should be far more than offset by the improvement in performance achieved by routing end users to their closest available endpoint.
+
+### What application protocols can I use with Traffic Manager?
+As explained [above](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level.  Once the DNS lookup is complete, clients connect to the application endpoint directly, not through Traffic Manager.  This connection can therefore use any application protocol.
+
+However, Traffic Manager’s endpoint health checks require either an HTTP or HTTPS endpoint.  This can be separate from the application endpoint that clients connect to, by specifying a different TCP port or URI path in the Traffic Manager profile health check settings.
+
+### Can I use Traffic Manager with a ‘naked’ (www-less) domain name?
+
+Not currently.
+
+The DNS CNAME record type is used to create a mapping from one DNS name to another name.  As explained in the [Traffic Manager example](#traffic-manager-example), Traffic Manager requires a DNS CNAME record to map the vanity DNS name (e.g. www.contoso.com) to the Traffic Manager profile DNS name (e.g. contoso.trafficmanager.net).  In addition the Traffic Manager profile itself returns a second DNS CNAME to indicate which endpoint the client should connect to.
+
+The DNS standards do not permit CNAMEs to co-exist with other DNS records of the same type.  Since the apex (or root) of a DNS zone always contains two pre-existing DNS records (the SOA and the authoritative NS records), this means a CNAME record cannot be created at the zone apex without violating the DNS standards.
+
+To work around this issue, we recommend that services using a naked (www-less) domain that want to use Traffic Manager should use an HTTP re-direct to direct traffic from the naked domain to a different URL, which can then use Traffic Manager.  For example, the naked domain ‘contoso.com’ can re-direct users to ‘www.contoso.com’ which can then use Traffic Manager.
+
+Full support for naked domains in Traffic Manager is tracked in our feature backlog.  If you are interested in this feature please register your support by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ## Next steps
 
