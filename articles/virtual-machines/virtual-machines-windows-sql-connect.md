@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jhubbard"    
-	tags="•azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
