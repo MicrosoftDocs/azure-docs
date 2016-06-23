@@ -64,7 +64,7 @@ A Service Fabric cluster needs a minimum of 3 nodes. You can add more nodes to t
 |nodeName|You can give any friendly name to the node.|
 |iPAddress|Find out the IP address of your node by opening a command window and typing `ipconfig`. Note the IPV4 address and assign it to the **iPAddress** variable.|
 |nodeTypeRef|Each node can be assigned a different node type. The [node types](#nodetypes) are defined in the section below.|
-|faultDomain|Fault domains enable cluster administrators to define the physical nodes that are might fail at the same time due to shared physical dependencies.|
+|faultDomain|Fault domains enable cluster administrators to define the physical nodes that might fail at the same time due to shared physical dependencies.|
 |upgradeDomain|Upgrade domains describe sets of nodes that are shut down for Service Fabric upgrades at about the same time. You can choose which nodes to assign to which Upgrade domains, as they are not limited by any physical requirements.| 
 
 
@@ -88,7 +88,16 @@ These variables help in collecting ETW trace logs, crash dumps as well as perfor
 The **properties** section in the ClusterConfig.JSON is used to configure the cluster as follows.
 
 ### **security** 
-The **security** section is necessary for a secure standalone Service Fabric cluster. The **metadata** is a description of this security cluster and can be set as per your setup. The **ClusterCredentialType** and **ServerCredentialType** determine the type of security that the cluster and the nodes will implement. They can be set to either *X509* for a certificate based security, or *Windows* for an Azure Active Directory based security. The rest of the **security** section will be based on the type of the security. Read [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md) or [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) for information on how to fill out the rest of the **security** section.
+The **security** section is necessary for a secure standalone Service Fabric cluster. The following snippet shows a part of this section.
+
+    "security": {
+        "metadata": "This cluster is secured using X509 certificates.",
+        "ClusterCredentialType": "X509",
+        "ServerCredentialType": "X509",
+		. . .
+	}
+
+The **metadata** is a description of your secure cluster and can be set as per your setup. The **ClusterCredentialType** and **ServerCredentialType** determine the type of security that the cluster and the nodes will implement. They can be set to either *X509* for a certificate based security, or *Windows* for an Azure Active Directory based security. The rest of the **security** section will be based on the type of the security. Read [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) or [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md) for information on how to fill out the rest of the **security** section.
 
 ### **reliabilityLevel**
 The **reliabilityLevel** defines the number of copies of the system services that can run on the primary nodes of the cluster. This increases the reliability of these services and hence the cluster. You can set this variable to either *Bronze*, *Silver*, *Gold* or *Platinum* for 3, 5, 7 or 9 copies of these services respectively.
@@ -97,7 +106,7 @@ The **reliabilityLevel** defines the number of copies of the system services tha
 ### **nodeTypes**
 The **nodeTypes** section describes the type of the nodes that your cluster has. Atleast one node type must be specified for a cluster, as shown in the snippet below. 
 
-	{
+	"nodeTypes": [{
         "name": "NodeType0",
         "clientConnectionEndpointPort": "19000",
         "clusterConnectionEndpoint": "19001",
@@ -111,7 +120,7 @@ The **nodeTypes** section describes the type of the nodes that your cluster has.
             "endPort": "20062"
         },
         "isPrimary": true
-    },
+    }]
 
 The **name** is the friendly name for this particular node type. To create a node of this node type, you will need to assign the friendly name for this node type to the **nodeTypeRef** variable for that node, as mentioned in the [Nodes on the cluster](#clusternodes) section above. For each node type, you can define various endpoints for connecting to this cluster. You can choose any port number for these connection endpoints, as long as they do not conflict with any other endpoints in this cluster. In a cluster with multiple node types, there will be one primary node type, which has **isPrimary** set to *true*. The rest of the nodes will have the **isPrimary** set to *false*. Read [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md) for more information on **nodeTypes** and **reliabilityLevel** values as per your cluster capacity, as well as to know the difference between the primary and the non-primary node types.
 
@@ -127,7 +136,7 @@ This section allows you to set the root directories for the Service Fabric data 
         }, {
             "name": "FabricLogRoot",
             "value": "C:\\ProgramData\\SF\\Log"
-        }]
+    }]
 
 Note that if you customize only the data root, then the log root will be placed one level below the data root.
 
