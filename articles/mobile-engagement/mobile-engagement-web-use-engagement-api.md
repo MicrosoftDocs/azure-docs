@@ -18,9 +18,9 @@
 
 # Use the Azure Mobile Engagement API in a web application
 
-This document is an add-on to the document [Integrate Mobile Engagement in a web application](mobile-engagement-web-integrate-engagement.md). It provides in-depth details about how to use the Mobile Engagement API to report your application statistics.
+This document is an addition to the document that tells you how to [integrate Mobile Engagement in a web application](mobile-engagement-web-integrate-engagement.md). It provides in-depth details about how to use the Azure Mobile Engagement API to report your application statistics.
 
-The Mobile Engagement API is provided by the `engagement.agent` object.  The default Mobile Engagement Web SDK alias is `engagement`. You can redefine this alias from the SDK configuration.
+The Mobile Engagement API is provided by the `engagement.agent` object. The default Azure Mobile Engagement Web SDK alias is `engagement`. You can redefine this alias from the SDK configuration.
 
 ## Engagement concepts
 
@@ -28,13 +28,13 @@ The following parts refine common [Mobile Engagement concepts](mobile-engagement
 
 ### `Session` and `Activity`
 
-If the user stays idle for more than a few seconds between two *activities*, the user's sequence of *activities* is split into two distinct *sessions*. These few seconds are called the *session timeout*.
+If the user stays idle for more than a few seconds between two activities, the user's sequence of activities is split into two distinct sessions. These few seconds are called the session timeout.
 
-If your web application doesn't declare the end of the user activities by itself (by calling the `engagement.agent.endActivity` function), the Mobile Engagement server automatically expires the user session within 3 minutes after the application page is closed. This is called the *server session timeout*.
+If your web application doesn't declare the end of user activities by itself (by calling the `engagement.agent.endActivity` function), the Mobile Engagement server automatically expires the user session within three minutes after the application page is closed. This is called the server session timeout.
 
 ### `Crash`
 
-Automated reports of JavaScript uncaught exceptions are not provided for you. However, you can report crashes manually by using the `sendCrash` function (see the section on reporting crashes).
+Automated reports of uncaught JavaScript exceptions are not created by default. However, you can report crashes manually by using the `sendCrash` function (see the section on reporting crashes).
 
 ## Reporting activities
 
@@ -48,9 +48,9 @@ You need to call `startActivity()` each time user activity changes. The first ca
 
 	engagement.agent.endActivity();
 
-You need to call `endActivity()` at least once when the user finishes their last activity. This informs the Mobile Engagement Web SDK that the user is currently idle, and that the user session needs to be closed after the session timeout expires (if you call `startActivity()` before the session timeout expires, the session is simply resumed).
+You need to call `endActivity()` at least once when the user finishes their last activity. This informs the Mobile Engagement Web SDK that the user is currently idle, and that the user session needs to be closed after the session timeout expires. If you call `startActivity()` before the session timeout expires, the session is simply resumed.
 
-Often, it's difficult or impossible to catch the end of user activities inside a web environment (there's no reliable call for when the navigator window is closed). That's why the Mobile Engagement server automatically expires the user session within 3 minutes after the application page is closed.
+Because there's no reliable call for when the navigator window is closed, it's often difficult or impossible to catch the end of user activities inside a web environment. That's why the Mobile Engagement server automatically expires the user session within three minutes after the application page is closed.
 
 ## Reporting events
 
