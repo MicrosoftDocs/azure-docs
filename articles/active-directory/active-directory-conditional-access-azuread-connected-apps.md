@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
-# Getting started with conditional access to Azure AD connected apps 
+# Getting started with conditional access to Azure AD  
 
-Conditional access to Azure AD apps is based on group, location, and application sensitivity. 
+The Azure Active Directory Conditional Access for SaaS apps and Azure AD connected apps is available for public preview. The preview allows you to configure conditional access based on group, location, and application sensitivity. 
 
-The Azure Active Directory Conditional Access for SaaS apps is available for public preview. The preview allows you to configure conditional access based on application-sensitivity. What this means is you can set multi-factor authentication (MFA) access rules per application, that provides the ability to block access for users who are not on a trusted network. 
-You can apply multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
+You can apply multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. With conditional access based on application sensitivity, you can set multi-factor authentication (MFA) access rules per application, that provides the ability to block access for users who are not on a trusted network. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
 
 These capabilities will be available to customers that have purchased an Azure Active Directory Premium license.
 
