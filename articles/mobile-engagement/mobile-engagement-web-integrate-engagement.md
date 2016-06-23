@@ -56,7 +56,7 @@ Write a script that creates a global `azureEngagement` JavaScript object, as in 
 	  appVersionCode: 1
 	};
 
-The `connectionString` value for your application is displayed on the Azure portal.
+The `connectionString` value for your application is displayed in the Azure portal.
 
 > [AZURE.NOTE] `appVersionName` and `appVersionCode` are optional. However, we recommend that you configure them so that analytics can process version information.
 
