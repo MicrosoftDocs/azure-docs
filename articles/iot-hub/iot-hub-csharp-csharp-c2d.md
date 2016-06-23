@@ -13,10 +13,12 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/03/2016"
+     ms.date="06/23/2016"
      ms.author="elioda"/>
 
 # Tutorial: How to send cloud-to-device messages with IoT Hub and .Net
+
+[AZURE.INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction
 
