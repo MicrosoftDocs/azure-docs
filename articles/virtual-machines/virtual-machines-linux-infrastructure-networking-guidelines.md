@@ -43,7 +43,7 @@ Tasks:
 
 ## Virtual networks
 
-Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, just as with physical networks. Through the use of a [Site-to-Site VPN](../vpn-gateway/vpn-gateway-topology/.md) or [Express Route circuit](../virtual-network/expressroute-introduction.md), you can connect Azure virtual networks in to your on-prem networks. You can read more about [virtual networks and their components](../virtual-network/virtual-networks-overview.md).
+Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, just as with physical networks. Through the use of a [Site-to-Site VPN](../vpn-gateway/vpn-gateway-topology.md) or [Express Route circuit](../expressroute/expressroute-introduction.md), you can connect Azure virtual networks in to your on-prem networks. You can read more about [virtual networks and their components](../virtual-network/virtual-networks-overview.md).
 
 Through the use of Resource Groups, you have flexibility in how you design your virtual networking components. VMs can connect to virtual networks outside of their own resource group. A common design approach would be to create centralized resource groups that contain your core networking infrastructure that can be managed by a common team, and then VMs and their applications deployed to separate resource groups. This allows application owners access to the resource group that contains their VMs without opening up access to the configuration of the wider virtual networking resources.
 
