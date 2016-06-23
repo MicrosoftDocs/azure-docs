@@ -17,7 +17,7 @@
 	ms.author="renash"/>
 
 
-# Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage
+# Use the Microsoft Azure Import/Export Service to transfer data to Blob storage
 
 ## Overview
 
