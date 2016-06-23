@@ -22,22 +22,22 @@
 The end-to-end walkthroughs itemized here each demonstrate the steps in the Team Data Science Process for **specific scenarios** and illustrate how to combine cloud, on-premise tools and services into a workflow or pipeline to create an intelligent application.
 
 ## Use SQL Data Warehouse
-[The Team Data Science Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md) walkthrough shows you how to build and deploy machine learning classification and regression models using SQL Data Warehouse (SQL DW) for a publicly available NYC taxi trip and fare dataset.
+The [Team Data Science Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md) walkthrough shows you how to build and deploy machine learning classification and regression models using SQL Data Warehouse (SQL DW) for a publicly available NYC taxi trip and fare dataset.
 
 ## Use SQL Server
-[The Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)  walkthrough shows you build and deploy machine learning classification and regression models using SQL Server and a publicly available NYC taxi trip and fare dataset.
+The [Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)  walkthrough shows you build and deploy machine learning classification and regression models using SQL Server and a publicly available NYC taxi trip and fare dataset.
 
 
 ## Use HDInsight Hadoop clusters
-[The Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md) walkthrough uses an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from a publicly available NYC taxi trip and fare dataset
+The [Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md) walkthrough uses an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from a publicly available NYC taxi trip and fare dataset
 
 
 ## Use Azure HDInsight Hadoop Clusters on a 1 TB dataset
-In [The Team Data Science Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md) walkthrough, we present an end-to-end scenario that uses an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets.
+The [Team Data Science Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md) walkthrough presents an end-to-end scenario that uses an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets.
 
 
 ## Use Spark on Azure HDInsight
-In the [Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) walkthrough, we use the Team Data Science Process in an end-to-end scenario using an [Azure HDInsight Spark cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available NYC taxi trip and fare dataset 
+The [Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) walkthrough uses the Team Data Science Process in an end-to-end scenario using an [Azure HDInsight Spark cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available NYC taxi trip and fare dataset 
 
 
 ## Use Azure Data Lake Storage and Analytics
