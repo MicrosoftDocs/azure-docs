@@ -340,6 +340,16 @@ This section shows how to implement the **IAuthenticate** interface in the Windo
 
 7. Rebuild the app, run it, then sign-in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
+##Next steps
+
+Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
+
++ [Add push notifications to your app](app-service-mobile-xamarin-forms-get-started-push.md)  
+  Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
+
++ [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+
 <!-- Images. -->
 
 <!-- URLs. -->
