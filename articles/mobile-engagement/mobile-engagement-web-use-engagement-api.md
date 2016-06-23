@@ -22,7 +22,7 @@ This document is an addition to the document that tells you how to [integrate Mo
 
 The Mobile Engagement API is provided by the `engagement.agent` object. The default Azure Mobile Engagement Web SDK alias is `engagement`. You can redefine this alias from the SDK configuration.
 
-## Engagement concepts
+## Mobile Engagement concepts
 
 The following parts refine common [Mobile Engagement concepts](mobile-engagement-concepts.md) for the web platform.
 
