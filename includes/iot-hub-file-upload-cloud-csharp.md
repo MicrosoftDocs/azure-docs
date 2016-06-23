@@ -60,4 +60,4 @@ In this section, you write a Windows console app that receives file upload notif
 [Get started with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
-[2]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png
+[2]: ./media/iot-hub-file-upload-cloud-csharp/create-identity-csharp1.png

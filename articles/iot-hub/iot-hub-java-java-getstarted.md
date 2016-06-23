@@ -38,7 +38,7 @@ To complete this tutorial you'll need the following:
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-As a final step, click **Settings** on the IoT Hub blade, then **Messaging** on the **Settings** blade. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You will need these values when you create your **read-d2c-messages** application.
+As a final step, make a note of the **Primary key** value, then click **Settings** on the IoT Hub blade, then **Messaging** on the **Settings** blade. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You will need these three values when you create your **read-d2c-messages** application.
 
 ![][6]
 
@@ -81,10 +81,10 @@ In this section, you'll create a Java console app that creates a new device iden
     import java.net.URISyntaxException;
     ```
 
-7. Add the following class-level variables to the **App** class, replacing **{yourhostname}** and **{yourhubkey}** with the values your noted earlier:
+7. Add the following class-level variables to the **App** class, replacing **{yourhubconnectionstring}** with the value your noted earlier:
 
     ```
-    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "javadevice";
     
     ```
