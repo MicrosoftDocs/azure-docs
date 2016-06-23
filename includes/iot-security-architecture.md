@@ -249,6 +249,5 @@ Intermediate physical control surfaces are those where any sort of governing log
 Refer to the following articles for additional information:
 
 - [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-
 - [Microsoft Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
