@@ -180,7 +180,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 		{"status":"ok","version":"v1"}
 
-  The parameters used in this command are as follows:
+	The parameters used in this command are as follows:
 
 	* **-u** - The user name and password used to authenticate the request.
 	* **-G** - Indicates that this is a GET request.
