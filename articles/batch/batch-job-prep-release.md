@@ -102,46 +102,48 @@ Output from the sample application is similar to the following:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-The pool already existed when we tried to create it
+Created pool JobPrepReleaseSamplePool with 2 small nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
 All tasks completed.
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_1-20151015t150030z:
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_1-20160623t173951z:
 -------------------------------------------
-tvm-3105992504_1-20151015t150030z tasks:
+tvm-2434664350_1-20160623t173951z tasks:
   task001
-  task002
+  task004
+  task005
   task006
+
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_2-20160623t173951z:
+-------------------------------------------
+tvm-2434664350_2-20160623t173951z tasks:
+  task008
+  task002
+  task003
   task007
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_2-20151015t150030z:
--------------------------------------------
-tvm-3105992504_2-20151015t150030z tasks:
-  task003
-  task005
-  task004
-  task008
-
 Waiting for job JobPrepReleaseSampleJob to reach state Completed
-....
+...
 
-tvm-3105992504_1-20151015t150030z:
+tvm-2434664350_1-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
-tvm-3105992504_2-20151015t150030z:
+tvm-2434664350_2-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
 Delete job? [yes] no
 yes
 Delete pool? [yes] no
-no
+yes
 
 Sample complete, hit ENTER to exit...
 ```
+
+>[AZURE.NOTE] Due to the variable creation and start time of nodes in a new pool (some nodes are ready for tasks before others), you may see different output. Specifically, because the tasks complete quickly, one of the pool's nodes may execute all of the job's tasks. If this occurs, you will notice that the job prep and release tasks do not exist for the node that executed no tasks.
 
 ### Inspect job preparation and release tasks in the Azure Portal
 
