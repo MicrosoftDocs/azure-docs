@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2016"
+   ms.date="06/23/2016"
    ms.author="dkshir"/>
 
 
@@ -80,7 +80,7 @@ You can configure parameters to enable diagnostics and troubleshooting node and 
         "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
     },
 
-These variables help in collecting ETW trace logs, crash dumps as well as performance counters. Read [Tracelog](https://msdn.microsoft.com/en-us/library/windows/hardware/ff552994.aspx) and [ETW Tracing](https://msdn.microsoft.com/en-us/library/ms751538.aspx) for more information on ETW trace logs. [Crash dumps](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) for Service Fabric node as well as the cluster can be directed to the **crashDumpConnectionString** folder. The [performance counters](https://msdn.microsoft.com/en-us/library/windows/desktop/aa373083.aspx) for the cluster can be directed to the **perfCtrConnectionString** folder on your machine.
+These variables help in collecting ETW trace logs, crash dumps as well as performance counters. Read [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) and [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) for more information on ETW trace logs. [Crash dumps](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) for Service Fabric node as well as the cluster can be directed to the **crashDumpConnectionString** folder. The [performance counters](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) for the cluster can be directed to the **perfCtrConnectionString** folder on your machine.
 
 
 ## Cluster **properties**
