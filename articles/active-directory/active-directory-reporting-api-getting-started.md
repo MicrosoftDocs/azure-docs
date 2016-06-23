@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/07/2016"
+   ms.date="06/23/2016"
    ms.author="dhanyahk"/>
-
 
 # Getting started with the Azure Active Directory Reporting API
 
@@ -97,7 +96,7 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
     if ($oauth.access_token -ne $null) {
     	$headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 
-        $url = "https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&\`$filter=eventTime gt $7daysago"
+        $url = "https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt $7daysago"
 
     	$myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
     	foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
@@ -130,7 +129,7 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 
     YESTERDAY=$(date --date='1 day ago' +'%Y-%m-%d')
 
-    URL="https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta&\$filter=eventTime%20gt%20$YESTERDAY"
+    URL="https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta&$filter=eventTime%20gt%20$YESTERDAY"
 
 
     REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" $URL)
@@ -170,7 +169,7 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
 	header_params = {'Authorization': token_type + ' ' + access_token}
-	request_string = 'https://graph.windows.net/' + tenant_domain + '/reports/auditEvents?api-version=beta&filter=eventTime%20gt%20' + yesterday   
+	request_string = 'https://graph.windows.net/' + tenant_domain + '/reports/auditEvents?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
 	response = requests.get(request_string, headers = header_params)
 
 	if response.status_code is 200:
