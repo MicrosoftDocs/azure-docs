@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 
@@ -47,7 +47,7 @@ In an earlier version of these guidelines, we recommended using a “blue badge�
 
 Your app may present separate paths for sign-up and sign-in and the following sections provide visual guidance for both scenarios.
 
-**If your app supports end user sign up (e.g. free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their Microsoft account. Azure AD will show a consent prompt the first time they access your app.
+**If your app supports end user sign up (e.g. free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD will show a consent prompt the first time they access your app.
 
 **If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: You should separate admin acquisition from user sign in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization. This has the added benefit of suppressing end users consent prompts to your app.
 

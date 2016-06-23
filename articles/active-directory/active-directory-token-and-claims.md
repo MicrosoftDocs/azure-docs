@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 # Supported Token and Claim Types
