@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/17/2016"
+	ms.date="06/22/2016"
 	ms.author="marsma"/>
 
 # Batch feature overview for developers
@@ -287,11 +287,11 @@ The following environment variables are set by the Batch service, and are availa
 | `AZ_BATCH_TASK_ID`              | The ID of the current task.                                              |
 | `AZ_BATCH_TASK_WORKING_DIR`     | The full path of the task working directory on the node.                 |
 
->[AZURE.IMPORTANT] These environment variables are available only in the context of the **task user**, that is, the user account on the node under which a task is executed. You will **not** see these if you [connect remotely](#connecting-to-compute-nodes) to a compute node via RDP or SSH and list the environment variables.
+>[AZURE.IMPORTANT] These environment variables are available only in the context of the **task user**, that is, the user account on the node under which a task is executed. You will **not** see these if you [connect remotely](#connecting-to-compute-nodes) to a compute node via RDP or SSH and list the environment variables because the user account used for remote connection is not the same as the account used by the task.
 
 ## Files and directories
 
-Each task has a working directory under which it creates zero or more files and directories for storing the program that is run by the task, the data that it processes, and the output of the processing performed by the task. These files and directories are then available for use by other tasks during the running of a job. All tasks, files, and directories on a node are owned by a single user account.
+Each task has a *working directory* under which it creates zero or more files and directories. This working directory can be used for storing the program that is run by the task, the data that it processes, and the output of the processing it performs. All files and directories of a task are owned by the task user.
 
 The Batch service exposes a portion of the file system on a node as the "root directory." The root directory is available to a task by accessing the `AZ_BATCH_NODE_ROOT_DIR` environment variable. For more information about using environment variables, see [Environment settings for tasks](#environment-settings-for-tasks).
 
