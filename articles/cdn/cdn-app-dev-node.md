@@ -68,7 +68,7 @@ Finally, using your text editor, create a blank text file and save it in the roo
 
 ## Requires, constants, authentication, and structure
 
-Let's get the basic structure of our program written.
+With *app.js* open in our editor, let's get the basic structure of our program written.
 
 1. Add the "requires" for our NPM packages at the top with the following:
 
@@ -108,7 +108,7 @@ Let's get the basic structure of our program written.
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
 	```
 
-	Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.  For `<redirect URI>`,use the redirect URI you entered when you registered the application in Azure AD.
+	Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.  For `<redirect URI>`, use the redirect URI you entered when you registered the application in Azure AD.
 	
 
 4.  Our Node.js console application is going to take some command line parameters.  Let's validate that at least one parameter was passed.
@@ -192,7 +192,7 @@ Let's get the basic structure of our program written.
 	}
 	```
 
-7. Finally, the functions we'll be using on CDN management client are asynchronous, so they need a method to callback when they're done.  Let's make one that can display the output from the CDN management client (if any) and exit the program gracefully.
+7. Finally, the functions we'll be using on the CDN management client are asynchronous, so they need a method to call back when they're done.  Let's make one that can display the output from the CDN management client (if any) and exit the program gracefully.
 
 	```
 	function callback(err, result, request, response) {
@@ -220,13 +220,13 @@ function cdnList(){
     switch(parms[1].toLowerCase())
     {
         case "profiles":
-            console.log("Listing profiles...")
+            console.log("Listing profiles...");
             cdnClient.profiles.listByResourceGroup(resourceGroupName, callback);
             break;
 
         case "endpoints":
-            requireParms(3)
-            console.log("Listing endpoints...")
+            requireParms(3);
+            console.log("Listing endpoints...");
             cdnClient.endpoints.listByProfile(parms[2], resourceGroupName, callback);
             break;
 
@@ -263,7 +263,7 @@ function cdnCreate() {
 // create profile <profile name>
 function cdnCreateProfile() {
     requireParms(3);
-    console.log("Creating profile...")
+    console.log("Creating profile...");
     var standardCreateParameters = {
         location: resourceLocation,
         sku: {
@@ -277,14 +277,14 @@ function cdnCreateProfile() {
 // create endpoint <profile name> <endpoint name> <origin hostname>        
 function cdnCreateEndpoint() {
     requireParms(5);
-    console.log("Creating endpoint...")
+    console.log("Creating endpoint...");
     var endpointProperties = {
         location: resourceLocation,
         origins: [{
             name: parms[4],
             hostName: parms[4]
         }]
-    }
+    };
 
     cdnClient.endpoints.create(parms[3], endpointProperties, parms[2], resourceGroupName, callback);
 }
@@ -295,10 +295,10 @@ function cdnCreateEndpoint() {
 Assuming the endpoint has been created, one common task that we might want to perform in our program is purging content in our endpoint.
 
 ```
-// purge <endpoint name> <path>
+// purge <profile name> <endpoint name> <path>
 function cdnPurge() {
     requireParms(4);
-    console.log("Purging endpoint...")
+    console.log("Purging endpoint...");
     var purgeContentPaths = [ parms[3] ];
     cdnClient.endpoints.purgeContent(parms[2], parms[1], resourceGroupName, purgeContentPaths, callback);
 }
@@ -316,14 +316,14 @@ function cdnDelete() {
         // delete profile <profile name>
         case "profile":
             requireParms(3);
-            console.log("Deleting profile...")
+            console.log("Deleting profile...");
             cdnClient.profiles.deleteIfExists(parms[2], resourceGroupName, callback);
             break;
 
         // delete endpoint <profile name> <endpoint name>
         case "endpoint":
-            requireParms(4)
-            console.log("Deleting endpoint...")
+            requireParms(4);
+            console.log("Deleting endpoint...");
             cdnClient.endpoints.deleteIfExists(parms[3], parms[2], resourceGroupName, callback);
             break;
 
