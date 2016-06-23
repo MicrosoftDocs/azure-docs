@@ -185,7 +185,7 @@ The data can be any JSON object (but not an array or primitive type).
 
 ### Limits
 
-Limits that apply to extra parameters are regular expressions for keys, value types, and size.
+Limits that apply to extra parameters are in the areas of regular expressions for keys, value types, and size.
 
 #### Keys
 
@@ -220,7 +220,7 @@ Here is a code sample for sending the user's gender and birth date:
 
 ### Limits
 
-Limits that apply to application information are regular expressions for keys, and size.
+Limits that apply to application information are in the areas of regular expressions for keys, and size.
 
 #### Keys
 
