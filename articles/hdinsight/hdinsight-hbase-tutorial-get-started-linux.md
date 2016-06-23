@@ -226,7 +226,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 		-H "Accept: application/json" \
 		-v
 
-For more information, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
+For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
 
 ## Check cluster status
 
