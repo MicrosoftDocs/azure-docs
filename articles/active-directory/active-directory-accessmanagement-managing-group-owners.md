@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 # Managing owners for a group
@@ -48,6 +48,7 @@ Once a resource owner has assigned access to a resource to an Azure AD group, th
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

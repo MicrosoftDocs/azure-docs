@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Monitor and manage Azure Data Factory pipelines using new Monitoring and Management App

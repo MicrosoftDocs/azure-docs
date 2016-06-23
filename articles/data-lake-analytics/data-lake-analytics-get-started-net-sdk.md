@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using .NET SDK
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
-Learn how to use the Azure .NET SDK to create Azure Data Lake Analytics accounts, define Data Lake Analytics jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analtyic accounts. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+Learn how to use the Azure .NET SDK to create Azure Data Lake Analytics accounts, define Data Lake Analytics jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytic accounts. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 In this tutorial, you will develop a C# console application which contains a U-SQL script that reads a tab separated values (TSV) file and converts it into a comma 
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
@@ -46,7 +46,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
 
 1. Open Visual Studio.
 2. Create a C# console application.
-3. Open Nuget Package Management console, and run the following commands:
+3. Open NuGet Package Management console, and run the following commands:
 
         Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
         Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
@@ -54,7 +54,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
         Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
         Install-Package WindowsAzure.Storage
 
-4. Add a new file to the project called **SampleUSQLScript.txt**, and then paste the following U-SQL script. The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+4. Add a new file to the project called **SampleUSQLScript.txt**, and then paste the following U-SQL script. The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
         @searchlog =
             EXTRACT UserId          int,
@@ -355,7 +355,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
 ## See also
 
 - To see the same tutorial using other tools, click the tab selectors on the top of the page.
-- To see a more complexed query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 - For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).

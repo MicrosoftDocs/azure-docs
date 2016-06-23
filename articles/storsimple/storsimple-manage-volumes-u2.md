@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="06/10/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage volumes (Update 2)
@@ -23,13 +23,13 @@
 
 This tutorial explains how to use the StorSimple Manager service to create and manage volumes on the StorSimple device and StorSimple virtual device with Update 2 installed.
 
-The StorSimple Manager service is an extension of the Azure classic portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
+The StorSimple Manager service is an extension in the Azure classic portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
 
 ## Volume types
 
 StorSimple volumes can be:
 
-- **Locally pinned volumes**: data in these volumes remains on the local StorSimple device at all times.
+- **Locally pinned volumes**: Data in these volumes remains on the local StorSimple device at all times.
 - **Tiered volumes**: Data in these volumes can spill to the cloud.
 
 An archival volume is a type of tiered volume. The larger deduplication chunk size used for archival volumes allows the device to transfer larger segments of data to the cloud. 
@@ -42,7 +42,7 @@ Locally pinned volumes are fully provisioned volumes that do not tier data to th
 
 Locally pinned volumes are fully provisioned; therefore, you must have sufficient space on your device when you create them. You can provision locally pinned volumes up to a maximum size of 8 TB on the StorSimple 8100 device and 20 TB on the 8600 device. StorSimple reserves the remaining local space on the device for snapshots, metadata, and data processing. You can increase the size of a locally pinned volume to the maximum space available, but you cannot decrease the size of a volume once created.
 
-When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above.
+When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above. For more information on local volumes, refer to the [frequently asked questions on locally pinned volumes](storsimple-local-volume-faq.md).   
 
 ### Tiered volumes
 
@@ -271,7 +271,7 @@ Complete the following steps to delete a volume.
 
 5. When prompted for confirmation, click **Yes**. The volume will now be deleted and the **Volumes** page will show the updated list of volumes within the container.
 
-    >[AZURE.NOTE] If you delete a locally pinned volume and then delete another locally pinned volume immediately afterwards, the volume deletion jobs run sequentially. The first volume deletion job must finish before the next volume deletion job can begin.
+    >[AZURE.NOTE] If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager Service updates the local space available periodically. We suggest you wait for a few minutes before you try to create the new volume.<br> Additionally, if you delete a locally pinned volume and then delete another locally pinned volume immediately afterwards, the volume deletion jobs run sequentially. The first volume deletion job must finish before the next volume deletion job can begin.
  
 ## Monitor a volume
 

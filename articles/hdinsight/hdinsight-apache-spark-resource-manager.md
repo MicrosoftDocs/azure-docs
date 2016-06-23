@@ -31,7 +31,7 @@ You must have the following:
 
 ## How do I launch the Ambari Web UI?
 
-1. From the [Azure Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**. 
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**. 
  
 2. From the Spark cluster blade, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
@@ -43,7 +43,7 @@ You must have the following:
 
 ## How do I launch the Spark History Server?
 
-1. From the [Azure Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).
 
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**. In the **Cluster Dashboard** blade, click **Spark History Server**.
 

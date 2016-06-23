@@ -60,4 +60,4 @@ To learn more about how to implement a disaster recovery and high availability s
 
 To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure Business Continuity Technical Guidance](https://aka.ms/bctechguide).
 
-If the instructions are not clear, or if you would like Microsoft to do the operations on your behalf please contact [Customer Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+If the instructions are not clear, or if you would like Microsoft to do the operations on your behalf please contact [Customer Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

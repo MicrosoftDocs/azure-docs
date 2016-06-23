@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Use the D drive as a data drive on a Windows VM 
@@ -109,7 +109,7 @@ First, you'll need to attach the data disk to the virtual machine.
 
 
 ## Next steps
-- You can increase the storage available to your virtual machine by [attaching a additonal data disk](virtual-machines-windows-attach-disk-portal.md).
+- You can increase the storage available to your virtual machine by [attaching a additional data disk](virtual-machines-windows-attach-disk-portal.md).
 
 
 

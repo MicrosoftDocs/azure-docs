@@ -85,11 +85,11 @@ This section describes optimal configuration defaults which are designed to ensu
 
 If you want to stay with your custom settings, use [ALTER DATABASE with Query Store options](https://msdn.microsoft.com/library/bb522682.aspx) to revert configuration to the previous state. Check out [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) to learn how top chose optimal configuration parameters.
 
-## Next Steps
+## Next steps
 
 [SQL Database Performance Insight](sql-database-performance.md)
 
-## Learn More
+## Additional resources
 
 For more information check out the following articles:
 

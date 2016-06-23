@@ -52,13 +52,13 @@ Transactional replication is a technology built-in and integrated with SQL Serve
 > [AZURE.IMPORTANT] You must use the latest version of SQL Server Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of SQL Server Management Studio will not be able to set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
-## Next Steps
+## Next steps
 
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
 
-## Learn More
+## Additional resources
 
 - [Transactional Replication](https://msdn.microsoft.com/library/mt589530.aspx)
 - [SQL Database V12](sql-database-v12-whats-new.md)

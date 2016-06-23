@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth"/>
 
 # Azure subscription and service limits, quotas, and constraints
@@ -53,6 +53,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [Event Hubs](#event-hubs-limits)
 - [IoT Hub](#iot-hub-limits)
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
@@ -177,6 +178,7 @@ The following table shows the limits for Azure Biztalk Services.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
+Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](./documentdb/documentdb-increase-limits.md).
 
 ### Mobile Engagement limits
 
@@ -217,6 +219,9 @@ For more granular information about other limits, including document size, queri
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
+### Event Hubs limits
+
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### Service Bus limits
 
