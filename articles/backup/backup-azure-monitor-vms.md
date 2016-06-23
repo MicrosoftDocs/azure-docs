@@ -18,7 +18,7 @@ ms.author="trinadhk; giridham;"/>
 
 # Monitor events for Azure virtual machine backups
 
-You can monitor the event logs to see the management operations performed on Recovery Services vaults. Event logs enable great post-mortem and audit support for the backup operations. The following operations are logged:
+You can monitor the event logs to see the management operations performed on Recovery Services vaults. There are multiple ways to filter and view events. In the vault dashboard the **Backup Alerts** tile shows the counts for events with severity equal to Critical or Warning. Further into the vault dashboard, you can open the **Audit Logs** setting to view any event for any operations in the subscription. You can also use **Audit Logs** setting to customize the view of events for Recovery Services vaults or vault items however you like. The [Alert notifications](backup-azure-monitor-vms.md#alert-notifications) section provides information on using alerts with Recovery Service vaults. Event logs enable great post-mortem and audit support for the backup operations. The following operations are logged:
 
 - Register
 - Unregister
@@ -32,7 +32,7 @@ You can monitor the event logs to see the management operations performed on Rec
 - Update policy
 - Cancel job
 
-There are multiple ways to filter and view events. In the vault dashboard the **Backup Alerts** tile shows the counts for events with severity equal to Critical or Warning. Further into the vault dashboard, you can open the **Audit Logs** setting to view any event for any operations in the subscription. You can also use **Audit Logs** setting to customize the view of events for Recovery Services vaults or vault items however you like. The [Alert notifications](backup-azure-monitor-vms.md#alert-notifications) section provides information on using alerts with Recovery Service vaults. For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
+For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
 
 ## Alert notifications
 
