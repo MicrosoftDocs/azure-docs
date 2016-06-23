@@ -237,7 +237,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ### Table partitioning source control
 To avoid your table definition from **rusting** in your source control system you may want to consider the following approach:
 
-1. Create the table as a partitioned table but with no partition values
+Create the table as a partitioned table but with no partition values:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -261,7 +261,7 @@ WITH
 ;
 ```
 
-2. `SPLIT` the table as part of the deployment process:
+`SPLIT` the table as part of the deployment process:
 
 ```sql
 -- Create a table containing the partition boundaries
