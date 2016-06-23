@@ -23,7 +23,7 @@ If you have already integrated an earlier version of the Azure Mobile Engagement
 
 If you skipped multiple versions of the Mobile Engagement Web SDK, you might need to complete several procedures during the upgrade process. For example, if you migrate from 1.4.0 to 1.6.0, first follow the procedures to upgrade from 1.4.0 to 1.5.0. Then, follow the procedures to upgrade from 1.5.0 to 1.6.0.
 
-Whichever version you upgrade from, replace any earlier version of the `azure-engagement.js` file with the latest version.
+Whichever version you upgrade from, replace any earlier version of the file azure-engagement.js with the latest version of the file.
 
 ## Upgrade from 1.2.1 to 2.0.0
 
