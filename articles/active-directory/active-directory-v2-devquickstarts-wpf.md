@@ -26,7 +26,7 @@ For [.NET native apps that run on a device](active-directory-v2-flows.md#mobile-
 
 - Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
 - Securely calls a backend To-Do List web service, which is also secured by OAuth 2.0.
-- Signs users out.
+- Signs the user out.
 
 ## Download sample code
 
