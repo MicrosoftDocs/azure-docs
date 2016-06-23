@@ -22,7 +22,7 @@ You can use the [Azure CDN SDK for Node.js](https://www.npmjs.com/package/azure-
 
 To complete this tutorial, you should already have [Node.js](http://www.nodejs.org) **4.x.x** or higher installed and configured.  You can use any text editor you want to create your Node.js application.  To write this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).  
 
-A completed example of this tutorial can be found [here]().
+A completed example of this tutorial can be found [here](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -360,6 +360,8 @@ Finally, let's delete our profile.
 
 To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-To find additional documentation on the Azure SDK for Node.js, view the [documentation](http://azure.github.io/azure-sdk-for-node/).
+To see the reference for the Azure CDN SDK for Node.js, view the [reference](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+
+To find additional documentation on the Azure SDK for Node.js, view the [full reference](http://azure.github.io/azure-sdk-for-node/).
 
 
