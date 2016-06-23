@@ -42,7 +42,7 @@ As a final step, make a note of the **Primary key** value, then click **Settings
 
 ![][6]
 
-You have now created your IoT hub, and you have the IoT Hub hostname, IoT Hub connection string, Event Hubs-compatible name, and Event Hubs-compatible endpoint you need to complete the rest of this tutorial.
+You have now created your IoT hub, and you have the IoT Hub hostname, IoT Hub connection string, IoT Hub Primary Key, Event Hubs-compatible name, and Event Hubs-compatible endpoint you need to complete the rest of this tutorial.
 
 ## Create a device identity
 
@@ -481,7 +481,7 @@ In this tutorial, you configured a new IoT hub in the portal and then created a 
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-c2d-tutorial]: iot-hub-java-java-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
