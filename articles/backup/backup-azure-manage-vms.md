@@ -350,6 +350,7 @@ Use the **Filter** to adjust or choose the information that appears in a particu
 
 ### View additional event attributes
 Using the **Columns** button, you can enable additional event attributes to appear in the list on the **Events** blade. The default list of events displays information for Operation, Level, Status, Resource, and Time. To enable additional attributes:
+
 1. On the **Events** blade, click **Columns**.
 
     ![Open Columns](./media/backup-azure-manage-vms/audi-logs-column-button.png)
