@@ -258,6 +258,8 @@ The **Schedule updates** blade allows you designate a maintenance window for you
 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
 
+>[AZURE.IMPORTANT] Schedule updates is only available for Premium tier caches.
+
 ## Diagnostics settings
 
 The **Diagnostics** section allows you to configure diagnostics for your Redis Cache.
