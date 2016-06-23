@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="06/22/2016"
 	ms.author="marsma" />
 
 # Run job preparation and completion tasks on Azure Batch compute nodes
@@ -145,23 +145,31 @@ no
 Sample complete, hit ENTER to exit...
 ```
 
-### Inspect job preparation and release tasks with Batch Explorer
+### Inspect job preparation and release tasks in the Azure Portal
 
-The [Azure Batch Explorer][batch_explorer_article], which is also found in the Batch [sample code repository][batch_explorer_project] on GitHub, is an excellent tool to use when you're developing solutions with Azure Batch. For example, when you're running the above sample application, you can use Batch Explorer to view the properties of the job and its tasks, or even download the shared text file that is modified by the job's tasks.
+When you run the above sample application, you can use the [Azure portal][portal] to view the properties of the job and its tasks, or even download the shared text file that is modified by the job's tasks.
 
-The screenshot below highlights the job preparation and release task properties that are shown in the **Job Details** pane when you select the *JobPrepReleaseSampleJob* job on the **Jobs** tab.
+The screenshot below shows the **Preparation tasks blade** in the Azure portal after a run of the sample application. Navigate to the *JobPrepReleaseSampleJob* properties after your tasks have completed (but before deleting your job and pool) and click **Preparation tasks** or **Release tasks** to view their properties.
 
-![Batch Explorer][1]
+![Job preparation properties in Azure portal][1]
 
-*Batch Explorer screenshot showing job preparation and release tasks*
+## Next steps
+
+### Application packages
+
+In addition to the job preparation task, you can also use the [application packages](batch-application-packages.md) feature of Batch to prepare compute nodes for task execution. This feature is especially useful for deploying applications that do not require running an installer, applications that contain many (100+) files, or applications that require strict version control.
+
+### Installing applications and staging data
+
+Check out the [Installing applications and staging data][forum_post] post in the Azure Batch forums for an overview of the various methods of preparing your nodes for running tasks. Written by one of the Azure Batch team members, this post is a good primer on the different ways to get files (including both applications and task input data) onto your compute nodes, and some special considerations to take into account for each method.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_explorer_article]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
+[forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]:https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_prep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
@@ -183,4 +191,4 @@ The screenshot below highlights the job preparation and release task properties 
 [net_list_task_files]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
-[1]: ./media/batch-job-prep-release/batchexplorer-01.png
+[1]: ./media/batch-job-prep-release/portal-jobprep-01.png
