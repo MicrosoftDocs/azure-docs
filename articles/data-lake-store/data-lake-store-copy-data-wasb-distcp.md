@@ -30,6 +30,8 @@ Before you begin this article, you must have the following:
 
 ## Do you learn fast with videos?
 
+<iframe title="Copy data using DistCp" width="480" height="390" src="https://mix.office.com/watch/1liuojvdx6sie"  frameborder="0"></iframe>
+
 [Watch this video](https://mix.office.com/watch/1liuojvdx6sie) on how to copy data between Azure Storage Blobs and Data Lake Store using DistCp.
 
 ## Use Distcp from Remote Desktop (Windows cluster) or SSH (Linux cluster)
