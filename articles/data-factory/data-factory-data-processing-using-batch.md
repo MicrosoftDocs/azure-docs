@@ -380,7 +380,7 @@ The method has a few key components that you need to understand.
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
-13.  Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container **customactivitycontainer** if it does not already exist.
+13.  Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactivitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container **customactivitycontainer** if it does not already exist.
 
 ### Execute method
 
