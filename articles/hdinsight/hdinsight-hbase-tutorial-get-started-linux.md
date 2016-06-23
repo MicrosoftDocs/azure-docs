@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/04/2016"
+	ms.date="06/23/2016"
 	ms.author="jgao"/>
 
 
@@ -178,12 +178,12 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 	You should receive a response similar to the following:
 
-    {"status":"ok","version":"v1"}
+		{"status":"ok","version":"v1"}
 
   The parameters used in this command are as follows:
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+		* **-u** - The user name and password used to authenticate the request.
+		* **-G** - Indicates that this is a GET request.
 
 2. Use the following command to list the exisiting HBase tables:
 
@@ -252,7 +252,7 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 	- **SOCKS v5**: (selected)
 	- **Remote DNS**: (selected)
 7. Click **OK** to save the changes.
-8. Browse to http://<TheFQDN of a ZooKeeper>:60010/master-status
+8. Browse to http://&lt;The FQDN of a ZooKeeper>:60010/master-status.
 
 In a high availability cluster, you will find a link to the current active HBase master node that is hosting the Web UI.
 
