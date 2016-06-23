@@ -242,7 +242,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 
 ![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-To reboot one ore more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few moments, the selected nodes reboot, and are back online a few moments later.
+To reboot one ore more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few moments, the selected node(s) reboot, and are back online a few moments later.
 
 To test the resiliency of your application against failure of the primary node of your cache, reboot the **Master** node. To test the resiliency of your application against failure of the secondary node, reboot the **Slave** node. To test the resiliency of your application against total failure of the cache, reboot **Both** nodes.
 
