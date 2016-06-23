@@ -23,7 +23,7 @@ This article explains how data is managed and safeguarded in Azure Security Cent
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
-## Data Source
+## Data Sources
 Azure Security Center analyzes data from the following sources:
 
 - Azure Services: Reads information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
