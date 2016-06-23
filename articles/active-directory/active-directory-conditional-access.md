@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -38,7 +38,7 @@ Securing access to company resources is important to every organization. With th
 - **Sign-in and user risk**: Conditional Access risk policies are available with Azure AD Identity Protection and provide advance protection based on risk events and unusual sign-in activities. 
  
 
-## Device based conditional access 
+## Device-based conditional access 
 
 **Enrolled devices**: At the device level, you can set policies that enforce that only  Mobile Device Management (MDM) enrolled devices are allowed access. Microsoft Intune is used to validate the device is enrolled and compliant. The device level conditional access then ensures that only devices that are compliant with your policies such as enforcing file encryption on a device are allowed access. In addition, by using MDM solutions you can ensure that corporate data on a lost/stolen device can we wiped remotely.   
   
@@ -51,9 +51,9 @@ The following content map lists documents that you need to refer to learn more a
 
 | Scenario                                             | Articles |
 |------------------------------------------------------|----------|
-| Protecting resources based on authentication strength or user |[Getting started with conditional access to Azure AD SaaS apps with MFA and extranet](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[What applications are supported](active-directory-conditional-access-supported-apps.md)|
+| Protecting resources based on authentication strength or user |[Getting started with conditional access to Azure AD connected apps based on group, location, and application sensitivity](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[What kind of applications are supported](active-directory-conditional-access-supported-apps.md)|
 | Protecting corporate data on lost/stolen devices     |[Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)|
 |Protecting resources based on sign-in risk            |[Azure AD Identity Protection](active-directory-identityprotection.md)         |
-| Additional Info                                      |[Conditional Access FAQs](active-directory-conditional-faqs.md)|
+| Additional Info                                      |[Conditional Access FAQs](active-directory-conditional-faqs.md)<br><br>[Technical reference](active-directory-conditional-access-technical-reference.md) |
 
 
