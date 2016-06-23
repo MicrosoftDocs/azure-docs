@@ -17,7 +17,7 @@
    ms.author="dkshir"/>
 
 
-# Configuration settings for standalone Service Fabric cluster
+# Configuration settings for standalone Windows cluster
 
 This article describes how to configure a standalone Service Fabric cluster using the _**ClusterConfig.JSON**_ file. This file is downloaded to your work machine, when you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). The ClusterConfig.JSON file allows you to specify information such as the Service Fabric nodes and their ip addresses, different types of nodes on the cluster, the security configurations as well as the network topology in terms of failure/upgrade domains, for your Service Fabric cluster. 
 
@@ -100,7 +100,12 @@ The **security** section is necessary for a secure standalone Service Fabric clu
 The **metadata** is a description of your secure cluster and can be set as per your setup. The **ClusterCredentialType** and **ServerCredentialType** determine the type of security that the cluster and the nodes will implement. They can be set to either *X509* for a certificate based security, or *Windows* for an Azure Active Directory based security. The rest of the **security** section will be based on the type of the security. Read [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) or [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md) for information on how to fill out the rest of the **security** section.
 
 ### **reliabilityLevel**
-The **reliabilityLevel** defines the number of copies of the system services that can run on the primary nodes of the cluster. This increases the reliability of these services and hence the cluster. You can set this variable to either *Bronze*, *Silver*, *Gold* or *Platinum* for 3, 5, 7 or 9 copies of these services respectively.
+The **reliabilityLevel** defines the number of copies of the system services that can run on the primary nodes of the cluster. This increases the reliability of these services and hence the cluster. You can set this variable to either *Bronze*, *Silver*, *Gold* or *Platinum* for 3, 5, 7 or 9 copies of these services respectively. See an example below.
+
+	"reliabilityLevel": "Bronze",
+	
+Note that since a primary node runs a single copy of the system services, you would need a minimum of 3 primary nodes for *Bronze*, 5 for *Silver*, 7 for *Gold* and 9 for *Platinum* reliability levels.
+
 
 <a id="nodetypes"></a>
 ### **nodeTypes**
