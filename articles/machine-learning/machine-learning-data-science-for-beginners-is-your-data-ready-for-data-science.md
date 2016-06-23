@@ -1,6 +1,6 @@
 <properties
    pageTitle="Is your data ready for data science? - Data evaluation | Microsoft Azure"
-   description="Learn how to evaluate data. Get the answer to the question: Is your data ready for data science?"
+   description="Learn the four criteria for data to be ready for data science. Data Science for Beginners video 4 has concrete examples to help with basic data evaluation."
    keywords="data evaluation,relevant data,evaluate data,prepare data,data criteria,data ready"
    services="machine-learning"
    documentationCenter="na"
@@ -19,11 +19,11 @@
 
 # Data Science for Beginners video 2: Is your data ready for data science?
 
-Learn about evaluating your data to make sure it meets some basic criteria so that it's ready for data science.
+Learn the four criteria for data that is ready for data science and get concrete examples to help with basic data evaluation.
 
-"Is your data ready for data science?" will be **available June 27.**
+> [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
-![Title slide - Data Science for Beginners video 2](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/ds-beginners-video-2-title-slide.png)
+## Transcript
 
 ## Other videos in the series
 
