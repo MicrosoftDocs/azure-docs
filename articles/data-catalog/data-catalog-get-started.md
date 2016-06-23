@@ -73,6 +73,17 @@ For more information, see [Configuring Authentication Policies](https://technet.
 6. Click **Create Catalog** button to create the data catalog for your organization. You should see home page for the data catalog after it is created successfully. 
 	![Azure Data Catalog - created](media/data-catalog-get-started/data-catalog-created.png)    
 
+### Find data catalog in Azure Portal
+1. Navigate to [https://portal.azure.com](https://portal.azure.com) and login using the same account that you used to create the data catalog in the previous step.
+2. Click **Browse** and then click **Data Catalog**.
+	![Azure Data Catalog - brose azure portal](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)	
+3. You should see the data catalog you created.
+	![Azure Data Catalog - view catalog in list](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
+4.  Click the catalog you created and you should see the **Data Catalog** blade in the portal.
+	![Azure Data Catalog - blade in portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png) 
+5. You can view properties of the data catalog as well as update them. For example, click **Pricing tier** and change the edition.
+	![Azure Data Catalog - pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
+
 
 ### Adventure Works sample database 
 This tutorial uses the Adventure Works sample database for SQL Server Database Engine, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
@@ -95,10 +106,7 @@ In this exercise you use the registration tool to register data assets from the 
 
 ### Here’s how to register a data source
 
-1.	Navigate to [https://azure.microsoft.com/services/data-catalog](https://azure.microsoft.com/services/data-catalog), and click **Get started**.
-
-	![Azure Data Catalog - Get started button](media/data-catalog-get-started/data-catalog-get-started-button.png)
-2.	Click **Publish data** on the home page. 
+1.	Navigate to [https://azuredatacatalog.com](https://azuredatacatlog.com) and click **Publish data** on the home page.
 
     ![Azure Data Catalog - Publish Data button](media/data-catalog-get-started/data-catalog-publish-data.png)
 
