@@ -388,4 +388,4 @@ A sample error response could look like this:
 | trace_id | A unique identifier for the request that can help in diagnostics.  |
 | correlation_id | A unique identifier for the request that can help in diagnostics across components.|
 
-For a description of the error codes and the recommended client action, please see [Error codes for token endpoint errors](#error_codes_for_token_endpoint_errors).
+For a description of the error codes and the recommended client action, please see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
