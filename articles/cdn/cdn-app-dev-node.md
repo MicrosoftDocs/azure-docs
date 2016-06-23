@@ -39,10 +39,9 @@ You will then be presented a series of questions to initialize your project.  Fo
 ![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
 
 Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll be using the Azure Client Runtime for Node.js (ms-rest-azure) and the Azure CDN Client Library for Node.js (azure-arm-cd).  Let's add those to the project as dependencies.
-``` 
-npm install --save ms-rest-azure
-npm install --save azure-arm-cdn
-```
+ 
+	npm install --save ms-rest-azure
+	npm install --save azure-arm-cdn
 
 After the packages are done installing, the *package.json* file should look similar to this (version numbers may differ):
 
