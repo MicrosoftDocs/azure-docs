@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Manage and monitor Resource Manager-deployed virtual machine backups | Microsoft Azure"
+	pageTitle="Manage Resource Manager-deployed virtual machine backups | Microsoft Azure"
 	description="Learn how to manage and monitor Resource Manager-deployed virtual machine backups"
 	services="backup"
 	documentationCenter=""
