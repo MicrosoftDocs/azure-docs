@@ -27,4 +27,5 @@ This menu links to topics that describe how to set up the various data science e
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
+The **Microsoft Data Science Virtual Machine** is also available as an Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. See [Provision the Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) for how to use this VM.
 
