@@ -39,9 +39,9 @@ Most of the Azure service names must be globally unique.  The following are the 
 **Names:**
 
 - AAD VNet: contosoaadvnet
-- AAD Virtual Machine (VM): contosoaaddns
+- AAD Virtual Machine (VM): contosoaadadmin
 - AAD directory: contosoaaddirectory
-- AAD domain name: contoso156
+- AAD domain name: contoso157
 
 - HDInsight VNet: contosohdivnet
 - HDInsight VNet resource group: contosohdirg
@@ -108,7 +108,7 @@ In this section, you will:
 3. Enter or select the following values:
 
 	- Name: contosoaaddirectory
-	- Domain name: contoso156.  This name must be globally unique. Replace the number in the name with a different number until it is validated successfully.
+	- Domain name: contoso157.  This name must be globally unique. Replace the number in the name with a different number until it is validated successfully.
 	- Country or region: Select your country or region.
 4. Click **Complete**.
 
@@ -123,7 +123,7 @@ This is a domain user, which will be used to configure the AAD.
 4. Enter **User Name**, and then click **Next**. 
 5. Configure user profile; In **Role**, select **Global Admin**; and then click **Next**.
 6. Click **Create** to get a temporary password.
-7. Make a copy of the password - Zuku3468, and then click **Complete**. jgao@contoso156.onmicrosoft.com
+7. Make a copy of the password - Kasa6500, and then click **Complete**. jgao@contoso157.onmicrosoft.com
 
 **To create the AAD DC Administrators' group, and add the AAD user**
 
@@ -138,7 +138,7 @@ This is a domain user, which will be used to configure the AAD.
 6. Click **Complete**.
 7. Click **AAD DC Administrators** to open the group.
 8. Click **Add Members**.
-9. Select the user you created in the previous step, for example jgao@contoso156.onmicrosoft.com, and then click **Complete**.
+9. Select the user you created in the previous step, for example jgao@contoso157.onmicrosoft.com, and then click **Complete**.
 
 	- Members of this group will be granted administrative privileges on machines that are domain joined to the Azure AD domain Service domain you will setup.	
 	- After domain join, this group will be added to the Administrators group on these domain joined machines.
@@ -154,12 +154,12 @@ For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD 
 4. Scroll down to **Domain Services**, and set the following values:
 
 	- **Enable domain services for this directory**: Yes.
-	- **DNS domain name of domain services**: This shows the default NDS name of the Azure directory. For example, contoso156.onmicrosoft.com.
+	- **DNS domain name of domain services**: This shows the default NDS name of the Azure directory. For example, contoso157.onmicrosoft.com.
 	- **Connect domain services to this virtual network**: Select the classic virtual network you created earlier. I.e. **contosoaadvnet**.
 	
 6. Click **Save** from the bottom of the page. You will see **Pending ...** next to **Enable domain services for this directory**.  
-7. Wait until **Pending ...** disappears, and **IP Address** got populated.    These are the IP addresses of the domain controllers provisioned by Domain Services. Each IP address will be visible after the corresponding domain controller is provisioned and ready. This can take up 20 minutes or more. It takes more time for the second IP address to show up. Update the DNS settings for the virtual network to point to these IP addresses in order to join computers to the domain.
-8. Make a copy of the IP addresses.
+7. Wait until **Pending ...** disappears, and **IP Address** got populated. There are the IP addresses of the domain controllers provisioned by Domain Services. Each IP address will be visible after the corresponding domain controller is provisioned and ready. This can take up 20 minutes or more. It takes more time for the second IP address to show up. Update the DNS settings for the virtual network to point to these IP addresses in order to join computers to the domain.
+8. Make a copy of the two IP addresses.
 
 For more information, see [Azure AD Domain Services (Preview) - Enable Azure AD Domain Services](../active-directory/active-directory-ds-getting-started-enableaadds.md).
 
@@ -188,7 +188,7 @@ You can skip the next step. In your real implementation, you will need it:
 
 		$certFile = "c:\Tutorials\cert\SecureLdapCert.pfx" # this must be an existing folder
 		$certPassword = "Pass@word123"
-		$certName = "*.contoso156.onmicrosoft.com" # this must match the AAD DNS name
+		$certName = "*.contoso157.onmicrosoft.com" # this must match the AAD DNS name
 
 		$lifetime=Get-Date
 		$cert = New-SelfSignedCertificate `
@@ -211,11 +211,6 @@ You can skip the next step. In your real implementation, you will need it:
 5. Click **Configure certificate**.
 6. Follow the instruction to specify the certificate file and the password. You will see **Pending ...** next to **Enable domain services for this directory**.  
 7. Wait until **Pending ...** disappears, and **Secure LDAP Certificate** got populated.  This can take up 10 minutes or more.
-
-**Optional steps**
- 
- - Enable secure LDAP access over the internet
- - Configure DNS to access the managed domain from the internet
  
 For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
@@ -234,7 +229,7 @@ In this section, you will add a virtual machine to the AAD VNet, you will instal
 3. Select an image, and then click **Next**.  If you don't know which one to use, select the default, **Windows Server 2012 R2 Datacenter**.
 4. Enter or select the following values:
 
-	- Virtual Machine Name: **contosoaaddns**
+	- Virtual Machine Name: **contosoaadadmin**
 	- Tier: **Basic**
 	- New User Name: **jgao**
 	- Password: **Pass@word123**
@@ -248,7 +243,7 @@ In this section, you will add a virtual machine to the AAD VNet, you will instal
 **To RDP to the VM**
 
 1. Sign on to the [Azure classic portal](https://manage.windowsazure.com).
-2. Click **Virtual Machines** > **contosoaaddns**.
+2. Click **Virtual Machines** > **contosoaadadmin**.
 3. Click **Dashboard** from the top menu.
 4. Click **Connect** from the bottom of the page.
 5. Follow the instruction and use the local admin username and password to connect.
@@ -259,7 +254,7 @@ In this section, you will add a virtual machine to the AAD VNet, you will instal
 2. Click **Local Server** from the left menu.
 3. From Workgroup, click **Workgroup**.
 4. Click **Change**.
-5. Click **Domain**, enter **contoso156.onmicrosoft.com**, and then click **OK**.
+5. Click **Domain**, enter **contoso157.onmicrosoft.com**, and then click **OK**.
 6. Enter the domain user credentials, and then click **OK**.
 7. Click **OK**.
 8. Click **OK** to agree to reboot the computer.
@@ -278,7 +273,7 @@ For more information, see [Join a Windows Server virtual machine to a managed do
 
 **To install Active Directory administration tools and DNS tools**
 
-1. RDP into **contosoaaddns**.
+1. RDP into **contosoaadadmin**.
 2. Click **Start**, and then click **Server Manager**.
 3. Click **Dashboard** from the left menu.
 4. Click **Add roles and features**.
@@ -297,15 +292,16 @@ For more information, see [Install Active Directory administration tools on the 
 
 This step will not be needed in the future.
 
-1. RDP to contosoaaddns using the AAD user account.
+1. RDP to contosoaadadmin using the AAD user account.
 2. Click **Start**, click **Administrative Tools**, and then click **DNS**. The DNS Manager opens.
 3. Right-click the **DNS** node from the left pane, and then click **Connect to DNS Server**.
-4. Select **The following computer**,  enter the IP address of the DC/DNS server (for example, 10.1.0.5), and then click **OK**. You see the DC/DNS is added to the left pane.
+4. Select **The following computer**,  enter the IP address of the DC/DNS server (for example, 10.1.0.4), and then click **OK**. You see the DC/DNS is added to the left pane.
 3. Expand the DC/DNS server, right-click **Reverse Lookup Zones**, and then click **New Zone**. The New Zone Wizard opens.
 4. Click **Next**.
 5. Select **Primary zone**, and then click **Next**.
+6. Select **To all DNS servers running on domain controllers in this domain**, and then click **Next**.
 6. Select **IPv4 Reverse Lookup Zone, and then click **Next**.
-7. In **Network ID**, enter **10.0.0**, and then click **Next**.
+7. In **Network ID**, enter **10**, and then click **Next**.
 8. Click **Next**.
 9. Click **Next**.
 10. Click **Finish**.
@@ -315,11 +311,11 @@ This step will not be needed in the future.
 
 **Create an Organizational Unit (OU) on an AAD Domain Services managed domain**
 
-1. RDP into **contosoaaddns** using the domain account that is in the **AAD DC Administrators** group.
+1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
 2. Click **Start**, click **Administrative Tools**, and then click **Active Directory Administrative Center**.
-5. Click the domain name in the left pane. For example contoso156.
+5. Click the domain name in the left pane. For example contoso157.
 6. Click **New** under the domain name in the **Task** pane, and then click **Organizational Unit**.
-7. Enter a name, and then click **OK**.  "HiveDev".
+7. Enter a name, and then click **OK**.  For example, "HiveDev".
 
 *****************************************
 **additional steps**
@@ -331,19 +327,27 @@ For more information, See [Create an Organizational Unit (OU) on an AAD Domain S
 
 
 
-## Create Hadoop cluster into virtual network
+## Create an ARM virtual network for HDInsight cluster
 
 In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-vnet-secure-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-vnet-v2.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Parameters** blade, enter the following:
 
     - **ClusterName**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
+
+	- DomainName: contoso157.onmicrosoft.com
+	- OrganizationUnitDN: OU=HiveDev,DC=contoso157,DC=onmicrosoft,DC=com
+	- LDAPUrls: ["ldaps://40.84.54.252:636"]
+	- DomainAdminUserName: jgao@contoso157.onmicrosoft.com
+	- DomainAdminPassword: Kasa6500
 
     A lot of properties have been hard-coded into the template. For example:
     
@@ -383,7 +387,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 6. Under **site-to-site connectivity**,  check **Connect to the local network**, and then select the local network you just created in **Local Network**.
 7. Click **Save** on the bottom of the page.
 8. Click **Yes** to confirm.
-9. Click **Dashboard** from the top menu, click **Create Gateway** from the bottom of the page, click **Dynamic Routing**, and then click **Yes**. When it is done, copy the gateway public IP address. You will need it to setup the gateway in the ARM VNet. Don't worry if you see the status is disconnected.  It is expected. 40.84.4.190
+9. Click **Dashboard** from the top menu, click **Create Gateway** from the bottom of the page, click **Dynamic Routing**, and then click **Yes**. When it is done, copy the gateway public IP address. You will need it to setup the gateway in the ARM VNet. Don't worry if you see the status is disconnected.  It is expected. 40.79.38.243
 
 
 **To create a VPN gateway for the ARM VNet**
@@ -395,20 +399,25 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 	- Name:  contosohdivnetlocalnetworkgateway
 	- IP Address: The public IP address of the gateway you created in the last step.
 	- Address space: the CIDR block of the classic VNet, 10.1.0.0/16
-	- Resource group: Use existing - contosohdirg
 
-4. Click **OK**
+4. Click **OK**.
+5. Enter the following:
+
+	- Resource group: Use existing - contosohdirg
+	- Location: East US 2
+
+4. Click **Create**
 
 3. Click **New** > **Networking** > **Virtual network gateway**.
 4. Select or enter:
 
 	- Name: contosohdivnetvirtualnetworkgateway
-	- Virtual network: ARM network name contosohdicluster-vnet.
+	- Virtual network: ARM network name contosohdivnet.
 	- Public IP address: Create new: contosohdvnetvirtualnetworkgatewayip
 
 4. Click **OK**.
 5. Click **Create**.
-6. Open the virtual network public gateway.  In the Settings > Properties, find the public IP address:  23.101.143.175
+6. Open the virtual network public gateway.  In the Settings > Properties, find the public IP address:  40.79.76.167
 
 
 
@@ -417,13 +426,13 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 1. Sign on to the [classic portal](https://manage.windowsazure.com).
 2. Click **Networks** > **Local Networks**, and then click the ARM VNet that you want to connect to. For example: contosohdivnet.
 3. Click **Edit** from the bottom.
-4. Replace **VPN Device IP Address** with the ARM VNet gateway public IP address: 23.101.143.175.
+4. Replace **VPN Device IP Address** with the ARM VNet gateway public IP address: 40.79.76.167
 5. Click **Next**.
 6. Click **Complete**.
 7. From a PowerShell console, setup a shared key by running the command below. Make sure you change the names of the VNets to the your own VNet names.
 
 		Add-AzureAccount
-		Set-AzureVNetGatewayKey -VNetName contosoaadvnet 	-LocalNetworkSiteName contosohdi-vnet -SharedKey "Password123"
+		Set-AzureVNetGatewayKey -VNetName contosoaadvnet -LocalNetworkSiteName contosohdi-vnet -SharedKey "Password123"
 
 8. Create the VPN connection by running the commands below.
 
@@ -436,10 +445,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 			-RoutingWeight 10 -SharedKey "Password123"
 
 
-
-
-
-
+## Create HDInsight cluster
 
 
 ## Test the connection between the two VNets
@@ -456,7 +462,7 @@ To test the connection between the two VNets, you will ping one of the cluster n
 
 **To ping a cluster node**
 
-1. RDP into **contosoaaddns** using the domain account that is in the **AAD DC Administrators** group.
+1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
 2. Click **Start**, and then click **Windows PowerShell**.
 3. Ping the IP address you wrote down earlier.
 
