@@ -106,7 +106,7 @@ The property represented by **propertyPath** below is optional, if it is not spe
 You can use either this element or the dependsOn element to specify dependencies, but you do not need to use both for the same dependent resource. The guidance is to use the implicit reference to avoid the 
 risk of inadvertently having an unnecessary dependsOn element stop the deployment engine from doing aspects of the deployment in parallel.
 
-To learn more, see [reference function](../resource-group-template-functions/#reference).
+To learn more, see [reference function](resource-group-template-functions.md#reference).
 
 ## Next steps
 
