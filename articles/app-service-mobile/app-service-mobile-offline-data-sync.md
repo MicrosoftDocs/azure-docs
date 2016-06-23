@@ -115,7 +115,7 @@ the local store is populated with new data only when there is a call to *pull* d
   For instance, if you are filtering on userid, your query name could be as follows (in C#):
 
 		await todoTable.PullAsync("todoItems" + userid, 
-			syncTable.Where(u => u.UserId = userid));
+			syncTable.Where(u => u.UserId == userid));
 
   If you want to opt out of incremental sync, pass `null` as the query ID. In this case, all records will
   be retrieved on every call to `PullAsync`, which is potentially inefficient.
