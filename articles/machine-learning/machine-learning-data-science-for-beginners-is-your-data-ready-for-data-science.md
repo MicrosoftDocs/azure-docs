@@ -21,7 +21,7 @@
 
 Learn about evaluating your data to make sure it meets some basic criteria so that it's ready for data science.
 
-"Is your data ready for data science?" will be **available June 27.**
+**"Is your data ready for data science?" will be available June 27.**
 
 ![Title slide - Data Science for Beginners video 2](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/ds-beginners-video-2-title-slide.png)
 
