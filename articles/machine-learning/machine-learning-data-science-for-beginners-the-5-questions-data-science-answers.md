@@ -21,7 +21,7 @@
 
 Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful if you're interested in doing data science - or work with people who do data science - and you want to start with the most basic concepts.
 
-In these videos, Senior Data Scientist Brandon Rohrer makes data science approachable. To get the most out of the series, watch them in order. [Go to the list of videos](#)
+In these videos, Senior Data Scientist Brandon Rohrer makes data science approachable. To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
 
 ## Transcript: The 5 questions that data science can answer
 
@@ -131,16 +131,19 @@ Questions it answers are always about what action should be taken - usually by a
   *	For a robot vacuum: Keep vacuuming, or go back to the charging station?
 
 Reinforcement learning algorithms gather data as they go, learning from trial and error.
+
 So that's it - The 5 questions data science can answer.
 
 ## Other videos in this series
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos. Check out the other four videos:
-  * Video 2: [Is your data ready for data science?](). Available June 27.
-  * Video 3: [Ask a question you can answer with data](). Available June 28.
-  * Video 4: [Predict an answer with a simple model](). Available June 29.
-  * Video 5: [Copy other people's work to do data science](). Available June 30.
 
-## Do an easy data science experiment
+  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md). Available June 27.
+  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). Available June 28.
+  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md). Available June 29.
+  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Available June 30.
 
-  * [Try your first data science experiment](machine-learning-create-experiment.md) with Azure Machine Learning.
+## Next steps
+
+  * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
+  * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
