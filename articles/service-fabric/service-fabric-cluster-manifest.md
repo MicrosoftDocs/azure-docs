@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configure your private cluster | Microsoft Azure"
+   pageTitle="Configure your standalone cluster | Microsoft Azure"
    description="This article describes how to configure your standalone or private Service Fabric cluster."
    services="service-fabric"
    documentationCenter=".net"
