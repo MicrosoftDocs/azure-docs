@@ -33,14 +33,14 @@ This tutorial helps you get started with Azure Data Catalog. You will perform th
 Before you begin this tutorial you must have the following:
 
 ### Azure Subscription
-To set up Azure Data Catalog, you must be the **administrator or co-administrator** of the Azure subscription.
+To set up Azure Data Catalog, you must be the **owner or co-owner** of the Azure subscription.
 
-Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles.md).
+Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 
 ### Azure Active Directory
-To set up Azure Data Catalog, you must be logged in using an Azure Active Directory user account and the user must be an administrator or co-administrator of the subscription as mentioned earlier.  
+To set up Azure Data Catalog, you must be logged in using an Azure Active Directory user account and the user must be the owner or co-owner of the subscription.  
 
 Azure Active Directory (Azure AD) provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-on to any cloud and on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-on. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
@@ -57,10 +57,12 @@ The Global Authentication Policy allows authentication methods to be enabled sep
 For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
 
 ## Provision Azure Data Catalog
+You can provision/create only one Data Catalog per an Azure account even if you have multiple subscriptions in the account. Therefore, if the owner or co-owner of an Azure subscription has already created a data catalog, you do not need to perform steps in the following procedure; go to the next section.  
+
 1. Navigate to [https://azure.microsoft.com/services/data-catalog](https://azure.microsoft.com/services/data-catalog). 
 
 	![Azure Data Catalog - marketing landing page](media/data-catalog-get-started/data-catalog-marketing-landing-page.png) and click **Get started**.
-2. Login using a user account that is an **administor or co-administrator** of the Azure subscription to see the following page.
+2. Login using a user account that is the **owner or co-owner** of the Azure subscription. You should see the following page after logging in successfully.
 
 	![Azure Data Catalog - provision data catalog](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png) 
 2. Specify a **name** for the data catalog, **subscription** you want to use, and the **location** for the catalog. 
@@ -83,7 +85,6 @@ For more information, see [Configuring Authentication Policies](https://technet.
 	![Azure Data Catalog - blade in portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png) 
 5. You can view properties of the data catalog as well as update them. For example, click **Pricing tier** and change the edition.
 	![Azure Data Catalog - pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
-
 
 ### Adventure Works sample database 
 This tutorial uses the Adventure Works sample database for SQL Server Database Engine, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
@@ -217,6 +218,7 @@ For details about **Azure Data Catalog** search, see [Data Catalog Search syntax
 In this exercise you use the **Azure Data Catalog** portal to annotate data assets that you have previously registered in the catalog. The annotations you provide will supplement and enhance the structural metadata extracted from the data source during registration and will make the data assets much easier to discover and understand. 
 
 ### Here’s how you annotate data assets
+You can select a single data asset or multiple data assets and provide annotations for them. For example, you can select all the data assets you registered and specify an expert for them. The following steps show you how to annotate a single dataset (ProductPhoto).  
 
 1.  If you have closed the browser, navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com) and search with **tags:cycles** to find the data assets you have registered.  
 2. Click **ProductPhoto** in search results.  
