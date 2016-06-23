@@ -31,9 +31,9 @@ A completed example of this tutorial can be found [here](https://code.msdn.micro
 Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
 
 Create a folder to store your application.  From a console with the Node.js tools in your current path, set your current location to this new folder and initialize your project by executing:
-```
-npm init
-```
+	
+	npm init
+	
 You will then be presented a series of questions to initialize your project.  For **entry point**, this tutorial will use *app.js*.  You can see my other choices in the example below.
 
 ![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
@@ -100,7 +100,7 @@ Let's get the basic structure of our program written.
 	
 	If you are using individual user authentication, these two lines will look slightly different.
 
-	>[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.
+	>[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.  Be very careful to guard your individual user credentials and keep them secret.
 
 	```
 	var credentials = new msRestAzure.UserTokenCredentials(clientId, 
