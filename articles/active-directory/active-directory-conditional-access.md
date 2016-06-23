@@ -51,7 +51,7 @@ The following content map lists documents that you need to refer to learn more a
 
 | Scenario                                             | Articles |
 |------------------------------------------------------|----------|
-| Protecting resources based on authentication strength or user |[Getting started with conditional access to Azure AD connected apps based on group, location and application sensitivity](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[What applications are supported](active-directory-conditional-access-supported-apps.md)|
+| Protecting resources based on authentication strength or user |[Getting started with conditional access to Azure AD connected apps based on group, location, and application sensitivity](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[What kind of applications are supported](active-directory-conditional-access-supported-apps.md)|
 | Protecting corporate data on lost/stolen devices     |[Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)|
 |Protecting resources based on sign-in risk            |[Azure AD Identity Protection](active-directory-identityprotection.md)         |
 | Additional Info                                      |[Conditional Access FAQs](active-directory-conditional-faqs.md)<br><br>[Technical reference](active-directory-conditional-access-technical-reference.md) |
