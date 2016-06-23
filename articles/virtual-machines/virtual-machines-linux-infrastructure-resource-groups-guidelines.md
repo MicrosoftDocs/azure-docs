@@ -41,9 +41,9 @@ Tasks:
 
 ## Resource Groups
 
-In Azure, you can logically group together related resources such as storage accounts, virtual networks, and virtual machines (VMs) in order to deploy, manage, and maintain them as a single entity. This makes it easier to deploy applications while keeping all the related resources together from a management perspective, or to grant others access to that group of resources.
+In Azure, you can logically group together related resources such as storage accounts, virtual networks, and virtual machines (VMs) in order to deploy, manage, and maintain them as a single entity. This makes it easier to deploy applications while keeping all the related resources together from a management perspective, or to grant others access to that group of resources. For a more comprehensive understanding of Resource Groups, you can read the [Azure Resource Manager overview](../resource-group-overview.md).
 
-A key feature to Resource Groups is to build our your environment using a JSON file that declares the building blocks for storage, networking, compute, and any related custom scripts or configurations to apply. By using these JSON templates, you can create consistent, reproducible deployments for your applications. This makes it easy to build out an environment in development and then use that same template to create a production deployment, or vice versa.
+A key feature to Resource Groups is to build our your environment using a JSON file that declares the building blocks for storage, networking, compute, and any related custom scripts or configurations to apply. By using these JSON templates, you can create consistent, reproducible deployments for your applications. This makes it easy to build out an environment in development and then use that same template to create a production deployment, or vice versa. For a better understanding using templates, you can read [the template walkthrough](../resource-manager-template-walkthrough.md) which guides you through each step of the building out a JSON templat.
 
 There are two different approaches you can take when designing your environment with Resource Groups:
 
@@ -52,7 +52,7 @@ There are two different approaches you can take when designing your environment 
 
 As you scale out, creating centralized Resource Groups for your virtual networking and subnets makes it easier to build cross-premises network connections for hybrid connectivity options, rather than each application having their own virtual network that requires configuration and maintenance. Your application owners only then have access to the application components within their Resource Group and not the core Azure infrastructure of your environment.
 
-Role-Based Access Controls provide a granular way to control access to Resource Groups. For production applications, you can control the users that may access those resources, or for the core infrastructure resources you can limit only infrastructure engineers to work with them. As you design our your environment, consider which users will require access to resources and try to design your Resource Groups accordingly. 
+[Role-Based Access Controls](../active-directory/role-based-access-control-what-is.md) provide a granular way to control access to Resource Groups. For production applications, you can control the users that may access those resources, or for the core infrastructure resources you can limit only infrastructure engineers to work with them. As you design our your environment, consider which users will require access to resources and try to design your Resource Groups accordingly. 
 
 
 ## Next steps

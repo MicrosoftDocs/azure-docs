@@ -41,12 +41,12 @@ Tasks:
 
 ## Storage
 
-Azure Storage is a key part of deploying and managing VMs and applications. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting VMs.
+Azure Storage is a key part of deploying and managing virtual machines (VMs) and applications. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting VMs.
 
-There are two types of storage accounts available:
+There are two types of storage accounts available for supporting VMs:
 
 - Standard storage account gives you access to blob storage (used for storing Azure VM disks), table storage, queue storage, and file storage
-- Premium storage delivers high-performance, low-latency disk support for I/O intensive workloads, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure VM disks only.
+- [Premium storage](../storage/storage-premium-storage.md) delivers high-performance, low-latency disk support for I/O intensive workloads, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure VM disks only.
 
 Azure creates VMs with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. Take care when designing applications to only use this temporary disk for non-persistent data as the VM may be migrated between hosts during a maintenance event. Any data stored on the temporary disk would be lost.
 
@@ -55,6 +55,8 @@ Durability and high availability is provided by the underlying Azure Storage env
 Operating system disks and data disks have a maximum size of 1023 gigabytes (GB) because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can use Logical Volume Manager (LVM) to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
 
 There are some scalability limits when designing your Azure Storage deployments - see [Microsoft Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md#storage-limits) for more details. Also see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
+
+When it comes to application storage, you can store unstructured object data such as documents, images, backups, configuratino data, logs, etc. using blob storage. Rather than your application writing to a virtual disk attached to the VM, the application can write directly to Azure blob storage. Blob storage also provides the option of [hot and cool storage tiers](../storage/storage-blob-storage-tiers.md) depending on you availability needs and cost constraints.
 
 
 ## Striped disks

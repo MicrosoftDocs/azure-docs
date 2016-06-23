@@ -43,9 +43,9 @@ Tasks:
 
 ## Virtual networks
 
-Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, just as with physical networks. Through the use of a Site-to-Site VPN or Express Route circuit, you can connect Azure virtual networks in to your on-prem networks.
+Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, just as with physical networks. Through the use of a [Site-to-Site VPN](../vpn-gateway/vpn-gateway-topology/.md) or [Express Route circuit](../virtual-network/expressroute-introduction.md), you can connect Azure virtual networks in to your on-prem networks. You can read more about [virtual networks and their components](../virtual-network/virtual-networks-overview.md).
 
-Through the use of Resource Groups, you have flexibility in how you design your virtual networking components. As VMs can connect to virtual networks outside of their own resource group, a common design approach would be to create centralized resource groups that contain your core networking infrastructure that can be managed by a common team, and then VMs and their applications deployed to separate resource groups. This allows application owners access to the resource group that contains their VMs without opening up access to the configuration of the wider virtual networking resources.
+Through the use of Resource Groups, you have flexibility in how you design your virtual networking components. VMs can connect to virtual networks outside of their own resource group. A common design approach would be to create centralized resource groups that contain your core networking infrastructure that can be managed by a common team, and then VMs and their applications deployed to separate resource groups. This allows application owners access to the resource group that contains their VMs without opening up access to the configuration of the wider virtual networking resources.
 
 ## Site connectivity
 If on-premises users and computers do not require ongoing connectivity to VMs in an Azure virtual network, your virtual network design will be pretty straight forward:
@@ -84,6 +84,19 @@ Number of VMs needed | Number of host bits needed | Size of the subnet
 > [AZURE.NOTE] For normal on-premises subnets, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 2. For an Azure subnet, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 5 (2 plus 3 for the addresses that Azure uses on each subnet).
 
 If you choose a subnet size that is too small, you will have to re-IP and redeploy the VMs in the subnet.
+
+
+## Network Security Groups
+You can apply filtering rules to the traffic that flows through your virtual networks by using Network Security Groups. You can build very granular filtering rules to secure your virtual networking environment, controlling inbound and outbound traffic, source and destination IP ranges, allowed ports, etc. Network Security Groups can be applied to subnets within a virtual network or directlt to a given virtual network interface. It is recommended, and in some causes the default action, to have a Network Security Group filtering traffic on your virtual networks. You can read more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
+
+
+## Additional network components
+As with an on-premises physical networking infrastructure, Azure virtual networking can contain more than just subnets and IP addressing. As you design your application infrastructure, you may want to incorporate some of these additional components:
+
+- [VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) - connect Azure virtual networks to other Azure virtual networks, on-premises networks through a Site-to-Site VPN connection, provide users direct access with Point-to-Site VPN connections, or implement Express Route connections for dedicated, secure connections. 
+- [Load balancer](../load-balancer/load-balancer-overview.md) - provides load balancing of traffic for both external and internal traffic as desired
+- [Application Gateway](../application-gateway/application-gateway-introduction.md) - HTTP load-balancing at the application layer, providing some additiona benefits for web applications that just deploying the Azure load balancer
+- [Traffic Manager](../traffic-manager/traffic-manager-overview.md) - DNS-based traffic distribution to direct end-users to the closest available application endpoint, allowing you to host your application out of Azure datacenters in different regions
 
 
 ## Next steps
