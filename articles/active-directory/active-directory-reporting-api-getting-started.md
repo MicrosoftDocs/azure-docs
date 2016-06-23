@@ -33,45 +33,46 @@ To use this sample, you will need an [Azure Active Directory](active-directory-w
 The Reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs. To access information from your directory, you must create an application in your Azure AD tenant, and grant it appropriate permissions to access the Azure AD data.
 
 
-### Create an application
-- Navigate to the [Azure classic portal](https://manage.windowsazure.com/).
-- Navigate into your Azure AD tenant.
-- Navigate to the **Applications** tab.
-- On the bottom bar, click **Add**.
+### Register an Azure AD application
+In order to complete the Azure AD application registration work, you must sign in to the Azure classic portal with an account that is a member of the Global Administrator directory role. This is because you will be registering the Azure AD application with permissions that require Global Administrator privileges in order to assign them in the registration. Applications running under credentials with "admin" privileges like this can be very powerful, so please be sure to keep the credentials secure.
+ 
+1. Navigate to the [Azure classic portal](https://manage.windowsazure.com/).
+2. Navigate into your Azure AD tenant.
+3. Navigate to the **Applications** tab.
+4. On the bottom bar, click **Add**.
 	- Click "Add an application my organization is developing".
 	- **Name**: Any name is fine. Something like "Reporting API Application" is recommended.
 	- **Type**: Select "Web application and/or Web API".
 	- Click the arrow to move to the next page.
-	- **Sign-on URL**: ```http://localhost```.
-	- **App ID URI**: ```http://localhost```.
+	- **Sign-on URL**: ```https://localhost```.
+	- **App ID URI**: ```https://localhost/ReportingApiApp```.
 	- Click the check mark to finish adding the application.
 
 ### Grant your application permission to use the API
-- Navigate to the **Applications** tab.
-- Navigate to your newly created application.
-- Click the **Configure** tab.
-- In the "Permissions to Other Applications" section:
+1. Navigate to the **Applications** tab.
+2. Navigate to your newly created application.
+3. Click the **Configure** tab.
+4. In the "Permissions to Other Applications" section:
 	- In the Azure Active Directory > Application Permissions, select **Read directory data**.
 - Click **Save** on the bottom bar.
 
 
 ### Get your directory ID, client ID, and client secret
 
-The steps below will walk you through obtaining your application's client ID and client secret.  You will also need to know your tenant name, it can be either your *.onmicrosoft.com or a custom domain name.  Copy these into a separate place; you'll use them to modify the script.
+The steps below will walk you through obtaining your application's client ID and client secret.  You will also need to know your tenant name, it can be either your *.onmicrosoft.com or a custom domain name.  Copy these values into a separate place; you'll use them to modify the script later.
 
-#### Application Client ID
-- Navigate to the **Applications** tab.
-- Navigate to your newly created application.
-- Navigate to the **Configure** tab.
-- Your application's client ID is listed on the **Client ID** field.
+#### Get the application's client ID
+1. Navigate to the **Applications** tab.
+2. Navigate to your newly created application.
+3. Navigate to the **Configure** tab.
+4. Your application's client ID is listed on the **Client ID** field.
 
-#### Application client secret
-- Navigate to the **Applications** tab.
-- Navigate to your newly created application.
-- Navigate to the **Configure** tab.
-- Generate a new secret key for your application by selecting a duration in the "Keys" section.
-- The key will be displayed upon saving. Make sure to copy it and paste it into a safe location, because there is no way to retrieve it later.
-
+#### Get the application's client secret
+1. Navigate to the **Applications** tab.
+2. Navigate to your newly created application.
+3. Navigate to the **Configure** tab.
+4. Generate a new secret key for your application by selecting a duration in the "Keys" section.
+5. The key will be displayed upon saving. Make sure to copy it and paste it into a safe location, because there is no way to retrieve it later.
 
 ## Modify the script
 Edit one of the scripts below to work with your directory by replacing $ClientID, $ClientSecret and $tenantdomain with the correct values from “Delegating Access in Azure AD”.
