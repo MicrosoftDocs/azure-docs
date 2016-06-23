@@ -55,7 +55,7 @@ You can disable data collection from virtual machines at any time, which will re
 
 ## Next steps
 
-In this document, you learned how data is managed and safeguarded in Azure Security Center. To learn more about Azure Security Center, see the following:
+In this document, you learned how data is managed and safeguarded in Azure Security Center. To learn more about Azure Security Center, see:
 
 - [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) - Learn how to plan and understand the design considerations to adopt Azure Security Center.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md) – Learn how to monitor the health of your Azure resources
