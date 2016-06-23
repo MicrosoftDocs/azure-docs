@@ -28,8 +28,8 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 |Purpose|URL|IP|Ports
 |---|---|---|---
-| Telemetry|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|80,443
-|LiveStream|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable|80,443
+| Telemetry|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|443
+|LiveStream|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable|443
 
 
 
