@@ -252,7 +252,7 @@ To test the resiliency of your application against failure of the primary node o
 
 The **Schedule updates** blade allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window.
 
->[AZURE.IMPORTANT] Note that the maintenance window applies only to Redis server updates, and not to any Azure updates such as updates to the operating system of the VMs that host the cache.
+>[AZURE.IMPORTANT] Note that the maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
 
 ![Schedule updates](./media/cache-configure/redis-schedule-updates.png)
 
