@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="06/22/2016" 
 	ms.author="awills"/>
 
 # Manage pricing and quota for Application Insights
@@ -145,10 +145,11 @@ Application Insights charges are added to your Azure bill. You can see details o
 
 ## Name limits
 
-1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data sent via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key not scoped to data type.
-2.	[Properties][apiproperties] can be used for filtering and group by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
-3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values." The original value can still be used for full text search and filtering.
+1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data sent via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key.
+2.	[Properties][apiproperties] can be used for filtering and group-by only while they have less than 100 unique values for each property. After the number of unique values exceeds 100, you can still search the property, but no longer use it for filters or group-by.
+3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values." The original values can still be used for full text search and filtering.
 
+If you find your application is exceeding these limits, consider splitting your data between different instrumentation keys - that is, [create new Application Insights resources](app-insights-create-new-resource.md) and send some of the data to the new instrumentation keys. You might find that the result is better structured. You can use [dashboards](app-insights-dashboards.md#dashboards) to bring the different metrics onto the same screen, so this approach doesn't restrict your ability to compare different metrics. 
 
 ## Limits summary
 

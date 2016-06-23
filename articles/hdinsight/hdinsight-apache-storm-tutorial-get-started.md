@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="06/22/2016"
    ms.author="larryfr"/>
 
 
@@ -81,7 +81,7 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 	Use  __Select__ to save the __Node Pricing Tiers__ information.
 
-8. Select __Optional Configuration__. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a __Virtual Network__ or setting up an __External Metastore__ to hold data for Hive and Oozie.
+8. Select __Optional Configuration__. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a __Virtual Network__.
 
 	![Optional configuration blade](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
