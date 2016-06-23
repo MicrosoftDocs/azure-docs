@@ -58,7 +58,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Background Jobs guidance][BackgroundJobsGuidance] 
 
-    A description og available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
+    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
 
 - [Content Delivery Network (CDN) guidance][CDNGuidance] 
 
