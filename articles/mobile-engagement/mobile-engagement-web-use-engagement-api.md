@@ -38,6 +38,8 @@ Automated reports of uncaught JavaScript exceptions are not created by default. 
 
 ## Reporting activities
 
+Reporting on user activity includes when a user starts a new activity, and when the user ends the current activity.
+
 ### User starts a new activity
 
 	engagement.agent.startActivity("MyUserActivity");
@@ -53,6 +55,8 @@ You need to call `endActivity()` at least once when the user finishes their last
 Because there's no reliable call for when the navigator window is closed, it's often difficult or impossible to catch the end of user activities inside a web environment. That's why the Mobile Engagement server automatically expires the user session within three minutes after the application page is closed.
 
 ## Reporting events
+
+Reporting on events covers session events and standalone events.
 
 ### Session events
 
@@ -79,6 +83,8 @@ Unlike session events, standalone events can occur outside the context of a sess
 For that, use ``engagement.agent.sendEvent`` instead of ``engagement.agent.sendSessionEvent``.
 
 ## Reporting errors
+
+Reporting on errors covers session errors and standalone errors.
 
 ### Session errors
 
@@ -111,6 +117,8 @@ Unlike session errors, standalone errors can occur outside the context of a sess
 For that, use `engagement.agent.sendError` instead of `engagement.agent.sendSessionError`.
 
 ## Reporting jobs
+
+Reporting on jobs covers reporting errors and events that occur during a job, and reporting crashes.
 
 **Example:**
 
@@ -177,6 +185,8 @@ The data can be any JSON object (but not an array or primitive type).
 
 ### Limits
 
+Limits that apply to extra parameters are regular expressions for keys, value types, and size.
+
 #### Keys
 
 Each key in the object must match the following regular expression:
@@ -209,6 +219,8 @@ Here is a code sample for sending the user's gender and birth date:
 	engagement.agent.sendAppInfo(appInfos);
 
 ### Limits
+
+Limits that apply to application information are regular expressions for keys, and size.
 
 #### Keys
 
