@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="06/21/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Migration to Premium Storage Details
@@ -42,19 +42,22 @@ The details below are steps that Microsoft is taking on your behalf to complete 
 ### Automatic migration schedule
 Automatic migration will occur from 6pm – 6am (local time for that region) at some point during the outage schedule listed below.
 
-| Region              | Estimated Start Date         | Estimated End Date           |
+| **Region**          | **Estimated Start Date**     | **Estimated End Date**       |
 | :------------------ | :--------------------------- | :--------------------------- |
 | Australia East      | Not determined yet           | Not determined yet           |
 | Australia Southeast | Not determined yet           | Not determined yet           |
+| Brazil South        | Not determined yet           | Not determined yet           |
 | Canada Central      | June 23, 2016                | July 1,2016                  |
 | Canada East         | June 23, 2016                | July 1,2016                  |
 | Central US          | June 23, 2016                | July 1,2016                  |
 | China East          | Not determined yet           | Not determined yet           |
+| China North         | Not determined yet           | Not determined yet           |
 | East Asia           | June 23, 2016                | July 1,2016                  |
 | East US             | June 23, 2016                | July 1,2016                  |
 | East US2            | June 23, 2016                | July 1,2016                  |
 | India Central       | June 23, 2016                | July 1,2016                  |
 | India South         | June 23, 2016                | July 1,2016                  |
+| India West          | Not determined yet           | Not determined yet           |
 | Japan East          | Not determined yet           | Not determined yet           |
 | Japan West          | Not determined yet           | Not determined yet           |
 | North Central US    | Not determined yet           | Not determined yet           |
@@ -72,19 +75,22 @@ If you would like to control when your downtime will occur, you can use the step
 ### Determine storage type
 If you created a DW before the dates below, you are currently using Standard Storage.
 
-| Region              | DW Created Before This Date       |
+| **Region**          | **DW Created Before This Date**   |
 | :------------------ | :-------------------------------- |
 | Australia East      | Premium Storage Not Yet Available |
 | Australia Southeast | Premium Storage Not Yet Available |
+| Brazil South        | Premium Storage Not Yet Available |
 | Canada Central      | May 25, 2016                      |
 | Canada East         | May 26, 2016                      |
 | Central US          | May 26, 2016                      |
 | China East          | Premium Storage Not Yet Available |
+| China North         | Premium Storage Not Yet Available |
 | East Asia           | May 25, 2016                      |
 | East US             | May 26, 2016                      |
 | East US2            | May 27, 2016                      |
 | India Central       | May 27, 2016                      |
 | India South         | May 26, 2016                      |
+| India West          | Premium Storage Not Yet Available |
 | Japan East          | Premium Storage Not Yet Available |
 | Japan West          | Premium Storage Not Yet Available |
 | North Central US    | Premium Storage Not Yet Available |
@@ -123,7 +129,7 @@ For the purpose of this example, imagine that your existing DW on Standard Stora
 > [AZURE.NOTE] These settings will not carry over as part of the migration:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Next steps
 If you encounter any issues with your Data Warehouse, please [create a support ticket][] and reference “Migration to Premium Storage” as the possible cause.
