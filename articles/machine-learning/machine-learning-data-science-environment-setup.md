@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Set up data science environments for use in the Cortana Analytics Process | Azure" 
+	pageTitle="Set up data science environments for use in the Team Data Science Process | Azure" 
 	description="Set up data science environments for use in the Team Data Science Process" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="06/23/2016" 
 	ms.author="bradsev" /> 
 
 # Set up data science environments for use in the Team Data Science Process
@@ -23,7 +23,7 @@ The Team Data Science Process uses a variety of data science environments for th
 * For guidance on the questions to consider when making this decision, see [Plan Your Azure Machine Learning Data Science Environment](machine-learning-data-science-plan-your-environment.md). 
 * For a catalog of some of the scenarios you might encounter when doing advanced analytics, see [Scenarios for the Team Data Science Process](machine-learning-data-science-plan-sample-scenarios.md)
 
-This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+This menu links to topics that describe how to set up the various data science environments used by the Team Data Science Process.
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
