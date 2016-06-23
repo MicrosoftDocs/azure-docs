@@ -254,7 +254,7 @@ The **Schedule updates** blade allows you designate a maintenance window for you
 
 >[AZURE.IMPORTANT] Note that the maintenance window applies only to Redis server updates, and not to any Azure updates such as updates to the operating system of the VMs that host the cache.
 
-![Schedule updates](./media/cache-configure/redis-cache-reboot.png)
+![Schedule updates](./media/cache-configure/redis-schedule-updates.png)
 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
 
