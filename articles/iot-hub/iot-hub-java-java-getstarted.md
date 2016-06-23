@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/16/2016"
+     ms.date="06/23/2016"
      ms.author="dobett"/>
 
 # Get started with Azure IoT Hub for Java
@@ -62,7 +62,7 @@ In this section, you'll create a Java console app that creates a new device iden
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.7</version>
     </dependency>
     ```
     
@@ -295,7 +295,7 @@ In this section, you'll create a Java console app that simulates a device that s
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.8</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -317,12 +317,12 @@ In this section, you'll create a Java console app that simulates a device that s
     import com.microsoft.azure.iothub.IotHubStatusCode;
     import com.microsoft.azure.iothub.IotHubEventCallback;
     import com.microsoft.azure.iothub.IotHubMessageResult;
+    import com.google.gson.Gson;
     import java.io.IOException;
     import java.net.URISyntaxException;
-    import java.security.InvalidKeyException;
     import java.util.Random;
-    import javax.naming.SizeLimitExceededException;
-    import com.google.gson.Gson;
+    import java.util.concurrent.Executors;
+    import java.util.concurrent.ExecutorService;
     ```
 
 7. Add the following class-level variables to the **App** class, replacing **{youriothubname}** with your IoT hub name, and **{yourdeviceid}** and **{yourdevicekey}** with the device values you generated in the *Create a device identity* section:
@@ -330,7 +330,8 @@ In this section, you'll create a Java console app that simulates a device that s
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
-    private static boolean stopThread = false;
+    private static String deviceId = "{yourdeviceid}";
+    private static DeviceClient client;
     ```
 
     This sample application uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the HTTPS or AMQPS protocol to communicate with IoT Hub.
@@ -355,7 +356,7 @@ In this section, you'll create a Java console app that simulates a device that s
     private static class EventCallback implements IotHubEventCallback
     {
       public void execute(IotHubStatusCode status, Object context) {
-        System.out.println("IoT Hub responded to message with status " + status.name());
+        System.out.println("IoT Hub responded to message with status: " + status.name());
       
         if (context != null) {
           synchronized (context) {
@@ -371,37 +372,33 @@ In this section, you'll create a Java console app that simulates a device that s
     ```
     private static class MessageSender implements Runnable {
       public volatile boolean stopThread = false;
-
+      
       public void run()  {
         try {
           double avgWindSpeed = 10; // m/s
           Random rand = new Random();
-          DeviceClient client;
-          client = new DeviceClient(connString, protocol);
-          client.open();
-        
+          
           while (!stopThread) {
             double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
-            telemetryDataPoint.deviceId = "myFirstDevice";
+            telemetryDataPoint.deviceId = deviceId;
             telemetryDataPoint.windSpeed = currentWindSpeed;
-      
+            
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
-            System.out.println(msgStr);
-        
+            System.out.println("Sending: " + msgStr);
+            
             Object lockobj = new Object();
             EventCallback callback = new EventCallback();
             client.sendEventAsync(msg, callback, lockobj);
-    
+            
             synchronized (lockobj) {
               lockobj.wait();
             }
             Thread.sleep(1000);
           }
-          client.close();
-        } catch (Exception e) {
-          e.printStackTrace();
+        } catch (InterruptedException e) {
+          System.out.println("Finished.");
         }
       }
     }
@@ -413,14 +410,18 @@ In this section, you'll create a Java console app that simulates a device that s
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
-    
-      MessageSender ms0 = new MessageSender();
-      Thread t0 = new Thread(ms0);
-      t0.start(); 
-    
+      client = new DeviceClient(connString, protocol);
+      client.open();
+
+      MessageSender sender = new MessageSender();
+
+      ExecutorService executor = Executors.newFixedThreadPool(1);
+      executor.execute(sender);
+
       System.out.println("Press ENTER to exit.");
       System.in.read();
-      ms0.stopThread = true;
+      executor.shutdownNow();
+      client.close();
     }
     ```
 
@@ -441,15 +442,7 @@ You are now ready to run the applications.
 1. At a command-prompt in the read-d2c folder, run the following command to begin monitoring the first partition in your IoT hub:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="0"
-    ```
-
-    ![][7]
-
-1. At a command-prompt in the read-d2c folder, run the following command to begin monitoring the second partition in your IoT hub:
-
-    ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="1"
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
     ![][7]
@@ -478,7 +471,7 @@ In this tutorial, you configured a new IoT hub in the portal and then created a 
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-java-java-getstarted/runapp1.png
 [8]: ./media/iot-hub-java-java-getstarted/runapp2.png
-[43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
+[43]: ./media/iot-hub-java-java-getstarted/usage.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
