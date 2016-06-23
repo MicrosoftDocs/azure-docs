@@ -367,6 +367,11 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 
+**To configure DNS for the ARM VNet**
+
+1. ...
+2. Click **Custom DNS**
+3. 
 
 ## Bridge the AAD VNet and the HDInsight VNet
 
