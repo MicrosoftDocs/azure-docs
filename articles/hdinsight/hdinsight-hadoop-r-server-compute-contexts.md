@@ -57,7 +57,7 @@ Given these principles, some general rules of thumb for selecting a compute cont
 
 ### Hadoop Spark
 
-- If the amount of data to analyze is large, then import it to XDF in HDFS (unless storage is an issue), and analyze it via ‘Spark‘.
+- If the amount of data to analyze is large, then import it to XDF in HDFS (unless storage is an issue), and analyze it via ‘Spark’.
 
 ### Hadoop Map Reduce
 
