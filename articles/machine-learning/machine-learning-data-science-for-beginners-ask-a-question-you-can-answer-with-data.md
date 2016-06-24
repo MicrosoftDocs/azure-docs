@@ -1,6 +1,6 @@
 <properties
    pageTitle="Ask a question you can answer with data | Microsoft Azure"
-   description="Learn how to Ask a Question You Can Answer with Data in this third video of the Data Science for Beginners series from Azure Machine Learning."
+   description="Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions."
    keywords="choose a question,data science questions,formulate question,formulate questions,regression questions,classification questions"
    services="machine-learning"
    documentationCenter="na"
@@ -19,7 +19,7 @@
 
 # Ask a question you can answer with data: Data Science for Beginners video 3
 
-Learn how to Ask a Question You Can Answer with Data in this third video of the Data Science for Beginners series from Azure Machine Learning.
+Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
 **"Ask a question you can answer with data" will be available June 28**.
 
