@@ -30,7 +30,7 @@ The remote monitoring preconfigured solution uses [Azure IoT Hub][lnk-iot-hub] t
 
 > [AZURE.NOTE] The remote monitoring preconfigured solution keeps the device identity registry in sync with the device registry. Both use the same device id to uniquely identify each device connected to your IoT hub.
 
-The [IoT Hub device management preview][lnk-dm-preview] adds features to IoT Hub that are similar to the device information management features in the remote monitoring preconfigured solution described in this article. However, the remote monitoring solution only makes use of the generally available (GA) features in IoT Hub.
+The [IoT Hub device management preview][lnk-dm-preview] adds features to IoT Hub that are similar to the device information management features in the remote monitoring preconfigured solution described in this article. At this time however, the remote monitoring solution only makes use of the generally available (GA) features in IoT Hub.
 
 ## Device information metadata
 
