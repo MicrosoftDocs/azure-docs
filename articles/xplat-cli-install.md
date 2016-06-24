@@ -5,7 +5,7 @@
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
-	services=""
+	services="virtual-machines-linux,virtual-network,storage"
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
