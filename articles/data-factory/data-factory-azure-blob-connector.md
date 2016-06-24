@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Learn to copy/move Azure Blob Datasets | Azure Data Factory" 
 	description="Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database." 
-    keywords="blob data"
+    keywords="blob data, azure blob copy"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 

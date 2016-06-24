@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Data Transformation Activities | Microsoft Azure" 
+	pageTitle="Data Transformation: Process & transform data | Microsoft Azure" 
 	description="Learn about data transformation in Azure Data Factory. Transform and process data in Azure HDInsight cluster or an Azure Batch." 
-	keywords="data transformation, process data"
+	keywords="data transformation, process data, transform data, transformation activity"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -17,11 +17,10 @@
 	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
-# Transform and analyze using Azure Data Factory
-
-## Overview
-Data transformation activities in Azure Data Factory transform and process your raw data into predictions and insights. The transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. Azure Data Factory supports the following transformation activities that can be added to [pipelines](data-factory-create-pipelines.md) either individually or chained with another activity.
-
+# Learn about transforming and analyzing data in Azure Data Factory
+This article explains data transformation activities in Azure Data Factory so you'll know how ADF transforms and processes your raw data into predictions and insights. The transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. Links to some articles that show how to use specific transformation activities are included, too.
+ 
+Azure Data Factory supports the following transformation activities that can be added to [pipelines](data-factory-create-pipelines.md) either individually or chained with another activity.
 
 Data transformation activity |  Compute environment 
 :----------------------- | :--------------------

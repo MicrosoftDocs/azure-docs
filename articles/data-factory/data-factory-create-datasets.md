@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Create Datasets in Azure Data Factory | Microsoft Azure" 
-	description="Understand Azure Data Factory datasets and learn how to create a dataset."
-    keywords="create dataset" 
+	description="Learn how to create datasets in Azure Data Factory with examples that use properties such as offset and anchorDateTime."
+    keywords="create dataset, dataset example, offset example"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -156,7 +156,7 @@ The following table describes properties you can use in the availability section
 | anchorDateTime | Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <br/><br/>**Note:** If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts will be ignored. <br/><br/>For example, if the **interval** is **hourly** (frequency: hour and interval: 1) and the **AnchorDateTime** contains **minutes and seconds**, then the **minutes and seconds** parts of the AnchorDateTime will be ignored. | No | 01/01/0001 |
 | offset | Timespan by which the start and end of all dataset slices are shifted. <br/><br/>**Note:** If both anchorDateTime and offset are specified, the result is the combined shift. | No | NA |
 
-## offset example
+### offset example
 
 Daily slices that start at 6 AM instead of the default midnight. 
 
