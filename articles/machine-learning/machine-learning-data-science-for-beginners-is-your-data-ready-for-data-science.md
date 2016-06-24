@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Is your data ready for data science? - Data evaluation | Microsoft Azure"
-   description="Learn the four criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation."
+   pageTitle="Is your data ready for data science? - data evaluation | Microsoft Azure"
+   description="Learn the 4 criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation."
    keywords="data evaluation,relevant data,evaluate data,prepare data,data criteria,data ready"
    services="machine-learning"
    documentationCenter="na"
@@ -17,11 +17,12 @@
    ms.date="06/24/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Data Science for Beginners video 2: Is your data ready for data science?
 
-Learn the four criteria for data that is ready for data science and get concrete examples to help with basic data evaluation.
+# Is your data ready for data science? Data Science for Beginners video 2
 
-> [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
+Learn about evaluating your data to make sure it meets some basic criteria so that it's ready for data science.
+
+> [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
 ## Transcript
 
@@ -54,6 +55,7 @@ Now look at the table on the right. This time we measured each person’s body m
 The next ingredient is connected data.
 
 Here is some relevant data on the quality of hamburgers: grill temperature, patty weight and rating in the local food magazine. But notice the gaps in the table on the left.
+
 
 ## Other videos in the series
 

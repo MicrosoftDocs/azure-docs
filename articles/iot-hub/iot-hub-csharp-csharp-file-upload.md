@@ -35,12 +35,104 @@ In order to complete this tutorial you need the following:
 
 + Microsoft Visual Studio 2015,
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="_blank").
++ An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
-[AZURE.INCLUDE [iot-hub-file-upload-device-csharp](../../includes/iot-hub-file-upload-device-csharp.md)]
+## Associate an Azure Storage account to IoT Hub
 
+Because the simulated device uploads a file in an Azure Storage blob, you must have an Azure Storage account associated to IoT Hub. You can use an existing storage account, or follow the instructions in [About Azure Storage] to create a new one. You can associate an Azure Storage account to IoT Hub by following the instructions in [Manage IoT hubs through the Azure portal].
 
-[AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
+## Upload a file from a simulated device
+
+In this section, you modify the simulated device application you created in [Send Cloud-to-Device messages with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+
+1. In Visual Studio, right-click the **SimulatedDevice** project, click **Add**, and then click **Existing Item**. Navigate to an image file and include it in your project. This tutorial assumes the image is named `image.jpg`.
+
+2. Right-click on the image, and then click **Properties**. Make sure that **Copy to Output Directory** is set to **Copy always**.
+
+    ![][1]
+
+3. In the **Program.cs** file, add the following statements at the top of the file:
+
+        using System.IO;
+
+4. Add the following method to the **Program** class:
+         
+        private static async void SendToBlobAsync()
+        {
+            string fileName = "image.jpg";
+            Console.WriteLine("Uploading file: {0}", fileName);
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
+            using (var sourceData = new FileStream(@"image.jpg", FileMode.Open))
+            {
+                await deviceClient.UploadToBlobAsync(fileName, sourceData);
+            }
+
+            watch.Stop();
+            Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
+        }
+
+    The `UploadToBlobAsync` method takes in the file name and stream source of the file to be uploaded and handles the upload to storage. The console application displays the time it takes to upload the file.
+
+5. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
+
+        SendToBlobAsync();
+
+> [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
+
+## Receive a file upload notification
+
+In this section, you write a Windows console app that receives file upload notification messages from IoT Hub.
+
+1. In the current Visual Studio solution, create a new Visual C# Windows project by using the **Console Application** project template. Name the project **ReadFileUploadNotification**.
+
+    ![New project in Visual Studio][2]
+
+2. In Solution Explorer, right-click the **ReadFileUploadNotification** project, and then click **Manage NuGet Packages**.
+
+    This displays the Manage NuGet Packages window.
+
+2. Search for `Microsoft.Azure.Devices`, click **Install**, and accept the terms of use. 
+
+	This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package] in the **ReadFileUploadNotification** project.
+
+3. In the **Program.cs** file, add the following statements at the top of the file:
+
+        using Microsoft.Azure.Devices;
+
+4. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string from [Get started with IoT Hub]:
+
+		static ServiceClient serviceClient;
+        static string connectionString = "{iot hub connection string}";
+        
+5. Add the following method to the **Program** class:
+   
+        private async static Task ReceiveFileUploadNotificationAsync()
+        {
+            var notificationReceiver = serviceClient.GetFileNotificationReceiver();
+
+            Console.WriteLine("\nReceiving file upload notification from service");
+            while (true)
+            {
+                var fileUploadNotification = await notificationReceiver.ReceiveAsync();
+                if (fileUploadNotification == null) continue;
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Received file upload noticiation: {0}", string.Join(", ", fileUploadNotification.BlobName));
+                Console.ResetColor();
+
+                await notificationReceiver.CompleteAsync(fileUploadNotification);
+            }
+        }
+
+    Note that the receive pattern is the same one used to receive cloud-to-device messages from the device app.
+
+6. Finally, add the following lines to the **Main** method:
+
+        Console.WriteLine("Receive file upload notifications\n");
+        serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
+        ReceiveFileUploadNotificationAsync().Wait();
+        Console.ReadLine();
 
 ## Run the applications
 
@@ -70,6 +162,8 @@ Additional information on IoT Hub:
 <!-- Images. -->
 
 [50]: ./media/iot-hub-csharp-csharp-file-upload/run-apps1.png
+[1]: ./media/iot-hub-csharp-csharp-file-upload/image-properties.png
+[2]: ./media/iot-hub-csharp-csharp-file-upload/create-identity-csharp1.png
 
 <!-- Links -->
 
@@ -90,5 +184,15 @@ Additional information on IoT Hub:
 [IoT Hub Developer Guide]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Supported devices]: iot-hub-tested-configurations.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
+
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Manage IoT hubs through the Azure portal]: iot-hub-manage-through-portal/#file-upload
+[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+
+
+

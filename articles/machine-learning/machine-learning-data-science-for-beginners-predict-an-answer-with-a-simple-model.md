@@ -21,7 +21,8 @@
 
 Learn how to create a simple model to predict the price of a diamond in Data Science for Beginners video 4. We'll draw a regression model with target data.
 
-"Predict an answer with a simple model" will be **available June 29.**
+**"Predict an answer with a simple model" will be available June 29.**
+
 
 ![Title slide - Data Science for Beginners video 4](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/ds-beginners-video-4-title-slide.png)
 
