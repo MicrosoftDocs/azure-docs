@@ -10,9 +10,9 @@
 -->
 	
 # Analyzing Trends in Visual Studio
-The Application Insights Trends tool TBD
+The Application Insights Trends tool visualizes how your application's important metrics change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
 
-<!-- Hero screenshot -->
+![](./media/app-insights-trends/app-insights-trends-hero.png)
 
 > [AZURE.NOTE] Application Insights Trends is available in Visual Studio 2015 Update 3 and later, or with the [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) version 5.209 and later.
 
@@ -35,6 +35,7 @@ Get started by choosing from one of five common trend analyses:
 These pre-built analyses are available later from the **View common types of telemetry analysis** button in the upper-left corner of the Trends window.
 
 ## Visualize trends in your application
+
 TBD - how to read the visualization
 
 ## Explore other trends
