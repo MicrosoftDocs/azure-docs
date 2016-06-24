@@ -201,8 +201,6 @@ For more information, see the following links:
 * [Java Developer Center](/develop/java/).
 * [Web Apps Overview](app-service-web-overview.md)
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
