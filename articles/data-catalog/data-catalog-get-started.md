@@ -23,7 +23,7 @@ This tutorial helps you get started with Azure Data Catalog. You will perform th
 
 | Step | Description |
 | :--- | :---------- |
-| [Provision data catalog](#provision-data-catalog) | In this step, you will provison/setup Azure Data Catalog. You will do this step only if the catalog has not been set up before. You can only have one data catalog per orgaization (Azure account) even though there are multiple subscritions associated with the account | 
+| [Provision data catalog](#provision-data-catalog) | In this step, you will provision/setup Azure Data Catalog. You will do this step only if the catalog has not been set up before. You can only have one data catalog per organization (Azure Active Directory Domain) even though there are multiple subscriptions associated with your Azure account. | 
 | [Register data assets](#register-data-assets) | In this step, you will register data assets from the AdventureWorks2014 sample database with the data catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and copying that metadata to the catalog. The data source and data assets remain where they are but the metadata is used by catalog to make them more easily discoverable and understandable. |
 | [Discover data assets](#discover-data-assets) | In this step, you will use Azure Data Catalog portal to discover data assets that were registered in the previous step. Once a data source has been registered with Azure Data Catalog, its metadata is indexed by the service, so that users can easily search to discover the data they need. |
 | [Annotate data assets](#annotate-data-assets) | In this step, you will provide annotations (descriptions, tags, documentation, experts etc...) for the data assets to supplement the metadata extracted from the data source, and to make the data source more understandable to more people. | 
@@ -36,14 +36,14 @@ This tutorial helps you get started with Azure Data Catalog. You will perform th
 Before you begin this tutorial you must have the following:
 
 ### Azure Subscription
-To set up Azure Data Catalog, you must be the **owner or co-owner** of the Azure subscription.
+To set up Azure Data Catalog, you must be the **owner or co-owner** of an Azure subscription.
 
 Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 
 ### Azure Active Directory
-To set up Azure Data Catalog, you must be logged in using an **Azure Active Directory user account** and the user must be the owner or co-owner of the subscription.  
+To set up Azure Data Catalog, you must be logged in using an **Azure Active Directory user account** and the user must be the owner or co-owner of an Azure subscription.  
 
 Azure Active Directory (Azure AD) provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-on to any cloud and on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-on. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
@@ -60,12 +60,12 @@ The Global Authentication Policy allows authentication methods to be enabled sep
 For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
 
 ## Provision Data Catalog
-You can provision/create only one Data Catalog per an Azure account even if you have multiple subscriptions in the account. Therefore, if the owner or co-owner of an Azure subscription has already created a data catalog, skip this section and go to the next one.  
+You can provision only one data catalog per organization (Azure Active Directory Domain). Therefore, if the owner or co-owner of an Azure subscription who belong to this Active Directory domain has already created a catalog, you will not be able to create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your active directory domain, navigate to http://azuredatacatalog.com and verify whether you see the catalog. Skip the following procedure and go to the next section if a catalog has already been created for you.    
 
 1. Navigate to [https://azure.microsoft.com/services/data-catalog](https://azure.microsoft.com/services/data-catalog). 
 
 	![Azure Data Catalog - marketing landing page](media/data-catalog-get-started/data-catalog-marketing-landing-page.png) and click **Get started**.
-2. Login using a user account that is the **owner or co-owner** of the Azure subscription. You should see the following page after logging in successfully.
+2. Login using a user account that is the **owner or co-owner** of an Azure subscription. You should see the following page after logging in successfully.
 
 	![Azure Data Catalog - provision data catalog](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png) 
 2. Specify a **name** for the data catalog, **subscription** you want to use, and the **location** for the catalog. 
@@ -190,7 +190,7 @@ Basic search allows you to search catalog using one or more search terms. Result
 	
 	You see the **Searches** panel on the left and **Properties** panel on the right. The Search panel allows you to change search criteria and filter results. The Properties panel displays properties of a selected object in the grid/list. 
 
-4. Click on **Product** in the search results. Click on tabs titled **Preview**, **Columns**, **Data Profile**, and **Documenation** (or) use the **UP** arrow to expand the bottom pane in the middle.  
+4. Click on **Product** in the search results. Click on tabs titled **Preview**, **Columns**, **Data Profile**, and **Documentation** (or) use the **UP** arrow to expand the bottom pane in the middle.  
  
 	![Azure Data Catalog - bottom pane](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
 	
@@ -211,7 +211,7 @@ Property scoping allows you to discover data assets where the search term is mat
 	![Data Catalog - property scoping search results](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
 
 ### Save the search 
-1. In the Searches pane to the left, in the Current Search section, click Save to save the current search criteria.Enter a name for the search and click Save.
+1. In the Searches pane to the left, in the Current Search section, click Save to save the current search criteria. Enter a name for the search and click Save.
 	
 	![Azure Data Catalog - save search](media/data-catalog-get-started/data-catalog-save-search.png)
 2. Confirm that the saved search shows up under Saved Searches.
@@ -229,7 +229,7 @@ Boolean operators allow you to broaden or narrow a search.
 	![Azure Data Catalog - boolean operator in search](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
 
 ### Grouping with parenthesis
-Grouping with parenthesis allows you to usse parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators.
+Grouping with parenthesis allows you to use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators.
 
 1. In the search box, enter **name:product AND (tags:cycles AND objectType:table)**, and click the **search** icon or press **ENTER**.
 2. Confirm that you see only **Product** table in the search results now.
@@ -237,7 +237,7 @@ Grouping with parenthesis allows you to usse parentheses to group parts of the q
 	![Azure Data Catalog - grouping search](media/data-catalog-get-started/data-catalog-grouping-search.png)   
 
 ### Comparison operators
-Comparision operators allows you to use comparisons other than equality for properties that have numeric and date data types.
+Comparison operators allows you to use comparisons other than equality for properties that have numeric and date data types.
 
 1. In the search box, enter **lastRegisteredTime:>"06/09/2016"**.
 2. Clear **Table** filter for **Object Type** on the left. 
@@ -308,7 +308,7 @@ In this exercise, you will open data assets in an integrated client tool (Excel)
 
     ![Azure Data Catalog - product table in Excel](media/data-catalog-get-started/data-catalog-connect2.png)
 
-In this exercise you connected to data assets discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata. For example: you can use SQL Server Management Studio to connecto the AdventureWorks2014 database to access the data in the data assets registered in this tutorial. 
+In this exercise you connected to data assets discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata. For example: you can use SQL Server Management Studio to connect to the AdventureWorks2014 database to access the data in the data assets registered in this tutorial. 
 
 1. Launch **SQL Server Management Studio**.
 2. In the **Connect to Server** dialog box, enter the **server name** from the **Properties** pane in the Azure Data Catalog portal. 
@@ -369,9 +369,9 @@ In this tutorial you explored essential capabilities of **Azure Data Catalog**, 
 
 ## References
 
-* [How to register data sources](data-catalog-how-to-register.md)
-* [How to discover data sources](data-catalog-how-to-discover.md)
-* [How to annotate data sources](data-catalog-how-to-annotate.md)
-* [How to document data sources](data-catalog-how-to-documentation.md)
-* [How to connect to data sources](data-catalog-how-to-connect.md)
-* [How to manage data assets](data-catalog-how-to-manage.md)
+- [How to register data assets](data-catalog-how-to-register.md)
+- [How to discover data assets](data-catalog-how-to-discover.md)
+- [How to annotate data assets](data-catalog-how-to-annotate.md)
+- [How to document data assets](data-catalog-how-to-documentation.md)
+- [How to connect to data assets](data-catalog-how-to-connect.md)
+- [How to manage data assets](data-catalog-how-to-manage.md)
