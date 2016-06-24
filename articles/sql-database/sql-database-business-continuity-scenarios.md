@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/16/2016"
 	ms.author="carlrab"
-	ms.workload="data-management"
+   ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
