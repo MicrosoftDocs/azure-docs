@@ -243,22 +243,29 @@ Because username credentials are not persisted after you call the [Suspend-Workf
 
 The following same code demonstrates how to handle this in your PowerShell Workflow runbooks.
 
-    $Cred = Get-AutomationPsCredential -Name 'MyCredential'   
-    Workflow Copy-Files
-	{
-		$Cred = $null
-        $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
+       
+    workflow CreateTestVms
+    {
+       $Cred = Get-AzureAutomationCredential -Name "MyCredential"
+       $null = Add-AzureRmAccount -Credential $Cred
 
-		ForEach ($File in $Files) 
-		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
-			Write-Output "$File copied."
-			Checkpoint-Workflow
-            $Cred = Get-AutomationPsCredential -Name 'MyCredential'
-		}
-		
-		Write-Output "All files copied."
-	}
+       $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
+
+       foreach ($VmName in $VmsToCreate)
+         {
+          # Do work first to create the VM (code not shown)
+        
+          # Now add the VM
+          New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+
+          # Checkpoint so that VM creation is not repeated if workflow suspends
+          $Cred = $null
+          Checkpoint-Workflow
+          $Cred = Get-AzureAutomationCredential -Name "MyCredential"
+          $null = Add-AzureRmAccount -Credential $Cred
+         }
+     } 
+
 
 This is not required if you are authenticating using a Run As account configured with a service principal.  
 
