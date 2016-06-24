@@ -152,6 +152,8 @@ For multi-tenant application providers who have no tenant isolation requirements
 
 For a sample app that demonstrates the client library, see [Get started with Elastic Datababase tools](sql-database-elastic-scale-get-started.md).
 
+For a sample application that provides a solution for a Softwware-as-a-Solution (SaaS) scenario that leverages Elastic Pools to provide a cost-effective, scalable database back-end of a SaaS application, see [Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard).
+
 To convert existing databases to use the tools, see [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 To create a new pool, see the [Create an elastic pool tutorial](sql-database-elastic-pool-create-portal.md).  
@@ -165,6 +167,7 @@ To monitor and manage an elastic database pool, see [Monitor and manage an elast
 - [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Solution Quick Starts](sql-database-solution-quick-starts.md)
 
 ## Questions and Feature Requests
 
