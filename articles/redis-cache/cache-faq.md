@@ -364,34 +364,7 @@ For more information about getting started with Azure Redis Cache, see [How to U
 [In-Role Cache is set to be retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 
-## FAQ list
 
--	[Planning FAQs](#planning-faqs)
-	-	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
-	-	[Azure Redis Cache performance](#azure-redis-cache-performance)
-	-	[In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
-	-	[How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
--	[Development FAQs](#development-faqs)
-	-	[What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
-	-	[What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
-	-	[Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
-	-	[How can I run Redis commands?](#how-can-i-run-redis-commands)
-	-	[Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
--	[Security FAQs](#security-faqs)
-	-	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
--	[Production FAQs](#production-faqs)
-	-	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
-	-	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-	-	[Important details about ThreadPool growth](#important-details-about-threadpool-growth)
-	-	[Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
--	[Monitoring and troubleshooting FAQs](#monitoring-and-troubleshooting-faqs)
-	-	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-	-	[My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-	-	[Why is diagnostics enabled for some new caches but not others?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
-	-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
-	-	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
--	[Prior cache offering FAQs](#prior-cache-offering-faqs)
-	-	[Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
 
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
