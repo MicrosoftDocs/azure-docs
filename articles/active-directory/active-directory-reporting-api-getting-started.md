@@ -58,7 +58,7 @@ In order to complete the Azure AD application registration work, you must sign i
 4. In the "Permissions to Other Applications" section:  
 	- For the "Windows Azure Active Directory" resource (permissions to the Azure AD Graph API), click the "Application Permissions" drop down list, select **Read directory data**.  
 
-        > [AZURE.IMPORTANT] It's important that you use the correct permissions here. Be sure to apply "Application Permissions" and not "Delegated Permissions", otherwise the application will not get the permission level it needs in order to access the Reporting API and you will receive a *"Unable to check Directory Read access for appId"* error.  
+        > [AZURE.IMPORTANT] Be sure to specify the correct permissions here. Apply "Application Permissions" and not "Delegated Permissions", otherwise the application will not get the permission level it needs in order to access the Reporting API and your script will receive a *"Unable to check Directory Read access for appId"* error.  
 
 
 5. Click **Save** on the bottom bar.
@@ -86,7 +86,7 @@ The steps below will walk you through obtaining your application's client ID and
 5. The key will be displayed upon saving. Make sure to copy it and paste it into a safe location, because there is no way to retrieve it later.
 
 ## Modify the script
-Edit one of the scripts below to work with your directory by replacing $ClientID, $ClientSecret and $tenantdomain with the correct values from “Delegating Access in Azure AD”.
+Edit one of the scripts below to work with your directory by replacing $ClientID, $ClientSecret and $tenantdomain with the correct values from the sections above.
 
 ### PowerShell Script
 
@@ -194,7 +194,7 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 ## Execute the script
 Once you finish editing the script, run it and verify that the expected data from the AuditEvents report is returned.
 
-The script lists all the available reports, and returns output from the AccountProvisioningEvents report in the PowerShell window in JSON format. It also creates files with the same output in JSON, text and XML. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
+The script returns output from the auditEvents report in JSON format. It also creates an `auditEvents.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
 ## Notes
 
@@ -203,6 +203,6 @@ The script lists all the available reports, and returns output from the AccountP
 
 
 ## Next Steps
-- Curious about which security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
+- Curious about which security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md). You can also see all of the available Azure AD Graph API endpoints by navigating to [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta), which are documented in the [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) article.
 - See [Azure AD Audit Report Events](active-directory-reporting-audit-events.md) for more details on the Audit Report
-- See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) for more details on the Azure AD Graph API REST service
+- See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) for more details on the Azure AD Graph API REST service.
