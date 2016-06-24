@@ -818,7 +818,7 @@ When you use client-managed authentication, you can also cache the access token 
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 
-##<a name="pushnotifications">Push Notifications
+##<a name="pushnotifications"></a>Push Notifications
 
 The following topics cover Push Notifications:
 

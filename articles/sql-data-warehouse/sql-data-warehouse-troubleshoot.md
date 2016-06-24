@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/15/2016"
+   ms.date="06/13/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
@@ -116,7 +116,7 @@ Please refer to the [SQL Data Warehouse Best Practices][] article for more infor
 [learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Manage statistics in SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
 [provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 or 2015]: ./sql-data-warehouse-get-started-connect.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Statistics]: ./sql-data-warehouse-develop-statistics.md

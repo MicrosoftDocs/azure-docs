@@ -148,9 +148,11 @@ While these trade-offs can be major barriers with most cloud database service pr
 
 For multi-tenant application providers who have no tenant isolation requirements and are able to pack tenants in a database at very high density to reduce costs, “shared” data models may result in some additional efficiency in resource sharing and reduce the overall cost. Azure SQL database elastic database tools, sharding libraries and security features help SaaS providers in building and managing such multi-tenant applications.
 
-## Next Steps
+## Next steps
 
 For a sample app that demonstrates the client library, see [Get started with Elastic Datababase tools](sql-database-elastic-scale-get-started.md).
+
+For a sample application that provides a solution for a Softwware-as-a-Solution (SaaS) scenario that leverages Elastic Pools to provide a cost-effective, scalable database back-end of a SaaS application, see [Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard).
 
 To convert existing databases to use the tools, see [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
@@ -158,13 +160,14 @@ To create a new pool, see the [Create an elastic pool tutorial](sql-database-ela
 
 To monitor and manage an elastic database pool, see [Monitor and manage an elastic database pool](sql-database-elastic-pool-manage-portal.md).
 
-## Learn More
+## Additional resources
 
 - [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
 - [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
 - [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Solution Quick Starts](sql-database-solution-quick-starts.md)
 
 ## Questions and Feature Requests
 

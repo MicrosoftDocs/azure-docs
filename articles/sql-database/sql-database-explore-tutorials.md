@@ -105,7 +105,7 @@ In the following tutorials, you will learn about [migrating an existing SQL Serv
 
 ##Develop
 
-In the following tutorials, you will learn about [client connectivity to Azure SQL Database](sql-database-connect-central-recommendations.md) and using [connectivity libraries](sql-database-libraries.md).
+In the following tutorials, you will learn about [SQL Database Development](sql-database-develop-overview.md) and using [connectivity libraries](sql-database-libraries.md).
 
 | Tutorial  | Description  |
 |---|---|---|
@@ -176,6 +176,6 @@ In this tutorial, you will learn about [Data Sync](http://download.microsoft.com
 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
 ||||
 
-## Next Steps
+## Next steps
 
 [Explore Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)

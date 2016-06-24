@@ -47,7 +47,7 @@ This topic explains how to use Azure PowerShell with Resource Manager templates 
         Account     : someone@example.com
         ...
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment with the **Set-AzureRmContext** command. 
+2. If you have multiple subscriptions, provide the subscription ID you wish to use for deployment with the **Set-AzureRmContext** command. 
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 

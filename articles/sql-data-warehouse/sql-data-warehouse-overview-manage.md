@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/10/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Manage databases in Azure SQL Data Warehouse
@@ -108,7 +108,7 @@ Using good database design principles will make it easier to manage your databas
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
 [Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
 [Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
-[Security overview]: sql-data-warehouse-overview-security.md
+[Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md
 

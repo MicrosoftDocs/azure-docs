@@ -58,7 +58,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
 - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
-- [How to use docker-machine on Azure](virtual-machines-linux-classic-docker-machine.md)
+- [How to use docker-machine on Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
 - [How to: MySQL Clusters](virtual-machines-linux-classic-mysql-cluster.md)

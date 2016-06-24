@@ -21,7 +21,7 @@
 
 ##Uninstall Elastic Database jobs components using the Azure portal
 
-1. Open the [Azure portal](https://ms.portal.azure.com/).
+1. Open the [Azure portal](https://portal.azure.com/).
 2. Navigate to the subscription that contains **Elastic Database jobs** components, namely the subscription in which Elastic Database jobs components were installed.
 3. Click **Browse** and click **Resource groups**.
 4. Select the resource group named "__ElasticDatabaseJob".

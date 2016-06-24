@@ -39,7 +39,7 @@ This extension works with both the classic and Resource Manager deployment model
 
 
 ## Enable the extension
-You can enable this extension by using the [Azure portal](https://ms.portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.
+You can enable this extension by using the [Azure portal](https://portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.
 
 To view and configure the system and performance data directly from the Azure portal, follow [these steps on the Azure blog](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog"/).
 

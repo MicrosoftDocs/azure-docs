@@ -21,8 +21,6 @@
 
 Problems with [Application Insights Analytics](app-insights-analytics.md)? Start here. Analytics is the powerful search tool of Visual Studio Application Insights.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
-
 
 
 ## Limits
@@ -74,9 +72,9 @@ An authentication related error occurred (during authentication or during access
 
     In the Websites list, if any of the following URLs are included, make sure that the others are included also:
 
-    * https://login.microsoftonline.com
-    * https://login.windows.net
-    * https://analytics.applicationinsights.io 
+    https://analytics.applicationinsights.io<br/>
+    https://login.microsoftonline.com<br/>
+    https://login.windows.net
 
 
 ## 404 ... Resource not found

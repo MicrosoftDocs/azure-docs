@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Move data From on-premises HDFS using Azure Data Factory

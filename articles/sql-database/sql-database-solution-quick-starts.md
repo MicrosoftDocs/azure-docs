@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/01/2016"
+   ms.date="06/22/2016"
    ms.author="carlrab"/>
 
 # Explore Azure SQL Database Solution Quick Starts
@@ -30,7 +30,7 @@ This Solution Quick Start provides a solution for collecting and monitoring Azur
 
 This Solution Quick Start provides a solution for a Softwware-as-a-Solution (SaaS) scenario that leverages Elastic Pools to provide a cost-effective, scalable database back-end of a SaaS application. In this solution, you will walk-though the implementation of a web app that lets you visualize the load created on an Elastic Pool by a load generator using a custom dashboard that supplements the Azure Portal.
 
-[Saas-scenario-with-elastic-pools](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation on what it does and how to use it.
+[Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation on what it does and how to use it.
 
 ## Creating an Azure SQL Database using the Entity Framework and COde First Development
 
@@ -48,6 +48,6 @@ This sample shows the changes to an Entity Framework application that are needed
 
 This sample is a multitenant web application, called Surveys, that allows users to create online surveys. The sample demonstrates some key concerns when managing user identities in a multitenant application, including sign-up, authentication, authorization, and app roles. To run this sample, see [How to run the Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md).
 
-## Next Steps
+## Next steps
 
 [Explore Azure SQL Database Tutorials](sql-database-explore-tutorials.md)
