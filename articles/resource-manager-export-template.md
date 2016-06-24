@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
+	ms.date="06/24/2016"
 	ms.author="tomfitz"/>
 
 # Export an Azure Resource Manager template from existing resources
@@ -41,7 +41,7 @@ In this tutorial, you will sign in to the Azure portal, create a storage account
 
 After the deployment finishes, your subscription contains the storage account.
 
-## Export the template for deployment
+## Export the template from deployment history
 
 1. Go to the resource group blade for your new resource group. You will notice that the result of the last deployment is listed. Select this link.
 
@@ -140,7 +140,7 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 It is generally a best practice to work with a template that deploys all the infrastructure for your solution in a single operation rather than remembering many different templates to deploy.
 
 
-## Export the template for the resource group
+## Export the template from resource group
 
 Although each deployment shows only the changes that you have made to your resource group, at any time you can export a template to show the attributes of your entire resource group.  
 
@@ -148,15 +148,9 @@ Although each deployment shows only the changes that you have made to your resou
 
       ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
 
-     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export.
+     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You will learn how to handle those issues in the [Fixing export issues](#fixing-export-issues) section.
 
-      ![show error](./media/resource-manager-export-template/show-error.png)
-
-     Selecting the message will show you exactly which resource types were not exported. 
-     
-      ![show error](./media/resource-manager-export-template/show-error-details.png)
-
-     Some resource types are specifically not exported to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template. 
+      
 
 2. You will again see the five files that you can use to redeploy the solution, but this time the template is a little different. This template has only two parameters: one for the storage account name, and one for the virtual network name.
 
@@ -184,6 +178,25 @@ Although each deployment shows only the changes that you have made to your resou
       ![download template](./media/resource-manager-export-template/download-template.png)
 
 4. Find the .zip file that you downloaded and extract the contents. You can use this downloaded template to redeploy your infrastructure.
+
+## Fixing export issues
+
+Not all resource types support the export template function. You will only encounter this problem when you are exporting a template from an existing resource group. If you export a template from your deployment history, you will get the exact template used for that deployment including all resource types.
+
+Some resource types are specifically not exported to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
+
+For example, if you export a template for a resource group that contains a web app, SQL Database, and a connection string in the site config, you will see the following message.
+
+![show error](./media/resource-manager-export-template/show-error.png)
+
+Selecting the message will show you exactly which resource types were not exported. 
+     
+![show error](./media/resource-manager-export-template/show-error-details.png)
+
+To fix your template:
+
+1. Look at your deployment history and export the template that originally created that resource.
+2. Look in that exported template for the resource that was exported from the resource group. 
 
 ## Next steps
 
