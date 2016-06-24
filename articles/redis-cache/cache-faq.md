@@ -24,7 +24,7 @@ Learn the answers to common questions, patterns and best practices for Azure Red
 
 
 
-## Planning
+## Planning FAQs
 
 -	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
 -	[Azure Redis Cache performance](#azure-redis-cache-performance)
@@ -90,7 +90,7 @@ For best performance and lowest latency, locate your Azure Redis Cache in the sa
 
 Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
-## Development
+## Development FAQs
 
 -	[What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
 -	[What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
@@ -181,7 +181,7 @@ Microsoft Azure Redis Cache is based on the popular open source Redis Cache and 
 Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials showing how to get started with Azure Redis Cache using different languages and cache clients. To access these tutorials, see [How to use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and click the desired language from the language switcher at the top of the article.
 
 
-## Security
+## Security FAQs
 
 -	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
 
@@ -196,7 +196,7 @@ Redis tools such as `redis-cli` do not work with the SSL port, but you can use a
 
 For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 
-## Production
+## Production FAQs
 
 -	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 -	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
@@ -278,7 +278,7 @@ Enabling server GC can optimize the client and provide better performance and th
 
 
 
-## Monitoring and troubleshooting
+## Monitoring and troubleshooting FAQs
 
 The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md).
 
@@ -338,7 +338,7 @@ The following are some common reason for a cache disconnect.
 
 
 
-## Prior Cache offerings
+## Prior Cache offering FAQs
 
 -	[Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
 
@@ -366,31 +366,31 @@ For more information about getting started with Azure Redis Cache, see [How to U
 
 ## FAQ list
 
--	[Planning](#planning)
+-	[Planning FAQs](#planning-faqs)
 	-	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
 	-	[Azure Redis Cache performance](#azure-redis-cache-performance)
 	-	[In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 	-	[How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
--	[Development](#development)
+-	[Development FAQs](#development-faqs)
 	-	[What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
 	-	[What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
 	-	[Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
 	-	[How can I run Redis commands?](#how-can-i-run-redis-commands)
 	-	[Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
--	[Security](#security)
+-	[Security FAQs](#security-faqs)
 	-	[When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
--	[Production](#production)
+-	[Production FAQs](#production-faqs)
 	-	[What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 	-	[How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 	-	[Important details about ThreadPool growth](#important-details-about-threadpool-growth)
 	-	[Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
--	[Monitoring and troubleshooting](#monitoring-and-troubleshooting)
+-	[Monitoring and troubleshooting FAQs](#monitoring-and-troubleshooting-faqs)
 	-	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 	-	[My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
 	-	[Why is diagnostics enabled for some new caches but not others?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
 	-	[Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 	-	[Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
--	[Prior cache offerings](#prior-cache-offerings)
+-	[Prior cache offering FAQs](#prior-cache-offering-faqs)
 	-	[Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
 
 
