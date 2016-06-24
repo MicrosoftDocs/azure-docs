@@ -25,7 +25,7 @@ At Microsoft, we work hard to make sure our services are always available. Somet
 
 It is critical for every customer to prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to reactivate your applications in a functioning state. Please refer to the Azure documentation below to build your own disaster recovery plan:
 
--   [Disaster Recovery and High Availability for Azure Applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
+-   [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
 -   [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md)
 
