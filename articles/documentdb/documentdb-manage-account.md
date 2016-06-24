@@ -119,6 +119,7 @@ access your DocumentDB account.
 
 6. Regenerate the secondary access key.
 
+
 > [AZURE.NOTE] It can take several minutes before a newly generated key can be used to access your DocumentDB account.
 
 ## <a id="delete"></a> Delete a DocumentDB account
