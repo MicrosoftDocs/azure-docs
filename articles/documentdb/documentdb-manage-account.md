@@ -117,7 +117,7 @@ access your DocumentDB account.
 
 5. Once you have verified that the new key is available for use (approximately 5 minutes after regeneration), update the access key in your application code to reference the new primary access key.
 
-6. Regenerate the secondary access key.
+6. Regenerate the secondary access key.
 
 
 > [AZURE.NOTE] It can take several minutes before a newly generated key can be used to access your DocumentDB account.
