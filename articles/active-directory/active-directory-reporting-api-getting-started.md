@@ -34,10 +34,12 @@ The Reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545
 
 
 ### Register an Azure AD application
-In order to complete the Azure AD application registration work, you must sign in to the Azure classic portal with an account that is a member of the Global Administrator directory role. This is because you will be registering the Azure AD application with permissions that require Global Administrator privileges in order to assign them in the registration. Applications running under credentials with "admin" privileges like this can be very powerful, so please be sure to keep the credentials secure.
+In order to complete the Azure AD application registration work, you must sign in to the Azure classic portal with an Azure subscription administrator account that is also a member of the Global Administrator directory role in your Azure AD tenant. This is because you will be registering the Azure AD application with permissions that require registration/consent using an account with Global Administrator privileges. 
+
+> [AZURE.IMPORTANT] Applications running under credentials with "admin" privileges like this can be very powerful, so please be sure to keep the application's ID/secret credentials secure.
  
 1. Navigate to the [Azure classic portal](https://manage.windowsazure.com/).
-2. Navigate into your Azure AD tenant.
+2. Navigate into your Azure AD tenant, on the **Active Directory** extension along the left pane.
 3. Navigate to the **Applications** tab.
 4. On the bottom bar, click **Add**.
 	- Click "Add an application my organization is developing".
@@ -52,14 +54,20 @@ In order to complete the Azure AD application registration work, you must sign i
 1. Navigate to the **Applications** tab.
 2. Navigate to your newly created application.
 3. Click the **Configure** tab.
-4. In the "Permissions to Other Applications" section:
-	- In the Azure Active Directory > Application Permissions, select **Read directory data**.
-- Click **Save** on the bottom bar.
+4. In the "Permissions to Other Applications" section:  
+	- For the "Windows Azure Active Directory" resource (permissions to the Azure AD Graph API), click the "Application Permissions" drop down list, select **Read directory data**.
+        > [AZURE.IMPORTANT] It's important that you use the correct permissions here. Be sure to apply "Application Permissions" and not "Delegated Permissions", otherwise the application will not get the permission level it needs in order to access the Reporting API and you will receive a *"Unable to check Directory Read access for appId"* error.  
 
+5. Click **Save** on the bottom bar.
 
 ### Get your directory ID, client ID, and client secret
 
 The steps below will walk you through obtaining your application's client ID and client secret.  You will also need to know your tenant name, it can be either your *.onmicrosoft.com or a custom domain name.  Copy these values into a separate place; you'll use them to modify the script later.
+
+#### Get your Azure AD tenant's domain name
+1. Navigate into your Azure AD tenant, on the **Active Directory** extension along the left pane.
+2. Navigate to the **Domains** tab.
+4. Your tenant's "<tenant-name>.onmicrosoft.com" domain name will be shown, along with any custom domain names if they've been configured.
 
 #### Get the application's client ID
 1. Navigate to the **Applications** tab.
@@ -80,10 +88,11 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 ### PowerShell Script
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID	  	= "your-application-client-id-here"				# Should be a ~35 character string insert your info here
-    $ClientSecret  	= "your-application-client-secret-here"			# Should be a ~44 character string insert your info here
-    $loginURL		= "https://login.windows.net"
-    $tenantdomain	= "your-directory-name-here.onmicrosoft.com"			# For example, contoso.onmicrosoft.com
+    $resource       = "https://graph.windows.net"
+    $ClientID	  	= "your-application-client-id-here"                            # Insert your application's Client ID, a Globally Unique ID
+    $ClientSecret  	= "your-application-client-secret-here"               # Insert your application's Client Key/Secret string
+    $loginURL		= "https://login.microsoftonline.com"
+    $tenantdomain	= "your-directory-name-here.onmicrosoft.com"  # Insert your Azure AD tenant domain name, ie:contoso.onmicrosoft.com
 
     # Get an Oauth 2 access token based on client id, secret and tenant domain
     $body		= @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
