@@ -192,7 +192,7 @@ Additional information on IoT Hub:
 [About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Manage IoT hubs through the Azure portal]: iot-hub-manage-through-portal/#file-upload
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 
