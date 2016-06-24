@@ -105,17 +105,17 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
         You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
-            * Click **New...**
+        * Click **New...**
 
-            * The **New Resource Group** dialog box will be displayed:
+        * The **New Resource Group** dialog box will be displayed:
 
-                ![][08]
+            ![][08]
 
-            * In the the **Name** textbox, specify a name for your new Resource Group.
+        * In the the **Name** textbox, specify a name for your new Resource Group.
 
-            * In the the **Region** drop-down menu, select the appropriate Azure data center location for your Resource Group.
+        * In the the **Region** drop-down menu, select the appropriate Azure data center location for your Resource Group.
 
-            * Click **OK**.
+        * Click **OK**.
 
     1. The **App Service Plan** drop-down menu lists the app service plans that are associated with the Resource Group that you selected.
 
@@ -123,19 +123,19 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
         You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
-            * Click **New...**
+        * Click **New...**
 
-            * The **New App Service Plan** dialog box will be displayed:
+        * The **New App Service Plan** dialog box will be displayed:
 
-                ![][09]
+            ![][09]
 
-            * In the the **Name** textbox, specify a name for your new App Service Plan.
+        * In the the **Name** textbox, specify a name for your new App Service Plan.
 
-            * In the the **Location** drop-down menu, select the appropriate Azure data center location for the plan.
+        * In the the **Location** drop-down menu, select the appropriate Azure data center location for the plan.
 
-            * In the the **Pricing Tier** drop-down menu, select the appropriate pricing for the plan. For testing purposes you can choose **Free**.
+        * In the the **Pricing Tier** drop-down menu, select the appropriate pricing for the plan. For testing purposes you can choose **Free**.
 
-            * In the the **Instance Size** drop-down menu, select the appropriate instance size for the plan. For testing purposes you can choose **Small**.
+        * In the the **Instance Size** drop-down menu, select the appropriate instance size for the plan. For testing purposes you can choose **Small**.
 
     1. Once you have completed all of the above steps, the New Web App Container dialog box should resemble the following illustration:
 
