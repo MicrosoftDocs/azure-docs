@@ -1,6 +1,6 @@
 <properties
    pageTitle="Ask a question you can answer with data | Microsoft Azure"
-   description="Learn how to Ask a Question You Can Answer with Data in this third video of the Data Science for Beginners series from Azure Machine Learning."
+   description="Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions."
    keywords="choose a question,data science questions,formulate question,formulate questions,regression questions,classification questions"
    services="machine-learning"
    documentationCenter="na"
@@ -19,7 +19,7 @@
 
 # Ask a question you can answer with data: Data Science for Beginners video 3
 
-Learn how to Ask a Question You Can Answer with Data in this third video of the Data Science for Beginners series from Azure Machine Learning.
+Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
 **"Ask a question you can answer with data" will be available June 28**.
 
@@ -29,7 +29,8 @@ Learn how to Ask a Question You Can Answer with Data in this third video of the 
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-  * Video 1: [The 5 questions data science can answer](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Coming soon!
+
+  * Video 1: [The 5 questions data science can answer](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Available now.**
   * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) Available June 27.
   * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md). Available June 29.
   * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Available June 30.
