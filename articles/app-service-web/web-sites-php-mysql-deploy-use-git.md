@@ -17,13 +17,13 @@
 	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
-#Create a PHP-MySQL web app in Azure App Service and deploy using Git
+# Create a PHP-MySQL web app in Azure App Service and deploy using Git
 
 This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
 
 You will learn:
 
-* How to create a web app and a MySQL database using the [Azure Portal](https://portal.azure.com). Because PHP is enabled in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by default, nothing special is required to run your PHP code.
+* How to create a web app and a MySQL database using the [Azure Portal][management-portal]. Because PHP is enabled in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
 * How to enable the Composer extension to automate Composer tasks at every `git push`.
 
@@ -31,12 +31,12 @@ By following this tutorial, you will build a simple registration web app in PHP.
 
 ![Azure PHP web site][running-app]
 
-##Set up the development environment
+## Set up the development environment
 
 This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer.
 
-
-##<a id="create-web-site-and-set-up-git"></a>Create a web app and set up Git publishing
+<a id="create-web-site-and-set-up-git"></a>
+## Create a web app and set up Git publishing
 
 Follow these steps to create a web app and a MySQL database:
 
@@ -75,7 +75,7 @@ Follow these steps to create a web app and a MySQL database:
 	![Create publishing credentials][credentials]
 
 
-##Get remote MySQL connection information
+## Get remote MySQL connection information
 
 To connect to the MySQL database that is running in Web Apps, your will need the connection information. To get MySQL connection information, follow these steps:
 
@@ -91,7 +91,7 @@ To connect to the MySQL database that is running in Web Apps, your will need the
 
     ![Note properties][note-properties]
 
-##Build and test your app locally
+## Build and test your app locally
 
 Now that you have created a web app, you can develop your application locally, then deploy it after testing.
 
@@ -209,7 +209,7 @@ To build and run the application locally, follow the steps below. Note that thes
 You can now browse to **http://localhost:8000/** to test the application.
 
 
-##Publish your app
+## Publish your app
 
 After you have tested your app locally, you can publish it to Web Apps using Git. You will initialize your local Git repository and publish the application.
 
@@ -236,7 +236,7 @@ After you have tested your app locally, you can publish it to Web Apps using Git
 
 After you have published your app, you can begin making changes to it and use Git to publish them.
 
-##Publish changes to your app
+## Publish changes to your app
 
 To publish changes to your app, follow these steps:
 
@@ -257,7 +257,7 @@ To publish changes to your app, follow these steps:
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-<a name="composer">
+<a name="composer"></a>
 ## Enable Composer automation with the Composer extension
 
 By default, the git deployment process in App Service doesn't do anything with composer.json, if you have one in your PHP
@@ -285,9 +285,6 @@ is installing dependencies defined in composer.json.
 
 For more information, see the [PHP Developer Center](/develop/php/).
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-
 <!-- URL List -->
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -299,13 +296,11 @@ For more information, see the [PHP Developer Center](/develop/php/).
 [management-portal]: https://portal.azure.com
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 
-
 <!-- IMG List -->
 
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
 [new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website2.png
 [custom-create]: ./media/web-sites-php-mysql-deploy-use-git/create_web_mysql.png
-[website-details]: ./media/web-sites-php-mysql-deploy-use-git/website_details.jpg
 [new-mysql-db]: ./media/web-sites-php-mysql-deploy-use-git/create_db.png
 [go-to-webapp]: ./media/web-sites-php-mysql-deploy-use-git/select_webapp.png
 [setup-git-publishing]: ./media/web-sites-php-mysql-deploy-use-git/setup_git_publishing.png
@@ -321,8 +316,6 @@ For more information, see the [PHP Developer Center](/develop/php/).
 [git-instructions]: ./media/web-sites-php-mysql-deploy-use-git/git-instructions.png
 [git-change-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
 [git-initial-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
-[deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
-[connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 
 [composer-extension-settings]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png
 [composer-extension-add]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png
