@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="06/21/2016"
    ms.author="chackdan"/>
 
 
@@ -36,11 +36,19 @@ In the download package you will find the following files:
 |**File name**|**Short description**|
 |-----------------------|--------------------------|
 |MicrosoftAzureServiceFabric.cab|The CAB file that contains the binaries that will be deployed to each machine in the cluster.|
-|ClusterConfig.JSON|Cluster configuration file that contains all the settings for the cluster including the information for each machine that is part of the cluster.|
+|ClusterConfig.Unsecure.DevCluster.JSON|Cluster configuration file sample that contains all the settings for an unsecure, three node, single VM/Machine development cluster including the information for each node that is part of the cluster. |
+|ClusterConfig.Unsecure.MultiMachine.JSON|Cluster configuration file sample that contains all the settings for the cluster including the information for each machine that is part of an unsecure multi VM/machine cluster.|
+|ClusterConfig.Windows.DevCluster.JSON|Cluster configuration file sample that contains all the settings for an secure, three node, single VM/Machine development cluster including the information for each node that is part of the cluster. The cluster is secured using [windows identities](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.Windows.MultiMachine.JSON|Cluster configuration file sample that contains all the settings for the secure cluster including the information for each machine that is part of an secure multi VM/machine cluster. The cluster is secured using [windows identities](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.x509.DevCluster.JSON|Cluster configuration file sample that contains all the settings for an secure, three node, single VM/Machine development cluster including the information for each node that is part of the cluster. The cluster is secured using windows x509 certificates.|
+|ClusterConfig.x509.MultiMachine.JSON|Cluster configuration file sample that contains all the settings for the secure cluster including the information for each machine that is part of an secure multi VM/machine cluster. The cluster is secured using x509 certificates.|
 |EULA.txt|The license terms for the use of Microsoft Azure Service Fabric Service Fabric standalone package. [Click here](http://go.microsoft.com/fwlink/?LinkID=733084) if you would like to download a copy of the EULA now.|
 |Readme.txt|Link to the release notes and basic installation instructions. It is a small subset of the instructions you will find on this page.|
 |CreateServiceFabricCluster.ps1|PowerShell script that creates the cluster using the settings in the ClusterConfig.JSON file.|
 |RemoveServiceFabricCluster.ps1|PowerShell script for cluster removal using the settings in the ClusterConfig.JSON.|
+|AddNode.ps1|PowerShell script for cluster adding a Node to an existing cluster|
+|RemoveNode.ps1|PowerShell script for cluster removing a Node from a cluster|
+
 
 ## Plan and prepare for cluster deployment
 The following steps need to be performed before you create your cluster.
@@ -77,7 +85,7 @@ An **upgrade domain (UD)** is a logical unit of nodes. During a Service Fabric o
 
 The simplest way to think about these concepts is to consider FDs as the unit of unplanned failure, and UDs as the unit of planned maintenance.
 
-When you specify UDs in the *ClusterConfig.JSON*, you get to choose the name of the UD. For example, the following are all allowed:
+When you specify UDs in the *ClusterConfig*..JSON*, you get to choose the name of the UD. For example, the following are all allowed:
 
 - "upgradeDomain": "UD0"
 - "upgradeDomain": "UD1A"
@@ -106,17 +114,45 @@ Once you have modified the cluster configuration in the JSON doc and added all t
 This script can be run on any machine that has admin access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster.
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.JSON -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
+>[AZURE.NOTE] The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster powershell. You will find it in a subfolder called "DeploymentTraces" in the folder you ran the PS command from.
+
+## Add nodes to your Service Fabric cluster 
+
+1. Prepare the VM/Machine you want to add to your cluster (refer to step #2 in Plan and prepare for cluster deployment section above). 
+2. Plan as to which Fault domain and Upgrade domain you are going to add this VM/ machine to.
+3. [Download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)and unzip the package either to the VM/Machine you are planning to add to the cluster. 
+4. Open up a powershell admin prompt, navigate to the location of the unzipped package
+5. Run AddNode.PS1
+
+```
+.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.52:19000 -UpgradeDomain UD1 -FaultDomain FD1
+```
+
+## Remove nodes to your Service Fabric cluster 
+
+1. TS into the VM/Machine you want to remove from the cluster
+2. Open up a powershell admin prompt, navigate to the location of the unzipped package
+5. Run RemoveNode.PS1
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+## Delete your Service Fabric cluster 
+1. TS into one of the VM/Machines that is a part of the the cluster
+2. Open up a powershell admin prompt, navigate to the location of the unzipped package
+5. Run RemoveNode.PS1
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+
 ## Next steps
-
-After you create a cluster, also be sure to secure it:
-- [Cluster security](service-fabric-cluster-security.md)
-
-Read the following to get started on app development and deployment:
+- [Understanding Cluster Security](service-fabric-cluster-security.md)
 - [ Service Fabric SDK and getting started](service-fabric-get-started.md)
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-
-Read more about Azure clusters and standalone clusters:
 - [Overview of the standalone cluster creation feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md)

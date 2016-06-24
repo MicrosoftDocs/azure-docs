@@ -3,7 +3,7 @@
    description="Learn about SQL Database builit-in backups that enable you to roll back an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region (up to 35 days)."
    services="sql-database"
    documentationCenter=""
-   authors="stevestein"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-features"
-   ms.date="06/09/2016"
-   ms.author="sstein"/>
+   ms.date="06/16/2016"
+   ms.author="carlrab"/>
 
 # Overview: SQL Database automated backups
 
@@ -30,9 +30,18 @@ Microsoft Azure SQL Database provides up to 200% of your maximum provisioned dat
 
 All Basic, Standard, and Premium databases are protected by automatic backups. Full backups are taken every week, differential backups every day, and log backups every 5 minutes. The first full backup is scheduled immediately after a database is created. Normally this completes within 30 minutes but it can take longer. If a database is already big, for example if it is created as the result of a database copy or restore from a large database, then the first full backup may take longer to complete. After the first full backup all further backups are scheduled automatically and managed silently in the background. Exact timing of full and differential backups is determined by the system to balance overall load. Backup files are stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes.
 
-## Additional resources
+## Next steps
 
-- [Business Continuity Overview](sql-database-business-continuity.md)
+- [Business continuity overview](sql-database-business-continuity.md)
+- [Restore a deleted database](sql-database-restore-deleted-database.md)
+- [Point-in-time restore](sql-database-point-in-time-restore.md)
 - [Geo-Restore](sql-database-geo-restore.md)
 - [Active-Geo-Replication](sql-database-geo-replication-overview.md)
+- [Database copy](sql-database-copy.md)
+
+## Additional resources
+
+- [Recover from an outage](sql-database-disaster-recovery.md)
+- [Recover from a user error](sql-database-user-error-recovery.md)
+- [Performing a disaster recovery drill](sql-database-disaster-recovery-drills.md)
 - [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/10/2016"
+   ms.date="06/22/2016"
    ms.author="rickbyh"/>
 
 # Configure Azure SQL Database firewall rules \- overview
@@ -68,7 +68,7 @@ When an application from Azure attempts to connect to your database server, the 
 
 You can enable connections from Azure in two ways:
 
-- In the [Microsoft Azure Portal](https://portal.azure.com/), select the checkbox **Allow azure services to access server** when creating a new server.
+- In the [Microsoft Azure Portal](https://portal.azure.com/), select the checkbox **Allow azure services to access server** when creating a new server. **Important:** This option configures the firewall to will allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 
 - In the [Classic Portal](http://go.microsoft.com/fwlink/p/?LinkID=161793), from the **Configure** tab on a server, under the **Allowed Services** section, click **Yes** for **Microsoft Azure Services**.
 
