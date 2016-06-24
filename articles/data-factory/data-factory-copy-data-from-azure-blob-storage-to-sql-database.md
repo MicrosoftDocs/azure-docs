@@ -39,7 +39,7 @@ Before you begin this tutorial, you must have the following:
 - **Azure SQL Database**. You will use an Azure SQL database as a **destination** data store in this tutorial. If you don't have an Azure SQL database that you can use in the tutorial, See [How to create and configure an Azure SQL Database][data-factory-create-sql-database] to create one.
 - **SQL Server 2012/2014 or Visual Studio 2013**. You will use SQL Server Management Studio or Visual Studio to create a sample database and to view the result data in the database.  
 
-## Collect storage account name and key 
+## Collect blob storage account name and key 
 You will need the account name and account key of your Azure storage account to do this tutorial. Note down the **account name** and **account key** for your Azure storage account by following the  instructions below:
 
 1. Login to the [Azure Portal][azure-portal].
@@ -50,7 +50,7 @@ You will need the account name and account key of your Azure storage account to 
 6. Repeat the previous step to copy or note down the **PRIMARY ACCESS KEY**.
 7. Close all the blades by clicking **X**.
 
-## Collect Azure SQL server, database, and user names
+## Collect SQL server, database, and user names
 You will need the names of Azure SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database by following the instructions below:
 
 1. In the **Azure Portal**, click **BROWSE** on the left and select **SQL databases**.
@@ -59,7 +59,7 @@ You will need the names of Azure SQL server, database, and user to do this tutor
 4. Note down the values for **SERVER NAME** and **SERVER ADMIN LOGIN**.
 5. Close all the blades by clicking **X**.
 
-## Allow Azure services to access Azure SQL server 
+## Allow Azure services to access SQL server 
 Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn this setting on, do the following:
 
 1. Click **BROWSE** hub on the left and click **SQL servers**.
