@@ -25,11 +25,13 @@ You may see a prompt to select a resource. Click **Select a resource**, sign in 
 
 ## Choose a trend analysis
 Get started by choosing from one of six commond trend analyses:
-* **Investigate performance issues with your server requests** - TBD
-* **Analyze errors in your server requests** - TBD
-* **Examine the exceptions in your application** - TBD
-* **Check the performance of your application's dependencies** - TBD
-* **Inspect your custom events** - TBD
+* **Investigate performance issues with your server requests** - Requests made to your service in the last 24 hours, grouped by response times
+* **Analyze errors in your server requests** - Requests made to your service in the last 24 hours, grouped by HTTP response code
+* **Examine the exceptions in your application** - Exceptions from your service in the last 24 hours, grouped by exception type
+* **Check the performance of your application's dependencies** - Services called by your service in the last 24 hours, grouped by response times
+* **Inspect your custom events** - Custom events you've set up for your service that have been sent in the last 24 hours, grouped by event type.
+
+These pre-built analyses are available later from the **View common types of telemetry analysis** button in the upper-left corner of the Trends window.
 
 ## Visualize trends in your application
 TBD - how to read the visualization
