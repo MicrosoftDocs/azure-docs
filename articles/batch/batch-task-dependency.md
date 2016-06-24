@@ -18,9 +18,11 @@
 
 # Task dependency in Azure Batch
 
+If you want to process a MapReduce-style computational workload in the cloud, or you have a data processing job whose tasks can be expressed as a directed acyclic graph (DAG), the task dependency feature of Azure Batch can be your solution. Log search and rendering 3D movie frames--with a merge task at the end--are perfect candidates for the types of jobs to use the task dependency feature.
+
 The task dependency feature of Batch allows you to create tasks that are scheduled for execution on compute nodes only after the successful completion of other tasks. You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship, or even a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs.
 
-Use task dependencies in Azure Batch to implement MapReduce-style computational workload solutions, or create tasks whose relationship is expressed as a directed acyclic graph (DAG).
+## Task dependency with Batch .NET
 
 In this article we discuss configuring task dependency using the [Batch .NET][net_msdn] library. We first show how to [enable task dependency](#enable-task-dependency) on your jobs, then a quick demonstration of [configuring a task with dependencies](#create-dependent-tasks), and finally we discuss the three [dependency scenarios](#dependency-scenarios) supported by Batch.
 
