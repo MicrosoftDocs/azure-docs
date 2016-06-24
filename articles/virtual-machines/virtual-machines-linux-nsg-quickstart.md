@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Allow external access to a Linux VM | Microsoft Azure"
+   pageTitle="Open ports or endpoints to a Linux VM | Microsoft Azure"
    description="Learn how to open a port / create an endpoint that allows external access to your Linux VM using the resource manager deployment model and the Azure CLI"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="05/24/2016"
    ms.author="iainfou"/>
 
-# Allow external access to your VM
+# Opening ports and endpoints
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
