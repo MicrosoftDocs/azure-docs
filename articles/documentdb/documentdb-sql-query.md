@@ -610,8 +610,6 @@ This example returns all documents where the state is any of the specified value
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-IN is equivalent to chaining multiple OR clauses, however since it can be served using a single index, DocumentDB supports a higher [limit](documentdb-limits.md) for the number of arguments specified within an IN clause.  
-
 ### Ternary (?) and Coalesce (??) operators
 The Ternary and Coalesce operators can be used to build conditional expressions, similar to popular programming languages like C# and JavaScript. 
 
