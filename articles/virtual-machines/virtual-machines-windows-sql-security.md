@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/23/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth" />
 
 # Security Considerations for SQL Server in Azure Virtual Machines
