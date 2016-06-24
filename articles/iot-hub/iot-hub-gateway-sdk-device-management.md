@@ -218,10 +218,7 @@ Complete the following steps on the same Ubuntu 14.04 machine you used in the pr
 6. Because the Gateway SDK and device management client share some libraries, you need to edit the **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** file. Add the following lines at the end of this file. Be sure to replace `<your user>` with your current user name:
     
     ```
-    SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libmicromock_ctest.a"
-    SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libctest.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
-    SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libtestrunnerswitcher.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
     ```
 
@@ -263,15 +260,7 @@ Copy the files from the **toFlash** folder on the Ubuntu machine you used to bui
 
 If you are using a Windows machine to connect to your Edison with a USB cable, you should run the **flashall.bat** script to flash your Edison. If you are using a Linux machine to connect to your Edison with a USB cable, you should run the **flashall.bat** script to flash your Edison.
 
-When the flashing process is complete, connect to your Edison using a [serial connection][lnk-serial-connection] from your host machine and sign in as **root**. To enable the Edison to establish a WiFi connection and communicate with IoT Hub, you need to complete the following steps:
-
-1. Run the `configure_edison --setup` command in your serial terminal.
-
-2. Follow the prompts to set up a password for the **root** account.
-
-3. Follow the prompts to connect your Edison to your WiFi network.
-
-Your Edison board now has the custom image installed and can connect to IoT Hub over WiFi.
+When the flashing process is complete, connect to your Edison using a [serial connection][lnk-serial-connection] from your host machine and sign in as **root**. You should verify your Edison board is now connected to your WiFi network.
 
 ### Run the sample
 
@@ -314,7 +303,7 @@ A firmware update on the Edison requested by the IoT device management service n
 
 Again, to simplify the tutorial the firmware update reapplies the same firmware image instead of using a brand new image. You will be able to see this image being applied to the Edison board.
 
-Create a zip file called **edison.zip** that contains the files in the files from the **toFlash** folder on the Ubuntu machine you used to create the custom image. Make sure that the files from the **toFlash** folder are in the root of the zip file. Use a tool such as SCP (or PSCP if you are using Putty) to copy the **edison.zip** file to the /home/root folder on your Edison board.
+Create a zip file called **edison.zip** that contains all the files and subfolders from the **toFlash** folder on the Ubuntu machine you used to create the custom image. Make sure that the files from the **toFlash** folder are in the root of the zip file. Use a tool such as SCP (or PSCP if you are using Putty) to copy the **edison.zip** file to the /home/root folder on your Edison board.
 
 To submit the firmware update job and monitor its progress, use the Node.js [device management sample UI][lnk-dm-sample-ui]. You can run this sample on either Windows or Linux and it requires [Node.js][lnk-nodejs] 6.1.0 or greater. To retrieve, build, and run the device management sample UI on your desktop machine, follow the steps below:
 
@@ -340,7 +329,7 @@ To submit the firmware update job and monitor its progress, use the Node.js [dev
     npm run build
     ```
 
-6. Use a text editor to open the user-config.json file in root of the cloned folder. Replace the text "&lt;YOUR CONNECTION STRING HERE&gt;" with your IoT Hub connection string. You can find this connection string in the Azure [portal][lnk-azure-portal] or by using the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools.
+6. Use a text editor to open the user-config.json file in root of the cloned folder. Replace the text "&lt;YOUR CONNECTION STRING HERE&gt;" with your IoT Hub connection string. You can find this connection string in the Azure [portal][lnk-azure-portal].
 
 7. In the command prompt, run the following command to start the device management UX app:
 
