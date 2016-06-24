@@ -6,7 +6,6 @@
 	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
-clas
 <tags
 	ms.service="storage"
 	ms.workload="storage"
