@@ -16,6 +16,7 @@
 	ms.date="06/17/2016"
 	ms.author="marsma"/>
 
+
 # Batch feature overview for developers
 
 In this overview of the core components of the Azure Batch service, we discuss the primary service features that Batch developers can use to build large-scale parallel compute solutions.
