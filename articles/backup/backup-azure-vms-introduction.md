@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/23/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Plan your VM backup infrastructure in Azure
-This article covers the key things to keep in mind when planning to back up virtual machines in Azure. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [to backup VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
+This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning and scheduling. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [to backup VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## How does Azure back up virtual machines?
 When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. This snapshot is taken in coordination with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the disks in the virtual machine without having to shut it down.
@@ -94,7 +94,7 @@ We suggest following these practices while configuring backups for virtual machi
 - Schedule VM backups during non-peak hours so the backup service uses IOPS for transferring data from the customer storage account to the backup or Recovery Services vault.
 - Make sure that a policy addresses VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by one policy. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
 - Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
-- We recommend running each Premium VM on a distinct premium storage account to ensure optimal backup performance. 
+- We recommend running each Premium VM on a distinct premium storage account to ensure optimal backup performance.
 
 ## Data encryption
 
