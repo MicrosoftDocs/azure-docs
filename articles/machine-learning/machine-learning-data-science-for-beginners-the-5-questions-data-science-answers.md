@@ -1,6 +1,6 @@
 <properties
    pageTitle="The 5 data science questions - Data Science for Beginners | Microsoft Azure"
-   description="Get a quick introduction to data science from Data Science for Beginners, 5 short videos that start with The 5 Questions Data Science Can Answer."
+   description="Get a quick introduction to data science from Data Science for Beginners, five short videos that start with The 5 Questions Data Science Answers."
    keywords="doing data science,introduction to data science,data science for beginners, types of questions,data science questions, data science algorithms"
    services="machine-learning"
    documentationCenter="na"
@@ -17,14 +17,14 @@
    ms.date="06/23/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Data Science for Beginners video 1: The 5 questions that data science can answer
+# Data Science for Beginners video 1: The 5 questions data science answers
 
 Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful if you're interested in doing data science - or work with people who do data science - and you want to start with the most basic concepts.
 
 In these videos, Senior Data Scientist Brandon Rohrer makes data science approachable. To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
 
 
-## Transcript: The 5 questions that data science can answer
+## Transcript: The 5 questions data science answers
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
