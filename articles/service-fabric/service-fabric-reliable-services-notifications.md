@@ -16,14 +16,14 @@
    ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
-# What are Notifications
+# Reliable Service Notifications
 
 Notifications allow clients to track the changes that are being made in to the object they are interested in.
 There are two type of object that support notification: **Reliable State Manager** and **Reliable Dictionary**.
 
 Common reasons for using Notifications are
--   Building materialized views such as secondary indices or aggregated filtered views of the replica's state. For example a sorted index of all keys in a Reliable Dictionary.
--   Sending monitoring data such as number of users added in the last hour.
+- Building materialized views such as secondary indices or aggregated filtered views of the replica's state. For example a sorted index of all keys in a Reliable Dictionary.
+- Sending monitoring data such as number of users added in the last hour.
 
 Notifications are fired as part of applying operations.
 Since they are part of the apply of the operation, it is important to note handling of notifications should complete as fast as possible and no expensive operation should be done in synchronous events.
@@ -31,12 +31,12 @@ Since they are part of the apply of the operation, it is important to note handl
 ## Reliable State Manager Notifications
 
 Reliable State Manager provides notifications for the following events
--   Transaction
-    -   Commit
--   State Manager
-    -   Rebuild
-    -   Addition of a Reliable State
-    -   Removal of a Reliable State
+- Transaction
+    - Commit
+- State Manager
+    - Rebuild
+    - Addition of a Reliable State
+    - Removal of a Reliable State
 
 Reliable State Manager tracks the current inflight transactions.
 The only transaction state change that will cause a notification to be fired is a transaction being committed.
@@ -44,9 +44,9 @@ The only transaction state change that will cause a notification to be fired is 
 Reliable State Manager maintains a collection of Reliable State's like Reliable Dictionary and Reliable Queue.
 Reliable State Manager fires notifications when this collection changes: a Reliable State is added, removed or the entire collection has been rebuilt.
 Reliable State Manager's collection gets rebuilt in three cases
--   Recovery: When a replica starts up, it will recover its previous state from the disk. At the end of recovery, it fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of recovered **IReliableState**.
--   Full Copy: Before a replica can join the configuration set, it first has to be built. Sometimes, this might require a full copy of Reliable State Manager's state from the Primary replica to be applied to the idle secondary replica. Reliable State Manager on the secondary will fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of **IReliableState** it acquired from the Primary.
--   Restore: In disaster recovery scenarios, replica's state can be restored from a backup using **RestoreAsync**. In such cases, Reliable State Manager on the primary will fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of **IReliableState** it restored from the backup.
+- Recovery: When a replica starts up, it will recover its previous state from the disk. At the end of recovery, it fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of recovered **IReliableState**.
+- Full Copy: Before a replica can join the configuration set, it first has to be built. Sometimes, this might require a full copy of Reliable State Manager's state from the Primary replica to be applied to the idle secondary replica. Reliable State Manager on the secondary will fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of **IReliableState** it acquired from the Primary.
+- Restore: In disaster recovery scenarios, replica's state can be restored from a backup using **RestoreAsync**. In such cases, Reliable State Manager on the primary will fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of **IReliableState** it restored from the backup.
 
 ### How to use Reliable State Manager Notifications
 To register for transaction notifications and/or state manager notifications, user needs to register with the **TransactionChanged** or **StateManagerChanged** events on the Reliable State Manager respectively.
@@ -56,10 +56,10 @@ This because by registering on the constructor, client ensures that it will not 
 ```C#
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
-    {
-        this.StateManager.TransactionChanged += this.OnTransactionChangedHandler;
-        this.StateManager.StateManagerChanged += this.OnStateManagerChangedHandler;
-    }
+{
+    this.StateManager.TransactionChanged += this.OnTransactionChangedHandler;
+    this.StateManager.StateManagerChanged += this.OnStateManagerChangedHandler;
+}
 ```
 
 **TransactionChanged** EventHandler uses **NotifyTransactionChangedEventArgs** to provide details about the event.
@@ -162,15 +162,15 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 **DictionaryChanged** EventHandler uses **NotifyDictionaryChangedEventArgs** to provide details about the event.
 **NotifyDictionaryChangedEventArgs** has five subclasses.
 Action property in **NotifyDictionaryChangedEventArgs** should be used to cast the **NotifyDictionaryChangedEventArgs** to the correct subclass
--   NotifyDictionaryChangedAction.Rebuild: NotifyDictionaryRebuildEventArgs
--   NotifyDictionaryChangedAction.Clear: NotifyDictionaryClearEventArgs
--   NotifyDictionaryChangedAction.Add and Remove: NotifyDictionaryItemAddedEventArgs
--   NotifyDictionaryChangedAction.Update: NotifyDictionaryItemUpdatedEventArgs
--   NotifyDictionaryChangedAction.Remove: NotifyDictionaryItemRemovedEventArgs
+- NotifyDictionaryChangedAction.Rebuild: NotifyDictionaryRebuildEventArgs
+- NotifyDictionaryChangedAction.Clear: NotifyDictionaryClearEventArgs
+- NotifyDictionaryChangedAction.Add and Remove: NotifyDictionaryItemAddedEventArgs
+- NotifyDictionaryChangedAction.Update: NotifyDictionaryItemUpdatedEventArgs
+- NotifyDictionaryChangedAction.Remove: NotifyDictionaryItemRemovedEventArgs
 
 ```C#
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
-{}
+{
     switch (e.Action)
     {
         case NotifyDictionaryChangedAction.Clear:
