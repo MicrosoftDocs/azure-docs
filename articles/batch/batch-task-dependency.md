@@ -140,6 +140,6 @@ Check out the [TaskDependencies][github_taskdependencies] sample project on GitH
 [net_usestaskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.usestaskdependencies.aspx
 [net_taskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskdependencies.aspx
 
-[1]: ./media/batch-mpi/batch_mpi_01.png "Diagram: one-to-one dependency"
-[2]: ./media/batch-mpi/batch_mpi_01.png "Diagram: one-to-many dependency"
-[3]: ./media/batch-mpi/batch_mpi_01.png "Diagram: task id range dependency"
+[1]: ./media/batch-task-dependency/01_one_to_one.png "Diagram: one-to-one dependency"
+[2]: ./media/batch-task-dependency/02_one_to_many.png "Diagram: one-to-many dependency"
+[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: task id range dependency"
