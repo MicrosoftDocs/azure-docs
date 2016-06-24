@@ -29,6 +29,7 @@ Learn how to Ask a Question You Can Answer with Data in this third video of the 
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
+<<<<<<< HEAD
   * Video 1: [The 5 questions data science can answer](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Available now.**
   * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) Available June 27.
   * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md). Available June 29.
