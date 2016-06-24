@@ -75,7 +75,7 @@ Subnets rely on system routes until a route table is associated to the subnet. O
 1. BGP route (when ExpressRoute is used)
 1. System route
 
-To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
+To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-network-create-udr-arm-template.md).
 
 >[AZURE.IMPORTANT] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 

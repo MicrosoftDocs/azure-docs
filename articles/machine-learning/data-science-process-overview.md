@@ -97,9 +97,4 @@ The [Team Data Science Process](https://azure.microsoft.com/documentation/learni
 
 While TDSP does not prescribe specific types of **documentation** artifacts, it is a best practice to document the results of the data exploration, modeling and evaluation, and to save the pertinent code so that the analysis can iterated when required. This also allows reuse of the analytics work when working on other applications involving similar data and prediction tasks.
 
-Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. See, for example:
-
-- [The Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [The Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
-- [Data Science using Spark on Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
-- [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](machine-learning-data-science-process-data-lake-walkthrough.md)
+Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed with thumbnail descriptions in the [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) topic.

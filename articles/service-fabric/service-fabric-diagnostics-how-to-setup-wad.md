@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="06/24/2016"
    ms.author="toddabel"/>
 
 
@@ -193,7 +193,6 @@ Check out the diagnostic events emitted for [Reliable Actors](service-fabric-rel
 
 ## Related articles
 * [Learn how to collect performance counters or logs using diagnostic extensions](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
-
-
+* [Service Fabric Solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md)
 
 
