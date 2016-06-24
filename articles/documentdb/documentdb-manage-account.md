@@ -106,6 +106,7 @@ You should change the access keys to your DocumentDB account periodically to hel
 
 If you have applications or cloud services using the DocumentDB account, you will lose the connections if you regenerate keys, unless you roll your keys. The following steps outline the process involved in rolling your keys.
 
+
 1. Update the access key in your application code to reference the secondary access key of the DocumentDB account.
 2. Regenerate the primary access key for your DocumentDB account. In the [Azure Portal](https://portal.azure.com/),
 access your DocumentDB account.
