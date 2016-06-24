@@ -22,7 +22,7 @@ SQL Data Warehouse recently introduced [Premium Storage for greater performance 
 If you have more than one Data Warehouse, please use the [automatic migration schedule][] below to determine when it will also be migrated.
 
 ## Determine storage type
-If you created a DW before the dates below, you are currently using Standard Storage.  In addition to this, each Data Warehouse on Standard Storage that will be migrated will have a notice in the [Azure Portal][] at the top of the Data Warehouse blade saying "An upcoming upgrade to premium storage will require an outage.  Learn more ->".
+If you created a DW before the dates below, you are currently using Standard Storage.  In addition to this, each Data Warehouse on Standard Storage that will be migrated will have a notice in the [Azure Portal][] at the top of the Data Warehouse blade saying "*An upcoming upgrade to premium storage will require an outage.  Learn more ->*".
 
 | **Region**          | **DW Created Before This Date**   |
 | :------------------ | :-------------------------------- |
@@ -56,8 +56,8 @@ By default, we will migrate your database for you during 6pm and 6am in your reg
 
 The details below are steps that Microsoft is taking on your behalf to complete the migration and does not require any involvement on your part.  For the purpose of this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
 
-1.	Microsoft will rename “MyDW” to “MyDW_ DO_NOT_USE_[Timestamp]”
-2.	Microsoft will pause “MyDW_ DO_NOT_USE_[Timestamp]”.  During this time Microsoft will be taking a backup.  You may see multiple pause/resumes if we encounter any issues during this process.
+1.	Microsoft will rename “MyDW” to “MyDW_DO_NOT_USE_[Timestamp]”
+2.	Microsoft will pause “MyDW_DO_NOT_USE_[Timestamp]”.  During this time Microsoft will be taking a backup.  You may see multiple pause/resumes if we encounter any issues during this process.
 3.	Microsoft will create a new DW named “MyDW” on Premium Storage from the backup taken in step 2 above.  “MyDW” will not appear until after the restore is complete.
 4.	Once the restore is complete, “MyDW” will return to the same level of DWUs and paused or active state it was before the migration.
 5.	Once the migration is complete, Microsoft will delete “MyDW_DO_NOT_USE_[Timestamp]”
@@ -75,25 +75,25 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 | Australia East      | Not determined yet           | Not determined yet           |
 | Australia Southeast | Not determined yet           | Not determined yet           |
 | Brazil South        | Not determined yet           | Not determined yet           |
-| Canada Central      | June 23, 2016                | July 1,2016                  |
-| Canada East         | June 23, 2016                | July 1,2016                  |
-| Central US          | June 23, 2016                | July 4,2016                  |
+| Canada Central      | June 23, 2016                | July 1, 2016                 |
+| Canada East         | June 23, 2016                | July 1, 2016                 |
+| Central US          | June 23, 2016                | July 4, 2016                 |
 | China East          | Not determined yet           | Not determined yet           |
 | China North         | Not determined yet           | Not determined yet           |
-| East Asia           | June 23, 2016                | July 1,2016                  |
-| East US             | June 23, 2016                | July 11,2016                  |
-| East US2            | June 23, 2016                | July 8,2016                  |
-| India Central       | June 23, 2016                | July 1,2016                  |
-| India South         | June 23, 2016                | July 1,2016                  |
+| East Asia           | June 23, 2016                | July 1, 2016                 |
+| East US             | June 23, 2016                | July 11, 2016                |
+| East US2            | June 23, 2016                | July 8, 2016                 |
+| India Central       | June 23, 2016                | July 1, 2016                 |
+| India South         | June 23, 2016                | July 1, 2016                 |
 | India West          | Not determined yet           | Not determined yet           |
 | Japan East          | Not determined yet           | Not determined yet           |
 | Japan West          | Not determined yet           | Not determined yet           |
 | North Central US    | Not determined yet           | Not determined yet           |
 | North Europe        | Not determined yet           | Not determined yet           |
-| South Central US    | June 23, 2016                | July 2,2016                  |
-| Southeast Asia      | June 23, 2016                | July 1,2016                  |
-| West Europe         | June 23, 2016                | July 8,2016                  |
-| West US             | June 23, 2016                | July 7,2016                  |
+| South Central US    | June 23, 2016                | July 2, 2016                 |
+| Southeast Asia      | June 23, 2016                | July 1, 2016                 |
+| West Europe         | June 23, 2016                | July 8, 2016                 |
+| West US             | June 23, 2016                | July 7, 2016                 |
 
 ## Self-migration to Premium Storage
 If you would like to control when your downtime will occur, you can use the steps below to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][]).
