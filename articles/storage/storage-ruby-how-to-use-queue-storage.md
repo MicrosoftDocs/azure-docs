@@ -64,7 +64,7 @@ you must specify the account information before using **Azure::QueueService** wi
 	Azure.config.storage_access_key = "<your Azure storage access key>"
 
  
-To obtain these values from a Classic or ARM Storage Account in the Azure Portal:
+To obtain these values from a Classic or Resource Manager Storage Account in the Azure Portal:
 
 1. Log in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
