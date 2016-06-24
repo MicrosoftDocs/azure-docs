@@ -1,5 +1,5 @@
  <properties
-   pageTitle="Supported Token and Claim Types | Microsoft Azure"
+   pageTitle="Azure AD Token Reference | Microsoft Azure"
    description="A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,259 +13,114 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/23/2016"
+   ms.date="06/24/2016"
    ms.author="mbaldwin"/>
 
-# Supported Token and Claim Types
+   # Azure AD token reference
 
-This topic is designed to help you understand and evaluate the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens that Azure Active Directory (Azure AD) issues.
+   Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token.
 
-The topic begins with a description of each token claim and shows an example of the claim in a SAML token and a JWT token, as appropriate. Claims that are in preview status are listed separately. It ends with sample tokens so you can see the claims in context.
+   ## Types of tokens
 
-Azure adds claims to the tokens over time to enable new scenarios. Typically, we introduce these claims in preview status and then convert them to full support after a test period. To prepare for claim changes, applications that accept tokens from Azure AD should ignore unfamiliar token claims so that new claims do not break the application. Applications that use claims that are in preview status should not depend on these claims and should not raise exceptions if the claim does not appear in the token.
-If your application needs claims that are not available in the SAML or JWT tokens that Azure AD issues, use the Community Additions section at the bottom of this page to suggest and discuss new claim types.
+   Azure AD supports the [OAuth 2.0 authorization protocol](active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
 
-## Token Claims Reference
+   A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-This section lists and describes the claims in tokens that Azure AD returns. It includes the SAML version and the JWT version of the claim and a description of the claim and its use. The claims are listed in alphabetical order.
+   Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [calebb.net](http://jwt.calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-### Application ID
+   ## Id_tokens
 
-The Application ID claim identifies the application that is using the token to access a resource. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD.
+   Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](active-directory-protocols-openid-connect-code.md).  They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app.  You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
 
-Azure AD does not support an Application ID claim in a SAML token.
+   Id_tokens are signed, but not encrypted at this time.  When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity.  The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
 
-In a JWT token, the application ID appears in an appid claim.
+   Full details on the claims in id_tokens are provided below, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The list below includes the claims that your app can reliably interpret at the time of this writing.  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
-    "appid":"15CB020F-3984-482A-864D-1D92265E8268"
+   #### Sample id_token
 
-### Audience
-The audience of a token is the intended recipient of the token. The application that receives the token must verify that the audience value is correct and reject any tokens intended for a different audience.
+   ```
+   eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
+   ```
 
-The audience value is a string -- typically, the base address of the resource being accessed, such as "https://contoso.com". In Azure AD tokens, the audience is the App ID URI of the application that requested the token. When the application (which is the audience) has more than one App ID URI, the App ID URI in the Audience claim of the token matches the App ID Uri in the token request.
-In a SAML token, the Audience claim is defined in the Audience element of the AudienceRestriction element.
+   > [AZURE.TIP] For practice, try inspecting the claims in the sample id_token by pasting it into [calebb.net](https://calebb.net).
 
-    <AudienceRestriction>
-    <Audience>https://contoso.com</Audience>
-    </AudienceRestriction>
+   #### Claims in id_tokens
 
-In a JWT token, the audience appears in an aud claim.
+   | Name | Description | Example SAML Value | JWT Claim | Example JWT Value |
+   |------|-------|-------------|-----------------|--------------|
+   | Application ID | The Application ID claim identifies the application that is using the token to access a resource. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. |  Unsupported | `appid` | "appid":"15CB020F-3984-482A-864D-1D92265E8268" |
+   | Audience | The audience of a token is the intended recipient of the token. The application that receives the token must verify that the audience value is correct and reject any tokens intended for a different audience. | `<AudienceRestriction>`<p>`<Audience>`<p>`https://contoso.com`<p>`</Audience>`<p>`</AudienceRestriction>` | `aud` | "aud":"https://contoso.com" |
+   | Application Authentication Context Class Reference | The Application Authentication Context Class Reference claim indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. || `appidacr` |"appidacr": "0"|
+   | Authentication Context Class Reference | The Authentication Context Class Reference claim indicates how the subject was authenticated, as opposed to the client in the Application Authentication Context Class Reference claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115. | | `acr` |"acr": "0"|
+   | Authentication Instant | The Authentication Instant claim records the date and time when authentication occurred. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | N/A | N/A |
+   | Authentication Method | The Authentication Method claim tells how the subject of the token was authenticated. | `<AuthnContextClassRef>`<p>http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password<p>`</AuthnContextClassRef>`| `amr`| “amr”: ["pwd"] |
+   | First Name | The First Name or "given name" claim provides the first or "given" name of the user, as set on the Azure AD user object. | `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<p>`<AttributeValue>Frank<AttributeValue>` | `given_name` |"given_name": "Frank" |
+   | Groups | The Groups claim provides object IDs that represent the subject's group memberships. These values are unique (see Object ID) and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the "groupMembershipClaims" property of the application manifest. A value of null will exclude all groups, a value of "SecurityGroup" will include only Active Directory Security Group memberships, and a value of "All" will include both Security Groups and Office 365 Distribution Lists. In any configuration, the groups claim represents the subject's transitive group memberships. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<p>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` | `groups` | “groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ] |
+   | Identity Provider | The Identity Provider claim records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account is in a different tenant than the issuer. | `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<p>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` | `idp` | "idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/” |
+   | IssuedAt | The IssuedAt claim stores the time at which the token was issued. It is often used to measure token freshness.| `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` | `iat` | iat": 1390234181 |
+   | Issuer | The Issuer claim identifies the security token service (STS) that constructs and returns the token and the Azure AD directory tenant. In the tokens that Azure AD returns, the issuer is sts.windows.net. The GUID in the Issuer claim value is the tenant ID of the Azure AD directory. The tenant ID is an immutable and reliable identifier of the directory. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` | `iss` | "iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/” |
+   | Last Name | The Last Name claim provides the last name, surname, or family name of the user as defined in the Azure AD user object.| `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<p>`<AttributeValue>Miller<AttributeValue>` | `family_name` | "family_name": "Miller" |
+   | Name | The Name claim provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes. | `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<p>`<AttributeValue>frankm@contoso.com<AttributeValue>` | `unique_name` | "unique_name": "frankm@contoso.com" |
+   | Object ID | The Object ID claim contains a unique identifier of an object in Azure AD. This value is immutable and cannot be reassigned or reused, so you can use it to perform authorization checks safely, such as when the token is used to access a resource. Use the object ID to identify an object in queries to Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<p>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` | `oid` |"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0" |
+   | Roles | The Roles claim provides friendly strings that represent the subject's application role assignments in Azure AD, and can be used to enforce role-based access control. Application roles are defined on a per-application basis, through the "appRoles" property of the application manifest. The "value" property of each application role is the value that appears in the roles claim. The roles included in the roles claim represent all application roles that the subject has been granted both directly and indirectly through group membership. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<p>`<AttributeValue>Admin</AttributeValue>` | `roles` | “roles”: ["Admin", … ] |
+   |Scope | The Scope of the token indicates the impersonation permissions granted to the client application. The default permission is user_impersonation. The owner of the secured resource can register additional values in Azure AD.| | `scp` | "scp": "user_impersonation"|
+   |Subject| The Subject of the token is the principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused, so it can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens the Azure AD issues, we recommended using this value in a general purpose authorization system. <p> `SubjectConfirmation` is not a claim. It describes how the subject of the token is verified. "Bearer" indicates that the subject is confirmed by their possession of the token.| `<Subject>`<p>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<p>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<p>`</Subject>` | `sub` | "sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"|
+   | Tenant ID | The Tenant ID is an immutable, non-reusable identifier that identifies the directory tenant that issued the token. You can use this value to access tenant-specific directory resources in a multi-tenant application. For example, you can use this value to identify the tenant in a call to the Graph API. | `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<p>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` | `tid` | "tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"|
+   |Token Lifetime | The Token Lifetime claim defines the time interval within which a token is valid. The service that validates the token should verify that the current date is within the token lifetime. Otherwise, it should reject the token. The service might provide an allowance of up to five minutes beyond the token lifetime range to account for any differences in clock time ("time skew") between Azure AD and the service. | `<Conditions`<p>`NotBefore="2013-03-18T21:32:51.261Z"`<p>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<p>`>` | `nbf`, `exp`| "nbf":1363289634, "exp":1363293234 |
+   | User Principal Name | The User Principal Name claim stores the user name of the user principal.| | `upn`| "upn": frankm@contoso.com|
+   | Version | The Version claim stores the version number of the token. | | `ver` | "ver": "1.0"|
 
-    "aud":"https://contoso.com"
+   ## Access tokens
 
-### Application Authentication Context Class Reference
+   Access tokens are only consumable by Microsoft Services at this point in time.  Your apps should not need to perform any validation or inspection of access tokens for any of the currently supported scenarios.  You can treat access tokens as completely opaque - they are just strings which your app can pass to Microsoft in HTTP requests.
 
-The Application Authentication Context Class Reference claim indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1.
+   When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption.  This information includes the expiry time of the access token and the scopes for which it is valid.  This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
 
-In a JWT token, the authentication context class reference value appears in an appidacr (application-specific ACR value) claim.
+   ## Refresh tokens
 
-    "appidacr": "0"
+   Refresh tokens are security tokens which your app can use to acquire new access tokens in an OAuth 2.0 flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
 
-### Authentication Context Class Reference
-The Authentication Context Class Reference claim indicates how the subject was authenticated, as opposed to the client in the Application Authentication Context Class Reference claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115.
+   Refresh tokens are multi-resource.  That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource. To do this, set the `resource` parameter in the request to the targeted resource.
 
-- In a JWT token, the authentication context class reference claim appears in the acr (user-specific ACR value) claim.
+   Refresh tokens are completely opaque to your app. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time.  Refresh tokens can be invalidated at any moment in time for a variety of reasons.  The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD token endpoint.
 
-    "acr": "0"
+   When you redeem a refresh token for a new access token, you will receive a new refresh token in the token response.  You should save the newly issued refresh token, replacing the one you used in the request.  This will guarantee that your refresh tokens remain valid for as long as possible.
 
-### Authentication Instant
+   ## Validating tokens
 
-The Authentication Instant claim records the date and time when authentication occurred.
+   At this point in time, the only token validation your apps should need to perform is validating id_tokens.  In order to validate an id_token, your app should validate both the id_token's signature and the claims in the id_token.
 
-In a SAML token, the authentication instant appears in the AuthnInstant attribute of the AuthnStatement element. It represents a datetime in UTC (Z) time.
+   We provide libraries & code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several 3rd party open source libraries available for JWT validation - there is at least one option for almost every platform & language out there.
 
-    <AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">
+   #### Validating the signature
+   A JWT contains three segments, which are separated by the `.` character.  The first segment is known as the **header**, the second as the **body**, and the third as the **signature**.  The signature segment can be used to validate the authenticity of the id_token so that it can be trusted by your app.
 
-Azure AD does not have an equivalent claim in JWT tokens.
+   Id_Tokens are signed using industry standard asymmetric encryption algorithms, such as RSA 256. The header of the id_token contains information about the key and encryption method used to sign the token:
 
-### Authentication Method
+   ```
+   {
+     "typ": "JWT",
+     "alg": "RS256",
+     "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+   }
+   ```
 
-The Authentication Method claim tells how the subject of the token was authenticated. In this example, the identity provider used a password to authenticate the user.
-    http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password
+   The `alg` claim indicates the algorithm that was used to sign the token, while the `x5t` claim indicates the particular public key that was used to sign the token.
 
-In a SAML token, the authentication method value appears in the AuthnContextClassRef element.
+   At any given point in time, Azure AD may sign an id_token using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys on a periodic basis, so your app should be written to handle those key changes automatically.  A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
 
-    <AuthnContextClassRef>http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password</AuthnContextClassRef>
+   #### Validating the claims
+   When your app receives an id_token upon user sign-in, it should also perform a few checks against the claims in the id_token.  These include but are not limited to:
 
-In a JWT token, the authentication method value appears inside the amr claim.
+   - The **Audience** claim - to verify that the id_token was intended to be given to your app.
+   - The **Not Before** and **Expiration Time** claims - to verify that the id_token has not expired.
+   - The **Issuer** claim - to verify that the token was indeed issued to your app by Azure AD.
+   - The **Nonce** -  as a token replay attack mitigation.
+   - and more...
 
-    “amr”: ["pwd"]
+   For an full list of claim validations your app should perform, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
-###First Name
-
-The First Name or "given name" claim provides the first or "given" name of the user, as set on the Azure AD user object.
-
-In a SAML token, the first name (or "given name") appears in a claim in the givenname SAML Attribute element.
-
-    <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>
-    <AttributeValue>Frank<AttributeValue>
-
-In a JWT token, the first name appears in the given_name claim.
-
-    "given_name": "Frank"
-
-### Groups
-
-The Groups claim provides object IDs that represent the subject's group memberships. These values are unique (see Object ID) and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the "groupMembershipClaims" property of the application manifest. A value of null will exclude all groups, a value of "SecurityGroup" will include only Active Directory Security Group memberships, and a value of "All" will include both Security Groups and Office 365 Distribution Lists. In any configuration, the groups claim represents the subject's transitive group memberships.
-
-In a SAML token, the groups claim appears in the groups attribute.
-
-    <Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">
-    <AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>
-
-In a JWT token, the groups claim appears in the groups claim.
-
-    “groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]
-
-### Identity Provider
-
-The Identity Provider claim records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account is in a different tenant than the issuer.
-
-In a SAML token, the identity provider appears in a claim in the identityprovider SAML Attribute element.
-
-    <Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>
-    <AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>
-
-In a JWT token, the identity provider appears in an idp claim.
-
-    "idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”
-
-### IssuedAt
-
-The IssuedAt claim stores the time at which the token was issued. It is often used to measure token freshness.
-In a SAML token, the IssuedAt value appears in the IssueInstant assertion.
-
-    <Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
-
-In a JWT token, the IssuedAt value appears in the iat claim. The value is expressed in the number of seconds since 1970-01-010:0:0Z in Coordinated Universal Time (UTC).
-
-    "iat": 1390234181
-
-### Issuer
-
-The Issuer claim identifies the security token service (STS) that constructs and returns the token and the Azure AD directory tenant.
-In the tokens that Azure AD returns, the issuer is sts.windows.net. The GUID in the Issuer claim value is the tenant ID of the Azure AD directory. The tenant ID is an immutable and reliable identifier of the directory.
-
-In a SAML token, the Issuer claim appears in an Issuer element.
-
-    <Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>
-
-In a JWT token, the Issuer appears in an iss claim.
-
-    "iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”
-
-### Last Name
-
-The Last Name claim provides the last name, surname, or family name of the user as defined in the Azure AD user object.
-In a SAML token, The last name appears in a claim in the surname SAML Attribute element.
-
-    <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>
-    <AttributeValue>Miller<AttributeValue>
-
-In a JWT token, the last name appears in the family_name claim.
-
-    "family_name": "Miller"
-
-### Name
-
-The Name claim provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and is designed to be used only for display purposes.
-In a SAML token, the name appears in the Name attribute.
-
-    <Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>
-    <AttributeValue>frankm@contoso.com<AttributeValue>
-
-In a JWT claim, the name appears in the unique_name claim.
-
-    "unique_name": "frankm@contoso.com"
-
-### Object ID
-
-The Object ID claim contains a unique identifier of an object in Azure AD. This value is immutable and cannot be reassigned or reused, so you can use it to perform authorization checks safely, such as when the token is used to access a resource. Use the object ID to identify an object in queries to Azure AD.
-In a SAML token, the Object ID appears in the objectidentifier attribute.
-
-    <Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">
-    <AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>
-
-In a JWT token, Object ID appears in an oid claim.
-
-    "oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"
-
-### Roles
-
-The Roles claim provides friendly strings that represent the subject's application role assignments in Azure AD, and can be used to enforce role-based access control. Application roles are defined on a per-application basis, through the "appRoles" property of the application manifest. The "value" property of each application role is the value that appears in the roles claim. The roles included in the roles claim represent all application roles that the subject has been granted both directly and indirectly through group membership.
-In a SAML token, the roles claim appears in the roles attribute.
-
-    <Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">
-    <AttributeValue>Admin</AttributeValue>
-
-In a JWT token, the roles claim appears in the roles claim.
-
-    “roles”: ["Admin", … ]
-
-### Scope
-
-The Scope of the token indicates the impersonation permissions granted to the client application. The default permission is user_impersonation. The owner of the secured resource can register additional values in Azure AD.
-
-In a JWT token, the scope of the token is specified in a scp claim.
-
-    "scp": "user_impersonation"
-
-### Subject
-
-The Subject of the token is the principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused, so it can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens the Azure AD issues, we recommended using this value in a general purpose authorization system.
-
-In a SAML token, the subject of the token is specified in the NameID element of the Subject element. The NameID is a unique, non-reused identifier of the subject, which can be a user, an application, or a service.
-
-SubjectConfirmation is not a claim. It describes how the subject of the token is verified. "Bearer" indicates that the subject is confirmed by their possession of the token.
-
-    <Subject>
-    <NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>
-    <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
-    </Subject>
-
-In a JWT token, the subject appears in a sub claim.
-
-    "sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"
-
-### Tenant ID
-The Tenant ID is an immutable, non-reusable identifier that identifies the directory tenant that issued the token. You can use this value to access tenant-specific directory resources in a multi-tenant application. For example, you can use this value to identify the tenant in a call to the Graph API.
-
-In a SAML token, the tenant ID appears in a claim in the tenantid SAML Attribute element.
-
-    <Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>
-    <AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>
-
-In a JWT token, the tenant ID appears in a tid claim.
-
-    "tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"
-
-### Token Lifetime
-The Token Lifetime claim defines the time interval within which a token is valid. The service that validates the token should verify that the current date is within the token lifetime. Otherwise, it should reject the token. The service might provide an allowance of up to five minutes beyond the token lifetime range to account for any differences in clock time ("time skew") between Azure AD and the service.
-
-In a SAML token, the Token Lifetime claim is defined in the Conditions element by using the NotBefore and NotOnOrAfter attributes.
-
-    <Conditions
-    NotBefore="2013-03-18T21:32:51.261Z"
-    NotOnOrAfter="2013-03-18T22:32:51.261Z"
-    >
-
-In a JWT token, the Token Lifetime is defined by nbf (not before) and exp (expiration time) claims. The value of these claims is expressed in the number of seconds since 1970-01-010:0:0Z in Coordinated Universal Time (UTC). For more information, see RFC 3339.
-
-    "nbf":1363289634,
-    "exp":1363293234
-
-### User Principal Name
-The User Principal Name claim stores the user name of the user principal.
-
-In a JWT token, the user principal name appears in a upn claim.
-
-    "upn": frankm@contoso.com
-
-### Version
-The Version claim stores the version number of the token.
-In a JWT token, the user principal name appears in a ver claim.
-
-    "ver": "1.0"
+   Details of the expected values for these claims are included above in the [id_token section](#id_tokens).
 
 ## Sample Tokens
 
