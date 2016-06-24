@@ -263,23 +263,23 @@ To publish changes to your app, follow these steps:
 By default, the git deployment process in App Service doesn't do anything with composer.json, if you have one in your PHP
 project. You can enable composer.json processing during `git push` by enabling the Composer extension.
 
-1. In your PHP web app's blade in the [Azure portal](https://portal.azure.com), click **Tools** > **Extensions**.
+1. In your PHP web app's blade in the [Azure portal][management-portal], click **Tools** > **Extensions**.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+    ![Composer Extension Settings][composer-extension-settings]
 
 2. Click **Add**, then click **Composer**.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    ![Composer Extension Add][composer-extension-add]
     
 3. Click **OK** to accept legal terms. Click **OK** again to add the extension.
 
     The **Installed extensions** blade will now show the Composer extension.  
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    ![Composer Extension View][composer-extension-view]
     
 4. Now, perform `git add`, `git commit`, and `git push` like in the previous section. You'll now see that Composer
 is installing dependencies defined in composer.json.
 
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
+    ![Composer Extension Success][composer-extension-success]
 
 ## Next steps
 
@@ -288,13 +288,20 @@ For more information, see the [PHP Developer Center](/develop/php/).
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
+<!-- URL List -->
+
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
 [install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [install-mysql]: http://dev.mysql.com/downloads/mysql/
-
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
+[management-portal]: https://portal.azure.com
+[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
+
+
+<!-- IMG List -->
+
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
 [new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website2.png
 [custom-create]: ./media/web-sites-php-mysql-deploy-use-git/create_web_mysql.png
@@ -316,6 +323,8 @@ For more information, see the [PHP Developer Center](/develop/php/).
 [git-initial-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
 [deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
-[management-portal]: https://portal.azure.com
-[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
- 
+
+[composer-extension-settings]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png
+[composer-extension-add]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png
+[composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
+[composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
