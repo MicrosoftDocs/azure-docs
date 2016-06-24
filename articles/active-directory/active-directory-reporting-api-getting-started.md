@@ -37,7 +37,8 @@ The Reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545
 In order to complete the Azure AD application registration work, you must sign in to the Azure classic portal with an Azure subscription administrator account that is also a member of the Global Administrator directory role in your Azure AD tenant. This is because you will be registering the Azure AD application with permissions that require registration/consent using an account with Global Administrator privileges. 
 
 > [AZURE.IMPORTANT] Applications running under credentials with "admin" privileges like this can be very powerful, so please be sure to keep the application's ID/secret credentials secure.
- 
+
+
 1. Navigate to the [Azure classic portal](https://manage.windowsazure.com/).
 2. Navigate into your Azure AD tenant, on the **Active Directory** extension along the left pane.
 3. Navigate to the **Applications** tab.
@@ -55,8 +56,10 @@ In order to complete the Azure AD application registration work, you must sign i
 2. Navigate to your newly created application.
 3. Click the **Configure** tab.
 4. In the "Permissions to Other Applications" section:  
-	- For the "Windows Azure Active Directory" resource (permissions to the Azure AD Graph API), click the "Application Permissions" drop down list, select **Read directory data**.
+	- For the "Windows Azure Active Directory" resource (permissions to the Azure AD Graph API), click the "Application Permissions" drop down list, select **Read directory data**.  
+
         > [AZURE.IMPORTANT] It's important that you use the correct permissions here. Be sure to apply "Application Permissions" and not "Delegated Permissions", otherwise the application will not get the permission level it needs in order to access the Reporting API and you will receive a *"Unable to check Directory Read access for appId"* error.  
+
 
 5. Click **Save** on the bottom bar.
 
