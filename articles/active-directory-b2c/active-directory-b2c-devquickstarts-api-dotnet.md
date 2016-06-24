@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/22/2015"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Azure Active Directory B2C preview: Build a .NET web API
@@ -52,6 +52,8 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 After you have successfully created the three policies, you're ready to build your app.
 
 ## Download the code
+
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
 
 The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). You can also clone the skeleton:
 

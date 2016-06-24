@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Monitoring and diagnostics guidance
 
-![Patterns & practices logo](media/best-practices-monitoring/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
@@ -665,7 +665,7 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
 - [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [How to use Service Bus queues](./service-bus/service-bus-dotnet-how-to-use-queues.md)
+- [How to use Service Bus queues](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [SQL Server business intelligence in Azure Virtual Machines](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Receive alert notifications](./azure-portal/insights-receive-alert-notifications.md) and [Track service health](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)

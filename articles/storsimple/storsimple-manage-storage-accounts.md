@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2015"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage your storage account

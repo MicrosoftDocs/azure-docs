@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/25/2016"
+	ms.date="05/16/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -47,7 +47,7 @@ Now let's get started!
 
 Please make sure you have the following:
 
-- An active Azure account. If you don't have one, you can sign up for a [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 - [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 - .NET Framework 4.6
 
@@ -236,7 +236,7 @@ Copy and paste the **CreateDocumentCollectionIfNotExists** method underneath you
 				// Here we create a collection with 400 RU/s.
 				await this.client.CreateDocumentCollectionAsync(
 					UriFactory.CreateDatabaseUri(databaseName),
-					new DocumentCollection { Id = collectionName },
+					collectionInfo,
 					new RequestOptions { OfferThroughput = 400 });
 
 				this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
@@ -453,7 +453,7 @@ Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyD
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
-			foreach (Family family in familyQuery)
+			foreach (Family family in familyQueryInSql)
 			{
 					Console.WriteLine("\tRead {0}", family);
 			}
@@ -488,15 +488,15 @@ Copy and paste the **ReplaceFamilyDocument** method underneath your **ExecuteSim
 	// ADD THIS PART TO YOUR CODE
 	private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
 	{
-			try
-			{
-					await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-					this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-			}
-			catch (DocumentClientException de)
-			{
-					throw de;
-			}
+		try
+		{
+			await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+			this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
+		}
+		catch (DocumentClientException de)
+		{
+			throw;
+		}
 	}
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the query execution. After replacing the document, this will run the same query again to view the changed document.
@@ -526,15 +526,15 @@ Copy and paste the **DeleteFamilyDocument** method underneath your **ReplaceFami
 	// ADD THIS PART TO YOUR CODE
 	private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
 	{
-			try
-			{
-					await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-					Console.WriteLine("Deleted Family {0}", documentName);
-			}
-			catch (DocumentClientException de)
-			{
-							throw de;
-			}
+		try
+		{
+			await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+			Console.WriteLine("Deleted Family {0}", documentName);
+		}
+		catch (DocumentClientException de)
+		{
+			throw;
+		}
 	}
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the second query execution.
@@ -600,14 +600,16 @@ Congratulations! You've completed this NoSQL tutorial and have a working C# cons
 ##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
--   [DocumentDB account][documentdb-create-account].
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+-   A [DocumentDB account][documentdb-create-account].
 -   The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) solution available on GitHub.
 
 To restore the references to the DocumentDB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).
 
 ## Next steps
 
--   Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
+- Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
+- Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md)
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).

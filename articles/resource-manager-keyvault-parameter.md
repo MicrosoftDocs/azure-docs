@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Use Key Vault secret with Resource Manager template | Microsoft Azure"
+   pageTitle="Key Vault secret with Resource Manager template | Microsoft Azure"
    description="Shows how to pass a secret from a key vault as a parameter during deployment."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="tomfitz"/>
 
 # Pass secure values during deployment

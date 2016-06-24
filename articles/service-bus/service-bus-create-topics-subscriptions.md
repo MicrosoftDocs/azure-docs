@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
 # Create applications that use Service Bus topics and subscriptions
@@ -47,7 +47,7 @@ With this configuration, each message from the POS terminals is made available t
 
 ## Show me the code
 
-[Create applications that use Service Bus queues](service-bus-create-queues.md) describes how to sign-up for a Service Bus account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/).
+[Create applications that use Service Bus queues](service-bus-create-queues.md) describes how to sign up for an Azure account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/).
 
 ### Create the topic and subscriptions
 
@@ -93,7 +93,7 @@ bm.Properties["MachineID"] = "POS_1";
 The easiest way to send messages to the topic is to use [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) to create a [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) object directly from the [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) instance.
 
 ```
-MessageSender sender = factory.CreateMessageSender("DataCollectionQueue");
+MessageSender sender = factory.CreateMessageSender("DataCollectionTopic");
 sender.Send(bm);
 ```
 

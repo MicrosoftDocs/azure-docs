@@ -11,15 +11,13 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # Set up a simulated hybrid cloud environment for testing
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 This article steps you through creating a simulated hybrid cloud environment with Microsoft Azure for testing using two separate Azure virtual networks. Use this configuration as an alternative to 
 [Set up a hybrid cloud environment for testing](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) when you do not have a direct Internet connection and an available public IP address. Here is the resulting configuration.
@@ -214,4 +212,4 @@ Your simulated hybrid cloud environment is now ready for testing.
 
 ## Next Steps
 
-- [Add a new virtual machine](virtual-machines-windows-create-powershell.md) to the TestVNET subnet, such as one running Microsoft SQL Server.
+- [Add a new virtual machine](virtual-machines-windows-ps-create.md) to the TestVNET subnet, such as one running Microsoft SQL Server.

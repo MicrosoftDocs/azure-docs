@@ -67,7 +67,7 @@ Calling methods on a service by using the remoting stack is done by using a loca
 
 ```csharp
 
-IHelloWorldStateful helloWorldClient = ServiceProxy.Create<IHelloWorldStateful>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
+IMyService helloWorldClient = ServiceProxy.Create<IMyService>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
 string message = await helloWorldClient.GetHelloWorld();
 

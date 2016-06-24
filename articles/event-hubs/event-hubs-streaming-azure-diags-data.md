@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Streaming Azure diagnostics data in the hot path using Event Hubs
@@ -51,7 +51,7 @@ Azure diagnostics always sinks logs and metrics, by default, to an Azure Storage
 
 In this example, the event hub URL is set to the fully qualified namespace of the event hub (ServiceBus namespace  + “/” + event hub name).  
 
-The event hub URL is displayed in the [classic Azure portal](https://manage.windowsazure.com) on the Event Hubs dashboard.  
+The event hub URL is displayed in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
 
 The **Sink** name can be set to any valid string as long as the same value is used consistently throughout the config file. 
 
@@ -64,7 +64,7 @@ The Event Hubs sink must also be declared and defined in the **PrivateConfig** s
 	    <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
 	  </PrivateConfig>
 
-The **SharedAccessKeyName** must match a SAS key and policy that has been defined in the **ServiceBus/EventHub** namespace.  This can be done by browsing to the event hub dashboard in the [classic Azure portal](https://manage.windowsazure.com), clicking on the **Configure** tab, and setting up a named policy (e.g. “SendRule”) that has *Send* permissions.  The **StorageAccount** is also declared in the **PrivateConfig**.  There is no need to change values here especially if they are working.  In this example we leave the values empty, which is a sign that a downstream asset will set the values; e.g. the *ServiceConfiguration.Cloud.cscfg* environment config file will set the environment appropriate names and keys.  
+The **SharedAccessKeyName** must match a SAS key and policy that has been defined in the **ServiceBus/EventHub** namespace.  This can be done by browsing to the event hub dashboard in the [classic Azure portal](https://manage.windowsazure.com), selecting the **Configure** tab, and setting up a named policy (e.g. “SendRule”) that has *Send* permissions.  The **StorageAccount** is also declared in the **PrivateConfig**.  There is no need to change values here especially if they are working.  In this example we leave the values empty, which is a sign that a downstream asset will set the values; e.g. the *ServiceConfiguration.Cloud.cscfg* environment config file will set the environment appropriate names and keys.  
 
 >[AZURE.WARNING] Be aware that the event hub SAS key is stored in plain text in the *.wadcfgx* file.  Oftentimes this is checked in to source code control or as an asset in your build server, so you should protect as appropriate.  It is recommended to use a SAS key here with *Send only* permissions so that any malicious user could - at most - only write to the event hub, but never listen to, or manage it. 
 

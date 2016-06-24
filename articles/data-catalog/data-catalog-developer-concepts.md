@@ -3,8 +3,8 @@
    description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="spelluru"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/27/2015"
-   ms.author="derrickv"/>  
+   ms.date="05/10/2016"
+   ms.author="spelluru"/>  
 
 # Azure Data Catalog developer concepts
 
@@ -102,7 +102,7 @@ These properties apply to all root asset types and all annotation types.
 ### Common root properties
 <p>
 These properties apply to all root asset types.
-<table><tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>name</td><td>String</td><td>A name derived from the data source location information</td></tr><tr><td>dsl</td><td>Data Source Location</td><td>Uniquely describes the data source and is one of the identifiers for the asset. (See dual identity section).  The structure of the dsl varies by the source type.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>More detail on the type of asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describes the user who most recently registered this asset.  Contains both the unique id for the user (the upn) as well as a display name (lastName and firstName).</td></tr><tr><td>containerId</td><td>String</td><td>Id of the container asset for the data source. This property is not supported for the Container type.</td></tr></table>
+<table><tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>name</td><td>String</td><td>A name derived from the data source location information</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Uniquely describes the data source and is one of the identifiers for the asset. (See dual identity section).  The structure of the dsl varies by the protocol and source type.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>More detail on the type of asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describes the user who most recently registered this asset.  Contains both the unique id for the user (the upn) as well as a display name (lastName and firstName).</td></tr><tr><td>containerId</td><td>String</td><td>Id of the container asset for the data source. This property is not supported for the Container type.</td></tr></table>
 
 ### Common non-singleton annotation properties
 
@@ -181,6 +181,12 @@ Common types can be used as the types for properties, but are not Items.
 <tr><td></td><td>sourceType</td><td>string</td><td>Describes the type of data source.  i.e. SQL Server, Oracle Database, etc…  </td></tr>
 <tr><td></td><td>objectType</td><td>string</td><td>Describes the type of object in the data source. i.e. Table, View for SQL Server.</td></tr>
 
+<tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. i.e. "tds" for SQl Server, "oracle" for Oracle, etc… Please refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.</td></tr>
+<tr><td></td><td>address</td><td>Dictionary<string, object></td><td>Required. This is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
+<tr><td></td><td>authentication</td><td>string</td><td>Optional. The authentication scheme used to communicate with the data source. i.e. windows, oauth, etc… </td></tr>
+<tr><td></td><td>connectionProperties</td><td>Dictionary<string, object></td><td>Optional. Additional information on how to connect to a data source.</td></tr>
+
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Note that backend does not perform any validation of provided properties against AAD during publishing.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Unique email address of user. Must be specified if objectId is not provided or in the context of "lastRegisteredBy" property, otherwise optional.</td></tr>
 <tr><td></td><td>objectId</td><td>Guid</td><td>User or security group AAD identity. Optional. Must be specified if upn is not provided, otherwise optional.</td></tr>
@@ -205,6 +211,34 @@ Common types can be used as the types for properties, but are not Items.
 <tr><td></td><td>nullCount </td><td>int</td><td>The count of null values in the data set</td></tr>
 <tr><td></td><td>distinctCount  </td><td>int</td><td>The count of distinct values in the data set</td></tr>
 
+
+</table>
+
+## Asset identity
+Azure Data Catalog uses "protocol" and identity properties from the "address" property bag of the DataSourceLocation "dsl" property to generate identity of the asset which is used to address the asset inside the Catalog.
+For example, the "tds" protocol has identity properties "server", "database", "schema" and "object"; the combination of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
+Azure Data Catalog provides several built-in data source protocols which are listed at [Data source reference specification - DSL Structure](data-catalog-dsr.md).
+The set of supported protocols can be extended programmatically (please refer to Data Catalog REST API reference). Administrators of the Catalog can register custom data source protocols. The table below describes the properties needed to register a custom protocol.
+
+### Custom data source protocol specification
+<table>
+<tr><td><b>Type</b></td><td><b>Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr>
+
+<tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>namespace</td><td>string</td><td>The namespace of the protocol. Namespace must be from 1 to 255 characters long, contain one or more non-empty parts separated by dot (.). Each part must be from 1 to 255 characters long, start with a letter and contain only letters and numbers.</td></tr>
+<tr><td></td><td>name</td><td>string</td><td>The name of the protocol. Name must be from 1 to 255 characters long, start with a letter and contain only letters, numbers, and the dash (-) character.</td></tr>
+<tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>List of identity properties, must contain at least one, but no more than 20 properties. For example: "server", "database", "schema", "object" are identity properties of the "tds" protocol.</td></tr>
+<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>List of identity sets. Defines sets of identity properties which represent valid asset's identity. Must contain at least one, but no more than 20 sets. For example: {"server", "database", "schema" and "object"} is an identity set for "tds" protocol, which defines identity of Sql Server Table asset.</td></tr>
+
+<tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>name</td><td>string</td><td>The name of the property. Name must be from 1 to 100 characters long, start with a letter and can contain only letters and numbers.</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>The type of the property. Supported values: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
+<tr><td></td><td>ignoreCase</td><td>bool</td><td>Indicates whether case should be ignored when using property's value. Can only be specified for properties with "string" type. Default value is false.</td></tr>
+<tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indicates whether case should be ignored for each segment of the url's path. Can only be specified for properties with "url" type. Default value is [false].</td></tr>
+
+<tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>name</td><td>string</td><td>The name of the identity set.</td></tr>
+<tr><td></td><td>properties</td><td>string[]</td><td>The list of identity properties included into this identity set. It cannot contain duplicates. Each property referenced by identity set must be defined in the list of  "identityProperties" of the protocol.</td></tr>
 
 </table>
 
@@ -270,66 +304,65 @@ By default any authenticated user has **Read** right for any item in the catalog
 Special security principal <Everyone> has objectId "00000000-0000-0000-0000-000000000201".
   **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
-> [AZURE.NOTE] Some HTTP client implementations may automatically re-issue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to ADC, you must ensure the Authorization header is still provided when re-issuing a request to a redirect location specified by ADC. Below is sample code demonstrating this using the .NET HttpWebRequest object.
+  > [AZURE.NOTE] Some HTTP client implementations may automatically re-issue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to ADC, you must ensure the Authorization header is still provided when re-issuing a request to a redirect location specified by ADC. Below is sample code demonstrating this using the .NET HttpWebRequest object.
 
 **Body**
 
 	{
-    "roles": [
-	        {
-	            "role": "Contributor",
-	            "members": [
-	                {
-	                    "objectId": "00000000-0000-0000-0000-000000000201"
-	                }
-	            ]
-	        }
-    ]
+		"roles": [
+			{
+				"role": "Contributor",
+				"members": [
+					{
+						"objectId": "00000000-0000-0000-0000-000000000201"
+					}
+				]
+			}
+		]
 	}
 
-**Assign owners and restrict visibility for an existing root item**
+  **Assign owners and restrict visibility for an existing root item**
   **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
-
 	{
-    "roles": [
-	        {
-	            "role": "Owner",
-	            "members": [
-	                {
-	                    "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
-	                    "upn": "user1@contoso.com"
-	                },
-	                {
-	                    "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
-	                    "upn": "user2@contoso.com"
-	                }
-	            ]
-	        }
-	    ],
-    "permissions": [
-	        {
-	            "principal": {
-	                "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
-	                "upn": "user3@contoso.com"
-	            },
-	            "rights": [
-	                {
-	                    "right": "Read"
-	                }
-	            ]
-	        },
-	        {
-	            "principal": {
-	                "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
-	                "upn": "user4@contoso.com"
-	            },
-	            "rights": [
-	                {
-	                    "right": "Read"
-	                }
-	            ]
-	        }
-	    ]
+		"roles": [
+			{
+				"role": "Owner",
+				"members": [
+					{
+						"objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
+						"upn": "user1@contoso.com"
+					},
+					{
+						"objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
+						"upn": "user2@contoso.com"
+					}
+				]
+			}
+		],
+		"permissions": [
+			{
+				"principal": {
+					"objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
+					"upn": "user3@contoso.com"
+				},
+				"rights": [
+					{
+						"right": "Read"
+					}
+				]
+			},
+			{
+				"principal": {
+					"objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
+					"upn": "user4@contoso.com"
+				},
+				"rights": [
+					{
+						"right": "Read"
+					}
+				]
+			}
+		]
 	}
 
 > [AZURE.NOTE] In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.

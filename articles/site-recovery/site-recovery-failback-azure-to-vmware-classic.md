@@ -19,8 +19,10 @@
 # Fail back VMware virtual machines and physical servers to the on-premises site
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Azure Portal](site-recovery-failback-azure-to-vmware.md)
+- [Azure Classic Portal](site-recovery-failback-azure-to-vmware-classic.md)
+- [Azure Classic Portal (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 
 This articles describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
@@ -37,7 +39,7 @@ Use this architecture when the process server is on-premises and you are using a
 
 Use this architecture when the process server is on Azure and you have either a VPN or an ExpressRoute connection.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 To see the complete list of ports and the failback architechture diagram refer to the image below
 

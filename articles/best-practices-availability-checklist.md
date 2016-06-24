@@ -19,7 +19,7 @@
 
 # Availability checklist
 
-![](media/best-practices-availability-checklist/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Application design
 

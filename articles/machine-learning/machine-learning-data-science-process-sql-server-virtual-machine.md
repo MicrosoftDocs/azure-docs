@@ -3,7 +3,7 @@
 	description="Process Data from SQL Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="fashah" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
-	ms.author="fashah;garye" /> 
+	ms.date="06/14/2016" 
+	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
 
@@ -66,7 +66,7 @@ In this section, we describe ways of generating features using SQL:
 
 ###<a name="sql-countfeature"></a>Count based Feature Generation
 
-This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where` clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
+This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where' clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
 	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -84,7 +84,7 @@ The following example shows how to generate binned features by binning (using 5 
 
 In this section, we demonstrate how to roll-out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
-Here is a brief primer on latitude/longitude location data (resourced from stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). This is useful to understand before featurizing the location field:
+Here is a brief primer on latitude/longitude location data (resourced from stackoverflow [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). This is useful to understand before featurizing the location field:
 
 - The sign tells us whether we are north or south, east or west on the globe.
 - A nonzero hundreds digit tells us we're using longitude, not latitude!
@@ -97,7 +97,7 @@ Here is a brief primer on latitude/longitude location data (resourced from stack
 - The fifth decimal place is worth up to 1.1 m: it distinguish trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
 - The sixth decimal place is worth up to 0.11 m: you can use this for laying out structures in detail, for designing landscapes, building roads. It should be more than good enough for tracking movements of glaciers and rivers. This can be achieved by taking painstaking measures with GPS, such as differentially corrected GPS.
 
-The location information can can be featurized as follows, separating out region, location and city information. Note that once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/library/ff701710.aspx` to get the region/district information.
+The location information can be featurized as follows, separating out region, location, and city information. Note that you can also call a REST end point such as Bing Maps API available at [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) to get the region/district information.
 
 	select 
 		<location_columnname>
@@ -110,17 +110,17 @@ The location information can can be featurized as follows, separating out region
 		,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end 	
 	from <tablename>
 
-The above location based features can be further used to generate additional count features as described earlier. 
+The above location-based features can be further used to generate additional count features as described earlier. 
 
 
-> [AZURE.TIP] You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
+> [AZURE.TIP] You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency (for an example of how to do this using pyodbc, see [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). 
  
 
-> [AZURE.TIP] Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] Another alternative is to insert data in the database using the [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
-The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Reader][reader] module in Azure ML as shown below:
+The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data][import-data] module in Azure Machine Learning as shown below:
 
 ![azureml readers][1] 
 
@@ -139,7 +139,7 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Now you can work with the Pandas data frame as covered in topics [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md).
+Now you can work with the Pandas data frame as covered in the article [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md).
 
 ## Azure Data Science in Action Example
 
@@ -149,5 +149,5 @@ For an end-to-end walkthrough example of the Azure Data Science Process using a 
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  

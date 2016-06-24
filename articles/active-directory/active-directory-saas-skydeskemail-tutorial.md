@@ -25,7 +25,7 @@ Integrating Skydesk Email with Azure AD provides you with the following benefits
 
 - You can control in Azure AD who has access to Skydesk Email
 - You can enable your users to automatically get signed-on to Skydesk Email (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active classic portal
+- You can manage your accounts in one central location - the Azure Active Directory classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -174,7 +174,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     b. In Azure AD classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Logout** URL textbox.
 
-    c. **Chanage Password URL** is optional so leave it blank.
+    c. **Change Password URL** is optional so leave it blank.
 
     d. Click on **Get Key From File** to select your downloaded Skydesk Email certificate, and then click **Open** to upload the certificate.
 

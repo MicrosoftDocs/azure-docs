@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Add the Bing Search API in PowerApps or logic apps | Microsoft Azure"
-	description="Overview of the Bing Search API with REST API parameters"
-	services=""
+    pageTitle="Add the Bing Search connector in PowerApps or logic apps | Microsoft Azure"
+    description="Overview of the Bing Search connector with REST API parameters"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the Bing Search API 
-Connect to Bing Search to search news, search videos, and more. The Bing Search API can be used from:
+# Get started with the Bing Search connector 
+Connect to Bing Search to search news, search videos, and more. The Bing Search connector can be used from:
 
 - Logic apps 
 - PowerApps
@@ -33,9 +33,9 @@ With Bing Search, you can:
 
 - Build your business flow based on the data you get from your search. 
 - Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
-- Add the Bing Search API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Bing Search connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -46,7 +46,7 @@ Triggers | Actions
 --- | ---
 None | <ul><li>Search web</li><li>Search videos</li><li>Search images</li><li>Search news</li><li>Search related</li><li>Search spellings</li><li>Search all</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 
 ## Swagger REST API reference

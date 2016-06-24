@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="How to discover data sources | Microsoft Azure"
    description="How-to article highlighting how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal."
    services="data-catalog"
@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="03/31/2016"

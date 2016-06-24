@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Shared Access Signature Authentication with Service Bus | Microsoft Azure"
-   description="Details about SAS authentication with Service Bus."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Shared Access Signature Authentication with Service Bus | Microsoft Azure"
+    description="Details about SAS authentication with Service Bus."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Shared Access Signature Authentication with Service Bus
 
@@ -25,7 +25,7 @@ SAS authentication support is included in the Azure SDK version 2.0 and later. F
 
 SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients claim access to Service Bus resources by presenting a SAS token. This token consists of the resource URI being accessed, and an expiry signed with the configured key.
 
-You can configure Shared Access Signature authorization rules on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md#relays), [queues](service-bus-fundamentals-hybrid-solutions.md#queues), [topics](service-bus-fundamentals-hybrid-solutions.md#topics), and [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
+You can configure Shared Access Signature authorization rules on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md#relays), [queues](service-bus-fundamentals-hybrid-solutions.md#queues), [topics](service-bus-fundamentals-hybrid-solutions.md#topics), and [Event Hubs](service-bus-fundamentals-hybrid-solutions.md#event-hubs).
 
 SAS authentication uses the following elements:
 
@@ -35,7 +35,7 @@ SAS authentication uses the following elements:
 
 ## Configuration for Shared Access Signature authentication
 
-You can configure the [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) rule on Service Bus namespaces, queues, or topics. Configuring a [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. For a working sample that illustrates this procedure, see the [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c) sample.
+You can configure the [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) rule on Service Bus namespaces, queues, or topics. Configuring a [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. For a working sample that illustrates this procedure, see the [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) sample.
 
 A maximum of 12 such rules can be configured on a Service Bus namespace, queue, or topic. Rules that are configured on a Service Bus namespace apply to all entities in that namespace.
 
@@ -52,7 +52,7 @@ The key parameters of a [SharedAccessAuthorizationRule](https://msdn.microsoft.c
 |*SecondaryKey*|A base64-encoded 256-bit secondary key for signing and validating the SAS token.|
 |*AccessRights*|A list of access rights granted by the authorization rule. These rights can be any collection of Listen, Send, and Manage rights.|
 
-When a Service Bus namespace is provisioned, a [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), with [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) set to **RootManageSharedAccessKey**, is created by default. Two default [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) objects are also configured for notification hubs: one with Listen, Send, and Manage rights, and another with only Listen rights.
+When a Service Bus namespace is provisioned, a [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), with [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) set to **RootManageSharedAccessKey**, is created by default.
 
 ## Regenerate and revoke keys for Shared Access Authorization rules
 
@@ -254,6 +254,6 @@ The following table shows the access rights required for various operations on S
 
 For a high-level overview of SAS in Service Bus, see [Shared Access Signatures](service-bus-sas-overview.md).
 
-See [Service Bus Authentication and Authorization](service-bus-authentication-and-authorization.md) for more background on Service Bus authentication.
+See [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md) for more background on Service Bus authentication.
 
 [Azure classic portal]: http://manage.windowsazure.com

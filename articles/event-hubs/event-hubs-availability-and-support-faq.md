@@ -33,7 +33,7 @@ Events consumed from an Event Hub, as well as management operations and control 
 
 ## What are Event Hubs throughput units?
 
-Event Hubs throughput units are explicitly selected by the user, either through the Azure classic portal or Event Hubs management APIs. Throughput units apply to all Event Hubs in a Service Bus namespace, and each throughput unit entitles the namespace to the following capabilities:
+Event Hubs throughput units are explicitly selected by the user, either through the Azure classic portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in a Service Bus namespace, and each throughput unit entitles the namespace to the following capabilities:
 
 - Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.
 

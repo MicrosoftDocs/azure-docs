@@ -1,9 +1,9 @@
 <properties
    pageTitle="Analyze data with Azure Machine Learning | Microsoft Azure"
-   description="Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions."
+   description="Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,24 +13,29 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="06/16/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Analyze data with Azure Machine Learning
-This tutorial will show you how to build a predictive machine learning model with Azure Machine Learning using your Azure SQL Data Warehouse data. In this tutorial, we will build a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
+
+> [AZURE.SELECTOR]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+
+This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse. Specifically, this builds a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
+
 ## Prerequisites
-To step through this tutorial, you need
+To step through this tutorial, you need:
 
-- SQL Data Warehouse with AdventureWorksDW sample database.
+- A SQL Data Warehouse pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL Data Warehouse][] and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually][].
 
-[Create a SQL Data Warehouse][] shows you how to provision a database with sample data. If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][]
-
-
-## Step 1: Get Data
-We will read the data from dbo.vTargetMail view in the AdventureWorksDW database.
+## 1. Get data
+The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To read this data:
 
 1. Sign into [Azure Machine Learning studio][] and click on my experiments.
 2. Click **+NEW** and select **Blank Experiment**.
@@ -67,11 +72,8 @@ After the experiment finishes running successfully, click the output port at the
 ![View imported data][3]
 
 
-
-
-
-## Step 2: Clean Data
-We will drop some columns that are not relevant for the model.
+## 2. Clean the data
+To clean the data, drop some columns that are not relevant for the model. To do this:
 
 1. Drag the **Project Columns** module into the canvas.
 2. Click **Launch column selector** in the Properties pane to specify which columns you wish to drop.
@@ -81,9 +83,7 @@ We will drop some columns that are not relevant for the model.
 ![Remove unnecessary columns][5]
 
 
-
-
-## Step 3: Build Model
+## 3. Build the model
 We will split the data 80-20: 80% to train a machine learning model and 20% to test the model. We will make use of the “Two-Class” algorithms for this binary classification problem.
 
 1. Drag the **Split** module into the canvas.
@@ -98,10 +98,7 @@ We will split the data 80-20: 80% to train a machine learning model and 20% to t
 ![Select Column to predict][8]
 
 
-
-
-
-## Step 4: Score Model
+## 4. Score the model
 Now, we will test how the model performs on test data. We will compare the algorithm of our choice with a different algorithm to see which performs better.
 
 1. Drag **Score Model** module into the canvas.
@@ -116,8 +113,6 @@ Now, we will test how the model performs on test data. We will compare the algor
 6. Click the output port at the bottom of the Evaluate Model module and click Visualize.
 ![Visualize evaluation results][11]
 
-
-
 The metrics provided are the ROC curve, precision-recall diagram and lift curve. Looking at these metrics, we can see that the first model performed better than the second one. To look at the what the first model predicted, click on output port of the Score Model and click Visualize.
 ![Visualize score results][12]
 
@@ -128,29 +123,27 @@ You will see two more columns added to your test dataset.
 
 Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. As next steps, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse.
 
-## Next Steps
+## Next steps
 
 To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure][].
 
-
-
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
 <!--Article references-->
 [Azure Machine Learning studio]:https://studio.azureml.net/
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[load sample data manually]: sql-data-warehouse-get-started-manually-load-samples.md
+[load sample data manually]: sql-data-warehouse-get-started-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md

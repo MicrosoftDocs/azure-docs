@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="05/09/2016"
    ms.author="dobett"/>
 
 
@@ -54,7 +54,6 @@ The IoT Hub client libraries use a model to specify the format of messages the d
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
-    #include "threadapi.h"
     ```
 
 2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with contoso:
@@ -211,6 +210,8 @@ You must now add code that implements the behavior defined in the model. You wil
         config.iotHubName = hubName;
         config.iotHubSuffix = hubSuffix;
         config.protocol = HTTP_Protocol;
+        config.deviceSasToken = NULL;
+        config.protocolGatewayHostName = NULL;
         iotHubClientHandle = IoTHubClient_Create(&config);
         if (iotHubClientHandle == NULL)
         {
@@ -310,6 +311,7 @@ You must now add code that implements the behavior defined in the model. You wil
     ```
     
     For reference, here is a sample **DeviceInfo** message sent to IoT Hub at start up:
+
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -328,11 +330,13 @@ You must now add code that implements the behavior defined in the model. You wil
     ```
     
     For reference, here is a sample **Telemetry** message sent to IoT Hub:
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
     For reference, here is a sample **Command** received from IoT Hub:
+    
     ```
     {
       "Name":"SetHumidity",

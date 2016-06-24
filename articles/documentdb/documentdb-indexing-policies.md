@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="03/30/2016" 
+    ms.date="05/05/2016" 
     ms.author="arramac"/>
 
 
@@ -44,9 +44,9 @@ The following .NET code snippet shows how to set a custom indexing policy during
 
     DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
     
-    collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
-
+    collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+    
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);   
 
 
@@ -287,7 +287,7 @@ The following code sample show how create a DocumentDB collection using the .NET
      
      collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
      
-     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, collection);
+     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("mydb"), collection);
 
 
 ### Index paths
@@ -553,20 +553,14 @@ Index precision configuration has more practical application with string ranges.
 
 Spatial indexes always use the default index precision for points and cannot be overriden. 
 
-The following example shows how to increase the precision for range indexes in a collection using the .NET SDK. Note that this uses the default path "/*".
+The following example shows how to increase the precision for range indexes in a collection using the .NET SDK. 
 
 **Create a collection with a custom index precision**
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
     
-    rangeDefault.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
+    // Override the default policy for Strings to range indexing and "max" (-1) precision
+    rangeDefault.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
@@ -576,7 +570,7 @@ The following example shows how to increase the precision for range indexes in a
 Similarly, paths can be completely excluded from indexing. The next example shows how to exclude an entire section of the documents (a.k.a. a sub-tree) from indexing using the "*" wildcard.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
+    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
     
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);

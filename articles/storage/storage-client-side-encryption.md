@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
-	ms.author="lakasa"/>
+	ms.date="05/09/2016"
+	ms.author="robinsh"/>
 
 
 # Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage

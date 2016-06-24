@@ -51,7 +51,7 @@ Every Service Fabric cluster has a name. When a Fabric cluster is created in Azu
 By default the cluster name is generated automatically and made unique by attaching a random suffix to a "cluster" prefix. This makes it very easy to use the template as part of a **continuous integration** (CI) system. If you want to use a specific name for your cluster, one that is meaningful to you, set the value of the `clusterName` variable in the Resource Manager template file (`ServiceFabricCluster.json`) to your chosen name. It is the first variable defined in that file.
 
 ## Optional: add public application ports
-You may also want to change the public application ports for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`SecureFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
+You may also want to change the public application ports for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`ServiceFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
 
 1. A template variable that defines the TCP port value for the port:
 

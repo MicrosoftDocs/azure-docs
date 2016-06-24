@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Log on to a VM | Microsoft Azure"
+	pageTitle="Log on to a classic Azure VM | Microsoft Azure"
 	description="Use the Azure classic portal to log on to a Windows virtual machine created with the classic deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 

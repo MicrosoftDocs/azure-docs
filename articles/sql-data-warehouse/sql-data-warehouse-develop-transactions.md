@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transactions in SQL Data Warehouse
@@ -27,6 +27,7 @@ SQL Data Warehouse implements ACID transactions. However, the Isolation of the t
 A single data modification transaction is limited in size. The limit today is applied "per distribution". To get the total figure therefore we must multiply the limit by the distribution count. To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each column. For variable length columns consider taking an average column length rather than using the maximum size.
 
 In the table below the following assumptions have been made:
+
 * An even distribution of data has occurred 
 * The average row length is 250 bytes
 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Architecture of the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses | Microsoft Azure"
-	description="Architecture diagram of the Microsoft Cortana Intelligence Solution Template for predictive maintenance in aerospace, utilities, and transportation."
+	pageTitle="Architecture of predictive maintenance | Microsoft Azure"
+	description="Architecture diagram of the Microsoft Cortana Intelligence Solution Template for predictive maintenance in aerospace, utilities, transportation"
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/14/2016"
 	ms.author="garye" />
 
 # Architecture of the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses

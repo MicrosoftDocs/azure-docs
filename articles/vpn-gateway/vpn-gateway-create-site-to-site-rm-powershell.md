@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a Site-to-Site VPN connection using PowerShell and Azure Resource Manager
@@ -26,15 +26,21 @@
 
 This article will walk you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the Azure Resource Manager deployment model. Site-to-Site connections can be used for cross-premises and hybrid configurations. 
 
+
 **About Azure deployment models**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Connection diagram 
 
 ![Site-to-Site diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site2site.png "site-to-site")
 
 **Deployment models and tools for Site-to-Site connections**
 
-[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+
+If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md). If you are looking for a different type of connection configuration, see the [VPN Gateway connection topologies](vpn-gateway-topology.md) article.
+
 
 ## Before you begin
 
@@ -69,7 +75,10 @@ Specify the subscription that you want to use.
 
 Our examples below show a gateway subnet of /28. While it's possible to create a gateway subnet as small as /29, we don't recommend this. We do recommend creating a gateway subnet /27 or larger (/26, /25, etc.) in order to accommodate additional feature requirements. 
 
-If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to [Add your local network gateway](#localnet). 
+If you already have a virtual network with a gateway subnet that is /29 or larger, you can jump ahead to [Add your local network gateway](#localnet).
+
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]  
 
 ### To create a virtual network and a gateway subnet
 

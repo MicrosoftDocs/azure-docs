@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="cynthn"/>
 
 # How to attach a data disk to a Windows VM in the Azure portal
@@ -31,7 +31,7 @@ This article shows you how to attach both new and existing disks to a Windows vi
 
 ## <a id="initializeinWS"></a>How to: initialize a new data disk in Windows Server
 
-1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows Server](virtual-machines-windows-connect-logon.md).
+1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md).
 
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
 

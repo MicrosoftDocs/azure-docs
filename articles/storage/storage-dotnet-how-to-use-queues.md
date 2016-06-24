@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Azure Queue storage using .NET | Microsoft Azure"
-	description="Send and receive messages asynchronously between application components using Azure Queue storage. Get started with simple Queue storage operations, including creating and deleting queues and adding, reading, and deleting queue messages."
+	description="Azure Queues provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="06/09/2016"
 	ms.author="gusapost"/>
 
 # Get started with Azure Queue storage using .NET
@@ -22,7 +22,7 @@
 
 ## Overview
 
-Azure Queue storage is a service that provides messaging queues in the cloud. In designing applications for scale, application components are often decoupled, so that they can scale independently.  Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
+Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
 
 ### About this tutorial
 

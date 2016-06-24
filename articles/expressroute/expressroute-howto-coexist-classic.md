@@ -188,7 +188,7 @@ This procedure will walk you through creating a VNet and create Site-to-Site and
 
 If you have an existing virtual network, check the gateway subnet size. If the gateway subnet is /28 or /29, you must first delete the virtual network gateway and increase the gateway subnet size. The steps in this section will show you how to do that.
 
-If the gateweay subnet is /27 or larger and the virtual network is connected via ExpressRoute, you can skip the steps below and proceed to ["Step 6 - Create a Site-to-Site VPN gateway"](#vpngw) in the previous section.
+If the gateway subnet is /27 or larger and the virtual network is connected via ExpressRoute, you can skip the steps below and proceed to ["Step 6 - Create a Site-to-Site VPN gateway"](#vpngw) in the previous section.
 
 >[AZURE.NOTE] When you delete the existing gateway, your local premises will lose the connection to your virtual network while you are working on this configuration.
 

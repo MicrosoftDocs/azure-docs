@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Add sign-in to a Windows Desktop app
@@ -252,3 +252,7 @@ You can now move onto more advanced topics.  You may want to try:
 For additional resources, check out:
 - [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "adal" tag >>](http://stackoverflow.com/questions/tagged/adal)
+
+## Get security updates for our products
+
+We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.

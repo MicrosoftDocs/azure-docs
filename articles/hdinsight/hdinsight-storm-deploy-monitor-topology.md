@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/22/2016"
+   ms.date="05/10/2016"
    ms.author="larryfr"/>
 
 #Deploy and manage Apache Storm topologies on Windows-based HDInsight

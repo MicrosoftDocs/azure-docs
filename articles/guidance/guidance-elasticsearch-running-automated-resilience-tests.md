@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
+   ms.date="05/20/2016"
    ms.author="masashin"/>
 
 # Running the automated Elasticsearch resiliency tests
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-elasticsearch.md).
 

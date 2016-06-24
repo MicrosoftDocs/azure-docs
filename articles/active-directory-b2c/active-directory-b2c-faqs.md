@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
@@ -97,6 +97,20 @@ Currently, Azure AD B2C is optimized for English only. We plan to roll out local
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from login.microsoftonline.com to login.contoso.com?
 
 Not currently. This feature is on our roadmap. Also note that verifying your domain in the **Domains** tab of your tenant on the Azure classic portal will not do this.
+
+### How do I delete my Azure AD B2C tenant?
+
+Follow these steps to delete your Azure AD B2C tenant:
+
+- Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (This is the same work or school account or the same Microsoft account that you used to sign up for Azure.)
+- Navigate to the Active Directory extension on the left and click your B2C tenant.
+- Click the **Applications** tab.
+- Select **Applications my company owns** in the **Show** drop-down field and click on the check mark.
+- You'll see an application called **b2c-extensions-app** listed below. Click **Delete** at the bottom of the page and click **YES** when prompted.
+- Navigate to the Active Directory extension again and select your B2C tenant.
+- Click **Delete** at the bottom of the page. Follow the instructions on the screen to complete the process.
+
+If you have already create **Users**, **Applications** or other objects in your B2C tenant, you'll need to delete them before doing the above steps.
 
 ### Can I get Azure AD B2C as part of Enterprise Mobility Suite?
 

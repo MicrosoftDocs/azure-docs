@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/17/2016"
 	ms.author="larryfr"/>
 
 # Install Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs

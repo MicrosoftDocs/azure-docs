@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/12/2016"
 	ms.author="spelluru"/>
 
 
@@ -22,14 +22,6 @@
 This topic lists every topic that applies directly to the Data Factory service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.
 
 
-
-
-## New
-
-
-| Title | Description |
-| :-- | :-- |
-| [Invoke Spark Programs from Data Factory](data-factory-spark.md) | Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity. |
 
 
 ## Core Concepts
@@ -58,11 +50,6 @@ This topic lists every topic that applies directly to the Data Factory service o
 | [Tutorial: Create a pipeline with Copy Activity using Data Factory Copy Wizard](data-factory-copy-data-wizard-tutorial.md) | In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory |
 | [Tutorial: Create a pipeline with Copy Activity using Data Factory Editor](data-factory-get-started-using-editor.md) | In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure Portal. |
 | [Tutorial: Create a pipeline with Copy Activity using Visual Studio](data-factory-get-started-using-vs.md) | In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio. |
-| [Tutorial: Move and process log files using Azure Data Factory (Azure Portal)](data-factory-tutorial.md) | This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor in the Azure Portal. |
-| [Tutorial: Move and process log files using Data Factory (PowerShell)](data-factory-tutorial-using-powershell.md) | This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Azure PowerShell. |
-| [Walkthrough: Copy output data to an on-premises SQL Server database (Azure Portal)](data-factory-tutorial-extend-onpremises.md) | This walkthrough extends the tutorial using Data Factory Editor in the Azure Portal such that the pipeline copies output data to a SQL Server database. |
-| [Walkthrough: Copy output data to an on-premises SQL Server database (Azure PowerShell)](data-factory-tutorial-extend-onpremises-using-powershell.md) | This walkthrough extends the tutorial using Azure PowerShell such that the pipeline copies output data to a SQL Server database. |
-
 
 ## Data Movement
 
@@ -105,6 +92,7 @@ This topic lists every topic that applies directly to the Data Factory service o
 | [Hive Activity](data-factory-hive-activity.md) | Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster. |
 | [HPC and data orchestration using Azure Batch and Data Factory](data-factory-data-processing-using-batch.md) | Describes how to process huge amounts of data in an Azure Data Factory pipeline by using parallel processing capability of Azure Batch. |
 | [Invoke MapReduce Programs from Data Factory](data-factory-map-reduce.md) | Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory. |
+| [Invoke Spark Programs from Data Factory](data-factory-spark.md) | Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity. |
 | [Pig Activity](data-factory-pig-activity.md) | Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster. |
 | [Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory](data-factory-usql-activity.md) | Learn how to process data by running U-SQL scripts on Azure Data Lake Analytics compute service. |
 | [SQL Server Stored Procedure Activity](data-factory-stored-proc-activity.md) | Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline. |
@@ -156,7 +144,6 @@ This topic lists every topic that applies directly to the Data Factory service o
 | [Azure Data Factory - Frequently Asked Questions](data-factory-faq.md) | Frequently asked questions about Azure Data Factory. |
 | [Azure Data Factory - Functions and System Variables](data-factory-functions-variables.md) | Provides a list of Azure Data Factory functions and system variables |
 | [Azure Data Factory - Naming Rules](data-factory-naming-rules.md) | Describes naming rules for Data Factory entities. |
-| [Azure Data Factory release notes](data-factory-release-notes.md) | Data Factory release notes |
 | [Troubleshoot Data Factory issues](data-factory-troubleshoot.md) | Learn how to troubleshoot issues with using Azure Data Factory. |
 
 

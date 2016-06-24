@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # Troubleshooting CDN endpoints returning 404 statuses
@@ -37,7 +37,7 @@ There are several possible causes, including:
 
 ## Troubleshooting steps
 
-> [AZURE.IMPORTANT] After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  It will usually be available within 90 minutes, but in some cases can take longer.  If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
+> [AZURE.IMPORTANT] After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation usually completes within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.  If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
 
 ### Check the origin file
 
@@ -66,6 +66,8 @@ Verify the **Origin type** is correct, and verify the **Origin hostname**.  In m
 The other thing to check here is your **HTTP** and **HTTPS ports**.  In most cases, 80 and 443 are correct, and you will require no changes.  However, if the origin server is listening on a different port, that will need to be represented here.  If you're not sure, just look at the URL for your origin file.  The HTTP and HTTPS specifications specify ports 80 and 443 as the defaults. In my URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, a port is not specified, so the default of 443 is assumed and my settings are correct.  
 
 However, say the URL for your origin file that you tested earlier is `http://www.contoso.com:8080/file.txt`.  Note the `:8080` at the end of the hostname segment.  That tells the browser to use port `8080` to connect to the web server at `www.contoso.com`, so you'll need to enter 8080 in the **HTTP port** field.  It's important to note that these port settings only affect what port the endpoint uses to retrieve information from the origin.
+
+> [AZURE.NOTE] **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai behavior details](cdn-akamai-behavior-details.md).  
   
 ### Check the endpoint settings
 

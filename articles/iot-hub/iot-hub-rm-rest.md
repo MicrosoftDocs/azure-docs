@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/03/2016"
+     ms.date="05/31/2016"
      ms.author="dobett"/>
 
 # Tutorial: Create an IoT hub using a C# program and the REST API
@@ -40,7 +40,7 @@ In order to complete this tutorial you'll need the following:
 
 2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
 
-3. In NuGet Package Manager, check **Include prerelease**, and search for **Microsoft.Azure.Management.Resources**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
+3. In NuGet Package Manager, check **Include prerelease**, and search for **Microsoft.Azure.Management.ResourceManager**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
 
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
 
@@ -51,8 +51,8 @@ In order to complete this tutorial you'll need the following:
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Newtonsoft.Json;
     using Microsoft.Rest;

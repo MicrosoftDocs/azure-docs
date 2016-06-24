@@ -11,15 +11,13 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="05/04/2016"
 	ms.author="josephd"/>
 
 # Create SharePoint server farms
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic model.
 
 With the Microsoft Azure portal marketplace, you can quickly create pre-configured SharePoint Server 2013 farms. This can save you a lot of time when you need a basic or high-availability SharePoint farm for a development and testing environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.
 
@@ -42,7 +40,7 @@ The high-availability SharePoint farm consists of nine virtual machines in this 
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
+You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server Always On for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
 
 To create the high-availability (nine-server) SharePoint farm:
 

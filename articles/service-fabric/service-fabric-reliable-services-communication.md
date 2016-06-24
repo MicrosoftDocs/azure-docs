@@ -123,7 +123,8 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
     this.listeningAddress = string.Format(
                 CultureInfo.InvariantCulture,
-                "http://+:{0}/");
+                "http://+:{0}/",
+                port);
                         
     this.publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
             

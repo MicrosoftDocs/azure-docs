@@ -412,8 +412,10 @@ You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmd
 	    "properties":
 	    {
 	        "type": "OnPremisesSqlLinkedService",
-	        "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
-	        "gatewayName": "<gateway name>"
+			"typeProperties": {
+	        	"connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
+	        	"gatewayName": "<gateway name>"
+			}
 	    }
 	}
 
@@ -426,10 +428,12 @@ If username and password are specified, gateway will use them to impersonate the
 	     "Properties":
 	     {
 	         "type": "OnPremisesSqlLinkedService",
-	         "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
-	         "username": "<domain\\username>",
-	         "password": "<password>",
-	         "gatewayName": "<gateway name>"
+			 "typeProperties": {
+	         	"ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+	         	"username": "<domain\\username>",
+	         	"password": "<password>",
+	         	"gatewayName": "<gateway name>"
+			}
 	     }
 	}
 

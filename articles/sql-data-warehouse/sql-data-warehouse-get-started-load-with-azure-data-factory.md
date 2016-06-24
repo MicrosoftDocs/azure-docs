@@ -65,7 +65,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 Now that the data is in place we can create the Azure Data Factory pipeline to move the data from Azure blob storage into SQL Data Warehouse.
 
-To get started, open the [Azure Portal][] and select your data factory from the left-hand menu.
+To get started, open the [Azure portal][] and select your data factory from the left-hand menu.
 
 ### Step 2.1: Create Linked Service
 
@@ -226,7 +226,7 @@ These topics provide detailed information about Azure Data Factory. They discuss
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Get started with Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Introduction to Azure Data Factory]: ../data-factory/data-factory-introduction.md
-[Load sample data into SQL Data Warehouse]: sql-data-warehouse-get-started-manually-load-samples.md
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [Real-world scenario tutorial]: ../data-factory/data-factory-tutorial.md
@@ -237,5 +237,5 @@ These topics provide detailed information about Azure Data Factory. They discuss
 
 <!--Other Web references-->
 [Azure Data Factory learning path]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Download sample data]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv

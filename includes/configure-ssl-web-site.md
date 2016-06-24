@@ -203,7 +203,7 @@ If you are familiar with IIS Manager, you can use it to generate a certificate t
 
 	> [AZURE.NOTE] During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.
 
-	> [AZURE.NOTE] During the export process, be sure to select the option **include all certs in the certification path** and **Export all extended properties**. This will include any intermediate certificates in the exported certificate.
+	> During the export process, be sure to select the option **include all certs in the certification path** and **Export all extended properties**. This will include any intermediate certificates in the exported certificate.
 
 <a name="bkmk_subjectaltname"></a>
 ### Get a SubjectAltName certificate using OpenSSL
@@ -455,6 +455,10 @@ Before performing the steps in this section, you must have associated a custom d
 >
 > 2. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
 
+<br>
+If you add an **IP based SSL** to a Web App that already had an **SNI binding** with a different certificate, as soon as IP SSL is enabled for the Web App, we'll remap the site's hostname to that IP address, so if any other hostname is CNAME'd to that site's hostname it will also get traffic on IP SSL address. 
+
+For such cases we created one more DNS entry: sni.&lt;nameofyourWebApp&gt;.azurewebsites.net where &lt;nameofyourWebApp&gt; is the name of your Azure App Service Web App. So, you should change your DNS records pointing to the name used in your SNI binding so that it points to sni.&lt;nameofyourWebApp&gt;.azurewebsites.net instead.
 
 At this point, you should be able to visit your app using `HTTPS://` instead of `HTTP://` to verify that the certificate has been configured correctly.
 
@@ -502,9 +506,9 @@ If your web.config file already includes a **&lt;rewrite>** section, add the **&
 
 For PHP applications, simply save the [example](#example) as a web.config file in the root of your application, then re-deploy the application to your app.
 
-###Node.js, Python Django, and Java
+###Node.js, Python Django & Java
 
-A web.config file is automatically created for Node.js, Python Django, and Java apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
+A web.config file is automatically created for Node.js, Python Django & Java apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
 
 To retrieve and modify the auto-generated file from the app, use the following steps.
 
@@ -522,7 +526,7 @@ To retrieve and modify the auto-generated file from the app, use the following s
 
 		The web.config file for Java applications using Apache Tomcat do not contain a **&lt;rewrite>** section, so you must add the **&lt;rewrite>** section from the example into the **&lt;system.webServer>** section.
 
-4. Redeploy the project (including the updated web.config,) to Azure
+4. Put it back to the folder /site/wwwroot
 
 Once you deploy a web.config with a rewrite rule to force HTTPS, it should take effect immediately and redirect all requests to HTTPS.
 

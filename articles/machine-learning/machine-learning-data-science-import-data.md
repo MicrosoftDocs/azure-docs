@@ -14,18 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="06/14/2016"
 	ms.author="garye;bradsev" />
 
 
 # Import your training data into Azure Machine Learning Studio from various data sources
 
-## Introduction
-
 To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can: 
 
 - upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace.  
-- access data from one of several **online data sources** while your experiment is running using the [Reader][reader] module. 
+- access data from one of several **online data sources** while your experiment is running using the [Import Data][import-data] module. 
 - use data from another Azure Machine learning experiment saved as a **dataset**. 
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -67,7 +65,7 @@ If you import data in a format such as ARFF that includes metadata, Machine Lear
 
 If you import data such as TSV or CSV format that doesn't include this metadata, Machine Learning Studio infers the data type for each column by sampling the data. If the data also doesn't have column headings, Machine Learning Studio provides default names.
 
-You can explicitly specify or change the headings and data types for columns using the [Metadata Editor][metadata-editor].
+You can explicitly specify or change the headings and data types for columns using the [Edit Metadata][edit-metadata].
 
 The following **data types** are recognized by Machine Learning Studio:
 
@@ -89,5 +87,5 @@ Look in the **Data Format Conversions** section of the module palette for module
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

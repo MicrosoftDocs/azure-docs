@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # How to start a security review in Azure AD Privileged Identity Management
 
-Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, security administrators should regularly review the roles that users have been given. This document covers the steps for starting a security review in Azure AD Privileged Identity Management (PIM).
+Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators should regularly review the roles that users have been given. This document covers the steps for starting a security review in Azure AD Privileged Identity Management (PIM).
 
 ## Start a security review
 > [AZURE.NOTE] If you haven't added the PIM application to your dashboard in the Azure portal, see the steps in  [Getting Started with Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)

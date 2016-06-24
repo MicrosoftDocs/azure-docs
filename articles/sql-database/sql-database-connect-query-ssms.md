@@ -15,13 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein;carlrab" />
 
 # Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query
 
 > [AZURE.SELECTOR]
-- [C#](sql-database-connect-query.md)
+- [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
@@ -56,7 +56,7 @@ After you connect to your logical server, you can connect to a database and run 
 
 4. Click the **Execute** button.  The following screen shot shows a successful query.
 
-	![Sucess. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
+	![Success. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Next steps
 

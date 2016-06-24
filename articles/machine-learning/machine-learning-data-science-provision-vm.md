@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Provision the Microsoft Data Science Virtual Machine
-
-## Introduction
 
 The Microsoft Data Science Virtual Machine is an Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
@@ -51,7 +49,7 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
 
-1.	Navigate to the virtual machine listing on [Azure Portal](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Navigate to the virtual machine listing on [Azure Portal](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
@@ -146,6 +144,6 @@ Here are some next steps to continue your learning and exploration.
 * Explore the various data science tools on the data science VM by clicking on the start menu and checking out the tools listed on the menu
 * Navigate to **C:\Program Files\Microsoft\MRO-for-RRE\8.0\R-3.2.2\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
 * Read the article: [Ten things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings)
-* Learn how to build end to end analytical solutions systematically using the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visit the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) for machine learning and data analytics samples using the Cortana Intelligence Suite. We have also provided an icon on the Start menu and desktop on the virtual machine for easy access 
 

@@ -3,8 +3,8 @@
   description="Make sure your environment is properly prepared to back up workloads using Azure Backup Server"
   services="backup"
   documentationCenter=""
-  authors="pvrk"
-  manager="shivamg"
+  authors="trinadhk"
+  manager="shreeshd"
   editor=""
   keywords="azure backup server; backup vault"/>
 
@@ -14,22 +14,26 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="02/04/2016"
+  ms.date="05/10/2016"
   ms.author="jimpark;trinadhk;pullabhk"/>
 
 # Preparing to back up workloads using Azure Backup Server
 
 > [AZURE.SELECTOR]
 - [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
-- [System Center DPM](backup-azure-dpm-introduction.md)
+- [SCDPM](backup-azure-dpm-introduction.md)
+- [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
+- [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
-This article is about preparing your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console.
+This article is about preparing your environment to back up workloads using Azure Backup Server. 
+
+> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+
+With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console.
 
 >[AZURE.WARNING] Azure Backup Server inherits the functionality of Data Protection Manager (DPM) for workload backup. You will find pointers to DPM documentation for some of these capabilities. However Azure Backup Server does not provide protection on tape or integrate with System Center.
 
 ## 1. Windows Server machine
-
-![step1](./media/backup-azure-microsoft-azure-backup/step1.png)
 
 The first step towards getting the Azure Backup Server up and running is to have a Windows Server machine.
 
@@ -42,52 +46,104 @@ The first step towards getting the Azure Backup Server up and running is to have
 
 If you plan to join this server to a domain at some point, it is recommended that the domain-joining activity be done before the Azure Backup Server installation. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
-## 2. Backup vault
+## 2. Recovery Services vault
 
-![step2](./media/backup-azure-microsoft-azure-backup/step2.png)
+Whether you send backup data to Azure or keep it locally, the software needs to be connected to Azure. To be more specific, the Azure Backup Server machine needs to be registered with a recovery services vault.
 
-Whether you send backup data to Azure or keep it locally, the software needs to be connected to Azure. To be more specific, the Azure Backup Server machine needs to be registered with a backup vault.
+To create a recovery services vault:
 
-To create a backup vault:
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Sign in to the [Management Portal](http://manage.windowsazure.com/).
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
 
-2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create**. If you have multiple subscriptions associated with your organizational account, choose the correct subscription to associate with the backup vault.
+    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
-3. In **Name**, enter a friendly name to identify the vault. This needs to be unique for each subscription.
+    The list of Recovery Services vaults is displayed.
 
-4. In **Region**, select the geographic region for the vault. Typically, the vault's region is picked based on data sovereignty or network latency constraints.
+3. On the **Recovery Services vaults** menu, click **Add**.
 
-    ![Create backup vault](./media/backup-azure-microsoft-azure-backup/backup_vaultcreate.png)
+    ![Create Recovery Services Vault step 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
 
-5. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
+    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
 
-    ![Create vault toast notification](./media/backup-azure-microsoft-azure-backup/creating-vault.png)
+    ![Create Recovery Services vault step 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
 
-6. A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active.
-    ![List of backup vaults](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
+4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 
-  > [AZURE.IMPORTANT] Make sure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) options in this [overview](../storage/storage-redundancy.md).
+5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Using the Azure Portal to deploy and manage your Azure resources](../azure-portal/resource-group-portal.md)
+
+7. Click **Location** to select the geographic region for the vault.
+
+8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal.
+Once your vault is created, it opens in the portal.
+
+### Set Storage Replication
+
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+
+To edit the storage replication setting:
+
+1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
+
+2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
+
+    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+
+    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
 ## 3. Software package
 
-![step3](./media/backup-azure-microsoft-azure-backup/step3.png)
-
 ### Downloading the software package
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-Similar to vault credentials, you can download Microsoft Azure Backup for application workloads from the **Quick Start Page** of the backup vault.
+2. If you already have a Recovery Services vault open, proceed to step 3. If you do not have a Recovery Services vault open, but are in the Azure portal,
+on the Hub menu, click **Browse**.
 
-1. Click **For Application Workloads (Disk to Disk to Cloud)**. This will take you to the Download Center page from where the software package can be downloaded.
+    - In the list of resources, type **Recovery Services**.
+    - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
 
-    ![Microsoft Azure Backup Welcome Screen](./media/backup-azure-microsoft-azure-backup/dpm-venus1.png)
+    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) 
 
-2. Click **Download**.
+    The list of Recovery Services vaults appears.
+    
+    - From the list of Recovery Services vaults, select a vault.
 
-    ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
+    The selected vault dashboard opens.
 
-3. Select all the files and click **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
-![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
+
+3. Settings blade opens up by default. If it is closed, click on **Settings** to open the settings blade.
+
+    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
+
+4. Click on **Backup** in **Getting Started** to open the Getting Started wizard.
+
+    ![Backup getting started](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+
+5. In the Getting Started that opens, Backup Goals screen will be auto-selected.
+    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+
+    In the **Backup goals** section, select *on-premises* for *where is your workload running*.
+
+    ![on-premises and workloads as goals](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
+
+6. Select the workloads you want to protect using Azure Backup Server in *what workloads you want to protect* and click on **OK**.
+
+    > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
+
+    This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
+
+    ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
+  
+7. In the **Prepare infrastructure** blade that opens, click on **Download Azure Backup Server** and Vault credentials which you use during registration of Azure Backup Server to recovery services vault. This will take you to the Download Center page from where the software package can be downloaded.
+
+    ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
+
+8. Select all the files and click **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
+
+    ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
 
@@ -143,7 +199,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 8. The installation happens in phases. In the first phase the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available you can proceed with installation, if not, you need to provide proxy details to connect to the Internet.
 
-    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you will have to provide your the vault credentials to register the machine to the backup vault. You will also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
+    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you will have to provide your vault credentials to register the machine to the recovery services vault. You will also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
     ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 
@@ -158,13 +214,11 @@ When the installation step has completed, the product's desktop icons will have 
 
 The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
 
-> [AZURE.NOTE] You need to add backup storage even if you plan to send data to Azure. In the current architecture of Azure Backup Server, the Azure Backup vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.  
+> [AZURE.NOTE] You need to add backup storage even if you plan to send data to Azure. In the current architecture of Azure Backup Server, the Azure Backup vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
 
 ## 4. Network connectivity
 
-![step4](./media/backup-azure-microsoft-azure-backup/step4.png)
-
-Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` commandlet in the Azure Backup Server PowerShell console. If the output of the commandlet is TRUE then connectivity exists, else there is no connectivity.
+Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE then connectivity exists, else there is no connectivity.
 
 At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, log in to the [subscription portal]( https://account.windowsazure.com/Subscriptions).
 

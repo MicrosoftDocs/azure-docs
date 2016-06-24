@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/03/2016"
+ms.date="05/17/2016"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
 
-This article shows how to use Azure Search to index documents (such as PDFs or Office files) stored in Azure Blob storage. The new Azure Search blob indexer makes this process quick and seamless. 
+This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. The new Azure Search blob indexer makes this process quick and seamless. 
 
 > [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 
@@ -31,11 +31,11 @@ An indexer is a resource that connects data sources with target search indexes.
 
 To set up blob indexing, do the following:
 
-1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account
-	- Pass in your storage account connection string as the `credentials.connectionString` parameter
-	- Specify a container name. You can also optionally include a folder using the `query` parameter
-2. Create a search index with a searchable `content` field 
-3. Create the indexer by connecting your data source to the target index
+1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account.
+	- Pass in your storage account connection string as the `credentials.connectionString` parameter.
+	- Specify a container name. You can also optionally include a folder using the `query` parameter.
+2. Create a search index with a searchable `content` field. 
+3. Create the indexer by connecting your data source to the target index.
 
 ### Create data source
 
@@ -104,7 +104,7 @@ The blob indexer can extract text from the following document formats:
 Azure Search indexes each document (blob) as follows:
 
 - The entire text content of the document is extracted into a string field named `content`. Note that we currently don't provide support for extracting multiple documents from a single blob:
-	- For example, a CSV file is indexed as a single document.
+	- For example, a CSV file is indexed as a single document. If you need to treat each line in a CSV as a separate document, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
 	- A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email with a PDF attachment) is also indexed as a single document.
 
 - User-specified metadata properties present on the blob, if any, are extracted verbatim. The metadata properties can also be used to control certain aspects of the document extraction process – see [Using Custom Metadata to Control Document Extraction](#CustomMetadataControl) for more details.

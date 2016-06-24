@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/23/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein"/>
 
 
@@ -38,7 +38,7 @@ During the process of upgrading to V12 you will upgrade any Web and Business dat
 
 In addition, migrating to an [elastic database pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool. You can easily [auto-migrate databases from V11 servers directly into elastic database pools using PowerShell](sql-database-upgrade-server-powershell.md). You can also use the portal to migrate V11 databases into a pool but in the portal you must already have a V12 server to create a pool. Directions are provided later in this article to create the pool after the server upgrade if you have [databases that can benefit from a pool](sql-database-elastic-pool-guidance.md).
 
-Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade.
+Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connectivity-issues.md) then it is sufficient to protect against dropped connections at the end of the upgrade.
 
 Upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11.
 
@@ -47,7 +47,7 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 ## Prepare to upgrade
 
 - **Upgrade all Web and Business databases**: See [Upgrade all Web and Business databases](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) section below or see [Monitor and manage an elastic database pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
-- **Review and suspend geo-replication**: If your Azure SQL database is configured for geo-replication you should document its current configuration and [stop geo-replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for geo-replication.
+- **Review and suspend Geo-Replication**: If your Azure SQL database is configured for Geo-Replication you should document its current configuration and [stop Geo-Replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for Geo-Replication.
 - **Open these ports if you have clients on an Azure VM**: If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
@@ -146,7 +146,7 @@ For example, you can set up an email alert on “DTU Percentage” if the averag
 
 
 
-## Next Steps
+## Next steps
 
 - [Check for pool recommendations and create a pool](sql-database-elastic-pool-create-portal.md).
 - [Change the service tier and performance level of your database](sql-database-scale-up.md).

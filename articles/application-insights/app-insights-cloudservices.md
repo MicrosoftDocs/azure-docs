@@ -47,7 +47,7 @@ An Application Insights resource is where your telemetry data will be analyzed a
     ![Click Properties, select the key, and press ctrl+C](./media/app-insights-cloudservices/02-props.png)
 
 
-It's usually best to create a separate resource for the data from each web and worker role. 
+It's usually [best to create a separate resource for the data from each web and worker role](app-insights-separate-resources.md). 
 
 As an alternative, you could send data from all the roles to just one resource, but set a [default property][apidefaults] so that you can filter or group the results from each role.
 
@@ -277,7 +277,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 
 [api]: app-insights-api-custom-events-metrics.md
 [apidefaults]: app-insights-api-custom-events-metrics.md#default-properties
-[apidynamicikey]: app-insights-api-custom-events-metrics.md#dynamic-ikey
+[apidynamicikey]: app-insights-separate-resources.md#dynamic-ikey
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: app-insights-azure.md
 [client]: app-insights-javascript.md

@@ -11,15 +11,13 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 4: Configure web servers
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 In this phase of deploying a high availability line of business application in Azure infrastructure services, you build out the web servers and load your line of business application on them.
 

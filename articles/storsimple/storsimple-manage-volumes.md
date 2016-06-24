@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2016"
+   ms.date="05/11/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
@@ -43,7 +43,7 @@ A volume consists of a series of attributes:
 
 - **Capacity** – Specifies how large the volume is, as perceived by the initiator (server). Capacity specifies the total amount of data that can be stored by the initiator (server). Volumes are thinly provisioned, and data is deduplicated. This implies that your device doesn’t pre-allocate physical storage capacity internally or on the cloud according to configured volume capacity. The volume capacity is allocated and consumed on demand.
 
-- **Type** – The volume type can be tiered or archival (a sub-type of tiered) 
+- **Type** – The volume type can be tiered or archival (a sub-type of tiered)
 
 - **Access** – Specifies the initiators (servers) that are allowed access to this volume. Initiators that are not members of access control record (ACR) that is associated with the volume will not see the volume.
 
@@ -51,11 +51,11 @@ A volume consists of a series of attributes:
 
 The most common tasks associated with a volume are:
 
-- Add a volume 
-- Modify a volume 
-- Delete a volume 
-- Take a volume offline 
-- Monitor a volume 
+- Add a volume
+- Modify a volume
+- Delete a volume
+- Take a volume offline
+- Monitor a volume
 
 ## Add a volume
 
@@ -79,9 +79,9 @@ You [created a volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-v
   5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)to go to the **Additional Settings** page.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
-   
+
 5. Under **Additional Settings**, add a new access control record (ACR):
-  
+
   1. Select an access control record (ACR) from the drop-down list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record.
   2. We recommend that you enable a default backup by selecting the **Enable a default backup for this volume** check box.
    3. Click the check icon ![Check icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png) to create the volume with the specified settings.
@@ -92,10 +92,10 @@ Your new volume is now ready to use.
 
 Modify a volume when you need to expand it or change the hosts that access the volume.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 >
-> - If you modify the volume size on the device, the volume size needs to be changed on the host as well. 
-> - The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
+> - If you modify the volume size on the device, the volume size needs to be changed on the host as well.
+> - The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system.
 
 ### To modify a volume
 
@@ -116,7 +116,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
   - Modify the ACRs, provided that the volume is offline. If the volume is online, you will need to take it offline first. Refer to the steps in [Take a volume offline](#take-a-volume-offline) prior to modifying the ACR.
   - Modify the list of ACRs after the volume is offline.
- 
+
     > [AZURE.NOTE] You cannot change the **Enable a default backup for this volume** option for the volume.
 
 6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). The Azure classic portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
@@ -151,7 +151,7 @@ You may need to take a volume offline when you are planning to modify it or dele
 
     After a volume is offline, the **Bring Online** option becomes available.
 
-> [AZURE.NOTE] The **Take Offline** command sends a request to the device to take the volume offline. If hosts are still using the volume, this results in broken connections, but taking the volume offline will not fail. 
+> [AZURE.NOTE] The **Take Offline** command sends a request to the device to take the volume offline. If hosts are still using the volume, this results in broken connections, but taking the volume offline will not fail.
 
 ## Delete a volume
 
@@ -197,5 +197,3 @@ Perform the following steps to enable or disable monitoring for a volume.
 - Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
 
 - Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
-
- 

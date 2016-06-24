@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="03/30/2016" 
+    ms.date="05/16/2016" 
     ms.author="arramac"/>
     
 # Working with Geospatial data in Azure DocumentDB
@@ -181,7 +181,7 @@ If you include spatial indexing in your indexing policy, then "distance queries"
 
 ST_WITHIN can be used to check if a point lies within a polygon. Commonly polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index. 
 
-Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons must not contain holes in them. Check the [DocumentDB limits](documentdb-limits.md) for the maximum number of points allowed in a polygon for an ST_WITHIN query.
+Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons must not contain holes in them. 
 
 **Query**
 

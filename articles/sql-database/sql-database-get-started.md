@@ -57,5 +57,5 @@ Now that you've completed this SQL Database tutorial and created a database with
 
 ## Additional resources
 
-[SQL Database Overview](sql-database-technical-overview.md)
+[What is SQL Database?](sql-database-technical-overview.md)
 

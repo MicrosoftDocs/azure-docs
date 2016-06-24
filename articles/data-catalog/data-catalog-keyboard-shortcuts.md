@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure Data Catalog  | Microsoft Azure"
-   description="This article shows the Keyboard shortcuts for Azure Data Catalog."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor="steelanddata"
-   tags=""/>
+	pageTitle="Azure Data Catalog  | Microsoft Azure"
+	description="This article shows the Keyboard shortcuts for Azure Data Catalog."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/31/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/31/2016"
+	ms.author="spelluru"/>
 
 # Keyboard shortcuts for Azure Data Catalog
 

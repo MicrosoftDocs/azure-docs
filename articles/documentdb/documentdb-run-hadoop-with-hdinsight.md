@@ -44,7 +44,7 @@ Don't have time to complete the tutorial and just want to get the full sample Po
 	<tr><th>Script Uri</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
 	<tr><th>Date Modified</th>
-		<td>04/26/2015</td></tr>
+		<td>04/26/2016</td></tr>
 	<tr><th>Supported HDInsight Versions</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Change Log</th>
@@ -468,7 +468,7 @@ To learn more, see the following articles:
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md 
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md

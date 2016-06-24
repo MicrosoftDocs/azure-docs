@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 #Country codes
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 The **Country Filtering** feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. The table that follows contains all the country codes. If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed. For details on how to use the country filtering feature, see [How to restrict access to your content by country](cdn-restrict-access-by-country.md).
 

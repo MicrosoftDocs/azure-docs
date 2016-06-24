@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2016"
+	ms.date="05/25/2016"
 	ms.author="jgao"/>
 
 # Get started using Visual Studio Hadoop tools for HDInsight to run a Hive query
@@ -233,6 +233,8 @@ HDInsight Tools for Visual Studio supports creating and submit Pig scripts to HD
 - Currently HiveServer2 results are displayed in pure text fashion which is not ideal. We are working on fixing that.
 
 - If the results are started with NULL values, currently the results are not shown. We have fixed this issue and if you are blocked on this issue, feel free to drop us an email or contact support team.
+
+- The HQL script created by Visual Studio is encoded depending on user’s local region setting. It may not execute correctly if user uploads the script to cluster as binary.
 
 If you have any suggestions or feedbacks, or if you encounter any problems when using this tool, feel free to drop us an email at hdivstool at microsoft dot com.
 

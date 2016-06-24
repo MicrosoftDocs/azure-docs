@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="msmbaldwin"
 	editor="na"
 	tags="billing"
 	/>
@@ -15,10 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="05/26/2016"
 	ms.author="genli"/>
 
 # I am unable to log in to manage my Azure subscription
+
+> [AZURE.NOTE]If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) and click on Get Support. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 This article will help you troubleshoot some common causes of login issues.
 
@@ -48,6 +50,6 @@ Now that it is possible to log into Azure with an organizational account, here a
 |Microsoft Account |Yes|No|No|
 |Organizational Account|Yes|Yes|No|
 
-## Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser
+## Is there a problem with the Internet Browser?
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on Get Support. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
+Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser.
