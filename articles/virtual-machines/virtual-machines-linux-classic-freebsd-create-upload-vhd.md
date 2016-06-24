@@ -27,7 +27,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ## Prerequisites
 This article assumes that you have the following items:
 
-- **An Azure subscription**--If you don't have an account, you can create one in just a couple minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
+- **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
 
 - **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](https://azure.microsoft.com/downloads/). A tutorial that describes how install and configure the module is available here. Use the [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
 
@@ -41,12 +41,12 @@ This task includes the following five steps.
 
 On the virtual machine where you installed the FreeBSD operating system, complete the following procedures:
 
-1. **Enable DHCP**.
+1. Enable DHCP.
 
 		# echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
 		# service netif restart
 
-2. **Enable SSH**.
+2. Enable SSH.
 
     SSH is enabled by default after installation from disc. If it isn't enabled for some reason, or if you use FreeBSD VHD directly, type the following:
 
@@ -55,27 +55,27 @@ On the virtual machine where you installed the FreeBSD operating system, complet
 		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
-3. **Set up a serial console**.
+3. Set up a serial console.
 
 		# echo 'console="comconsole vidconsole"' >> /boot/loader.conf
 		# echo 'comconsole_speed="115200"' >> /boot/loader.conf
 
-4. **Install sudo**.
+4. Install sudo.
 
     The root account is disabled in Azure. This means you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
 
 		# pkg install sudo
 ;
-5. **Prerequisites for Azure Agent**.
+5. Prerequisites for Azure Agent.
 
 		# pkg install python27  
 		# pkg install Py27-setuptools27   
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python   
 		# pkg install git
 
-6. **Install Azure Agent**.
+6. Install Azure Agent.
 
-    The latest release of Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 officially supports FreeBSD 10.2 and later releases.
+    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 officially supports FreeBSD 10.2 and later releases.
 
 		# git clone https://github.com/Azure/WALinuxAgent.git  
 		# cd WALinuxAgent  
@@ -100,7 +100,7 @@ On the virtual machine where you installed the FreeBSD operating system, complet
 		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 		# ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
 
-    **Important**: After you install Azure Agent, it's a good idea to verify that it's running:
+    >[AZURE.IMPORTANT] After you install Azure Agent, it's a good idea to verify that it's running:
 
 		# waagent -version
 		WALinuxAgent-2.1.4 running on freebsd 10.3
@@ -109,7 +109,7 @@ On the virtual machine where you installed the FreeBSD operating system, complet
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
-7. **Deprovision the system**.
+7. Deprovision the system.
 
     Deprovision the system to clean it and make it suitable for re-provisioning. The following command also deletes the last provisioned user account and the associated data:
 
@@ -217,7 +217,7 @@ After you upload the .vhd file, you can add it as an image to the list of custom
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    > [AZURE.NOTE]Use Linux as the OS type. The current Azure PowerShell version accepts only “Linux” or “Windows” as parameters.
+    > [AZURE.NOTE]Use Linux as the OS type. The current Azure PowerShell version accepts only “Linux” or “Windows” as a parameter.
 
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure classic portal.  
 
