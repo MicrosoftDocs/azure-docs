@@ -14,12 +14,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
 # Conditional access support for applications
-Conditional access access works with mobile and desktop applications that use modern authentication. Applications with modern authentication can display Azure AD sign in pages. This allows a user to be prompted inline for multi-factor authentication or show an end user facing message when an access is blocked.
+
+Conditional Access rules are supported across Azure AD connected applications, pre-integrated federated SaaS applications, applications that use password single sign-on, and line of business applications and Azure AD Application Proxy. For a detailed list of applications where you can enable conditional access, see [Services enabled with conditional access](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). Conditional access works with mobile and desktop applications that use modern authentication. This topic explains what is supported regarding mobile and desktop version of these apps.
+
+ Applications with modern authentication can display Azure AD sign in pages. This allows a user to be prompted inline for multi-factor authentication or show an end user facing message when an access is blocked.
 It is important to understand which applications are supported as well as steps that may be necessary to secure other entry points.
 
 ## Applications using modern authentication
