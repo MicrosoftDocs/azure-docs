@@ -27,7 +27,7 @@ This article focuses on understanding the required planning steps for availabili
 
 Decisions:
 
-- How many availability sets do you need for the various roles and tiers in application infrastructure?
+- How many availability sets do you need for the various roles and tiers in your application infrastructure?
 
 Tasks:
 
@@ -37,13 +37,13 @@ Tasks:
 
 ## Availability sets
 
-Within Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform will distribute the placement of those VMs across the underlying infrastructure. Should there be a planned maintenance event to the Azure platform or an underlying hardware / infrastructure fault, the use of availability sets would ensure that at least one VM remains running.
+In Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform will distribute the placement of those VMs across the underlying infrastructure. Should there be a planned maintenance event to the Azure platform or an underlying hardware / infrastructure fault, the use of availability sets would ensure that at least one VM remains running.
 
 As a best practice, applications should not reside on a single VM. An availability set that contains a single VM doesn't gain any protection from planned or unplanned events within the Azure platform. The [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) requires two or more VMs within an availability set in order to allow the distribution of VMs across the underlying infrastructure.
 
 The underlying infrastructure in Azure is divided in to update domains and fault domains. These domains are defined by what hosts will share a common update cycle, or share similar physical infrastructure such as power and networking. Azure will automatically distribute your VMs within an availability set across domains to maintain availability and fault tolerance. Depending on the size of your application and the number of VMs within an availability set, you can adjust the number of domains you wish to use. You can read more about [managing availability and use of update and fault domains](virtual-machines-linux-manage-availability.md).
 
-When designing your application infrastructure, you should also plan out the application tiers that you will use. Group together VMs that serve the same purpose in to availability sets, such as an availability set for your front-end VMs running IIS, Nginx, Apache, etc. Create a separate availability set for your back-end VMs running SQL Server, MongoDB, MySQL, etc. The goal is to ensure that each component of your application is protected by an availability set and at least once instance will always remain running.
+When designing your application infrastructure, you should also plan out the application tiers that you will use. Group together VMs that serve the same purpose in to availability sets, such as an availability set for your front-end VMs running nginx or Apache. Create a separate availability set for your back-end VMs running MongoDB or MySQL. The goal is to ensure that each component of your application is protected by an availability set and at least once instance will always remain running.
 
 Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance. Without a load balancer, your VMs may continue running throughout planned and unplanned maintenance events, but your end users may not be able to resolve them if the primary VM is unavailable.
 
