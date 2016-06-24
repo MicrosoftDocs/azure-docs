@@ -39,7 +39,7 @@ Before you begin this tutorial, you must have the following:
 - **Azure SQL Database**. You will use an Azure SQL database as a **destination** data store in this tutorial. If you don't have an Azure SQL database that you can use in the tutorial, See [How to create and configure an Azure SQL Database][data-factory-create-sql-database] to create one.
 - **SQL Server 2012/2014 or Visual Studio 2013**. You will use SQL Server Management Studio or Visual Studio to create a sample database and to view the result data in the database.  
 
-## Collect blob storage account name and key 
+## Note blob storage account name and key 
 You will need the account name and account key of your Azure storage account to do this tutorial. Note down the **account name** and **account key** for your Azure storage account by following the  instructions below:
 
 1. Login to the [Azure Portal][azure-portal].
@@ -50,7 +50,7 @@ You will need the account name and account key of your Azure storage account to 
 6. Repeat the previous step to copy or note down the **PRIMARY ACCESS KEY**.
 7. Close all the blades by clicking **X**.
 
-## Collect SQL server, database, and user names
+## Note SQL server, database, and user names
 You will need the names of Azure SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database by following the instructions below:
 
 1. In the **Azure Portal**, click **BROWSE** on the left and select **SQL databases**.
