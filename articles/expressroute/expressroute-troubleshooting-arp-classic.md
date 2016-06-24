@@ -23,12 +23,12 @@
 
 This article walks you through the steps for getting the Address Resolution Protocol (ARP) tables for your Azure ExpressRoute circuit.
 
->[AZURE.IMPORTANT] This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. If you are can't solve the problem by using the following guidance, open a support request with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+>[AZURE.IMPORTANT] This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. If you can't solve the problem by using the following guidance, open a support request with [Microsoft Azure Help+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Address Resolution Protocol (ARP) and ARP tables
 ARP is a Layer 2 protocol that's defined in [RFC 826](https://tools.ietf.org/html/rfc826). ARP is used to map an Ethernet address (MAC address) to an IP address.
 
-An ARP table provides a mapping of the IPv4 address and MAC address for a particular peering. The ARP table for an ExpressRoute circuit peering provides the following information for both the primary and secondary interface:
+An ARP table provides a mapping of the IPv4 address and MAC address for a particular peering. The ARP table for an ExpressRoute circuit peering provides the following information for each interface (primary and secondary):
 
 1. Mapping of an on-premises router interface IP address to a MAC address
 2. Mapping of an ExpressRoute router interface IP address to a MAC address
@@ -52,14 +52,14 @@ Ensure that you have the following before you continue:
 
  - A valid ExpressRoute circuit that's configured with at least one peering. The circuit must be fully configured by the connectivity provider. You (or your connectivity provider) must configure at least one of the peerings (Azure private, Azure public, or Microsoft) on this circuit.
 
- - IP address ranges that are used for configuring the peerings (Azure private, Azure public and Microsoft). Review the IP address assignment examples in the [ExpressRoute routing requirements page](expressroute-routing.md) to get an understanding of how IP addresses are mapped to interfaces on your aise and on the ExpressRoute side. You can get information about the peering configuration by reviewing the [ExpressRoute peering configuration page](expressroute-howto-routing-classic.md).
+ - IP address ranges that are used for configuring the peerings (Azure private, Azure public, and Microsoft). Review the IP address assignment examples in the [ExpressRoute routing requirements page](expressroute-routing.md) to get an understanding of how IP addresses are mapped to interfaces on your aise and on the ExpressRoute side. You can get information about the peering configuration by reviewing the [ExpressRoute peering configuration page](expressroute-howto-routing-classic.md).
 
  - Information from your networking team or connectivity provider about the MAC addresses of the interfaces that are used with these IP addresses.
 
  - The latest Windows PowerShell module for Azure (version 1.50 or later).
 
 ## ARP tables for your ExpressRoute circuit
-This section provides instructions about how to view the ARP tables for each type of peering by using PowerShell. Before you continue, either you or your connectivity provider need to configure the peering. Each circuit has two paths (primary and secondary). You can check the ARP table for each path independently.
+This section provides instructions about how to view the ARP tables for each type of peering by using PowerShell. Before you continue, either you or your connectivity provider needs to configure the peering. Each circuit has two paths (primary and secondary). You can check the ARP table for each path independently.
 
 ### ARP tables for Azure private peering
 The following cmdlet provides the ARP tables for Azure private peering:
@@ -73,7 +73,7 @@ The following cmdlet provides the ARP tables for Azure private peering:
 		# ARP table for Azure private peering--secondary path
 		Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Private -Path Secondary
 
-Sample output is shown below for one of the paths:
+Following is sample output for one of the paths:
 
 		Age InterfaceProperty IpAddress  MacAddress    
 		--- ----------------- ---------  ----------    
@@ -93,7 +93,7 @@ The following cmdlet provides the ARP tables for Azure public peering:
 		# ARP table for Azure public peering--secondary path
 		Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Secondary
 
-Sample output is shown below for one of the paths:
+Following is sample output for one of the paths:
 
 		Age InterfaceProperty IpAddress  MacAddress    
 		--- ----------------- ---------  ----------    
@@ -101,7 +101,7 @@ Sample output is shown below for one of the paths:
 		  0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
 
 
-Sample output is shown below for one of the paths:
+Following is sample output for one of the paths:
 
 		Age InterfaceProperty IpAddress  MacAddress    
 		--- ----------------- ---------  ----------    
