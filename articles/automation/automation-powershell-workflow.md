@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="06/24/2016"
    ms.author="bwren" />
 
 # Learning Windows PowerShell Workflow
@@ -239,6 +239,28 @@ The following example copies multiple files to a network location and sets a che
 		Write-Output "All files copied."
 	}
 
+Because username credentials are not persisted after you call the [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) activity or after the last checkpoint, you need to set the credentials to null and then retrieve them again from the asset store after **Suspend-Workflow** or checkpoint is called.  Otherwise, you will receive the following error message: *The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.*
+
+The following same code demonstrates how to handle this in your PowerShell Workflow runbooks.
+
+    $Cred = Get-AutomationPsCredential -Name 'MyCredential'   
+    Workflow Copy-Files
+	{
+		$Cred = $null
+        $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
+
+		ForEach ($File in $Files) 
+		{
+			$Copy-Item -Path $File -Destination \\NetworkPath
+			Write-Output "$File copied."
+			Checkpoint-Workflow
+            $Cred = Get-AutomationPsCredential -Name 'MyCredential'
+		}
+		
+		Write-Output "All files copied."
+	}
+
+This is not required if you are authenticating using a Run As account configured with a service principal.  
 
 For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](http://technet.microsoft.com/library/jj574114.aspx).
 
