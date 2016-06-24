@@ -61,7 +61,7 @@ for information required to connect to your Azure storage account. If these envi
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
 
-To obtain these values from a Classic or ARM Storage Account in the Azure Portal:
+To obtain these values from a Classic or Resource Manager storage account in the Azure Portal:
 
 1. Log in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
