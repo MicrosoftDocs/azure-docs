@@ -332,11 +332,8 @@ keys: [
 
 To manually retrieve the latest key from the federation metadata document:
 
-1. In a web browser, go to https://manage.windowsazure.com, sign in to your account, and then click on the Active Directory icon from the left menu.
-2. Click on the directory where your application is registered, and then click on the **View Endpoints** link on the command bar.
-3. From the list of single sign-on and directory endpoints, copy the **Federation Metadata Document** link.
-4. Open a new tab in your browser, and go to the URL that you just copied. You will see the contents of the Federation Metadata XML document. For more information about this document, see the [Federation Metadata](active-directory-federation-metadata.md) topic.
-5. For the purposes of updating an application to use a new key, locate each **<RoleDescriptor>** block, and then copy the value of each block’s **<X509Certificate>** element. For example:
+1. In your web browser, go to `https://login.microsoftonline.com/your_directory_name/federationmetadata/2007-06/federationmetadata.xml`. You will see the contents of the Federation Metadata XML document. For more information about this document, see the [Federation Metadata](active-directory-federation-metadata.md) topic.
+2. For the purposes of updating an application to use a new key, locate each **<RoleDescriptor>** block, and then copy the value of each block’s **<X509Certificate>** element. For example:
 ```
 <RoleDescriptor xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType">
       <KeyDescriptor use="signing">
@@ -344,6 +341,6 @@ To manually retrieve the latest key from the federation metadata document:
                 <X509Data>
                     <X509Certificate>MIIDPjC…BcXWLAIarZ</X509Certificate>
 ```
-6. After you’ve copied the value of the **<X509Certificate>** element, open a plain text editor and paste the value. Make sure that you remove any trailing whitespace, and then save the file with a **.cer** extension.
+3. After you’ve copied the value of the **<X509Certificate>** element, open a plain text editor and paste the value. Make sure that you remove any trailing whitespace, and then save the file with a **.cer** extension.
 
 You’ve just created the X509 certificate that is used as the public key for Azure AD. Using the details of the certificate, such as its thumbprint and expiration date, you can manually or programmatically check that your application’s currently used certificate and thumbprint are valid.
