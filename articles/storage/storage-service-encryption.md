@@ -51,9 +51,9 @@ Storage Service Encryption can be enabled at a storage account level. It support
 
 The public preview has the following limitations:
 
--   Encryption of Classic Storage Accounts is not supported.
+-   Encryption of classic storage accounts is not supported.
 
--   Encryption of Classic Storage Accounts migrated to Resource Manager storage accounts is not supported.
+-   Encryption of classic storage accounts migrated to Resource Manager storage accounts is not supported.
 
 -   Existing Data - SSE only encrypts newly created data after the encryption is enabled. If for example you create a new Resource Manager storage account but don’t turn on encryption, and then you upload blobs or archived VHDs to that storage account and then turn on SSE, those blobs will not be encrypted unless they are rewritten or copied.
 
@@ -63,7 +63,7 @@ The public preview has the following limitations:
 
 ##Preview
 
-This feature is supported only for newly created Azure Storage accounts using the Azure Resource Manager deployment model; Classic storage accounts are not supported. To use this new feature, you must register your subscription using PowerShell cmdlets. Once your subscription is approved, you will be able to enable SSE for your storage account under the approved subscription. As with most previews, this should not be used for production workloads until the feature becomes Generally Available. You can join our Storage Service Encryption Preview group on Yammer to provide any feedback you have regarding your experience.
+This feature is supported only for newly created Resource Manager storage accounts; classic storage accounts are not supported. To use this new feature, you must register your subscription using PowerShell cmdlets. Once your subscription is approved, you will be able to enable SSE for your storage account under the approved subscription. As with most previews, this should not be used for production workloads until the feature becomes Generally Available. You can join our Storage Service Encryption Preview group on Yammer to provide any feedback you have regarding your experience.
 
 ### Registering for Preview
 
@@ -113,7 +113,7 @@ To learn more, please visit our [Get started with Azure Blob storage using .NET]
 
 #### Using a Storage Explorer
 
-A Storage explorer can be used to create storage accounts, upload and download data, view contents of blobs, and navigate through directories. Many support both Classic and Resource Manager storage accounts.
+A Storage explorer can be used to create storage accounts, upload and download data, view contents of blobs, and navigate through directories. Many support both classic and Resource Manager storage accounts.
 
 You can use one of these to upload blobs to your storage account with encryption enabled. With some storage explorers, you can also copy data from your existing storage account to your new storage account that has SSE enabled.
 
@@ -141,15 +141,15 @@ Here is a brief description of the encryption/decryption workflow:
 
 ##Frequently asked questions about Storage Service Encryption for Data at Rest
 
-**Q: I have an existing Classic Storage Account. Can I enable SSE on it?**
+**Q: I have an existing classic storage account. Can I enable SSE on it?**
 
 A: No, SSE is only supported on newly created Resource Manager storage accounts in preview.
 
-**Q: How can I encrypt data in my Classic Storage Account?**
+**Q: How can I encrypt data in my classic storage account?**
 
-A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing Classic storage account to your newly created Resource Manager storage account.
+A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing classic storage account to your newly created Resource Manager storage account.
 
-**Q: I have an existing Resource Manager Storage Account. Can I enable SSE on it?**
+**Q: I have an existing Resource Manager storage account. Can I enable SSE on it?**
 
 A: During the SSE preview, you have to create a new account in order to access the new SSE feature.
 
