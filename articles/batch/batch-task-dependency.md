@@ -40,7 +40,7 @@ unboundJob.UsesTaskDependencies = true;
 
 ## Create dependent tasks
 
-To create a task that is dependent on the successful completion of one ore more other tasks, you configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with a [TaskDependencies][net_taskdependencies] instance:
+To create a task that is dependent on the successful completion of one ore more other tasks, you configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with an instance of the [TaskDependencies][net_taskdependencies] class:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -53,13 +53,13 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 ## Dependency scenarios
 
-There are three task dependency scenarios that you can use in Azure Batch: **one-to-one**, **one-to-many**, and **task id range** dependency.
+There are three task dependency scenarios that you can use in Azure Batch: **one-to-one**, **one-to-many**, and **task ID range** dependency.
 
 | Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Example | |
 | :-------------------: | ------------------- | ------------------- |
-| [One-to-one](#one-to-one) | *taskB* depends on *taskA* (*taskB* will not begin execution until *taskA* has completed) | ![Diagram: one-to-one task dependency][1] |
-| [One-to-many](#one-to-many) | *taskC* depends on both *taskA* and *taskB* | ![Diagram: one-to-many task dependency][2] |
-| [Task id range](#task-id-range) | *taskD* depends on a range of tasks, such as those with IDs *1* through *10*, before it executes | ![Diagram: Task id range dependency][3] |
+| [One-to-one](#one-to-one) | *taskB* depends on *taskA* <p/> *taskB* will not be scheduled for execution until *taskA* has completed successfully | ![Diagram: one-to-one task dependency][1] |
+| [One-to-many](#one-to-many) | *taskC* depends on both *taskA* and *taskB* <p/> *taskC* will not be scheduled for execution until both *taskA* and *taskB* have completed successfully | ![Diagram: one-to-many task dependency][2] |
+| [Task ID range](#task-id-range) | *taskD* depends on a range of tasks <p/> *taskD* will not be scheduled for execution until the tasks with IDs *1* through *10* have completed successfully | ![Diagram: Task id range dependency][3] |
 
 ## One-to-one
 
