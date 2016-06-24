@@ -82,7 +82,7 @@ Geo-Restore is the default recovery option when your database is unavailable bec
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
-For detailed information about using Geo-Restore to recover from an outage, see [Recover from an outage](sql-database-distaster-recovery.md)
+For detailed information about using Geo-Restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md)
 
 > [AZURE.IMPORTANT] While Geo-Restore is available with all service tiers, it is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB Geo-Restore provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if significantly shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using Active Geo-Replication. Active Geo-Replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
 
