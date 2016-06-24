@@ -23,6 +23,8 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message | 100 |
 | Maximum TTL for feedback messages in <br/> response to a cloud-to-device message | 2 days |
 
+> [AZURE.NOTE] If you need more than 10 IoT hubs in an Azure subscription, please contact Microsoft support.
+
 The IoT Hub service throttles requests when the following quotas are exceeded:
 
 | Throttle | Per-hub value |
