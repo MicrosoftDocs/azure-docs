@@ -28,6 +28,7 @@ In these videos, Senior Data Scientist Brandon Rohrer makes data science approac
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
+
 Hi! Welcome to the video series *Data Science for Beginners*.
 
 Data Science can be intimidating, so I'll introduce the basics here without any equations or computer programming jargon.
