@@ -19,12 +19,12 @@
 
 #Azure Mobile Engagement Web SDK release notes
 
-##2.0.1 (6/10/2016)
+##Release 2.0.1 (6/10/2016)
 
 -   Disabled the SDK in Internet Explorer 8 and Internet Explorer 9.
 -   Fixed Opera web browser detection.
 
-##2.0.0 (6/7/2016)
+##Release 2.0.0 (6/7/2016)
 
 -   Released Azure Mobile Engagement.
 -   Updated so that the `appId` configuration is replaced by a connection string configuration.
