@@ -26,13 +26,13 @@ This article walks through building out an example application infrastructure. W
 
 ## Example workload
 
-Adventure Works Cycles wants to build an on-line store application that Azure which consists of:
+Adventure Works Cycles wants to build an on-line store application in Azure that consists of:
 
 - Two nginx servers running the client front-end in a web tier
-- Two nginx servers processing data and ordering in an application tier
+- Two nginx servers processing data and orders in an application tier
 - Two MongoDB servers part of a sharded cluster for storing product data and orders in a database tier
 - Two Active Directory domain controllers for customer accounts and suppliers in an authentication tier
-- All of the servers are located on two subnets:
+- All of the servers are located in two subnets:
 	- a front end subnet for the web servers 
 	- a back end subnet for the application servers, MongoDB cluster, and domain controllers
 
@@ -52,7 +52,7 @@ The resulting design must incorporate:
 All of the above will follow these naming conventions:
 
 - Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
-	- For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location, because most of Adventure Work Cycles existing customers are on the East Coast of the United States.
+	- For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
 - Storage accounts use adventureazosusesa**[description]**
 	- Note that 'adventure' was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
 - Virtual networks use AZOS-USE-VN**[number]**
@@ -73,7 +73,7 @@ Adventure Works Cycles determined that they needed two storage accounts:
 - **adventureazosusesadbclust** for the Premium storage of the MongoDB sharded cluster servers and their data disks.
 
 
-## A virtual network with subnets
+## Virtual network and subnets
 
 Because the virtual network does not need ongoing connectivity to the Adventure Work Cycles on-premises network, they decided on a cloud-only virtual network.
 
