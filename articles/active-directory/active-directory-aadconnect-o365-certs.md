@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Certificate renewal guidance for Office 365 and Azure Active Directory users. | Microsoft Azure"
+	pageTitle="Certificate renewal guidance for Office 365 and Azure Active Directory users | Microsoft Azure"
 	description="This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate."
 	services="active-directory"
 	documentationCenter=""
@@ -54,7 +54,7 @@ Azure AD attempts to monitor the federation metadata, and update the token signi
 
 ### Step 1: Check the AutoCertificateRollover state
 
-On your AD FS server, open Microsoft Powershell. Check that the AutoCertificateRollover value is set to True.
+On your AD FS server, open PowerShell. Check that the AutoCertificateRollover value is set to True.
 
 	Get-Adfsproperties
 
@@ -64,9 +64,9 @@ On your AD FS server, open Microsoft Powershell. Check that the AutoCertificateR
 
 ### Step 2: Confirm that AD FS and Azure AD are in sync
 
-On your AD FS server, open the Azure AD Powershell prompt, and connect to Azure AD.
+On your AD FS server, open the Azure AD PowerShell prompt, and connect to Azure AD.
 
->[AZURE.NOTE] You can download Azure AD Powershell [here](https://technet.microsoft.com/library/jj151815.aspx).
+>[AZURE.NOTE] You can download Azure AD PowerShell [here](https://technet.microsoft.com/library/jj151815.aspx).
 
 	Connect-MsolService
 
@@ -82,17 +82,15 @@ If the thumbprints in both the outputs match, your certificates are in sync with
 
 In the output of either Get-MsolFederationProperty or Get-AdfsCertificate, check for the date under "Not After." If the date is less than 30 days away, you should take action.
 
-### Next Step
-
 | AutoCertificateRollover | Certificates in sync with Azure AD | Federation metadata is publicly accessible | Validity | Action |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Yes | Yes | Yes | - | No Action needed. See [Renew token signing certificate automatically](#autorenew). |
+| Yes | Yes | Yes | - | No action needed. See [Renew token signing certificate automatically](#autorenew). |
 | Yes | No  | - | Less than 15 days | Renew immediately. See [Renew token signing certificate manually](#manualrenew). |
 | No | - | - | Less than 30 days | Renew immediately. See [Renew token signing certificate manually](#manualrenew). |
 
 \[-]  Does not matter
 
-## Renew token signing certificate automatically (recommended) <a name="autorenew"></a>
+## Renew the token signing certificate automatically (recommended) <a name="autorenew"></a>
 
 You don't need to perform any manual steps if both of the following are true:
 - You have deployed Web Application Proxy, which can enable access to the federation metadata from the extranet.
@@ -111,7 +109,7 @@ where `(your_FS_name) `is replaced with the federation service host name your or
 
 Example: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## Renew token signing certificate manually <a name="manualrenew"></a>
+## Renew the token signing certificate manually <a name="manualrenew"></a>
 
 You may choose to renew the token signing certificates manually. For example, the following scenarios might work better for manual renewal:
 * Token signing certificates are not self-signed certificates. The most common reason for this is that your organization manages AD FS certificates enrolled from an organizational certificate authority.
@@ -119,9 +117,7 @@ You may choose to renew the token signing certificates manually. For example, th
 
 In these scenarios, every time you update the token signing certificates, you must also update your Office 365 domain by using the PowerShell command, Update-MsolFederatedDomain.
 
-### Renew the token signing certificate and update Office 365 federation trust
-
-#### Step 1: Ensure that AD FS has new token signing certificates
+### Step 1: Ensure that AD FS has new token signing certificates
 
 **Non-default configuration**
 
@@ -148,7 +144,7 @@ On the other hand, if **AutoCertificateRollover** is set to **True**, but your f
 
 Two certificates should be listed now, one of which has a **NotAfter** date of approximately one year in the future, and for which the **IsPrimary** value is **False**.
 
-#### Step 2: Update the new token signing certificates for the Office 365 trust
+### Step 2: Update the new token signing certificates for the Office 365 trust
 
 Update Office 365 with the new token signing certificates to be used for the trust, as follows.
 
