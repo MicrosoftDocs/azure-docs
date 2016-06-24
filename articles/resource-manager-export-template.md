@@ -181,7 +181,9 @@ Although each deployment shows only the changes that you have made to your resou
 
 ## Fixing export issues
 
-Not all resource types support the export template function. You will only encounter this problem when you are exporting a template from an existing resource group. If you export a template from your deployment history, you will get the exact template used for that deployment including all resource types.
+Not all resource types support the export template function. You will only encounter this problem when you are exporting a template from an existing resource group. If you export a template from your deployment history, you will get the exact template used for that deployment including all resource types. 
+
+> [AZURE.NOTE] If your resource group is in the same state as the state defined in the last deployment, you should export the template from the deployment history rather than from the resource group. You will avoid the potential export issues. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
 
 Some resource types are specifically not exported to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
 
@@ -196,7 +198,19 @@ Selecting the message will show you exactly which resource types were not export
 To fix your template:
 
 1. Look at your deployment history and export the template that originally created that resource.
-2. Look in that exported template for the resource that was exported from the resource group. 
+2. In the template exported from the deployment history, look for the resource that was not included when exporting from the resource group. For example, in the properties for the web site, you will find:
+
+        "siteConfig": {
+          "connectionStrings": [
+            {
+              "name": "defaultConnection",
+              "ConnectionString": "[concat('Data Source=tcp:' , reference('Microsoft.SQL/servers/{server-name}').fullyQualifiedDomainName , ',1433;Initial Catalog={database-name};User Id={admin-name}@',reference('Microsoft.SQL/servers/{server-name}').fullyQualifiedDomainName,';Password=',parameters('administratorLoginPassword'),';')]",
+              "type": "SQLAzure"
+            }
+          ]
+        },
+
+     If you haven't manually changed anything in the resource group that would affect this connection string, you can add it back into your template.
 
 ## Next steps
 
