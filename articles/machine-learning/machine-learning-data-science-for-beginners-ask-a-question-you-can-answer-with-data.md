@@ -45,13 +45,13 @@ But if you were to ask a sharp question, like "What will my stock’s sale price
 
 ## Examples of your answer: Target data
 
-![Target data - examples of your answer. Formulate a data science question.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
-
 Once you formulate your question, check to see whether you have examples of the answer in your data.
 
 If our question is “What will my stock’s sale price be next week?” then we have to make sure our data includes the stock price history.
 
 If our question is “Which car in my fleet is going to fail first?” then we have to make sure our data includes information about previous failures.
+
+![Target data - examples of your answer. Formulate a data science question.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
 
 These examples of answers are called a target. A target is what we are trying to predict about future data points, whether it’s a category or a number.
 
