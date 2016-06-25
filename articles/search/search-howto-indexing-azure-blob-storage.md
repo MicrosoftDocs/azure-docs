@@ -32,7 +32,7 @@ An indexer is a resource that connects data sources with target search indexes.
 To set up blob indexing, do the following:
 
 1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account.
-	- Pass in the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from Azure Portal: navigate to the desired storage account blade / Keys and use the "Primary Connection String" or "Secondary Connection String" value. 
+	- Pass in a storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from Azure Portal: navigate to the desired storage account blade / Keys and use the "Primary Connection String" or "Secondary Connection String" value. 
 	- Specify a container name. You can also optionally include a folder using the `query` parameter.
 2. Create a search index with a searchable `content` field. 
 3. Create the indexer by connecting your data source to the target index.
