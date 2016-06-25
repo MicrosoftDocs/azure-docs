@@ -23,9 +23,9 @@ Get a quick introduction to data science from *Data Science for Beginners* in fi
 
 To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
 
-## Transcript: The 5 questions data science answers
-
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
+
+## Transcript: The 5 questions data science answers
 
 Hi! Welcome to the video series *Data Science for Beginners*.
 
