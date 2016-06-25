@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="06/27/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 # Ask a question you can answer with data: Data Science for Beginners video 3
@@ -37,7 +37,7 @@ Learn how to formulate a data science question in Data Science for Beginners vid
   * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Available June 30.
 
 
-  ## Next steps
+## Next steps
 
-    * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
-    * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
+  * [Try your first data science experiment with Azure Machine Learning](machine-learning-create-experiment.md)
+  * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)

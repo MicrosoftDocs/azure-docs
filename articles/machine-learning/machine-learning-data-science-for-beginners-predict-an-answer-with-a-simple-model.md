@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="06/27/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 # Predict an answer with a simple model: Data Science for Beginners video 4

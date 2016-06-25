@@ -35,6 +35,7 @@ Before data science can give you the answers you want, you have to give it some 
 So, in the case of data science, there are some ingredients that we need to pull together.
 
 We need data that is:
+
   *	Relevant
   *	Connected
   *	Accurate
@@ -46,7 +47,7 @@ So the first ingredient - we need data that's relevant.
 
 ![Relevant data vs. irrelevant data - evaluate data](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
 
-Look at the table on the left. We met seven people outside of Boston bars, measured their blood alcohol level, the Red Sox’ batting average in their last game, and the price of milk in the nearest convenience store.
+Look at the table on the left. We met seven people outside of Boston bars, measured their blood alcohol level, the Red Sox batting average in their last game, and the price of milk in the nearest convenience store.
 
 This is all perfectly legitimate data. It’s only fault is that it isn’t relevant. There's no obvious relationship between these numbers. If I gave you the current price of milk and the Red Sox batting average, there's no way you could guess my blood alcohol content.
 
