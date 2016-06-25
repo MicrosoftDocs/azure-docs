@@ -20,7 +20,7 @@
 
 # Is your data ready for data science? Data Science for Beginners video 2
 
-Learn about evaluating your data to make sure it meets some basic criteria so that it's ready for data science.
+Learn about evaluating your data to make sure it meets the basic criteria for data science.
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
