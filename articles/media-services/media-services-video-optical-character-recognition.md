@@ -83,7 +83,7 @@ DetectRegions|(optional) An array of DetectRegion objects specifying regions wit
 
 ##OCR output files
 
-The output of this the OCR media processor is a JSON file.
+The output of the OCR media processor is a JSON file.
 
 ###Elements of the output JSON file
 
