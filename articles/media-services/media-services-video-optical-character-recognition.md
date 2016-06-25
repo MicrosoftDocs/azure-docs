@@ -207,7 +207,7 @@ The following program shows how to:
 		            _context = new CloudMediaContext(_cachedCredentials);
 		
 		            // Run the OCR job.
-		            var asset = RunOCRJob(@"C:\supportFiles\OCR\BigBuckBunny.mp4",
+		            var asset = RunOCRJob(@"C:\supportFiles\OCR\presentation.mp4",
 		                                        @"C:\supportFiles\OCR\config.json");
 		
 		            // Download the job output asset.
