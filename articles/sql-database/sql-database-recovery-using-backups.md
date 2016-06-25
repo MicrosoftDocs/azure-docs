@@ -18,9 +18,10 @@
 
 # Overview: Recover an Azure SQL database using automated database backups
 
-> [AZURE.SELECTOR]
 - [Business continuity overview](sql-database-business-continuity.md)
 - [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- [Automated backups](sql-database-automated backups.md)
+- [Database recovery](sql-database-restore-using-backups.md)
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
 
 SQL Database provides three options for database recovery using [SQL Database automated backups](sql-database-automated-backups.md). You can restore a database from the service-initiated backups during their [retention period](sql-database-service-tiers.md) to:
@@ -42,6 +43,8 @@ The recovery time to restore a database using automated database backups is impa
  - The number of concurrent restore requests being processed in the target region. 
  
  For a very large and/or active database the restore may take several hours. If there is prolonged outage in a region, it is possible that there will be large numbers of Geo-Restore requests being processed by other regions. If there are a large number of requests this may increase the recovery time for databases in that region. The majority of database restores complete within 12 hours.
+
+ There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
 ## Point-In-Time Restore
 

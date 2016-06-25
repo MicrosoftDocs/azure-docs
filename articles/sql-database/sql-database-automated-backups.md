@@ -18,6 +18,12 @@
 
 # Overview: SQL Database automated backups
 
+> [AZURE.SELECTOR]
+- [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- [Automated backups](sql-database-automated-backup.md)
+- [Database recovery](sql-database-restore-using-backups.md)
+- [Active Geo-Replication](sql-database-geo-replication-overview.md)
+
 The Azure SQL Database service protects all databases with an automated backup that is retained for 7 days for Basic, 14 days for Standard, and 35 days for Premium. See [Service-tiers](sql-database-service-tiers.md) for more information features avaiable with each service tier. 
 
 The database backups are taken automatically with no need to opt-in and no additional charges. These automated backups and point-in-time restore provide a zero-cost, zero-admin way to protect databases from accidental corruption or deletion, whatever the cause. You can use these automated backup to perform point-in-time restores and to restore a deleted database after accidental data corruption or deletion.

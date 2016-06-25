@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Continuity scenarios](sql-database-business-continuity-scenarios.md)
-- [Automated backups](sql-database-automated-backup.md)
+- [Automated backups](sql-database-automated backups.md)
 - [Database recovery](sql-database-restore-using-backups.md)
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
 
