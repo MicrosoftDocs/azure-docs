@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/23/2016"
+   ms.date="06/24/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 # Data Science for Beginners video 1: The 5 questions data science answers
@@ -23,17 +23,15 @@ Get a quick introduction to data science from *Data Science for Beginners* in fi
 
 To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
 
-
-## Transcript: The 5 questions data science answers
-
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
+## Transcript: The 5 questions data science answers
 
 Hi! Welcome to the video series *Data Science for Beginners*.
 
 Data Science can be intimidating, so I'll introduce the basics here without any equations or computer programming jargon.
 
-In this first video, we'll talk about "The 5 questions that data science can answer."
+In this first video, we'll talk about "The 5 questions data science answers."
 
 Data Science uses numbers and names (also known as categories or labels) to predict answers to questions.
 
@@ -137,11 +135,12 @@ Reinforcement learning algorithms gather data as they go, learning from trial an
 So that's it - The 5 questions data science can answer.
 
 
+
 ## Other videos in this series
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos. Check out the other four videos:
 
-  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) Available June 27.
+  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **Available now.**
   * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). Available June 28.
   * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md). Available June 29.
   * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Available June 30.
