@@ -26,7 +26,7 @@ Learn about evaluating your data to make sure it meets some basic criteria so th
 
 ## Transcript: Is your data ready for data science?
 
-Welcome to "Is your data is ready for data science?"" the second video in the series *Data Science for Beginners*.  
+Welcome to "Is your data is ready for data science?" the second video in the series *Data Science for Beginners*.  
 
 Before data science can give you the answers you want, you have to give it some high quality raw materials to work with. Just like making a pizza, the better the ingredients you start with, the better the final product.
 
