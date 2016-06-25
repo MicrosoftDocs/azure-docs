@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="06/27/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 
@@ -24,7 +24,7 @@ Learn about evaluating your data to make sure it meets some basic criteria so th
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
-## Transcript
+## Transcript: Is your data ready for data science?
 
 Welcome to "Is your data is ready for data science?"" the second video in the series *Data Science for Beginners*.  
 
@@ -38,11 +38,13 @@ We need data that is:
   *	Relevant
   *	Connected
   *	Accurate
-  *	Enough
+  *	Enough to work with
 
 ## Is your data relevant?
 
 So the first ingredient - we need data that's relevant.
+
+![Relevant data vs. irrelevant data - evaluate data](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
 
 Look at the table on the left. We met seven people outside of Boston bars, measured their blood alcohol level, the Red Sox’ batting average in their last game, and the price of milk in the nearest convenience store.
 
@@ -54,7 +56,45 @@ Now look at the table on the right. This time we measured each person’s body m
 
 The next ingredient is connected data.
 
+![Connected data vs. disconnected data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+
 Here is some relevant data on the quality of hamburgers: grill temperature, patty weight and rating in the local food magazine. But notice the gaps in the table on the left.
+
+Most data sets are missing some values. It's common to have holes like this and there are ways to work around them. But if there's too much missing, your data begins to look like Swiss cheese.
+
+If you look at the table on the left, there's so much missing data, it's hard to come up with any kind of relationship between grill temperature and patty weight. This is an example of disconnected data.
+
+The table on the right, though, is full and complete - an example of connected data.
+
+## Is your data accurate?
+
+The next ingredient we need is accuracy. Here are 4 targets that we’d like to hit with arrows.
+
+![Accurate data vs. inaccurate data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
+
+Look at the target in the upper-right. We’ve got a tight grouping right around the bullseye. That, of course, is accurate. Oddly, in the language of data science, our performance on the target right below it is also considered accurate.
+
+If you were to map out the center of these arrows, you'd see that it's very close to the bullseye. The arrows are spread out all around the target, so they're considered imprecise, but they're centered around the bullseye, so they're considered accurate.
+
+Now look at the upper-left target. Here our arrows hit very close together, a tight grouping. They're precise, but they're inaccurate because the center is way off the bullseye. And, of course, the arrows in the bottom-left target are both inaccurate and imprecise. This archer needs more practice.
+
+## Do you have enough data to work with?
+
+Finally, ingredient #4 - we need to have enough data.
+
+![Do you have enough data for analysis? Data evaluation](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
+
+Think of each data point in your table as being a brush stroke in a painting. If you have only a few of them, the painting can be pretty fuzzy - it's hard to tell what it is.
+
+If you add some more brush strokes, then your painting starts to get a little sharper.
+
+When you have barely enough strokes, you can see just enough to make some broad decisions. Is it somewhere I might want to visit? It looks bright, that looks like clean water – yes, that’s where I’m going on vacation.
+
+As you add more data, the picture becomes clearer and you can make more detailed decisions. Now I can look at the three hotels on the left bank. You know, I really like the architectural features of the one in the foreground. I’ll stay there, on the third floor.
+
+With data that's relevant, connected, accurate, and enough, we have all the ingredients we need to do some high quality data science.
+
+Be sure to check out the other 4 videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
 
 
 ## Other videos in the series
