@@ -3,7 +3,7 @@
 	description="Azure Media Analytics OCR (optical character recognition) enables you to convert text content in video files into editable, searchable digital text.  This allows you to automate the extraction of meaningful metadata from the video signal of your media."
 	services="media-services"
 	documentationCenter=""
-	authors="juliako;adsolank"
+	authors="juliako"
 	manager="erikre"
 	editor=""/>
 
@@ -349,5 +349,3 @@ The following program shows how to:
 ##Related links
 
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
-
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
