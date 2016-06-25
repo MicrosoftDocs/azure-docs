@@ -61,11 +61,11 @@ If you don’t have any target data, you’ll need to get some. You won’t be a
 
 Sometimes you can reword your question to get a more useful answer.
 
-The question Is this data point A or B? predicts the category (or name or label) of something. To answer it, we use a classification algorithm.
+The question "Is this data point A or B?" predicts the category (or name or label) of something. To answer it, we use a *classification algorithm*.
 
-The question How much? or How many? predicts an amount. To answer it we use a regression algorithm.
+The question "How much?" or "How many?" predicts an amount. To answer it we use a *regression algorithm*.
 
-To see how we can transform these, let’s look at the question, “Which news story is the most interesting to this reader?” It asks for a prediction of a single choice from many possibilities—in other words Is this A or B or C or D?— and would use a classification algorithm.
+To see how we can transform these, let’s look at the question, “Which news story is the most interesting to this reader?” It asks for a prediction of a single choice from many possibilities—in other words "Is this A or B or C or D?""— and would use a classification algorithm.
 
 But, this question may be easier to answer if you reword it as “How interesting is each story on this list to this reader?” Now you can give each article a numerical score, and then it’s easy to identify the highest-scoring article. This is a rephrasing of the classification question into a regression question or How much?
 
