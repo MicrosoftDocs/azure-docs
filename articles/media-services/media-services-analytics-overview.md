@@ -58,7 +58,7 @@ Below are a couple of scenarios where Azure Media Analytics can help organizatio
 
 ## Media Services Analytics Media Processors 
 
-This section lists all the Media Services Analytics Media Processors (MP) and shows how use .NET or REST to get an MP.
+This section lists all the Media Services Analytics Media Processors (MP) and shows how use .NET or REST to get a MP object.
 
 ### MP names
 
