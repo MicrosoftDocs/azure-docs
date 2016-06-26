@@ -16,7 +16,7 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-## Partners
+# Partners
 
 ## Overview
 
@@ -32,7 +32,7 @@
 3. Select the **integration account** to which you will add the partners  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
 4.  Select the **Partners** tile  
-![](./media/app-service-logic-enterprise-integration-partners/partner-1.PNG)
+![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
 5. Select the **Add** button in the Partners blade that opens  
 ![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)
 6. Enter a **Name** for your partner, then select the **Qualifier **, finally, enter a **Value**. The value is used to help identify documents that come into your apps.  

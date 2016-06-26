@@ -32,7 +32,7 @@ Sometimes, B2B communications need to be kept confidential. Enterprise integrati
 You can use either public or private certificates and these certificates can be stored securely in your Azure subscription. 
 
 ## How to create it?
-To use a certificate in your enterprise integration apps, you first need to upload it into your integration account. After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./enterprise-integration-agreements.md). 
+To use a certificate in your enterprise integration apps, you first need to upload it into your integration account. After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md). 
 
 You can use two types of certificates in your enterprise integration apps:
 - Public certificates, which must be purchased from a certification authority (CA)

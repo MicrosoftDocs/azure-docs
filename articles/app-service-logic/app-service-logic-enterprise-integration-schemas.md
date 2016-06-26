@@ -32,7 +32,7 @@
 3. Select the **integration account** to which you will add the schema    
 ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
 4.  Select the **Schemas** tile  
-![](./media/app-service-logic-enterprise-integration-schemas/schema-1.PNG)
+![](./media/app-service-logic-enterprise-integration-schemas/schema-1.png)
 5. Select the **Add** button in the Schemas blade that opens  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-2.png)
 6. Enter a **Name** for your schema, then to upload the schema file, select the folder icon on the right side of the **Schema** text box. After the upload process is completed, select the **OK** button.    
