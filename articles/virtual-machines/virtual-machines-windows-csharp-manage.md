@@ -19,9 +19,11 @@
 
 # Manage Azure Virtual Machines using Azure Resource Manager and C#  
 
+The tasks in this article show you how to manage virtual machines, such as starting, stopping, and updating.
+
 To complete the tasks in this article, you need:
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx).
+- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [An authentication token](../resource-group-authenticate-service-principal.md)
 
 ## Create a Visual Studio project and install packages
