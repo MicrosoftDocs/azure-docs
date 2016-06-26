@@ -75,7 +75,7 @@ Now that the Azure Active Directory application is created and the authenticatio
           return token;
         }
 	
-    Replace {client-id} with the application identifier that you recorded earlier, {client-secret} with the access key for the AD application, and {tenant-id} with the tenant identifier for your subscription.
+    Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
     
 4. Add this code to the Main method in Program.cs to create the credentials:
 

@@ -21,19 +21,15 @@
 
 By using resource groups and templates, you're able to manage all of the resources together that support your application. This article shows you how to set up authentication and storage using Azure PowerShell, and then build and deploy a template using C# to create Azure resources.
 
-To complete this tutorial, you need:
+You first need to make sure you've done this:
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-- [An authentication token](../resource-group-authenticate-service-principal.md)
+- Install [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
+- Verify the installation of [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
+- Get an [authentication token](../resource-group-authenticate-service-principal.md)
 
 It takes about 30 minutes to do these steps.
-
-## Step 1: Install Azure PowerShell
-
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
     
-## Step 2: Create a resource group for template storage
+## Step 1: Create a resource group for template storage
 
 All resources must be deployed in a resource group. See [Azure Resource Manager overview](../resource-group-overview.md) for more information.
 
@@ -58,7 +54,7 @@ All resources must be deployed in a resource group. See [Azure Resource Manager 
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
     
-## Step 3: Create a storage account and the templates container
+## Step 2: Create a storage account and the templates container
 
 A storage account is needed to store the template that you are going to create and deploy.
 
@@ -79,7 +75,7 @@ A storage account is needed to store the template that you are going to create a
         $ctx = New-AzureStorageContext -ConnnectionString $ConnectionString
         New-AzureStorageContainer -Name "templates" -Permission Blob -Context $ctx
 
-## Step 4: Create the Visual Studio project, the template file, and the parameters file
+## Step 3: Create the Visual Studio project, the template file, and the parameters file
 
 ### Create the template file
 
@@ -322,7 +318,7 @@ The template file and the parameters file are accessed by Azure Resource Manager
 
 3. Click the Upload Blob icon again, browse to the Parameters.json file that you created, and then click **Open**.
 
-## Step 5: Install the libraries
+## Step 4: Install the libraries
 
 NuGet packages are the easiest way to install the libraries that you need to finish this tutorial. You must install the Azure Resource Management Library and the Azure Active Directory Authentication Library. To get these libraries in Visual Studio, do this:
 
@@ -334,7 +330,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 Now you're ready to start using the libraries to create your application.
 
-##Step 6: Create the credentials that are used to authenticate requests
+##Step 5: Create the credentials that are used to authenticate requests
 
 The Azure Active Directory application is created and the authentication library is installed, now you format the application information into credentials that are used to authenticate requests to the Azure Resource Manager. Do this:
 
@@ -360,7 +356,7 @@ The Azure Active Directory application is created and the authentication library
           return token;
         }
 
-    Replace {client-id} with the application identifier that you recorded earlier, {client-secret} with the access key for the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the client informtation by accessing the application in the portal and you can find the tenant id by running Get-AzureRmSubscription.
+    Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
 
 3. Add this code to the Main method in the Program.cs file to create the credentials:
 
@@ -369,7 +365,7 @@ The Azure Active Directory application is created and the authentication library
 
 4. Save the Program.cs file.
 
-## Step 7: Add the code to deploy the template
+## Step 6: Add the code to deploy the template
 
 In this step, you use the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes to create the resource group that the resources are deployed to.
 
@@ -449,7 +445,7 @@ In this step, you use the [ResourceGroup](https://msdn.microsoft.com/library/azu
         Console.WriteLine(dpResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
-##Step 8: Add the code to delete the resources
+##Step 7: Add the code to delete the resources
 
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. Just delete the resource group and all of its resources are automatically deleted.
 
@@ -474,7 +470,7 @@ Because you are charged for resources used in Azure, it is always a good practic
           subscriptionId);
         Console.ReadLine();
 
-##Step 9: Run the console application
+##Step 8: Run the console application
 
 1.	To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same credentials that you use with your subscription.
 

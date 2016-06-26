@@ -21,7 +21,7 @@
 
 This article shows you how to create Azure resources using C#.
 
-To complete this tutorial you first need to make sure you've done this:
+You first need to make sure you've done this:
 
 - Install [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - Verify the installation of [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
@@ -83,7 +83,7 @@ The Azure Active Directory application is created and the authentication library
           return token;
         }
 
-	Replace {client-id} with the application identifier that you recorded earlier, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
+	Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
 
 3. Add this code to the Main method in the Program.cs file to create the credentials:
 
