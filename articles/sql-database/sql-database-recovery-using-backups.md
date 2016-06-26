@@ -16,12 +16,12 @@
    ms.date="06/09/2016"
    ms.author="sstein"/>
 
-# Overview: Recover an Azure SQL database using automated database backups
+# Recover an Azure SQL database using automated database backups
 
-- [Business continuity overview](sql-database-business-continuity.md)
-- [Continuity scenarios](sql-database-business-continuity-scenarios.md)
-- [Automated backups](sql-database-automated backups.md)
-- [Database recovery](sql-database-restore-using-backups.md)
+> [AZURE.SELECTOR]
+- [Business continuity](sql-database-business-continuity.md)
+- [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
+- [Database recovery](sql-database-recovery-using-backups.md)
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
 
 SQL Database provides three options for database recovery using [SQL Database automated backups](sql-database-automated-backups.md). You can restore a database from the service-initiated backups during their [retention period](sql-database-service-tiers.md) to:
@@ -71,7 +71,7 @@ Deleted database restore allows you to restore a deleted database to the deletio
 - [Deleted datbase restore: Azure portal](sql-database-restore-deleted-database-portal.md)
 - [Deleted datbase restore: PowerShell](sql-database-restore-deleted-database-powershell.md)
 
-> [AZURE.IMPORTANT] If you delete an Azure SQL Database server instance, all of its databases are also deleted and cannot be recovered. 
+> [AZURE.IMPORTANT] If you delete an Azure SQL Database server instance, all of its databases are also deleted and cannot be recovered. There is no support for restoring a deleted server at this time.
 
 ## Geo-Restore
 
@@ -89,6 +89,30 @@ For detailed information about using Geo-Restore to recover from an outage, see 
 
 > [AZURE.IMPORTANT] While Geo-Restore is available with all service tiers, it is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB Geo-Restore provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if significantly shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using Active Geo-Replication. Active Geo-Replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
 
+## Programmatically performing recovery using automated backups
+
+As discussed above, in addiition to the Aazure portal, database recovery can be performed programmically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
+
+### PowerShell
+
+|Cmdlet|Description|
+|------|-----------|
+|[Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx)|Gets one or more databases.|
+|[Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/en-us/library/azure/mt693387.aspx)|Gets a deleted database that you can restore.|
+|[Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx)|Gets a geo-redundant backup of a database.|
+|[Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx)|Restores a SQL database.|
+||||
+
+### REST API
+
+|API|Description|
+|---|-----------|
+|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Restores a database|
+|[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Returns the status during a restore operation|
+||||
+
+
+
 ## Summary
 
 Automatic backups protect your databases from user and application errors, accidental database deletion, and prolonged outages. This zero-cost zero-admin solution is available with all SQL databases. 
@@ -96,13 +120,7 @@ Automatic backups protect your databases from user and application errors, accid
 ## Next steps
 
 - For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
-- To understand business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
 - To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
-- To learn about using automated backups for a archiving, see [database copy](sql-database-copy.md)
-
-## Additional resources
-
-- [Recover from an outage](sql-database-disaster-recovery.md)
-- [Recover from a user error](sql-database-user-error-recovery.md)
-- [Performing a disaster recovery drill](sql-database-disaster-recovery-drills.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

@@ -16,11 +16,11 @@
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
-# Overview: SQL Database automated backups
+# SQL Database automated backups
 
 > [AZURE.SELECTOR]
-- [Continuity scenarios](sql-database-business-continuity-scenarios.md)
-- [Automated backups](sql-database-automated-backup.md)
+- [Business continuity](sql-database-business-continuity.md)
+- [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
 - [Database recovery](sql-database-restore-using-backups.md)
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
 
@@ -52,18 +52,20 @@ You can [restore a database from the service-initiated backups](sql-database-rec
 
 You can also use [SQL Database automated backups](sql-database-automated-backups.md) to create a [database copy](sql-database-copy.md) on any logical server in any region that is transactionally consistent with the current SQL Datbase. You can use database copy and [export to a BACPAC](sql-database-export.md) to archive a transactionally consistent copy of a database for long-term storage beyond your retention period, or to transfer a copy of your database to an on-premises or Azure VM instance of SQL Server.
 
+## What happens to my restore point retention period when I downgrade/upgrade by service tier?
+
+After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded from P1 to S3, the retention period will change from 35 days to 14 days immediately, all the restore points prior to 14 days will no longer be available. Subsequently, if it is upgraded to P1 again, the retention period would begin from 14 days and start building up to 35 days.
+
+## How long is the retention period for a dropped DB? 
+The retention period is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.
+
+> [AZURE.IMPORTANT] If you delete an Azure SQL Database server instance, all of its databases are also deleted and cannot be recovered. There is no support for restoring a deleted server at this time.
 
 ## Next steps
 
 - For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
-- To understand business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
-- To understand how to use automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
 - To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
-- To learn about using automated backups for a archiving, see [database copy](sql-database-copy.md)
-
-## Additional resources
-
-- [Recover from an outage](sql-database-disaster-recovery.md)
-- [Recover from a user error](sql-database-user-error-recovery.md)
-- [Performing a disaster recovery drill](sql-database-disaster-recovery-drills.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

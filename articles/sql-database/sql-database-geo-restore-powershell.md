@@ -20,9 +20,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-geo-restore.md)
-- [Azure Portal](sql-database-geo-restore-portal.md)
-- [PowerShell](sql-database-geo-restore-powershell.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Geo-Restore: Azure Portal](sql-database-geo-restore-portal.md)
 
 This article shows you how to restore your database into a new server using Geo-Restore using PowerShell.
 
@@ -56,6 +55,11 @@ This article shows you how to restore your database into a new server using Geo-
 - For a full discussion about how to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md)
 
 
-## Additional resources
+## Next steps
 
-- [Business Continuity Scenarios](sql-database-business-continuity-scenarios.md)
+- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
