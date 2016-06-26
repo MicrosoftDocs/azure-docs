@@ -172,7 +172,7 @@ Refer to [Using storage cmdlets to check a container for recent data](../storage
 
 #### Verify the Log Analytics solution for the service is enabled 
 
-If you use `Add-AzureDiagnostiToLogAnalytics-UI` the correct Log Analytics solution is automatically enabled for you.
+If you use `Add-AzureDiagnostiToLogAnalyticsUI` the correct Log Analytics solution is automatically enabled for you.
 
 To check if a solution is enabled, run the following PowerShell:
 
@@ -223,8 +223,8 @@ Before Log Analytics can collect data for these resources, Azure diagnostics mus
 
 For virtual machines, we recommend using the [Log Analytics VM extension for Azure VMs](log-analytics-windows-agents.md) to gain additional insights.
  
-In addition to being able to analyze IIS logs and Event Logs you will also allow be able to perform additional analysis 
-including configuration change tracking, SQL assessment and update assessment.
+In addition to being able to analyze IIS logs and Event Logs you will also be able to perform additional analysis 
+including configuration change tracking, SQL assessment, and update assessment.
 
 ### Enable Azure diagnostics in a virtual machine for event log and IIS log collection using PowerShell
 
@@ -233,7 +233,7 @@ Refer to [Enabling Diagnostics in Azure Virtual Machines](../virtual-machines-do
 
 You can enable and update the Agent using the following PowerShell script. 
 You can also use this script with a custom logging configuration. 
-You will need to modify the script to set the storage account, service name and virtual machine name.
+You will need to modify the script to set the storage account, service name, and virtual machine name.
 The script using cmdlets for classic virtual machines.
 
 Review the following script sample, copy it, modify it as needed, save the sample as a PowerShell script file, and then run the script.
