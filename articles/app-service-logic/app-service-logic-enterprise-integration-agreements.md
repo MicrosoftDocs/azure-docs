@@ -28,9 +28,9 @@ An agreement is a communications arrangement between B2B trading partners. An ag
 
 Enterprise integration supports three protocol/transport standards:
 
-- [AS2](./enterprise-integration-as2.md)
-- [X12](./enterprise-integration-x12.md)
-- [EDIFACT](./enterprise-integration-edifact.md)
+- [AS2](./app-service-logic-enterprise-integration-as2.md)
+- [X12](./app-service-logic-enterprise-integration-x12.md)
+- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
 ## Why use agreements?
 Some of the common benefits of using agreements are:
@@ -40,13 +40,13 @@ Some of the common benefits of using agreements are:
 
 ## How to create agreements?
 ### Here's what you need before you get started
-- An [integration account](./enterprise-integration-account.md) defined in your Azure subscription
-- At least two [partners](./enterprise-integration-partners.md) already defined in your integration account  
+- An [integration account](./app-service-logic-enterprise-integration-account.md) defined in your Azure subscription
+- At least two [partners](./app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
 
 >[AZURE.NOTE]When creating an agreement, the content in the agreement file must match the agreement type. 
 
 ### Create an agreement
-After you've [created an integration account](./enterprise-integration-accounts.md) and [added partners](./enterprise-integration-partners.md), you can create an agreement by following these steps: 
+After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an agreement by following these steps: 
 
 #### From the Azure portal home page
 

@@ -16,14 +16,14 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-## Integration accounts
+# Integration accounts
 
-### What is an integration account?
+## What is an integration account?
 An integration account is an Azure account that allows Enterprise Integration apps to manage artifacts including shemas, maps, certificates, partners and agreements. Any integration app you create will need to use an integration account in order to access a schema, map or certificate, for example.
 
-### What is an integration account used for?
+## What is an integration account used for?
 
-### Create an integration account 
+## Create an integration account 
 
 1. On the Azure Portal's home page, select Web + Mobile
 2. Select **New** 
