@@ -40,5 +40,12 @@ An integration account is an Azure account that allows Enterprise Integration ap
 ## Managing an integration account
 - life cycle (delete, disable, enable, what does it have access to, etc.)
 
+## How to manage an integration account?
+todo:
+## How to delete an integration account?
+todo:
+
+##Next Steps
+
 
  

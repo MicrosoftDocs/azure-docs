@@ -17,31 +17,40 @@
 	ms.author="deonhe"/>
 
 # Partners
-
+todo:
 ## Overview
-
+todo:
 ## What is it?
-
+todo:
 ## Why would I use it?
-
+todo:
 ## How to create it?
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
 3. Select the **integration account** to which you will add the partners  
-![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
+![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
 4.  Select the **Partners** tile  
-![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
+![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)  
 5. Select the **Add** button in the Partners blade that opens  
-![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)
+![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)  
 6. Enter a **Name** for your partner, then select the **Qualifier **, finally, enter a **Value**. The value is used to help identify documents that come into your apps.  
-![](./media/app-service-logic-enterprise-integration-partners/partner-3.png) 
+![](./media/app-service-logic-enterprise-integration-partners/partner-3.png)  
 7. Select the *bell* notification icon to see the progress of the partner creation process.  
-![](./media/app-service-logic-enterprise-integration-partners/partner-4.png) 
+![](./media/app-service-logic-enterprise-integration-partners/partner-4.png)  
 8. Select the **Partners** tile. This refreshes the tile and you should see the number of partners increase, reflecting the new partner has been added successfully.    
-![](./media/app-service-logic-enterprise-integration-partners/partner-5.png) 
+![](./media/app-service-logic-enterprise-integration-partners/partner-5.png)  
 10. After you select the Partners tile, you will also see the newly added partner displayed in the Partners blade.    
-![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)
+![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)  
+
+## How do edit a partner?
+- todo:
+
+## How to delete a partner?
+- todo:
+
+## Next steps
+todo: 
 
 todo: things not working: agreements last, partner edit isn't there...maybe 

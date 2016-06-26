@@ -16,4 +16,6 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# Enterprise integration x12  
+# Enterprise integration with X12 
+
+todo: 

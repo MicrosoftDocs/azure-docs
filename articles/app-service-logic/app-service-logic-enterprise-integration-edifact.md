@@ -16,7 +16,7 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# EDIFACT
+# Enterprise integration with EDIFACT
 
 >[AZURE.NOTE] Enterprise integration is currently in preview. Support for EDIFACT is coming soon. In the meantime, check out all the other features that are already available in the [enterprise integration preview](./app-service-logic-enterprise-integration-overview.md).
 
