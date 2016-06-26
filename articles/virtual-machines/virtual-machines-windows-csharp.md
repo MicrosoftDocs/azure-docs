@@ -19,13 +19,13 @@
 
 # Deploy Azure Resources using C# 
 
-This article shows you how to set up authentication and storage using Azure PowerShell, and then create Azure resources using C#.
+This article shows you how to create Azure resources using C#.
 
-To complete this tutorial you also need:
+To complete this tutorial you first need to make sure you've done this:
 
-- [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-- [An authentication token](../resource-group-authenticate-service-principal.md)
+- Install [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
+- Verify the installation of [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
+- Get an [authentication token](../resource-group-authenticate-service-principal.md)
 
 It takes about 30 minutes to do these steps.
 
@@ -83,7 +83,7 @@ The Azure Active Directory application is created and the authentication library
           return token;
         }
 
-	Replace {application-id} with the application identifier that you recorded earlier, {password} with the password that you chose for the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription.
+	Replace {client-id} with the application identifier that you recorded earlier, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
 
 3. Add this code to the Main method in the Program.cs file to create the credentials:
 
@@ -108,9 +108,7 @@ All resources must be contained in a resource group. Before you can add resource
         var subnetName = "subnet name";
         var vnetName = "virtual network name";
         var nicName = "network interface name";
-        var avSetName = "availability set name";      
-        
-        
+        var avSetName = "availability set name";
         var vmName = "virtual machine name";  
         var adminName = "administrator account name";
         var adminPassword = "administrator account password";
@@ -170,7 +168,8 @@ A [storage account](../storage/storage-create-storage-account.md) is needed to s
             storageName,
             new StorageAccountCreateParameters()
             {
-              Sku = new Microsoft.Azure.Management.Storage.Models.Sku() { Name = SkuName.StandardLRS},
+              Sku = new Microsoft.Azure.Management.Storage.Models.Sku() 
+                { Name = SkuName.StandardLRS},
               Kind = Kind.Storage,
               Location = location
             }
