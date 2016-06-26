@@ -98,7 +98,7 @@ Designing your application for business continuity requires you to answer the fo
 
 ### When to use Geo-Restore
 
-[Geo-Restore](sql-database-geo-restore.md) provides the default recovery option when a database is unavailable because of an incident in the region where it's hosted. SQL Database provides built-in basic protection for every database by default. It is done by performing and storing the [database backups](sql-database-automated-backups.md) in the geo-redundant Azure storage (GRS). If you choose this method, no special configuration or additional resource allocation is necessary. You can recover your database to any region by restoring from these automated geo-redundant backups to a new database. 
+[Geo-Restore](sql-database-recovery-using-backups.md#geo-restore) provides the default recovery option when a database is unavailable because of an incident in the region where it's hosted. SQL Database provides built-in basic protection for every database by default. It is done by performing and storing the [database backups](sql-database-automated-backups.md) in the geo-redundant Azure storage (GRS). If you choose this method, no special configuration or additional resource allocation is necessary. You can recover your database to any region by restoring from these automated geo-redundant backups to a new database. 
 
 You should use the built-in protection if your application meets the following criteria:
 

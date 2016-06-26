@@ -159,7 +159,7 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 ## Next steps
 
 - For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-geo-restore.md)
+- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore.md)
 
 ## Next steps
 

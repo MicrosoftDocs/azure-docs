@@ -38,11 +38,6 @@ To restore a database in the Azure Portal do the following:
 
 4.  Specify a database name, a server you want to restore the database into and then click Create:
 
-## Next steps
-
-- For detailed steps on how to restore an Azure SQL Database using the Azure portal from a geo-redundant backup, see [Geo-Restore using the Azure Portal](sql-database-geo-restore-portal.md)
-- For detailed detailed information regarding restoring an Azure SQL Database from a geo-redundant backup, see[Geo-Restore using PowerShell](sql-database-geo-restore.md)
-- For a full discussion about how to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md)
 
 ## Next steps
 
