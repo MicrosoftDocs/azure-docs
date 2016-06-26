@@ -16,3 +16,4 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
+# Enterprise integration AS2

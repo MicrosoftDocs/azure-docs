@@ -53,11 +53,11 @@ After you've [created an integration account](./enterprise-integration-accounts.
 After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 1. Select **Browse** from the menu on the left.  
 >[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
-![](./images/agreement-1.PNG)    
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
- ![](./images/agreement-2.PNG)
-3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./enterprise-integration-accounts.md "All about integration accounts").     
-![](./images/agreement-5.PNG)
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./enterprise-integration-accounts.md "All about integration accounts").  
+![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
 4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)
 5. Select the **Add** button in the Agreements blade that opens.  

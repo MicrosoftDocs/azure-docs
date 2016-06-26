@@ -26,11 +26,11 @@
 
 ## How to create it?
 1. Select **Browse**  
-![](./images/agreement-1.PNG)    
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./images/agreement-2.PNG)
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Select the **integration account** to which you will add the partners  
-![](./images/agreement-5.PNG)
+![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
 4.  Select the **Partners** tile  
 ![](./media/app-service-logic-enterprise-integration-partners/partner-1.PNG)
 5. Select the **Add** button in the Partners blade that opens  

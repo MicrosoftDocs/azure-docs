@@ -40,11 +40,11 @@ You can use two types of certificates in your enterprise integration apps:
 
 Here are the detailed steps to upload your certificates into your integration account after you log into the Azure portal:   
 1. Select **Browse**  
-![](./images/agreement-1.png)    
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./images/agreement-2.png)
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 3. Select the **integration account** to which you will add the map  
-![](./images/agreement-5.png)
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 4.  Select the **Maps** tile  
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)
 5. Select the **Add** button in the Maps blade that opens  

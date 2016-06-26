@@ -29,11 +29,11 @@ Let's assume you regularly receive B2B orders or invoices from a customers who u
 
 ## How to create it?
 1. Select **Browse**  
-![](./images/agreement-1.PNG)    
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./images/agreement-2.PNG)
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 3. Select the **integration account** to which you will add the map  
-![](./images/agreement-5.PNG)
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 4.  Select the **Maps** tile  
 ![](./media/app-service-logic-enterprise-integration-maps/map-1.png)
 5. Select the **Add** button in the Maps blade that opens  
