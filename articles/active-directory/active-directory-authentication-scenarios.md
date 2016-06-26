@@ -464,6 +464,6 @@ When the first application uses its authorization code to get a JWT access token
 
 [Azure Active Directory Code Samples](active-directory-code-samples.md)
 
-[Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+[Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
