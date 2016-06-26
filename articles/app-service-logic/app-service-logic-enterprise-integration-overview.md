@@ -63,10 +63,10 @@ For pricing information and a list of what is included with each service tier, s
 
 
 ## Learn more about:
-- [Schemas](./app-service-logic-apps-enterprise-integration-schemas.md "Lean about enterprise integration schemas")
-- [Maps](./app-service-logic-apps-enterprise-integration-maps.md "Lean about enterprise integration schemas")
-- [Certificates](./app-service-logic-apps-enterprise-integration-certificates.md "Lean about enterprise integration schemas")
-- [Partners](./app-service-logic-apps-enterprise-integration-partners.md "Lean about enterprise integration schemas")
+- [Schemas](./app-service-logic-enterprise-integration-schemas.md "Lean about enterprise integration schemas")
+- [Maps](./app-service-logic-enterprise-integration-maps.md "Lean about enterprise integration schemas")
+- [Certificates](./app-service-logic-enterprise-integration-certificates.md "Lean about enterprise integration schemas")
+- [Partners](./app-service-logic-enterprise-integration-partners.md "Lean about enterprise integration schemas")
 
 - Roadmap -- addressed elsewhere, in blog, etc. not covered in docs usually.
 
