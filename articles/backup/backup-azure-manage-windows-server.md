@@ -104,9 +104,13 @@ You choose the columns you want to appear as part of the alert with the **Choose
 >[AZURE.NOTE] From the **Settings** blade, you manage backup alerts by selecting **Monitoring and Reports > Alerts and Events > Backup Alerts** and then clicking **Filter** or **Configure Notifications**.
 
 ## Manage Backup items
-Managing on-premises backups is now available in the management portal. In the Backup section of the dashboard, the **Backup Items** tiles shows the number of backup items protected to the vault.
+Managing on-premises backups is now available in the management portal. In the Backup section of the dashboard, the **Backup Items** tile shows the number of backup items protected to the vault.
 
-Click **File-Folders** in the Backup Items tile. The Backup Items blade opens with the filter set to File-Folder where you see each specific backup item listed.
+Click **File-Folders** in the Backup Items tile.
+
+![Backup items tile](./media/backup-azure-manage-windows-server/backup-items-tile.png)
+
+The Backup Items blade opens with the filter set to File-Folder where you see each specific backup item listed.
 
 ![Backup items](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
