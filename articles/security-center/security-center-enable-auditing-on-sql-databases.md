@@ -38,7 +38,8 @@ This recommendation applies to the Azure SQL service only; doesn't include SQL r
 
 4. Follow the steps in [Get started with SQL database auditing](../sql-database/sql-database-auditing-get-started.md) to configure storage where your audit logs will be stored. The subscription's storage account for data collection is the default storage account.
 
-  > [AZURE.NOTE] Use the same storage account for all audited servers to get the most out of the auditing reports templates.
+  **TIP:** Use the same storage account for all audited servers to get the most out of the auditing reports templates.
+
 5. Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 
 ## Next steps
