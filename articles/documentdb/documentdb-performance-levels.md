@@ -31,7 +31,7 @@ After reading this article, you'll be able to answer the following questions:
 
 Each DocumentDB collection created under a Standard account is provisioned with an associated performance level. Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. DocumentDB supports both user-defined performance levels and pre-defined performance levels.  
 
-Each performance level has an associated [request unit (RU)](http://go.microsoft.com/fwlink/?LinkId=735027) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. 
+Each performance level has an associated [request unit (RU)](documentdb-request-units.md) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -114,7 +114,7 @@ For more information about the change to the pricing options, see  the blog post
 
       ![Screen shot of the DocumentDB Settings and Choose your pricing tier blades](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
-6. Back in the **Settings** blade, the **Pricing Tier** is changed to **Standard** and the **Throughput (RU/s)** box is displayed with a default value of 400. Set the throughput between 400 and 10,000 [Request units](../articles/documentdb/documentdb-request-units.md)/second (RU/s). The **Pricing Summary** at the bottom of the page updates automatically to provide an estimate of the monthly cost.
+6. Back in the **Settings** blade, the **Pricing Tier** is changed to **Standard** and the **Throughput (RU/s)** box is displayed with a default value of 400. Set the throughput between 400 and 10,000 [Request units](documentdb-request-units.md)/second (RU/s). The **Pricing Summary** at the bottom of the page updates automatically to provide an estimate of the monthly cost.
     
 	![Screen shot of the Settings blade showing where to change the throughput value](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
