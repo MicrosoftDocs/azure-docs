@@ -285,7 +285,7 @@ In a high availability cluster, you will find a link to the current active HBase
 
 ##Delete the cluster
 
->[AZURE.NOTE] It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
+It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

@@ -48,15 +48,15 @@ In this section, you will create a Linux-based HBase cluster in HDInsight using 
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 
-	A lot of properties have been hard-coded into the template. For example:
-    
-	* Location: East US
-	* Cluster worker node count: 4
-	* Default storage account: &lt;Cluster Name>store
-	* Virtual network name: &lt;Cluster Name>*vnet
-	* Virtual network address space: 10.0.0.0/16
-	* Subnet name: default
-	* Subnet address range: 10.0.0.0/24
+	Some properties have been hard-coded into the template. For example:
+
+	- Location: East US
+	- Cluster worker node count: 4
+	- Default storage account: &lt;Cluster Name>store
+	- Virtual network name: &lt;Cluster Name>*vnet
+	- Virtual network address space: 10.0.0.0/16
+	- Subnet name: default
+	- Subnet address range: 10.0.0.0/24
 
 3. Click **OK** to save the parameters.
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
@@ -75,7 +75,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 	* Use a Web browser to make an Ambari call:
 	
-		Browse to https://&lt;ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/hosts?minimal_response=true. It turns a JSON file with the DNS suffixes.
+		Browse to https://&lt;ClusterName>.azurehdinsight.net/api/v1/clusters/&lt;ClusterName>/hosts?minimal_response=true. It turns a JSON file with the DNS suffixes.
 
 	* Use the Ambari website:
 
