@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="awills"/>
 
 # Navigation and Dashboards in the Application Insights portal
@@ -80,7 +80,7 @@ Once a tile is on the dashboard, you can adjust it.
 
 1. Add a chart to the tile. 
 2. Set the metric, group-by dimension and style (table, graph) of a chart.
-3. Set the timespan and filter properties for the charts on the tile.
+3. Set the timespan and filter properties for the charts on the tile. You can set the chart's own timespan, or inherit from the timespan of the dashboard.
 4. Set tile title.
 
 Tiles pinned from metric explorer blades have more editing options than tiles pinned from an  Overview blade.

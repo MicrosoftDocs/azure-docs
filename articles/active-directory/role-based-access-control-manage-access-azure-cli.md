@@ -74,7 +74,7 @@ Once you have identified the role you wish to assign, to grant access use:
 ###	Assign role to group at subscription scope
 To assign a role to a group at the subscription scope use:
 
-	azure role assignment create --objId  <group's object id> --role <name of role> --scope <subscription/subscription id>
+	azure role assignment create --objectId  <group's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 The following example assigns the *Reader* role to *Christine Koch's Team* at the *subscription* scope.
 
@@ -83,7 +83,7 @@ The following example assigns the *Reader* role to *Christine Koch's Team* at th
 ###	Assign role to application at subscription scope
 To assign a role to an application at the subscription scope use:
 
-    azure role assignment create --objId  <applications's object id> --role <name of role> --scope <subscription/subscription id>
+    azure role assignment create --objectId  <applications's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 Following example grants the *Contributor* role to an *Azure AD* application on the selected subscription.
 
@@ -92,7 +92,7 @@ Following example grants the *Contributor* role to an *Azure AD* application on 
 ###	Assign role to user at resource group scope
 To assign a role to a user at the resource group scope use:
 
-	azure role assignment create --signInName  <user's email address> --roleName <name of role in quotes> --resourceGroup <resource group name>
+	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
 
 Following example grants the *Virtual Machine Contributor* role to user *samert@aaddemo.com* at the *Pharma-Sales-ProjectForcast* resource group scope.
 
@@ -101,7 +101,7 @@ Following example grants the *Virtual Machine Contributor* role to user *samert@
 ###	Assign role to group at resource scope
 To assign a role to a group at the resource scope use:
 
-    azure role assignment create --objId  <group id> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+    azure role assignment create --objectId  <group id> --subscription <subscription> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
 Following example grants the *Virtual Machine Contributor* role to an *Azure AD* group on a *subnet*.
 
@@ -110,7 +110,7 @@ Following example grants the *Virtual Machine Contributor* role to an *Azure AD*
 ##	Remove access
 To remove a role assignment, use:
 
-    azure role assignment delete --objId <object id to from which to remove role> --roleName <role name>
+    azure role assignment delete --objectId <object id to from which to remove role> --roleName <role name>
 
 Following example removes the *Virtual Machine Contributor* role assignment from *sammert@aaddemo.com* on the *Pharma-Sales-ProjectForcast* resource group.
 Then, it removes the role assignment from a group on the subscription.

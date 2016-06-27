@@ -106,7 +106,11 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 ![Configure the web service][5]  
 
 ## Test the web service
-On the **DASHBOARD** page, click the **Test** button under **Default Endpoint**. A dialog will pop up and ask you for the input data for the service. These are the same columns that appeared in the original German credit risk dataset.  
+On the **DASHBOARD** page, click the **Test** button under **Default Endpoint**. 
+
+![Test the web service][7]
+
+A dialog will pop up and ask you for the input data for the service. These are the same columns that appeared in the original German credit risk dataset.  
 
 Enter a set of data and then click **OK**.  
 
@@ -143,6 +147,7 @@ For more details, see:
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 [5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
+[7]: ./media/machine-learning-walkthrough-5-publish-web-service/publish7.png
 
 
 <!-- Module References -->

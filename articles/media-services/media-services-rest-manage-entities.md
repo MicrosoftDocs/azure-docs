@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Managing Media Services Entities with REST API

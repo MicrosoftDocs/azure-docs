@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
@@ -353,7 +353,7 @@ because it can be redirected to a new IP address.)
 
 ##<a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
 
-In later stages of the Cortana Analytics Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the **Import Data** module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cortana Analytics Process guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+In later stages of the Team Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the **Import Data** module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Team Data Science Process guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
 2.	In the **Properties** pane of the [Import Data module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
@@ -388,9 +388,9 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 
 ## Your Azure SQL Server VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cortana Analytics Process (CAP).
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Team Data Science Process (TDSP).
 
-The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
+The next steps in the data science process are mapped in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png

@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Tutorial: Copy data from Azure Blob Storage to Azure SQL Database"
-	description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline that to copy data from an Azure blob to an Azure SQL database."
+	pageTitle="Copy data from Blob Storage to SQL Database | Microsoft Azure"
+	description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline to copy data from Blob storage to SQL database."
+	Keywords: "blob sql, blob storage, data copy"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +17,7 @@
 	ms.date="04/01/2016"
 	ms.author="spelluru"/>
 
-# Tutorial: Copy data from Azure Blob Storage to Azure SQL Database
+# Copy data from Blob Storage to SQL Database using Data Factory 
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -24,7 +25,7 @@
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-In this tutorial, you will create an Azure data factory and create a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database.
+In this tutorial, you’ll create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
 The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.  
 
@@ -77,7 +78,7 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
-    ![Azure Storage Explorer](./media/data-factory-get-started/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer. Copy data from Blob storage to SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
 

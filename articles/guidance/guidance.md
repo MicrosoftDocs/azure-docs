@@ -58,7 +58,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Background Jobs guidance][BackgroundJobsGuidance] 
 
-    A description og available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
+    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
 
 - [Content Delivery Network (CDN) guidance][CDNGuidance] 
 
@@ -119,10 +119,11 @@ We're creating a new set of guidance we're calling _reference architectures_. Ea
 Running virtual machines on Azure:
 
 - [Running a Windows VM on Azure][ref-arch-single-vm-windows]
-- [Running multiple Windows VMs on Azure][ref-arch-multi-vm-windows]
-- [Running Windows VMs for an N-tier architecture on Azure][ref-arch-3-tier-windows]
-- [Azure reference architecture: Virtual datacenter][ref-arch-n-tier-windows]
-- [Azure reference architecture: Virtual datacenter with high availability][ref-arch-multi-dc]
+- [Running a Linux VM on Azure][ref-arch-single-vm-linux]
+- [Running multiple VMs for scalability and availability][ref-arch-multi-vm-windows]
+- [Running VMs for an N-tier architecture][ref-arch-3-tier-windows]
+- [Adding reliability to an N-tier architecture][ref-arch-n-tier-windows]
+- [Running VMs in multiple datacenters for high availability][ref-arch-multi-dc]
 
 Hybrid network architectures:
 
@@ -133,7 +134,8 @@ Hybrid network architectures:
 
 Web applications (PaaS):
 
-- [Azure reference architecture: Basic web application](guidance-web-apps-basic.md)
+- [Basic web application](guidance-web-apps-basic.md)
+- [Improving scalability in a web application](guidance-web-apps-scalability.md)
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
@@ -160,6 +162,7 @@ Web applications (PaaS):
 
 <!-- reference architectures -->
 [ref-arch-single-vm-windows]: guidance-compute-single-vm.md
+[ref-arch-single-vm-linux]: guidance-compute-single-vm-linux.md
 [ref-arch-multi-vm-windows]: guidance-compute-multi-vm.md
 [ref-arch-3-tier-windows]: guidance-compute-3-tier-vm.md
 [ref-arch-n-tier-windows]: guidance-compute-n-tier-vm.md

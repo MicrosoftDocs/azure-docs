@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="06/20/2016" 
 	ms.author="anhoh"/>
 
 # DocumentDB hierarchical resource model and concepts
@@ -412,7 +412,7 @@ Consider a social reading application which uses DocumentDB to store ink annotat
 -	An application may store each user’s metadata as a distinct document -- e.g. Joe’s metadata for book1 is stored in a document referenced by /colls/joe/docs/book1. 
 -	Attachments pointing to the content pages of a given book of a user are stored under the corresponding document e.g. /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 etc. 
 
-Note that the examples use friendly ids to convey the resource hierarchy. Resources are accessed via the REST APIs through unique resource ids. 
+Note that the examples listed above use friendly ids to convey the resource hierarchy. Resources are accessed via the REST APIs through unique resource ids. 
 
 For the media that is managed by DocumentDB, the _media property of the attachment will reference the media by its URI. DocumentDB will ensure to garbage collect the media when all of the outstanding references are dropped. DocumentDB automatically generates the attachment when you upload the new media and populates the _media to point to the newly added media. If you choose to store the media in a remote blob store managed by you (e.g. OneDrive, Azure Storage, DropBox etc), you can still use attachments to reference the media. In this case, you will create the attachment yourself and populate its _media property.   
 

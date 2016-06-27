@@ -406,7 +406,7 @@ If you want to connect to Azure VMs using RDP after failover, make sure you do t
 
 **On the Azure VM after failover**:
 
-- Add a public endpoint for the RDP protocol (port 3389) and specify credentials for login.
+- Add a public IP Address to the NIC associated with the Azure VM to allow RDP.
 - Ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
 - Try to connect. If you can't connect verify that the VM is running. For more troubleshooting tips read this [article](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 

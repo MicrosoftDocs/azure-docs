@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 This article shows you how to initiate failover to a secondary SQL Database using Transact-SQL. To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-transact-sql.md).
