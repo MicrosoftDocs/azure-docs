@@ -59,7 +59,7 @@ You can find your account key from your account in the [Azure Data Market](https
 The Score API is used for running anomaly detection on non-seasonal time series data. The API runs a number of anomaly detectors on the data and returns their anomaly scores. 
 The figure below shows an example of anomalies that the Score API can detect. This time series has 2 distinct level changes, and 3 spikes. The red dots show the time at which the level change is detected, while the black dots show the detected spikes.
 
-	![][1]
+![][1]
 	
 **URL**
 
@@ -104,7 +104,7 @@ The ScoreWithSeasonality API is used for running anomaly detection on time serie
 
 The following figure shows an example of anomalies detected in a seasonal time series. The time series has one spike (the 1st black dot), two dips (the 2nd black dot and one at the end), and one level change (red dot). Note that both the dip in the middle of the time series and the level change are only discernable after seasonal components are removed from the series.
 
-	![][2]
+![][2]
 
 **URL**
 
