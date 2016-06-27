@@ -41,7 +41,7 @@ Some steps are shared between the different types of solutions. This article pro
 ## 2. Publishing your offer
 ### 2.1 Complete offer specific technical pre-requisites
 - [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
-- [Developer Service technical pre-requisites](marketplace-publishing-dev-service-creation-prerequisites.md)
+- Developer Service technical pre-requisites
 - [ARM Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ### 2.2 Create your offer
@@ -49,7 +49,7 @@ Some steps are shared between the different types of solutions. This article pro
     - [Create your VM offer](marketplace-publishing-vm-image-creation.md)
     - [Create your Developer Service offer](marketplace-publishing-dev-service-creation.md)
     - [Create your ARM Solution Template offer](marketplace-publishing-solution-template-creation.md)
-2. [Create your offer marketing content](arketplace-publishing-push-to-staging.md)
+2. [Create your offer marketing content](marketplace-publishing-push-to-staging.md)
 
 ### 2.3 Test your offer in staging
 - [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md)
