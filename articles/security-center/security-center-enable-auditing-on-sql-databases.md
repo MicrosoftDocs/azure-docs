@@ -22,7 +22,7 @@ Azure Security Center will recommend that you turn on auditing for all SQL datab
 
 Once you’ve turned on auditing you can configure Threat Detection settings and emails to receive security alerts. Threat Detection detects anomalous database activities indicating potential security threats to the database. This enables you to detect and respond to potential threats as they occur.
 
-This recommendation applies to the Azure SQL service only.
+This recommendation applies to the Azure SQL service only; doesn't include SQL running on your virtual machines.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
