@@ -45,7 +45,7 @@ Clicking on **Overview** or on the **Performance** tile will take you to the per
 ## SQL Database Advisor
 
 
-[SQL Database Advisor](sql-database-index-advisor.md) provides intelligent tuning recommendations that can help improve your database's performance. 
+[SQL Database Advisor](sql-database-advisor.md) provides intelligent tuning recommendations that can help improve your database's performance. 
 
 - Recommendations on which indexes to create or drop (and an option to apply index recommendations automatically without any user interaction and automatically rolling back recommendations that have a negative impact on performance).
 - Recommendations when schema issues are identified in the database.
