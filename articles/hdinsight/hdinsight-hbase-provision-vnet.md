@@ -48,7 +48,7 @@ In this section, you will create a Linux-based HBase cluster in HDInsight using 
 	- **Cluster login name and password**: The default login name is **admin**.
 	- **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 
-	Some properties have been hard-coded into the template. For example:
+   Some properties have been hard-coded into the template. For example:
 
 	- Location: East US
 	- Cluster worker node count: 4
