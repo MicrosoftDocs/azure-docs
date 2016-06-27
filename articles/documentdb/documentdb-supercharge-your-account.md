@@ -35,7 +35,7 @@ Follow these steps to take advantage of increased throughput for your DocumentDB
 
 6. Back in the **Settings** blade, the **Pricing Tier** is changed to **Standard** and the **Throughput (RU/s)** box is displayed with a default value of 400.
 
-    > [AZURE.NOTE You can set the throughput between 400 and 10,000 [Request units](../articles/documentdb/documentdb-request-units.md)/second (RU/s). The **Pricing Summary** at the bottom of the page updates automatically to provide an estimate of the monthly cost.
+    > [AZURE.NOTE] You can set the throughput between 400 and 10,000 [Request units](../articles/documentdb/documentdb-request-units.md)/second (RU/s). The **Pricing Summary** at the bottom of the page updates automatically to provide an estimate of the monthly cost.
     
 	![Screen shot of the Settings blade showing where to change the throughput value](./media/documentdb-supercharge-your-account/documentdb-change-performance-set-thoughput.png)
 
