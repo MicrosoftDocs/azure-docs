@@ -41,5 +41,6 @@ For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual 
 
 If you need to enable AKV integration on an existing VM, you can use a template. For more information, see [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-keyvault-setup).
 
+<!-- Link above "Azure quickstart template for Azure Key Vault integration" is broken. -->
 
 [AZURE.INCLUDE [AKV Integration Next Steps](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
