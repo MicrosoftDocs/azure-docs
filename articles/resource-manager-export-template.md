@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/24/2016"
+	ms.date="06/27/2016"
 	ms.author="tomfitz"/>
 
 # Export an Azure Resource Manager template from existing resources
@@ -23,7 +23,7 @@ Resource Manager enables you to export a Resource Manager template from existing
 It is important to note that there are two different ways to export a template:
 
 1. You can export the actual template that was used for a deployment. The exported template includes all of the parameters and variables exactly as they were defined in the original template. This approach is particularly helpful when you have deployed resources through the portal, and now want to see how to construct the template to create those resources.
-2. You can export a template that represents the current state of the resource group. The exported template is not based on any template that was used for deployment. Instead, it creates a template that is a snapshot of the resource group. The exported template will have many hard-coded values and probably not as many parameters as you would typically define. Resource Manager generates the template this way because it cannot guess which values you want to parametize. This approach is useful when you have modified the resource group through the portal or scripts, and now need to capture the resource group as a template.
+2. You can export a template that represents the current state of the resource group. The exported template is not based on any template that was used for deployment. Instead, it creates a template that is a snapshot of the resource group. The exported template will have many hard-coded values and probably not as many parameters as you would typically define. This approach is useful when you have modified the resource group through the portal or scripts, and now need to capture the resource group as a template.
 
 Both approaches are shown in this topic. In the [Customize an exported Azure Resource Manager template](resource-manager-customize-template.md) article, you will see how to take a template that was generated from the current state of the resource group and make it more useful for re-deploying your solution.
 
@@ -179,7 +179,7 @@ Although each deployment shows only the changes that you have made to your resou
 
 4. Find the .zip file that you downloaded and extract the contents. You can use this downloaded template to redeploy your infrastructure.
 
-## Fixing export issues
+## Fix export issues
 
 Not all resource types support the export template function. You will only encounter this problem when you are exporting a template from an existing resource group. If you export a template from your deployment history, you will get the exact template used for that deployment including all resource types. 
 
@@ -195,22 +195,87 @@ Selecting the message will show you exactly which resource types were not export
      
 ![show error](./media/resource-manager-export-template/show-error-details.png)
 
-To fix your template:
+Some common fixes are listed below.
 
-1. Look at your deployment history and export the template that originally created that resource.
-2. In the template exported from the deployment history, look for the resource that was not included when exporting from the resource group. For example, in the properties for the web site, you will find:
+### Connection string
 
-        "siteConfig": {
-          "connectionStrings": [
-            {
-              "name": "defaultConnection",
-              "ConnectionString": "[concat('Data Source=tcp:' , reference('Microsoft.SQL/servers/{server-name}').fullyQualifiedDomainName , ',1433;Initial Catalog={database-name};User Id={admin-name}@',reference('Microsoft.SQL/servers/{server-name}').fullyQualifiedDomainName,';Password=',parameters('administratorLoginPassword'),';')]",
-              "type": "SQLAzure"
-            }
-          ]
-        },
+In the web sites resource, add a definition for the connection string to the database:
 
-     If you haven't manually changed anything in the resource group that would affect this connection string, you can add it back into your template.
+```
+{
+  "type": "Microsoft.Web/sites",
+  ...
+  "resources": [
+    {
+      "apiVersion": "2015-08-01",
+      "type": "config",
+      "name": "connectionstrings",
+      "dependsOn": [
+          "[concat('Microsoft.Web/Sites/', variables('webSiteName'))]"
+      ],
+      "properties": {
+          "DefaultConnection": {
+            "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+              "type": "SQLServer"
+          }
+      }
+    }
+  ]
+}
+```    
+
+### Web site extension
+
+In the web site resource, add a definition for the code to install:
+
+```
+{
+  "type": "Microsoft.Web/sites",
+  ...
+  "resources": [
+    {
+      "name": "MSDeploy",
+      "type": "extensions",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[concat('Microsoft.Web/sites/', variables('webSiteName'))]"
+      ],
+      "properties": {
+        "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('sitetodeplyPackageFolder'), '/', parameters('sitetodeplyPackageFileName'), parameters('_artifactsLocationSasToken'))]",
+        "dbType": "None",
+        "connectionString": "",
+        "setParameters": {
+          "IIS Web Application Name": "[variables('webSiteName')]"
+        }
+      }
+    }
+  ]
+}
+```
+
+### Virtual machine extension
+
+
+### Virtual network gateway
+
+
+### Local network gateway
+
+```
+{
+    "type": "Microsoft.Network/localNetworkGateways",
+    "name": "[parameters('localNetworkGatewayName')]",
+    "apiVersion": "2015-06-15",
+    "location": "[parameters('location')]",
+    "properties": {
+      "localNetworkAddressSpace": {
+        "addressPrefixes": "[parameters('addressPrefixes')]"
+      },
+      "gatewayIpAddress": "[parameters('gatewayIpAddress')]"
+    }
+}
+```
 
 ## Next steps
 
