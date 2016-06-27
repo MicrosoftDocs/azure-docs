@@ -38,7 +38,7 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
  - [Debian Linux](../virtual-machines/virtual-machines-linux-debian-create-upload-vhd.md)
  - [Oracle Linux](../virtual-machines/virtual-machines-linux-oracle-create-upload-vhd.md)
  - [Red Hat Enterprise Linux](../virtual-machines/virtual-machines-linux-redhat-create-upload-vhd.md)
- - [SLES & openSUSE](../virtual-machines/virtual-machines-linux-create-upload-vhd-suse.md)
+ - [SLES & openSUSE](../virtual-machines/virtual-machines-linux-suse-create-upload-vhd.md)
  - [Ubuntu](../virtual-machines/virtual-machines-linux-create-upload-ubuntu.md)
 
 2. [Add the image to the PIR](../azure-stack/azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
