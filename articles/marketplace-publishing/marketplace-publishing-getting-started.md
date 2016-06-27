@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/26/2016"
+   ms.date="06/27/2016"
    ms.author="hascipio" />
 
 # How to publish and manage an offer in the Azure Marketplace
@@ -41,19 +41,16 @@ Some steps are shared between the different types of solutions. This article pro
 ## 2. Publishing your offer
 ### 2.1 Complete offer specific technical pre-requisites
 - [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
-- Developer Service technical pre-requisites
 - [ARM Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ### 2.2 Create your offer
 1. Create your offer using the offer specific guides below.
     - [Create your VM offer](marketplace-publishing-vm-image-creation.md)
-    - [Create your Developer Service offer](marketplace-publishing-dev-service-creation.md)
     - [Create your ARM Solution Template offer](marketplace-publishing-solution-template-creation.md)
 2. [Create your offer marketing content](marketplace-publishing-push-to-staging.md)
 
 ### 2.3 Test your offer in staging
 - [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md)
-- Test your Developer Service offer in staging
 - [Test your ARM Solution Template offer in staging](marketplace-publishing-solution-template-test-in-staging.md)
 
 ### 2.4 Deploy your offer to the Marketplace
