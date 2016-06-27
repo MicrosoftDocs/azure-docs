@@ -406,6 +406,8 @@ Note that if you are using the Windows Internal Database to store AD FS configur
 [recommendations]: #recommendations
 [claims-aware applications]: https://msdn.microsoft.com/en-us/library/windows/desktop/bb736227(v=vs.85).aspx
 [active-directory-federation-services-overview]: https://technet.microsoft.com/en-us/library/hh831502(v=ws.11).aspx
+[cli-install]: https://azure.microsoft.com/documentation/articles/xplat-cli-install
+[github-desktop]: https://desktop.github.com/
 
 
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
