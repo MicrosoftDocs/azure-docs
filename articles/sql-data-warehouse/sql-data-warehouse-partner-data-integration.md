@@ -18,22 +18,27 @@
 
 # SQL Data Warehouse data integration partners
 
-To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools. This article lists partner companies that have solutions for SQL Data Warehouse.
+To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools. 
 
+This article lists partner companies that have data integration partners for SQL Data Warehouse.
 
-| Partner | Description | Azure Marketplace | Reference |
-| ------- | ----------- |------------------ | --------- |
-| ![Alteryx][1] | **Alteryx**<br> Alteryx Designer provides a repeatable workflow for self-service data analytics that leads to deeper insights in hours, not the weeks typical of traditional approaches! Alteryx Designer empowers data analysts by combining data preparation, data blending, and analytics – predictive, statistical and spatial – using the same intuitive user interface. | [Alteryx Designer][alteryx_marketplace] | [website][alteryx_designer_website]<br>[![Alteryx video](https://img.youtube.com/vi/CdqSDPyNDKc/1.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |-->
-| ![Attunity][2] | **Attunity**<br>Attunity CloudBeam provides an automated and optimized solution for loading data to  SQL Data Warehouse. With a “click-to-load” design, it simplifies and accelerates both batch loading as well as incremental replication from many heterogeneous databases including SQL Server, Oracle, DB2, Sybase and mySQL. | [Attunity Cloudbeam][attunity_marketplace] | [website][attunity_cloudbeam_website]<br>[![Attunity video](https://img.youtube.com/vi/w14zuSjMlok/1.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
-| ![Bryte Systems][3] | **Bryte Systems**<br>Bryte Systems automates data transfer to SQL Data Warehouse from a variety of databases and sources. Bryte Systems specializes in data movement and integration technologies. They build scalable cloud-based data warehouses and data lakes to uncover insights. | [Bryte Systems][bryte_systems_marketplace] | [website][bryte_systems_azure_website] |
-| ![Informatica][4] | **Informatica**<br>Informatica is one of the world’s most recognizable independent providers of data integration software. Informatica Vibe, one of the industry’s first embeddable virtual data machines, powers the unique “Map Once. Deploy Anywhere.” capabilities of the Informatica Platform. Over 5,500 enterprises worldwide depend on Informatica to fully leverage their information assets.| [informatica cloud][informatica_Cloud_Services_marketplace] <br> [PowerCenter Standard][informatica_PowerCenter_std_marketplace] <br> [PowerCenter Advanced][informatica_PowerCenter_adv_marketplace] | [informatica cloud website][informatica_Cloud_Services_website]<br>[PowerCenter website][informatica_PowerCenter_website] |
-| ![Redgate][5] | **Redgate**<br>Just because your databases existed before the cloud, it doesn't mean you shouldn't be able to take advantage of its power. If your database exists on-premise, Data Platform Studio provides a simple and reliable way to get data from your on-premise database to Azure SQL Data Warehouse. | | [website][redgate_website] |
-| ![SnapLogic][6] | **SnapLogic**<br>The SnapLogic integration platform as a service (iPaaS) enables customers to quickly transfer data into and out of Microsoft Azure SQL Data Warehouse.  SnapLogic offers the ability to integrate over hundreds applications, services and IoT in the cloud, on-premises or in hybrid mode for fast, effective delivery of insights. | [Azure Marketplace][snaplogic_marketplace] | [![Snaplogic video](https://img.youtube.com/vi/YiJCwObOh5Y/0.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
+## Our data integration partners
+
+| Partner | Description | Links | Videos |
+| ------- | ----------- |------ | ------ |
+| ![Alteryx][1] | **Alteryx**<br> Alteryx Designer provides a repeatable workflow for self-service data analytics that leads to deeper insights in hours, not the weeks typical of traditional approaches! Alteryx Designer empowers data analysts by combining data preparation, data blending, and analytics – predictive, statistical and spatial – using the same intuitive user interface. | [Marketplace][alteryx_marketplace]<br>[Website][alteryx_designer_website]<br>[Datasheet][alteryx_designer_datasheet] | [![Alteryx video](https://img.youtube.com/vi/CdqSDPyNDKc/1.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |-->
+| ![Attunity][2] | **Attunity**<br>Attunity CloudBeam provides an automated and optimized solution for loading data to  SQL Data Warehouse. With a “click-to-load” design, it simplifies and accelerates both batch loading as well as incremental replication from many heterogeneous databases including SQL Server, Oracle, DB2, Sybase and mySQL. | [Marketplace][attunity_marketplace]<br>[Website][attunity_cloudbeam_website]<br>[Datasheet][attunity_cloudbeam_datasheet] | [![Attunity video](https://img.youtube.com/vi/w14zuSjMlok/1.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
+| ![Bryte Systems][3] | **Bryte Systems**<br>Bryte Systems automates data transfer to SQL Data Warehouse from a variety of databases and sources. Bryte Systems specializes in data movement and integration technologies. They build scalable cloud-based data warehouses and data lakes to uncover insights. | [Marketplace][bryte_systems_marketplace]<br>[Website][bryte_systems_azure_website] | |
+| ![Informatica][4] | **Informatica Cloud**<br>The Informatica Cloud Integration portfolio lets you easily connect to a variety of cloud, on-premise, mobile, and social data sources to ensure you can efficiently share your relevant and trustworthy business information. We offer the most complete suite of cloud integration for batch and real-time patterns, cloud test data management, cloud data quality, and cloud master data management applications. | [Marketplace][informatica_Cloud_Services_marketplace]<br>[Website][informatica_Cloud_Services_website]<br>[Datasheet][informatica_cloud_datasheet] | |
+| ![Informatica][4] | **Informatica PowerCenter**<br>Informatica is one of the world’s most recognizable independent providers of data integration software. PowerCenter forms the foundation for all your data integration initiatives, including analytics and data warehousing, application migration, or consolidation and data governance. | [Marketplace (Standard)][informatica_PowerCenter_std_marketplace]<br>[Marketplace (Advanced)][informatica_PowerCenter_adv_marketplace]<br>[Website][informatica_PowerCenter_website]<br>[Datasheet][informatica_powercenter_datasheet] | |
+| ![Redgate][5] | **Redgate**<br>Just because your databases existed before the cloud, it doesn't mean you shouldn't be able to take advantage of its power. If your database exists on-premise, Data Platform Studio provides a simple and reliable way to get data from your on-premise database to Azure SQL Data Warehouse. | [Website][redgate_website] | |
+| ![SnapLogic][6] | **SnapLogic**<br>The SnapLogic integration platform as a service (iPaaS) enables customers to quickly transfer data into and out of Microsoft Azure SQL Data Warehouse.  SnapLogic offers the ability to integrate over hundreds applications, services and IoT in the cloud, on-premises or in hybrid mode for fast, effective delivery of insights. | [Marketplace][snaplogic_marketplace]<br>[Website][snaplogic_website]<br>[Datasheet][snaplogic_datasheet] | [![Snaplogic video](https://img.youtube.com/vi/YiJCwObOh5Y/0.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
 ## Next Steps
 
-To learn more about integrating with SQL Data Warehouse, see [Build integrated solutions with SQL Data Warehouse][].
-
+To learn more about some of our other partners please refer to the following articles:
+[Business Intelligence partners][bi_partners]
+[Data Management partners][dm_partners]
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-integrate-solution-partners/alteryx_logo.png
@@ -45,8 +50,17 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 
 
 <!--Article links-->
-[Build integrated solutions with SQL Data Warehouse]: ./sql-data-warehouse-overview-integrate.md
+[bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[dm_partners]: ./sql-data-warehouse-partner-data-management.md
 
+<!--ebook Links-->
+
+<!--Datasheet Links-->
+[alteryx_designer_datasheet]:http://www.alteryx.com/sites/default/files/resources/files/alt-designer-ds.pdf
+[attunity_cloudbeam_datasheet]:http://www.attunity.com/sites/default/files/content/attunity-azure-solution-sheet.pdf
+[informatica_cloud_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/data-sheet/cloud-integration-platform_data-sheet_2711.pdf
+[informatica_powercenter_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/brochure/powercenter_brochure_6659.pdf
+[snaplogic_datasheet]:http://campaigns.snaplogic.com/rs/055-FYJ-916/images/SnapLogic-for-Microsoft-Cortana.pdf
 
 <!--Website Links -->
 [alteryx_designer_website]:http://www.alteryx.com/products/alteryx-designer/
