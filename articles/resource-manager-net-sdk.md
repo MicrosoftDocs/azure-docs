@@ -58,7 +58,7 @@ private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenan
 {
     Console.WriteLine("Acquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
-        ("https://login.windows.net/" /* AAD URI */
+        ("https://login.windows.net/" /* Azure AD URI */
             + $"{tenantId}" /* Tenant ID */);
 
     var credential = new ClientCredential(clientId, clientSecret);
@@ -74,7 +74,7 @@ Instead of using the tenant ID for signing in, you can use the Azure AD domain, 
 
 ```csharp
 AuthenticationContext authContext = new AuthenticationContext
-    ("https://login.windows.net/" /* AAD URI */
+    ("https://login.windows.net/" /* Azure AD URI */
     + $"{domain}.onmicrosoft.com");
 ```
 
@@ -85,8 +85,8 @@ private static async Task<AuthenticationResult> GetAccessTokenFromCertAsync(stri
 {
     Console.WriteLine("Acquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
-        ("https://login.windows.net/" /* AAD URI */
-        + $"{tenantId}" /* Tenant ID or AAD domain */);
+        ("https://login.windows.net/" /* Azure AD URI */
+        + $"{tenantId}" /* Tenant ID or Azure AD domain */);
 
     X509Certificate2 cert = null;
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
