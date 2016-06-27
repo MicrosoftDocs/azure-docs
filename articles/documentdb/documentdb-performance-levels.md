@@ -101,7 +101,7 @@ The Azure Portal is one option available to you when managing the performance le
 
 For more information about the pricing changes related to user-defined and pre-defined throughput, see the blog post [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
-
+> [AZURE.VIDEO changedocumentdbcollectionperformance]
 
 1. In your browser, navigate to the [**Azure portal**](https://portal.azure.com). 
 2. Click **Browse** -> **DocumentDB Accounts**, then select the DocumentDB account to modify.   
