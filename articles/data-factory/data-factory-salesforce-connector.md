@@ -17,25 +17,28 @@
 	ms.author="spelluru"/>
 
 # Move data from Salesforce using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to copy data from Salesforce to any data store listed under Sink column in [Supported Sources and Sinks](data-factory-data-movement-activities.md#supported-data-stores). This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to copy data from Salesforce to any data store listed under Sink column in the [Supported Sources and Sinks](data-factory-data-movement-activities.md#supported-data-stores) section. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory currently supports only moving data from Salesforce to [supported sink data stores]((data-factory-data-movement-activities.md#supported-data-stores), but not  moving data from other data stores to Salesforce.
+
+## Prerequisites
+- You must use one of the following editions: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
+- API permission must be enabled. See [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/). 
 
 ## Sample: Copy data from Salesforce to Azure Blob
 
 The sample below shows:
+The sample copies data from Salesforce to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. Data can be copied directly to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article by using the Copy Activity in Azure Data Factory. 
 
 1.	A linked service of type [Salesforce](#salesforce-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#salesforce-dataset-properties).
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#salesforce-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
-
-The sample copies data from Salesforce to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. Data can be copied directly to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article by using the Copy Activity in Azure Data Factory. 
+4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#relationalsource-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 **Salesforce linked service**
 
-This example uses the **Salesforce** linked service. See [Salesforce linked service](#salesforce-linked-service-properties) section for the properties supported by this linked service. 
+This example uses the **Salesforce** linked service. See [Salesforce linked service](#salesforce-linked-service-properties) section for the properties supported by this linked service.  See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get security token.
 
 	{
 		"name": "SalesforceLinkedService",
@@ -71,7 +74,7 @@ This example uses the **Salesforce** linked service. See [Salesforce linked serv
 			"linkedServiceName": " SalesforceLinkedService ",
 			"type": "RelationalTable",
 			"typeProperties": {
-				"tableName": "customer__c"  
+				"tableName": "AllDataType__c"  
 		}
 			"availability": {
 				"frequency": "Hour",
@@ -88,7 +91,12 @@ This example uses the **Salesforce** linked service. See [Salesforce linked serv
 		}
 	}
 
-Setting **external**  to **true** and specifying **externalData** policy (optional) informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting **external**  to **true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+
+> [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
+
+![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+
 **Azure Blob output dataset**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). 
@@ -101,7 +109,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties":
 	        {
-	            "folderPath": "adfgetstarted/employees"
+	            "folderPath": "adfgetstarted/alltypes_c"
 	        },
 	        "availability":
 	        {
@@ -112,13 +120,11 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 	}
 
 
-
-
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. 
 
-See [RelationalSource type properties](#relationalsource-copy-activity-type-properties) for the list of properties supported by the RelationalSource. 
+See [RelationalSource type properties](#relationalsource-type-properties) for the list of properties supported by the RelationalSource. 
 	
 	{  
 		"name":"SamplePipeline",
@@ -165,6 +171,9 @@ See [RelationalSource type properties](#relationalsource-copy-activity-type-prop
 		}
 	}
 
+> [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
+
+![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Salesforce Linked Service properties
 
@@ -175,7 +184,7 @@ The following table provides description for JSON elements specific to Salesforc
 | type | The type property must be set to: **Salesforce** | Yes | 
 | userName |Specify user name for the user account. | Yes |
 | password | Specify password for the user account.  | Yes |
-| securityToken | Specify security token for the user account. | Yes | 
+| securityToken | Specify security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get security token. To learn about security token in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).  | Yes | 
 
 ## Salesforce dataset properties
 
@@ -187,7 +196,11 @@ The **typeProperties** section is different for each type of dataset and provide
 | -------- | ----------- | -------- |
 | tableName | Name of the table in Salesforce. | No (if **query** of **RelationalSource** is specified) | 
 
-## RelationalSource - Copy Activity type properties
+> [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
+
+![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+
+## RelationalSource type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
@@ -196,7 +209,12 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified) | 
+| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified) |
+
+> [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
+
+![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+ 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
