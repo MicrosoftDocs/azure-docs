@@ -53,7 +53,7 @@ In this section, you will create a Linux-based HBase cluster in HDInsight using 
 	- Location: East US
 	- Cluster worker node count: 4
 	- Default storage account: &lt;Cluster Name>store
-	- Virtual network name: &lt;Cluster Name>*vnet
+	- Virtual network name: &lt;Cluster Name>-vnet
 	- Virtual network address space: 10.0.0.0/16
 	- Subnet name: default
 	- Subnet address range: 10.0.0.0/24
