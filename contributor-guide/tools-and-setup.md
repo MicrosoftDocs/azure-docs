@@ -223,14 +223,13 @@ To ensure you are listed correctly as a contributor, you need to configure your 
 
 ##Next steps
 
-- [Create a local working branch](./git-commands-for-master.md) on your computer so you can start work.
+- Understand the type of content that belongs in the technical content repo, and know what does not belong. See the [content channel guidance](./content-channel-guidance.md)!
+- Follow [these steps to create or modify an article and then submit it for publishing](./git-commands-for-master.md). 
 - Copy [the markdown template](../markdown templates/markdown-template-for-new-articles.md) as the basis for a new article.
+- Use [this checklist to verify your pull request will meet the quality criteria](./contributor-guide-pr-criteria.md) for merging.
 
 
-
-
-
-###Contributors' Guide Links
+###Contributors' guide navigation
 
 - [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)
