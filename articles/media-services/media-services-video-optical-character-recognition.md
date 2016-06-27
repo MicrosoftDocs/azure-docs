@@ -26,7 +26,7 @@ When used in conjunction with a search engine, you can easily index your media b
 
 The **Azure Media OCR** media processor is currently in Preview.
 
-This topic gives details about  **Azure Media OCR** and shows how to use it with Media Services SDK for .NET. For additional information and examples, see [this blog](https://azure.microsoft.com/en-us/blog/announcing-video-ocr-public-preview-new-config/).
+This topic gives details about  **Azure Media OCR** and shows how to use it with Media Services SDK for .NET. For additional information and examples, see [this blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ##OCR input files
 
