@@ -61,7 +61,7 @@ The following procedure use an Azure ARM template to create an HBase cluster. To
 6. Click **Create**. It takes about around 20 minutes to create a cluster.
 
 
->[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
+>[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster. It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
 
 ## Create tables and insert data
 
@@ -110,6 +110,8 @@ It will make more sense after you finish the next procedure.
 6. Exit the shell
 
 		exit
+
+
 
 **To bulk load data into the contacts HBase table**
 
