@@ -311,7 +311,7 @@ This section explains some techniques that you can use to tune Azure SQL Databas
 SQL Database provides two tools in the Azure Portal for analyzing and fixing performance issues with your database:
 
 - [Query Performance Insight](sql-database-query-performance.md)
-- [SQL Database Advisor](sql-database-index-advisor.md)
+- [SQL Database Advisor](sql-database-advisor.md)
 
 Refer to the previous links for more information about each tool and how to use them. The two following sections on missing indexes and query tuning provide other ways to manually find and correct similar performance issues. We recommend that you first try the tools in the portal to more efficiently diagnose and correct problems. Use the manual tuning approach for special cases.
 
