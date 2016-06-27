@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="06/27/2016"   
 	ms.author="juliako"/>
  
 #Use Azure Media Analytics to convert text content in video files into digital text 
@@ -26,7 +26,7 @@ When used in conjunction with a search engine, you can easily index your media b
 
 The **Azure Media OCR** media processor is currently in Preview.
 
-This topic gives details about  **Azure Media OCR** and shows how to use it with Media Services SDK for .NET. For additional information and examples, see [this blog]().
+This topic gives details about  **Azure Media OCR** and shows how to use it with Media Services SDK for .NET. For additional information and examples, see [this blog](https://azure.microsoft.com/en-us/blog/announcing-video-ocr-public-preview-new-config/).
 
 ##OCR input files
 
