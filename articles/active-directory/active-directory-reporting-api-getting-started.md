@@ -89,36 +89,48 @@ The steps below will walk you through obtaining your application's client ID and
 Edit one of the scripts below to work with your directory by replacing $ClientID, $ClientSecret and $tenantdomain with the correct values from the sections above.
 
 ### PowerShell Script
+    # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
-    # This script will require the Web Application and permissions setup in Azure Active Directory
-    $resource       = "https://graph.windows.net"
-    $ClientID	  	= "your-application-client-id-here"                            # Insert your application's Client ID, a Globally Unique ID
-    $ClientSecret  	= "your-application-client-secret-here"               # Insert your application's Client Key/Secret string
-    $loginURL		= "https://login.microsoftonline.com"
-    $tenantdomain	= "your-directory-name-here.onmicrosoft.com"  # Insert your Azure AD tenant domain name, ie:contoso.onmicrosoft.com
+    # Constants
+    $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
+    $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
+    $loginURL       = "https://login.microsoftonline.com"
+    $tenantdomain   = "your-tenant-name.onmicrosoft.com"      # For example, contoso.onmicrosoft.com
+    $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
+    $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement, for example
+    Write-Output "Searching for events starting $7daysago"
 
-    # Get an Oauth 2 access token based on client id, secret and tenant domain
-    $body		= @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-    $oauth		= Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+    # Create HTTP header, get an OAuth2 access token based on client id, secret and tenant domain
+    $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
+    $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
-    $7daysago = "{0:s}" -f (get-date).AddDays(-7) + "Z"
-    # or, AddMinutes(-5)
-
-    Write-Output $7daysago
-
-    if ($oauth.access_token -ne $null) {
-    	$headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-
+    # Parse auditEvents report items, save output to file(s): auditEventsX.json, where X = 0 thru n for number of nextLink pages
+    if ($oauth.access_token -ne $null) {   
+        $i=0
+        $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
         $url = "https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt $7daysago"
 
-    	$myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-    	foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
-    		Write-Output ($event | ConvertTo-Json)
-    	}
-        $myReport.Content | Out-File -FilePath auditEvents.json -Force
+        # loop through each query page (1 through n)
+        Do{
+            # display each event on the console window
+            Write-Output "Fetching data using Uri: $url"
+            $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
+            foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
+                Write-Output ($event | ConvertTo-Json)
+            }
+        
+            # save the query page to an output file
+            Write-Output "Save the output to a file auditEvents$i.json"
+            $myReport.Content | Out-File -FilePath auditEvents$i.json -Force
+            $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
+            $i = $i+1
+        } while($url -ne $null)
     } else {
-    	Write-Host "ERROR: No Access Token"
-    }
+        Write-Host "ERROR: No Access Token"
+        }
+
+    Write-Host "Press any key to continue ..."
+    $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 ### Bash Script
 
