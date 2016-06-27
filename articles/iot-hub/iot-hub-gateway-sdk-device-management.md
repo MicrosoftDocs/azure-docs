@@ -19,7 +19,7 @@
 
 # IoT Gateway SDK (beta) – device management with the Gateway SDK
 
-This tutorial shows you how to use the [device management][lnk-device-management] capabilities of IoT Hub alongside the [Gateway SDK][lnk-gateway-sdk]. The tutorial uses an Intel Edison Compute Module to host a gateway with simulated devices that sends telemetry to your IoT hub. You use the device management capabilities in IoT Hub to perform a remote firmware update on the Edison board.
+This tutorial shows you how to use the [device management][lnk-device-management] capabilities of IoT Hub alongside the [Azure IoT Hub Gateway SDK][lnk-gateway-sdk]. The tutorial uses an Intel Edison Compute Module to host a gateway with simulated devices that sends telemetry to your IoT hub. You use the device management capabilities in IoT Hub to perform a remote firmware update on the Edison board.
 
 This tutorial covers:
 
@@ -41,13 +41,13 @@ There are three IoT devices connected to IoT Hub in this solution:
 
 - Two simulated devices (**GW-ble1-demo** and **GW-ble2-demo**). These devices simulate Bluetooth low energy devices that connect to IoT Hub through the gateway and send temperature telemetry to your hub.
 
-### Gateway service
+### Gateway software
 
-The gateway service runs on the Edison board. Two simulated devices generate temperature telemetry. The mapping module maps these simulated devices to devices registered with IoT Hub and the HTTP module handles communication with the IoT Hub endpoint. The [IoT Gateway SDK  – send device-to-cloud messages with a simulated device][lnk-gateway-scenario] article describes this scenario in detail.
+The gateway software runs as a service on the Edison board. Two simulated devices generate temperature telemetry. The mapping module maps these simulated devices to devices registered with IoT Hub and the HTTP module handles communication with the IoT Hub endpoint. The [IoT Gateway SDK  – send device-to-cloud messages with a simulated device][lnk-gateway-scenario] article describes this scenario in detail.
 
-### Device management service
+### Device management client
 
-The [device management service][lnk-device-management]  runs on the Edison board. This enables you to run remote jobs on the Edison board such as [firmware updates][lnk-dm-jobs], reboots, and configuration updates as well as querying device properties. In this tutorial, the device management service receives and processes a request to perform a firmware update on the Edison board.
+The [device management client][lnk-device-management] runs as a service on the Edison board. This enables you to run remote jobs on the Edison board such as [firmware updates][lnk-dm-jobs], reboots, and configuration updates as well as querying device properties. In this tutorial, the device management client receives and processes a request to perform a firmware update on the Edison board.
 
 ### IoT Hub
 
@@ -64,9 +64,9 @@ The [device management sample UI][lnk-dm-sample-ui] is a sample web application 
 
 ## Build and run
 
-To run this sample you must build a custom image for your Edison board that includes the IoT Hub gateway and device management services.
+To run this sample you must build a custom image for your Edison board that includes the IoT Hub gateway software and device management client.
 
-Before you get started, you should make sure you can connect your Edison board to your wireless network. To set up your Edison board, you need to connect it to a host computer. Later, you will use the host computer to flash your Edison board with the custom image you create. Intel have a set  of getting started guides that include guides for the following operating systems:
+Before you get started, you should make sure you can connect your Edison board to your wireless network. To set up your Edison board, you need to connect it to a host computer. Later, you will use the host computer to flash your Edison board with the custom image you create. Intel has a set of getting started guides that include guides for the following operating systems:
 
 - [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64].
 - [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32].
@@ -254,7 +254,7 @@ The files you need to flash the Edison board are now in the **~/edison-src/out/l
 
 ### Flash your Intel Edison with the custom image
 
-You can now flash your Edison board with your custom image that contains both the IoT Hub device management and gateway services.
+You can now flash your Edison board with your custom image that contains both the IoT Hub device management client and gateway software.
 
 Copy the files from the **toFlash** folder on the Ubuntu machine you used to build the custom image to the machine that connects to your Edison board with a USB cable.
 
@@ -264,7 +264,7 @@ When the flashing process is complete, connect to your Edison using a [serial co
 
 ### Run the sample
 
-You must configure the device management service on the Edison board to connect as the **GW-device** device to your IoT hub. Use a text editor (such as **vi** or **nano**) to create a file called **.cs** in the /home/root folder on the Edison. This file should contain just the connection string of the **GW-device**. If you didn't make a note of this connection string previously, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to retrieve this device connection string from the IoT Hub device registry.
+You must configure the device management client on the Edison board to connect as the **GW-device** device to your IoT hub. Use a text editor (such as **vi** or **nano**) to create a file called **.cs** in the /home/root folder on the Edison. This file should contain just the connection string of the **GW-device**. If you didn't make a note of this connection string previously, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to retrieve this device connection string from the IoT Hub device registry.
 
 When you have created the **.cs** file, reboot the Edison board using the following command:
 
@@ -369,10 +369,10 @@ To submit the firmware update job and monitor its progress, use the Node.js [dev
 
     ![Job status complete][img-job-status]
 
-You have now completed the tutorial that shows you how to use the IoT Hub gateway and device management services on an Intel Edison board. As part of this tutorial you:
+You have now completed the tutorial that shows you how to use the IoT Hub gateway software and device management client on an Intel Edison board. As part of this tutorial you:
 
-- Created a custom Intel Edison image that includes the IoT Hub device management and gateway services configured to start up whenever the Edison board boots.
-- Configured the Edison board and device management service to connect to your IoT hub.
+- Created a custom Intel Edison image that includes the IoT Hub device management client and gateway software configured to start up whenever the Edison board boots.
+- Configured the Edison board and device management client to connect to your IoT hub.
 - Started a device management job from the sample UI that causes the Edison board to reboot and apply a new firmware image.
 
 ## Next steps
