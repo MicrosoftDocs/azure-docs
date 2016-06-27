@@ -113,7 +113,7 @@ The internal load balancer in the AD FS subnet provides access to the AD FS serv
 
 - Only pass traffic appearing on port 443 (HTTPS) to the AD FS servers.
 
-- Give the load balancer with a static IP address:
+- Give the load balancer a static IP address:
 
 	[![19]][19]
 
