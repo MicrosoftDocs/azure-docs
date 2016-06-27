@@ -22,6 +22,8 @@ Follow these steps to take advantage of increased throughput for your DocumentDB
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
+## Change to user-defined performance in the Azure portal
+
 1. In your browser, navigate to the [**Azure portal**](https://portal.azure.com). 
 2. Click **Browse** -> **DocumentDB Accounts**, then select the DocumentDB account to modify.   
 3. In the **Databases** lens, select the database to modify, and then in the **Database** blade, select the collection with the S1 pricing tier.
