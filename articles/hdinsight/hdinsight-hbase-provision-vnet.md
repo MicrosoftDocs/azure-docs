@@ -44,19 +44,19 @@ In this section, you will create a Linux-based HBase cluster in HDInsight using 
 
 2. From the **Parameters** blade, enter the following:
 
-	- **ClusterName**: Enter a name for the Hadoop cluster that you will create.
-	- **Cluster login name and password**: The default login name is **admin**.
-	- **SSH username and password**: The default username is **sshuser**.  You can rename it. 
+    - **ClusterName**: Enter a name for the Hadoop cluster that you will create.
+    - **Cluster login name and password**: The default login name is **admin**.
+    - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 
-   Some properties have been hard-coded into the template. For example:
+	Some properties have been hard-coded into the template. For example:
 
-	- Location: East US
-	- Cluster worker node count: 4
-	- Default storage account: &lt;Cluster Name>store
-	- Virtual network name: &lt;Cluster Name>-vnet
-	- Virtual network address space: 10.0.0.0/16
-	- Subnet name: default
-	- Subnet address range: 10.0.0.0/24
+    - Location: East US
+    - Cluster worker node count: 4
+    - Default storage account: &lt;Cluster Name>store
+    - Virtual network name: &lt;Cluster Name>-vnet
+    - Virtual network address space: 10.0.0.0/16
+    - Subnet name: default
+    - Subnet address range: 10.0.0.0/24
 
 3. Click **OK** to save the parameters.
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
