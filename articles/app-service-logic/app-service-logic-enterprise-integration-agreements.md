@@ -20,11 +20,11 @@
 # Enterprise integration agreements
 
 ## Overview
-Agreements are the cornerstone of B2B communications, allowing business entities to communicate seamlessly using industry standard protocols.  
+Agreements are the cornerstone of business-to-business (B2B) communications, allowing business entities to communicate seamlessly using industry standard protocols.  
 
 ## What is an agreement?
 
-An agreement is a communications arrangement between B2B trading partners. An agreement is based on the communications the partners wish to achieve and is protocol or transport specific.
+An agreement, as far as the enterprise integration suite is concerned, is a communications arrangement between B2B trading partners. An agreement is based on the communications the partners wish to achieve and is protocol or transport specific.
 
 Enterprise integration supports three protocol/transport standards:
 
@@ -88,17 +88,16 @@ See the table below if you would like to learn more about what the receive setti
 
 |Property|Description|
 |----|----|
-|Override message properties||
-|Message should be signed||
-|Message should be encrypted||
-|||
-|Message should be compressed||
-|MDN Text||
-|Send MDN||
-|Send MDN||
+|Override message properties|Select this to indicate that properties in received messages can be overridden |
+|Message should be signed|Enable this to require messages to be digitally signed|
+|Message should be encrypted|Enable this to require messages to be encrypted. Non-encrypted messages will be rejected.|
+|Message should be compressed|Enable this to require messages to be compressed. Non-compressed messages will be rejected.|
+|MDN Text|This is a default MDN to be sent to the message sender|
+|Send MDN|Enable this to allow MDNs to be sent.|
+|Send signed MDN|Enable this to require MDNs to be signed.|
 |MIC Algorithm||
-|Send asynchronous MDN||
-|Send Settings||
+|Send asynchronous MDN|Enable this to require messages to be sent asynchronously.|
+|URL|This is the URL to which messages will be sent.|
 Now, let's continue:  
 8. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-5.png)  
@@ -107,17 +106,17 @@ See the table below if you would like to learn more about what the send settings
 
 |Property|Description|
 |----|----|
-|Override message properties||
-|Message should be signed||
-|Message should be encrypted||
-|Certificate||
-|Message should be compressed||
-|MDN Text||
-|Send MDN||
-|Send MDN||
-|MIC Algorithm||
-|Send asynchronous MDN||
-|Send Settings||
+|Enable message signing|Select this checkbox to enable all messages sent from the agreement to be signed.|
+|MIC Algorithm|Select the algorithm to use in message signing|
+|Certificate|Select the certificate to use in message signing|
+|Enable message encryption|Select this checkbox to encrypt all messages sent from this agreement.|
+|Encryption Algorithm|Select the encryption algorithm to use in message encryption|
+|Unfold HTTP headers||
+|Request MDN|Enable this checkbox to request an MDN for all messages sent from this agreement|
+|Request signed MDN|Enable to request that all MDNs sent to this agreement are signed|
+|Request asynchronous MDN|Enable to request asynchronous MDN to be sent to this agreement|
+|URL|The URL to which MDNs will be sent|
+|Enable NRR||
 We are almost done!  
 9. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)  
