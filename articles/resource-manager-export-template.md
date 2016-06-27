@@ -211,11 +211,11 @@ In the web sites resource, add a definition for the connection string to the dat
       "type": "config",
       "name": "connectionstrings",
       "dependsOn": [
-          "[concat('Microsoft.Web/Sites/', variables('webSiteName'))]"
+          "[concat('Microsoft.Web/Sites/', parameters('<site-name>'))]"
       ],
       "properties": {
           "DefaultConnection": {
-            "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', variables('sqlserverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+            "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('<database-server-name>'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('<database-name>'), ';User Id=', parameters('<admin-login>'), '@', parameters('<database-server-name>'), ';Password=', parameters('<admin-password>'), ';')]",
               "type": "SQLServer"
           }
       }
@@ -239,14 +239,14 @@ In the web site resource, add a definition for the code to install:
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-08-01",
       "dependsOn": [
-        "[concat('Microsoft.Web/sites/', variables('webSiteName'))]"
+        "[concat('Microsoft.Web/sites/', parameters('<site-name>'))]"
       ],
       "properties": {
-        "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('sitetodeplyPackageFolder'), '/', parameters('sitetodeplyPackageFileName'), parameters('_artifactsLocationSasToken'))]",
+        "packageUri": "[concat(parameters('<artifacts-location>'), '/', parameters('<package-folder>'), '/', parameters('<package-file-name>'), parameters('<sas-token>'))]",
         "dbType": "None",
         "connectionString": "",
         "setParameters": {
-          "IIS Web Application Name": "[variables('webSiteName')]"
+          "IIS Web Application Name": "[parameters('<site-name>')]"
         }
       }
     }
@@ -259,23 +259,77 @@ In the web site resource, add a definition for the code to install:
 
 ### Virtual network gateway
 
+```
+{
+  "type": "Microsoft.Network/virtualNetworkGateways",
+  "name": "[parameters('name')]",
+  "apiVersion": "2015-06-15",
+  "location": "[parameters('location')]",
+  "properties": {
+    "gatewayType": "[parameters('gatewayType')]",
+    "ipConfigurations": [
+      {
+        "name": "default",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "subnet": {
+            "id": "[resourceId('codegroup4', 'Microsoft.Network/virtualNetworks/subnets', parameters('existingVirtualNetworkName'), parameters('newSubnetName'))]"
+          },
+          "publicIpAddress": {
+            "id": "[resourceId('codegroup4', 'Microsoft.Network/publicIPAddresses', parameters('newPublicIpAddressName'))]"
+          }
+        }
+      }
+    ],
+    "enableBgp": false,
+    "vpnType": "[parameters('vpnType')]"
+  },
+  "dependsOn": [
+    "Microsoft.Network/virtualNetworks/codegroup4/subnets/GatewaySubnet",
+    "[concat('Microsoft.Network/publicIPAddresses/', parameters('newPublicIpAddressName'))]"
+  ]
+},
+```
 
 ### Local network gateway
 
 ```
 {
     "type": "Microsoft.Network/localNetworkGateways",
-    "name": "[parameters('localNetworkGatewayName')]",
+    "name": "[parameters('<local-network-gateway-name>')]",
     "apiVersion": "2015-06-15",
-    "location": "[parameters('location')]",
+    "location": "[parameters('<location>')]",
     "properties": {
       "localNetworkAddressSpace": {
-        "addressPrefixes": "[parameters('addressPrefixes')]"
+        "addressPrefixes": "[parameters('<address-prefixes>')]"
       },
-      "gatewayIpAddress": "[parameters('gatewayIpAddress')]"
+      "gatewayIpAddress": "[parameters('<gateway-ip-address>')]"
     }
 }
 ```
+
+### Connection
+
+```
+{
+    "apiVersion": "2015-06-15",
+    "name": "[parameters('<connection-name>')]",
+    "type": "Microsoft.Network/connections",
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "virtualNetworkGateway1": {
+        "id": "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('<gateway-name>'))]"
+      },
+      "localNetworkGateway2": {
+        "id": "[resourceId('Microsoft.Network/localNetworkGateways', parameters('<local-gateway-name>'))]"
+      },
+      "connectionType": "IPsec",
+      "routingWeight": 10,
+      "sharedKey": "[parameters('<shared-key>')]"
+    }
+},
+```
+
 
 ## Next steps
 
