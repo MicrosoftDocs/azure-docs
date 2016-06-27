@@ -66,15 +66,14 @@ Some steps are shared between the different types of solutions. This article pro
 
 
 ## 3. Post-Publishing management of your offer
+- [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
+- [How to update the non-technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
 - [How to delete an offer or SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#4-how-to-delete-a-live-offer-or-sku-from-the-azure-marketplace)
 - [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
 - [Understanding your seller insights reporting](marketplace-publishing-report-seller-insights.md)
 - [Understanding your payout reporting](marketplace-publishing-report-payout.md)
 - [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
 
-### Virtual Machine Image specific ###
-- [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
-- [How to update the non-technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
 
 ## Additional Resources
 - [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
