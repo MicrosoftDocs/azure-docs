@@ -37,6 +37,10 @@ An integration account is an Azure account that allows Enterprise Integration ap
 10. Select a **Location** and a **Pricing tier**.
 11. Select the **Create** button.
 
+## Create an integration account using PowerShell
+
+    
+
 ## Managing an integration account
 - life cycle (delete, disable, enable, what does it have access to, etc.)
 

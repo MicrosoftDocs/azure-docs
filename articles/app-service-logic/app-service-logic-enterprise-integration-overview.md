@@ -21,7 +21,7 @@
 ## Overview
 
 ## What is the enterprise integration suite?
-The Enterprise Integration suite is Microsoft's cloud-based solution for seamlessly enabling business-to-business (B2B) communications. The suite uses industry standard protocols including [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) and EDIFACT (coming soon) to exchanges messages between business partners. Messages can be optionally secured using both encryption and digital signatures. 
+The Enterprise Integration suite is Microsoft's cloud-based solution for seamlessly enabling business-to-business (B2B) communications. The suite uses industry standard protocols including [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) and EDIFACT (coming soon) to exchange messages between business partners. Messages can be optionally secured using both encryption and digital signatures. 
 
 The suite allows organizations that use different protocols and formats to exchange messages electronically by transforming the different formats into a format that both organizations' systems can interpret and take action on. 
 
@@ -64,7 +64,8 @@ For pricing information and a list of what is included with each service tier, s
 - [Maps](./app-service-logic-enterprise-integration-maps.md "Learn about enterprise integration maps")
 - [Certificates](./app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
 - [Partners](./app-service-logic-enterprise-integration-partners.md "Learn about enterprise integration partners")
-- - [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
+- [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
+- [Integration accounts](./app-service-logic-enterprise-integration-accounts.md "Learn about enterprise integration accounts")
 
 
 
