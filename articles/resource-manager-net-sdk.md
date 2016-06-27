@@ -70,7 +70,7 @@ private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenan
 }
 ```
 
-Instead of using the tenant ID for signing in, you can use the Active Directory domain, as shown in the following code. Using this approach requires that you change the method signature to include the domain name instead of the tenant ID.
+Instead of using the tenant ID for signing in, you can use the Azure AD domain, as shown in the following code. Using this approach requires that you change the method signature to include the domain name instead of the tenant ID.
 
 ```csharp
 AuthenticationContext authContext = new AuthenticationContext
