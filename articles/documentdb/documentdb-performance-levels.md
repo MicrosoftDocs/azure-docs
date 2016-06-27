@@ -97,28 +97,28 @@ It is recommended that your application makes use of a small number of collectio
 
 ## Changing performance levels using the Azure Portal
 
-The Azure Portal is one option available to you when managing the performance levels of your collections. Follow these steps to change from using pre-defined performance levels to user-defined performance levels in the Azure portal. By using user-defined performance levels, you can tailor your throughput to your needs. And if you're still using an S1 account, you can increase your default throughput from 250 RU/s to 400 RU/s with just a few clicks.
+The Azure Portal is one option available to you when managing the performance levels of your collections. Follow these steps to change from using pre-defined throughput levels to user-defined throughput levels in the Azure portal. By using user-defined throughput levels, you can tailor your throughput to your needs. And if you're still using an S1 account, you can increase your default throughput from 250 RU/s to 400 RU/s with just a few clicks.
 
-For more information about the change to the pricing options, see  the blog post [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
+For more information about the pricing changes related to user-defined and pre-defined throughput, see the blog post [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
 1. In your browser, navigate to the [**Azure portal**](https://portal.azure.com). 
 2. Click **Browse** -> **DocumentDB Accounts**, then select the DocumentDB account to modify.   
-3. In the **Databases** lens, select the database to modify, and then in the **Database** blade, select the collection to modify. Accounts using pre-defined performance have a pricing tier of S1, S2, or S3.
+3. In the **Databases** lens, select the database to modify, and then in the **Database** blade, select the collection to modify. Accounts using pre-defined throughput have a pricing tier of S1, S2, or S3.
 
       ![Screen shot of the Database blade with an S1 collection](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
 4. In the **Collections** blade, click **Settings** on the top bar.   
-5. In the **Settings** blade, click **Pricing Tier** and notice that the estimated monthly cost estimate for each plan is displayed in the **Choose your pricing tier** blade. To change to user-defined performance, click **Standard**, and then click **Select** to save your change.
+5. In the **Settings** blade, click **Pricing Tier** and notice that the monthly cost estimate for each plan is displayed in the **Choose your pricing tier** blade. To change to user-defined throughput, click **Standard**, and then click **Select** to save your change.
 
       ![Screen shot of the DocumentDB Settings and Choose your pricing tier blades](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
-6. Back in the **Settings** blade, the **Pricing Tier** is changed to **Standard** and the **Throughput (RU/s)** box is displayed with a default value of 400. Set the throughput between 400 and 10,000 [Request units](documentdb-request-units.md)/second (RU/s). The **Pricing Summary** at the bottom of the page updates automatically to provide an estimate of the monthly cost.
+6. Back in the **Settings** blade, the **Pricing Tier** is changed to **Standard** and the **Throughput (RU/s)** box is displayed with a default value of 400. Set the throughput between 400 and 10,000 [Request units](documentdb-request-units.md)/second (RU/s). The **Pricing Summary** at the bottom of the page updates automatically to provide an estimate of the monthly cost. Click **OK** to save your changes. 
     
 	![Screen shot of the Settings blade showing where to change the throughput value](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-7. Click **OK** to save your changes. Back on the **Database** blade, you can verify the new throughput of the collection. 
+7. Back on the **Database** blade, you can verify the new throughput of the collection. 
 
 	![Screen shot of the Database blade with modified collection](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)
 
