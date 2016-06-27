@@ -41,39 +41,35 @@ AD FS can run on-premises, but in a hybrid scenario where elements of an applica
 
 - Systems that enable requests from authorized external users that do not belong to partner organizations.
 
+For more information about how AD FS work, see [Active Directory Federation Services Overview][active-directory-federation-services-overview].
+
 ## Architecture diagram
 
 The following diagram highlights the important components in this architecture (*click to zoom in*). For more information about the greyed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access], and [Implementing a secure hybrid network architecture with Active Directory identities in Azure][implementing-active-directory]:
 
 [![0]][0]
 
-- **On-premises network.** The on-premises network includes local AD DS and AD FS servers that can perform authentication and authorization for components located on-premises.
-
-- **AD DS Servers.** These are domain controllers running as VMs in the cloud. These servers can provide authentication of components running in the web tier, business tier, and data tier subnets. It can also authorize access to local resources that belong to the application and are managed by the system rather than by a partner organization.
+- **AD DS Servers.** These are domain controllers running as VMs in the cloud. These servers can provide authentication of local identities within the domain.
 
 - **Active Directory subnet.** The AD DS servers are bounded in a separate subnet. NSG rules help to protect the AD DS servers and can provide a firewall against traffic from unexpected sources.
 
-- **Azure Gateway and AD synchronization.**. The Azure gateway provides a connection between the on-premises network and the Azure VNet. This can be a [VPN connection][azure-vpn-gateway] or [Azure ExpressRoute][azure-expressroute]. All synchronization requests between the AD FS servers in the cloud and on-premises pass through the gateway. User-defined routes (UDRs) handle routing for synchronization traffic which passes directly to the AD FS server in the cloud and does not pass through the NVAs.
-
 	For more information about configuring UDRs and the NVAs, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
 
->[AZURE.NOTE] The following items are optional and only apply to solutions that comprise [claims-aware applications]. Note that the diagram depicts the relationships between components but is not intended to illustrate the flow of control. For more information, see [Active Directory Federation Services Overview][active-directory-federation-services-overview].
-
-- **AD FS servers.** The AD FS servers handle federated authorization. They perform two tasks:
+- **AD FS servers.** The AD FS servers handle federated authorization. They perform the following tasks:
 
 	1. They handle authorization requests from the application running in the cloud for resources managed by partner organizations. The AD FS server passes access requests (which have been authenticated by using the AD DS servers) to the resource partner which authorizes or denies access. The AD FS servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts.
 
-	2. They authorize incoming requests from partner organizations that need access to resources held in the cloud. Note that the AD FS servers are not exposed directly to the outside world, rather all traffic is received through AD FS proxy servers and a DMZ.
+	2. They authorize incoming requests from partner organizations that need access to resources held in the cloud. 
 
-	The AD FS servers are configured as a farm, prefixed by an Azure load balancer. This structure helps to improve availability and scalability.
+	3. They authenticate (via AD DS) and authorize incoming requests from partner organizations that need access to resources held in the cloud. 
+
+	The AD FS servers are configured as a farm, prefixed by an Azure load balancer. This structure helps to improve availability and scalability. Also, note that the AD FS servers are not exposed directly to the Internet, rather all Internet traffic is received through AD FS proxy servers and a DMZ.
 
 - **Active Directory Federation Services subnet.** The AD DS servers can be contained within their own subnet, with NSG rules acting as a basic firewall.
 
 - **AD FS DMZ inbound and outbound subnets, and NVAs.** These components provide a more substantial security perimeter, protecting the AD FS subnet from rogue traffic received through the AD FS proxy servers. The principle used is similar to that implemented for protecting the system from Internet traffic, described by the document  [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
 
 - **Resource partner.** The resource partner is a trusted partner organization which owns or manages external resources. An authorization service (which could be AD FS, but does not have to be) at the resource partner site receives requests from an account partner and issues a security token which contains information about whether access has been authorized. This information is structured as a set of *claims*. If access has been granted, the application running in the cloud can use the resources requested. The application must include a token with each request proving that it has been previously authorized.
-
-	>[AZURE.NOTE] There must be a trust relationship between the AD FS servers running in the cloud and the AD FS server running in the resource partner; the resource partner must trust the AD FS server of the account partner to provide valid, authenticated identities.
 
 - **AD FS proxy servers.** These computers act as AD FS servers for incoming requests from partner organizations and external users. The AD FS proxy servers act as a filter, protecting the AD FS servers from direct access from the public Internet. As with the AD FS servers, deploying the proxy servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of stand-alone servers.
 
@@ -83,15 +79,9 @@ The following diagram highlights the important components in this architecture (
 
 ## Recommendations
 
-This section summarizes recommendations for implementing AD DS and AD FS running in the cloud, covering:
+This section summarizes recommendations for implementing AD FS running in Azure, covering:
 
-- Creating the VMs for hosting AD DS and AD FS.
-
-- Configuring the network settings for the AD DS VMs.
-
-- Options for implementing AD DS.
-
-- Synchronizing the AD servers.
+- Creating the VMs for hosting AD FS.
 
 - Configuring the network settings for the AD FS VMs.
 
@@ -107,129 +97,7 @@ This section summarizes recommendations for implementing AD DS and AD FS running
 
 ### VM recommendations for hosting AD DS and AD FS ###
 
-Create VMs with sufficient resources to handle the expected volume of traffic. Use the size of the machines hosting AD DS and AD FS on premises as a starting point. Monitor the resource utilization; you can resize the VMs and scale down if they are too large. For more information about sizing AD DS, see [Capacity Planning for Active Directory Domain Services][capacity-planning-for-adds]
-
-### Network recommendations for AD DS VMs
-
-Configure the network interface for each of the VMs hosting AD DS with static private IP addresses (10.0.4.4 in the example shown below). This configuration better supports DNS on each of the AD DS VMs. Do this by using the Azure portal:
-
-[![1]][1]
-
-> [AZURE.NOTE] Do not give the AD FD VMs public IP addresses. See [Security considerations][security-considerations] for more details.
-
-Also, set the IP address of the primary DNS server for the network interface for each AD DS VM to reference the on-premises domain controller (10.2.0.4 in the following image). This step is required, otherwise the VM will not be able to locate the on-premises domain controller and will be unable to join the domain.
-
-[![2]][2]
-
-After changing these settings, restart the VM.
-
-Note that the IP settings still appear to the VM to be dynamic, although the DHCP service provided by Azure will ensure that the same addresses are provided to the VM each time in starts. This can cause the system to generate some warnings about using dynamic IP addresses when installing DNS on the VM. You can safely ignore these warnings. 
-
-> [AZURE.NOTE] You can also configure the IP settings within each VM by modifying the network adapter settings and setting the TCP/IP properties, as illustrated in the image below.
->
->[![3]][3]
->
-> Be warned that if you misconfigure the network adapter in the VM, you may lose connectivity and not be able to reconnect; setting the IP address using the Azure portal is a lot more forgiving.
-
-### AD DS recommendations ###
-
-Install Active Directory Domain Services on the AD DS servers in the cloud by using the *Add Roles and Features* wizard in Server Manager:
-
-[![4]][4]
-
-After installation, click the *Notifications* flag in Server Manager and then click *Promote this server to a domain controller* to start the *Active Directory Domain Services Configuration Wizard*:
-
-[![5]][5]
-
-The following sections provide more information about the Domain Services configuration options.
-
-#### Configuring the first AD DS server in the cloud ####
-
-For the first AD DS server you can use any of the three available options highlighted in the following image:
-
-[![6]][6]
-
-- Select *Add a domain controller to an existing domain* to make the domain controller part of a domain already configured on-premises. AD DS will automatically replicate changes made in the on-premises domain controller to this server, and vice versa. Unless you have a specific security reason not to do so, this is the preferred option. The following steps summarize the important configuration selections when using this option:
-
-	1. On the *Deployment Configuration* page of the wizard, specify the name of the domain to join (contoso.com in the image shown below), and click *Change* to provide the credentials of an administrative account that has authority to add controllers to the domain:
-
-		[![7]][7]
-
-	2. On the *Domain Controller Options* page, select the *Domain Name System (DNS) server* and *Global Catalog (GC)* capabilities, and provide a password to enable you to restore the AD DS directory on this VM if necessary:
-
-		[![8]][8]
-
-	3. If the *DNS Options* page displays a warning about being unable to create a delegation for the DNS server, consult with the operations staff about whether DNS delegation is required. This will only be necessary if access is required to the domain controller in the cloud from outside the domain (maybe from another domain in the on-premises network).
-
-	4. On the *Additional Options* page, replicate from the on-premises domain controller:
-
-		[![9]][9]
-
-	5. On the *Path* page, unless you have good reason to do otherwise, select the default locations for the AD database, log files, and SYSVOL folder:
-
-		[![10]][10]
-
-	6. On the *Prerequisites Check* page, if you have configured the IP address and DNS settings using the Azure portal as recommended by the [Network configuration recommendations for AD DS VMs][ad_network_recommendations] section, you will receive a warning that the computer does not have a static IP address. You can safely ignore this warning, for the reasons described in the earlier section:
-
-		[![11]][11]
-
-	7. Allow the VM to restart when the wizard has finished. The VM should now be a domain controller. You can verify this by logging on to the VM once it has rebooted. Using the Active Directory Users and Computers management tool, browse to the directory (contoso.com), and click *Domain Controllers*. Your VM should be listed:
-
-		[![12]][12]
-
-		Note that the *Deployment Wizard* changes the DNS settings for the network adapter on the VM and adds the current computer as an alternate DNS server:
-
-		[![13]][13]
-
-		To enable you to manage the DNS settings from Azure, reset this option to *Obtain DNS server address automatically*, and then use the Azure portal to set the DNS servers for the network interface:
-
-		[![14]][14]
-
-		Restart the VM after making these changes.
-
-- Select *Add a new domain to an existing forest* to create a new domain within a forest already created on-premises. Use this option if you need to implement different security or access policies on-premises and in the cloud. AD DS will not automatically replicate changes across domains, so you must perform this task manually. The wizard performs similar steps to the *Add a domain controller to an existing domain* option, with the following exceptions:
-
-	- You specify the domain type (Child Domain or Tree Domain), together with the name of the existing parent domain (on-premises) and the name of the new domain to create:
-
-		[![15]][15]
-
-		>[AZURE.NOTE] A child domain forms an extension to the namespace of the parent domain. In the example shown in the image, the full name of the new child domain is cloud.contoso.com. A tree domain does not form part of the same namespace as the parent, and instead forms a separate standalone namespace.
-
-	- You must also verify the NetBIOS name that will be assigned to the new domain. You should keep this as close to the directory name as possible, to avoid confusion:
-
-		[![16]][16]
-
-- Select *Add a new forest* if you need to maintain separation between the on-premises domain(s) and that used in the cloud. This could be for security purposes, or as the result of regulatory requirements in your territory. Again, AD DS will not replicate changes across forests, so you must perform this task manually. 
-
-	The *Deployment Wizard* creates an entirely new and independent installation of Active Directory on your server. You are prompted for the root domain name of the new forest to create:
-
-	[![17]][17]
-
-	Most of the remaining steps are similar those performed by the previous two options.
-
-For more information about the concepts surrounding Active Directory domains and forests, see [What Are Domains and Forests?][domain_and_forests].
-
-#### Adding subsequent AD DS servers in the cloud ####
-
-Add all subsequent AD DS servers in the cloud as domain controllers that are part of the same domain as the first. This approach will improve availability of the AD DS service. 
-
-When you configure the additional domain controllers, note that you don't have to install DNS with each controller, although doing so can help to reduce the chances of a name resolution failure if one instance of DNS should become unavailable. If you choose not to install DNS, make sure that the DNS server settings for the network interface in the Azure portal reference valid DNS services in the domain. Ideally specify the address of one of the domain controllers in the cloud that is running DNS as the primary server, with the on-premises DNS server as the secondary, as shown in the previous section.
-
-Spread the Active Directory replication load evenly. Don't synchronize all domain controllers with the same server. For example, synchronize with one of the other domain controllers in the cloud rather than the on-premises controller:
-
-[![18]][18]
-
-### Active Directory synchronization recommendations ###
-
-Synchronization between domain controllers in the same domain is automatic, although there may a delay while changes are propagated. Therefore, if your domain controllers in the cloud are part of the same domain used in premises, you do not need to perform any additional configuration. However, you must ensure that synchronization traffic can flow freely between the AD DS servers in the cloud and on-premises:
-
-- Add NSG rules to the AD DS subnet that permit incoming traffic from on-premises. For detailed information on the ports that AD DS utilizes, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports].
-
-- Add UDR rules to the gateway subnet that route requests arriving from the on-premises network directly to the AD DS server in the cloud, bypassing the NVAs.
-
-If you have created a new domain or forest in the cloud, separate from that used on premises, you will have to perform synchronization manually. This task typically involves using [PowerShell with the Active Directory cmdlets][powershell-ad] to export data from one domain into a file, transporting the file to the new domain, and then using PowerShell to import the data.
-
-> [AZURE.NOTE] It is not possible to simply copy the AD database files to a new server and use these files to run AD. This is for security reasons; the identifiers and other information held in an AD database are tied to a specific AD server. This helps to prevent spoofing of AD servers.
+Create VMs with sufficient resources to handle the expected volume of traffic. Use the size of the machines hosting AD FS on premises as a starting point. Monitor the resource utilization; you can resize the VMs and scale down if they are too large.
 
 ### Network recommendations for AD FS VMs ###
 
@@ -481,9 +349,7 @@ To run the script that deploys the solution:
 
 ## Availability considerations
 
-Create different availability sets for the AD DS, AD FS, and AD FS proxy servers. Ensure that there are at least two servers in each set. 
-
-The AD DS servers in the cloud should be domain controllers within the same domain. This will enable automatic replication between servers. The domain does not necessarily have to be the same as that used on-premises, or even part of the same forest.
+Create different availability sets for the AD FS and AD FS proxy servers. Ensure that there are at least two servers in each set. 
 
 *AD FS availability notes?*
 
@@ -493,9 +359,9 @@ The AD DS servers in the cloud should be domain controllers within the same doma
 
 ## Security considerations
 
-Prevent direct exposure of the AD DS and AD FS servers to the Internet. AD DS servers handle authentication and are therefore very sensitive items. AD FS are domain-joined servers that have full authorization to grant security tokens. If an AD FS server is compromised, a malicious user has the ability to issue full access tokens to all web applications and to federation servers that are protected by AD FS. If your system must handle requests from external users not necessarily connecting from trusted partner sites, use AD FS proxy servers to handle these requests. Do not domain-join these proxy servers. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
+Prevent direct exposure of the AD FS servers to the Internet. AD FS are domain-joined computers that have full authorization to grant security tokens. If an AD FS server is compromised, a malicious user has the ability to issue full access tokens to all web applications and to federation servers that are protected by AD FS. If your system must handle requests from external users not necessarily connecting from trusted partner sites, use AD FS proxy servers to handle these requests. Do not domain-join these proxy servers. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
 
-Place AD DS servers, AD FS servers, and AD FS proxy servers in separate subnets with their own firewalls. You can use NSG rules to define a simple firewall. If you require more comprehensive protection you can implement an additional security perimeter around servers by using a pair of subnets and NVAs, as described by the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. Note that all firewalls should allow traffic on port 443 (HTTPS).
+Place AD FS servers and AD FS proxy servers in separate subnets with their own firewalls. You can use NSG rules to define a simple firewall. If you require more comprehensive protection you can implement an additional security perimeter around servers by using a pair of subnets and NVAs, as described by the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. Note that all firewalls should allow traffic on port 443 (HTTPS).
 
 ## Scalability considerations
 
@@ -513,9 +379,6 @@ Note that if you are using the Windows Internal Database to store AD FS configur
 
 ## Management considerations
 
-Do not copy the VHD files of domain controllers instead of performing regular backups because restoring them can result in inconsistencies in state between domain controllers.
-
-Shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the Shut Down option in the Azure Portal. Using the Azure Portal to shut down a VM causes the VM to be deallocated. This action resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative.
 
 *TBC*
 
@@ -527,55 +390,8 @@ Shut down and restart a VM that runs the domain controller role in Azure within 
 
 [implementing-active-directory]: ./guidance-iaas-ra-secure-vnet-ad.md
 [resource-manager-overview]: ../resource-group-overview.md
-
-[0]: ./media/guidance-iaas-ra-secure-vnet-ad/figure1.png "Secure hybrid network architecture with Active Directory"
-[19]: ./media/guidance-iaas-ra-secure-vnet-ad/figure20.png "Setting the IP address for the AD FS load balancer"
-[20]: ./media/guidance-iaas-ra-secure-vnet-ad/figure21.png "Creating a DNS record and domain name for the AD FS load balancer"
-[21]: ./media/guidance-iaas-ra-secure-vnet-ad/figure22.png "Creating the AD FS service account"
-[22]: ./media/guidance-iaas-ra-secure-vnet-ad/figure23.png "Installing the Web Server role"
-[23]: ./media/guidance-iaas-ra-secure-vnet-ad/figure24.png "Installing the Active Directory Federation Services role"
-[24]: ./media/guidance-iaas-ra-secure-vnet-ad/figure25.png "Creating the first federation server in the AD FS farm"
-[25]: ./media/guidance-iaas-ra-secure-vnet-ad/figure26.png "Specifying a domain administrator account for configuring AD FS"
-[26]: ./media/guidance-iaas-ra-secure-vnet-ad/figure27.png "Specifying the SSL certificate and federation service display name"
-[27]: ./media/guidance-iaas-ra-secure-vnet-ad/figure28.png "Specifying the dedicated account for the federation service"
-[28]: ./media/guidance-iaas-ra-secure-vnet-ad/figure29.png "Specifying the configuration database for the federation service"
-[29]: ./media/guidance-iaas-ra-secure-vnet-ad/figure30.png "Configuring the federation service"
-[30]: ./media/guidance-iaas-ra-secure-vnet-ad/figure31.png "Adding the server to an existing federation server farm"
-[31]: ./media/guidance-iaas-ra-secure-vnet-ad/figure32.png "Specifying the primary server in the federation server farm"
-[32]: ./media/guidance-iaas-ra-secure-vnet-ad/figure33.png "The sign-in page generated by AD FS"
-[33]: ./media/guidance-iaas-ra-secure-vnet-ad/figure34.png "The federation metadata generated by AD FS"
-[34]: ./media/guidance-iaas-ra-secure-vnet-ad/figure35.png "Importing the authentication certificate into the Personal store in the Local machine account"
-[35]: ./media/guidance-iaas-ra-secure-vnet-ad/figure36.png "Installing the Remote Access role"
-[36]: ./media/guidance-iaas-ra-secure-vnet-ad/figure37.png "Selecting the Web Application Proxy role service"
-[37]: ./media/guidance-iaas-ra-secure-vnet-ad/figure38.png "Starting the Web Application Proxy Wizard"
-[38]: ./media/guidance-iaas-ra-secure-vnet-ad/figure39.png "Specifying the details for connecting to the the AD FS farm"
-[39]: ./media/guidance-iaas-ra-secure-vnet-ad/figure40.png "Selecting the AD FS server authentication certificate"
-[40]: ./media/guidance-iaas-ra-secure-vnet-ad/figure41.png "The Remote Access Management Console"
-[41]: ./media/guidance-iaas-ra-secure-vnet-ad/figure42.png "The Publish New Application Wizard"
-[42]: ./media/guidance-iaas-ra-secure-vnet-ad/figure43.png "Selecting the Pass-through preauthentication option"
-[43]: ./media/guidance-iaas-ra-secure-vnet-ad/figure44.png "Specifying the publish settings"
-[44]: ./media/guidance-iaas-ra-secure-vnet-ad/figure45.png "The Remote Access Management Console showing the AD FS web application"
-[45]: ./media/guidance-iaas-ra-secure-vnet-ad/figure46.png "The Remote Access Management Console showing the cluster and the AD FS web application"
-
-
-
-
-[guidance-vpn-gateway]: ./guidance-hybrid-network-vpn.md
-[script]: #sample-solution-script
-[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
-[active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
-[active-directory-federation-services]: https://technet.microsoft.com/windowsserver/dd448613.aspx
-[azure-active-directory]: ../active-directory-domain-services/active-directory-ds-overview.md
-[azure-ad-connect]: ../active-directory/active-directory-aadconnect.md
-[architecture]: #architecture_diagram
-[security-considerations]: #security-considerations
-[recommendations]: #recommendations
-[azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
-[azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
-[claims-aware applications]: https://msdn.microsoft.com/en-us/library/windows/desktop/bb736227(v=vs.85).aspx
-[active-directory-federation-services-overview]: https://technet.microsoft.com/en-us/library/hh831502(v=ws.11).aspx
-[capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
-[ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
+[implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
+[implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
 [where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048(v=ws.11).aspx
 [powershell-ad]: https://technet.microsoft.com/en-us/library/ee617195.aspx
 [plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
@@ -585,5 +401,38 @@ Shut down and restart a VM that runs the domain controller role in Azure within 
 [create_service_account_for_adfs_farm]: https://technet.microsoft.com/library/dd807078.aspx
 [import_server_authentication_certificate]: https://technet.microsoft.com/library/dd807088.aspx
 [adfs-configuration-database]: https://technet.microsoft.com/en-us/library/ee913581(v=ws.11).aspx
+[active-directory-federation-services]: https://technet.microsoft.com/windowsserver/dd448613.aspx
+[security-considerations]: #security-considerations
+[recommendations]: #recommendations
+[claims-aware applications]: https://msdn.microsoft.com/en-us/library/windows/desktop/bb736227(v=vs.85).aspx
+[active-directory-federation-services-overview]: https://technet.microsoft.com/en-us/library/hh831502(v=ws.11).aspx
 
 
+[0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
+[19]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure20.png "Setting the IP address for the AD FS load balancer"
+[20]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure21.png "Creating a DNS record and domain name for the AD FS load balancer"
+[21]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure22.png "Creating the AD FS service account"
+[22]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure23.png "Installing the Web Server role"
+[23]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure24.png "Installing the Active Directory Federation Services role"
+[24]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure25.png "Creating the first federation server in the AD FS farm"
+[25]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure26.png "Specifying a domain administrator account for configuring AD FS"
+[26]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure27.png "Specifying the SSL certificate and federation service display name"
+[27]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure28.png "Specifying the dedicated account for the federation service"
+[28]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure29.png "Specifying the configuration database for the federation service"
+[29]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure30.png "Configuring the federation service"
+[30]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure31.png "Adding the server to an existing federation server farm"
+[31]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure32.png "Specifying the primary server in the federation server farm"
+[32]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure33.png "The sign-in page generated by AD FS"
+[33]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure34.png "The federation metadata generated by AD FS"
+[34]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure35.png "Importing the authentication certificate into the Personal store in the Local machine account"
+[35]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure36.png "Installing the Remote Access role"
+[36]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure37.png "Selecting the Web Application Proxy role service"
+[37]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure38.png "Starting the Web Application Proxy Wizard"
+[38]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure39.png "Specifying the details for connecting to the the AD FS farm"
+[39]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure40.png "Selecting the AD FS server authentication certificate"
+[40]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure41.png "The Remote Access Management Console"
+[41]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure42.png "The Publish New Application Wizard"
+[42]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure43.png "Selecting the Pass-through preauthentication option"
+[43]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure44.png "Specifying the publish settings"
+[44]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure45.png "The Remote Access Management Console showing the AD FS web application"
+[45]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure46.png "The Remote Access Management Console showing the cluster and the AD FS web application"
