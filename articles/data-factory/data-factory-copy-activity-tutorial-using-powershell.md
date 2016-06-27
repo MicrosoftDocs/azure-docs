@@ -24,7 +24,7 @@
 - [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Portal][azure-portal]. 
+The [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) tutorial shows you how to create and monitor an Azure data factory using the [Azure Portal][azure-portal]. 
 In this tutorial, you will create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial uses a Copy Activity to copy data from an Azure blob to an Azure SQL database.
 
 The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
@@ -162,7 +162,7 @@ In the previous step, you created linked services **StorageLinkedService** and *
 A table is a rectangular dataset and it is the only type of dataset that is supported at this time. The input table in this tutorial refers to a blob container in the Azure Storage that StorageLinkedService points to and the output table refers to a SQL table in the Azure SQL database that AzureSqlLinkedService points to.  
 
 ### Prepare Azure Blob Storage and Azure SQL Database for the tutorial
-Skip this step if you have gone through the tutorial from [Get started with Azure Data Factory][adf-get-started] article. 
+Skip this step if you have gone through the tutorial from [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article. 
 
 You need to perform the following steps to prepare the Azure blob storage and Azure SQL database for this tutorial. 
  
@@ -178,7 +178,7 @@ You need to perform the following steps to prepare the Azure blob storage and Az
 				
 2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
-    ![Azure Storage Explorer][image-data-factory-get-started-storage-explorer]
+    ![Azure Storage Explorer](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
 
@@ -467,7 +467,6 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 [old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[adf-get-started]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [azure-portal]: http://portal.azure.com
 [download-azure-powershell]: ../powershell-install-configure.md
 [data-factory-introduction]: data-factory-introduction.md
