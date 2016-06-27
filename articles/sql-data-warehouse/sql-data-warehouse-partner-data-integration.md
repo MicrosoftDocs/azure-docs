@@ -66,6 +66,3 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/ 
 
 [snaplogic_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
-
-<!--Video Links -->
-[alteryx_video]:http://www.youtube.com/watch?v=CdqSDPyNDKc 
