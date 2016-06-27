@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Example Infrastructure Walkthrough"
+	pageTitle="Example Infrastructure Walkthrough | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure."
 	documentationCenter=""
 	services="virtual-machines-linux"
@@ -17,7 +17,7 @@
 	ms.date="06/24/2016"
 	ms.author="iainfou"/>
 
-# Azure Example Infrastructure Walkthrough
+# Example Azure infrastructure walkthrough
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 

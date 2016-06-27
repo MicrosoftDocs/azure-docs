@@ -17,7 +17,7 @@
 	ms.date="06/22/2016"
 	ms.author="iainfou"/>
 
-# Azure Availability Sets Infrastructure Guidelines
+# Availability sets guidelines
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 

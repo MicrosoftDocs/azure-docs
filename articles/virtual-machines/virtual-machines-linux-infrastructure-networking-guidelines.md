@@ -17,7 +17,7 @@
 	ms.date="06/22/2016"
 	ms.author="iainfou"/>
 
-# Azure Networking Infrastructure Guidelines
+# Networking infrastructure guidelines
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 
