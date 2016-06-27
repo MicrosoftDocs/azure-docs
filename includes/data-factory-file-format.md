@@ -8,7 +8,7 @@ If the format is set to **TextFormat**, you can specify the following **optional
 | rowDelimiter | The character used as a raw separator in file. Only one character is allowed at this time. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
 | escapeChar | The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.<br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | No | 
 | quoteChar | The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This tag is optional. No default value. You must specify no more than one character for this property.<br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | No |
-| nullValue | The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.<br/><br/>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server. | No |
+| nullValue | The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N” and “NULL”.<br/><br/>For example, based on below sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server. | No |
 | encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
 
 #### TextFormat example
@@ -228,8 +228,9 @@ If the format is set to OrcFormat, you do not need to specify any properties in 
 	    "type": "OrcFormat",
 	}
 
+> [AZURE.IMPORTANT] If you are copying data between on-premises and cloud data stores with ORC format involved, and not copying ORC files as-is from source to sink, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine which will be used to transform your data into proper format. Note 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605), please choose properly.
+
 Note the following:
- 
--	If you are copying data between on-premises and cloud data stores with ORC format involved, and not copying ORC files as-is from source to sink, you need to install JRE (Java Runtime Environment) on the gateway machine. 
+
 -	Complex data types are not supported (STRUCT, MAP, LIST, UNION)
 -	ORC file has 3 [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of the above compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB which is the default for ORC. There is no option to override this behavior at this time. 

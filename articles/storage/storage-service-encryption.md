@@ -37,7 +37,11 @@ After you click the Encryption setting, you can enable or disable Storage Servic
 
 ##Availability
 
-For Standard Storage, this feature is currently available in Central US, East Asia, and West Europe. For Premium Storage, this feature is currently available in Central US and Japan East. We will update this document as we roll this feature out in additional regions.
+For Standard Storage, this feature is currently available in Central US, West US, East Asia, and West Europe. 
+
+For Premium Storage, this feature is currently available in Central US, West US, and Japan East. 
+
+We will update this document as we roll this feature out in additional regions.
 
 ##Encryption Scenarios
 

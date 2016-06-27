@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 
