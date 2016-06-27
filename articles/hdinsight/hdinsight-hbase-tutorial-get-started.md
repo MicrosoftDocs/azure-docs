@@ -66,7 +66,7 @@ Before you begin this HBase tutorial, you must have the following:
 
 4. Click **Create**.
 
->[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default storage account and the default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
+>[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default storage account and the default blob container. The new cluster will pick up the HBase tables you created in the original cluster. It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
 
 ## Create tables and insert data
 
@@ -294,7 +294,7 @@ To open the Web UI, you must RDP into the cluster, and then click the HMaster In
 In a high availability cluster, you'll find a link to the current active HBase master node that is hosting the Web UI.
 
 ##Delete the cluster
-
+It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
