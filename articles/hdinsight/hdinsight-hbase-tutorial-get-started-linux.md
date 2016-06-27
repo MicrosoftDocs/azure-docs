@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
+	ms.date="06/27/2016"
 	ms.author="jgao"/>
 
 
@@ -289,7 +289,8 @@ It is recommended to disable the HBase tables before deleting the cluster to avo
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Next steps?
+## Next steps
+
 In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
 
 To learn more, see:
