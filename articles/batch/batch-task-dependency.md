@@ -18,17 +18,19 @@
 
 # Task dependency in Azure Batch
 
-If you want to process a MapReduce-style computational workload in the cloud, or you have a data processing job whose tasks can be expressed as a directed acyclic graph (DAG), the task dependency feature of Azure Batch can be your solution. Log search and rendering 3D movie frames--with a merge task at the end--are perfect candidates for the types of jobs to use the task dependency feature.
+If you want to process a MapReduce-style computational workload in the cloud, or you have a data processing job whose tasks can be expressed as a directed acyclic graph (DAG), the task dependency feature of Azure Batch can be your solution.
 
-The task dependency feature of Batch allows you to create tasks that are scheduled for execution on compute nodes only after the successful completion of other tasks. You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship, or even a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs.
+The task dependency feature of Batch allows you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks, and whose final task merges the rendered frames together into the complete movie only after all of the frames have been successfully rendered.
+
+You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship, or even a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs.
 
 ## Task dependency with Batch .NET
 
-In this article we discuss configuring task dependency using the [Batch .NET][net_msdn] library. We first show how to [enable task dependency](#enable-task-dependency) on your jobs, then a quick demonstration of [configuring a task with dependencies](#create-dependent-tasks), and finally we discuss the three [dependency scenarios](#dependency-scenarios) supported by Batch.
+In this article we discuss configuring task dependency using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependency) on your jobs, then briefly demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the three [dependency scenarios](#dependency-scenarios) supported by Batch.
 
 ## Enable task dependency
 
-To use task dependency in your Batch application, you must first enable it on your [CloudJob][net_cloudjob] by setting its [UsesTaskDependencies][net_usestaskdependencies] property to `true`:
+To use task dependency in your Batch application, you must first tell the Batch service that the job will use task dependencies. In Batch .NET, enable it on your [CloudJob][net_cloudjob] by setting its [UsesTaskDependencies][net_usestaskdependencies] property to `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -42,7 +44,7 @@ In the above code snippet, "batchClient" is an instance of the [BatchClient][net
 
 ## Create dependent tasks
 
-To create a task that is dependent on the successful completion of one ore more other tasks, you configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with an instance of the [TaskDependencies][net_taskdependencies] class:
+To create a task that is dependent on the successful completion of one ore more other tasks, you tell Batch that the task "depends on" the other tasks. In Batch .NET, configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with an instance of the [TaskDependencies][net_taskdependencies] class:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -52,6 +54,8 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
     DependsOn = TaskDependencies.OnIds("Rain", "Sun")
 },
 ```
+
+This code snippet creates a task with the ID of "Flowers" that will be scheduled to run on a compute node only after the tasks with IDs of "Rain" and "Sun" have completed successfully.
 
 ## Dependency scenarios
 
@@ -65,7 +69,7 @@ There are three task dependency scenarios that you can use in Azure Batch: one-t
 
 ## One-to-one
 
-To create a task with a dependency on the successful completion of one other task, you supply a single task id to the [TaskDependencies][net_taskdependencies].[OnId][net_onid] static method when you populate the [DependsOn][net_dependson] property of the [CloudTask][net_cloudtask].
+To create a task with a dependency on the successful completion of one other task, you supply a single task ID to the [TaskDependencies][net_taskdependencies].[OnId][net_onid] static method when you populate the [DependsOn][net_dependson] property of the [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -80,7 +84,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 
 ## One-to-many
 
-To create a task with dependency on the successful completion of multiple tasks, you supply one or more task IDs to the [TaskDependencies][net_taskdependencies].[OnIds][net_onids] static method when you populate the [DependsOn][net_dependson] property of the [CloudTask][net_cloudtask].
+To create a task with dependency on the successful completion of multiple tasks, you supply a collection of task IDs to the [TaskDependencies][net_taskdependencies].[OnIds][net_onids] static method when you populate the [DependsOn][net_dependson] property of the [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -97,7 +101,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 ## Task ID range
 
-To create a task with dependency on the successful completion of a group of tasks whose IDs lie within range, you supply one or more task IDs to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of the [CloudTask][net_cloudtask].
+To create a task with dependency on the successful completion of a group of tasks whose IDs lie within a range, you supply the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of the [CloudTask][net_cloudtask].
 
 >[AZURE.IMPORTANT] When using task ID ranges for your dependencies, the task IDs in the range *must* be **string reprepresentations** of **integer values**.
 
