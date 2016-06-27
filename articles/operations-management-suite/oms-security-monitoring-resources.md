@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="06/24/2016"
    ms.author="yurid"/>
 
 # Monitoring resources in Operations Management Suite Security and Audit Solution
@@ -48,9 +48,9 @@ In a defense in depth approach, every layer of protection is important for the o
 
 	![Security and Audit](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig1.png)
 
-2. In the **Security and Audit** dashboard, click **Malware Assessment** under **Security Domains**. The **Malware Assessment** dashboard appears as shown below:
+2. In the **Security and Audit** dashboard, click **Antimalware Assessment** under **Security Domains**. The **Malware Assessment** dashboard appears as shown below:
 
-![Malware assessment](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig2.png)
+![Malware assessment](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig2-new.png)
 
 You can use the **Malware Assessment** dashboard to identify the following security issues:
 
