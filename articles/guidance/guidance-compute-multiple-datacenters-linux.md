@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="07/01/2016"
    ms.author="mikewasson"/>
 
 # Running VMs in multiple datacenters on Azure for high availability
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-In this article, we recommend a set of practices to run Linux virtual machines (VMs) in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
+In this article, we recommend a set of practices to run Linux virtual machines (VMs) in multiple Azure regions, to achieve availability and a robust disaster recovery infrastructure.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource groups] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
@@ -39,7 +39,7 @@ The following diagram builds on the architecture shown in [Adding reliability to
 
 - **VNets**. Create a separate VNet for each datacenter. Make sure the address spaces do not overlap.
 
-- **Cassandra configured with rack aware and deployed in data centers across azure regions**. Cassandra data centers are deployed in different azure regions for high availability. In the same region nodes are configured in rack aware mode with fault and upgrade domains for resiliency inside the data center. Optionally Cassandra data center can be in the cluster can be deployed across availability sets for high availability in the region.
+- **Apache Cassandra** deployed in data centers across Azure regions. Cassandra data centers are deployed in different Azure regions for high availability. Within each region, nodes are configured in rack-aware mode with fault and upgrade domains, for resiliency inside the region. 
 
 
 ## Availability
@@ -47,7 +47,6 @@ The following diagram builds on the architecture shown in [Adding reliability to
 A multi-datacenter architecture can provide higher availability than deploying to a single datacenter. If a regional outage affects the primary datacenter, Traffic Manager fails over to the secondary datacenter. This architecture can also help if an individual subsystem of the application fails.  
 
 There are several general approaches to achieving high availability across data centers:      
-
 - Active/passive with hot standby. Traffic goes to one datacenter, while the other waits on standby. VMs in the secondary datacenter are allocated and running at all times.
 
 - Active/passive with cold standby. The same, but VMs in the secondary datacenter are not allocated until needed for failover. This approach costs less to run, but will generally have longer down time during a failure.
@@ -94,30 +93,20 @@ However, make sure that both regions support all of the Azure services needed fo
 - **Health probe.** Traffic Manager uses an HTTP (or HTTPS) [probe][tm-monitoring] to monitor the availability of each datacenter. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a "healthy" endpoint when critical parts of the application are actually failing. For more information,see [Health Endpoint Monitoring Pattern][health-endpoint-monitoring-pattern].   
 
 
-## Deployment of Cassandra in Multiple Data Centers for High availability
-Cassandra data centers are divisions of workloads: A group of related nodes that are configured together within a cluster for replication and workload segregation purposes.
-Azure provides several regions where Cassandra can be deployed in Multi datacenter configuration for high availability. This configuration can be achieved with the optimal performance for communication and replication. For more information on running Cassandra in Azure refer to [cassandra-in-azure].
+## Deploying Cassandra in multiple regions 
 
-- A public IP address is assigned to each node and the cluster communication is done using the azure backbone infrastructure providing for high throughput and low cost.
+Cassandra data centers are divisions of workloads: A group of related nodes that are configured together within a cluster for replication and workload segregation.
 
-- The cluster using public IPs for nodes would still be sufficiently secure and at the same time be able to take advantage of much better bandwidth available with the Microsoft private backbone for communications across regions.
+We recommend [DataStax Enterprise][datastax] for production use. For more information on running DataStax in Azure, see [DataStax Enterprise Deployment Guide for Azure][cassandra-in-azure]. The following general recommendations apply to any Cassandra edition.
 
-- All the nodes are protected with appropriate firewalls /NSG configurations allowing traffic to and from for only only known hosts (including client app nodes & other cluster nodes)
+- Assign a public IP address to each node. This enables the clusters to communicate across regions using the Azure backbone infrastructure, providing high throughput at low cost. 
 
-- All client-node, node-node communications are encrypted/SSL.
+- Secure nodes using the appropriate firewall and NSG configurations, allowing traffic only to and from known hosts, including clients and other cluster nodes. Note that Cassandra uses different ports for communication, OpsCenter, Spark, and so forth. For port usage in Cassandra, see [Configuring firewall port access][cassandra-ports].
 
-- Traffic and communication between nodes can be secured applying NSG rules. Cassandra uses different ports for communication, opscenter, sparks etc. For port usage in Cassandra refer to [cassandra-ports]
+- Use SSL encryption for all [client-to-node][ssl-client-node] and [node-to-node][ssl-node-node] communications. 
 
+- Within a region, follow the guidelines in [Cassandra recommendations](guidance-compute-n-tier-vm-linux.md#cassandra-recommendations).
 
-
-## Rack Awareness
-Cassandra replicas can be placed in different racks to ensure that multiple replicas are not lost due to a hardware failure or upgrade reboot of the VM in the region.
-
-- This configuration provides High availability in an event of a portion of a physical data center to fail.
-
-- this configuration provides High availability in an event of upgrade the VM.
-
-- The deployment configuration provides with 3 fault domaings and 18 upgrade domains.
 
 ## Managing failover
 
@@ -128,6 +117,11 @@ When Traffic Manager fails over, there is a period of time when clients cannot r
 - DNS servers must update the cached DNS records for the IP address, which depends on the DNS time-to-live (TTL). The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
 With default settings, the maximum failover time is about 7 minutes. Make sure this meets your [RTO] and [RPO] requirements. For details, see [About Traffic Manager Monitoring][tm-monitoring].
+
+
+For the Cassandra cluster, the failover scenarios to consider depend on the consistency levels used by the application, as well as the number of replicas used. For consistency levels and usage in Cassandra, see [Configuring data consistency][cassandra-consistency] and [Cassandra: How many nodes are talked to with Quorum?][cassandra-consistency-usage] Data availability in Cassandra is determined by the consistency level used by the application and the replication mechanism. For replication in Cassandra, see [Data Replication in NoSQL Databases Explained][cassandra-replication].
+
+When Traffic Manager fails over to the secondary datacenter, data replicas are available to the application.
 
 **Failback**. After Traffic Manager fails over, we recommend performing a manual failback, rather than automatically failing back. Verify that all application subsystems are healthy first. Otherwise, you can create a situation where the application flips back and forth between data centers.
 
@@ -153,13 +147,6 @@ Depending on the cause of a failover, you might need to redploy the resources wi
 - Application subsystems are healthy.
 - Functional testing. (For example, the database tier is reachable from the web tier.)
 
-For Cassandra cluster, the failover scenarios to consider are related with the consistency levels used by the application as well as the number of replicas used:
-
-1. For consistency levels and usage in Cassandra refer to [cassandra-consistency] and [cassandra-consistency-usage].
-
-2. Data availability in Cassandra will be determined by the consistency level use by the application and the replication mechanism. For replication in Cassandra refer to [cassandra-replication].
-
-3. Traffic Manager fails over to the secondary datacenter, where data replicas will be available to the consuming application.
 
 ## Next steps
 
@@ -173,6 +160,7 @@ For Cassandra cluster, the failover scenarios to consider are related with the c
 [cassandra-replication]: http://www.planetcassandra.org/data-replication-in-nosql-databases-explained/
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 [cassandra-ports]: http://docs.datastax.com/en/latest-dse/datastax_enterprise/sec/secConfFirePort.html
+[datastax]: https://www.datastax.com/products/datastax-enterprise
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
 [hybrid-vpn]: guidance-hybrid-network-vpn.md
 [regional-pairs]: ../best-practices-availability-paired-regions.md
@@ -181,6 +169,8 @@ For Cassandra cluster, the failover scenarios to consider are related with the c
 [RPO]: https://en.wikipedia.org/wiki/Recovery_point_objective
 [RTO]: https://en.wikipedia.org/wiki/Recovery_time_objective
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
+[ssl-client-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLClientToNode_t.html
+[ssl-node-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLNodeToNode_t.html
 [tablediff]: https://msdn.microsoft.com/en-us/library/ms162843.aspx
 [tm-configure-failover]: ../traffic-manager/traffic-manager-configure-failover-routing-method.md
 [tm-monitoring]: ../traffic-manager/traffic-manager-monitoring.md

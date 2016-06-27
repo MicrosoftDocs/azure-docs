@@ -1,6 +1,6 @@
 <properties
    pageTitle="Adding reliability to an N-tier architecture on Azure | Microsoft Azure"
-   description="How to run Windows VMs for an N-tier architecture in Microsoft Azure."
+   description="How to run Linux VMs for an N-tier architecture in Microsoft Azure."
    services=""
    documentationCenter="na"
    authors="mikewasson"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="07/01/2016"
    ms.author="mikewasson"/>
 
 # Adding reliability to an N-tier architecture on Azure
@@ -24,7 +24,7 @@
 This article outlines a set of proven practices for running a reliable N-tier architecture on Linux virtual machines (VMs) in Microsoft Azure. This article builds on [Running VMs for an N-tier architecture on Azure][blueprints-3-tier]. In this article, we include additional components that can increase the reliability of the application:
 
 - A network virtual appliance for greater network security.
-- Cassandra no sql database deployed in availability set for high availability in the data tier.
+- An Apache Cassandra database, deployed in an availability set for high availability in the data tier.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
@@ -38,9 +38,9 @@ This diagram builds on the architecture shown in [Running Linux VMs for an N-tie
 
 - **Network virtual appliance**. Provides firewall and other network functionality.
 
-- **Cassandra noSql database on availability set**. Provides high availability at the data tier, by enabling replication and failover.
+- **Apache Cassandra database**. Provides high availability at the data tier, by enabling replication and failover.
 
-The application consists of two services, labeled A and B. For example, they might be web apps or web APIs. Client requests are routed either to service A or to service B, depending on the content of the request (for example, the URL path). Service A writes to Cassandra database. Service B sends data to an external service, such as Redis cache or a message queue, which is outside the scope of this article.
+The application consists of two services, labeled A and B. For example, they might be web apps or web APIs. Client requests are routed either to service A or to service B, depending on the content of the request (for example, the URL path). Service A writes to the Cassandra database. Service B sends data to an external service, such as Redis cache or a message queue, which is outside the scope of this article.
 
 These general characteristics imply some high-level requirements for the system:
 
@@ -74,27 +74,20 @@ For security, the NVA should have two separate NICs, placed in different subnets
 
 - Use [network security groups][nsg] (NSGs) to isolate subnets. For example, in the previous diagram, the NSG for service A allows network traffic only from the NVA and the management subnet. Of course, the details will depend on your application.
 
-## Deployment of Cassandra in Rack Aware configuration for High availability
+## Cassandra recommendations
 
-Cassandra replicas can be placed in different racks to ensure that multiple replicas are not lost due to a hardware failure or upgrade reboot of the VM in the region. Optionally for resiliency the cassandra cluster can be configured in different availability sets to increase resiliency by increasing the fault domain.
+We recommend [DataStax Enterprise][datastax] for production use. For more information on running DataStax in Azure, see [DataStax Enterprise Deployment Guide for Azure][cassandra-in-azure]. The following general recommendations apply to any Cassandra edition.
 
-- This configuration provides High availability in an event of a portion of a physical data center to fail.
+- Put the VMs for a Cassandra cluster in an availability set, to ensure that the Cassandra replicas are distributed across multiple fault domains and upgrade domains. For more information about fault domains and upgrade domains, see [Manage the availability of virtual machines][availability-sets]. 
 
-- this configuration provides High availability in an event of upgrade the VM.
+- Configure 3 fault domains (the maximum) per availability set. 
 
-- The deployment configuration provides with 3 fault domaings and 18 upgrade domains.
+- Configure 18 upgrade domains per availability set. This gives you the maximum number of upgrade domains than can still be distributed evenly across the fault domains.   
 
-For more information on running Cassandra in Azure refer to [cassandra-in-azure].
+- Configure nodes in rack-aware mode. Map fault domains to racks in the `cassandra-rackdc.properties` file.
 
-- A public IP address is assigned to each node and the cluster communication is done using the azure backbone infrastructure providing for high throughput and low cost, inc case the configuration needs to be expanded to another data center.
+- You don't need a load balancer in front of the cluster. The client connects directly to a node in the cluster.
 
-- The cluster using public IPs for nodes would still be sufficiently secure and at the same time be able to take advantage of much better bandwidth available with the Microsoft private backbone for communications across regions.
-
-- All the nodes are protected with appropriate firewalls /NSG configurations allowing traffic to and from for only only known hosts (including client app nodes & other cluster nodes)
-
-- All client-node, node-node communications are encrypted/SSL.
-
-- Traffic and communication between nodes can be secured applying NSG rules. Cassandra uses different ports for communication, opscenter, sparks etc. For port usage in Cassandra refer to [cassandra-ports]
 
 ## Next steps
 
@@ -103,14 +96,15 @@ For more information on running Cassandra in Azure refer to [cassandra-in-azure]
 - To learn more about setting up a DMZ with a virtual appliance, see [Virtual appliance scenario][virtual-appliance-scenario].
 
 <!-- links -->
+[availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md
+[azure-cli]: ../virtual-machines-command-line-tools.md
+[blueprints-3-tier]: guidance-compute-3-tier-vm.md
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
 [cassandra-consistency]: http://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
 [cassandra-replication]: http://www.planetcassandra.org/data-replication-in-nosql-databases-explained/
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
-[cassandra-ports]: http://docs.datastax.com/en/latest-dse/datastax_enterprise/sec/secConfFirePort.html
-[azure-cli]: ../virtual-machines-command-line-tools.md
-[blueprints-3-tier]: guidance-compute-3-tier-vm.md
-[multi-dc]: guidance-compute-multiple-datacenters.md
+[datastax]: https://www.datastax.com/products/datastax-enterprise
+[multi-dc]: guidance-compute-multiple-datacenters-linux.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [plan-network]: ../virtual-network/virtual-network-vnet-plan-design-arm.md
 [resource-manager-overview]: ../resource-group-overview.md
