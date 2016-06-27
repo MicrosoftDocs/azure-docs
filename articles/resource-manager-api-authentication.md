@@ -166,7 +166,7 @@ validates the following aspects of the token:
 - **Issuer**: check the iss claim to ensure the issuer of the token is Azure Active Directory: https://sts.windows.net/{tenant_id_of_the_directory}
 - **Audience**: check the aud claim to ensure that the token has been minted for your application. The value must be the Client ID of your application.
 - **Nonce**: check the nonce claim to check against the nonce data that you sent in the authorization request, to ensure that the response has been solicited by your application and that the token isn't being replayed.
-- **Signature**: your app must verify that the token has been signed by Azure Active Directory. Azure AD signing keys roll frequently, so your app must either poll for refreshed keys daily or fault-in the refreshed keys if signature validation fails. For more information, see [Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
+- **Signature**: your app must verify that the token has been signed by Azure Active Directory. Azure AD signing keys roll frequently, so your app must either poll for refreshed keys daily or fault-in the refreshed keys if signature validation fails. For more information, see [Important Information About Signing Key Rollover in Azure AD](active-directory/active-directory-signing-key-rollover.md).
 
 Once the **id_token** has been validated, use the oid claim value as the immutable and non-reusable identifier of the user. Use either **unique_name** claim or the upn/email claim as the human readable display name of the user. You may also use the optional given_name/family_name claims for display purpose.
 

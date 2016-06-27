@@ -28,7 +28,7 @@ This topic lists current POP locations for **Azure CDN from Verizon** and **Azur
 | Region | Verizon | Akamai |
 |--------|---------|--------|
 | North America | Atlanta, GA<br />Philadelphia, PA<br />New York, NY<br />Miami, FL<br />Washington DC<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Los Angeles, CA<br />San Jose, CA<br />Seattle, WA | **&#x2713;**\* |
-| South America | São Paulo, Brazil<br />Rio de Janeiro, Brazil<br />Quito, Ecuador<br />Medellin, Colombia<br/>Buenos Aires, Argentina| **&#x2713;**\* | 
+| South America | São Paulo, Brazil<br />Rio de Janeiro, Brazil<br />Quito, Ecuador<br />Barranquilla, Colombia,<br />Medellin, Colombia<br/>Buenos Aires, Argentina| **&#x2713;**\* | 
 | North and East Europe| Copenhagen, Denmark<br />Helsinki, Finland<br />London, UK<br />Stockholm, Sweden<br />Warsaw, Poland | **&#x2713;**\* |
 | West Europe | Amsterdam, Netherlands<br />Frankfurt, Germany<br />Paris, France<br />Vienna, Austria | **&#x2713;**\* |
 | South Europe | Madrid, Spain<br />Milan, Italy | **&#x2713;**\* |
