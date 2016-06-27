@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Service Bus asynchronous messaging | Microsoft Azure"
-   description="Description of Service Bus asynchronous brokered messaging."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" /> 
+    pageTitle="Service Bus asynchronous messaging | Microsoft Azure"
+    description="Description of Service Bus asynchronous brokered messaging."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/16/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/27/2016"
+    ms.author="sethm" />
 
 # Asynchronous messaging patterns and high availability
 
@@ -27,7 +27,7 @@ In order to maintain availability of any of these entities, consider a number of
 
 2.  Unable to receive messages.
 
-3.  Unable to administer entities (create, retrieve, update, or delete entities).
+3.  Unable to manage entities (create, retrieve, update, or delete entities).
 
 4.  Unable to contact the service.
 
@@ -43,7 +43,7 @@ There are several ways to handle message and entity issues, and there are guidel
 
 -   Failure of Service Bus on single subsystem. In this situation, a compute node can get into an inconsistent state and must restart itself, causing all entities it serves to load balance to other nodes. This in turn can cause a short period of slow message processing.
 
--   Failure of Service Bus within an Azure datacenter. This is the classic "catastrophic failure" during which the system is unreachable for many minutes or a few hours.
+-   Failure of Service Bus within an Azure datacenter. This is a "catastrophic failure" during which the system is unreachable for many minutes or a few hours.
 
 > [AZURE.NOTE] The term **storage** can mean both Azure Storage and SQL Azure.
 
@@ -61,9 +61,9 @@ Other components within Azure can occasionally have service issues. For example,
 
 ### Service Bus failure on a single subsystem
 
-With any application, circumstances can cause an internal component of Service Bus can become inconsistent. When Service Bus detects this, it collects data from the application to aid in diagnosing what happened. Once the data is collected, the application is restarted in an attempt to return it to a consistent state. This process happens fairly quickly, and results in an entity appearing to be unavailable for up to a few minutes, though typical downtimes are much shorter.
+With any application, circumstances can cause an internal component of Service Bus to become inconsistent. When Service Bus detects this, it collects data from the application to aid in diagnosing what happened. Once the data is collected, the application is restarted in an attempt to return it to a consistent state. This process happens fairly quickly, and results in an entity appearing to be unavailable for up to a few minutes, though typical down times are much shorter.
 
-In these cases, the client application generates a [System.TimeoutException][] or [MessagingException][] exception. The Service Bus .NET SDK contains a mitigation for this issue in the form of automated client retry logic. Once the retry period is exhausted and the message is not delivered, you can explore using other features such as [paired namespaces][]. Paired namespaces have other caveats that are discussed in the article [Paired Namespace implementation details and cost implications](service-bus-paired-namespaces.md).
+In these cases, the client application generates a [System.TimeoutException][] or [MessagingException][] exception. Service Bus contains a mitigation for this issue in the form of automated client retry logic. Once the retry period is exhausted and the message is not delivered, you can explore using other features such as [paired namespaces][]. Paired namespaces have other caveats that are discussed in that article.
 
 ### Failure of Service Bus within an Azure datacenter
 
@@ -102,7 +102,7 @@ The following sections discuss the APIs, how the APIs are implemented, and shows
 
 ### The MessagingFactory.PairNamespaceAsync API
 
-The paired namespaces feature introduces the [PairNamespaceAsync][] method on the [Microsoft.ServiceBus.Messaging.MessagingFactory][] class:
+The paired namespaces feature includes the [PairNamespaceAsync][] method on the [Microsoft.ServiceBus.Messaging.MessagingFactory][] class:
 
 ```
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
