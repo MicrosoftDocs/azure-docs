@@ -45,14 +45,16 @@ Some of the common benefits of using agreements are:
 
 >[AZURE.NOTE]When creating an agreement, the content in the agreement file must match the agreement type. 
 
-### Create an agreement
+## Create an agreement
 After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an agreement by following these steps: 
 
-#### From the Azure portal home page
+### From the Azure portal home page
 
 After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
 1. Select **Browse** from the menu on the left.  
+
 >[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
+
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
  ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
@@ -122,22 +124,22 @@ We are almost done!
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)  
     
 
-#### From PowerShell:
+### From PowerShell:
 - todo: 
 
 
 ## How to use an agreement?
 After uploading your agreement, you can use it via the Azure portal or via PowerShell to create enterprise integration apps.
 
-#### From the Azure portal home page
+### From the Azure portal home page
 - Will give an overview and point to a sample doc that highlights many of the features of enterprise integration
 - todo -- blocked since there isn't a way to link the integration account to logic apps from the portal
 
-#### From PowerShell:
+### From PowerShell:
 1. Will have powershell sample code here
 2. todo
 
-#### Example
+### Example
 Here's an example that .... 
 
 ## How to edit an agreement?
@@ -148,22 +150,22 @@ You can edit any agreement by following these steps:
 4. Select **Edit** from the menu above.   
 5. On the Edit menu that opens, make you changes then select the **OK** button to save the changes.  
 
-#### From PowerShell 
+### From PowerShell 
 1. todo: Will have ps code to edit an agreement
 
 ## How to delete an agreement?
 Deleting an agreement can be done via the portal or via PowerShell.
 
-#### From the Azure portal home page
+### From the Azure portal home page
 You can delete any agreement by following these steps:
 1. Select the Integration account that contains the agreement you wish to delete.  
 2. Select the **Agreements** tile  
 3. Select the agreement you wish to delete on the **Agreements** blade.  
-4. Select **Delete** from the menu above. 
+4. Select **Delete** from the menu above.  
 5. If you really want to delete the agreement, select **Yes** on the delete confirmation message box.  
 6. Select the Agreements tile and notice the deleted agreement is no longer there.  
 
-#### From PowerShell:
+### From PowerShell:
 1. todo: Will have ps code to delete an agreement
 
 ## Next steps

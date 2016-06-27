@@ -23,39 +23,30 @@
 ## What is the enterprise integration suite?
 The Enterprise Integration suite is Microsoft's cloud-based solution for seamlessly enabling business-to-business (B2B) communications. The suite uses industry standard protocols including [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) and EDIFACT (coming soon) to exchanges messages between business partners. Messages can be optionally secured using both encryption and digital signatures. 
 
-The suite allows organizations that use different protocols and formats to exchange messages electronically by transforming the different formats into a format that both organizations' systems can interpret and take action. 
+The suite allows organizations that use different protocols and formats to exchange messages electronically by transforming the different formats into a format that both organizations' systems can interpret and take action on. 
 
-If you are familiar with BizTalk Server or Microsoft Azure BizTalk Services, you'll find it easy to use the Enterprise Integration features because most of the concepts are similar. 
+If you are familiar with BizTalk Server or Microsoft Azure BizTalk Services, you'll find it easy to use the Enterprise Integration features because most of the concepts are similar. One major difference is that Enterprise Integration leverages integration accounts to simplify the storage and management of artifacts used in B2B communications. 
 
-Architecturally, the Enterprise Integration suite is based on **integration accounts** that store all the artifacts that can be used to design, deploy and maintain your B2B apps. An integration account is basically a cloud-based container where you store artifacts such as schemas, partners, certificates and agreements. These artifacts can then be used in Logic apps to build B2B workflows. Before you can use the artifacts in a Logic app, you just need to link your integration account to your Logic app. After linking them, your Logic app will have access to the integration account's artifacts.  
-![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
-
-- todo:
-- Talk about limits here (size of uploads?, others)  
-- How it relates to BizTalk scenarios
-- How it relates to v1 of logic apps schema?
-- Moving from earlier versions (V1, MABS, etc.)
-- Relationship with App service/API apps and Logic apps
+Architecturally, the Enterprise Integration suite is based on **integration accounts** that store all the artifacts that can be used to design, deploy and maintain your B2B apps. An integration account is basically a cloud-based container where you store artifacts such as schemas, partners, certificates, maps and agreements. These artifacts can then be used in Logic apps to build B2B workflows. Before you can use the artifacts in a Logic app, you just need to link your integration account to your Logic app. After linking them, your Logic app will have access to the integration account's artifacts.  
 
 ## Why should you use enterprise integration?
-todo:
-### Key features that solve customer problems
-todo:
+- With enterprise integration, you are able to store all your artifacts in one place, which is your integration account. 
+- You can leverage the Logic apps engine and all its connectors to build B2B workflows and integrate with 3rd party SaaS applications, on-premises apps as well as  custom applications
+- You can also leverage Azure functions
 
-## How to use enterprise integration?
-You can build and manage B2B apps using Enterprise Integration via the Logic apps designer on the **Azure portal** or by using PowerShell. 
+## How to get started with enterprise integration?
+You can build and manage B2B apps using the Enterprise Integration suite via the Logic apps designer on the **Azure portal** or by using PowerShell. In fact, all features are available both via the portal and from PowerShell.
 
 ### From the Azure management portal
-- todo:
+To 
+![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
 
 ### From PowerShell
-- todo: 
+All Enterprise Integration features are available from PowerShell.To get started using PowerShell download the commandlets now. (todo: add link) 
 
 
 ## What are come common scenarios?
-- todo:
-- incoming order, transformed for internal system --> Order processed -> Order confirmation returned to customer
-- Jon: VETER -- reference in the MABS docs ... leverage that doc here
+- todo: per Jon: VETER -- reference in the MABS docs ... leverage that doc here
 - EDI
 - EAI
 - etc.
@@ -65,16 +56,15 @@ You can build and manage B2B apps using Enterprise Integration via the Logic app
 For pricing information and a list of what is included with each service tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## Here's what you need to get started now
-- todo:
-- An Azure subscription (anything else special in Azure? Any region limitations, etc.?)  
-- Visual Studio -- Is this required only for some scenarios? If yes, which ones? -- needed to create maps & schemas in vS
-- An integration account
+- An Azure subscription with an integration account
+- Visual Studio - to create maps & schemas  
 
 ## Learn more about:
-- [Schemas](./app-service-logic-enterprise-integration-schemas.md "Lean about enterprise integration schemas")
-- [Maps](./app-service-logic-enterprise-integration-maps.md "Lean about enterprise integration schemas")
-- [Certificates](./app-service-logic-enterprise-integration-certificates.md "Lean about enterprise integration schemas")
-- [Partners](./app-service-logic-enterprise-integration-partners.md "Lean about enterprise integration schemas")
+- [Schemas](./app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
+- [Maps](./app-service-logic-enterprise-integration-maps.md "Learn about enterprise integration maps")
+- [Certificates](./app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
+- [Partners](./app-service-logic-enterprise-integration-partners.md "Learn about enterprise integration partners")
+- - [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
 
 
 
