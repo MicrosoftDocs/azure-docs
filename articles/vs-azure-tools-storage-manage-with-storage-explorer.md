@@ -40,9 +40,7 @@ Storage Explorer (Preview) provides a myriad ways to connect to storage accounts
 
 > [AZURE.NOTE] If you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-1. Start Storage Explorer (Preview). 
-
-1. Select **Azure account settings**. 
+1. In Storage Explorer (Preview), select **Azure Account settings**. 
 
 	![][0]
 
@@ -68,9 +66,7 @@ Storage Explorer (Preview) enables you to work against local storage using the A
 
 >[AZURE.NOTE] The Azure Storage Emulator is currently supported only for Windows. 
 
-1. Start Storage Explorer (Preview). 
-
-1. In the left pane, expand the **(Development)** node.
+1. In Storage Explorer (Preview), expand the **(Development)** node.
 
 	![][21]
 
@@ -108,14 +104,15 @@ can be done via the Azure portal by following these steps:
 	![][6]
 
 ### Attach to an external storage account
-The section, *Get the storage account credentials*, explains how to obtain the 
-storage *account name* and *key 1* values. Those values will be used in this step.
-
+To attach to an external storage account, you'll need the account's name and key. The section *Get the storage account credentials* 
+explains how to obtain these values from the Azure portal. However, note that in the portal, the account key is called "key 1" so where 
+the Storage Explorer (Preview) asks for an account key, you'll enter (or paste) the "key 1" value. 
+ 
 1.	In Storage Explorer (Preview), select **Connect to Azure storage**.
 
 	![][23]
 
-1.	On the **Connect to Azure Storage** dialog, specify the account key (key 1 value from the Azure portal), and then select **Next**.
+1.	On the **Connect to Azure Storage** dialog, specify the account key ("key 1" value from the Azure portal), and then select **Next**.
 
 	![][24] 
 
