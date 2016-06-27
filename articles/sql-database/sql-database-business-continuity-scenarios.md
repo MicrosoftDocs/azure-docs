@@ -34,7 +34,7 @@
 In the event of an outage, [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md) describes how to use either of the following business continuity solutions to recover from the outage:
 
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-recovery-using.backups.md#geo-restore.md)
+- [Geo-Restore](sql-database-recovery-using.backups.md#geo-restore)
 
 The specific steps and the length of time required to recover from an outage will differ depending on the business continuity solution that you choose. However, regardless of your business continuity solution, you need to know when to initiate recovery, the database recovery steps for each business continuity solution, how to configure your database after recovery, and how to configure your application after the recovery to complete your recovery from an outage.  
 
@@ -60,7 +60,7 @@ Performing a disaster recovery drill consists of:
 [Performing a disaster recovery drill](sql-database-disaster-recovery-drills.md) descibes how to perform a disaster recovery drill using either of the following business continuity solutions:
 
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-geo-restore.md)
+- [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
 
 ## Manage rolling upgrades of cloud applications uisng Active Geo-Replication
 

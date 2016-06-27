@@ -167,7 +167,7 @@ Configuration files provide the quickest way to set up a virtual network in an a
 
 ##SQL Database checklist
   1. Review the [SQL Database](#sql-database) section of this document.
-  2. Use [Geo-Restore](../sql-database/sql-database-geo-restore.md) or [Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) as appropriate.
+  2. Use [Geo-Restore](../sql-database/sql-database-recovery-using-backups.md#geo-restore) or [Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) as appropriate.
 
 ##SQL Server on Virtual Machines checklist
   1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document.
