@@ -94,8 +94,8 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
     # Constants
     $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
     $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
-    $loginURL       = "https://login.microsoftonline.com"
-    $tenantdomain   = "your-tenant-name.onmicrosoft.com"      # For example, contoso.onmicrosoft.com
+    $loginURL       = "https://login.microsoftonline.com"     # AAD Instance; for example https://login.microsoftonline.com
+    $tenantdomain   = "your-tenant-domain.onmicrosoft.com"    # AAD Tenant; for example, contoso.onmicrosoft.com
     $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
     $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement, for example
     Write-Output "Searching for events starting $7daysago"
