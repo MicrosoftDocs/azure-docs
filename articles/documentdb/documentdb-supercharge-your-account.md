@@ -18,9 +18,9 @@
 
 # Supercharge your DocumentDB account
 
-Follow these steps to take advantage of increased throughput for your DocumentDB S1 account. With a few clicks in the Azure portal, you can increase the throughput of your existing S1 account from 250 [RU/s](documentdb-request-units.md) to 400 RU/s, or more!  
+Follow these steps to take advantage of increased throughput for your DocumentDB S1 account. With little to no additional cost, you can increase the throughput of your existing S1 account from 250 [RU/s](documentdb-request-units.md) to 400 RU/s, or more!  
 
-> [AZURE.VIDEO changedocumentdbcollectionperformance]
+
 
 1. In your browser, navigate to the [**Azure portal**](https://portal.azure.com). 
 2. Click **Browse** -> **DocumentDB Accounts**, then select the DocumentDB account to modify.   
