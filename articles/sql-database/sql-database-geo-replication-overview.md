@@ -27,12 +27,17 @@ Active Geo-Replication enables you to configure up to 4 readable secondary datab
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
+ You can configure Active Geo-Replication using the [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+
 > [AZURE.SELECTOR]
 - [Configure: Azure Portal](sql-database-geo-replication-portal.md)
 - [Configure: PowerShell](sql-database-geo-replication-powershell.md)
 - [Configure: T-SQL](sql-database-geo-replication-transact-sql.md)
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can *failover* to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
+
+You can failover to a secondary using the [Azure portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), or the [REST API]((https://msdn.microsoft.com/library/azure/mt163685.aspx)).
+
 
 > [AZURE.SELECTOR]
 - [Failover: Azure portal](sql-database-geo-replication-failover-portal.md)
@@ -115,7 +120,7 @@ As discussed above, in addiition to the Aazure portal, Active Geo-Replication ca
 
 |API|Description|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates a secondary database|
+|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates, updates, or restores a primary or a secondary database|
 |[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Returns the status during a create operation|
 ||||
 

@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Business continuity](sql-database-business-continuity.md)
 - [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
-- [Database recovery](sql-database-restore-using-backups.md)
+- [Database recovery](sql-database-recovery-using-backups.md)
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
 
 The Azure SQL Database service protects all databases with an automated backup that is retained for 7 days for Basic, 14 days for Standard, and 35 days for Premium. See [Service-tiers](sql-database-service-tiers.md) for more information features avaiable with each service tier. 

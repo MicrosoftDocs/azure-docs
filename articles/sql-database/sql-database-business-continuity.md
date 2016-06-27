@@ -17,11 +17,11 @@
    ms.date="06/09/2016"
    ms.author="carlrab"/>
 
-# Business continuity solutions with Azure SQL Database
+# Business continuity with Azure SQL Database
 
 > [AZURE.SELECTOR]
 - [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
-- [Automated backups](sql-database-automated backups.md)
+- [Automated backups](sql-database-automated-backups.md)
 - [Database recovery](sql-database-recovery-using-backups.md)
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
 
