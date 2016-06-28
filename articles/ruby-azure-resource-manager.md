@@ -23,11 +23,17 @@
 - [Portal](azure-portal/resource-group-portal.md) 
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](java-azure-resource-manager.md)
+- [Node.js](node-azure-resource-manager.md)
+- [Python](python-azure-resource-manager.md)
 - [Ruby](ruby-azure-resource-manager.md)
+- [PHP](php-azure-resource-manager.md)
+- [Go](go-azure-resource-manager.md)
+- [.NET](dotnet-azure-resource-manager.md)
 
 This article introduces common ways to create and manage Azure resources by using the Ruby SDK for Azure Resource Manager.
 
->[AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure subscription ([free Azure account here](https://azure.microsoft.com/free/)). You will also need to [install the Azure CLI](xplat-cli-install.md), and [log in to use Azure resources associated with your account](xplat-cli-connect.md). If you've done these things, you're ready to go.
+> [AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure subscription ([free Azure account here](https://azure.microsoft.com/free/)). You will also need to [install the Azure CLI](xplat-cli-install.md), and [log in to use Azure resources associated with your account](xplat-cli-connect.md). If you've done these things, you're ready to go.
 
 ## Azure resources
 
