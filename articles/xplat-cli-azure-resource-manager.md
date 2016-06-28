@@ -26,7 +26,7 @@
 - [Java](https://github.com/Azure/azure-sdk-for-java)
 - [Node.js](https://github.com/Azure/azure-sdk-node)
 - [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+- [Ruby](ruby-azure-resource-manager.md)
 - [PHP](https://github.com/Azure/azure-sdk-for-php)
 - [Go](https://github.com/Azure/azure-sdk-for-go)
 - [.NET](https://github.com/Azure/azure-sdk-for-net)
