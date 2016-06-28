@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
-	description="Create a Virtual Machine Scale Set using Powershell"
+	description="Create a Virtual Machine Scale Set using PowerShell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -248,7 +248,7 @@ You have all the resources that you need for the scale set configuration, so let
 
 1. Replace the value of **$storageProfile** with the name that you want to use for the storage profile and then create the variable:  
 
-        $storeProfile = "storage profile name"
+        $storageProfile = "storage profile name"
         
 2. Create the variables that define the image to use:  
       
@@ -264,7 +264,7 @@ You have all the resources that you need for the scale set configuration, so let
         
 4. Create the storage profile:
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Virtual machine scale set
 
@@ -298,7 +298,7 @@ Use these resources to explore the virtual machine scale set that you just creat
 
 - Azure portal - A limited amount of information is available using the portal.
 - [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool for exploring the current state of your scale set.
-- Azure Powershell - Use this command to get information:
+- Azure PowerShell - Use this command to get information:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
