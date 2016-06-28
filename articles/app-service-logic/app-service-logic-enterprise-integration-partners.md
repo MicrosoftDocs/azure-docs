@@ -19,7 +19,7 @@
 # Partners
 
 ## Overview
-Before you can create a partner, you must have offline discussions with the organization you intend to do business with. In your discussions, you would agree on various details such as how you will both identify and validate messages that are sent by each other. After you have these discussion, and you are ready to begin your business relationship, you are can to create a *partner* in your integration account.
+Before you can create a partner, you and the organization you intend to do business with must share information that will help you both identify and validate messages that are sent by each other. After you have these discussion, and you are ready to begin your business relationship, you can to create a *partner* in your integration account.
 
 ## What is a partner?
 Partners are the entities that participate in Business-To-Business (B2B) messaging and transactions. 
@@ -27,11 +27,14 @@ Partners are the entities that participate in Business-To-Business (B2B) messagi
 ## How are partners used?
 Partners are used to create agreements. An agreement defines the details about the messages that will be  exchanged between partners. 
 
-Before you can create an agreement, you need to have added at least two partners to your integration account. One of the partners to an agreement must be your organization. The partner that represents your organization is referred to as the host partner. The second partner would represent the other organization with which your organization exchanges messages. The second partner is know as the guest partner. 
+Before you can create an agreement, you need to have added at least two partners to your integration account. One of the partners to an agreement must be your organization. The partner that represents your organization is referred to as the **host partner**. The second partner would represent the other organization with which your organization exchanges messages. The second partner is known as the **guest partner**. The guest partner can be another company, or even a department within your own organization.  
 
 After you have added the partners, you would use those partners to create an agreement. 
 
+Receive and Send settings are oriented from the point of view of the Hosted Partner. For example, the receive settings in an agreement determine how the hosted partner receives messages sent from a guest partner. Likewise, the send settings on the agreement indicate how the hosted partner sends messages to the guest partner.
+
 ## How to create a partner?
+From the Azure portal:  
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
@@ -71,6 +74,4 @@ Follow these steps to edit a partner that already exists in your integration acc
 ## Next steps
 - [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
 
-
-todo: https://msdn.microsoft.com/en-us/library/azure/hh689814.aspx#BKMK_AddPartner
 
