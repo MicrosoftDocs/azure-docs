@@ -154,7 +154,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 The **DictionaryChanged** event handler uses **NotifyDictionaryChangedEventArgs** to provide details about the event. **NotifyDictionaryChangedEventArgs** has five subclasses. Use the action property in **NotifyDictionaryChangedEventArgs** to cast **NotifyDictionaryChangedEventArgs** to the correct subclass:
 
 - **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
-- **NotifyDictionaryChangedAction.Clear**: NotifyDictionaryClearEventArgs
+- **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
 - **NotifyDictionaryChangedAction.Add** and **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemAddedEventArgs**
 - **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 - **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
