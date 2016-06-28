@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Task dependency in Azure Batch | Microsoft Azure"
+	pageTitle="Task dependencies in Azure Batch | Microsoft Azure"
 	description="Create tasks that depend on the successful completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch."
 	services="batch"
 	documentationCenter=".net"
@@ -16,19 +16,19 @@
 	ms.date="06/29/2016"
 	ms.author="marsma" />
 
-# Task dependency in Azure Batch
+# Task dependencies in Azure Batch
 
 If you want to process a MapReduce-style computational workload in the cloud, you have a data processing job whose tasks can be expressed as a directed acyclic graph (DAG), or any other job in which downstream tasks depend on the output of upstream tasks, the task dependency feature of Azure Batch can be your solution.
 
-The task dependency feature of Batch allows you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks, and whose final task--the "merge task"--merges the rendered frames together into the complete movie only after all of the frames have been successfully rendered.
+The task dependencies feature of Batch allows you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks, and whose final task--the "merge task"--merges the rendered frames together into the complete movie only after all of the frames have been successfully rendered.
 
 You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship, or even a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs. Finally, you can combine these three basic scenarios to create many-to-many relationships.
 
-## Task dependency with Batch .NET
+## Task dependencies with Batch .NET
 
-In this article we discuss configuring task dependency using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependency) on your jobs, then briefly demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the three [dependency scenarios](#dependency-scenarios) supported by Batch.
+In this article we discuss configuring task dependencies using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependency) on your jobs, then briefly demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the [dependency scenarios](#dependency-scenarios) supported by Batch.
 
-## Enable task dependency
+## Enable task dependencies
 
 To use task dependency in your Batch application, you must first tell the Batch service that the job will use task dependencies. In Batch .NET, enable it on your [CloudJob][net_cloudjob] by setting its [UsesTaskDependencies][net_usestaskdependencies] property to `true`:
 
