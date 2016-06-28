@@ -18,7 +18,8 @@
 
 # Reliable Services notifications
 
-Notifications allow clients to track the changes that are being made to an object that you're interested in. Two types of objects support notifications: *reliable state manager* and *reliable dictionary*.
+Notifications allow clients to track the changes that are being made to an object that they're interested in. 
+Two types of objects support notifications: *reliable state manager* and *reliable dictionary*.
 
 Common reasons for using notifications are:
 
