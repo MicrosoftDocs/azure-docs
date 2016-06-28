@@ -99,11 +99,14 @@ A type of [client application](#client-application) that is installed natively o
 Sometimes referred to as an "active client", which is a client that generates/renders its user interface, or possibly has no user interface at all. Compared to a "passive client" which is synonymous with the definition of a [Web client](#web-client)
 
 ### permissions
-A [client application](#client-application) requests access to the [scopes](#scopes) and application [roles](#roles) exposed by a [resource server](#resource-server), by declaring "delegated" and "application" permission requests respectively. The client's [application object](#application-object) stores the declared permissions in it's [requiredResourceAccess property][AAD-Graph-App-Entity]. 
+A [client application](#client-application) requests access to a [resource server](#resource-server) by declaring permission requests, namely:
 
-Scope-based access by the client application uses delegated authorization from the [resource owner](#resource-owner), whereas role-based access by the client requires the client to authenticate and provide it's own identity. Therefore, because a [public client](#client-application) cannot store it's credentials securely, it only express delegated permission requests. While a [confidential client](#client-application) has the ability to express both delegated and application permission requests.
+- "delegated" permission requests to use [scope-based](#scopes) access control, under delegated authorization from the [resource owner](#resource-owner)
+- "application" permission requests to use [role-based ](#roles) access control, under the client's own authenticated credentials/identity 
 
-Permission requests are configured under the "Applications" / "Configure" tab in the [Azure classic portal][AZURE-classic-portal], via the "Permissions to other applications" feature, using "Delegated Permissions" for scopes and "Application Permissions" for application roles. 
+Because a [public client](#client-application) cannot store it's credentials securely, it only express delegated permission requests. While a [confidential client](#client-application) has the ability to express both delegated and application permission requests. These same permission requests will surface during the [consent](#consent) process, giving the administrator or [resource owner](#resource-owner) the opportunity to grant or deny access.
+
+Permission requests are configured under the "Applications" / "Configure" tab in the [Azure classic portal][AZURE-classic-portal], via the "Permissions to other applications" feature, using "Delegated Permissions" for scopes and "Application Permissions" for application roles. The client's [application object](#application-object) stores the declared permissions in it's [requiredResourceAccess property][AAD-Graph-App-Entity].
 
 ### resource owner
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
@@ -118,7 +121,7 @@ Just like a client application, resource application's identity configuration is
 ### roles
 Like [scopes](#scopes), roles provide a way for a [resource server](#resource-server) to govern access to its protected resources. Roles are used to implement role-based access control, for both users and [applications](#client-application). Roles are resource-defined strings, stored in the resource's [appRoles property][AAD-Graph-Sp-Entity], and manifest at run-time as ["roles" claims](#claim) in the client application's [access token](#access-token).
 
-A "user" role provides role-based-access control for [user principals](#user-principal) that require access to the application, while an "application" role provides the same for client application [service principals](#service-principals). A resource's roles are managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), which a client application can request [permission](#permissions) to access.
+A "user" role provides role-based-access control for [user principals](#user-principal) that require access to the application, while an "application" role provides the same for client application [service principals](#service-principals). A resource's roles are managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), which a client application can request [permission](#permissions) to access. Azure AD administrators can assign users to an application's "user" roles via the [Azure classic portal][AZURE-classic-portal].
 
 For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. 
 
