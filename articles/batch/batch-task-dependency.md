@@ -18,11 +18,11 @@
 
 # Task dependency in Azure Batch
 
-If you want to process a MapReduce-style computational workload in the cloud, or you have a data processing job whose tasks can be expressed as a directed acyclic graph (DAG), the task dependency feature of Azure Batch can be your solution.
+If you want to process a MapReduce-style computational workload in the cloud, you have a data processing job whose tasks can be expressed as a directed acyclic graph (DAG), or any other job in which downstream tasks depend on the output of upstream tasks, the task dependency feature of Azure Batch can be your solution.
 
-The task dependency feature of Batch allows you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks, and whose final task merges the rendered frames together into the complete movie only after all of the frames have been successfully rendered.
+The task dependency feature of Batch allows you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks, and whose final task--the "merge task"--merges the rendered frames together into the complete movie only after all of the frames have been successfully rendered.
 
-You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship, or even a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs.
+You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship, or even a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs. Finally, you can combine these three basic scenarios to create many-to-many relationships.
 
 ## Task dependency with Batch .NET
 
@@ -57,15 +57,19 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 This code snippet creates a task with the ID of "Flowers" that will be scheduled to run on a compute node only after the tasks with IDs of "Rain" and "Sun" have completed successfully.
 
+ > [AZURE.NOTE] A task is considered to have completed successfully when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
+
 ## Dependency scenarios
 
-There are three task dependency scenarios that you can use in Azure Batch: one-to-one, one-to-many, and task ID range dependency.
+There are three basic task dependency scenarios that you can use in Azure Batch: one-to-one, one-to-many, and task ID range dependency. These can be combined to provide a fourth scenario, many-to-many.
 
  Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Example | |
  :-------------------: | ------------------- | -------------------
  [One-to-one](#one-to-one) | *taskB* depends on *taskA* <p/> *taskB* will not be scheduled for execution until *taskA* has completed successfully | ![Diagram: one-to-one task dependency][1]
  [One-to-many](#one-to-many) | *taskC* depends on both *taskA* and *taskB* <p/> *taskC* will not be scheduled for execution until both *taskA* and *taskB* have completed successfully | ![Diagram: one-to-many task dependency][2]
  [Task ID range](#task-id-range) | *taskD* depends on a range of tasks <p/> *taskD* will not be scheduled for execution until the tasks with IDs *1* through *10* have completed successfully | ![Diagram: Task id range dependency][3]
+
+>[AZURE.TIP] You can create **many-to-many** relationships, such as where tasks C, D, E, and F each depend on tasks A and B. This is useful, for example, in parallelized preprocessing scenarios where your downstream tasks depend on the output of multiple upstream tasks.
 
 ## One-to-one
 
@@ -103,7 +107,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 To create a task with dependency on the successful completion of a group of tasks whose IDs lie within a range, you supply the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of the [CloudTask][net_cloudtask].
 
->[AZURE.IMPORTANT] When using task ID ranges for your dependencies, the task IDs in the range *must* be **string reprepresentations** of **integer values**.
+>[AZURE.IMPORTANT] When using task ID ranges for your dependencies, the task IDs in the range *must* be **string representations** of **integer values**. Additionally, **every task in the range** must complete successfully for the dependent task to be scheduled for execution.
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
@@ -144,10 +148,13 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_dependson]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.dependson.aspx
+[net_exitcode]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.exitcode.aspx
 [net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_onid]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onid.aspx
 [net_onids]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onids.aspx
 [net_onidrange]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onidrange.aspx
+[net_taskexecutioninformation]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.aspx
+[net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
 [net_usestaskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.usestaskdependencies.aspx
 [net_taskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskdependencies.aspx
 
