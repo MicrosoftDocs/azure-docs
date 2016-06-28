@@ -193,7 +193,7 @@ Selecting the message will show you exactly which resource types were not export
      
 ![show error](./media/resource-manager-export-template/show-error-details.png)
 
-Some common fixes are listed below.
+Some common fixes are shown below. To implement these resources, you will need to add parameters to template. For more information, see [Customize and re-deploy exported template](resource-manager-customize-template.md).
 
 ### Connection string
 
@@ -254,64 +254,65 @@ In the web site resource, add a definition for the code to install:
 
 ### Virtual machine extension
 
+For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](./virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
 
 ### Virtual network gateway
+
+Add a virtual network gateway resource type.
 
 ```
 {
   "type": "Microsoft.Network/virtualNetworkGateways",
-  "name": "[parameters('name')]",
+  "name": "[parameters('<gateway-name>')]",
   "apiVersion": "2015-06-15",
-  "location": "[parameters('location')]",
+  "location": "[resourceGroup().location]",
   "properties": {
-    "gatewayType": "[parameters('gatewayType')]",
+    "gatewayType": "[parameters('<gateway-type>')]",
     "ipConfigurations": [
       {
         "name": "default",
         "properties": {
           "privateIPAllocationMethod": "Dynamic",
           "subnet": {
-            "id": "[resourceId('codegroup4', 'Microsoft.Network/virtualNetworks/subnets', parameters('existingVirtualNetworkName'), parameters('newSubnetName'))]"
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('<vnet-name>'), parameters('<new-subnet-name>'))]"
           },
           "publicIpAddress": {
-            "id": "[resourceId('codegroup4', 'Microsoft.Network/publicIPAddresses', parameters('newPublicIpAddressName'))]"
+            "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('<new-public-ip-address-Name>'))]"
           }
         }
       }
     ],
     "enableBgp": false,
-    "vpnType": "[parameters('vpnType')]"
+    "vpnType": "[parameters('<vpn-type>')]"
   },
   "dependsOn": [
     "Microsoft.Network/virtualNetworks/codegroup4/subnets/GatewaySubnet",
-    "[concat('Microsoft.Network/publicIPAddresses/', parameters('newPublicIpAddressName'))]"
+    "[concat('Microsoft.Network/publicIPAddresses/', parameters('<new-public-ip-address-Name>'))]"
   ]
 },
 ```
 
 ### Local network gateway
 
+Add a local network gateway resource type.
+
 ```
 {
     "type": "Microsoft.Network/localNetworkGateways",
     "name": "[parameters('<local-network-gateway-name>')]",
     "apiVersion": "2015-06-15",
-    "location": "[parameters('<location>')]",
+    "location": "[resourceGroup().location]",
     "properties": {
       "localNetworkAddressSpace": {
         "addressPrefixes": "[parameters('<address-prefixes>')]"
-      },
-      "gatewayIpAddress": "(string)",
-      "bgpSettings": {
-        "asn": "(integer)",
-        "bgpPeeringAddress": "(string)",
-        "peerWeight": "(integer)"
       }
     }
 }
 ```
 
 ### Connection
+
+Add a connection resource type.
 
 ```
 {
