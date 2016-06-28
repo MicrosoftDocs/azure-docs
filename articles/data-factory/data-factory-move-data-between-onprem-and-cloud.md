@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Move data between on-premises sources and the cloud with Data Management Gateway
