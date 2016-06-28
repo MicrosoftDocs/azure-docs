@@ -56,7 +56,7 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 
 For this walkthrough we will use the OIDCAndroidLib from GitHub, an OAuth2 library based on Google's OpenID Connect code. It implements the native application profile and supports the end-user authorization endpoint. These are all the things we'll need in order to integrat with the Microsoft identity platform.
 
-# Clone
+*  Clone
 
 Start by cloning the OIDCAndroidLib repo down to your computer. 
 
@@ -66,9 +66,9 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 <img src="https://help.github.com/assets/images/help/repository/remotes-url.png" alt="Git Clone" width="300px"/>
 
-# Set Up Your Android Studio Environment
+### Set Up Your Android Studio Environment
 
-## Create the project 
+*  Create the project 
 Create a new AndroidStudio Project and follow the default wizzard.
 
 <img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample1.PNG" alt="AndroidStudio New Project" width="600px"/>
@@ -77,7 +77,7 @@ Create a new AndroidStudio Project and follow the default wizzard.
 
 <img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample3.PNG" alt="AndroidStudio Wizard Start Activity" width="600px"/>
 
-## Set up your project modules
+*  Set up your project modules
 I think that the easiest way to set the modules is by moving the cloned repo to the project location. You can also start by creating the project then cloning directly to the project location.
 
 <img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample4_1.PNG" alt="Project Directory Structure showing the moved repo" width="200px"/>
@@ -107,7 +107,7 @@ Your settings.gradle should look like
 
 <img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample8_1.PNG" alt="Generated settings.gradle file" width="600px"/>
 
-## Build the sample app to make sure you have the sample running correctly.
+*  Build the sample app to make sure you have the sample running correctly.
 
 You won't be able to use this with Azure Active Directory yet. We'll need to configure some endpoints first. This is to ensure you don't have an Android Studio issues before we start customizing the sample app.
 
@@ -115,7 +115,7 @@ Build and run `oidlib-sample` as the target in Android Studio
 
 <img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample9.png" alt="OidcAndroidLib Sample Screeshot" width="300px"/>
 
-# Clean Up
+*  Clean Up
 
 You can safely delete the `app ` directory that was left when removing module from the project as AndroidStudio doesn't delete it for safety.
 
@@ -130,7 +130,71 @@ Also you can remove the run configuration that was also left when removing modul
 
 Now that you have the `oidlib-sample` running successfully, let's go edit some endpoints to get this working with Azure Active Directory.
 
+* Configure your client
 
+Open the `oidc_clientconf.xml` file and make the following changes:
+
+1. Since we are using only OAuth2 flows to get a token and call the Graph API, let's set the client to do OAuth2 only. Using OIDC will come in a later example.
+
+```xml
+    <bool name="oidc_oauth2only">true</bool>
+```
+
+2. Configure your Client ID that you received from the registration portal.
+
+```xml
+    <string name="oidc_clientId">86172f9d-a1ae-4348-aafa-7b3e5d1b36f5</string>
+    <string name="oidc_clientSecret"></string>
+```
+
+3. Configure your redirect URI that you received from the registration portal.
+
+```xml
+    <string name="oidc_redirectUrl">https://login.microsoftonline.com/common/oauth2/nativeclient</string>
+```
+
+4. Configure your scopes that you need in order to access the Graph API.
+
+```xml
+    <string-array name="oidc_scopes">
+        <item>openid</item>
+        <item>https://graph.microsoft.com/User.ReadBasic.All</item>
+        <item>offline_access</item>
+    </string-array>
+```
+
+* Configure your client endpoints
+
+Open the `oidc_endpoints.xml` file and make the following changes:
+
+```xml
+<!-- Stores OpenID Connect provider endpoints. -->
+<resources>
+    <string name="op_authorizationEnpoint">https://login.microsoftonline.com/common/oauth2/v2.0/authorize</string>
+    <string name="op_tokenEndpoint">https://login.microsoftonline.com/common/oauth2/v2.0/token</string>
+    <string name="op_userInfoEndpoint">https://www.example.com/oauth2/userinfo</string>
+    <string name="op_revocationEndpoint">https://www.example.com/oauth2/revoketoken</string>
+</resources>
+```
+
+> [AZURE.NOTE] 
+the endpoints for userInfoEndpoint and revocationEndpoint are currently not supported by Azure Active Directory so we will leave these with the default valiues of example.com which will provide a helpful reminder that it is not avaialble in the sample :-)
+
+
+## Configure a Graph API call
+
+Open the `HomeActivity.java` file and make the following changes:
+
+```Java
+   //TODO: set your protected resource url
+    private static final String protectedResUrl = "https://graph.microsoft.com/v1.0/me/";
+```
+
+## You're Done!
+
+That's all the changes you need to do! Run the application `oidlib-sample` and click sign-in. O
+
+nce you've successfully authenticated, press the "Request Protected Resource" button to test your call to the Graph API.
 
 ## Get security updates for our product
 
