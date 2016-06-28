@@ -85,9 +85,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.    
-
->[AZURE.NOTE] There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) guide will get you started.       
+	>[AZURE.NOTE] There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) guide will get you started.       
        
 5. In Program.cs, paste the following code:
 
@@ -257,7 +255,7 @@ A sample search log has been copied to a public Azure Blob container. In the app
 		  }
 		}
 
-7. Press **F5** to run the application.
+6. Press **F5** to run the application.
 
 ## See also
 
