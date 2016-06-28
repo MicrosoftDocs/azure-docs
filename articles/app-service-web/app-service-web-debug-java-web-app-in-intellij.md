@@ -93,7 +93,7 @@ For more information, see the following links:
 [Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij.md
 [Installing the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[Sample Dynamic Web Project]: ./media/app-service-web-debug-java-web-app-in-intellij/dyna.zip
+[Sample Dynamic Web Project]: http://go.microsoft.com/fwlink/?LinkId=817337
 
 <!-- IMG List -->
 

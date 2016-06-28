@@ -91,7 +91,7 @@ For more information, see the following links:
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Installing the Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
-[Sample Dynamic Web Project]: ./media/app-service-web-debug-java-web-app-in-eclipse/dyna.zip
+[Sample Dynamic Web Project]: http://go.microsoft.com/fwlink/?LinkId=817337
 
 <!-- IMG List -->
 
