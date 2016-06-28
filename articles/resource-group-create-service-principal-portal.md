@@ -171,7 +171,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
      ![show](./media/resource-group-create-service-principal-portal/show-app.png)
 
-For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
 ## Get access token in code
 
