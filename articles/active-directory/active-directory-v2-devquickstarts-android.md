@@ -29,10 +29,7 @@ This application will allow a user to sign-in to their organization and then sea
 
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-	
-## Get security updates for our product
 
-We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
 
 ## Download
 The code for this tutorial is maintained [on GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git).  To follow along, you can [download the app's skeleton as a .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) or clone the skeleton:
@@ -52,11 +49,90 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 - Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- Copy down the **Redirect URI** from the portal. You must use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
 
 ## Download the third party library nxoauth2 and launch a workspace
 
-For this walkthrough we will use the OAuth2Client from GitHub, an OAuth2 library for Mac OS X & iOS (Cocoa & Cocoa touch). This library is based on draft 10 of the OAuth2 spec. It implements the native application profile and supports the end-user authorization endpoint. These are all the things we'll need in order to integrat with The microsoft identity platform.
+For this walkthrough we will use the OIDCAndroidLib from GitHub, an OAuth2 library based on Google's OpenID Connect code. It implements the native application profile and supports the end-user authorization endpoint. These are all the things we'll need in order to integrat with the Microsoft identity platform.
 
-### Adding the library to your project using CocoaPods
+# Clone
+
+Start by cloning the OIDCAndroidLib repo down to your computer. 
+
+```
+git@github.com:kalemontes/OIDCAndroidLib.git
+```
+
+<img src="https://help.github.com/assets/images/help/repository/remotes-url.png" alt="Git Clone" width="300px"/>
+
+# Set Up Your Android Studio Environment
+
+## Create the project 
+Create a new AndroidStudio Project and follow the default wizzard.
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample1.PNG" alt="AndroidStudio New Project" width="600px"/>
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample2.PNG" alt="AndroidStudio Wizard Target Devices" width="600px"/>
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample3.PNG" alt="AndroidStudio Wizard Start Activity" width="600px"/>
+
+## Set up your project modules
+I think that the easiest way to set the modules is by moving the cloned repo to the project location. You can also start by creating the project then cloning directly to the project location.
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample4_1.PNG" alt="Project Directory Structure showing the moved repo" width="200px"/>
+
+Next, open the project modules settings from the contextual menu or using the `Ctrl + Alt + Maj + S` shortcut.
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample4.PNG" alt="AndroidStudio Module Settings" width="600px"/>
+
+Remove the default app module as we only want the project container settings.
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample5.PNG" alt="AndroidStudio Project Structure Properties" width="600px"/>
+
+Now we need to import modules from the cloned repo to the current project
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample6.PNG" alt=AndroidStudio Wizard New Module" width="600px"/>
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample7.PNG" alt="AndroidStudio Wizard New Module" width="600px"/>
+
+> Repeat these steps for the `oidlib-sample` mobule
+
+Check the oidclib dependencies on the `oidlib-sample` module
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample8.PNG" alt="AndroidStudio Project Structure Dependencies" width="600px"/>
+
+Click "OK" and Wait for gradle sync
+
+Your settings.gradle should look like 
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample8_1.PNG" alt="Generated settings.gradle file" width="600px"/>
+
+## Build the sample app to make sure you have the sample running correctly.
+
+You won't be able to use this with Azure Active Directory yet. We'll need to configure some endpoints first. This is to ensure you don't have an Android Studio issues before we start customizing the sample app.
+
+Build and run `oidlib-sample` as the target in Android Studio
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample9.png" alt="OidcAndroidLib Sample Screeshot" width="300px"/>
+
+# Clean Up
+
+You can safely delete the `app ` directory that was left when removing module from the project as AndroidStudio doesn't delete it for safety.
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample12.PNG" alt="Project dir explorer" width="200px"/>
+
+Also you can remove the run configuration that was also left when removing module from the project by opening the "Edit Configurations" menu.
+
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample10.PNG" alt="AndroidStudio Edit Configurations" width="600px"/>
+<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample11.PNG" alt="AndroidStudio Edit Configurations" width="600px"/>
+
+## Configure the endpoints of the sample
+
+Now that you have the `oidlib-sample` running successfully, let's go edit some endpoints to get this working with Azure Active Directory.
+
+
+
+## Get security updates for our product
+
+We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
+
