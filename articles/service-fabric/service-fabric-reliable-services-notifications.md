@@ -104,11 +104,11 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 
 The reliable dictionary provides notifications for the following events:
 
-- Rebuild: Called when **ReliableDictionary** recovers its state from local disk, copied from primary or backup.
-- Clear: Called when the state of **ReliableDictionary** is cleared through the **ClearAsync** method.
-- Add: Called when an item is added to **ReliableDictionary**.
-- Update: Called when an item in **IReliableDictionary** is updated.
-- Remove: Called when an item in **IReliableDictionary** is deleted.
+- Rebuild: Called when **ReliableDictionary** has recovered its state from a recovered or copied local state or backup.
+- Clear: Called when the state of **ReliableDictionary** has been cleared through the **ClearAsync** method.
+- Add: Called when an item has been added to **ReliableDictionary**.
+- Update: Called when an item in **IReliableDictionary** has been updated.
+- Remove: Called when an item in **IReliableDictionary** has been deleted.
 
 To get Reliable Dictionary notifications, you need to register with the **DictionaryChanged** event handler on **IReliableDictionary**. A common place to register with these event handlers is in the **ReliableStateManager.StateManagerChanged** add notification. Registering when **IReliableDictionary** is added to **IReliableStateManager** ensures that you won't miss any notifications.
 
