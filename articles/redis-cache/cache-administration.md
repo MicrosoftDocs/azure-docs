@@ -43,6 +43,13 @@ If you have a premium cache with clustering enabled, you can select which shards
 
 To reboot one ore more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
+The impact on client applications varies depending on the node(s) that you reboot.
+
+-	**Master** - When the master node is rebooted, Azure Redis Cache fails over to the replica node and promotes it to master, with only a short interval in which connections may fail to the cache.
+-	**Slave** - When the slave node is rebooted, there is light to no impact to cache clients.
+-	**Both master and slave** - When both cache nodes are rebooted, all data is lost in the cache and connections to the cache fail until the primary node comes back online.
+-	**Node(s) of a premium cache with clustering enabled** - When you reboot the node(s) of a premium cache with clustering enabled, the behavior is the same as when you reboot the node of a non-clustered cache, except that the impact is limited to the specific shard of the cache.
+
 
 
 >[AZURE.IMPORTANT] Reboot is only available for Premium tier caches.
