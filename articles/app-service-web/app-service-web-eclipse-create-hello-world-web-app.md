@@ -26,7 +26,7 @@ When you have completed this tutorial, your application will look similar to the
  
 ## Prerequisites
 
-* A Java Developer Kit (JDK), v 1.7 or later.
+* A Java Developer Kit (JDK), v 1.8 or later.
 * Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
 * A distribution of a Java-based web server or application server, such as Apache Tomcat or Jetty.
 * An Azure subscription, which can be acquired from <https://azure.microsoft.com/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
