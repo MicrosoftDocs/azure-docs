@@ -17,6 +17,7 @@ Theses steps assume that you are connected to SQL Database in Object Explorer in
 3. In the query window, edit and use the following Transact-SQL statement to grant dbo permissions to a specified user. 
 
     '''ALTER ROLE db_owner ADD MEMBER user1;
+    ```
 
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
