@@ -27,10 +27,10 @@ A type of [security token](#security-token) issued by the [token endpoint](#toke
 When a client uses the ["authorization code" authorization grant](#authorization-grant), an end-user authenticates as the resource owner and the client authenticates to obtain the access token, so the token can sometimes be referred to more specifically as an "App+User" token. Similarly, when a client uses the ["client credentials" authorization grant](#authorization-grant), the client is also functioning as the resource-owner, so the token can sometimes be referred to as an "App-Only" token.
 
 ### application manifest  
-An [Azure classic portal][AZURE-classic-portal] feature, which provides a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [application][AAD-Graph-App-Entity] and [service principal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
+An [Azure classic portal][AZURE-classic-portal] feature, which provides a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
 ### application object  
-An Azure AD application is an overarching concept, *defined* by it's one and only application object which lives in the Azure AD tenant where the application was registered. The application object serves as the application's identity configuration, and is the template from which it's corresponding [service principal](#service-principal) object(s) are *derived* for use at run-time. The Azure AD Graph [application entity][AAD-Graph-App-Entity] defines the schema for an application object. The tenant in which the application object lives is considered the application's "home" tenant.
+An Azure AD application is an overarching concept, *defined* by it's one and only application object which resides in the Azure AD tenant where the application was registered. The application object serves as the application's identity configuration, and is the template from which it's corresponding [service principal](#service-principal) object(s) are *derived* for use at run-time. The Azure AD Graph [Application entity][AAD-Graph-App-Entity] defines the schema for an application object. The tenant in which the application object resides is considered the application's "home" tenant.
 
 The application object therefore has a 1:1 relationship with the application, and a 1:*n* relationship with it's corresponding service principal object(s). A single-tenant application will have only 1 service principal (in its home tenant) symmetric with it's application object; a [multi-tenant application](#multi-tenant-application) will have the same, plus a service principal in each tenant where the application has been given consent to access resources. 
 
@@ -62,7 +62,6 @@ A credential representing the [resource owner's](#resource-owner) authorization 
 ### authorization server
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining its authorization. In the case of Azure AD application integration, Azure AD implements the authorization server. Note, as in the case of Azure AD, some authorization servers also function as a resource server, implementing APIs that can be access via an access token (ie: the Azure AD Graph API).
 
-
 ### claim
 An [access token](#access-token) contain claims. Claims are assertions (facts) about the subject (the principal that was authenticated by the [authorization server](#authorization-server), ie: Azure AD). The claims present in a given security token are dependent upon the type of token, the type of credential used to authenticate the subject, and the application configuration. 
 
@@ -90,9 +89,9 @@ A type of [client application](#client-application) that is installed natively o
 Sometimes referred to as an "active client", which is a client that generates/renders its user interface, or possibly has no user interface at all. Compared to a "passive client" which is synonymous with the definition of a [Web client](#web-client)
 
 ### permissions
-A [client application](#client-application) requests access to [scopes](#scopes) and [roles](#roles) exposed by a [resource server](#resource-server), by expressing permission requests. The client's [application object](#application-object) stores the declared permissions in it's [requiredResourceAccess property][AAD-Graph-App-Entity].
+A [client application](#client-application) requests access to the [scopes](#scopes) and application [roles](#roles) exposed by a [resource server](#resource-server), by declaring permission requests. The client's [application object](#application-object) stores the declared permissions in it's [requiredResourceAccess property][AAD-Graph-App-Entity].
 
-A [client application](#client-application) can express [permission](#permissions) to access the scopes and application roles via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Application Permissions" using "Delegated Permissions" and "Application Permissions" respectively. 
+Permission requests are configured under the "Applications" / "Configure" tab in the [Azure classic portal][AZURE-classic-portal], via the "Permissions to other applications" feature, using "Delegated Permissions" for scopes and "Application Permissions" for application roles. 
 
 ### resource owner
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
@@ -100,29 +99,29 @@ As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity c
 ### resource server
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], the server hosting the protected resources, capable of accepting and responding to protected resource requests by [client applications](#client-applications) using access tokens. Also known as a protected resource server, or resource application.
 
-A resource server exposes APIs and enforces the scopes that allow client applications to access it's protected resources, using the OAuth 2.0 Authorization Framework. Examples include the Azure AD Graph API that provides access to Azure AD tenant data, and the Office 365 APIs the provide access to data such as mail, calendar, and documents.  
+A resource server exposes APIs and enforces access to it's protected resources, using the OAuth 2.0 Authorization Framework. Examples include the Azure AD Graph API that provides access to Azure AD tenant data, and the Office 365 APIs that provide access to data such as mail, calendar, and documents.  
 
-Just like a client application, a Web API (aka: resource) application's identity configuration is established via registration in an Azure AD tenant, providing both the application and service principal object. (note: there are special considerations for Microsoft-provided APIs such as the Azure AD Graph API, as it's service principal object is made available in all tenants by default)
+Just like a client application, resource application's identity configuration is established via registration in an Azure AD tenant, providing both the application and service principal object. (note: some Microsoft-provided APIs such as the Azure AD Graph API have pre-registered service principals made available in all tenants during provisioning.)
 
 ### roles
-A [resource server](#resource-server) declares and implements roles to enable “role-based-access” control. Both user and application roles can be defined by the resource server, in the [Azure classic portal][AZURE-classic-portal] via the resource application's [application manifest](#application-manifest). The resource's [application object](#application-object) stores the declared roles in it's [appRoles property][AAD-Graph-App-Entity].
+Like [scopes](#scopes), roles provide a way for a [resource server](#resource-server) to govern access to its protected resources. Roles are used to implement role-based access control, for both users and [applications](#client-application). Roles are resource-defined strings, stored in the resource's [appRoles property][AAD-Graph-Sp-Entity], and manifest at run-time as ["roles" claims](#claim) in the client application's [access token](#access-token).
 
-For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes].
+A "user" role provides role-based-access control for [user principals](#user-principal) that require access to the application, while an "application" role provides the same for client application [service principals](#service-principals). A resource's roles are managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), which a client application can request [permission](#permissions) to access.
 
-A [client application](#client-application) can express [permission](#permissions) to access the roles via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Application Permissions". 
+For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. 
 
 ### scopes
-A [resource server](#resource-server) declares and implement scopes to enable “scope-of-access” control. Scopes provide a way for a resource to give granular access to [client applications](#client-application) that use delegated access. The resource's [application object](#application-object) stores the declared roles in it's [oauth2Permissions property][AAD-Graph-App-Entity].
+Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope of access](OAuth2-Access-Token-Scopes) control, for a [client application](#client-application) that has been given delegated access to the resource by its owner. Scopes are resource-defined strings, stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity], and manifest at run-time as ["scp" claims](#claim) in the client application's [access token](#access-token).
+
+A resource's scopes are managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), which a client application can request [permission](#permissions) to access. 
 
 For a detailed discussion of the scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. 
-
-A [client application](#client-application) can express [permission](#permissions) to access the scopes via the "Permissions to other applications" feature in the [Azure classic portal][AZURE-classic-portal], under "Delegated Permissions".
 
 ### security token
 A generic term for a token used in a security context. In the case of an OAuth 2.0 [authorization grant](#authorization-grant), an [access token](#access-token) (OAuth2) and an [ID Token](OpenID Connect) are a type of security token, both of which are implemented as a [JSON Web Token (JWT)][JWT].
 
 ### service principal
-The [application object](#application-object) serves as the template for an application's identity configuration, from which its service principal object(s) are *derived*. It is the service principal object to which policy and permissions are applied, for use at run-time by the tenant in which it lives. A service principal object is required in each tenant for which an instance of the application must be represented, governing access to resources protected by user accounts from that tenant.
+The [application object](#application-object) serves as the template for an application's identity configuration, from which its service principal object(s) are *derived*. It is the service principal object to which policy and permissions are applied, in order to create a service principal at run-time to represent the application. The Azure AD Graph [service principal entity][AAD-Graph-Sp-Entity] defines the schema for a service principal object. A service principal object is required in each tenant for which an instance of the application must be represented, enabling secure access to the resources owned by user accounts from that tenant.
 
 When you register/update an application in the [Azure classic portal][AZURE-classic-portal], the portal creates/updates both the application object and it's corresponding service principal object for that tenant. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
@@ -142,6 +141,9 @@ An instance of Azure AD is referred to as an Azure AD tenant. It provides a vari
 ### token endpoint
 Provides an [access token](#access-token) in exchange for an [authorization code](#authorization-code), during the [authorization code grant](#authorization-grant) flow. The [client application](#client-application) obtains the authorization code earlier in the flow, from the [authorization endpoint](#authorization-endpoint).
 
+### user principal
+Similar to the way a service principal object is used to represent an application instance, a user principal object represents a user. The Azure AD Graph [User entity][AAD-Graph-User-Entity] defines the schema for a user principal object. The User entity consists of user-related properties such as first and last name, user principal name, membership in directory roles, etc. providing the necessary user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user when recording [consent](#consent) actions, making access control decisions, etc.
+
 ### Web client
 A type of [client application](#client-application) that runs as a Web application on a Web server. This type of client executes all code on the server, projecting it's user interface through a client-installed browser, and is therefore considered a "confidential" client due to it's ability to store credentials privately/confidentially on the server. See [OAuth2 client types and profiles](https://tools.ietf.org/html/rfc6749#section-2.1) for more details.
 
@@ -159,14 +161,16 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes
+[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipalentity
+[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#userentity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-classic-portal]: https://manage.windowsazure.com
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+[OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
