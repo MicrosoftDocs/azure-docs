@@ -20,11 +20,11 @@
 
 > [AZURE.SELECTOR]
 - [Java](resource-manager-java-sdk.md)
-- [Node.js](resource-manager-node-sdk.md)
-- [Python](resource-manager-python-sdk.md)
+- [Node.js](https://github.com/Azure/azure-sdk-node)
+- [Python](https://github.com/Azure/azure-sdk-for-python)
 - [Ruby](resource-manager-ruby-sdk.md)
-- [PHP](resource-manager-php-sdk.md)
-- [Go](resource-manager-go-sdk.md)
+- [PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Go](https://github.com/Azure/azure-sdk-for-go)
 - [.NET](resource-manager-dotnet-sdk.md)
 
    
