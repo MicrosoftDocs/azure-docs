@@ -67,7 +67,7 @@ To complete these steps in this section, you can use an existing Dynamic Web Pro
 
 1. When the **Debug Configurations** dialog reappears, click **Debug**.
 
-1. A Windows command prompt or shell will open and prepare necessary connection for debugging; you need to wait until the connection is successful to your remote Java Web app before you continue. If you are using Windows, it will look like the following illustration.
+1. A Windows command prompt or Unix shell will open and prepare necessary connection for debugging; you need to wait until the connection to your remote Java Web app is successful before you continue. If you are using Windows, it will look like the following illustration.
 
     ![][06]
 
@@ -80,10 +80,9 @@ To complete these steps in this section, you can use an existing Dynamic Web Pro
 
 ## Next Steps
 
-For more information, see the following links:
+For more information about using Azure with Java, see the [Azure Java Developer Center].
 
-* [Java Developer Center](/develop/java/).
-* [Web Apps Overview](app-service-web-overview.md)
+For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
@@ -94,6 +93,9 @@ For more information, see the following links:
 [Installing the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Sample Dynamic Web Project]: http://go.microsoft.com/fwlink/?LinkId=817337
+
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Web Apps Overview]: ./app-service-web-overview.md
 
 <!-- IMG List -->
 
