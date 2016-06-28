@@ -37,8 +37,6 @@ When you have completed this tutorial, your application in debug mode will look 
 
 To complete these steps in this section, you can use an existing Dynamic Web Project which you have already deployed as a Java Web App on Azure, you download a [Sample Dynamic Web Project] and follow steps in [Create a Hello World Web App for Azure in IntelliJ] to deploy it on Azure. 
 
-> [AZURE.IMPORTANT] I will create an FWLINK as a placeholder for the URL for the sample Dynamic Web Project.
-
 1. Open IntelliJ.
 
 1. Configure time-outs for remote debugging:
