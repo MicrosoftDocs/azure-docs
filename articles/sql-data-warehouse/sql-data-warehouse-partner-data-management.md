@@ -95,3 +95,5 @@ To learn more about some of our other partners please refer to the following art
 [infolibrarian_twitter]:https://twitter.com/InfoLibCorp
 [redpoint_twitter]:https://twitter.com/RedPointGlobal
 [sql_sentry_twitter]:https://twitter.com/SQLSentry
+
+<!--Video links-->
