@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="06/27/2016" 
-	ms.author="asirveda, robmcm"/>
+	ms.author="asirveda;robmcm"/>
 
 # Debug a Java Web App on Azure in Eclipse
 
