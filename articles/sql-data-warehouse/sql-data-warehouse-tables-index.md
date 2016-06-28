@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/28/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Indexing Tables in SQL Data Warehouse
@@ -27,9 +27,40 @@
 - [Statistics][]
 - [Temporary][]
 
-This article will introduce you to indexing tables in SQL Data Warehouse.
+SQL Data Warehouse offers several indexing options on tables including [clustered columnstore indexes][], [clustered indexes and non-clustered indexes][].  In addition, it also offers a no index table option also know as [heap][].  This article covers the benefits of each as well as tips to getting the most performance out of your indexes.
 
-By default, SQL Data Warehouse stores each table as a clustered columnstore index. This gives you better performance and data compression, especially for large tables. Depending on how you ingest data into the columnstore index, all of the data might not be stored with columnstore compression. When this happens you might not get the performance that columnstore indexes are designed to provide. 
+## Clustered columnstore indexes
+
+By default, SQL Data Warehouse creates [clustered columnstore indexes][] on all tables. Clustered columnstore tables offer both the highest level of data compression as well as the best overall query performance.  Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables.  For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.
+
+There area few scenarios where clustered columnstore may not be a good option:
+
+- Columnstore tables do not support secondary non-clustered indexes.
+- Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).
+- Columnstore tables may be less efficient for transient data.
+
+## Heap Tables
+
+When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster. If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table][Temporary] will also load much faster than loading a table to permanent storage.
+
+## Clustered and non clustered indexes
+
+Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved.  For queries where a single or very few row lookup is required to performance with extreme speed, consider a cluster index or non-clustered secondary index.  
+
+
+Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL Data Warehouse table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows. For table with less than 60 million rows, it may not make any sense to have a columnstore index. It also may not hurt. Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index. If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows). If your table does not have 6 billion rows in this example, either reduce the number of partitions or consider using a heap table instead. It also may be worth experimenting to see if better performance can be gained with a heap table with secondary indexes rather than a columnstore table. Columnstore tables do not yet support secondary indexes.
+
+
+## Clustered columnstore 
+
+To get the best performance for queries on columnstore tables, having good segment quality is important. When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer. Segment quality can be measured by number of rows in a compressed Row Group. See the section Clustered Columnstore Segment Quality in the Troubleshooting for step by step instructions on detecting and improving segment quality for clustered columnstore tables. Because getting good quality columnstore segments is fairly important, it's generally a good idea to create a special users ids just for loading which utilize a medium or large resource class. The less DWUs you use, the larger the resource class you will want to assign to your loading user. 
+
+There are two subtle impacts of this change which may impact you.
+1.If you create staging tables for loads, where the main purpose is to load data into your database quickly and then move that data to a permanent table, you may find that heap tables perform better in that scenario.
+2.If you have automation which currently leverages a secondary index on a heap table, you will want to add the HEAP keyword to your DDL as secondary indexes are not yet supported on clustered columnstore tables.
+
+
+Depending on how you ingest data into the columnstore index, all of the data might not be stored with columnstore compression. When this happens you might not get the performance that columnstore indexes are designed to provide. 
 
 This tutorial explains how to manage columnstore indexes to improve query performance. 
 
@@ -272,3 +303,6 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [ALTER INDEX]:https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
+[clustered columnstore indexes]: https://msdn.microsoft.com/en-us/library/gg492088.aspx
+[heap]: https://msdn.microsoft.com/en-us/library/hh213609.aspx
+[clustered indexes and non-clustered indexes]: https://msdn.microsoft.com/en-us/library/ms190457.aspx
