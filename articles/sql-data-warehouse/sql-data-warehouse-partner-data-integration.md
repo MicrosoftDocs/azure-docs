@@ -37,8 +37,8 @@ This article lists partner companies that have data integration partners for SQL
 ## Next Steps
 
 To learn more about some of our other partners please refer to the following articles:
-[Business Intelligence partners][bi_partners]
-[Data Management partners][dm_partners]
+- [Business Intelligence partners][bi_partners]
+- [Data Management partners][dm_partners]
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-integrate-solution-partners/alteryx_logo.png

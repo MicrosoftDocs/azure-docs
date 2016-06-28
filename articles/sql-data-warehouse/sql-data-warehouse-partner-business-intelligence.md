@@ -44,8 +44,8 @@ This article lists partner companies that have BI solutions for SQL Data Warehou
 ## Next Steps
 
 To learn more about some of our other partners please refer to the following articles:
-[Data Integration partners][di_partners]
-[Data Management partners][dm_partners]
+- [Data Integration partners][di_partners]
+- [Data Management partners][dm_partners]
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-integrate-solution-partners/birst_logo.png

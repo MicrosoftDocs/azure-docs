@@ -36,8 +36,8 @@ This article lists partner companies that have data management tools and solutio
 ## Next Steps
 
 To learn more about some of our other partners please refer to the following articles:
-[Business Intelligence partners][bi_partners]
-[Data Integration partners][di_partners]
+- [Business Intelligence partners][bi_partners]
+- [Data Integration partners][di_partners]
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-integrate-solution-partners/coffing_data_warehousing_logo.png
