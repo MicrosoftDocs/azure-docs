@@ -33,26 +33,32 @@ The offline sync code is included in the project by using C# preprocessor direct
 
 1. In Visual Studio, right-click the solution > **Manage NuGet Packages for Solution...**, then search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package for all projects in the solution.
 
-2. In the Solution Explorer, open the TodoItemManager.cs project file from the project with **Portable** in the name, which is Portable Class Library project, then uncomment the following preprocessor directive:
+2. In the Solution Explorer, open the TodoItemManager.cs file from the project with **Portable** in the name, which is Portable Class Library project, then uncomment the following preprocessor directive:
 
 		#define OFFLINE_SYNC_ENABLED
 
-3. (Optional) If you are supporting iOS devices, open the AppDelegate.cs file from the **iOS** project and uncomment the following line of code in the **FinishedLaunching** method: 
+3. In the Solution Explorer, open the TodoList.xaml.cs file from the **Portable** project, locate the **OnAppearing** method, and make sure that `true` is passed for *syncItems* when calling **RefreshItems**, as follows:
+
+		await RefreshItems(true, syncItems: true);
+	This means that app will attempt to sync with the backend when it starts.
+ 
+4. (Optional) If you are supporting iOS devices, open the AppDelegate.cs file from the **iOS** project and uncomment the following line of code in the **FinishedLaunching** method: 
 
 		SQLitePCL.CurrentPlatform.Init();
 
 	This initializes the SQLite store on iOS devices.
 	The remaining tasks are only required to support Windows devices.
 
-4. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
+5. (Optional) To support Windows devices, install one of the following SQLite runtime packages:
 
 	* **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1](http://go.microsoft.com/fwlink/p/?LinkID=716919).
     * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1]( http://go.microsoft.com/fwlink/p/?LinkID=716920).
     * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).  
     The quickstart doesn't currently include a Universal Windows Platform (UWP) project.
 
-5. (Optional) In each Windows app project, right click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**, then enable the appropriate **SQLite for Windows Runtime** SDK along with the  **Visual C++ 2013 Runtime for Windows** SDK.   
+6. (Optional) In each Windows app project, right click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**, then enable the appropriate **SQLite for Windows Runtime** SDK along with the  **Visual C++ 2013 Runtime for Windows** SDK.   
 	Note that the SQLite SDK names vary slightly with each Windows platform. For a UWP project, install the **Visual C++ 2015 Runtime for Universal Windows Platform apps** SDK.
+
 
 ## Review the client sync code
 
@@ -120,7 +126,7 @@ Here is a brief overview of what is already included in the tutorial code inside
 
 ##Offline sync considerations
 
-In the sample, the **SyncAsync** method is called whenever the todoitem list is refreshed or a todoitem is added or completed. In a real-world application, you could make this sync functionality explicitly triggered by the user, or when the network state changes.
+In the sample, the **SyncAsync** method is only called on start-up and when a sync is specifically requested.  To initiate sync in an Android or iOS app, pull down on the items list; for Windows, use the **Sync** button. In a real-world application, you could also make this sync functionality triggered when the network state changes.
 
 When a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically trigger a preceding context push. When refreshing, adding and completing items in this sample, you can omit the explicit **PushAsync** call, since it is redundant.
 
