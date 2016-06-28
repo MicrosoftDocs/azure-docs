@@ -16,10 +16,13 @@
    ms.date="06/27/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# SQL Data Warehouse solution partners
+# SQL Data Warehouse data management partners
 
-To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools. This article lists partner companies that have solutions for SQL Data Warehouse.
+To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools.
 
+This article lists partner companies that have data management tools and solutions for Azure SQL Data Warehouse.
+
+## Our data management partners
 
 | Partner | Description | Links | Videos |
 | ------- | ----------- | ----- | ------ |

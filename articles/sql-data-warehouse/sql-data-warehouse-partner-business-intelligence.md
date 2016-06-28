@@ -18,9 +18,11 @@
 
 # SQL Data Warehouse business intelligence partners
 
-To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools. 
+To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools.
 
 This article lists partner companies that have BI solutions for SQL Data Warehouse.
+
+## Our business intelligence partners
 
 | Partner | Description | Links | Videos |
 | ------- | ----------- | ----- | ------ |
