@@ -18,14 +18,14 @@
 
 # Reliable Services notifications
 
-Notifications allow clients to track the changes that are being made to the object that they're interested in. Two types of objects support notifications: *reliable state manager* and *reliable dictionary*.
+Notifications allow clients to track the changes that are being made to an object that you're interested in. Two types of objects support notifications: *reliable state manager* and *reliable dictionary*.
 
 Common reasons for using notifications are:
 
 - Building materialized views, such as secondary indexes or aggregated filtered views of the replica's state. An example is a sorted index of all keys in a reliable dictionary.
 - Sending monitoring data, such as the number of users added in the last hour.
 
-Notifications are fired as part of applying operations. Because of that, handling of notifications should finish as fast as possible, and synchronous events shouldn't include any expensive operations.
+Notifications are fired as part of applying operations. Because of that, notifications should be handled as fast as possible, and synchronous events shouldn't include any expensive operations.
 
 ## Notifications from the reliable state manager
 
@@ -40,7 +40,7 @@ The reliable state manager provides notifications for the following events:
 
 The reliable state manager tracks the current inflight transactions. The only transaction state change that will cause a notification to be fired is a transaction being committed.
 
-The reliable state manager maintains a collection of reliable states like reliable dictionary and reliable queue. The reliable state manager fires notifications when this collection changes: a reliable state is added or removed, or the entire collection has been rebuilt.
+The reliable state manager maintains a collection of reliable states like reliable dictionary and reliable queue. The reliable state manager fires notifications when this collection changes: a reliable state is added or removed, or the entire collection is rebuilt.
 The collection of reliable state managers is rebuilt in three cases:
 
 - Recovery: When a replica starts, it recovers its previous state from the disk. At the end of recovery, it fires an event with **NotifyStateManagerChangedEventArgs** that contains the set of recovered **IReliableState** interfaces.
