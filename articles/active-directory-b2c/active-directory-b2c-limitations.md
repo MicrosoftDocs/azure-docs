@@ -90,7 +90,7 @@ If you reset the password for a local account-based consumer on the Azure classi
 
 ## Issues with creating a custom attribute
 
-A custom attribute added on the Azure portal (see instructions [here](active-directory-b2c-reference-custom-attr.md)) is not immediately created in your B2C tenant. You'll have to use the custom attribute in at least one of your policies before it is created in your B2C tenant and becomes available via Graph API.
+A [custom attribute added on the Azure portal](active-directory-b2c-reference-custom-attr.md) is not immediately created in your B2C tenant. You'll have to use the custom attribute in at least one of your policies before it is created in your B2C tenant and becomes available via Graph API.
 
 ## Issues with verifying a domain on the Azure classic portal
 
