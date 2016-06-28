@@ -122,9 +122,9 @@ Click the **Messaging** policies to display a list of messaging properties for t
 
 ## File upload
 
-In order to use the file upload functionality in IoT Hub, you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
+To use the file upload functionality in IoT Hub, you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
 
-**Storage account**: Use the portal to select a storage account in your current subscription to associate with your IoT Hub. IoT Hub will generage SAS URIs from this storage account for devices to use when uploading files.
+**Storage container**: Use the portal to select a blob container in a storage account in your current subscription to associate with your IoT Hub. If necessary, you can create a new storage account on the **Storage accounts** blade and new blob container on the **Containers** blade. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
 
 ![][14]
 

@@ -103,11 +103,11 @@ Azure SQL Database provides two types of recovery: Geo-Restore and Active Geo-Re
 
 ####Geo-Restore
 
-[Geo-Restore](../sql-database/sql-database-geo-restore.md) is also available with Basic, Standard, and Premium databases. It provides the default recovery option when the database is unavailable because of an incident in the region where your database is hosted. Similar to Point-In-Time Restore, Geo-Restore relies on database backups in geo-redundant Azure storage. It restores from the geo-replicated backup copy, and therefore is resilient to the storage outages in the primary region. For more details, see [Recover from an outage](../sql-database/sql-database-disaster-recovery.md).
+[Geo-Restore](../sql-database/sql-database-recovery-using-backups.md#geo-restore) is also available with Basic, Standard, and Premium databases. It provides the default recovery option when the database is unavailable because of an incident in the region where your database is hosted. Similar to Point-In-Time Restore, Geo-Restore relies on database backups in geo-redundant Azure storage. It restores from the geo-replicated backup copy, and therefore is resilient to the storage outages in the primary region. For more details, see [Recover from an outage](../sql-database/sql-database-disaster-recovery.md).
 
 ####Active Geo-Replication
 
-[Active Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) is available for all database tiers. It’s designed for applications that have more aggressive recovery requirements than Geo-Restore can offer. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries. In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](../sql-database/sql-database-business-continuity-design.md) for details on how to [configure Geo-Replication](../sql-database/sql-database-geo-replication-portal.md) and to [fail over to the secondary database](../sql-database/sql-database-geo-replication-failover-portal.md). Refer to [Application upgrade without downtime](../sql-database/sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.
+[Active Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) is available for all database tiers. It’s designed for applications that have more aggressive recovery requirements than Geo-Restore can offer. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries. In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. For details, see [configure Geo-Replication](../sql-database/sql-database-geo-replication-portal.md) and to [fail over to the secondary database](../sql-database/sql-database-geo-replication-failover-portal.md). Refer to [Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Application upgrade without downtime](../sql-database/sql-database-business-continuity-application-upgrade.md) for details on how to design and implement apllications and applications upgrade without downtime.
 
 ###SQL Server on Virtual Machines
 
@@ -167,7 +167,7 @@ Configuration files provide the quickest way to set up a virtual network in an a
 
 ##SQL Database checklist
   1. Review the [SQL Database](#sql-database) section of this document.
-  2. Use [Geo-Restore](../sql-database/sql-database-geo-restore.md) or [Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) as appropriate.
+  2. Use [Geo-Restore](../sql-database/sql-database-recovery-using-backups.md#geo-restore) or [Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) as appropriate.
 
 ##SQL Server on Virtual Machines checklist
   1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document.

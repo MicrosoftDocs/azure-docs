@@ -3,7 +3,7 @@
    description="Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running."
    services="sql-database"
    documentationCenter=""
-   authors="stevestein"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-bcdr"
    ms.date="06/17/2016"
-   ms.author="sstein"/>
+   ms.author="carlrab"/>
 
 # Overview: Restore an Azure SQL Database from a geo-redundant backup
 
