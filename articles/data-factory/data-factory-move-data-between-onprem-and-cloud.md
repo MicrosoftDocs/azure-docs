@@ -168,6 +168,7 @@ If you encounter errors such as the following ones, it is likely because of the 
 
 - You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
 - If the gateway stops working after you **change the certificate**, restart (stop and start) the **Data Management Gateway Service** using the Microsoft Data Management Gateway Configuration Manager tool or Services control panel applet. If you still see an error, you may have to give explicit permissions for the Data Management Gateway service user to access the certificate in Certificates Manager (certmgr.msc).  The default user account for the service is: **NT Service\DIAHostService**. 
+- If the **Credential Manager** application fails to **encrypt** credentials when you click Encrypt button in Data Factory Editor, verify that you are running this application on the machine on which gateway is installed. If not, run the application on the gateway machine and try to encrypt credentials.  
 - If you see data store connection or driver related errors, launch **Data Management Gateway Configuration Manager** on the gateway machine, switch to the **Diagnostics** tab, select/enter appropriate values for fields in the **Test connection to an on-premises data source using this gateway** group, and click **Test connection** to see if you can connect to on-premises data source  from the gateway machine using the connection information and credentials. If the test connection still fails after you install a driver, restart the gateway for it to pick up the latest change.  
 
 	![Test Connection](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
@@ -591,13 +592,14 @@ This section provides steps for moving gateway client from one machine to anothe
 10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager. 
 
 ## Set credentials and security
-To encrypt credentials in the Data Factory Editor, do the following: 
+To encrypt credentials in the Data Factory Editor, do the following:
 
+1. Launch web browser on the **gateway machine**, navigate to [Azure Portal](http://portal.azure.com), search for your data factory if needed, open data factory in the **DATA FACTORY** blade and then click **Author & Deploy** to launch Data Factory Editor.   
 1. Click an existing **linked service** in the tree view to see its JSON definition or create a new linked service that requires a Data Management Gateway (for example: SQL Server or Oracle). 
 2. In the JSON editor, for the **gatewayName** property, enter the name of the gateway. 
 3. Enter server name for the **Data Source** property in the **connectionString**.
 4. Enter database name for the **Initial Catalog** property in the **connectionString**.    
-5. Click **Encrypt** button on the command bar. You should see the **Setting Credentials** dialog box. 
+5. Click **Encrypt** button on the command bar to launch the click-once **Credential Manager** application. You should see the **Setting Credentials** dialog box. 
 	![Setting credentials dialog](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
 6. In the **Setting Credentials** dialog box, do the following:  
 	1.	Select **authentication** that you want the Data Factory service to use to connect to the database. 
@@ -618,7 +620,7 @@ To encrypt credentials in the Data Factory Editor, do the following:
 		    	}
 			}
 
-If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source. 
+If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.  
 
 When you use the **Setting Credentials** application launched from Azure Portal to set credentials for an on-premises data source, the portal encrypts the credentials with the certificate you specified in the **Certificate** tab of the **Data Management Gateway Configuration Manager** on the gateway machine. 
 
