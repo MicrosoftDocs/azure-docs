@@ -68,9 +68,7 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 
 1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
 
-2.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various volumes under it. 
-
-3.  Navigate back to the **Backup Catalog** tab and select a backup set.
+2.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various volumes under it. Select the volume you want to restore. 
 
 5.  At the bottom of the page, click **Restore as new**. The **Restore as new volume** wizard will start.
 
