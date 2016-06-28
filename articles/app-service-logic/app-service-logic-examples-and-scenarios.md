@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Logic apps examples and scenarios | Microsoft Azure"
+   pageTitle="Logic Apps Examples and Scenarios | Microsoft Azure"
    description="See common Logic apps examples and learn how to implement common scenarios"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
@@ -16,11 +16,11 @@
    ms.date="04/25/2016"
    ms.author="deonhe"/>
 
-# Logic apps examples and common scenarios
+# Logic Apps Examples and Common Scenarios
 
 This document details common scenarios and examples to help you to understand some of the ways you can use Logic apps to automate business processes. 
 
-## Triggering a logic app
+## Triggering a Logic App
 
 There are several ways you can trigger a Logic app from another app. Here are some of those ways: 
 
@@ -32,16 +32,24 @@ There are several ways you can trigger a Logic app from another app. Here are so
 
 - [Logic App Request Synchronous Response](app-service-logic-http-endpoint.md)
 
+## Custom and Long-Running Actions
+
+- [Creating a Custom Action](app-service-logic-create-api-app.md)
+
+## Deploying and Managing a Logic App
+
+- [Create a Logic App Deployment Template](app-service-logic-create-deploy-template.md)
+- [Diagnosing Issues with a Logic App](app-service-logic-diagnosing-failures.md)
+- [Deploy a Logic App from Visual Studio](app-service-logic-deploy-from-vs.md)
+- [Monitor a Logic App](app-service-logic-monitor-your-logic-apps.md)
+
 ## Content-Types, Conversions, and Transformations
 
 The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) contains many functions to allow you to convert and work with different content types.  In addition the engine will do all it can to preserve content-types as data flows through the workflow.
 
 - [Handling of Content-Types](app-service-logic-content-type.md) like application/json, application/xml, and plain/text
-- [Workflow Definition Language](http://aka.ms/logicappsdocs)
-
-## Long-Running Actions
-
-- [Creating a long running action](app-service-logic-create-api-app.md)
+- [Authoring Workflow Definitions](app-service-logic-author-definitions.md)
+- [Workflow Definition Language Reference](http://aka.ms/logicappsdocs)
 
 ## Batches and Looping
 
@@ -49,7 +57,7 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 - [ForEach](app-service-logic-loops-and-scopes.md)
 - [Until](app-service-logic-loops-and-scopes.md)
 
-## Integrating with Nested Workflows and Azure Functions
+## Integrating with Azure Functions
 
 - [Azure Functions Integration](app-service-logic-azure-functions.md)
 

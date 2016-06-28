@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/18/2016"
+   ms.date="06/01/2016"
    ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
@@ -52,6 +52,10 @@ Azure Search service API supports two URL syntaxes for API operations: simple an
 [Get Index Statistics](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
+
+[Test Analyzer](#TestAnalyzer)
+
+    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Delete an Index](#DeleteIndex)
 
@@ -169,6 +173,7 @@ The main parts of an index include the following:
 - `fields` that will be fed into this index, including name, data type, and properties that define allowable actions on that field.
 - `suggesters` used for auto-complete or type-ahead queries.
 - `scoringProfiles` used for custom search score ranking. See [Add scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
+- `analyzers`, `charFilters`, `tokenizers`, `tokenFilters` used to define how your documents/queries are broken into indexable/searchable tokens. See [Analysis in Azure Search](https://aka.ms//azsanalysis) for details.
 - `defaultScoringProfile` used to overwrite the default scoring behaviors.
 - `corsOptions` to allow cross-origin queries against your index.
 
@@ -234,6 +239,10 @@ The syntax for structuring the request payload is as follows. A sample request i
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -808,6 +817,10 @@ The schema syntax used to create an index is reproduced here for convenience. Se
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -821,6 +834,14 @@ The schema syntax used to create an index is reproduced here for convenience. Se
 For a successful request: "204 No Content".
 
 By default the response body will be empty. However, if the `Prefer` request header is set to `return=representation`, the response body will contain the JSON for the index definition that was updated. In this case, the success status code will be "200 OK".
+
+**Updating index definition with custom analyzers**
+
+Once an analyzer, a tokenizer, a token filter or a char filter is defined, it cannot be modified. New ones can be added to an existing index only if the `allowIndexDowntime` flag is set to true in the index update request: 
+
+`PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
+
+Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes.
 
 <a name="ListIndexes"></a>
 ## List Indexes
@@ -991,6 +1012,100 @@ The response body is in the following format:
     {
       "documentCount": number,
 	  "storageSize": number (size of the index in bytes)
+    }
+
+<a name="TestAnalyzer"></a>
+## Test Analyzer
+
+The **Analyze API** shows how an analyzer breaks text into tokens.
+
+    POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
+
+**Request**
+
+HTTPS is required for all services requests. The **Analyze API** request can be constructed using the POST method.
+
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
+
+
+**Request Headers**
+
+The following list describes the required and optional request headers.
+
+- `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Analyze API** request must include an `api-key` set to an admin key (as opposed to a query key).
+
+You will also need the index name and the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+
+**Request Body**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "analyzer_name"
+    }
+
+or
+
+    {
+      "text": "Text to analyze",
+      "tokenizer": "tokenizer_name",
+      "tokenFilters": (optional) [ "token_filter_name" ],
+      "charFilters": (optional) [ "char_filter_name" ]
+    }
+
+The `analyzer_name`, `tokenizer_name`, `token_filter_name` and `char_filter_name` need to be valid names of predefined or custom analyzers, tokenizers, token filters and char filters for the index. To learn more about the process of lexical analysis see [Analysis in Azure Search](https://aka.ms/azsanalysis).
+
+**Response**
+
+Status Code: 200 OK is returned for a successful response.
+
+The response body is in the following format:
+
+    {
+      "tokens": [
+        {
+          "token": string (token),
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
+        },
+        ...
+      ]
+    }
+
+**Analyze API example**
+
+**Request**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "standard"
+    }
+
+**Response**
+
+    {
+      "tokens": [
+        {
+          "token": "text",
+          "startOffset": 0,
+          "endOffset": 4,
+          "position": 0
+        },
+        {
+          "token": "to",
+          "startOffset": 5,
+          "endOffset": 7,
+          "position": 1
+        },
+        {
+          "token": "analyze",
+          "startOffset": 8,
+          "endOffset": 15,
+          "position": 2
+        }
+      ]
     }
 
 ________________________________________
@@ -1449,7 +1564,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "orderby": [ "lastRenovationDate desc" ]
+      "orderby": "lastRenovationDate desc"
     }
 
 2)	In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
@@ -1494,7 +1609,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hôtel",
-      "searchFields": [ "description_fr" ]
+      "searchFields": "description_fr"
     }
 
 6) Search the Index across multiple fields. For example, you can store and query searchable fields in multiple languages, all within the same index.  If English and French descriptions co-exist in the same document, you can return any or all in the query results:
@@ -1505,7 +1620,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hotel",
-      "searchFields": [ "description", "description_fr" ]
+      "searchFields": "description, description_fr"
     }
 
 Note that you can only query one index at a time. Do not create multiple indexes for each language unless you plan to query one at a time.
@@ -1542,7 +1657,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "select": [ "hotelName", "description" ]
+      "select": "hotelName, description"
     }
 
 10)  Retrieve documents matching a specific filter expression
@@ -1574,7 +1689,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
-      "orderby": [ "geo.distance(location, geography'POINT(-122.12315 47.88121)')" ]
+      "orderby": "geo.distance(location, geography'POINT(-122.12315 47.88121)')"
     }
 
 13) Search the index assuming there's a scoring profile called "geo" with two distance scoring functions, one defining a parameter called "currentLocation" and one defining a parameter called "lastLocation"

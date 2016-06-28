@@ -67,6 +67,7 @@ The next step is to create a Visual Studio project and write two helper function
 	using System.Data;
 	using System.IO;
 	using System.Threading;
+	using System.Threading.Tasks;
 	using Microsoft.ServiceBus.Messaging;
 	```
 
@@ -261,7 +262,7 @@ In this step, you define the management operations you will use to create shared
 	{
 	…
 	}
-	static async void Queue()
+	static async Task Queue()
 	{
 	}
 	```
@@ -269,7 +270,7 @@ In this step, you define the management operations you will use to create shared
 1. The next step is to create a SAS credential using a [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) object. The creation method takes the SAS key name and value obtained in the `CollectUserInput()` method. Add the following code to the `Queue()` method:
 
 	```
-	static async void Queue()
+	static async Task Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -292,6 +293,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.ServiceBus.Messaging;
 
 namespace Microsoft.ServiceBus.Samples
@@ -317,7 +319,7 @@ namespace Microsoft.ServiceBus.Samples
       Task.WaitAll(Queue());
     }
 
-    static async void Queue()
+    static async Task Queue()
     {
       // Create management credentials
       TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName, sasKeyValue);
@@ -496,6 +498,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.ServiceBus.Messaging;
 
 namespace Microsoft.ServiceBus.Samples
@@ -524,7 +527,7 @@ namespace Microsoft.ServiceBus.Samples
 
         }
 
-        static async void Queue()
+        static async Task Queue()
         {
             // Create management credentials
             TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName, sasKeyValue);

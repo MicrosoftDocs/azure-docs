@@ -312,7 +312,7 @@ user ID for a logged-in user:
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-The SID is derived from the provider-specific user ID and is static for a given user and login provider.
+The SID is derived from the provider-specific user ID and is static for a given user and login provider. When a user accesses an endpoint anonymously, the User property returns null.
 
 App Service also lets you request specific claims from your login provider. This lets you request more information from the provider, such as by using the Facebook Graph APIs. You can specify claims in the provider blade in the portal. Some claims require additional configuration with the provider.
 
@@ -341,6 +341,19 @@ The following code calls the **GetAppServiceIdentityAsync** extension method to 
     }
 
 Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method  work.
+
+### <a name="authorize"></a>How to: Restrict data access for authorized users
+
+In the previous section, we showed how to retrieve the user ID of an authenticated user. You can restrict access to data and other resources based on this value. For example, adding a userId column to tables and filtering a user's query results by the user ID is a simple way to limit returned data only to authorized users. The following code returns data rows only when the ID of the current user matches the value in the UserId column on the TodoItem table: 
+
+    // Get the SID of the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    
+    // Only return data rows that belong to the current user.
+    return Query().Where(t => t.UserId == sid);
+
+Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access. 
 
 ## How to: Add push notifications to a server project
 

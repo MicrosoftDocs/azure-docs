@@ -6,14 +6,13 @@
 	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 
@@ -57,7 +56,7 @@ The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT**
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
-To obtain these values from a Classic or ARM Storage Account in the Azure Portal:
+To obtain these values from a classic or Resource Manager storage account in the Azure Portal:
 
 1. Log in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
@@ -65,9 +64,9 @@ To obtain these values from a Classic or ARM Storage Account in the Azure Portal
 4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these. 
 5. Click the copy icon to copy the key to the clipboard. 
 
-To obtain these values from a Classic Storage Account in the Classic Portal:
+To obtain these values from a classic storage account in the classic Azure portal:
 
-1. Log in to the [Classic Portal](https://manage.windowsazure.com).
+1. Log in to the [classic Azure portal](https://manage.windowsazure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one. 

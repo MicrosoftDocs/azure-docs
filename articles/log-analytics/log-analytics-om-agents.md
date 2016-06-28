@@ -50,7 +50,7 @@ Perform the following series of steps to configure your Operations Manager manag
 
     >[AZURE.NOTE] Operations Manager only supports one OMS workspace at a time. The connection and the computers that were registered to OMS with the previous workspace are removed from OMS.
 
-6. On the **Operations Manager Suite Onboarding Wizard: Summary** page, confirm your settings and if they are correct, click **Create**.
+6. On the **Operations Management Suite Onboarding Wizard: Summary** page, confirm your settings and if they are correct, click **Create**.
 7. On the **Operations Management Suite Onboarding Wizard: Finish** page, click **Close**.
 
 ### Add agent-managed computers

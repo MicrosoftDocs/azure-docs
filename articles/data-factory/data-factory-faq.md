@@ -35,7 +35,7 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 ### How do I get started with Azure Data Factory?
 
 - For an overview of Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md).
-- For a tutorial on how to **copy/move data** using Copy Activity, see [Copy data from Azure Blob Storage to Azure SQL Database](data-factory-get-started.md).
+- For a tutorial on how to **copy/move data** using Copy Activity, see [Copy data from Azure Blob Storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - For a tutorial on how to **transform data** using HDInsight Hive Activity. See [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md) 
   
 ### What is the Data Factory’s region availability?
@@ -69,6 +69,11 @@ You can author/create data factories using one of the following:
 
 ### Can I rename a data factory?
 No. Like other Azure resources, the name of an Azure data factory cannot be changed. 
+
+### Can I move a data factory from one Azure subscription to another? 
+Yes. Use the **Move** button on your data factory blade as shown below: 
+
+![Move data factory](media/data-factory-faq/move-data-factory.png)
 
 ## Activities - FAQ
 ### What are the different types of activities you can use in a Data Factory pipeline? 
