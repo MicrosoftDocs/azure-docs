@@ -35,17 +35,13 @@ Architecturally, the Enterprise Integration suite is based on **integration acco
 - You can also leverage Azure functions
 
 ## How to get started with enterprise integration?
-You can build and manage B2B apps using the Enterprise Integration suite via the Logic apps designer on the **Azure portal** or by using PowerShell. In fact, all features are available both via the portal and from PowerShell.
+You can build and manage B2B apps using the Enterprise Integration suite via the Logic apps designer on the **Azure portal**.  
 
 ### From the Azure management portal
 To 
 ![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
 
-### From PowerShell
-All Enterprise Integration features are available from PowerShell.To get started using PowerShell download the commandlets now. (todo: add link) 
-
-
-## What are come common scenarios?
+## What are common scenarios?
 - todo: per Jon: VETER -- reference in the MABS docs ... leverage that doc here
 - EDI
 - EAI

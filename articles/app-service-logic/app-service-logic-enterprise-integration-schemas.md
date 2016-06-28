@@ -18,12 +18,6 @@
 
 # Schemas  
 
-## Overview
-- todo:
-
-## What is a schema?
-- todo:
--
 ## Why use a schema?
 You use schemas to confirm that XML documents you receive are valid, meaning that the documents contain the expected data in a predefined format.
 
@@ -70,6 +64,7 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-2.png)  
 5. Finally, notice that the list of schemas in the Schemas blade refreshes and the schema you deleted is no longer listed  
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-3.png)    
+
 ## Next steps
 
 - [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
