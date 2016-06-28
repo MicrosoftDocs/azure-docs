@@ -17,7 +17,7 @@
 
 # Scheduling a runbook in Azure Automation
 
-To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run one time or a reoccurring weekly or monthly frequency, specific days of the week or days of the month, or a particular day of the month.  A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
+To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run once or on a reoccurring hourly or daily schedule for classic runbooks, and for runbooks in the Azure porrtal, additionally you can schedule them for weekly, monthly, specific days of the week or days of the month, or a particular day of the month.  A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 
 
 ## Creating a schedule
@@ -58,8 +58,8 @@ The following sample commands shows how to create a schedule for the 15th and 30
     $automationAccountName = "MyAutomationAccount"
 	$scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
     New-AzureRMAutomationSchedule –AutomationAccountName $automationAccountName –Name `
-    $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 -DaysOfMonth Fifteenth,Thirtieth `
-    -ResourceGroupName "ResourceGroup01"
+    $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
+    -DaysOfMonth Fifteenth,Thirtieth -ResourceGroupName "ResourceGroup01"
     
 
 ## Linking a schedule to a runbook
@@ -133,15 +133,15 @@ The following sample commands show how to disable a schedule using the Azure Ser
 
 	$automationAccountName = "MyAutomationAccount"
 	$scheduleName = "Sample-DailySchedule"
-	Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –IsEnabled $false
+	Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName `
+    –Name $scheduleName –IsEnabled $false
 
 The following sample commands show how to disable a schedule for a runbook using an Azure Resource Manager cmdlet.
 
 	$automationAccountName = "MyAutomationAccount"
 	$scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
 	Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
-    –Name $scheduleName –IsEnabled $false `
-    -ResourceGroupName "ResourceGroup01"
+    –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 
 ## Next steps
 
