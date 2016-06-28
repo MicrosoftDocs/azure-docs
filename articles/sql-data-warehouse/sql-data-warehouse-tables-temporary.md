@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/27/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Temporary tables in SQL Data Warehouse
@@ -27,19 +27,18 @@
 - [Statistics][]
 - [Temporary][]
 
-This article will introduce you to temporary tables in SQL Data Warehouse.
+Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse temporary tables exist at the session level.  They are only visable to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.  Temporary tables are slightly different in Azure SQL Data Warehouse than Azure SQL Database as they can be accessed from anywhere inside the session, including both inside and outside of a stored procedure.
 
-Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse temporary tables exist at the session level.  However, they are still defined as local temporary tables but unlike SQL Server tables they can be accessed from anywhere inside the session.
+This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using the information in this article can help you modularize your code, improving both re-usibility and ease of maintenance of your code.
 
-This article contains some essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using this information can help you modularize your code. Code modularity is important for ease of maintenance and code re-use.
+## Create a temporary table
 
-## Creating temporary tables
-Creating a temporary table is very straight forward. All you need to do is simply prefix the table name with # as in the example below:
+Temporary tables are created by simply prefixing your table name with a `#`.  For example:
 
 ```sql
 CREATE TABLE #stats_ddl
 (
-	[schema_name]			NVARCHAR(128) NOT NULL
+	[schema_name]		NVARCHAR(128) NOT NULL
 ,	[table_name]            NVARCHAR(128) NOT NULL
 ,	[stats_name]            NVARCHAR(128) NOT NULL
 ,	[stats_is_filtered]     BIT           NOT NULL
@@ -54,7 +53,7 @@ WITH
 )
 ```
 
-Temporary tables can also be created using `CTAS` using exactly the same approach.   
+Temporary tables can also be created with a `CTAS` using exactly the same approach:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -112,7 +111,7 @@ FROM    t1
 
 ## Dropping temporary tables
 
-To ensure that your `CREATE TABLE` statements are successful it is important to ensure that the table doesn't already exist in the session. This can be handled with a simple pre-existence check using the pattern below: 
+When a new session is is created, no temporary tables should exist.  However, if you are calling the same stored procedure, which creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful a simple pre-existence check with a `DROP` can be used as in the below example:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -121,23 +120,15 @@ BEGIN
 END
 ```
 
-> [AZURE.NOTE] For coding consistency it is recommended to use this pattern for both tables and temporary tables.
-
-It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them in your code.  
+For coding consistency it is a good practice to use this pattern for both tables and temporary tables.  It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them in your code.  In stored procedure development it is quite common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
-In stored procedure development it is quite common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
-
 ## Modularizing code
 
-The fact that temporary tables can be seen anywhere in a user session can actually be exploited to help you modularize your application code.
-
-Lets make a working example.
-
-The stored procedure below brings together the examples mentioned above. The code can be used to generate the DDL required to update the statistics on every column in the database:
+Since temporary tables can be seen anywhere in a user session, this can be exploited to help you modularize your application code.  For example, the stored procedure below brings together the recommended practices from above to generate  DDL which will update all statistics in the database by statistic name.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -211,15 +202,7 @@ FROM    t1
 GO
 ```
 
-At this stage no action has occured to the table. The procedure simply generated the DDL required to update the statistics and stored that code in a temporary table. 
-
-However, also note that the stored procedure does not include a `DROP TABLE` command at the end. We have however included a pre-existence check into the stored procedure to make the code robust and repeatable; ensuring that our `CTAS` will not fail as a result of a duplicate object existing in the session.
-
-Now for the interesting part!
-
-In SQL Data Warehouse it is possible to use the temporary table outside of the procedure that created it. This is different to SQL Server. In fact the temporary table can be used **anywhere** inside the session.
-
-This can lead to more modular and manageable code. Look at the example below:
+At this stage the only action that has occured is the creation of a stored proceedure which will simply generated a temporary table, #stats_ddl, with DDL statements.  This stored procedure will drop #stats_ddl if it already exists to ensure it does not fail if run more than once within a session.  However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it will leave the created table so that it can be read outside of the stored procedure.  In SQL Data Warehouse, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  SQL Data Warehouse temporary tables can be used **anywhere** inside the session. This can lead to more modular and manageable code as in the below example:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -240,19 +223,9 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-The resulting code is much more compact.
-
-In some cases in-line and multi-statement functions can also be replaced using this technique.
-
-> [AZURE.NOTE] You can also extend this solution. If you only wanted to update a single table for example all you would need to do is just filter the #stats_ddl table
-
 ## Temporary table limitations
-SQL Data Warehouse does impose a couple of limitations when implementing temporary tables.
 
-The main limitations are:
-
-- Global Temporary Tables are not supported
-- Views cannot be created on temporary tables
+SQL Data Warehouse does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.
 
 ## Next steps
 
