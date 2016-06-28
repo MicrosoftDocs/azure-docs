@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/27/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distributing Tables in SQL Data Warehouse
@@ -29,11 +29,11 @@
 
 ## Introduction to distributed tables
 
-SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  Essentially this means that behind the scenes, your data is divided across several databases.  By dividing the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Behind the scenes, SQL Data Warehouse divides your data into 60 distributed databases, as simply called **distributions**.
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
 
 ## Select distribution method
 
-SQL Data Warehouse needs an algorithm to distribute your data.  By default, when you do not define a data distribution method, your table will be distributed using a **round robin** algorithm.  However, as you become more sophisticated in your implementation, you will want to consider using **hash distributed** tables to optimize performance.
+Behind the scenes, SQL Data Warehouse divides your data into 60 databases.  Each individual database is referered to as a **distribution**.  When data is loaded into each table, SQL Data Warehouse has to know how to divide your data across these 60 distributions.  The distribution method is defined at the table level.  By default, when you do not define a data distribution method, your table will be distributed using the **round robin** distribution method.  However, as you become more sophisticated in your implementation, you will want to consider using **hash distributed** tables to minimize data movement which will in turn optimize query performance.
 
 ### Round Robin Tables
 
@@ -49,21 +49,24 @@ The distribution column is very much what it sounds like.  It is the column whic
 
 When you choose to **hash distributed** a table, you will need to select a distribution column.  When selecting a distribution column, there are three major factors to consider.  Select a column which will:
 
-1. Distribute evenly aross distributions
-2. Minimize data movement
-3. Not be updated
+1. Not be updated
+2. Distribute data evenly
+3. Minimize data movement
+
+### Not be updated
+
+### Distribute evenly aross distributions
 
 ### Minimize data movement
-Data Movement most commonly arises when tables are joined together or aggregations on tables are performed. Hash distributing tables on a shared key is one of the most effective methods for minimizing this movement.
 
-However, for the hash distribution to be effective in minimizing the movement the following criteria must all be true:
+Minimizing data movement is a key way to optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Hash distributing tables on a commonly joined column is one of the most effective methods for minimizing this movement.  However, for the hash distribution to be effective in minimizing the movement the following criteria must all be true:
 
-1. Both tables need to be hash distributed and be joined on the shared distribution key
-2. The data types of both columns need to match
-3. The joining columns need to be equi-join (i.e. the values in the left table's column need to equal the values in the right table's column)
-4. The join is **not** a `CROSS JOIN`
+1. The tables involved in the join must be hash distributed on one of the join columns
+2. The data types of the join columns must match
+3. The columns must be joined with an equals operator
+4. The join type may not be a `CROSS JOIN`
 
-> [AZURE.NOTE] Columns used in `JOIN`, `GROUP BY`, `DISTINCT` and `HAVING` clauses all make for good HASH column candidates. On the other hand columns in the `WHERE` clause do **not** make for good hash column candidates. See the section on balanced execution below.
+Columns used in `JOIN`, `GROUP BY`, `DISTINCT` and `HAVING` clauses all make for good hash distribution candidates. On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates. See the section on balanced execution below.
 
 Data movement may also arise from query syntax (`COUNT DISTINCT` and the `OVER` clause both being great examples) when used with columns that do not include the hash distribution key.
 
