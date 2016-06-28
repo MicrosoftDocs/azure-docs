@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="06/24/2016"
    ms.author="yurid"/>
  
 # Getting started with Operations Management Suite Security and Audit Solution
@@ -30,7 +30,7 @@ The OMS Security and Audit solution provides a comprehensive view into your orga
 2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
 3. The **Security and Audit** dashboard will appear as shown below:
 
-	![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1.JPG)
+	![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1.png)
 
 If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case it will be normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
 
@@ -69,11 +69,11 @@ The search result is divided in two panes: the left pane gives you a breakdown o
 
 This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Malware Assessment** tile. 
 
-![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4.JPG)
+![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4.png)
 
 Just like any other live tile available in OMS Dashboard  , when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
 
-![search result](./media/oms-security-getting-started/oms-getting-started-fig5.JPG)
+![search result](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
 > [AZURE.NOTE] *rank* is a grade giving to reflect the status of the protection (on, off, updated, etc) and threats that are found. Having that as a number helps to make aggregations.
 
@@ -83,7 +83,7 @@ If you click in the computer’s name, you will have the chronological view of t
 
 This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provides the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
 
-![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.JPG)
+![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
 
 > [AZURE.NOTE] for more information about Updates solution, read [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx).
 

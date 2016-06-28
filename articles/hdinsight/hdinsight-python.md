@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/20/2016" 
+	ms.date="06/27/2016" 
 	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
 
 Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general purpose language. Both Hive and Pig allow you to create User Defined Functions (UDF) using a variety of programming languages. In this article, you will learn how to use a Python UDF from Hive and Pig.
-
-> [AZURE.NOTE] The steps in this article apply to HDInsight cluster versions 2.1, 3.0, 3.1, and 3.2.
 
 ##Requirements
 
@@ -178,8 +176,8 @@ For more information on using SSH, see <a href="../hdinsight-hadoop-linux-use-ss
 
 4. From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.
 
-		hadoop fs -copyFromLocal streaming.py /streaming.py
-		hadoop fs -copyFromLocal jython.py /jython.py
+		hdfs dfs -put streaming.py /streaming.py
+		hdfs dfs -put jython.py /jython.py
 
 After uploading the files, use the following steps to run the Hive and Pig jobs.
 
@@ -191,7 +189,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 		add file wasb:///streaming.py;
 		SELECT TRANSFORM (clientid, devicemake, devicemodel)
-		  USING ' pythonstreaming.py' AS
+		  USING 'python streaming.py' AS
 		  (clientid string, phoneLabel string, phoneHash string)
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
@@ -310,13 +308,13 @@ The following script will run the __streaming.py__ script. Before running, it wi
         -HttpCredential $creds
     # Uncomment the following to see stderr output
     # Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
+    #   -Clustername $clusterName `
+    #   -JobId $job.JobId `
+    #   -DefaultContainer $container `
+    #   -DefaultStorageAccountName $storageAccountName `
+    #   -DefaultStorageAccountKey $storageAccountKey `
+    #   -HttpCredential $creds `
+    #   -DisplayOutputType StandardError
 	Write-Host "Display the standard output ..." -ForegroundColor Green
 	Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
