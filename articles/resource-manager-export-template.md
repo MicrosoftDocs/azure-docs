@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/27/2016"
+	ms.date="06/28/2016"
 	ms.author="tomfitz"/>
 
 # Export an Azure Resource Manager template from existing resources
@@ -181,11 +181,9 @@ Although each deployment shows only the changes that you have made to your resou
 
 ## Fix export issues
 
-Not all resource types support the export template function. You will only encounter this problem when you are exporting a template from an existing resource group. If you export a template from your deployment history, you will get the exact template used for that deployment including all resource types. 
+Not all resource types support the export template function. Some resource types are specifically not exported to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
 
-> [AZURE.NOTE] If your resource group is in the same state as the state defined in the last deployment, you should export the template from the deployment history rather than from the resource group. You will avoid the potential export issues. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
-
-Some resource types are specifically not exported to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
+> [AZURE.NOTE] You will only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
 
 For example, if you export a template for a resource group that contains a web app, SQL Database, and a connection string in the site config, you will see the following message.
 
@@ -303,7 +301,12 @@ In the web site resource, add a definition for the code to install:
       "localNetworkAddressSpace": {
         "addressPrefixes": "[parameters('<address-prefixes>')]"
       },
-      "gatewayIpAddress": "[parameters('<gateway-ip-address>')]"
+      "gatewayIpAddress": "(string)",
+      "bgpSettings": {
+        "asn": "(integer)",
+        "bgpPeeringAddress": "(string)",
+        "peerWeight": "(integer)"
+      }
     }
 }
 ```
