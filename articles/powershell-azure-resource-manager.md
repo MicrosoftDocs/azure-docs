@@ -22,13 +22,14 @@
 - [Portal](azure-portal/resource-group-portal.md) 
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.js](https://github.com/Azure/azure-sdk-node)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](ruby-azure-resource-manager.md)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Go](https://github.com/Azure/azure-sdk-for-go)
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
+- [Java](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-java-resources-and-groups/)
+- [Node.js](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [PHP](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-php-resources-and-groups/)
+- [Go](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-go-resources-and-groups/)
+- [.NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+
 
 Azure Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining an entire solution, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a declarative representation of the solution --  to create a resource group that contains all of the resources you need to support the solution. Then, you manage and deploy that resource group as a logical unit. 
 
