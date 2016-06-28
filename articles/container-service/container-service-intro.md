@@ -85,7 +85,7 @@ Marathon is a cluster-wide init and control system for services in
 cgroups--or, in the case of Azure Container Service, Docker-formatted containers. It is an ideal partner to Chronos, which is a fault-tolerant job scheduler for DC/OS that handles dependencies and time-based schedules.
 
 Marathon and Chronos provide a web UI from which you can deploy your applications. You can access this at a URL that looks something like
-`http://DNS\_PREFIX.REGION.cloudapp.azure.com`
+`http://DNS_PREFIX.REGION.cloudapp.azure.com`
 where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](container-service-mesos-marathon-ui.md).
 
 You can also use the REST APIs for communicating with Marathon and
