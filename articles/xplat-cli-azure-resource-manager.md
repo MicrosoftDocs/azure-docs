@@ -23,7 +23,13 @@
 - [Portal](azure-portal/resource-group-portal.md) 
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-- [Ruby](ruby-azure-resource-manager.md)
+- [Java](https://github.com/Azure/azure-sdk-for-java)
+- [Node.js](https://github.com/Azure/azure-sdk-node)
+- [Python](https://github.com/Azure/azure-sdk-for-python)
+- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+- [PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Go](https://github.com/Azure/azure-sdk-for-go)
+- [.NET](https://github.com/Azure/azure-sdk-for-net)
 
 
 This article introduces common ways to create and manage Azure resources by using the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode.
