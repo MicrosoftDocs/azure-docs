@@ -53,6 +53,8 @@ To reboot one ore more nodes of your cache, select the desired nodes and click *
 -	[Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
 -	[Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 -	[Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
+-	[What pricing tiers can use the Reboot functionality?](#what-pricing-tiers-can-use-the-reboot-functionality)
+
 
 ### Which node should I reboot to test my application?
 
@@ -70,17 +72,37 @@ If you reboot both the **Master** and **Slave** nodes all data in the cache (or 
 
 At this time you can't, but this functionality is coming soon.
 
+### What pricing tiers can use the Reboot functionality?
+
+Reboot is available only in the premium pricing tier.
+
 ## Schedule updates
 
-The **Schedule updates** blade allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window.
-
->[AZURE.IMPORTANT] Note that the maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
+The **Schedule updates** blade allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. Note that the maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
 
 ![Schedule updates](./media/cache-administration/redis-schedule-updates.png)
 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
 
->[AZURE.IMPORTANT] Schedule updates is only available for Premium tier caches.
+## Schedule updates FAQ
+
+-	[When do updates occur if I don't use the schedule updates feature?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
+-	[What type of updates are made during the scheduled maintenance window?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
+-	[What pricing tiers can use the schedule updates functionality?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
+
+### When do updates occur if I don't use the schedule updates feature?
+
+If you don't specify a maintenance window, updates can be made at any time.
+
+### What type of updates are made during the scheduled maintenance window?
+
+Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
+
+### What pricing tiers can use the schedule updates functionality?
+
+Schedule updates is available only in the premium pricing tier.
+
+
 
 
 
