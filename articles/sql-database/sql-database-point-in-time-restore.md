@@ -3,7 +3,7 @@
    description="Learn about Point-in-Time Restore, that enables you to roll back an Azure SQL Database to a previous point in time (up to 35 days)."
    services="sql-database"
    documentationCenter=""
-   authors="stevestein"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-bcdr"
    ms.date="06/17/2016"
-   ms.author="sstein"/>
+   ms.author="carlrab"/>
 
 # Overview: SQL Database Point-In-Time Restore
 
