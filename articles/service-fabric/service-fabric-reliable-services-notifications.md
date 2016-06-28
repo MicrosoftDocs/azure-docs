@@ -192,9 +192,9 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 ## Recommendations
 
-- Complete notification events as fast as possible.
-- Do not execute any expensive operations (for example, I/O operations) as part of synchronous events.
-- Check the action type before you process the event. You can add new action types in the future.
+- *Do* complete notification events as fast as possible.
+- *Do not* execute any expensive operations (for example, I/O operations) as part of synchronous events.
+- *Do* check the action type before you process the event. You can add new action types in the future.
 
 Here are some things to keep in mind:
 
