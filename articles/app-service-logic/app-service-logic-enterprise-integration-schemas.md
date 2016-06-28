@@ -17,7 +17,6 @@
 	ms.author="deonhe"/>
 
 # Schemas  
-- todo:
 
 ## Overview
 - todo:
@@ -26,9 +25,10 @@
 - todo:
 -
 ## Why use a schema?
-- todo:
+You use schemas to confirm that XML documents you receive are valid, meaning that the documents contain the expected data in a predefined format.
 
 ## How to add a schema?
+From the Azure portal: 
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
@@ -46,78 +46,32 @@
 8. Select the **Schemas** tile. This refreshes the tile and you should see the number of schemas increase, reflecting the new schema has been added successfully. After you select the **Schemas** tile, you will also see the newly added partner is displayed in the Schemas blade, on the right.     
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)  
 
-## How to add a schema using PowerShell
-
-````
-$childItems = New-Object PSObject |
-   Add-Member -PassThru NoteProperty Item1 'ChildItem' |
-   Add-Member -PassThru NoteProperty Item2 1 |
-   Add-Member -PassThru NoteProperty Item3 ("Prop1","Prop2","Prop3") 
-
-$items = (New-Object PSObject |
-   Add-Member -PassThru NoteProperty MyCustomProperty1 'Main' |
-   Add-Member -PassThru NoteProperty MyCustomProperty2 $childItems
-)
-$metadata = $items | ConvertTo-JSON -Compress
-
-#new metadata for update
-$childnewItems = New-Object PSObject |
-   Add-Member -PassThru NoteProperty Item1 'ChildItem' |
-   Add-Member -PassThru NoteProperty Item2 1 
-
-$newItems = (New-Object PSObject |
-   Add-Member -PassThru NoteProperty Property1 'Main' |
-   Add-Member -PassThru NoteProperty Property2 $childnewItems
-)
-$newMetadata = $newItems | ConvertTo-JSON -Compress
-
-#Schema content file path
-$schemaFilePath = "<your schema file path>" # e.g. "D:\Resources\Schemas\OrderFile.xsd
-
-#Schema definition object created from a file
-$schemaContent = [IO.File]::ReadAllText($schemaFilePath)
-#Schema targetname space
-$schemaTargetNamespace = "http://Inbound_EDI.OrderFile"
-
-#Remove integration account schema
-Remove-AzureRmIntegrationAccountSchema -ResourceGroupName $ResourceGroupName -Name $AccountName -SchemaName "integrationAccountSchema1" -Force
-Remove-AzureRmIntegrationAccountSchema -ResourceGroupName $ResourceGroupName -Name $AccountName -SchemaName "integrationAccountSchema2" -Force
-$RG | Remove-AzureRmIntegrationAccountSchema -Name $AccountName -SchemaName "integrationAccountSchema3" -Force
-	
-#Create integration Account Schema
-$integrationAccountSchema1 = $RG | New-AzureRmIntegrationAccountSchema -Name $AccountName -SchemaName "integrationAccountSchema1" -SchemaDefinition $schemaContent -TargetNamespace $schemaTargetNamespace -Metadata $metadata
-
-$integrationAccountSchema2 = New-AzureRmIntegrationAccountSchema -ResourceGroupName $ResourceGroupName -Name $AccountName -SchemaName "integrationAccountSchema2" -SchemaFilePath $schemaFilePath -TargetNamespace $schemaTargetNamespace -Metadata $newMetadata
-
-$integrationAccountSchema3 = New-AzureRmIntegrationAccountSchema -ResourceGroupName $ResourceGroupName -Name $AccountName -SchemaName "integrationAccountSchema3" -SchemaFilePath $schemaFilePath -TargetNamespace $schemaTargetNamespace -SchemaType "Xml" -ContentType "application/xml" -Metadata $metadata
-
-#Get integration Account Schema by name
-Get-AzureRmIntegrationAccountSchema -ResourceGroupName $ResourceGroupName -Name $AccountName -SchemaName "integrationAccountSchema1"
-
-#Get integration Account Schemas in the integration account
-Get-AzureRmIntegrationAccountSchema -ResourceGroupName $ResourceGroupName -Name $AccountName
-
-#Get integration Account Schemas in the integration account using pipe input from resource group object
-$RG | Get-AzureRmIntegrationAccountSchema -Name $AccountName | Select Name, CreatedTime
-
-#Update integration Account Schema
-Set-AzureRmIntegrationAccountSchema -ResourceGroupName $ResourceGroupName -Name $AccountName -SchemaName "integrationAccountSchema1" -SchemaDefinition $schemaContent -TargetNamespace "http://tempuri.org" -Metadata $newMetadata
-Set-AzureRmIntegrationAccountSchema -ResourceGroupName $ResourceGroupName -Name $AccountName -SchemaName "integrationAccountSchema2" -SchemaDefinition $schemaContent -TargetNamespace "http://tempuri.org" -Metadata $metadata
-
-#Error Scenario: Error in update if integration account schema does not exists
-$RG | Set-AzureRmIntegrationAccountSchema -Name $AccountName -SchemaName "integrationAccountSchema4" -SchemaDefinition $schemaContent 
-
-````
 
 ## How to use schemas?
 - todo: 
 
 ## How to edit shemas?
-- todo:
+1. Select the **Schemas** tile  
+2. Select the schema you wish to edit from the Schemas blade that opens up
+3. Select the **Upload** link on the Schemas blade  
+![](./media/app-service-logic-enterprise-integration-schemas/edit-1.png)    
+4. Select the schema file you wish to upload by using the file picker dialog that opens up.
+5. Select **Open** in the file picker  
+![](./media/app-service-logic-enterprise-integration-schemas/edit-2.png)  
+6. You will receive a notification that indicates the upload was successful  
+![](./media/app-service-logic-enterprise-integration-schemas/edit-3.png)  
 
 ## How to delete schemas?
-
+1. Select the **Schemas** tile  
+2. Select the schema you wish to delete from the Schemas blade that opens up  
+3. Select the **Delete** link from the menu bar on the Shemas blade
+![](./media/app-service-logic-enterprise-integration-schemas/delete-1.png)  
+4. If you really wish to delete the schema you selected, choose **Yes** on the Delete schema dialog to confirm your choice
+![](./media/app-service-logic-enterprise-integration-schemas/delete-2.png)  
+5. Finally, notice that the list of schemas in the Schemas blade refreshes and the schema you deleted is no longer listed  
+![](./media/app-service-logic-enterprise-integration-schemas/delete-3.png)    
 ## Next steps
 
+- [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
 
       

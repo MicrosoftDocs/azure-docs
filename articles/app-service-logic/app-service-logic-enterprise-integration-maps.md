@@ -33,20 +33,17 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
  ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
-3. Select the **integration account** to which you will add the map  
+3. Select the **integration account** into which you will add the map  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
 4.  Select the **Maps** tile  
 ![](./media/app-service-logic-enterprise-integration-maps/map-1.png)  
 5. Select the **Add** button in the Maps blade that opens  
 ![](./media/app-service-logic-enterprise-integration-maps/map-2.png)  
-6. Enter a **Name** for your map, then to upload the map file, select the folder icon on the right side of the **Map** text box. After the upload process is completed, select the **OK** button.  
+6. Enter a **Name** for your map then, to upload the map file, select the folder icon on the right side of the **Map** text box. After the upload process is completed, select the **OK** button.  
 ![](./media/app-service-logic-enterprise-integration-maps/map-3.png)  
-7. The map is now being provisioned into your integration account. This will receive an onscreen notification that indicates the success or failure of adding the map file. Select the **Maps** tile, you will then see your newly added map in the Maps blade:    
-
-8. Select the **Maps** tile. This refreshes the tile and you should see the number of maps increase, reflecting the new map that has been added successfully.    
+7. The map is now being added into your integration account. You will receive an onscreen notification that indicates the success or failure of adding the map file. After you receive the notification, select the **Maps** tile, you will then see your newly added map in the Maps blade:    
 ![](./media/app-service-logic-enterprise-integration-maps/map-4.png)  
 
-//todo: update the images to the map images
 ## How to edit a map?
 To edit a map, you must upload a new map file with the changes you desire. You can first download the map and edit it. 
 
