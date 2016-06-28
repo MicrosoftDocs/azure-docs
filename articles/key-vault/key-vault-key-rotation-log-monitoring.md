@@ -16,7 +16,7 @@
 	ms.date="06/27/2016"
 	ms.author="jodehavi"/>
     
-Keyvault: End to End key rotation and auditing scenario
+Key Vault: End to end key rotation and auditing scenario
 =======================================================
 
 Introduction
@@ -105,37 +105,37 @@ In your application code, create a class to hold the method for you Active Direc
 Next, add the following method to retrieve the JWT token from Azure AD.
 
 ```csharp
-	public async static Task<string> GetToken(string authority, string resource, string scope)
+public async static Task<string> GetToken(string authority, string resource, string scope)
 
-	{
+{
 
-		var authContext = new AuthenticationContext(authority);`
+    var authContext = new AuthenticationContext(authority);`
 
-		ClientCredential clientCred = new ClientCredential("<Azure AD Application Client ID>","<Azure AD Application Client Key>");
+    ClientCredential clientCred = new ClientCredential("<Azure AD Application Client ID>","<Azure AD Application Client Key>");
 
-		AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
+    AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 
-		if (result == null)
+    if (result == null)
 
-		throw new InvalidOperationException("Failed to obtain the JWT token");
+    throw new InvalidOperationException("Failed to obtain the JWT token");
 
-		return result.AccessToken;
+    return result.AccessToken;
 
-	}
+}
 ```
 
 Finally, you can add the necessary code to call Key Vault and retrieve your secret value. First you must add the following using statement.
 
 ```csharp
-    using Microsoft.Azure.KeyVault;
+using Microsoft.Azure.KeyVault;
 ```
 
 Next you will add the method calls to invoke Key Vault and retrieve your secret. In this method you will provide the secret URI which you saved in a previous step.
     
 ```csharp
-	var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
-	var sec = kv.GetSecretAsync(&lt;secret ID&gt;).Result.Value;
+var sec = kv.GetSecretAsync(<SECRET_ID>).Result.Value;
 ```
 
 When you run your application, you should now be authenticating to Azure Active Directory and then retrieving your secret value from your Azure Key Vault.
@@ -161,54 +161,53 @@ While you are still in the Assets window you will also want to choose 'Modules',
 After you have retrieved the application ID for your Azure Automation connection, you will need to tell your Azure Key Vault that this application has access to update secrets in your vault. This can be accomplished with the following PowerShell command.
 
 ```powershell
-	Set-AzureRmKeyVaultAccessPolicy -VaultName <vault Name> -ServicePrincipalName <application ID from Azure Automation> -PermissionsToSecrets Set
+Set-AzureRmKeyVaultAccessPolicy -VaultName <vault Name> -ServicePrincipalName <application ID from Azure Automation> -PermissionsToSecrets Set
 ```
 
 Next you will select the 'Runbooks' resource under your Azure Automation instance and select 'Add a Runbook'. Select 'Quick Create'. Name your runbook and select 'PowerShell' as the runbook type. Optionally add a description. Finally, click 'Create'.
 
 ![Create Runbook](./media/keyvault-keyrotation/Create_Runbook.png)
 
-
 In the editor pane for your new runbook you will paste the following PowerShell script.
 
 ```powershell
-	$connectionName = "AzureRunAsConnection"
-	try
-	{
-	    # Get the connection "AzureRunAsConnection "
-	    $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-	
-	    "Logging in to Azure..."
-	    Add-AzureRmAccount `
-	        -ServicePrincipal `
-	        -TenantId $servicePrincipalConnection.TenantId `
-	        -ApplicationId $servicePrincipalConnection.ApplicationId `
-	        -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-		"Login complete."
-	}
-	catch {
-	    if (!$servicePrincipalConnection)
-	    {
-	        $ErrorMessage = "Connection $connectionName not found."
-	        throw $ErrorMessage
-	    } else{
-	        Write-Error -Message $_.Exception
-	        throw $_.Exception
-	    }
-	}
-	
-	$StorageAccountName = <storage Account Name>
-	$RGName = <storage Account Resource Group Name>
-	$VaultName = <key Vault Name>
-	$SecretName = <key Vault Secret Name>
-	
-	#Key name. For example key1 or key2 for the storage account
-	New-AzureRmStorageAccountKey -ResourceGroupName $RGName -StorageAccountName $StorageAccountName -KeyName "key2" -Verbose
-	$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
-	
-	$secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
-	
-	$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$connectionName = "AzureRunAsConnection"
+try
+{
+    # Get the connection "AzureRunAsConnection "
+    $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+    "Logging in to Azure..."
+    Add-AzureRmAccount `
+        -ServicePrincipal `
+        -TenantId $servicePrincipalConnection.TenantId `
+        -ApplicationId $servicePrincipalConnection.ApplicationId `
+        -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+    "Login complete."
+}
+catch {
+    if (!$servicePrincipalConnection)
+    {
+        $ErrorMessage = "Connection $connectionName not found."
+        throw $ErrorMessage
+    } else{
+        Write-Error -Message $_.Exception
+        throw $_.Exception
+    }
+}
+
+$StorageAccountName = <storage Account Name>
+$RGName = <storage Account Resource Group Name>
+$VaultName = <key Vault Name>
+$SecretName = <key Vault Secret Name>
+
+#Key name. For example key1 or key2 for the storage account
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -StorageAccountName $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+
+$secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
+
+$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 From the editor pane you can choose 'Test pane' to test your script. Once the script is running without error you can select the 'Publish' option, and then you can apply a schedule for the runbook back at the runbook configuration pane.
@@ -218,142 +217,144 @@ Key Vault Auditing pipeline
 
 When you setup an Azure Key Vault you can turn on auditing to collect logs on access requests made to the Key Vault. These logs are stored in a designated Azure Storage account. The logs can then be pulled out, monitored and analyzed. Below we will walk through a scenario that leverages Azure Functions, Azure Logic Apps and the Key Vault audit logs to create an pipeline to send an email when secrets from the vault are retrieved by an app that does match the app id of the web app.
 
-First, you will need to enable logging on your Key Vault. Full details can be seen here(https://azure.microsoft.com/en-us/documentation/articles/key-vault-logging/). This can be done via the following PowerShell commands:
+First, you will need to enable logging on your Key Vault. This can be done via the following PowerShell commands (Full details can be seen [here](https://azure.microsoft.com/en-us/documentation/articles/key-vault-logging/)):
 
 ```powershell
 $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard\_LRS -Location 'East US' $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault' Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-Once this is enabled, then audit logs will start collecting into the chosen storage account. These logs will contain events on how and when your Key Vaults are accessed, and by whom. You can access your logging information at most, 10 minutes after the key vault operation. In most cases, it will be quicker than this.
+Once this is enabled, then audit logs will start collecting into the chosen storage account. These logs will contain events on how and when your Key Vaults are accessed, and by whom. 
 
-The next step is to create an Azure Service Bus queue. This will be used to push the events to and have the Logic App pick them up and act on them. To create a Service Bus is relatively straight-forward and full details can be found [here](https://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-get-started-with-queues/). Below are the high level steps:
+You can access your logging information at most, 10 minutes after the key vault operation. In most cases, it will be quicker than this.
+
+The next step is to [create an Azure Service Bus queue](https://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-get-started-with-queues/). This will be used to push the events to and have the Logic App pick them up and act on them. To create a Service Bus is relatively straight-forward and below are the high level steps:
 
 1. Create a Service Bus namespace (if you already have on that you want to use for this then skip to step 2).
-2. Select the namespace you want to create the queue in
+2. Browse to the Service Bus in the portal and select the namespace you want to create the queue in.
 3. Select New and choose Service Bus -> Queue and enter the required details.
-4. Grab the Service Bus connection information by navigating to the Service Bus area in the portal, choosing the namespace and click Connection Information. You will need this information for the next part.
+4. Grab the Service Bus connection information by choosing the namespace and clicking _Connection Information_. You will need this information for the next part.
 
+Next, you will [create an Azure Function](https://azure.microsoft.com/en-us/documentation/articles/functions-create-first-azure-function/) to poll the Key Vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
 
-Next, you will create an Azure Function to poll the Key Vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
+Create an Azure Function (choose New -> Function App in the portal). During creation you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on hosting options can be found [here](https://azure.microsoft.com/en-us/documentation/articles/functions-scale/)
 
-Create an Azure Function (choose New -> Function App in the portal). During creation you can use an existing hosting plan or create a new one. You could also opt for dynamic management. More details can be found [here](https://azure.microsoft.com/en-us/documentation/articles/functions-scale/)
-
-When the function is created, navigate to it and choose a timer function and C\# then click **Create**
+When the Function App is created, navigate to it and choose a timer function and C\# then click **Create** from the start screen.
 
 ![Azure Functions Start Blade](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
-In the Develop tab, replace the run.csx code with the following code:
+In the Develop tab, replace the run.csx code with the following code, making sure to replace the variables in the code to point to your Service Bus and Storage Account where the logs are written:
 
 ```csharp
-    #r "Newtonsoft.Json"
-    using System;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using Microsoft.ServiceBus.Messaging; 
-    using System.Text; using Newtonsoft.Json;
+#r "Newtonsoft.Json"
 
-    public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outputBlob, TraceWriter log) { 
-    
-        log.Info("Starting");
+using System;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.ServiceBus.Messaging; 
+using System.Text; using Newtonsoft.Json;
 
-        CloudStorageAccount sourceStorageAccount = new CloudStorageAccount(new StorageCredentials("<STORAGE_ACCOUNT_NAME>", "<STORAGE_ACCOUNT_KEY"), true);
+public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outputBlob, TraceWriter log) 
+{ 
+    log.Info("Starting");
 
-        CloudBlobClient sourceCloudBlobClient = sourceStorageAccount.CreateCloudBlobClient();
+    CloudStorageAccount sourceStorageAccount = new CloudStorageAccount(new StorageCredentials("<STORAGE_ACCOUNT_NAME>", "<STORAGE_ACCOUNT_KEY>"), true);
 
-        var connectionString = "<SERVICE_BUS_CONNECTION_STRING>";
-        var queueName = "<SERVICE_BUS_QUEUE_NAME>";
+    CloudBlobClient sourceCloudBlobClient = sourceStorageAccount.CreateCloudBlobClient();
 
-        var sbClient = QueueClient.CreateFromConnectionString(connectionString, queueName);
+    var connectionString = "<SERVICE_BUS_CONNECTION_STRING>";
+    var queueName = "<SERVICE_BUS_QUEUE_NAME>";
 
-        DateTime dtPrev = DateTime.UtcNow;
-        if(inputBlob != null)
+    var sbClient = QueueClient.CreateFromConnectionString(connectionString, queueName);
+
+    DateTime dtPrev = DateTime.UtcNow;
+    if(inputBlob != null)
+    {
+        var txt = inputBlob.ReadToEnd();
+
+        if(!string.IsNullOrEmpty(txt))
         {
-            var txt = inputBlob.ReadToEnd();
-
-            if(!string.IsNullOrEmpty(txt))
-            {
-                dtPrev = DateTime.Parse(txt);
-                log.Verbose($"SyncPoint: {dtPrev.ToString("O")}");
-            }
-            else
-            {
-                dtPrev = DateTime.UtcNow.AddHours(-1);
-                log.Verbose($"Sync point file didnt have a date. Setting to now.");
-            }
+            dtPrev = DateTime.Parse(txt);
+            log.Verbose($"SyncPoint: {dtPrev.ToString("O")}");
         }
-
-        var now = DateTime.UtcNow;
-
-        string blobPrefix = "insights-logs-auditevent/resourceId=/SUBSCRIPTIONS/<SUBSCRIPTION_ID>/RESOURCEGROUPS/<RESOURCE_GROUP_NAME>/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/<KEY_VAULT_NAME>/y=" + now.Year +"/m="+now.Month.ToString("D2")+"/d="+ (now.Day).ToString("D2")+"/h="+(now.Hour).ToString("D2")+"/m=00/";
-
-        log.Info($"Scanning:  {blobPrefix}");
-
-        IEnumerable<IListBlobItem> blobs = sourceCloudBlobClient.ListBlobs(blobPrefix, true);
-
-        log.Info($"found {blobs.Count()} blobs");
-
-        foreach(var item in blobs)
+        else
         {
-            if (item is CloudBlockBlob)
-            {
-                CloudBlockBlob blockBlob = (CloudBlockBlob)item;
-
-                log.Info($"Syncing: {item.Uri}");
-
-                string sharedAccessUri = GetContainerSasUri(blockBlob);
-
-                CloudBlockBlob sourceBlob = new CloudBlockBlob(new Uri(sharedAccessUri));
-
-                string text;
-                using (var memoryStream = new MemoryStream())
-                {
-                    sourceBlob.DownloadToStream(memoryStream);
-                    text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
-                }
-
-                dynamic dynJson = JsonConvert.DeserializeObject(text);
-
-                //required to order by time as they may not be in the file
-                var results = ((IEnumerable<dynamic>) dynJson.records).OrderBy(p => p.time);
-
-                foreach (var jsonItem in results)
-                {
-                    DateTime dt = Convert.ToDateTime(jsonItem.time);
-
-                    if(dt>dtPrev){
-                        log.Info($"{jsonItem.ToString()}");
-
-                        var payloadStream = new MemoryStream(Encoding.UTF8.GetBytes(jsonItem.ToString()));
-                        //When sending to ServiceBus, use the payloadStream and set keep original to true
-                        var message = new BrokeredMessage(payloadStream, true);
-                        sbClient.Send(message);
-                        dtPrev = dt;
-                    }
-                }
-            }
+            dtPrev = DateTime.UtcNow.AddHours(-1);
+            log.Verbose($"Sync point file didnt have a date. Setting to now.");
         }
-        outputBlob.Write(dtPrev.ToString("o"));
-
     }
 
-    static string GetContainerSasUri(CloudBlockBlob blob) { SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+    var now = DateTime.UtcNow;
 
-        sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5);
-        sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
-        sasConstraints.Permissions = SharedAccessBlobPermissions.Read;
+    string blobPrefix = "insights-logs-auditevent/resourceId=/SUBSCRIPTIONS/<SUBSCRIPTION_ID>/RESOURCEGROUPS/<RESOURCE_GROUP_NAME>/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/<KEY_VAULT_NAME>/y=" + now.Year +"/m="+now.Month.ToString("D2")+"/d="+ (now.Day).ToString("D2")+"/h="+(now.Hour).ToString("D2")+"/m=00/";
 
-        //Generate the shared access signature on the container, setting the constraints directly on the signature.
-        string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
+    log.Info($"Scanning:  {blobPrefix}");
 
-        //Return the URI string for the container, including the SAS token.
-        return blob.Uri + sasBlobToken;
+    IEnumerable<IListBlobItem> blobs = sourceCloudBlobClient.ListBlobs(blobPrefix, true);
 
+    log.Info($"found {blobs.Count()} blobs");
+
+    foreach(var item in blobs)
+    {
+        if (item is CloudBlockBlob)
+        {
+            CloudBlockBlob blockBlob = (CloudBlockBlob)item;
+
+            log.Info($"Syncing: {item.Uri}");
+
+            string sharedAccessUri = GetContainerSasUri(blockBlob);
+
+            CloudBlockBlob sourceBlob = new CloudBlockBlob(new Uri(sharedAccessUri));
+
+            string text;
+            using (var memoryStream = new MemoryStream())
+            {
+                sourceBlob.DownloadToStream(memoryStream);
+                text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+            }
+
+            dynamic dynJson = JsonConvert.DeserializeObject(text);
+
+            //required to order by time as they may not be in the file
+            var results = ((IEnumerable<dynamic>) dynJson.records).OrderBy(p => p.time);
+
+            foreach (var jsonItem in results)
+            {
+                DateTime dt = Convert.ToDateTime(jsonItem.time);
+
+                if(dt>dtPrev){
+                    log.Info($"{jsonItem.ToString()}");
+
+                    var payloadStream = new MemoryStream(Encoding.UTF8.GetBytes(jsonItem.ToString()));
+                    //When sending to ServiceBus, use the payloadStream and set keep original to true
+                    var message = new BrokeredMessage(payloadStream, true);
+                    sbClient.Send(message);
+                    dtPrev = dt;
+                }
+            }
+        }
     }
+    outputBlob.Write(dtPrev.ToString("o"));
+}
+
+static string GetContainerSasUri(CloudBlockBlob blob) 
+{
+    SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+
+    sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5);
+    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+    sasConstraints.Permissions = SharedAccessBlobPermissions.Read;
+
+    //Generate the shared access signature on the container, setting the constraints directly on the signature.
+    string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
+
+    //Return the URI string for the container, including the SAS token.
+    return blob.Uri + sasBlobToken;
+}
 ```
-The code picks up the latest event file from the Storage Account and grabs the latest events from that file and pushes them to a Service Bus queue. Since a single file could have multiple events, e.g. over a full hour, then we create a sync.txt file that the function looks at to determine the time stamp of the last event that was picked up. This will ensure that we don't push the same event multiple times. This sync.txt file simply contains a time stamp for the last encountered event. The event log also has to be sorted based on the timestamp as there is no guarantee that the events are exactly in written in timestamp order. Make sure to replace the variables in the code to point to your Service Bus and Storage Account where the logs are written.
+The code picks up the latest event file from the storage account where the Key Vault logs are written, grabs the latest events from that file and pushes them to a Service Bus queue. Since a single file could have multiple events, e.g. over a full hour, then we create a _sync.txt_ file that the function also looks at to determine the time stamp of the last event that was picked up. This will ensure that we don't push the same event multiple times. This _sync.txt_ file simply contains a time stamp for the last encountered event. The event log also has to be sorted based on the timestamp as there is no guarantee that the events are written in timestamp order to the file. 
 
-In this code, we reference a couple of additional libraries that are not available out of the box in Azure functions. So to include those we need Azure Functions to pull them using nuget. Choose the _View Files_ option 
+For this function, we reference a couple of additional libraries that are not available out of the box in Azure Functions. So to include those we need Azure Functions to pull them using nuget. Choose the _View Files_ option 
 
 ![View Files option](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
 
@@ -371,33 +372,33 @@ and add a new file called _project.json_ with following content:
        }
     }
 ```
-Upon _Save_ this will trigger Azure Functions to go and download the required binaries. 
+Upon _Save_ this will trigger Azure Functions to download the required binaries. 
 
-Switch to **Integrate** tab of the Azure Function and give the timer parameter a meaningful name to use within the function. In the code above, it expects the timer to be called _myTimer_. Give the timer a [CRON expression](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateScheduledCRON) as follows: 0 \* \* \* \* \* which will cause the function to run once a minute. 
+Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the code above, it expects the timer to be called _myTimer_. Give the timer a [CRON expression](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateScheduledCRON) as follows: 0 \* \* \* \* \* which will cause the function to run once a minute. 
 
-Add an input which will be an _Azure Blob Storage_. This will point to a _sync.txt_ file that will contain the timestamp of the last event looked at by the function. This will be made available within the function by the parameter name. In the code above the Azure Blob Storage input expects the parameter name to be inputBlob. Choose the storage account where the _sync.txt_ file will be (could be the same or different storage account) and in the path field provide the path where the file lives, in the format of {container-name}/path/to/sync.txt.
+Add an input which will be of type _Azure Blob Storage_. This will point to the _sync.txt_ file that will contain the timestamp of the last event looked at by the function. This will be made available within the function by the parameter name. In the code above the Azure Blob Storage input expects the parameter name to be _inputBlob_. Choose the storage account where the _sync.txt_ file will reside (it could be the same or a different storage account) and in the path field, provide the path where the file lives, in the format of {container-name}/path/to/sync.txt.
 
-Add an output which will be an _Azure Blob Storage_ output. This will also point to the _sync.txt_ file defined in the input. This will be used by the function to write the timestamp of the last event looked at. The code above expects this paramter to be called _outputBlob_.
+Add an output which will be of type _Azure Blob Storage_ output. This will also point to the _sync.txt_ file defined in the input. This will be used by the function to write the timestamp of the last event looked at. The code above expects this paramter to be called _outputBlob_.
 
-At this point the function is ready. Make sure to switch back to the **Develop** tab and _Save_ the code. Check the output window for any compilation errors and correct those accordingly. If it compiles, then the code should now be running and every minute will check the location for the Key Vault logs and push any new ones onto the defined Service Bus queue.
+At this point the function is ready. Make sure to switch back to the **Develop** tab and _Save_ the code. Check the output window for any compilation errors and correct those accordingly. If it compiles, then the code should now be running and every minute will check the location for the Key Vault logs and push any new ones onto the defined Service Bus queue. You should see logs write out to the log window everytime the function is triggered.
 
 ###Azure Logic App
 
-Next we will need to create a Azure Logic App that will pick up the events that the function is pushing to the Service Bus queue, parse the content and send an email based on a condition being matched.
+Next we will need to create an Azure Logic App that will pick up the events that the function is pushing to the Service Bus queue, parse the content and send an email based on a condition being matched.
 
-Create a Logic App by going to New -> Logic App. Details on creating a Logic App can be found [here](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/).
+[Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) by going to New -> Logic App. 
 
-Within the Logic App editor, choose the _Service Bus Queue_ managed api and enter your Service Bus credentials to connect it. 
+Once the Logic App is created, navigate to it and choose _edit_. Within the Logic App editor, choose the _Service Bus Queue_ managed api and enter your Service Bus credentials to connect it the the queue the function is pushing messages to.
 
 ![Azure Logic App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
-Next choose to _Add a condition_. In the condition, switch to the _advanced editor_ and enter the following:
+Next choose to _Add a condition_. In the condition, switch to the _advanced editor_ and enter the following, replacing the APP_ID with the actual APP_ID:
 
 ```
 @equals('<APP_ID>', json(decodeBase64(triggerBody()['ContentData']))['identity']['claim']['appid'])
 ```
 
-This expression essentially will return **false** if the **appid** property from the incoming event (which is the body of the Service Bus message) is not the appid of the app. 
+This expression essentially will return **false** if the **appid** property from the incoming event (which is the body of the Service Bus message) is not the **appid** of the app. 
 
 Now, create an action under the _If no, do nothing..._ option.
 
@@ -405,4 +406,4 @@ Now, create an action under the _If no, do nothing..._ option.
 
 For the action, choose _Office 365 - send email_. Fill out the fields to create an email to send when the defined condition returns false. 
 
-At this point you have an end to end pipeline that, once a minute, will look for new Key Vault audit logs. Any new logs it finds, it will push them to a Service Bus Queue. The Logic App will be triggered as soon as a new message lands in the queue and if the event app id does not match the app id of the calling app then send an email. This was a relatively simple use case but hopefully shows you some of the potential of tieing into Key Vault logs.
+At this point you have an end to end pipeline that, once a minute, will look for new Key Vault audit logs. Any new logs it finds, it will push them to a Service Bus Queue. The Logic App will be triggered as soon as a new message lands in the queue and if the event app id does not match the app id of the calling application then send an email. This was a relatively simple use case but hopefully shows you some of the potential of tying into Key Vault logs.
