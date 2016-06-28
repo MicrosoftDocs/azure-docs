@@ -4,7 +4,7 @@
    services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="roshar"
+   manager="christb"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
+   ms.date="06/28/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with Internet access in Azure
@@ -31,7 +31,7 @@ Typical use cases for this architecture include:
 
 - Infrastructure that requires a more granular control over traffic entering an Azure VNet from a public network such as the Internet.
 
-An [Azure Resource Manager (ARM) template][azuredeploy] is available that you can use as a starting point to implement the architecture described in this document.
+An [Azure Resource Manager template][azuredeploy] is available that you can use as a starting point to implement the architecture described in this document.
 
 ## Architecture diagram
 
@@ -79,7 +79,7 @@ The web tier comprises VMs fronted by a internal load balancer. You should not e
 
 ## Solution components
 
-The solution provided for this architecture uses the same ARM templates as those for the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], with the following additions:
+The solution provided for this architecture uses the same Resource Manager templates as those for the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], with the following additions:
 
 - [azuredeploy.json][azuredeploy]. This is an extended version of the template used by the architecture described in [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]. This template creates the additional subnets for the public security perimeter (inbound and outbound).
 
