@@ -237,6 +237,7 @@ Consider an example in which you want to overlay a logo image on the input video
 - Send a Task to the Media Encoder Premium Workflow media processor with the above input assets and specify the following configuration string
 
 Configuration:
+
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
         <setRuntimeProperties>
