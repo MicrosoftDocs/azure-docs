@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/27/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Managing Statistics on Tables in SQL Data Warehouse
@@ -27,65 +27,25 @@
 - [Statistics][]
 - [Temporary][]
 
-This article will introduce you to managing statistics on tables in SQL Data Warehouse.
+## Introduction to statistics
 
-## Statistics
+The more SQL Data Warehouse knows about your data, the faster it can execute queries against your data.  The way that you tell SQL Data Warehouse about your data, is by collecting statistics about your data.  Having statistics on your data is one of the most important things you can do to optimize your queries.  Statistics help SQL Data Warehouse create the most optimal plan for your queries.  This is because the SQL Data Warehouse query optimizer is a cost based optimizer.  That is, it compares the cost of various query plans and then chooses the plan with the lowest cost, which should also be the plan that will execute the fastest.
 
-SQL Data Warehouse uses a distributed query optimizer to create the appropriate query plan when users query tables. Once created, the query plan provides the strategy and method used by the database to access the data and fulfill the user request. SQL Data Warehouse's query optimizer is based on cost. In other words it compares various options (plans) based on their relative cost and chooses the most efficient plan available to it. Consequently, SQL Data Warehouse needs a lot of information to make informed, cost based decisions. It holds statistics information about the table (for table size) and in database objects known as `STATISTICS`.
+Statistics can be created on a single column, multiple columns or on an index of a table.  Statistics are stored in a histogram which captures the range and selectivity of values.  This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query.  For example, if the optimizer estimates that the date you are filtering in your query will return 1 row, it may choose a very different plan than if it estimates that they date you have selected will return 1 million rows.  While creating statistics is extremely important, it is equally important that statistics *accurately* reflect the current state of the table.  Having up-to-date statistics ensures that a good plan is selected by the optimizer.  The plans created by the optimizer are only as good as the statistics on your data.
 
-Statistics are held against single or multiple columns of indexes or tables. They provide the cost-based optimizer with important information concerning cardinality and selectivity of values. This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query. It is therefore very important that the information contained in these statistics objects *accurately* reflects the current state of the table. It is vital to understand that it is the accuracy of the cost that is important. If the statistics accurately reflect the state of the table then plans can be compared for lowest cost. If they aren't accurate then SQL Data Warehouse may choose the wrong plan.
+The process of creating and updating statistics is currently a manual process, but is very simple to do.  This is unlike SQL Server which automatically creates and updates statistics on single columns and indexes.  By using the information below, you can greatly automate the management of the statistics on your data. 
 
-Column-level statistics in SQL Data Warehouse are user-defined.
+## Getting started with statistics
 
-In other words we have to create them ourselves. As we have just learned, this is not something to overlook. This is an important difference between SQL Server and SQL Data Warehouse. SQL Server will automatically create statistics when columns are queried. By default, SQL Server will also automatically update those statistics. However, in SQL Data Warehouse statistics need to be created manually and managed manually.
+ Creating sampled statistics on every column is an easy way to get started with statistics.  Since it is equally important to keep statistics up-to-date, a conservative approach may be to update your statistics daily or after each load. There are always trade-offs between performance and the cost to create and update statistics.  If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns daily, as new values may be added rather then after every load. Again, you will gain the most benefit by having statistics on columns involved in JOINs, GROUP BY, HAVING and WHERE clauses.  If you have a table with a lot of columns which are only used in the SELECT clause, statistics on these columns may not help, and spending a little more effort to identify only the columns where statistics will help, can reduce the time to maintain your statistics.
 
-### Recommendations
+## Multi-column statistics
 
-Apply the following recommendations for generating statistics:
+In addition to creating statistics on single columns, you may find that your queries will benefit from multi-column statistics.  Multi-column statistics are statistics created on a list of columns.  They include single column statistics on the first column in the list, plus some cross-column correlation information called densities.  For example, if you have a table that joins to another on two columns, you may find that SQL Data Warehouse can better optimize the plan if it understands the relationship between two columns.   Multi-column statistics can improve query performance for some operations such as composite joins and group by's.
 
-1. Create Single column statistics on columns used in `WHERE`, `JOIN`, `GROUP BY`, `ORDER BY` and `DISTINCT` clauses
-2. Generate multi-column statistics on composite clauses
-3. Update statistics periodically. Remember that this is not done automatically!
+## Updating statistics
 
->[AZURE.NOTE] It is common for SQL Server Data Warehouse to rely solely on `AUTOSTATS` to keep the column statistics up to date. This is not a best practice even for SQL Server data warehouses. `AUTOSTATS` are triggered by a 20% rate of change which for large fact tables containing millions or billions of rows may not be sufficient. It is therefore always a good idea to keep on top of statistics updates to ensure that the statistics accurately reflect the cardinality of the table.
-
-## Manage statistics in SQL Data Warehouse
- SQL Data Warehouse uses statistics to assess the cost of different ways to perform a distributed query. When statistics are accurate, the query optimizer can generate high quality query plans that improve query performance.
-
-Creating and updating statistics is important in order to achieve the query performance that SQL Data Warehouse is designed to provide. This guide gives an overview of statistics, and then shows how to:
-
-- Create statistics as part of database design
-- Update statistics as part of database maintenance
-- View statistics with system views and functions
-
-## Introducing statistics
-
-Single-column statistics are objects that contain information about the range and frequency of values in a single column. The query optimizer uses this histogram to estimate the number of rows in the query result. This directly impacts decisions about how to optimize the query.
-
-Multi-column statistics are statistics created on a list of columns. They include single column statistics on the first column in the list, plus some cross-column correlation information called densities. Multi-column statistics can improve query performance for some operations such as composite joins and group by's.
-
-For more details, see [DBCC SHOW_STATISTICS][] on MSDN.
-
-## Why are statistics necessary?
-Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Tables and columns and columns do not have statistics automatically generated by SQL Data Warehouse and so you need to create them yourself. It's a good idea to create them when you create the table and then update them once you have populated them.
-
-> [AZURE.NOTE] If you use SQL Server, you might depend on SQL Server to create and update single-column statistics for you as needed. SQL Data Warehouse is different in this aspect. Since the data is distributed, SQL Data Warehouse doesn't automatically aggregate statistics across all the distributed data. It will only generate the aggregated statistics when you create and update statistics.
-
-## When to create statistics
-A coherent set of up-to-date statistics is an important part of SQL Data Warehouse. It is therefore important to create statistics as part of designing your tables.
-
-Creating single-column statistics on every column is an easy way to get started with statistics. However, there are always trade-offs between performance and the cost to create and update statistics.  If you create single-column statistics on all columns and later find it is taking too long to update all statistics, you can always drop some of the statistics, or update some of them more often than others.
-
-Multi-column statistics are only used by the query optimizer when the columns are in composite joins or group by clauses. Composite filters do not currently benefit from multi-column statistics.
-
-When starting your SQL Data Warehouse development therefore it is a good idea to implement the following pattern:
-- Create single-column statistics on every column on every table
-- Create multi-column statistics on the columns used by queries in joins and group by clauses.
-
-As you understand how you want to query your data you might want to refine this model - especially when the tables are wide. Please refer to the [Implementing statistics management](## Implementing statistics management) section for a more advanced method approach.
-
-## When to update statistics
-It is important to include updating statistics in your database management routine. When the distribution of data in the database changes, statistics need to be updated. Otherwise, you can see sub-optimal query performance, and efforts to further troubleshoot the query might not be worthwhile.
+Updating statistics is an important part of your database management routine.  When the distribution of data in the database changes, statistics need to be updated.  Out-of-date statistics will lead to sub-optimal query performance.
 
 One best practice is to update statistics on date columns each day as new dates are added.  Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you definitely need to update statistics on the country column.
 
@@ -508,7 +468,7 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compar
 
 ## Next steps
 
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
+For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].  
 
 <!--Image references-->
 
