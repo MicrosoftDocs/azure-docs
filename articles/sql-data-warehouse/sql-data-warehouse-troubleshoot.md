@@ -25,12 +25,15 @@ This topic lists some of the more common issues you might run into with Azure SQ
 If you are having trouble connecting, below are some of the more common issues reported by customers.
 
 ### CTAIP error
+
 This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security Overview][] article.  This article explains how to create create a login on master and then how to create a user in the SQL Data Warehouse database.
 
 #### Firewall rules
+
 Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [configure server firewall access for your client IP][] in the [provisioning instructions][].
 
 ### Unsupported tools/protocols
+
 SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.  
 
 
