@@ -18,4 +18,7 @@
 
 # Enterprise integration with AS2
 
-todo:
+todo: https://msdn.microsoft.com/en-us/library/azure/hh689890.aspx
+
+similar link for x12
+

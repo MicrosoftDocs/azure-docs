@@ -51,57 +51,14 @@ After you have added the partners, you would use those partners to create an agr
 10. After you select the Partners tile, you will also see the newly added partner displayed in the Partners blade.    
 ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)  
 
-## How to create an partner using PowerShell
-```
-Login-AzureRmAccount 
-
-Select-AzureRmSubscription -SubscriptionName "<your subscription name>"
-
-$ResourceGroupName = "IntegrationAccountPsCmdletTest"
-$AccountName = "TestIntegrationAccount"
-$AppServicePlan = "StandardServicePlan"
-  
-#Create a resource group
-New-AzureRmResourceGroup -Name $ResourceGroupName -location "brazilsouth" -Force
-$RG=Get-AzureRmResourceGroup -Name $ResourceGroupName
- 
-#Clean-up the resource group if any integration account alreay exists
-Remove-AzureRmIntegrationAccount -ResourceGroupName $ResourceGroupName -Name $AccountName -Force 
-
-#Create an integration account Creation
-$integrationAccount = New-AzureRmIntegrationAccount -ResourceGroupName $ResourceGroupName -Name $AccountName -Location "brazilsouth" -Sku "Free"
-#Get an integration account by name
-Get-AzureRmIntegrationAccount -ResourceGroupName $ResourceGroupName -Name $AccountName
-
-#Get an integration account by name using pipe input from resource group object
-$RG | Get-AzureRmIntegrationAccount -Name $AccountName
-
-#Get integration accounts by resource group name
-Get-AzureRmIntegrationAccount -ResourceGroupName $ResourceGroupName
-
-#Get integration accounts by resource group name with selected attributes 
-Get-AzureRmIntegrationAccount -ResourceGroupName $ResourceGroupName | Select Name,Location
-
-#Get integration accounts in the current subscription with selected attributes 
-Get-AzureRmIntegrationAccount | Select Name,Location
-
-#Get CallBackUrl for an integration account.
-#This is also known as the SAS URL. Beware the line return character to be removed when copying the SAS URL to the LA Designer.
-Get-AzureRmIntegrationAccountCallbackUrl -ResourceGroupName $ResourceGroupName -Name $AccountName
-
-#Update an integration account
-$integrationAccount = Set-AzureRmIntegrationAccount -ResourceGroupName $ResourceGroupName -Name $AccountName -Sku "Free" 
-
-```
-
 ## How do edit a partner?
 
 Follow these steps to edit a partner that already exists in your integration account:  
-1. Select the **Partners** tile
-2. Select the partner you wish to edit when the Partners blade opens up
-3. On the **Update Partner** tile, make the changes you need
+1. Select the **Partners** tile  
+2. Select the partner you wish to edit when the Partners blade opens up  
+3. On the **Update Partner** tile, make the changes you need  
 4. If you are satisfied with your changes, select the **Save** link, else, select the **Discard** link to throw away your changes.  
-![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)
+![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)  
 
 
 ## How to delete a partner?
@@ -112,4 +69,8 @@ Follow these steps to edit a partner that already exists in your integration acc
 
 
 ## Next steps
-- [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
+- [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+
+
+todo: https://msdn.microsoft.com/en-us/library/azure/hh689814.aspx#BKMK_AddPartner
+
