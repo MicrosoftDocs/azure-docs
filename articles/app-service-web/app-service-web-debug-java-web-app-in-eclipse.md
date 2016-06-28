@@ -74,7 +74,7 @@ To complete these steps in this section, you can use an existing Dynamic Web Pro
     1. Open up **Azure Explorer** in Eclipse.
     1. Navigate to **Web Apps** and the chosen Java Web App for debugging.
     1. Right click on the Web App, and click **Open in Browser**.
-    1. Eclipse will now enter in debug mode.
+    1. Eclipse will now enter into debug mode.
 
 ## Next Steps
 
