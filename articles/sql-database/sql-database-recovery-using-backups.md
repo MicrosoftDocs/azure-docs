@@ -93,7 +93,7 @@ For detailed information about using Geo-Restore to recover from an outage, see 
 
 ## Programmatically performing recovery using automated backups
 
-As discussed above, in addiition to the Aazure portal, database recovery can be performed programmically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
+As discussed above, in addiition to the Azure portal, database recovery can be performed programmically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
 
 ### PowerShell
 
