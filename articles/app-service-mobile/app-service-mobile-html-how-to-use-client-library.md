@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/28/2016"
 	ms.author="adrianha;ricksal"/>
 
 # How to Use the JavaScript Client Library for Azure Mobile Apps
@@ -68,41 +68,28 @@ deeper integration with device-specific capabilities such as single-sign-on as i
 
 ###<a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
 
-Several types of Javascript applications use a loopback capability to handle OAuth UI flows.  This causes problems
-since the authentication service only knows how to utilize your service by default.  Examples of this are running your service locally or in a different Azure App Service but redirecting to the Azure App Service for
-authentication, or Live Reload with Ionic.  Follow these instructions to add your local settings to the configuration:
+Several types of JavaScript applications use a loopback capability to handle OAuth UI flows, such as when running your service locally, using live reload in the Ionic Framework, or when redirecting to App Service for authentication. This can cause problems because, by default, App Service authentication is only configured to allow access from your Mobile App backend. 
 
-1. Log into the [Azure Portal]
-2. Select **All resources** or **App Services** then click on the name of your Mobile App.
-3. Click on **Tools**
-4. Click on **Resource explorer** in the OBSERVE menu, then click on **Go**.  A new window or tab will open.
-5. Expand the **config**, **authsettings** nodes for your site in the left hand navigation.
-6. Click on **Edit**
-7. Look for the "allowedExternalRedirectUrls" element.  It will be set to null.  Change it to the following:
+Use the following steps to change the App Service settings to enable authentication from your localhost:
+
+1. Log into the [Azure Portal], navigate to your Mobile App backend, then click **Tools** > **Resource explorer** > **Go** to open a new resource explorer window for your Mobile App backend (site).
+
+2. Expand the **config** node for your app, then click  **authsettings** > **Edit**, find the **allowedExternalRedirectUrls** element, which should be null, and change it to the following:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
-    service), or "http://localhost:4400" (for the Ripple service).  However, these are examples - your situation,
-    including for the services mentioned in the examples, may be different.
-8. Click on the **Read/Write** button in the top-right corner of the screen.
-9. Click on the green **PUT** button.
+    Replace the URLs in the array with the URLs of your service, which in this example is `http://localhost:3000` for the local Node.js sample service. You could also use `http://localhost:4400` for the Ripple service or some other URL, depending on how your app is configured.  
+    
+3. At the top of the page, click **Read/Write**, then click **PUT** to save your updates.
 
-The settings will be saved at this point.  Do not close the browser window until the settings have finished saving.
-You will also need to add these loopback URLs to the CORS settings:
+    You still need to add the same loopback URLs to the CORS whitelist settings:
 
-1. Log into the [Azure Portal]
-2. Select **All resources** or **App Services** then click on the name of your Mobile App.
-3. The Settings blade will open automatically.  If it doesn't, click on **All Settings**.
-4. Click on **CORS** under the API menu.
-5. Enter the URL that you wish to add in the box provided and press Enter.
-6. Enter additional URLs as needed.
-7. Click on **Save** to save the settings.
+4. Back in the [Azure Portal] in your mobile app backend, click  **All Settings** > **CORS**, add the loopback URLs to whitelist, then click  **Save**.
 
-It will take approximately 10-15 seconds for the new settings to take effect.
+After the backend updates, you will be able to use the new loopback URLs in your app.
 
 ##<a name="register-for-push"></a>How to: Register for Push Notifications
 
