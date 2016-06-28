@@ -31,7 +31,7 @@ This error can occur when a login has been created on the SQL server master data
 Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [configure server firewall access for your client IP][] in the [provisioning instructions][].
 
 ### Unsupported tools/protocols
-SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.  
+SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.
 
 
 ## Performance Issues
@@ -87,7 +87,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
  
 **STEP 5:** If rows are returned when you rerun the query from step 1, you might have tables with extra wide rows which need high amounts of memory to optimally build the clustered column store indexes.  If this is the case, retry this process for these table using the xlargerc class.  To change the resource class repeat step 2 using xlargerc.  Then repeat step 3 for the tables which still have suboptimal indexes.  If you are using a DW100 - DW300 and already used the xlargerc then you may choose to either leave the indexes as is or temporarily increase DWU to provide more memory to this operation.
  
-**FINAL STEPS:**  The resource class designated above is the recommended minimum resource class to build the highest quality columnstore indexes.   We recommend that you keep this setting for the user which loads your data.  However, if you wish to undo the change from step 2, you can do this with the following command.  
+**FINAL STEPS:**  The resource class designated above is the recommended minimum resource class to build the highest quality columnstore indexes.   We recommend that you keep this setting for the user which loads your data.  However, if you wish to undo the change from step 2, you can do this with the following command.
 
 ```sql
 EXEC sp_droprolemember 'smallrc', 'LoadUser'
