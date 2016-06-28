@@ -43,9 +43,9 @@ The reliable state manager tracks the current inflight transactions. The only tr
 The reliable state manager maintains a collection of reliable states like reliable dictionary and reliable queue. The reliable state manager fires notifications when this collection changes: a reliable state is added or removed, or the entire collection is rebuilt.
 The collection of reliable state managers is rebuilt in three cases:
 
-- Recovery: When a replica starts, it recovers its previous state from the disk. At the end of recovery, it fires an event with **NotifyStateManagerChangedEventArgs** that contains the set of recovered **IReliableState** interfaces.
-- Full copy: Before a replica can join the configuration set, it has to be built. Sometimes, this requires a full copy of the state of the reliable state manager from the primary replica to be applied to the idle secondary replica. The reliable state manager on the secondary will fire an event with **NotifyStateManagerChangedEventArgs**, which contains the set of **IReliableState** interfaces that it acquired from the primary.
-- Restore: In disaster recovery scenarios, the replica's state can be restored from a backup via **RestoreAsync**. In such cases, the reliable state manager on the primary will fire an event with **NotifyStateManagerChangedEventArgs**, which contains the set of **IReliableState** interfaces that it restored from the backup.
+- Recovery: When a replica starts, it recovers its previous state from the disk. At the end of recovery, it uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of recovered **IReliableState** interfaces.
+- Full copy: Before a replica can join the configuration set, it has to be built. Sometimes, this requires a full copy of the state of the reliable state manager from the primary replica to be applied to the idle secondary replica. The reliable state manager on the secondary uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of **IReliableState** interfaces that it acquired from the primary.
+- Restore: In disaster recovery scenarios, the replica's state can be restored from a backup via **RestoreAsync**. In such cases, the reliable state manager on the primary uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of **IReliableState** interfaces that it restored from the backup.
 
 To register for transaction notifications and/or state manager notifications, you need to register with the **TransactionChanged** or **StateManagerChanged** events on the reliable state manager. A common place to register with these event handlers is the constructor of your stateful service. When you register on the constructor, you won't miss any notification that's caused by a change during the lifetime of **IReliableStateManager**.
 
@@ -60,8 +60,7 @@ public MyService(StatefulServiceContext context)
 
 The **TransactionChanged** event handler uses **NotifyTransactionChangedEventArgs** to provide details about the event. It contains the action property (for example, **NotifyTransactionChangedAction.Commit**) that specifies the type of change. It also contains the transaction property that provides a reference to the transaction that changed.
 
->[AZURE.NOTE] **TransactionChanged** events are raised only if the transaction is committed. Then, the action will be equal to **NotifyTransactionChangedAction.Commit**.
-We recommend checking the action and processing the event only if it's one that you expect.
+>[AZURE.NOTE] **TransactionChanged** events are raised only if the transaction is committed. Then, the action is equal to **NotifyTransactionChangedAction.Commit**. We recommend checking the action and processing the event only if it's one that you expect.
 
 Following is an example **TransactionChanged** event handler.
 
@@ -132,7 +131,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 >[AZURE.NOTE] **ProcessStateManagerSingleEntityNotification** is the sample method that the preceding **OnStateManagerChangedHandler** example calls.
 
-The preceding code sets the **IReliableNotificationAsyncCallback** interface along with **DictionaryChanged**. Because **NotifyDictionaryRebuildEventArgs** contains an **IAsyncEnumerable** interface--which needs to be enumerated asynchronously--rebuild notifications are fired through **RebuildNotificationAsyncCallback** instead of **OnDictionaryChangedHandler**.
+The preceding code sets the **IReliableNotificationAsyncCallback** interface, along with **DictionaryChanged**. Because **NotifyDictionaryRebuildEventArgs** contains an **IAsyncEnumerable** interface--which needs to be enumerated asynchronously--rebuild notifications are fired through **RebuildNotificationAsyncCallback** instead of **OnDictionaryChangedHandler**.
 
 ```C#
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
@@ -192,7 +191,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 ## Recommendations
 
-- Complete notifications events as fast as possible.
+- Complete notification events as fast as possible.
 - Do not execute any expensive operations (for example, I/O operations) as part of synchronous events.
 - Check the action type before you process the event. You can add new action types in the future.
 
