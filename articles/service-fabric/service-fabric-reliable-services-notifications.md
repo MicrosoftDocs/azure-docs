@@ -38,7 +38,7 @@ The reliable state manager provides notifications for the following events:
     - Addition of a reliable state
     - Removal of a reliable state
 
-The reliable state manager tracks the current inflight transactions. The only transaction state change that will cause a notification to be fired is a transaction being committed.
+The reliable state manager tracks the current inflight transactions. The only change in transaction state that causes a notification to be fired is a transaction being committed.
 
 The reliable state manager maintains a collection of reliable states like reliable dictionary and reliable queue. The reliable state manager fires notifications when this collection changes: a reliable state is added or removed, or the entire collection is rebuilt.
 The collection of reliable state managers is rebuilt in three cases:
