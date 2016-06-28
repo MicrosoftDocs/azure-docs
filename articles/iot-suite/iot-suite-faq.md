@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="05/09/2016"
+  ms.date="06/27/2016"
   ms.author="araguila"/>
    
 # Frequently asked questions for IoT Suite
@@ -27,11 +27,11 @@
 
 ### How many DocumentDB instances can I provision in a subscription?
 
-Five. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision five DocumentDB instances per subscription. As a result, you can only provision up to five remote monitoring preconfigured solutions in a given subscription.
+Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision fifty DocumentDB instances per subscription. As a result, you can only provision up to five remote monitoring preconfigured solutions in a given subscription.
 
 ### How many Free Bing Maps APIs can I provision in a subscription?
 
-Two. You can create only two Free Bing Maps APIs in a subscription. The remote monitoring solution is provisioned by default with a Free Bing Maps API. As a result, you can only provision up to two remote monitoring solutions in a subscription with no modifications.
+Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterprise plans in an Azure subscription. The remote monitoring solution is provisioned by default with the Internal Transactions Level 1 plan. As a result, you can only provision up to two remote monitoring solutions in a subscription with no modifications.
 
 ### I have a remote monitoring solution deployment with a static map, how do I add an interactive Bing map? 
 1. Get your Bing Maps API for Enterprise QueryKey from [Azure portal][lnk-azure-portal]: 

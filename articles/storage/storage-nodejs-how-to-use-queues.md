@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="06/24/2016"
-	ms.author="micurd"/>
+	ms.author="robmcm"/>
 
 
 # How to use Queue storage from Node.js

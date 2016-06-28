@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/17/2016"
+   ms.date="06/27/2016"
    ms.author="mikewasson"/>
 
 
@@ -114,7 +114,11 @@ Similarly, consider putting a WebJob into its own plan, so that background tasks
 
  App Services has built-in support for CORS, without needing to write any application code. See [Consume an API app from JavaScript using CORS][cors]. Add the website to the list of allowed origins for the API. 
 
+**SQL Database encryption**. If you need to encrypt the data in your SQL database (for example, for compliance reasons), use [Transparent Data Encryption][sql-encryption]. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files), without requiring changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database, and enable encryption only for that database.  
 
+## Next steps
+
+- For higher availability, deploy the application in more than one region and use [Azure Traffic Manager][tm] for failover. For more information, see [Azure reference architecture: Web application with high availability][web-app-multi-region].    
 
 <!-- links -->
 
@@ -142,5 +146,8 @@ Similarly, consider putting a WebJob into its own plan, so that background tasks
 [resource-group]: ../resource-group-overview.md
 [sql-db]: https://azure.microsoft.com/en-us/documentation/services/sql-database/
 [sql-elastic]: ../sql-database/sql-database-elastic-scale-introduction.md
+[sql-encryption]: https://msdn.microsoft.com/en-us/library/dn948096.aspx
+[tm]: https://azure.microsoft.com/en-us/services/traffic-manager/
+[web-app-multi-region]: ./guidance-web-apps-multi-region.md
 [webjobs-guidance]: ../best-practices-background-jobs.md
 [webjobs]: ../app-service/app-service-webjobs-readme.md
