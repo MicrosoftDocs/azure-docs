@@ -17,32 +17,32 @@
    ms.author="bryanla"/>
 
 # Azure Active Directory developer glossary
-This article contains definitions for a list of core Azure Active Directory (AD) development concepts, which are helpful when learning about application developer for Azure AD.
+This article contains definitions for a list of core Azure Active Directory (AD) developer concepts, which are helpful when learning about application development for Azure AD.
 
 ## Glossary
 
 ### access token 
-A type of [security token](#security-token) issued by the [token endpoint](#token-endpoint) on an [authorization server](#authorization-server) and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the permission(s) granted to the client by the [resource owner](#resource-owner). The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
+A type of [security token](#security-token) issued by the [token endpoint](#token-endpoint) on an [authorization server](#authorization-server) and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the authorization granted to the client by the [resource owner](#resource-owner). The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource. 
 
-When a client uses the ["authorization code" authorization grant](#authorization-grant), an end-user authenticates as the resource owner and the client authenticates to obtain the access token, so the token can sometimes be referred to more specifically as an "App+User" token. Similarly, when a client uses the ["client credentials" authorization grant](#authorization-grant), the client is also functioning as the resource-owner, so the token can sometimes be referred to as an "App-Only" token.
+When a client uses the ["authorization code" authorization grant](#authorization-grant), the end-user first authenticates as the resource owner, then the client authenticates to obtain the access token, so the token can sometimes be referred to more specifically as an "App+User" token. When a client uses the ["client credentials" authorization grant](#authorization-grant), the client is also functioning as the resource-owner, providing the sole authentication, so the token can sometimes be referred to as an "App-Only" token.
 
 ### application manifest  
-An [Azure classic portal][AZURE-classic-portal] feature, which provides a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
+A feature provided by the [Azure classic portal][AZURE-classic-portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
 ### application object  
-An Azure AD application is an overarching concept, *defined* by it's one and only application object which resides in the Azure AD tenant where the application was registered. The application object serves as the application's identity configuration, and is the template from which it's corresponding [service principal](#service-principal) object(s) are *derived* for use at run-time. The Azure AD Graph [Application entity][AAD-Graph-App-Entity] defines the schema for an application object. The tenant in which the application object resides is considered the application's "home" tenant.
+An Azure AD application is an overarching concept, *defined* by it's one and only application object which resides in the Azure AD [tenant](#tenant) where the application was registered. The application object serves as the application's identity configuration, and is the template from which it's corresponding [service principal](#service-principal) object(s) are *derived* for use at run-time. The Azure AD Graph [Application entity][AAD-Graph-App-Entity] defines the schema for an application object. The tenant in which the application object resides is considered the application's "home" tenant.
 
-The application object therefore has a 1:1 relationship with the application, and a 1:*n* relationship with it's corresponding service principal object(s). A single-tenant application will have only 1 service principal (in its home tenant) symmetric with it's application object; a [multi-tenant application](#multi-tenant-application) will have the same, plus a service principal in each tenant where the application has been given consent to access resources. 
+The application object represents a [client application](#client-application) or [resource server](#resource-application) (or both), and therefore has a 1:1 relationship with the software application, as well as a 1:*n* relationship with it's corresponding service principal object(s). A single-tenant application will have only 1 service principal (in its home tenant) symmetric with it's application object; a [multi-tenant application](#multi-tenant-application) will have the same, plus a service principal in each tenant where the application has been given consent by users from that tenant to access their resources. 
 
 When you register/update an application in the [Azure classic portal][AZURE-classic-portal], the portal creates/updates both the application object and it's corresponding service principal object for that tenant. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
 ### application registration  
 In order to allow an application to integrate with and delegate identity management functions to Azure AD, it must be registered with an Azure AD tenant. When you register your application with Azure AD, you are essentially providing an identity configuration for your application, allowing it to participate in the authentication and authorization services provided by Azure AD on behalf of a user (resource owner), to access the user's data in a protected resource server.
 
-[TODO]: Sign-on and Reply URL for Web clients? Redirect URI for Native clients?
+See [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] for more details.
 
 ### authentication
-The act of challenging a party for legitimate credentials, providing the identity to be used during acquisition of an access token. Typically the party authenticating is filling the role of either resource owner or client application.
+The act of challenging a party for legitimate credentials, providing the identity to be used as a security principal during an application session. For Azure AD application integration, this is primarily for the purpose of acquiring an [access token](#access-token). Typically the party authenticating is filling the role of either resource owner or client application.
 
 ### authorization
 The act of granting an authenticated security principal permission to perform a given operation. There are two uses in the Azure AD programming model:
@@ -111,7 +111,7 @@ A "user" role provides role-based-access control for [user principals](#user-pri
 For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. 
 
 ### scopes
-Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope of access](OAuth2-Access-Token-Scopes) control, for a [client application](#client-application) that has been given delegated access to the resource by its owner. Scopes are resource-defined strings, stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity], and manifest at run-time as ["scp" claims](#claim) in the client application's [access token](#access-token).
+Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope of access](#OAuth2-Access-Token-Scopes) control, for a [client application](#client-application) that has been given delegated access to the resource by its owner. Scopes are resource-defined strings, stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity], and manifest at run-time as ["scp" claims](#claim) in the client application's [access token](#access-token).
 
 A resource's scopes are managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), which a client application can request [permission](#permissions) to access. 
 
@@ -136,7 +136,7 @@ The sign-in function of an application is typically used to implement single-sig
 The process of unauthenticating an end-user, detaching the user state associated with the [client application](#client-application) session during [sign-in](#sign-in)
 
 ### tenant
-An instance of Azure AD is referred to as an Azure AD tenant. It provides a variety of features, including a registry service for integrated applications, authentication of user accounts and registered applications, and the [OAuth 2.0 authorization server](#authorization server) that brokers the interactions between the [OAuth2 Authorization Framework roles][OAuth2-Role-Def]. Azure AD also happens to function as a [protected resource server](#resource-server), providing the Azure AD Graph API to enable querying/updating of it's directory data.
+An instance of an Azure AD directory is referred to as an Azure AD tenant. It provides a variety of features, including a registry service for integrated applications, authentication of user accounts and registered applications, and the [OAuth 2.0 authorization server](#authorization server) that brokers the interactions between the [OAuth2 Authorization Framework roles][OAuth2-Role-Def]. Azure AD also happens to function as a [protected resource server](#resource-server), providing the Azure AD Graph API to enable querying/updating of it's directory data.
 
 ### token endpoint
 Provides an [access token](#access-token) in exchange for an [authorization code](#authorization-code), during the [authorization code grant](#authorization-grant) flow. The [client application](#client-application) obtains the authorization code earlier in the flow, from the [authorization endpoint](#authorization-endpoint).
@@ -160,6 +160,7 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
