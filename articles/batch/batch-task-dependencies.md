@@ -22,7 +22,7 @@ If you want to process a MapReduce-style computational workload in the cloud, yo
 
 The task dependencies feature of Batch allows you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks, and whose final task--the "merge task"--merges the rendered frames together into the complete movie only after all of the frames have been successfully rendered.
 
-You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship, or even a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs. Finally, you can combine these three basic scenarios to create many-to-many relationships.
+You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship, or even a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs. You can combine these three basic scenarios to create many-to-many relationships.
 
 ## Task dependencies with Batch .NET
 
