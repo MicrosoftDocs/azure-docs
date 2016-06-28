@@ -1,22 +1,22 @@
 <properties
-   pageTitle="Resource Manager SDK for .Java| Microsoft Azure"
-   description="An overview of the Resource Manager Java SDK authentication and usage examples"
+   pageTitle="Resource Manager SDK for Ruby| Microsoft Azure"
+   description="An overview of the Azure Resource Manager SDK for Ruby with authentication and other code samples"
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="navalev"
-   manager=""
+   authors="allclark"
+   manager="douge"
    editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="java"
+   ms.devlang="ruby"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/16/2016"
-   ms.author="navale;tomfitz;"/>
+   ms.date="06/28/2016"
+   ms.author="allclark"/>
    
-# Azure Resource Manager SDK for Java
+# Azure Resource Manager SDK for Ruby
 
 > [AZURE.SELECTOR]
 - [Java](resource-manager-java-sdk.md)
@@ -26,7 +26,6 @@
 - [PHP](resource-manager-php-sdk.md)
 - [Go](resource-manager-go-sdk.md)
 - [.NET](resource-manager-dotnet-sdk.md)
-
    
 Azure Resource Manager (ARM) Preview SDKs are available for multiple languages and platforms. Each of these language implementations 
 are available through their ecosystem package managers and GitHub.
@@ -36,7 +35,7 @@ These specifications are open source and based on the Swagger v2 specification. 
 called [AutoRest](https://github.com/azure/autorest). AutoRest transforms these RESTful API specifications into client libraries in multiple languages. 
 If there are any aspects of the generated code in the SDKs you would like to improve, the entire set of tools to create the SDKs are open, freely available and based in widely adopted API specification format.
 
-The Azure Resource Manager Java SDK is hosted in GitHub [Azure Java SDK repository](https://github.com/azure/azure-sdk-for-java). Note that at the time of writing this the SDK is in preview.
+The Azure Resource Manager Ruby SDK is hosted in GitHub [Azure Ruby SDK repository](https://github.com/azure/azure-sdk-for-ruby). Note that at the time of writing this the SDK is in preview.
 The following packages are available:
 
 * Compute Management: (azure-mgmt-compute)
@@ -49,24 +48,24 @@ The following packages are available:
 * Utilities and Helpers: (azure-mgmt-utility)
 * WebSites / WebApps Management: (azure-mgmt-websites)
 
-Follow the Azure SDK for [Java Features Wiki page](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-SDK-for-Java-Features) for an up-to-date list.
+Follow the Azure SDK for [Ruby Features Wiki page](https://github.com/Azure/azure-sdk-for-ruby/wiki/Azure-SDK-for-Ruby-Features) for an up-to-date list.
 
 ## Prerequisites
-1. Java v1.6+
+1. Ruby v1.6+
 2. [maven](https://maven.apache.org/) If you would like to develop on the SDK
 
 ## Get the SDK
-[Maven](https://maven.apache.org/) distributed jars are the recommended way of getting started with the Azure Java SDK. You can add these dependencies to many
-of the Java dependency management tools (Maven, Gradle, Ivy...). Follow this [link](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22) for a listing of the libraries available in maven.
+[Maven](https://maven.apache.org/) distributed jars are the recommended way of getting started with the Azure Ruby SDK. You can add these dependencies to many
+of the Ruby dependency management tools (Maven, Gradle, Ivy...). Follow this [link](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.azure%22) for a listing of the libraries available in maven.
 
 Alternatively, you grab the sdk directly from source using git. To get the source code of the SDK via git:
 
-    git clone https://github.com/Azure/azure-sdk-for-java.git
-    cd ./azure-sdk-for-java/
+    git clone https://github.com/Azure/azure-sdk-for-ruby.git
+    cd ./azure-sdk-for-ruby/
 
 (The samples in this overview will use Maven as the source for the SDK packages)
 
-The SDK include samples for some of the scenarios - authentication, provisioning a VM and more. All can be found in the [azure-mgmt-samples](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples) GitHub repo. 
+The SDK include samples for some of the scenarios - authentication, provisioning a VM and more. All can be found in the [azure-mgmt-samples](https://github.com/Azure/azure-sdk-for-ruby/tree/master/azure-mgmt-samples) GitHub repo. 
 
 ## Helper Classes
 
@@ -103,11 +102,11 @@ After creating the service principal, you should have:
 
 Once you have this values, you can obtain an Active Directory Access Token, valid for one hour.
 
-The Java SDK include a helper class AuthHelper that creates the access token, once provided with the client id, secret and tenant id.
-The following example, in the [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java) class,
+The Ruby SDK include a helper class AuthHelper that creates the access token, once provided with the client id, secret and tenant id.
+The following example, in the [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-ruby/blob/master/azure-mgmt-samples/src/main/Ruby/com/microsoft/azure/samples/authentication/ServicePrincipalExample.Ruby) class,
 uses the AuthHelper *getAccessTokenFromServicePrincipalCredentials* method to obtain the access token:
 
-```java
+```Ruby
 public static Configuration createConfiguration() throws Exception {
    String baseUri = System.getenv("arm.url");
 
@@ -124,12 +123,12 @@ public static Configuration createConfiguration() throws Exception {
 ```
 
 ## Create a Virtual Machine 
-The utility package includes a helper class [ComputeHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ComputeHelper.java) to create a virtual machine. 
-A few samples for working with virtual machines can be found in the azure-mgmt-samples package under [compute](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/compute).
+The utility package includes a helper class [ComputeHelper](https://github.com/Azure/azure-sdk-for-ruby/blob/master/resource-management/azure-mgmt-utility/src/main/Ruby/com/microsoft/azure/utility/ComputeHelper.Ruby) to create a virtual machine. 
+A few samples for working with virtual machines can be found in the azure-mgmt-samples package under [compute](https://github.com/Azure/azure-sdk-for-ruby/tree/master/azure-mgmt-samples/src/main/Ruby/com/microsoft/azure/samples/compute).
 
 The following is a simple flow for creating a virtual machine. In this example, the helper class will create the storage and the network as part of creating the VM:
 
-```java
+```Ruby
 public static void main(String[] args) throws Exception {
         Configuration config = createConfiguration();
         ResourceManagementClient resourceManagementClient = ResourceManagementService.create(config);
@@ -137,7 +136,7 @@ public static void main(String[] args) throws Exception {
         ComputeManagementClient computeManagementClient = ComputeManagementService.create(config);
         NetworkResourceProviderClient networkResourceProviderClient = NetworkResourceProviderService.create(config);
 
-        String resourceGroupName = "javasampleresourcegroup";
+        String resourceGroupName = "Rubysampleresourcegroup";
         String region = "EastAsia";
 
         ResourceContext context = new ResourceContext(
@@ -160,9 +159,9 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## Deploy a template
-The [ResouceHelper](https://github.com/Azure/azure-sdk-for-java/blob/master/resource-management/azure-mgmt-utility/src/main/java/com/microsoft/azure/utility/ResourceHelper.java) class was created to ease the process of deploying an ARM template with the Java SDK. 
+The [ResouceHelper](https://github.com/Azure/azure-sdk-for-ruby/blob/master/resource-management/azure-mgmt-utility/src/main/Ruby/com/microsoft/azure/utility/ResourceHelper.Ruby) class was created to ease the process of deploying an ARM template with the Ruby SDK. 
 
-```java
+```Ruby
 // create a new resource group
 ResourceManagementClient resourceManagementClient = createResourceManagementClient();
 ResourceContext resourceContext = new ResourceContext(
@@ -183,7 +182,7 @@ DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
 ## List all Virtual Machines
 You don't have to use the helper classes (though it might make your life easier), but instead use directly service classes for each resource provider. In this example we will list some of the resources under the authenticated subscription - for each resource group, find the virtual machines, and then the IPs associated with it.
 
-```java
+```Ruby
 // authenticate and get access token
 Configuration config = createConfiguration();
 ResourceManagementClient resourceManagementClient = ResourceManagementService.create(config);
@@ -220,9 +219,9 @@ for (ResourceGroupExtended resourcesGroup : resourceGroups) {
 }  
 ```
 
-More samples can be found in the samples packages under [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments).
+More samples can be found in the samples packages under [templatedeployments](https://github.com/Azure/azure-sdk-for-ruby/tree/master/azure-mgmt-samples/src/main/Ruby/com/microsoft/azure/samples/templatedeployments).
 
 ## Further Reading and Help
-Azure SDK for Java documentation: [Java docs](http://azure.github.io/azure-sdk-for-java/)
+Azure SDK for Ruby documentation: [Ruby docs](http://azure.github.io/azure-sdk-for-ruby/)
 
-If you encounter any bugs with the SDK please file an issue via [Issues](https://github.com/Azure/azure-sdk-for-java/issues) or checkout [StackOverflow for Azure Java SDK](http://stackoverflow.com/questions/tagged/azure-java-sdk).
+If you encounter any bugs with the SDK please file an issue via [Issues](https://github.com/Azure/azure-sdk-for-ruby/issues) or checkout [StackOverflow for Azure Ruby SDK](http://stackoverflow.com/questions/tagged/azure-ruby-sdk).
