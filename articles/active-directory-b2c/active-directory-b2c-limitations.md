@@ -24,7 +24,7 @@ There are several features and functionalities of Azure Active Directory (Azure 
 
 ## Issues during the creation of Azure AD B2C tenants
 
-If you encounter issues during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started), see [Create an Azure AD tenant or an Azure AD B2C tenant--issues and resolutions](active-directory-b2c-support-create-directory.md) for guidance.
+If you encounter issues during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started.md), see [Create an Azure AD tenant or an Azure AD B2C tenant--issues and resolutions](active-directory-b2c-support-create-directory.md) for guidance.
 
 ## Branding issues on verification email
 
