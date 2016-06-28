@@ -33,6 +33,8 @@ Because IoT Hub exposes an [Event Hubs][lnk-event-hubs]-compatible endpoint to r
 * Reliably stores *data point* messages in Azure blob storage.
 * Forwards *interactive* device-to-cloud messages to an [Azure Service Bus queue] for immediate processing.
 
+<!-- [Azure Service Bus queue] above seems to be broken link. According to links defined, it should be either "[Azure Service Bus] queue" or "Azure [Service Bus queue]". -->
+
 Service Bus helps ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based de-duplication.
 
 > [AZURE.NOTE] An **EventProcessorHost** instance is only one way to process interactive messages. Other options include [Azure Service Fabric][lnk-service-fabric] and [Azure Stream Analytics][lnk-stream-analytics].
