@@ -298,6 +298,7 @@ This section shows how to send events in real time to Azure Machine Learning Rec
 		</Event>
 
 - Example for event 'Purchase':
+
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
 		<SessionId>11112222</SessionId>

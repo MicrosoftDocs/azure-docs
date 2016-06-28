@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/29/2016"
+ ms.date="06/17/2016"
  ms.author="danlep"/>
 
 # Options to create and manage a high performance computing (HPC) cluster in Azure with Microsoft HPC Pack
@@ -31,18 +31,12 @@ This article focuses on options to use HPC Pack to run Linux workloads. There ar
 
 * (Marketplace) [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 
-* (Quickstart) [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-
-### Azure VM images
-
-* [HPC Pack on Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
-
+* (Quickstart) [Create an HPC cluster with Linux compute nodes](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-linux-cn)
 
 
 ### PowerShell deployment script
 
-* [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)
+* [Create a Linux HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)
 
 ### Tutorials
 

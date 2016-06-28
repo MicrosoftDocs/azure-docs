@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # How to Attach a Data Disk to a Linux Virtual Machine
@@ -161,12 +161,14 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
 >[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.
 
-## Additional Resources
-[How to log on to a virtual machine running Linux][Logon]
+## Next Steps
+You can read more about using your Linux VM in the following articles:
 
-[How to detach a disk from a Linux virtual machine ](virtual-machines-linux-classic-detach-disk.md)
+- [How to log on to a virtual machine running Linux][Logon]
 
-[Using the Azure CLI with the Service Management API](../virtual-machines-command-line-tools.md)
+- [How to detach a disk from a Linux virtual machine](virtual-machines-linux-classic-detach-disk.md)
+
+- [Using the Azure CLI with the Classic deployment model](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md

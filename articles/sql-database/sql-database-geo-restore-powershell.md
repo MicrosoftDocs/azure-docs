@@ -12,19 +12,18 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.workload="sqldb-bcdr" 
+    ms.date="06/17/2016"
     ms.author="sstein"/>
 
 # Restore an Azure SQL Database from a geo-redundant backup using PowerShell
 
+
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-restore-portal.md)
-- [PowerShell](sql-database-geo-restore-powershell.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Geo-Restore: Azure Portal](sql-database-geo-restore-portal.md)
 
-This article shows you how to restore your database into a new server using geo-restore using PowerShell.
-
-[Geo-Restore](sql-database-geo-restore.md) provides the ability to restore a database from a geo-redundant backup to create a new database. The database can be created on any server in any Azure region. Because it uses a geo-redundant backup as its source it can be used to recover a database even if the database is inaccessible due to an outage. Geo-restore is automatically enabled for all service tiers at no extra cost.
+This article shows you how to restore your database into a new server using Geo-Restore using PowerShell.
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -49,13 +48,12 @@ This article shows you how to restore your database into a new server using geo-
     
         Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "TargetResourceGroup" -ServerName "TargetServer" -TargetDatabaseName "RestoredDatabase" –ResourceId $GeoBackup.ResourceID –ElasticPoolName "elasticpool01"  
 
+
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
-
-
-## Additional resources
-
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

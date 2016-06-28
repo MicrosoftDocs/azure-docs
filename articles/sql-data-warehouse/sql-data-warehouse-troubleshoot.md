@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/15/2016"
-   ms.author="mausher;sonyama;barbkess"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
 This topic lists some of the more common issues you might run into with Azure SQL Data Warehouse.
@@ -49,7 +49,7 @@ One of the most important choices you make in your SQL Data Warehouse is [choosi
 
 Clustered Columnstore segment quality is important to optimal query performance on Clustered Columnstore Tables.  Segment quality can be measured by number of rows in a compressed Row Group.  The following query will identify tables with poor Columnstore index segment health and generate the T-SQL to rebuild the columnstore index on these tables.  The first column of this query result will give you the T-SQL to rebuild each index.  The second column will provide a recommendation for the minimum resource class to use to optimize the compression. 
  
-**STEP 1:** Run this query on each SQL Data Warehouse database to identify any sub-optimal cluster columnstore indexes.  If no rows are returned, then this regression did not impact you and no further action is needed.
+**STEP 1:** Run this query on each SQL Data Warehouse database to identify any sub-optimal cluster columnstore indexes.  If no rows are returned, then no further action is needed.
 
 ```sql
 SELECT 
@@ -116,7 +116,7 @@ Please refer to the [SQL Data Warehouse Best Practices][] article for more infor
 [learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Manage statistics in SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
 [provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 or 2015]: ./sql-data-warehouse-get-started-connect.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Statistics]: ./sql-data-warehouse-develop-statistics.md

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL Database Disaster Recovery Drills" 
+   pageTitle="SQL Database Disaster Recovery Drills | Microsoft Azure" 
    description="Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills that will help keep your mission critical business applications resilient to failures and outages." 
    services="sql-database" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/18/2016"
+   ms.date="06/16/2016"
    ms.author="mihaelab"/>
 
 #Performing Disaster Recovery Drill
@@ -62,3 +62,12 @@ To simulate the outage you can disable the web application or virtual machine co
 ####Validation
 
 - Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
+
+
+## Next steps
+
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

@@ -34,7 +34,7 @@ You protect your data with the Backup service by taking snapshots of your data a
 
 ## Restore a recovery point
 
-1. Sign in to the [Azure portal](http://ms.portal.azure.com/)
+1. Sign in to the [Azure portal](http://portal.azure.com/)
 
 2. On the Azure menu, click **Browse** and in the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
 

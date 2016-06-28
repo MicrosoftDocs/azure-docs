@@ -21,6 +21,8 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data factory currently supports only moving data from a Web table to other data stores, but not  moving data from other data stores to a Web table destination.
 
+> [AZURE.NOTE] This Web connector currently only support extracting table content from an HTML page.
+
 ## Sample: Copy data from Web table to Azure Blob
 
 The sample below shows:
@@ -173,10 +175,9 @@ The following table provides description for JSON elements specific to Web linke
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **Web** | Yes | 
 | Url | URL to the Web source | Yes |
+| authenticationType | Anonymous or Basic. | Yes |
 | userName | Username for Basic authentication. | Yes (for Basic Authentication)
 | password | Password for Basic authentication. | Yes (for Basic Authentication)
-| authenticationType | Anonymous, Basic, or WebApi. | Yes |
-| apiKey | ApiKey for WebApi authentication. | Yes (for WebApi authentication)|   
 
 ### Using Anonymous authentication
 

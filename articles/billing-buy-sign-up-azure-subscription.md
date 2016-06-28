@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/21/2016"
 	ms.author="genli"/>
 
-# Azure Offers - benefits & limits, how to sign-up, purchase, upgrade or Activate
+# How to sign up, purchase, upgrade or Activate Azure
 
 Azure provides various offers to suite your business needs and get started using Azure. Visit [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) for a complete listing of all active offers with details on each offer about what they cover, benefits and availability by countries/region.
+
+## Azure Offers - benefits & limits
 
 The following table provides details on common offers:
 
@@ -65,12 +67,12 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 The example screenshot is for the English version of the agreement. The agreement form may vary by country.
 
  ![Signup](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br>
- It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance. </br>
+ It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance. </br>
  If you get an error message, follow the steps in the message to resolve the issue. A typical error message is:
 
  **Sorry, we could not complete the operation. Please try again later or reload the web page** </br>
 
- In this case, try using another browser to complete the sign-up process. If the issue still occurs, contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.</br>
+ In this case, try using another browser to complete the sign-up process. If the issue still occurs, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.</br>
 7. When the subscription is ready, select **Start managing my service** to begin.</br>
  ![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 

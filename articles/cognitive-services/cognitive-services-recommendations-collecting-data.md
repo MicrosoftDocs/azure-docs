@@ -22,6 +22,9 @@ The Recommendations API learns from your past transactions to find what items sh
 
 After you have created a model, you will need to provide two piece of information before you can do any training: a catalog file, and usage data.
 
+>   If you have not done so already, we encourage you to complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
+
+
 ## Catalog Data ##
 
 ### Catalog file format ###
@@ -37,15 +40,15 @@ The catalog data should follow the following format:
 
 Without features:
 
-    AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office
-    AAA-04303,OfficeLangPack 2013 32/64 ET Online DwnLd,Office
-    C9F-00168,KRUSELL Kiruna Flip Cover for Nokia Lumia 635 - Camel,Accessories
+    AAA04294,Office Language Pack Online DwnLd,Office
+    AAA04303,Minecraft Download Game,Games
+    C9F00168,Kiruna Flip Cover,Accessories
 
 With features:
 
-    AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
-    BAB-04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
-    C9F-00168,Flip Cover for Lumia 635,Accessories, compatibility=Lumia, hardwaretype=mobile
+    AAA04294,Office Language Pack Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
+    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
+    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia, hardwaretype=mobile
 
 #### Format details
 
@@ -79,8 +82,11 @@ That said, if the engine knows information about that violin (i.e. It's a musica
 Features are imported as part of the catalog data, and then their rank (or the importance of the feature in the model) is associated when a rank build is done. Feature rank can change according to the pattern of usage data and type of items. But for consistent usage/items, the rank should have only small fluctuations. The rank of features is a non-negative number. The number 0 means that the feature was not ranked (happens if you invoke this API prior to the completion of the first rank build). The date at which the rank was attributed is called the score freshness.
 
 To use features as part of your build you need to:
+
 1. Make sure your catalog has features when you upload it.
+
 2. Trigger a ranking build. This will do the analysis on the importance/rank of the features.
+
 3. Trigger a recommendations build, setting the following build parameters: Set useFeaturesInModel to true, allowColdItemPlacement to true, and modelingFeatureList should be set to the comma separated list of features that you want to use to enhance your model. See [Recommendations build type parameters](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) for more information.
 
 
@@ -90,6 +96,7 @@ A usage file contains information about how those items are used, or the transac
 #### Usage Format details
 A usage file is a CSV (comma separated value) file where each row in a usage file represents an interaction between a user and an item. Each row is formatted as follows:<br>
 `<User Id>,<Item Id>,<Time>,[<Event>]`
+
 
 
 | Name  | Mandatory | Type | Description

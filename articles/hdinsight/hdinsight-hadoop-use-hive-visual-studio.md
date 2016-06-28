@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="06/16/2016"
    ms.author="larryfr"/>
 
 #Run Hive queries using the HDInsight tools for Visual Studio
@@ -45,6 +45,7 @@ To complete the steps in this article, you will need the following.
 
 2. Open the **Script.hql** file that is created with this project, and paste in the following HiveQL statements:
 
+        set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -73,6 +74,7 @@ To complete the steps in this article, you will need the following.
 
 6. In the **temp.hql** document that appears, add the following HiveQL statements:
 
+        set hive.execution.engine=tez;
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 

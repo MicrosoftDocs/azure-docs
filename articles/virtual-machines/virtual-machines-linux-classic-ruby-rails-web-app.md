@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Ruby on Rails Web application on an Azure VM

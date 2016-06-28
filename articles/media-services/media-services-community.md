@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/24/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 # Azure Media Services Community  

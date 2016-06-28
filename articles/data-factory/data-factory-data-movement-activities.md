@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Data movement activities" 
-	description="Learn about Data Factory entities that you can use in a Data Factory pipelines to move data." 
+	pageTitle="Data movement activities | Microsoft Azure" 
+	description="Learn about data movement in Data Factory pipelines: data migration between cloud stores, between on-premises and cloud. Use the Copy Activity." 
+	keywords="data movement, data migration, copy data, transfer data"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,12 +17,12 @@
 	ms.date="05/31/2016" 
 	ms.author="spelluru"/>
 
-# Data movement activities
-The [Copy Activity](#copyactivity) performs the data movement in Azure Data Factory and the activity is powered by a [globally available service](#global) that can copy data between various data stores in a secure, reliable, and scalable way. The service automatically chooses the most optimal region to perform the data movement. The region closest to the sink data store is used.
- 
-Let’s understand how this data movement occurs in different scenarios.
+# Data movement and the Copy Activity: migrating data to the cloud and between cloud stores
+Data movement from a source to a sink (destination) is performed by the [Copy Activity](#copyactivity) in Azure Data Factory. The Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). The service automatically chooses the optimal region to perform the data movement, usually the region closest to the sink data store.
 
-## Copying data between two cloud data stores
+Here’s how data migration occurs between two cloud data stores, between an on-premises data store and a cloud data store, and from/to a data store on an Azure Iaas VM.
+
+## Copy data between two cloud data stores
 When both the source and sink (destination) data stores reside in the cloud, the copy Activity goes through the following stages to copy/move data from the source to the sink. The service that powers the Copy Activity performs the following: 
 
 1. Reads data from source data store
@@ -31,7 +32,7 @@ When both the source and sink (destination) data stores reside in the cloud, the
 ![cloud-to-cloud copy](.\media\data-factory-data-movement-activities\cloud-to-cloud.png)
 
 
-## Copying data between an on-premises data store and a cloud data store
+## Copy data between an on-premises data store and a cloud data store
 To [securely move data between on-premises data stores behind your corporate firewall and a cloud data store](#moveonpremtocloud), you will need to install the Data Management Gateway, which is an agent that enables hybrid data movement and processing, on your on-premises machine. The Data Management Gateway can be installed on the same machine as the data store itself or on a separate machine that has access to reach the data store. In this scenario, the serialization/deserialization, compression/decompression, column mapping, and type conversion are performed by the Data Management Gateway. Data does not flow through Azure Data Factory service is such case. Data Management Gateway directly writes the data to the destination store. 
 
 ![onprem-to-cloud copy](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
@@ -44,15 +45,15 @@ Copy Activity copies data from a **source** data store to a **sink** data store.
 
 | Sources| Sinks |
 |:------- | :---- |
-| <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure Table](data-factory-azure-table-connector.md)</li><li>[Azure SQL Database](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (see note below)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server On-premises/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[File System On-premises/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle Database On-premises/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL Database On-premises/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 Database On-premises/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata Database On-premises/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase Database On-premises/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL Database On-premises/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[ODBC data sources on-premises/Azure IaaS](data-factory-odbc-connector.md)</li><li>[Hadoop Distributed File System (HDFS) On-premises/Azure IaaS](data-factory-hdfs-connector.md)</li><li>[OData sources](data-factory-odata-connector.md)</li><li>[Web table](data-factory-web-table-connector.md)</li><li>[GE Historian On-premises/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure Table](data-factory-azure-table-connector.md)</li><li>[Azure SQL Database](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (see note below)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server On-premises/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[File System On-premises/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle Database On-premises/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
+| <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure Table](data-factory-azure-table-connector.md)</li><li>[Azure SQL Database](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (see note below)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server On-premises/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[File System On-premises/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle Database On-premises/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL Database On-premises/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 Database On-premises/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata Database On-premises/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase Database On-premises/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL Database On-premises/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[ODBC data sources on-premises/Azure IaaS](data-factory-odbc-connector.md)</li><li>[Hadoop Distributed File System (HDFS) On-premises/Azure IaaS](data-factory-hdfs-connector.md)</li><li>[OData sources](data-factory-odata-connector.md)</li><li>[Web table (table from HTML)](data-factory-web-table-connector.md)</li><li>[GE Historian On-premises/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure Table](data-factory-azure-table-connector.md)</li><li>[Azure SQL Database](data-factory-azure-sql-connector.md)</li><li>[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (see note below)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server On-premises/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[File System On-premises/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle Database On-premises/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
 
 
-> [AZURE.NOTE] You can only move to/from Azure DocumentDB from/to other Azure services such as Azure Blob, Azure Table, Azure SQL Database, Azure SQL Data Warehouse, Azure DocumentDB, and Azure Data Lake Store. The full matrix for Azure Document DB would be also supported shortly.   
+> [AZURE.NOTE] Copying data to/from Azure DocumentDB from/to on-premises/Azure IaaS data stores are currently not supported. The full matrix for Azure DocumentDB would be enabled shortly.
 
 If you need to move data to/from a data store that is not supported by the **Copy Activity**, you may use the **custom activity** in Data Factory with your own logic for copying/moving the data. See [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md) article for details on creating and using a custom activity.
 
 ## Tutorial
-For a quick tutorial on using the Copy Activity, please see [Tutorial: Use Copy Activity in an Azure Data Factory Pipeline](data-factory-get-started.md).  In the tutorial, you will use the Copy Activity to copy data from an Azure blob storage to an Azure SQL database.  
+For a quick tutorial on using the Copy Activity, please see [Tutorial: Use Copy Activity in an Azure Data Factory Pipeline](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  In the tutorial, you will use the Copy Activity to copy data from an Azure blob storage to an Azure SQL database.  
 
 ## <a name="copyactivity"></a>Copy Activity
 Copy Activity copies data from one input dataset (**source**) to one output dataset (**sink**). Data copy is done in a batch fashion according to the schedule specified on the activity. To learn about defining activities in general, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
@@ -76,8 +77,8 @@ cloud | cloud | **The cloud service that powers the Copy Activity**. Azure Data 
 
 
 
-### <a name="moveonpremtocloud"></a>Securely move data between on-premises location and cloud
-One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data management gateway is an agent you can install on-premises to enable hybrid data pipelines. 
+### <a name="moveonpremtocloud"></a>Securely transfer data between on-premises location and cloud
+One of the challenges for modern data integration is to seamlessly transfer data to and from on-premises to cloud. Data management gateway is an agent you can install on-premises to enable hybrid data pipelines. 
 
 The data gateway provides the following capabilities: 
 

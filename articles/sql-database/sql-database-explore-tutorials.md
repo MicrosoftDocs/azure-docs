@@ -74,7 +74,7 @@ In the following tutorials, you will learn about optimizing the [performance of 
 |---|---|---|
 | [Change the service tier and performance level of your database](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) | In this tutorial, you learn how to scale up or scale down the performance of an Azure SQL database using service tiers. |
 | [SQL Database Advisor Query Performance Insight](sql-database-performance.md#performance-overview) | In this tutorial, you learn how to open and use SQL Database Advisor Query Performance Insight.|
-| [SQL Database Advisor performance recommendations](sql-database-index-advisor.md#viewing-recommendations) | In this tutorial, you learn how to view and apply SQL Database Advisor performance recommendations. |
+| [SQL Database Advisor performance recommendations](sql-database-advisor.md#viewing-recommendations) | In this tutorial, you learn how to view and apply SQL Database Advisor performance recommendations. |
 | [Review top CPU consuming queries](sql-database-query-performance.md#review-top-cpu-consuming-queries)| In this tutorial, you learn how to use SQL Database Advisor Query Performance Insight to review top CPU consuming queries.|
 | [Viewing individual query details](sql-database-query-performance.md#viewing-individual-query-details)| In this tutorial, you learn how to use SQL Database Advisor Query Performance Insight to view individual query performance details.|
 ||||
@@ -105,7 +105,7 @@ In the following tutorials, you will learn about [migrating an existing SQL Serv
 
 ##Develop
 
-In the following tutorials, you will learn about [client connectivity to Azure SQL Database](sql-database-connect-central-recommendations.md) and using [connectivity libraries](sql-database-libraries.md).
+In the following tutorials, you will learn about [SQL Database Development](sql-database-develop-overview.md) and using [connectivity libraries](sql-database-libraries.md).
 
 | Tutorial  | Description  |
 |---|---|---|
@@ -176,6 +176,6 @@ In this tutorial, you will learn about [Data Sync](http://download.microsoft.com
 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
 ||||
 
-## Next Steps
+## Next steps
 
 [Explore Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)
