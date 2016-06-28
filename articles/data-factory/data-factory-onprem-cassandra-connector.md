@@ -19,7 +19,7 @@
 # Move data from an on-premises Cassandra database using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to copy data from an on-premises Cassandra database to any data store listed under Sink column in the [Supported Sources and Sinks](data-factory-data-movement-activities.md#supported-data-stores) section. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-Data factory currently supports only moving data from a Cassandra database to [supported sink data stores]((data-factory-data-movement-activities.md#supported-data-stores), but not  moving data from other data stores to a Cassandra database.
+Data factory currently supports only moving data from a Cassandra database to [supported sink data stores](data-factory-data-movement-activities.md#supported-data-stores), but not  moving data from other data stores to a Cassandra database.
 
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises Oracle database , you must install the following: 
@@ -180,7 +180,7 @@ See [RelationalSource type properties](#cassandrasource-type-properties) for the
 
 ## OnPremisesCassandra linked service properties
 
-The following table provides description for JSON elements specific to Salesforce linked service.
+The following table provides description for JSON elements specific to Cassandra linked service.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
@@ -220,7 +220,7 @@ In case of Copy Activity when source is of type **CassandraSource**, the followi
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Type mapping for Salesforce
+### Type mapping for Cassandra
 Cassandra Type | .Net Based Type
 --------------- | ---------------
 ASCII |	String 
