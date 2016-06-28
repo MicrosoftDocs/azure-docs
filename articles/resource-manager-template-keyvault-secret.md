@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Key vault secret template schema

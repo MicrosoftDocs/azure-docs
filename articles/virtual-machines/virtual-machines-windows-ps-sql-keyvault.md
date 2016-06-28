@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth"/>
 
 # Configure Azure Key Vault Integration for SQL Server on Azure VMs (Resource Manager)
