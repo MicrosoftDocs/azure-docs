@@ -3,8 +3,8 @@
 	description="This article discusses the signing key rollover best practices for Azure Active Directory"
 	services="active-directory"
 	documentationCenter=".net"
-	authors="priyamohanram"
-	manager="mbaldwin"
+	authors="gsacavdm"
+	manager="krassk"
 	editor=""/>
 
 <tags
@@ -24,20 +24,19 @@ This topic discusses what you need to know about the public keys that are used i
 
 ## Overview of signing keys in Azure AD
 
-Azure AD uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: Azure AD uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses Azure AD for authentication, Azure AD creates a security token that contains information about the user. This token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s [OpenID Connect discovery document](http://openid.net/specs/openid-connect-discovery-1_0.html) or [federation metadata document](active-directory-federation-metadata.md).
+Azure AD uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: Azure AD uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses Azure AD for authentication, Azure AD creates a security token that contains information about the user. This token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s [OpenID Connect discovery document](http://openid.net/specs/openid-connect-discovery-1_0.html) or SAML/WS-Fed [federation metadata document](active-directory-federation-metadata.md).
 
 For security purposes, Azure AD’s signing key rolls on a periodic basis and, in the case of an emergency, could be rolled over immediately. Any application that integrates with Azure AD should be prepared to handle a key rollover event no matter how frequently it may occur. If it doesn’t, and your application attempts to use an expired key to verify the signature on a token, the sign-in request will fail.
 
-Because a key may be rolled at any moment, there is always more than one valid key available in the OpenID Connect discovery document and the federation metadata document. Your application should be prepared to use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.
+There is always more than one valid key available in the OpenID Connect discovery document and the federation metadata document. Your application should be prepared to use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.
 
-## How to assess if your application will be affected
+## How to assess if your application will be affected and what to do about it
 
-How your application handles key rollover depends on variables such as what identity protocol and library was used or type of application. Each section below will assess the impact of the key rollover in the most common application types and configurations and provide guidance on how update the application to support automatic rollover or manually update the key.
+How your application handles key rollover depends on variables such as the type of application or what identity protocol and library was used. The sections below assess whether the most common types of applications are impacted by the key rollover and provide guidance on how to update the application to support automatic rollover or manually update the key.
 
 * [Web applications / APIs using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
 * [Web applications / APIs using .NET Core OpenID Connect or  JwtBearerAuthentication middleware](#owincore)
 * [Web applications / APIs using Node.js passport-azure-ad module](#passport)
-* [Web applications / APIs using Java ADAL4J library](#adal4j)
 * [Web applications / APIs created with Visual Studio 2015](#vs2015)
 * [Web applications created with Visual Studio 2013](#vs2013)
 * [Web APIs created with Visual Studio 2013](#vs2013_webapi)
@@ -47,7 +46,7 @@ How your application handles key rollover depends on variables such as what iden
 
 ### <a name="owin"></a> Web applications / APIs using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware
 
-If your application is using the .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware, it already has the necessary logic to handle key rollover.
+If your application is using the .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware, it already has the necessary logic to handle key rollover automatically.
 
 You can confirm that your application is using any of these by looking for any of the following snippets in your application's Startup.cs or Startup.Auth.cs
 
@@ -75,7 +74,7 @@ app.UseWsFederationAuthentication(
 
 ### <a name="owincore"></a> Web applications / APIs using .NET Core OWIN OpenID Connect or JwtBearerAuthentication middleware
 
-If your application is using the .NET Core OWIN OpenID Connect  or JwtBearerAuthentication middleware, it already has the necessary logic to handle key rollover.
+If your application is using the .NET Core OWIN OpenID Connect  or JwtBearerAuthentication middleware, it already has the necessary logic to handle key rollover automatically.
 
 You can confirm that your application is using any of these by looking for any of the following snippets in your application's Startup.cs or Startup.Auth.cs
 
@@ -96,7 +95,7 @@ app.UseJwtBearerAuthentication(
 
 ### <a name="passport"></a> Web applications / APIs using Node.js passport-ad module
 
-If your application is using the Node.js passport-ad module, it already has the necessary logic to handle key rollover.
+If your application is using the Node.js passport-ad module, it already has the necessary logic to handle key rollover automatically.
 
 You can confirm that your application passport-ad by searching for the following snippet in your application's app.js
 
@@ -108,33 +107,17 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="adal4j"></a> Web applications / APIs using Java ADAL4J library
-
-If your application is using the Java ADAL4J library, it already has the necessary logic to handle key rollover.
-
-You can confirm that your application is using ADAL4J by confirming it's present as a dependency in  your project's `pom.xml`:
-```
-<dependencies>
-	<dependency>
-		<groupId>com.microsoft.azure</groupId>
-		<artifactId>adal4j</artifactId>
-		<version>1.1.1</version>
-	</dependency>
-	<!-- ... -->
-<dependencies>
-```
-
 ### <a name="vs2015"></a> Web applications / APIs created with Visual Studio 2015
 
-If your application was built using a web application template in Visual Studio 2015 and you selected **Organizational Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover. This logic, embedded in the OWIN OpenID Connect middleware, retrieves and caches the keys from the OpenID Connect discovery document and periodically refreshes them.
+If your application was built using a web application template in Visual Studio 2015 and you selected **Work And School Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover automatically. This logic, embedded in the OWIN OpenID Connect middleware, retrieves and caches the keys from the OpenID Connect discovery document and periodically refreshes them.
 
-If you added authentication to your solution manually, your application does not have the necessary key rollover logic. You will need to write it yourself, or follow the steps in [Web applications / APIs using any other libraries or manually implementing any of the supported protocols.](#other).
+If you added authentication to your solution manually, your application might not have the necessary key rollover logic. You will need to write it yourself, or follow the steps in [Web applications / APIs using any other libraries or manually implementing any of the supported protocols.](#other).
 
 ### <a name="vs2013"></a> Web applications created with Visual Studio 2013
 
-If your application was built using a web application template in Visual Studio 2013 and you selected **Organizational Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover. This logic stores your organization’s unique identifier and the signing key information in two database tables associated with the project. You can find the connection string for the database in the project’s Web.config file.
+If your application was built using a web application template in Visual Studio 2013 and you selected **Organizational Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover automatically. This logic stores your organization’s unique identifier and the signing key information in two database tables associated with the project. You can find the connection string for the database in the project’s Web.config file.
 
-If you added authentication to your solution manually, your application does not have the necessary key rollover logic. You will need to write it yourself, or follow the steps in [Web applications / APIs using any other libraries or manually implementing any of the supported protocols.](#other).
+If you added authentication to your solution manually, your application might not have the necessary key rollover logic. You will need to write it yourself, or follow the steps in [Web applications / APIs using any other libraries or manually implementing any of the supported protocols.](#other).
 
 The following steps will help you verify that the logic is working properly in your application.
 
