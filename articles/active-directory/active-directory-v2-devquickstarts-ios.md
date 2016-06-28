@@ -27,6 +27,7 @@ This application will allow a user to sign-in to their organization and then sea
 	Some features of our platform that do have an expression in these standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries. 
 
 
+
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
@@ -101,9 +102,9 @@ We will jump in to various files in the skeleton to add authentication. Other pa
 ## Set up the NXOAuth2Client library in your LoginViewController
 
 The NXOAuthClient library requires some values to get set up. Once that is complete you can use the token that is aquired to call the Graph API. Since we know that the `LoginView` will be called any time we need to authentication it makes sense that we put our conifugration values in to that file.
-1. Open `LoginViewController.m` file
+* Open `LoginViewController.m` file
 
-2. Let's add some values in the code that will set the context for our authentication and authorization. I'll explain these in detail below.
+* Let's add some values in the code that will set the context for our authentication and authorization. I'll explain these in detail below.
 
 ```
 NSString *scopes = @"offline_access User.ReadBasic.All";
@@ -131,7 +132,7 @@ The `keychain` value is the container that the NXOAuth2Client library will use t
 
 The rest of these values are required to use the library and simply create places for you to carry values to the context.
 
-3. Create a URL Cache
+* Create a URL Cache
 
 Inside of `(void)viewDidLoad()`, which is always called once the view is loaded, we prime a cache for our use.
 
@@ -151,7 +152,7 @@ Add the following code:
 }
 ```
 
-4. Create a webview we will use to sign-in.
+* Create a webview we will use to sign-in.
 
 We use a webview for account sign-in. This allows us to prompt the user for additional factors like SMS text message (if configured) or give error messages back to the user. Here we'll set up the webview and then later write the code to handle the callbacks that will happen in the WebView from the Microsoft Identity Service.
 
@@ -168,7 +169,7 @@ We use a webview for account sign-in. This allows us to prompt the user for addi
 }
 ```
 
-5. Override the WebView methods to handle authentication
+* Override the WebView methods to handle authentication
 
 We need to tell the webview the behavior we want when a user needs to login as discussed above. You can simply cut and paste the code below.
 
@@ -222,7 +223,7 @@ We need to tell the webview the behavior we want when a user needs to login as d
 }
 ```
 
-6. Write code to handle the result of the OAuth2 request
+* Write code to handle the result of the OAuth2 request
 
 We'll need code that will handle the redirectURL that comes back from the WebView. If it wasn't successful, we will try again. Meanwhile the library will provide the error that you can see in the console or handle asyncronously. 
 
@@ -243,7 +244,7 @@ We'll need code that will handle the redirectURL that comes back from the WebVie
 }
 ```
 
-7. Set up the OAuth Context (Called Account Store)
+* Set up the OAuth Context (Called Account Store)
 
 Here you can call `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` on the shared account store for each service you want to have access to from your application. The account type is a string which is used as an identifier for a certain service. Since we are accessing the Graph API, we'll go ahead and call it `"myGraphService"`. We then set up an observer that will tell us when anything changes with the token. Once we get the token we return the user back to the `masterView`.
 
@@ -301,7 +302,7 @@ A MVC app that displays the returned data in the grid is beyond the scope of thi
 
 We'll do those below.
 
-1. Add a check to see if we're logged in
+* Add a check to see if we're logged in
 
 The application does little if the user is not logged in, so it's smart to check if there is already a token in our cache. If not, we redirect to the LoginView for the user to sign-in. If you recall, the best way to do actions when a view loads is to use the `viewDidLoad()` method Apple provides us.
 
@@ -323,7 +324,7 @@ The application does little if the user is not logged in, so it's smart to check
         }
 ```
 
-2. Update the Table View when data is received
+* Update the Table View when data is received
 
 When we get data back from the Graph API we need to dispaly the data that is returned. For simplicity here is all the code to update the table. You can just paste the right values in your MVC boilerplate code.
 
@@ -360,7 +361,7 @@ When we get data back from the Graph API we need to dispaly the data that is ret
 
 ```
 
-3. Provide a way to call the Graph API when someone types in the search field
+* Provide a way to call the Graph API when someone types in the search field
 
 When someone types a search in the box we need to shove that over to the Graph API. To better separate the lookup functionality from the presentation we build another class called `GraphAPICaller` which we will build below. For now, let's go ahead and write the code to allow for feeding any search characters in to the Graph API. We do this by providing a method called `lookupInGraph` that takes the string we want to search for.
 
@@ -403,7 +404,7 @@ if (searchText.length > 0) {
 
 This is the meat of our application. Whereas the rest was inserting code in to the default MVC pattern from Apple, here we write code to query the graph as the user types and return that data. We will show the code and then explain it in detail.
 
-1. Create a new Objective C header file called `GraphAPICaller.h` with the following code:
+* Create a new Objective C header file called `GraphAPICaller.h` with the following code:
 
 ```
 @interface GraphAPICaller : NSObject<NSURLConnectionDataDelegate>
@@ -417,7 +418,7 @@ This is the meat of our application. Whereas the rest was inserting code in to t
 Here you see that we are specifying a method that takes a string and returns a completionBlock. This completionBlock, as you may have guessed, will udpate the table by provding an object with populated data in real-time as the user searches. 
 
 
-2. Create a new Objective C file called `GraphAPICaller.m` and add the following method:
+* Create a new Objective C file called `GraphAPICaller.m` and add the following method:
 
 ```
 
