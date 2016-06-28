@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using multiple input files and custom data with Premium Encoder" 
+	pageTitle="Using multiple input files and component properties with Premium Encoder" 
 	description="This topic explains how to use setRuntimeProperties to use multiple input files and pass custom data to the Media Encoder Premium Workflow media processor." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="06/28/2016"  
 	ms.author="xpouyat"/>
 
-#Using multiple input files and/or customize component properties with Premium Encoder
+#Using multiple input files and component properties with Premium Encoder
 
 ##Overview 
 
@@ -44,15 +44,17 @@ When sending multiple media files to the **Media Encoder Premium Workflow** enco
   - **transcodeSource** is used to specify the Clip List XML content
 - Connections in the workflow
   - if you use one or several Media File Input components and plan to use **setRuntimeProperties** to specify the file name, then do not connect the primary file component PIN to them. Please make sure there is no connection between the primary file object and the Media File Input(s).
-  - If you prefer to use Clip List XML and one Media Source component, then you can connect both together
+  - If you prefer to use Clip List XML and one Media Source component, then you can connect both together.
 
 ![No connection from primary file to Media File Input](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
 
 *No connection from primary file to Media File Input component(s) if you use setRuntimeProperties to set the filename*
 
+
 ![Connection from Clip List XML to Clip List Source](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
 *You can connect Clip List XML to Media Source and use transcodeSource*
+
 
 ##Configuration string syntax
 
@@ -81,7 +83,7 @@ The code in C# to read the XML configuration from a file and pass it to the task
 
 ##Customizing component properties  
 
-###Property with a single value
+###Property with a simple value
 In some cases, it is useful to customize a component property together with the workflow file that is going to be executed by Media Encoder Premium Workflow. Suppose you designed a workflow that overlays text on your videos and the text (for example, the current date) should be set at run-time. You can do this by sending the text to as the new value for the text property of the overlay component from the encoding task. You can use this mechanism to change other properties of a component in the workflow (such as change the position or color of the overlay, change the bitrate of the AVC encoder, etc.).
 
 Example :
@@ -110,12 +112,12 @@ To set a property that expects a XML value, please encapsulate using <![CDATA[ a
             <clip>
               <videoSource>
                 <mediaFile>
-                  <file>c:\temp\start.mxf</file>
+                  <file>start.mxf</file>
                 </mediaFile>
               </videoSource>
               <audioSource>
                 <mediaFile>
-                  <file>c:\temp\start.mxf</file>
+                  <file>start.mxf</file>
                 </mediaFile>
               </audioSource>
             </clip>
@@ -191,7 +193,7 @@ With additional frame accurate trimming:
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
         <setRuntimeProperties>
-          <property propertyPath="/primarySourceFile" value="c:\temp\start.mxf" />
+          <property propertyPath="/primarySourceFile" value="start.mxf" />
           <property propertyPath="/inactiveTimeout" value="65" />
           <property propertyPath="clipListXml" value="xxx">
           <extendedValue><![CDATA[<clipList>
@@ -202,7 +204,7 @@ With additional frame accurate trimming:
                   <outPoint fps="25">00:00:10:24</outPoint>
                 </trim>
                 <mediaFile>
-                  <file>c:\temp\start.mxf</file>
+                  <file>start.mxf</file>
                 </mediaFile>
               </videoSource>
               <audioSource>
@@ -211,7 +213,7 @@ With additional frame accurate trimming:
                   <outPoint fps="25">00:00:10:24</outPoint>
                 </trim>
                 <mediaFile>
-                  <file>c:\temp\start.mxf</file>
+                  <file>start.mxf</file>
                 </mediaFile>
               </audioSource>
             </clip>
@@ -233,7 +235,8 @@ Consider an example in which you want to overlay a logo image on the input video
 - Create a Workflow Asset with the workflow file (example below)
 - Create a Media Asset, which contains two files: MyInputVideo.mp4 as the primary file and MyLogo.png.
 - Send a Task to the Media Encoder Premium Workflow media processor with the above input assets and specify the following configuration string
-	
+
+
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
         <setRuntimeProperties>
@@ -259,7 +262,7 @@ To check the path and property name, you can open the .workflow file in a XML ed
 ![Key frame editor](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_vscode.png)
 
 	
-###Example 2 : step by step workflow creation that overlays a logo on top of the video     
+###Example 2 : a step by step workflow creation that overlays a logo on top of the video     
 
 Here are the steps to create a workflow that takes as input two files: a video and an image. It will overlay the image on top of the video.
 
@@ -275,6 +278,7 @@ The new workflow shows 3 elements:
 
 *New Encoding Workflow*
 
+
 In order to accept the input media file, start with adding a Media File Input component. To add a component to the workflow, look for it in the Repository search box and drag the desired entry onto the designer pane.
 
 Next, add the video file to be used for designing your workflow. To do so, click the background pane in Workflow Designer and look for the Primary Source File property on the right-hand property pane. Click the folder icon and select the appropriate video file.
@@ -283,11 +287,13 @@ Next, add the video file to be used for designing your workflow. To do so, click
 
 *Primary File Source*
 
+
 Next, specify the video file in the Media File Input component.   
 
 ![Media File Input Source](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
 
 *Media File Input Source*
+
 
 As soon as this is done, the Media File Input component will inspect the file and populate its output pins to reflect the file it inspected.
 
@@ -297,6 +303,7 @@ The next step is to add a "Video Data Type Updater" to specify the color space t
 
 *Video Data Type Updater and Format Converter*
 
+
 Next, add a Video Overlay component and connect the (uncompressed) video pin to the (uncompressed) video pin of the media file input.
 
 Add another Media File Input (to load the logo file), click on this component and rename it to "Media File Input Logo", select a image (png file for example) in the file property. Connect the Uncompressed image pin to the Uncompressed image pin of the overlay.
@@ -305,11 +312,13 @@ Add another Media File Input (to load the logo file), click on this component an
 
 *Overlay component and image file source*
 
+
 If you wish to modify the position of the logo on the video (for example, you may want to position it at 10% off of the top left corner of the video), uncheck "Manual Input". You can uncheck this option because you are using a Media File Input to provide the logo file to the overlay component. 
 
 ![Overlay position](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture14_overlay_position.png)
 
 *Overlay position*
+
 
 To encode the video stream to H.264, add the AVC Video Encoder and AAC encoder components to the designer surface. Connect the pins.
 Setup the AAC encoder and select: Audio Format Conversion/Preset : 2.0 (L, R) 
@@ -318,17 +327,20 @@ Setup the AAC encoder and select: Audio Format Conversion/Preset : 2.0 (L, R)
 
 *Audio and Video Encoders*
 
+
 Now add the **ISO Mpeg-4 Multiplexer** and  **File Output** components and connect the pins as shown.
 
 ![MP4 multiplexer and file output](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
 
 *MP4 multiplexer and file output*
 
+
 You need to set the  name for the output file. Click on the "File Output" component and edit the expression for file : ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
 ![File output name](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
 
 *File output name*
+
 
 You can run the workflow locally to check that it is running correctly.
 
@@ -347,6 +359,7 @@ This tutorial shows how to manage assets with AMSE. There are two ways add files
 
 *Asset files in AMSE*
 
+
 Select the asset and choose to encode it with Premium Encoder. Upload the workflow and select it.
 
 Click on the button to pass data to the processor, and add the following XML to set the runtime properties:
@@ -354,6 +367,7 @@ Click on the button to pass data to the processor, and add the following XML to 
 ![Premium Encoder in AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture19_amsepremium.png)
 
 *Premium Encoder in AMSE*
+
 
 Then, paste the following XML data. You need to specify the name of the video file for both the Media File Input and primarySourceFile. Specify the name of the file name for the logo too.
 
@@ -366,15 +380,15 @@ Then, paste the following XML data. You need to specify the name of the video fi
         </setRuntimeProperties>
       </transcodeRequest>
 
-If you use the .Net SDK to create and run the task, this XML data has to be passed as the configuration string.
-
-    public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
-  
 ![setRuntimeProperties](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture20_amsexmldata.png)
 
 *setRuntimeProperties*
 
 
+If you use the .Net SDK to create and run the task, this XML data has to be passed as the configuration string.
+
+    public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
+  
 Once the the job complete, the MP4 file in the output asset displays the overlay!
 
 ![Overlay on the video](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
