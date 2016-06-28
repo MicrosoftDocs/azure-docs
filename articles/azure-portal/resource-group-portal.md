@@ -23,13 +23,9 @@
 - [Portal](azure-portal/resource-group-portal.md) 
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.js](https://github.com/Azure/azure-sdk-node)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](ruby-azure-resource-manager.md)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Go](https://github.com/Azure/azure-sdk-for-go)
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
+- [Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](../resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 

@@ -23,13 +23,9 @@
 - [Portal](azure-portal/resource-group-portal.md) 
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-- [Java](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-java-resources-and-groups/)
-- [Node.js](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/)
-- [PHP](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-php-resources-and-groups/)
-- [Go](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-go-resources-and-groups/)
-- [.NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
 This article introduces common ways to create and manage Azure resources by using the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode.
