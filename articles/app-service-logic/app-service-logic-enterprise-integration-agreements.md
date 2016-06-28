@@ -45,7 +45,7 @@ Some of the common benefits of using agreements are:
 
 >[AZURE.NOTE]When creating an agreement, the content in the agreement file must match the agreement type.  
 
-## Create an agreement
+## Create an AS2 agreement
 After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an agreement by following these steps:  
 
 ### From the Azure portal home page
@@ -124,33 +124,29 @@ We are almost done!
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)  
 
 ## How to use an agreement?
-After creating an agreement, you can use it via the Azure portal or via PowerShell to create enterprise integration apps.
+After creating an agreement, you can use it via the Azure portal to create Logic apps with B2B features.
 
 ### From the Azure portal home page
 - Will give an overview and point to a sample doc that highlights many of the features of enterprise integration  
 - todo -- blocked since there isn't a way to link the integration account to logic apps from the portal
 
-### Example
-Here's an example that .... todo:
 
 ## How to edit an agreement?
 You can edit any agreement by following these steps:
 1. Select the Integration account that contains the agreement you wish to modify.  
 2. Select the **Agreements** tile  
 3. Select the agreement you wish to modify on the **Agreements** blade  
-4. Select **Edit** from the menu above.   
-5. On the Edit menu that opens, make you changes then select the **OK** button to save the changes.  
+4. Select **Edit** from the menu above   
+5. On the Edit menu that opens, make you changes then select the **OK** button to save the changes  
 
 ## How to delete an agreement?
-
-### From the Azure portal home page
-You can delete any agreement by following these steps:
-1. Select the Integration account that contains the agreement you wish to delete.  
-2. Select the **Agreements** tile  
-3. Select the agreement you wish to delete on the **Agreements** blade.  
-4. Select **Delete** from the menu above.  
-5. If you really want to delete the agreement, select **Yes** on the delete confirmation message box.  
-6. Select the Agreements tile and notice the deleted agreement is no longer there.   
+You can delete any agreement by following these steps from within the integration account that contains the agreement you wish to delete:   
+1. Select the **Agreements** tile  
+2. Select the agreement you wish to delete on the **Agreements** blade  
+3. Select **Delete** from the menu above  
+4. Confirm that you really want to delete the agreement  
+5. Notice that the agreement is no longer listed on the Agreements blade  
+ 
 
 ## Next steps
 - [Create an application using agreements]() todo:
