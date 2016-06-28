@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="06/28/2016"
 	ms.author="brandwe"/>
 
 # Add sign-in to an iOS app using a third party library with Graph API using the v2.0 endpoint
 
-The microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. This allows developers to leverage any library they wish to integrate with our services. To aid developers in using our platform with other libraries we've written a few walkthroughs like this one to demonstate how to configure third party libraries to connect to the microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) will be able to connect to the Microsoft Identity platform.
+The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. This allows developers to leverage any library they wish to integrate with our services. To aid developers in using our platform with other libraries we've written a few walkthroughs like this one to demonstate how to configure third party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) will be able to connect to the Microsoft Identity platform.
 
 This application will allow a user to sign-in to their organization and then search for others in their organization using the Graph API.
 
@@ -29,10 +29,6 @@ This application will allow a user to sign-in to their organization and then sea
 
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-	
-## Get security updates for our product
-
-We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
 
 ## Download
 The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
@@ -41,7 +37,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Sa
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
-The skeleton app includes all the boilerplate code for a simple API, but is missing all of the identity-related pieces. If you don't want to follow along, you can instead clone or [download the completed sample](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip).
+Or just download and get started right away: 
 
 ```
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
@@ -57,7 +53,7 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 
 ## Download the third party library nxoauth2 and launch a workspace
 
-For this walkthrough we will use the OAuth2Client from GitHub, an OAuth2 library for Mac OS X & iOS (Cocoa & Cocoa touch). This library is based on draft 10 of the OAuth2 spec. It implements the native application profile and supports the end-user authorization endpoint. These are all the things we'll need in order to integrat with The microsoft identity platform.
+For this walkthrough we will use the OAuth2Client from GitHub, an OAuth2 library for Mac OS X & iOS (Cocoa & Cocoa touch). This library is based on draft 10 of the OAuth2 spec. It implements the native application profile and supports the end-user authorization endpoint. These are all the things we'll need in order to integrat with The Microsoft identity platform.
 
 ### Adding the library to your project using CocoaPods
 
@@ -105,7 +101,6 @@ We will jump in to various files in the skeleton to add authentication. Other pa
 ## Set up the NXOAuth2Client library in your LoginViewController
 
 The NXOAuthClient library requires some values to get set up. Once that is complete you can use the token that is aquired to call the Graph API. Since we know that the `LoginView` will be called any time we need to authentication it makes sense that we put our conifugration values in to that file.
-
 1. Open `LoginViewController.m` file
 
 2. Let's add some values in the code that will set the context for our authentication and authorization. I'll explain these in detail below.
@@ -422,7 +417,7 @@ This is the meat of our application. Whereas the rest was inserting code in to t
 Here you see that we are specifying a method that takes a string and returns a completionBlock. This completionBlock, as you may have guessed, will udpate the table by provding an object with populated data in real-time as the user searches. 
 
 
-3. Create a new Objective C file called `GraphAPICaller.m` and add the following method:
+2. Create a new Objective C file called `GraphAPICaller.m` and add the following method:
 
 ```
 
@@ -583,3 +578,6 @@ Finally, let's look at how we return the data to the MasterViewController. The d
 
 If you've used the skeleton or followed along with the walkthrough your application should now run. Launch the simulator and click "sign-in" to use the application.
 
+## Get security updates for our product
+
+We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
