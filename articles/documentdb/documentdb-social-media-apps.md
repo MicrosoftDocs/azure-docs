@@ -159,7 +159,7 @@ And a Post would look like:
         "date":"2016-01-02",
         "createdBy":{
         	"id":"dse4-qwe2-ert4-aad2",
-		"username":"johndoe"
+    		"username":"johndoe"
         }
     }
 
