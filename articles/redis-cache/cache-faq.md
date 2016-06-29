@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="06/28/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -114,11 +114,11 @@ In most cases the default values of the client are sufficient. You can fine tune
 -	**Retries**
 	-	For ConnectRetry and ConnectTimeout the general guidance is to fail fast and retry again. This is based on your workload and how much time on average it takes for your client to issue a Redis command and receive a response.
 	-	Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
-	-	Snowballing - sometimes you may run into an issue where you are retrying and this snowballs and never recovers. In this case you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](https://github.com/mspnp/azure-guidance/blob/master/Retry-General.md) published by the Microsoft Patterns & Practices group.
+	-	Snowballing - sometimes you may run into an issue where you are retrying and this snowballs and never recovers. In this case you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](best-practices-retry-general.md) published by the Microsoft Patterns & Practices group.
 -	**Timeout values**
 	-	Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
 	-	Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
-	-	Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect).
+	-	Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 	-	Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
 	-	Use multiple `ConnectionMultiplexer` instances for custom workloads.
 	-	You can follow this model if you have varying load in your application. For example:
