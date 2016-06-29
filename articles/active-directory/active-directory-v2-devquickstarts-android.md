@@ -66,48 +66,48 @@ Start by cloning the OIDCAndroidLib repo down to your computer.
 git@github.com:kalemontes/OIDCAndroidLib.git
 ```
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/emotes-url.png)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/emotes-url.png)
 
 ### Set Up Your Android Studio Environment
 
 *  Create the project 
 Create a new AndroidStudio Project and follow the default wizzard.
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
 
 *  Set up your project modules
 I think that the easiest way to set the modules is by moving the cloned repo to the project location. You can also start by creating the project then cloning directly to the project location.
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4_1.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4_1.PNG)
 
 Next, open the project modules settings from the contextual menu or using the `Ctrl + Alt + Maj + S` shortcut.
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4.PNG)
 
 Remove the default app module as we only want the project container settings.
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 
 Now we need to import modules from the cloned repo to the current project
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 
 > Repeat these steps for the `oidlib-sample` mobule
 
 Check the oidclib dependencies on the `oidlib-sample` module
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
 
 Click "OK" and Wait for gradle sync
 
 Your settings.gradle should look like 
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8_1.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8_1.PNG)
 
 *  Build the sample app to make sure you have the sample running correctly.
 
@@ -115,18 +115,18 @@ You won't be able to use this with Azure Active Directory yet. We'll need to con
 
 Build and run `oidlib-sample` as the target in Android Studio
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample9.png)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample9.png)
 
 *  Clean Up
 
 You can safely delete the `app ` directory that was left when removing module from the project as AndroidStudio doesn't delete it for safety.
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample12.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample12.PNG)
 
 Also you can remove the run configuration that was also left when removing module from the project by opening the "Edit Configurations" menu.
 
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
-![androidStudio](/media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)
 
 ## Configure the endpoints of the sample
 
