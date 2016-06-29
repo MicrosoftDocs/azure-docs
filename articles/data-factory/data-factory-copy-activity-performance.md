@@ -228,7 +228,6 @@ Here is a sample definition of a Copy Activity with the above properties:
 	}
 	]
 
-> [AZURE.IMPORTANT] If you are copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine which will be used to transform your source data into proper format. Note that a 64-bit gateway requires 64-bit JRE and a 32-bit gateway requires 32-bit JRE. Download the appropriate version from  [Java Downloads location](http://go.microsoft.com/fwlink/?LinkId=808605).
 
 ### Billing impact
 Note you will be charged based on the two stages of copy duration and its copy type respectively, which means:

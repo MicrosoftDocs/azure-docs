@@ -31,7 +31,7 @@ This tutorial builds on the code shown in the [Get started with IoT Hub] tutoria
 Because IoT Hub exposes an [Event Hubs][lnk-event-hubs]-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance. This instance:
 
 * Reliably stores *data point* messages in Azure blob storage.
-* Forwards *interactive* device-to-cloud messages to an [Azure Service Bus queue] for immediate processing.
+* Forwards *interactive* device-to-cloud messages to an Azure [Service Bus queue] for immediate processing.
 
 Service Bus helps ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based de-duplication.
 
@@ -116,7 +116,7 @@ In order to use the [EventProcessorHost] class, you must have an Azure Storage a
 
 > [AZURE.NOTE] When you copy and paste the storage account connection string, make sure there are no spaces included.
 
-You also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically, with a one hour de-duplication window, as explained in [How to use Service Bus Queues][Service Bus Queue]. Alternatively, you can use the [Azure classic portal], by following these steps:
+You also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically, with a one hour de-duplication window, as explained in [How to use Service Bus Queues][Service Bus queue]. Alternatively, you can use the [Azure classic portal], by following these steps:
 
 1. Click **New** in the lower-left corner. Then click **App Services** > **Service Bus** > **Queue** > **Custom Create**. Enter the name **d2ctutorial**, select a  region, and use an existing namespace or create a new one. On the next page, select **Enable duplicate detection**, and set the **Duplicate detection history time window** to one hour. Then click the check mark in the lower-right corner to save your queue configuration.
 
@@ -425,7 +425,7 @@ Additional information on IoT Hub:
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus Queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
@@ -461,7 +461,6 @@ Additional information on IoT Hub:
 [Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://manage.windowsazure.com/
-[Service Bus Queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [Build multi-tier applications with Service Bus]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [Service Bus documentation]: https://azure.microsoft.com/documentation/services/service-bus/
 
