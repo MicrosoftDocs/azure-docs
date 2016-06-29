@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2016"
+	ms.date="06/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -123,9 +123,9 @@ Your Kronos application expects the SAML assertions in a specific format. Please
 	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_04.png) 
 
 
-    a. In the IDENTIFIER textbox, type the URL used by your users to sign-on to your Kronos application using the following pattern: **“https://\<companyname\>.kronos.net/”**.
+    a. In the IDENTIFIER textbox, type the URL used by your users to sign-on to your Kronos application using the following pattern: `https://<company name>.kronos.net/`
 
-	b. In the Reply URL type the URL in the following pattern: **"https://\<companyname\>.kronos.net/wfc/navigator/logonWithUID"**
+	b. In the Reply URL type the URL in the following pattern: `https://<company name>.kronos.net/wfc/navigator/logonWithUID`
 
 
 4. On the **Configure single sign-on at Kronos** page, perform the following steps:
@@ -151,9 +151,8 @@ Your Kronos application expects the SAML assertions in a specific format. Please
 
 ### Creating an Azure AD test user
 In this section, you create a test user in the classic portal called Britta Simon.
-In the Users list, select **Britta Simon**.
 
-	![Create Azure AD User][20]
+![Create Azure AD User][20]
 
 **To create a test user in Azure AD, perform the following steps:**
 
@@ -221,7 +220,7 @@ In this section, you create a user called Britta Simon in Kronos. Kronos applica
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Kronos.
 
-	![Assign User][200] 
+![Assign User][200] 
 
 **To assign Britta Simon to Kronos, perform the following steps:**
 
