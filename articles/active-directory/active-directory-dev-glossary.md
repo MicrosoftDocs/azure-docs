@@ -107,12 +107,12 @@ Sometimes referred to as an "active client", which is a client that generates/re
 ### permissions
 A [client application](#client-application) gains access to a [resource server](#resource-server) by declaring permission requests. Two types are available: 
 
-- "Delegated" permissions, which request [scope-based](#scopes) access control under delegated authorization from the signed-in [resource owner](#resource-owner), and manifest at run-time as ["scp" claims](#claim) in the client's [access token](#access-token).
-- "Application" permissions, which request [role-based ](#roles) access control under the client application's credentials/identity, and manifest at run-time as ["roles" claims](#claim) in the client's [access token](#access-token). 
+- "Delegated" permissions, which request [scope-based](#scopes) access under delegated authorization from the signed-in [resource owner](#resource-owner), and manifest at run-time as ["scp" claims](#claim) in the client's [access token](#access-token).
+- "Application" permissions, which request [role-based ](#roles) access under the client application's credentials/identity, and manifest at run-time as ["roles" claims](#claim) in the client's [access token](#access-token). 
 
-They also surface during the [consent](#consent) process for a [multi-tenant application](#multi-tenant-application), giving the administrator or [resource owner](#resource-owner) the opportunity to grant/deny access.
+They also surface during the [consent](#consent) process for a [multi-tenant application](#multi-tenant-application), giving the administrator or resource owner the opportunity to grant/deny access.
 
-Permission requests are configured on the "Applications" / "Configure" tab in the [Azure classic portal][AZURE-classic-portal], under "Permissions to other applications", by selecting the desired "Delegated Permissions" and "Application Permissions". Because a [public client](#client-application) can't maintain credentials, it can only request delegated permissions. While a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in it's [requiredResourceAccess property][AAD-Graph-App-Entity].
+Permission requests are configured on the "Applications" / "Configure" tab in the [Azure classic portal][AZURE-classic-portal], under "Permissions to other applications", by selecting the desired "Delegated Permissions" and "Application Permissions" (the latter requires Global Admin). Because a [public client](#client-application) can't maintain credentials, it can only request delegated permissions, while a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in it's [requiredResourceAccess property][AAD-Graph-App-Entity].
 
 ### resource owner
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.
@@ -127,16 +127,16 @@ Just like a client application, resource application's identity configuration is
 ### roles
 Like [scopes](#scopes), roles provide a way for a [resource server](#resource-server) to govern access to its protected resources. There are two types: a "user" role implements role-based access control for users/groups that require access to the application, while an "application" role implements the same for [client applications](#client-application). 
 
-Roles are resource-defined strings, managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][AAD-Graph-Sp-Entity]. A client application requests [permission](#permissions) to access an "application" role, which is presented to the resource at run-time in the ["roles" claim](#claim) of the client's [access token](#access-token). Azure AD administrators can assign users to "user" roles via the [Azure classic portal][AZURE-classic-portal].
+Roles are resource-defined strings (ie: "Expense approver" or "Read-only"), managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][AAD-Graph-Sp-Entity]. A client application requests [permission](#permissions) to access an "application" role, which is presented to the resource at run-time in the ["roles" claim](#claim) of the client's [access token](#access-token). Azure AD administrators can assign users to "user" roles via the [Azure classic portal][AZURE-classic-portal].
 
-For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. 
+For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. For a step-by-step implementation example, see [Roles based access control in cloud applications using Azure AD ][Duyshant-Role-Blog]. 
 
 ### scopes
-Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope-based access](#OAuth2-Access-Token-Scopes) control, for a [client application](#client-application) that has been given delegated access to the resource by its owner. 
+Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope-based][OAuth2-Access-Token-Scopes] access control, for a [client application](#client-application) that has been given delegated access to the resource by its owner. 
 
-Scopes are resource-defined strings, managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity]. A client application requests [permission](#permissions) to access, which is presented to the resource at run-time in the ["scp" claim](#claim) of the client's [access token](#access-token).
+Scopes are resource-defined strings (ie: "Mail.Read" or "Directory.ReadWrite.All"), managed in the [Azure classic portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity]. A client application requests [permission](#permissions) to access, which is presented to the resource at run-time in the ["scp" claim](#claim) of the client's [access token](#access-token).
 
-For a detailed discussion of the scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. 
+A best practice naming convention, is to use a "resource.operation.constraint" format. For a detailed discussion of the scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. For scopes exposed by Office 365 services, see [Office 365 API permissions reference][O365-Perm-Ref]. 
 
 ### security token
 A generic term for a token used in a security context. In the case of an OAuth 2.0 [authorization grant](#authorization-grant), an [access token](#access-token) (OAuth2) and an [ID Token](OpenID Connect) are a type of security token, both of which are implemented as a [JSON Web Token (JWT)][JWT].
@@ -193,7 +193,9 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-classic-portal]: https://manage.windowsazure.com
+[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
