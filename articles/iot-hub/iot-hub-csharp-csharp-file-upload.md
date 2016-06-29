@@ -39,7 +39,9 @@ In order to complete this tutorial you need the following:
 
 ## Associate an Azure Storage account to IoT Hub
 
-Because the simulated device uploads a file in an Azure Storage blob, you must have an Azure Storage account associated to IoT Hub. You can use an existing storage account, or follow the instructions in [About Azure Storage] to create a new one. You can associate an Azure Storage account to IoT Hub by following the instructions in [Manage IoT hubs through the Azure portal].
+Because the simulated device uploads a file to an Azure Storage blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate a storage account with an IoT hub, the hub can generate a SAS URI that a device can use to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
+
+Follow the instructions in [Manage IoT hubs through the Azure portal] to associate an Azure Storage account to your IoT hub.
 
 ## Upload a file from a simulated device
 
@@ -189,8 +191,8 @@ Additional information on IoT Hub:
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Manage IoT hubs through the Azure portal]: iot-hub-manage-through-portal/#file-upload
+[Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Manage IoT hubs through the Azure portal]: iot-hub-manage-through-portal.md#file-upload
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 

@@ -1,10 +1,10 @@
 ﻿<properties
-   pageTitle="What is Microsoft Power BI Embedded"
+   pageTitle="What is Microsoft Power BI Embedded?"
    description="Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
-   manager="NA"
+   authors="minewiskan"
+   manager="mblythe"
    editor=""
    tags=""/>
 <tags
@@ -13,17 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/01/2016"
-   ms.author="jocaplan"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
+# What's Microsoft Power BI Embedded?
 
-# What is Microsoft Power BI Embedded
-
-**Microsoft Power BI Embedded** enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users.
+With **Power BI Embedded**, you can integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users.
 
 ![](media\powerbi-embedded-whats-is\what-is.png)
 
-**Microsoft Power BI Embedded** is an Azure service that enables Independent Software Vendors (ISVs) to surface Power BI data experiences within their applications. As an ISV you have built applications. These applications have their own users and distinct set of features. These apps may also happen to have some built-in data elements like charts and reports that can now be powered by **Microsoft Power BI Embedded**. Users of the application do not need a Power BI account to use your app. They can continue to sign into your application as they had before, and view and interact with the Power BI reporting and tile experience without requiring any additional licensing.
+**Power BI Embedded** is an Azure service that enables Independent Software Vendors (ISVs) to surface Power BI data experiences within their applications. As an ISV you have built applications. These applications have their own users and distinct set of features. These apps may also happen to have some built-in data elements like charts and reports that can now be powered by **Microsoft Power BI Embedded**. Users of the application do not need a Power BI account to use your app. They can continue to sign into your application as they had before, and view and interact with the Power BI reporting and tile experience without requiring any additional licensing.
 
 ## Licensing for Microsoft Power BI Embedded
 
