@@ -18,12 +18,6 @@
 
 # Recover an Azure SQL database using automated database backups
 
-> [AZURE.SELECTOR]
-- [Business continuity](sql-database-business-continuity.md)
-- [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
-- [Database recovery](sql-database-recovery-using-backups.md)
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
-
 SQL Database provides three options for database recovery using [SQL Database automated backups](sql-database-automated-backups.md). You can restore a database from the service-initiated backups during their [retention period](sql-database-service-tiers.md) to:
 
 - A new database on the same logical server recovered to a specified point in time within the retention period. 
