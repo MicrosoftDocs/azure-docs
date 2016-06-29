@@ -19,7 +19,7 @@
 # Configure a VPN connection between two Azure virtual networks  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
 - [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
 
@@ -260,12 +260,12 @@ In this tutorial you have learned how to configure a VPN connection between two 
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com
 
-[powershell-install]: ../install-configure-powershell
+[powershell-install]: ../install-configure-powershell.md
 
 
 
-[hdinsight-hbase-replication]: ../hdinsight-hbase-geo-replication.md
-[hdinsight-hbase-dns]: ../hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-replication]: hdinsight-hbase-geo-replication.md
+[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
 
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
