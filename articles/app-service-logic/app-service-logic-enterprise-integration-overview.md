@@ -49,7 +49,8 @@ For pricing information and a list of what is included with each service tier, s
 
 ## Here's what you need to get started now
 - An Azure subscription with an integration account
-- Visual Studio - to create maps & schemas  
+- Visual Studio - to create maps & schemas
+- [MICROSOFT AZURE LOGIC APPS ENTERPRISE INTEGRATION TOOLS FOR VISUAL STUDIO 2015 2.0](https://aka.ms/vsmapsandschemas)  
 
 ## Learn more about:
 - [Schemas](./app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
@@ -57,7 +58,7 @@ For pricing information and a list of what is included with each service tier, s
 - [Certificates](./app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
 - [Partners](./app-service-logic-enterprise-integration-partners.md "Learn about enterprise integration partners")
 - [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
-- [Integration accounts](./app-service-logic-enterprise-integration-accounts.md "Learn about enterprise integration accounts")
+- [Integration accounts](./app-service-logic-enterprise-integration-accounts.md "Learn about integration accounts")
 
 
 
