@@ -17,7 +17,7 @@
 	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
-# List of managed connectors
+# List of connectors
 
 >[AZURE.NOTE] This version of the article applies to Logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Connectors List](../app-service-logic/app-service-logic-connectors-list.md). 
 
@@ -25,9 +25,11 @@ For pricing information and a list of what is included with each Service Tier, s
 
 > [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 
+## Standard connectors
+
 Select an icon to learn how to quickly leverage these connectors to build  apps that call these services. These connectors can be used to build Logic apps, PowerApps and Flows.
 
-|Connectors||||
+|Standard connectors||||
 |-----------|-----------|-----------|-----------|
 |[![API Icon][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API Icon][boxicon]<br/>**Box**][boxDoc]|[![API Icon][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![API Icon][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![API Icon][facebookicon]<br/>**Facebook**][facebookdoc]|[![API Icon][ftpicon]<br/>**FTP**][ftpdoc]|[![API Icon][githubicon]<br/>**GitHub**][githubdoc]|[![API Icon][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
@@ -39,6 +41,12 @@ Select an icon to learn how to quickly leverage these connectors to build  apps 
 |[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 > [AZURE.NOTE] If you've been creating Logic apps using the 2014-12-01-preview schema, you'll notice that the enterprise integration connectors such as those for BizTalk aren't listed above. We know these are important and we are working hard to get them to you soon. While we don't have an exact availability date to share, be aware that getting these to you is one of our top priorities. In the meantime, you can access your [v1 APIs and BizTalk APIs from Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Thanks for your understanding. Stay tuned.
+
+## Enterprise Integration connectors
+|Enterprise connectors||||
+|-----------|-----------|-----------|-----------|
+|[![API Icon][as2icon]<br/>**AS2**][as2doc]|[![API Icon][x12icon]<br/>**X12**][boxDoc]|[![API Icon][flatfileicon]<br/>**Flat file**][crmonlinedoc]|[![API Icon][xmlvalidateicon]<br/>**XML Validate**][dropboxdoc]|
+|[![API Icon][xmltransformicon]<br/>**XML Transform**][azureblobdoc]||||
 
 
 ### Connectors can be triggers
@@ -94,6 +102,11 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [twitterdoc]: ./connectors-create-api-twitter.md "Connects to Twitter and get timelines, post tweets, and more."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Keep your life in sync."
 [yammerdoc]: ./connectors-create-api-yammer.md "Connects to Yammer to post messages and get new messages."
+[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Learn about enterprise integration AS2."
+[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Learn about enterprise integration X12"
+[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Learn about enterprise integration XML validation."
+[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration transforms."
 
 <!--Icon references-->
 [blobicon]: ./media/apis-list/blobicon.png
@@ -127,3 +140,8 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
+[as2icon]: ./media/apis-list/blobicon.png
+[x12icon]: ./media/apis-list/blobicon.png
+[flatfileicon]: ./media/apis-list/blobicon.png
+[xmlvalidateicon]: ./media/apis-list/blobicon.png
+[xmltransformicon]: ./media/apis-list/blobicon.png
