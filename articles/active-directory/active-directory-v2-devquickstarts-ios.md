@@ -106,7 +106,7 @@ The NXOAuthClient library requires some values to get set up. Once that is compl
 
 * Let's add some values in the code that will set the context for our authentication and authorization. I'll explain these in detail below.
 
-```
+```objc
 NSString *scopes = @"offline_access User.ReadBasic.All";
 NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 NSString *loginURL = @"https://login.microsoftonline.com/common/login";
@@ -138,7 +138,7 @@ Inside of `(void)viewDidLoad()`, which is always called once the view is loaded,
 
 Add the following code:
 
-```
+```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.loginView.delegate = self;
@@ -156,7 +156,7 @@ Add the following code:
 
 We use a webview for account sign-in. This allows us to prompt the user for additional factors like SMS text message (if configured) or give error messages back to the user. Here we'll set up the webview and then later write the code to handle the callbacks that will happen in the WebView from the Microsoft Identity Service.
 
-```
+```objc
 -(void)requestOAuth2Access {
     //in order to login to Mircosoft APIs using OAuth2 we must show an embedded browser (UIWebView)
     [[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:@"myGraphService"
@@ -173,7 +173,7 @@ We use a webview for account sign-in. This allows us to prompt the user for addi
 
 We need to tell the webview the behavior we want when a user needs to login as discussed above. You can simply cut and paste the code below.
 
-```
+```objc
 - (void)resolveUsingUIWebView:(NSURL *)URL {
     
     // We get the auth token from a redirect so we need to handle that in the webview.
@@ -227,7 +227,7 @@ We need to tell the webview the behavior we want when a user needs to login as d
 
 We'll need code that will handle the redirectURL that comes back from the WebView. If it wasn't successful, we will try again. Meanwhile the library will provide the error that you can see in the console or handle asyncronously. 
 
-```
+```objc
 - (void)handleOAuth2AccessResult:(NSString *)accessResult {
     
     AppData* data = [AppData getInstance];
@@ -250,7 +250,7 @@ Here you can call `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:to
 
 
 
-```
+```objc
 - (void)setupOAuth2AccountStore {
     
 
@@ -306,7 +306,7 @@ We'll do those below.
 
 The application does little if the user is not logged in, so it's smart to check if there is already a token in our cache. If not, we redirect to the LoginView for the user to sign-in. If you recall, the best way to do actions when a view loads is to use the `viewDidLoad()` method Apple provides us.
 
-```
+```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -328,7 +328,7 @@ The application does little if the user is not logged in, so it's smart to check
 
 When we get data back from the Graph API we need to dispaly the data that is returned. For simplicity here is all the code to update the table. You can just paste the right values in your MVC boilerplate code.
 
-```
+```objc
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -365,7 +365,7 @@ When we get data back from the Graph API we need to dispaly the data that is ret
 
 When someone types a search in the box we need to shove that over to the Graph API. To better separate the lookup functionality from the presentation we build another class called `GraphAPICaller` which we will build below. For now, let's go ahead and write the code to allow for feeding any search characters in to the Graph API. We do this by providing a method called `lookupInGraph` that takes the string we want to search for.
 
-```
+```objc
 
 -(void)lookupInGraph:(NSString *)searchText {
 if (searchText.length > 0) {
@@ -406,7 +406,7 @@ This is the meat of our application. Whereas the rest was inserting code in to t
 
 * Create a new Objective C header file called `GraphAPICaller.h` with the following code:
 
-```
+```objc
 @interface GraphAPICaller : NSObject<NSURLConnectionDataDelegate>
 
 +(void) searchUserList:(NSString*)searchString
@@ -420,9 +420,7 @@ Here you see that we are specifying a method that takes a string and returns a c
 
 * Create a new Objective C file called `GraphAPICaller.m` and add the following method:
 
-```
-
-
+```objc
 +(void) searchUserList:(NSString*)searchString
        completionBlock:(void (^) (NSMutableArray* Users, NSError* error)) completionBlock
 {
@@ -496,20 +494,20 @@ The meat of this code is in the `NXOAuth2Request` method which takes the paramte
 Our first step is to construct the right Graph API call. Since we are calling `/users` we specify that by appending it to our Graph API resource along with the version. It makes sense to put these in an external settings life since these can change as the API evolves.
 
 
-```
+```objc
 NSString *graphURL = [NSString stringWithFormat:@"%@%@/users", data.graphApiUrlString, data.apiversion];
 ```
 
 Next, we need to specify parameters that we will also provide to the Graph API call. It is *very important* that you do not put the parameters in the resource endpoint as that is scrubbed for any non-URI conforming characters at runtime. All query code must be provided in the parameters.
 
-```
+```objc
 
 NSDictionary* params = [self convertParamsToDictionary:searchString];
 ```
 
 You might notice this calls a method `convertParamsToDictionary` we haven't written yet. Let's do so now at the end of the file:
 
-```
+```objc
 +(NSDictionary*) convertParamsToDictionary:(NSString*)searchString
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
@@ -526,7 +524,7 @@ You might notice this calls a method `convertParamsToDictionary` we haven't writ
 ```
 Next, let's use the `NXOAuth2Request` method to get data back from the API in JSON format.
 
-```
+```objc
 NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
     [NXOAuth2Request performMethod:@"GET"
                         onResource:[NSURL URLWithString:graphURL]
@@ -548,7 +546,7 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
 
 Finally, let's look at how we return the data to the MasterViewController. The data comes back to us as serialzied and needs to be deserialized and loaded in to an object that the MainViewController can consume. For this purpose the Skeleton has a `User.m/h` file that creates a User object. We popuate that user object with information from the graph.
 
-```
+```objc
                            // We can grab the top most JSON node to get our graph data.
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
                            
