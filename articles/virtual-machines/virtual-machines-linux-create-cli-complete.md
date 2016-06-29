@@ -17,9 +17,9 @@
    ms.date="06/10/2016"
    ms.author="iainfou"/>
 
-# Create a complete Linux environment using the Azure CLI
+# Create a complete Linux environment by using the Azure CLI
 
-Let's build a simple network with a load balancer and a pair of VMs useful to development and simple compute. You'll walk through the entire environment imperatively, command by command, until you have working, secure Linux VMs to which you can connect from anywhere on the internet. Then you'll be able to move on to more complex networks and environment.
+Let's build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. You'll walk through the entire environment command by command, until you have working, secure Linux VMs to which you can connect from anywhere on the internet. Then you can move on to more complex networks and environments.
 
 Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your environment fit together, creating templates to automate them becomes easier.
 
@@ -945,7 +945,7 @@ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name T
 
 Output
 
-```bash 
+```bash
 info:    Executing command network nic create
 + Looking up the subnet "FrontEnd"
 + Looking up the network interface "LB-NIC1"
@@ -1252,7 +1252,7 @@ Now that you have built out this environment, what if you want to create an addi
 azure group export TestRG
 ```
 
-This creates the `TestRG.json` file in your current working directory. When you then create a new environment from this template, you will prompted for all of the resource names such as for the load balancer, network interfaces, VMs, etc. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown above, editing your JSON template to specify the resource names, or by [creating a parameters.json file](../resource-group-authoring-templates.md#parameters) that just specifies the resource names. 
+This creates the `TestRG.json` file in your current working directory. When you then create a new environment from this template, you will prompted for all of the resource names such as for the load balancer, network interfaces, VMs, etc. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown above, editing your JSON template to specify the resource names, or by [creating a parameters.json file](../resource-group-authoring-templates.md#parameters) that just specifies the resource names.
 
 To create a new environment from your template:
 
