@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 # What is Azure Machine Learning Studio?
@@ -47,6 +47,7 @@ There are three tabs across the top: **Home** (where you start), **Studio**, and
 
 Click the **Studio** tab and you'll be asked to sign in using your Microsoft account, or your work or school account. Once signed in, you'll see the following tabs on the left:
 
+- **PROJECTS** - Collections of experiments, datasets, notebooks, and other resources representing a single project
 - **EXPERIMENTS** - Experiments that have been created, run, and saved as drafts
 - **WEB SERVICES** - Web services that you have deployed from your experiments
 - **NOTEBOOKS** - Jupyter notebooks that you have created

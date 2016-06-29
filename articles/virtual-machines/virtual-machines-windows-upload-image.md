@@ -30,7 +30,7 @@ This article assumes that you have:
 
 - **An Azure subscription** - If you don't already have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) and [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-- **Azure PowerShell version 1.0 or above** - If you don't already have it installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+- **Azure PowerShell version 1.4 or above** - If you don't already have it installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 - **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). To know which Windows operating systems are supported by Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
@@ -109,7 +109,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 ### To create or find an Azure storage account by using PowerShell
 
-1. Open Azure PowerShell 1.0.x and sign in to your Azure account.
+1. Open Azure PowerShell and sign in to your Azure account.
 
 		Login-AzureRmAccount
 
@@ -143,7 +143,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 	3. Create a new storage account in this resource group by using:
 
-			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -Type "Standard_GRS"
+			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -SkuName "Standard_GRS" -Kind "Storage"
 
 
 </br>

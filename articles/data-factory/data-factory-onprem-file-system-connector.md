@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/29/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from On-premises file system using Azure Data Factory
 
-This article outlines how you can use data factory copy activity to move data to and from on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use data factory copy activity to move data to and from on-premises file system.  See [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores) for a list of data stores that can be used as sources or sinks with the on-premises file system.  This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory supports connecting to and from on-premises File System via the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
 
@@ -536,7 +536,7 @@ The **FileSystemSink** supports the following properties:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name.  | No |
+| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name.<br/><br/>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name.  | No |
 
 ### recursive and copyBehavior examples
 This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 

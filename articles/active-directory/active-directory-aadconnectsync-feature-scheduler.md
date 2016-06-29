@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/20/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Scheduler
@@ -37,6 +37,8 @@ The scheduler itself is always running, but it can be configured to only run one
 To see your current configuration settings, go to PowerShell and run `Get-ADSyncScheduler`. It will show you something like this:
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+
+If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
 
 - **AllowedSyncCycleInterval**. The most frequently Azure AD will allow synchronizations to occur. You cannot synchronize more frequently than this and still be supported.
 - **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It will have the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you change CustomizedSyncCycleInterval, this will take effect after next synchronization cycle.

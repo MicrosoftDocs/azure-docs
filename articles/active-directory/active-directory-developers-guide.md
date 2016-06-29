@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/02/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 
@@ -40,15 +40,15 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 
 ### Mobile and PC application quick-start guides
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:
-|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows Store](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)|[![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)|[![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md)
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Universal](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)|[Integrate directly with OAuth 2.0](active-directory-protocols-oauth-code.md)|
 
 ### Web application quick-start guides
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
-|:--:|:--:|:--:|:--:|
-|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md)
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[AngularJS](active-directory-devquickstarts-angular.md)|[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)|[Integrate directly with OpenID Connect](active-directory-protocols-openid-connect-code.md)|
 
 ### Web API quick-start guides
 
@@ -72,6 +72,7 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 - [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - Learn how to enable cross-app SSO using ADAL, on [Android](active-directory-sso-android.md) and on [iOS](active-directory-sso-ios.md) devices
+- [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](active-directory-branding-guidelines.md)
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
 - [Preview: How to build apps that sign up & sign in consumers](../active-directory-b2c/active-directory-b2c-overview.md)
 
@@ -97,17 +98,15 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [Graph API permission scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0 permission scopes that are used to control the access that an app has to directory data in a tenant.
 
-### Authentication protocols
+### Authentication and authorization protocols
 
-- [Azure Active Directory authentication protocols](active-directory-protocols.md): Learn about the different authentication and authorization protocols supported by Azure Active Directory.
+- [Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md): Learn about Azure AD’s signing key rollover cadence and how to update the key for the most common application scenarios.
+
+- [OAuth 2.0 protocol: Understanding the implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) : Learn more about the implicit authorization grant, and whether it's right for your application.
 
 - [SAML 2.0 protocol reference](active-directory-saml-protocol-reference.md): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
 
-- [OAuth 2.0 protocol reference](active-directory-protocols-oauth-code.md): You can use the OAuth 2.0 protocol to authorize access to web applications and web APIs in your Azure Active Directory tenant.
-
-- [OpenID Connect 1.0 protocol reference](active-directory-protocols-openid-connect-code.md): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol.
-
-- [WS-Federation 1.2 protocol](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory supports WS-Federation 1.2 as per the Web Services Federation Version 1.2 Specification.
+- [WS-Federation 1.2 protocol](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory supports WS-Federation 1.2 as per the Web Services Federation Version 1.2 Specification. For more information about the federation metadata document, please see [Federation Metadata](active-directory-federation-metadata.md).
 
 - [Supported token and claim types](active-directory-token-and-claims.md): You can use this guide to understand and evaluate the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
 

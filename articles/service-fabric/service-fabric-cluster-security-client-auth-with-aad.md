@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2016"
+   ms.date="06/13/2016"
    ms.author="seanmck"/>
 
-# PREVIEW: Create a Service Fabric cluster using Azure Active Directory for client authentication
+# Create a Service Fabric cluster using Azure Active Directory for client authentication
 
 You can secure access to the management endpoints of a Service Fabric cluster using Azure Active Directory (AAD). This article covers how to create the necessary AAD artifacts, how to populate them during cluster creation, and how to connect to those clusters afterwards.
-
->[AZURE.IMPORTANT] AAD integration with Service Fabric clusters is currently in preview. Everything described in this article is available in the Service Fabric 5.0 runtime but we recommend that you do not use it for production clusters at this time.
 
 ## Model a Service Fabric cluster in AAD
 

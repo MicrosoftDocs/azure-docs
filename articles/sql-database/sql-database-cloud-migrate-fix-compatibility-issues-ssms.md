@@ -31,13 +31,13 @@ Use SQL Server Management Studio to fix compatibility issues using various Trans
 
 
 
-## Next Steps
+## Next steps
 
 - [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## Learn More
+## Additional resources
 
 - [SQL Database V12](sql-database-v12-whats-new.md)
 - [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)

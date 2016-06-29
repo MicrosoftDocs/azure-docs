@@ -311,6 +311,7 @@ You must now add code that implements the behavior defined in the model. You wil
     ```
     
     For reference, here is a sample **DeviceInfo** message sent to IoT Hub at start up:
+
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -329,11 +330,13 @@ You must now add code that implements the behavior defined in the model. You wil
     ```
     
     For reference, here is a sample **Telemetry** message sent to IoT Hub:
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
     For reference, here is a sample **Command** received from IoT Hub:
+    
     ```
     {
       "Name":"SetHumidity",

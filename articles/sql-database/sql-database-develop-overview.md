@@ -36,7 +36,7 @@ Azure SQL Database provides resources for limiting access, protecting data, and 
 * More Information: [Securing your SQL Database](sql-database-security.md)
 
 ## Authentication
-* Windows authentication which is not available in Azure SQL Database, you will need to use SQL Database authentication instead.
+* Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.
 * You will need to specify a particular database, instead of defaulting to the *master* database.
 * You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database to switch to another database.
 * More information: [SQL Database security: Manage database access and login security](sql-database-manage-logins.md)
@@ -59,5 +59,11 @@ When a transient error occurs while connecting to SQL Database, your code should
 ## Data Sharding with Elastic Scale
 Elastic Scale simplifies the process of scaling out (and in). 
 
+[Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database]
+* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 * [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
+
+## Next steps
+
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
-# Get started with delivering content on demand using the Azure Portal (preview)
+# Get started with delivering content on demand using the Azure Portal
 
 This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure Portal.
 

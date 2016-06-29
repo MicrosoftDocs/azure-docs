@@ -112,7 +112,7 @@ After you connect to your logical server, you can connect to a database and run 
 
 	![Success. Connect to SQL Database server: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
-## Next Steps
+## Next steps
 
 [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md) 
 

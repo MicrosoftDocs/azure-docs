@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -130,6 +130,10 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
 
 	You can also create your own artifact bly clicking on the **+** icon, highlighted in the image above.
 
+4. In the **Project Structure** dialog box, click **Project**. If the **Project SDK** is set to 1.8, make sure the **Project language level** is set to **7 - Diamonds, ARM, multi-catch, etc**.
+
+	![Set project language level](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/set-project-language-level.png)
+
 4. Add libraries to your project. To add a library, right-click the project name in the project tree, and then click **Open Module Settings**. In the **Project Structure** dialog box, from the left pane, click **Libraries**, click the (+) symbol, and then click **From Maven**. 
 
 	![Add library](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png) 
@@ -203,7 +207,7 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
 		  }
 		}
 
-10. Repeat steps 7 and 8 above to add a new Scala object called `SparkSample`. To this class add the following code. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the seventh column in the CSV, and writes the output to **/HVACOut** under the default storage container for the cluster.
+10. Repeat steps 8 and 9 above to add a new Scala object called `SparkSample`. To this class add the following code. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the seventh column in the CSV, and writes the output to **/HVACOut** under the default storage container for the cluster.
 
 		import org.apache.spark.SparkContext
 	
@@ -223,7 +227,7 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
 		
 		}
 
-11. Repeat steps 7 and 8 above to add a new class called `RemoteClusterDebugging`. This class implements the Spark test framework that is used for debugging applications. Add the following code to the `RemoteClusterDebugging` class.
+11. Repeat steps 8 and 9 above to add a new class called `RemoteClusterDebugging`. This class implements the Spark test framework that is used for debugging applications. Add the following code to the `RemoteClusterDebugging` class.
 
 		import org.apache.spark.{SparkConf, SparkContext}
 		import org.scalatest.FunSuite
