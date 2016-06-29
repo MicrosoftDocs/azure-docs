@@ -48,7 +48,7 @@ The impact on client applications varies depending on the node(s) that you reboo
 -	**Master** - When the master node is rebooted, Azure Redis Cache fails over to the replica node and promotes it to master. During this failover there may be a short interval in which connections may fail to the cache.
 -	**Slave** - When the slave node is rebooted, there is typically no impact to cache clients.
 -	**Both master and slave** - When both cache nodes are rebooted, all data is lost in the cache and connections to the cache fail until the primary node comes back online.
--	**Node(s) of a premium cache with clustering enabled** - When you reboot the node(s) of a premium cache with clustering enabled, the behavior is the same as when you reboot node(s) of a non-clustered cache, except that the impact is limited to the specific shard of the cache.
+-	**Node(s) of a premium cache with clustering enabled** - When you reboot the node(s) of a premium cache with clustering enabled, the behavior is the same as when you reboot node(s) of a non-clustered cache.
 
 
 >[AZURE.IMPORTANT] Reboot is only available for Premium tier caches.
