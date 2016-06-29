@@ -98,7 +98,7 @@ In the example above, one VM has a critical recommendation regarding antimalware
 This blade has the security details for the VM. At the bottom of this blade you can see the recommended action and the severity of each issue.
 
 #### Cloud services (Preview) section
-Health status for [Cloud Services](../cloud-services/cloud-service-how-to-configure.md) is included in the virtual machines security health tile. A recommendation is created when the OS version is out of date as shown below: 
+Health status for [Cloud Services](./cloud-services/cloud-service-how-to-configure.md) is included in the virtual machines security health tile. A recommendation is created when the OS version is out of date as shown below: 
 
 ![Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
 
