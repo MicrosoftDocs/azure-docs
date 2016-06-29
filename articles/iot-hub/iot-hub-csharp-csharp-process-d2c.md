@@ -461,7 +461,6 @@ Additional information on IoT Hub:
 [Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://manage.windowsazure.com/
-[Service Bus Queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [Build multi-tier applications with Service Bus]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [Service Bus documentation]: https://azure.microsoft.com/documentation/services/service-bus/
 
