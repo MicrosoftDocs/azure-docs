@@ -70,11 +70,11 @@ After the transport connection is established, the containers each declare the m
 
 They also declare how many concurrent channels are supported. A channel is a unidirectional, outbound, virtual transfer path on top of the connection. A session takes a channel from each of the interconnected containers to form a bi-directional communication path.
 
-Sessions have a window-based flow control model; when a session is created, each party declares how many frames it is willing to accept into its receive window. As the parties exchange frames, transferred frames fill that window and transfers stop when the window is full and until the window gets reset or expanded using the *flow* performative (*Performative* is the AMQP term for protocol-level gestures exchanged between the two parties).
+Sessions have a window-based flow control model; when a session is created, each party declares how many frames it is willing to accept into its receive window. As the parties exchange frames, transferred frames fill that window and transfers stop when the window is full and until the window gets reset or expanded using the *flow* performative (*performative* is the AMQP term for protocol-level gestures exchanged between the two parties).
 
 This window-based model is roughly analogous to the TCP concept of window-based flow control, but at the session level inside the socket. The protocol’s concept of allowing for multiple concurrent sessions exists so that high priority traffic could be rushed past throttled normal traffic, like on a highway express lane.
 
-Azure Service Bus currently uses exactly one session for each connection. The Service Bus maximum frame-size is 262,144 bytes (256Kbytes) for Service Bus Standard and Event Hubs. It is 1,048,576 (1MByte) for Service Bus Premium. Service Bus does not impose any particular session-level throttling windows, but resets the window regularly as part of link-level flow control (see below).
+Azure Service Bus currently uses exactly one session for each connection. The Service Bus maximum frame-size is 262,144 bytes (256Kbytes) for Service Bus Standard and Event Hubs. It is 1,048,576 (1MByte) for Service Bus Premium. Service Bus does not impose any particular session-level throttling windows, but resets the window regularly as part of link-level flow control (see [the next section](#links)).
 
 Connections, channels, and sessions are ephemeral. If the underlying connection collapses, connections, TLS tunnel, SASL authorization context, and sessions must be reestablished.
 
@@ -118,7 +118,7 @@ To compensate for possible duplicate sends, Azure Service Bus supports duplicate
 
 ![][4]
 
-In addition to the session-level flow control model that was discussed above, each link has its own flow control model. Session-level flow control protects the container from having to handle too many frames at once, link-level flow control puts the application in charge of how many messages it wants to handle from a link and when.
+In addition to the session-level flow control model that previously discussed, each link has its own flow control model. Session-level flow control protects the container from having to handle too many frames at once, link-level flow control puts the application in charge of how many messages it wants to handle from a link and when.
 
 On a link, transfers can only happen when the sender has enough “link credit”. Link credit is a counter set by the receiver using the *flow* performative, which is scoped to a link. When and while the sender is assigned link credit, it will attempt to use up that credit by delivering messages. Each message delivery decrements the remaining link credit by one. When the link credit is used up, deliveries stop.
 
