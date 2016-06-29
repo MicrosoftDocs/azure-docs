@@ -64,7 +64,7 @@ The next step is to add another subnet to the network, i.e. the DMZ subnet. To c
 ![Subnet](/media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
 
 
-![Subnet](/media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
+![Subnet DMZ](/media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
 
 **1.2. Creating the network security groups**
 
@@ -86,7 +86,7 @@ After the NSGs are created, associate NSG_INT with subnet INT and NSG_DMZ with s
 
 After configuration, the panel for Subnets should look like below:
 
-![NSG configure](/media/active-directory-aadconnect-azure-adfs/nsgconfigure2.png)
+![Subnets after NSG](/media/active-directory-aadconnect-azure-adfs/nsgconfigure2.png)
 
 **1.3. Create Connection to on-premises**
 
@@ -167,7 +167,7 @@ To deploy an ILB, select Load Balancers in the Azure portal and click on add (+)
  
 After you click create and the ILB is deployed, you should see it in the list of load balancers:
 
-![Internal load balancer](/media/active-directory-aadconnect-azure-adfs/ilbdeployment2.png)
+![Load balancers after ILB](/media/active-directory-aadconnect-azure-adfs/ilbdeployment2.png)
  
 Next step is to configure the backend pool and the backend probe.
 
@@ -179,7 +179,7 @@ Select the newly created ILB in the Load Balancers panel. It will open the setti
 3.	You will be presented with a panel where you can choose availability set
 4.	Choose the AD FS availability set
 
-![Configure backend pool](/media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
+![Configure ILB backend pool](/media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
  
 **6.3.	Configuring probe**
 
@@ -192,7 +192,7 @@ In the ILB settings panel, select Probes.
   d. **Interval**: 5 (default value) – this is the interval at which ILB will probe the machines in the backend pool
   e. **Unhealthy threshold limit**: 2 (default val ue) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
 
-![Configure probe](/media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+![Configure ILB probe](/media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
  
 **6.4.	Create load balancing rules**
 
@@ -207,7 +207,7 @@ In order to effectively balance the traffic, the ILB should be configured with l
   e. **Backend pool**: Select the pool you created for the AD FS cluster earlier
   f. **Probe**: Select the probe created for AD FS servers earlier
 
-![Configure balancing rules](/media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
+![Configure ILB balancing rules](/media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
 **6.5.	Update DNS with ILB**
 
@@ -239,7 +239,7 @@ In the Azure portal, select Load balancers and then click on Add. In the Create 
 
 After deployment, the load balancer will appear in the Load balancers list.
 
-![Internet facing load balancer](/media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
+![Load balancer list](/media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
  
 **8.2.	Assign a DNS label to the public IP**
 
@@ -250,7 +250,7 @@ Click on the newly created load balancer entry in the Load balancers panel to br
 
 ![Configure internet facing load balancer](/media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
 
-![Configure internet facing load balancer](/media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
+![Configure internet facing load balancer (DNS)](/media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
 **8.3.	Configure backend pool for Internet Facing (Public) Load Balancer** 
 
@@ -314,7 +314,7 @@ The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. I
 
 On successful sign-in, it will provide you with a success message as shown below:
 
-![Test success r](/media/active-directory-aadconnect-azure-adfs/test2.png)
+![Test success](/media/active-directory-aadconnect-azure-adfs/test2.png)
 
 ## Additional Resources
 * [Availability Sets](https://aka.ms/Azure/Availability ) 
