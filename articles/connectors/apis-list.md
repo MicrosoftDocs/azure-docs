@@ -142,7 +142,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
 [as2icon]: ./media/apis-list/as2new.png
-[x12icon]: ./media/apis-list/x12.png
+[x12icon]: ./media/apis-list/x12new.png
 [flatfileicon]: ./media/apis-list/flatfileencoding.png
 [flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
