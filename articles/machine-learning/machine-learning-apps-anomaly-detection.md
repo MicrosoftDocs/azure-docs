@@ -25,11 +25,11 @@ Anomaly Detection API is an example built with Azure Machine Learning that detec
 
 This APIs can detect the following types of anomalous patterns in time series data:
 
-1. Positive and negative trends: For example, when monitoring memory usage in computing an upward trend may be of interest as it may be indicative of a memory leak,
+* **Positive and negative trends**: For example, when monitoring memory usage in computing an upward trend may be of interest as it may be indicative of a memory leak,
 
-2. Changes in the dynamic range of values: For example, when monitoring the exceptions thrown by a cloud service, any changes in the dynamic range of values could indicate instability in the health of the service, and
+* **Changes in the dynamic range of values**: For example, when monitoring the exceptions thrown by a cloud service, any changes in the dynamic range of values could indicate instability in the health of the service, and
 
-3. Spikes and Dips: For example, when monitoring the number of login failures in a service or number of checkouts in an e-commerce site, spikes or dips could indicate abnormal behavior.
+* **Spikes and Dips**: For example, when monitoring the number of login failures in a service or number of checkouts in an e-commerce site, spikes or dips could indicate abnormal behavior.
 
 These machine learning detectors track such changes in values over time and reports ongoing changes in their values as anomaly scores. They do not require adhoc threshold tuning and their scores can be used to control false positive rate. The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage monitoring through metrics such as number of searches, numbers of clicks, performance monitoring through counters like memory, CPU, file reads, etc. over time.
 
@@ -59,7 +59,7 @@ You can find your account key from your account in the [Azure Data Market](https
 The Score API is used for running anomaly detection on non-seasonal time series data. The API runs a number of anomaly detectors on the data and returns their anomaly scores. 
 The figure below shows an example of anomalies that the Score API can detect. This time series has 2 distinct level changes, and 3 spikes. The red dots show the time at which the level change is detected, while the black dots show the detected spikes.
 
-![][1]
+![Score API][1]
 	
 **URL**
 
@@ -104,7 +104,7 @@ The ScoreWithSeasonality API is used for running anomaly detection on time serie
 
 The following figure shows an example of anomalies detected in a seasonal time series. The time series has one spike (the 1st black dot), two dips (the 2nd black dot and one at the end), and one level change (red dot). Note that both the dip in the middle of the time series and the level change are only discernable after seasonal components are removed from the series.
 
-![][2]
+![Seasonality API][2]
 
 **URL**
 
