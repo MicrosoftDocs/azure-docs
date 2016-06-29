@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/29/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Overview of Tables in SQL Data Warehouse
@@ -27,7 +27,7 @@
 - [Statistics][]
 - [Temporary][]
 
-## Table design
+## Introduction to SQL Data Warehouse tables
 
 Getting started with creating tables in SQL Data Warehouse is simple.  The basic syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
 
@@ -36,6 +36,8 @@ CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
  ``` 
 
 The above example creates a table named Customers with two columns, FirstName and LastName.  Each column is definded with a data type of VARCHAR(25), which limits the data to 25 characters.  These fundamental attributes of a table, as well as others, are mostly the same as other databases.  Data types are defined for each column and ensure the integrity of your data.  Indexes can be added to improve performance by reducing I/O.  Partitioning can be added to improve performance when you need to modify data.
+
+## Distributing, indexing and partitioning
 
 A new fundamental attribute introduced by distributed systems like SQL Data Warehouse is the **distribution column**.  The distribution column is very much what it sounds like.  It is the column that determines how to distribute, or divide, your data behind the scenes.  When you create a table without specifying the distribution column, the table is automatically distributed using **round robin**.  While round robin tables can be sufficient in some scenarios, defining distrubution columns can greatly reduce data movement during queries, thus optimizing performance.  See [Distributing a Table][Distribute] to learn more about how to select a distribution column.
 
