@@ -125,7 +125,7 @@ Now that you have verified the database connection, you need to add an app setti
 
 ##See Also##
 
-+ [Hybrid Connections web site](../../services/biztalk-services/)
++ [Hybrid Connections web site](https://azure.microsoft.com/services/biztalk-services/)
 + [Hybrid Connections overview](../biztalk-services/integration-hybrid-connection-overview.md)
 + [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [How to make data model changes to a .NET backend mobile service](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)

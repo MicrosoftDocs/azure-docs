@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Service Bus relayed messaging tutorial | Microsoft Azure"
-   description="Build a Service Bus client application and service using Service Bus relayed messaging."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Service Bus relayed messaging tutorial | Microsoft Azure"
+    description="Build a Service Bus client application and service using Service Bus relayed messaging."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/17/2016"
+    ms.author="sethm" />
 
 # Service Bus relayed messaging tutorial
 
@@ -27,17 +27,21 @@ The final three steps describe how to create a client application, configure the
 
 All of the topics in this section assume that you are using Visual Studio as the development environment.
 
-## Sign up for an Account
+## Sign up for an account
 
-The first step is to create a Service Bus service namespace, and to obtain a Shared Access Signature (SAS) key. A service namespace provides an application boundary for each application exposed through the Service Bus. The combination of service namespace and SAS key provides a credential for the Service Bus to authenticate access to an application.
+The first step is to create a Service Bus service namespace, and to obtain a Shared Access Signature (SAS) key. A namespace provides an application boundary for each application exposed through Service Bus. The combination of namespace and SAS key provides a credential for the Service Bus to authenticate access to an application.
 
-1. To create a service namespace, visit the [Azure classic portal][]. Click **Service Bus** on the left-hand side, then click **Create**. Type a name for your namespace, then click the check mark.
+1. To create a namespace, visit the [Azure classic portal][]. Click **Service Bus** on the left-hand side, then click **Create**. Type a name for your namespace, accept the defaults for all other values, and then click the OK check mark.
 
 	>[AZURE.NOTE] You do not have to use the same namespace for both client and service applications.
 
+	![][4]
+
 1. In the main window of the portal, click the name of the namespace you created in the previous step.
 
-2. Click **Configure** to view the default shared access policies for your namespace.
+2. Click the **Configure** tab to view the default shared access policies and keys for your namespace.
+
+	![][1]
 
 3. Make a note of the primary key for the **RootManageSharedAccessKey** policy, or copy it to the clipboard. You will use this value later in this tutorial.
 
@@ -49,19 +53,24 @@ The service contract specifies what operations (the Web service terminology for 
 
 1. Open Visual Studio as an administrator by right-clicking the program in the **Start** menu and selecting **Run as administrator**.
 
-1. Create a new console application project. Click the **File** menu and select **New**, then click **Project**. In the **New Project** dialog, click **Visual C#** (if **Visual C#** does not appear, look under **Other Languages**). Click the **Console Application** template, and name it **EchoService**. Use the default **Location**. Click **OK** to create the project.
+2. Create a new console application project. Click the **File** menu and select **New**, then click **Project**. In the **New Project** dialog, click **Visual C#** (if **Visual C#** does not appear, look under **Other Languages**). Click the **Console Application** template, and name it **EchoService**. Click **OK** to create the project.
 
-1. Add a reference to `System.ServiceModel.dll` to the project: in Solution Explorer, right-click the **References** folder under the project folder, and then click **Add Reference**. Select the **.NET** tab in the **Add Reference** dialog and scroll down until you see **System.ServiceModel**. Select it, and then click **OK**.
+	![][2]
 
-1. In Solution Explorer, double-click the Program.cs file to open it in the editor.
+3. Install the Service Bus NuGet package. This package automatically adds references to the Service Bus libraries, as well as the WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is the namespace that enables you to programmatically access the basic features of WCF. Service Bus uses many of the objects and attributes of WCF to define service contracts.
 
-1. Add a `using` statement for the System.ServiceModel namespace.
+	In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Ensure that the project name is selected in the **Version(s)** box. Click **Install**, and accept the terms of use.
+
+	![][3]
+
+3. In Solution Explorer, double-click the Program.cs file to open it in the editor, if it is not already open.
+
+4. Add the following using statements at the top of the file:
 
 	```
 	using System.ServiceModel;
+	using Microsoft.ServiceBus;
 	```
-
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is the namespace that enables you to programmatically access the basic features of WCF. Service Bus uses many of the objects and attributes of WCF to define service contracts.
 
 1. Change the namespace name from its default name of **EchoService** to **Microsoft.ServiceBus.Samples**.
 
@@ -71,7 +80,7 @@ The service contract specifies what operations (the Web service terminology for 
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	publicinterface IEchoContract
+	public interface IEchoContract
 	{
 	}
 	```
@@ -85,22 +94,15 @@ The service contract specifies what operations (the Web service terminology for 
 	string Echo(string text);
 	```
 
-1. Outside the contract, declare a channel that inherits from both `IEchoChannel` and also to the `IClientChannel` interface, as shown here:
+1. Directly after the `IEchoContract` interface definition, declare a channel that inherits from both `IEchoContract` and also to the `IClientChannel` interface, as shown here:
 
 	```
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-    publicinterface IEchoContract
-    {
-        [OperationContract]
-        String Echo(string text);
-    }
-
-    publicinterface IEchoChannel : IEchoContract, IClientChannel { }
+    public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
 	A channel is the WCF object through which the host and client pass information to each other. Later, you will write code against the channel to echo information between the two applications.
 
-1. From the **Build** menu, click **Build Solution** or press F6 to confirm the accuracy of your work so far.
+1. From the **Build** menu, click **Build Solution** or press **Ctrl+Shift+B** to confirm the accuracy of your work so far.
 
 ### Example
 
@@ -134,7 +136,7 @@ Now that the interface is created, you can implement the interface.
 
 ## Implement the WCF contract to use Service Bus
 
-Creating a Service Bus service requires that you first create the contract, which is defined by using an interface. For more information about creating the interface, see the previous step. The next step is to implement the interface. This involves creating a class named `EchoService` that implements the user-defined `IEchoContract` interface. After you implement the interface, you then configure the interface using an App.config configuration file. The configuration file contains necessary information for the application, such as the name of the service, the name of the contract, and the type of protocol that is used to communicate with Service Bus. The code used for these tasks is provided in the example following the procedure. For a more general discussion about how to implement a service contract, see [Implementing Service Contracts](https://msdn.microsoft.com/library/ms733764.aspx) in the Windows Communication Foundation (WCF) documentation.
+Creating a Service Bus relay requires that you first create the contract, which is defined by using an interface. For more information about creating the interface, see the previous step. The next step is to implement the interface. This involves creating a class named `EchoService` that implements the user-defined `IEchoContract` interface. After you implement the interface, you then configure the interface using an App.config configuration file. The configuration file contains necessary information for the application, such as the name of the service, the name of the contract, and the type of protocol that is used to communicate with Service Bus. The code used for these tasks is provided in the example following the procedure. For a more general discussion about how to implement a service contract, see [Implementing Service Contracts](https://msdn.microsoft.com/library/ms733764.aspx) in the WCF documentation.
 
 1. Create a new class named `EchoService` directly after the definition of the `IEchoContract` interface. The `EchoService` class implements the `IEchoContract` interface. 
 
@@ -146,9 +148,10 @@ Creating a Service Bus service requires that you first create the contract, whic
 	
 	Similar to other interface implementations, you can implement the definition in a different file. However, for this tutorial, the implementation is located in the same file as the interface definition and the `Main` method.
 
-1. Apply the [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) attribute that indicates the service name and namespace.
+1. Apply the [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) attribute to the `IEchoContract` interface. The attribute specifies the service name and namespace. After doing so, the `EchoService` class appears as follows:
 
-	```[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	```
+	[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	class EchoService : IEchoContract
 	{
 	}
@@ -170,24 +173,9 @@ Creating a Service Bus service requires that you first create the contract, whic
 
 1. The configuration file is very similar to a WCF configuration file. It includes the service name, endpoint (that is, the location Service Bus exposes for clients and hosts to communicate with each other), and the binding (the type of protocol that is used to communicate). The main difference is that this configured service endpoint refers to a [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) binding, which is not part of the .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) is one of the bindings defined by Service Bus.
 
-1. In **Solution Explorer**, click the App.config file, which currently contains the following XML elements:
+1. In **Solution Explorer**, double-click the App.config file to open it in the Visual Studio editor.
 
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	</configuration>
-	```
-
-1. Add a `<system.serviceModel>` XML element to the App.config file. This is a WCF element that defines one or more services. This example uses it to define the service name and endpoint.
-
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	  <system.serviceModel>
-  
-	  </system.serviceModel>
-	</configuration>
-	```
+2. In the `<appSettings>` element, replace the placeholders with the name of your service namespace, and the SAS key that you copied in an earlier step. 
 
 1. Within the `<system.serviceModel>` tags, add a `<services>` element. You can define multiple Service Bus applications in a single configuration file. However, this tutorial defines only one.
  
@@ -205,28 +193,17 @@ Creating a Service Bus service requires that you first create the contract, whic
 1. Within the `<services>` element, add a `<service>` element to define the name of the service.
 
 	```
-	<servicename="Microsoft.ServiceBus.Samples.EchoService">
+	<service name="Microsoft.ServiceBus.Samples.EchoService">
 	</service>
 	```
 
 1. Within the `<service>` element, define the location of the endpoint contract, and also the type of binding for the endpoint.
 
 	```
-	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
+	<endpoint contract="Microsoft.ServiceBus.Samples.IEchoContract" binding="netTcpRelayBinding"/>
 	```
 
 	The endpoint defines where the client will look for the host application. Later, the tutorial uses this step to create a URI that fully exposes the host through Service Bus. The binding declares that we are using TCP as the protocol to communicate with Service Bus.
-
-
-1. Directly after the `<services>` element, add the following binding extension:
- 
-	```
-	<extensions>
-	  <bindingExtensions>
-	    <addname="netTcpRelayBinding"type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-	  </bindingExtensions>
-	</extensions>
-	```
 
 1. From the **Build** menu, click **Build Solution** to confirm the accuracy of your work.
 
@@ -260,7 +237,8 @@ The following code shows the basic format of the App.config file associated with
     </services>
     <extensions>
       <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
       </bindingExtensions>
     </extensions>
   </system.serviceModel>
@@ -272,8 +250,6 @@ The following code shows the basic format of the App.config file associated with
 This step describes how to run a basic Service Bus service.
 
 ### To create the Service Bus credentials
-
-1. Install the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. In `Main()`, create two variables in which to store the namespace and the SAS key that are read from the console window.
 
@@ -372,7 +348,7 @@ This step describes how to run a basic Service Bus service.
 	host.Close();
 	```
 
-1. Press F6 to build the project.
+1. Press **Ctrl+Shift+B** to build the project.
 
 ### Example
 
@@ -462,14 +438,13 @@ The next step is to create a basic Service Bus client application and define the
 	3. Click **OK**.
 <br />
 
-1. In Solution Explorer, double-click the Program.cs file in the **EchoClient** project to open it in the editor.
+1. In Solution Explorer, double-click the Program.cs file in the **EchoClient** project to open it in the editor, if it is not already open.
 
 1. Change the namespace name from its default name of `EchoClient` to `Microsoft.ServiceBus.Samples`.
 
-1. Add a reference to System.ServiceModel.dll for the project: 
-	1. Right-click **References** under the **EchoClient** project in Solution Explorer. Then click **Add Reference**.
-	2. Because you already added a reference to this assembly in the first step of this tutorial, it is now listed in the **Recent** tab. Click **Recent**, then select **System.ServiceModel.dll** from the list. Then click **OK**. If you do not see **System.ServiceModel.dll** in the **Recent** tab, click the **Browse** tab and go to **C:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation**. Then select the assembly from there.
-<br />
+1. Install the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus). In Solution Explorer, right-click the **EchoClient** project, and then click **Manage NuGet Packages**. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use.
+
+	![][3]
 
 1. Add a `using` statement for the [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) namespace in the Program.cs file. 
 
@@ -477,22 +452,20 @@ The next step is to create a basic Service Bus client application and define the
 	using System.ServiceModel;
 	```
 
-1. Install the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
-
 1. Add the service contract definition to the namespace, as shown in the following example. Note that this definition is identical to the definition used in the **Service** project. You should add this code at the top of the `Microsoft.ServiceBus.Samples` namespace.
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	publicinterface IEchoContract
+	public interface IEchoContract
 	{
 	    [OperationContract]
 	    string Echo(string text);
 	}
 
-	publicinterface IEchoChannel : IEchoContract, IClientChannel { }
+	public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
-1. Press F6 to build the client.
+1. Press **Ctrl+Shift+B** to build the client.
 
 ### Example
 
@@ -529,29 +502,9 @@ namespace Microsoft.ServiceBus.Samples
 
 In this step, you create an App.config file for a basic client application that accesses the service created previously in this tutorial. This App.config file defines the contract, binding, and name of the endpoint. The code used for these tasks is provided in the example following the procedure.
 
-1. In Solution Explorer, in the client project, double-click **App.config** to open the file, which currently contains the following XML elements:
+1. In Solution Explorer, in the **EchoClient** project, double-click **App.config** to open the file in the Visual Studio editor.
 
-	```
-	<?xmlversion="1.0"?>
-	<configuration>
-	  <startup>
-	    <supportedRuntimeversion="v4.0"sku=".NETFramework,Version=v4.0"/>
-	  </startup>
-	</configuration>
-	```
-
-1. Add an XML element to the App.config file for `system.serviceModel`.
-
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	  <system.serviceModel>
-	
-	  </system.serviceModel>
-	</configuration>
-	```
-	
-	This element declares that your application uses WCF-style endpoints. As stated previously, much of the configuration of a Service Bus application is identical to a WCF application; the main difference is the location to which the configuration file points.
+2. In the `<appSettings>` element, replace the placeholders with the name of your service namespace, and the SAS key that you copied in an earlier step.
 
 1. Within the system.serviceModel element, add a `<client>` element.
 
@@ -570,22 +523,12 @@ In this step, you create an App.config file for a basic client application that 
 1. Within the `client` element, define the name, contract, and binding type for the endpoint.
 
 	```
-	<endpointname="RelayEndpoint"
+	<endpoint name="RelayEndpoint"
 					contract="Microsoft.ServiceBus.Samples.IEchoContract"
 					binding="netTcpRelayBinding"/>
 	```
 
 	This step defines the name of the endpoint, the contract defined in the service, and the fact that the client application uses TCP to communicate with Service Bus. The endpoint name is used in the next step to link this endpoint configuration with the service URI.
-
-1. Directly after the <client> element, add the following binding extension.
- 
-	```
-	<extensions>
-	  <bindingExtensions>
-	    <addname="netTcpRelayBinding"type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-	  </bindingExtensions>
-	</extensions>
-	```
 
 1. Click **File**, then **Save All**.
 
@@ -604,7 +547,8 @@ The following code shows the App.config file for the Echo client.
     </client>
     <extensions>
       <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
       </bindingExtensions>
     </extensions>
   </system.serviceModel>
@@ -627,7 +571,7 @@ However, one of the main differences is that the client application uses a chann
 
 ### To implement a client application
 
-1. Set the connectivity mode to **AutoDetect**. Add the following code inside the `Main()` method of the client application.
+1. Set the connectivity mode to **AutoDetect**. Add the following code inside the `Main()` method of the **EchoClient** application.
 
 	```
 	ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
@@ -704,33 +648,43 @@ However, one of the main differences is that the client application uses a chann
 	channelFactory.Close();
 	```
 
-## To run the client application
+## To run the applications
 
-1. Press F6 to build the solution. This builds both the client project and the service project that you created in a previous step of this tutorial and creating an executable file for each.
+1. Press **Ctrl+Shift+B** to build the solution. This builds both the client project and the service project that you created in the previous steps.
 
-1. Before running the client application, make sure that the service application is running.
+2. Before running the client application, you must make sure that the service application is running. In Solution Explorer in Visual Studio, right-click the **EchoService** solution, then click **Properties**.
 
-	You should now have an executable file for the Echo service application named EchoService.exe, located under your service project folder at \bin\Debug\EchoService.exe (for the debug configuration) or \bin\Release\EchoService.exe (for the release configuration). Double-click this file to start the service application.
+3. In the solution properties dialog box, click **Startup Project**, then click the **Multiple startup projects** button. Make sure **EchoService** appears first in the list. 
 
-1. A console window opens and prompts you for the namespace. In this console window, enter the service namespace and press Enter.
+4. Set the **Action** box for both the **EchoService** and **EchoClient** projects to **Start**.
 
-1. Next, you are prompted for your SAS key. Enter the SAS key and press ENTER.
+	![][5]
+
+5. Click **Project Dependencies**. In the **Projects** box, select **EchoClient**. In the **Depends on** box, make sure **EchoService** is checked.
+
+	![][6]
+
+6. Click **OK** to dismiss the **Properties** dialog.
+
+7. Press **F5** to run both projects.
+
+8. Both console windows open and prompt you for the namespace name. The service must run first, so in the **EchoService** console window, enter the namespace and then press **Enter**.
+
+9. Next, you are prompted for your SAS key. Enter the SAS key and press ENTER.
 
 	Here is example output from the console window. Note that the values provided here are for example purposes only.
 
 	`Your Service Namespace: myNamespace`
 	`Your SAS Key: <SAS key value>`
 
-	The service application starts and prints to the console window the address on which it's listening, as seen in the following example.
+	The service application prints to the console window the address on which it's listening, as seen in the following example.
 
     `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
     `Press [Enter] to exit`
     
-1. Run the client application. You should now have an executable for the Echo client application named EchoClient.exe that is located under the client project directory at .\bin\Debug\EchoClient.exe (for the debug configuration) or .\bin\Release\EchoClient.exe (for the release configuration). Double-click this file to start the client application.
+10. In the **EchoClient** console window, enter the same information that you entered previously for the service application. Follow the previous steps to enter the same service namespace and SAS key values for the client application.
 
-1. A console window opens and prompts you for the same information that you entered previously for the service application. Follow the previous steps to enter the same values for the client application for the service namespace, issuer name, and issuer secret.
-
-1. After entering these values, the client opens a channel to the service and prompts you to enter some text as seen in the following console output example.
+11. After entering these values, the client opens a channel to the service and prompts you to enter some text as seen in the following console output example.
 
 	`Enter text to echo (or [Enter] to exit):` 
 
@@ -742,7 +696,7 @@ However, one of the main differences is that the client application uses a chann
 
 	`Server echoed: My sample text`
 
-1. You can continue sending text messages from the client to the service in this manner. When you are finished, press Enter in the client and service console windows to end both applications.
+12. You can continue sending text messages from the client to the service in this manner. When you are finished, press Enter in the client and service console windows to end both applications.
 
 ## Example
 
@@ -813,8 +767,6 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-Make sure that the service is running before you start the client. 
-
 ## Next steps
 
 This tutorial showed how to build a Service Bus client application and service using the Service Bus "relay" capabilities. For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](service-bus-brokered-tutorial-dotnet.md).
@@ -826,3 +778,10 @@ To learn more about Service Bus, see the following topics.
 - [Service Bus architecture](service-bus-architecture.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
+
+[1]: ./media/service-bus-relay-tutorial/service-bus-policies.png
+[2]: ./media/service-bus-relay-tutorial/create-console-app.png
+[3]: ./media/service-bus-relay-tutorial/install-nuget.png
+[4]: ./media/service-bus-relay-tutorial/create-ns.png
+[5]: ./media/service-bus-relay-tutorial/set-projects.png
+[6]: ./media/service-bus-relay-tutorial/set-depend.png

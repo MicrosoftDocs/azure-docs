@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 
@@ -60,7 +60,7 @@ You can also find the **Manage B2C settings** link in the **B2C Administration**
 
 5. If you are writing a mobile application, toggle the **Include native client** switch to **Yes**. Copy down the default **Redirect URI** that is automatically created for you.
 6. Click **Create** to register your application.
-7. Click the application that you just created and copy down the globally unique **Application ID** that you'll use later in your code.
+7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
 ## Build a Quick Start Application
 

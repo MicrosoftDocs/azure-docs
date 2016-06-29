@@ -11,8 +11,8 @@
     ms.workload="identity"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-	ms.topic="get-started-article"
-    ms.date="02/12/2016"
+	ms.topic="article"
+    ms.date="06/27/2016"
     ms.author="andkjell"/>
 
 # Azure AD Connect sync: Understanding the default configuration

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio
 
 To take advantage of the hosting services and scalability of Azure, you might want to migrate and publish your web application to an Azure cloud service. You can run a web application in Azure with minimal changes to your existing application.
 
->[AZURE.NOTE] This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [Deploy a web app in Azure App Service](/app-service-web/web-sites-deploy.md).
+>[AZURE.NOTE] This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [Deploy a web app in Azure App Service](./app-service-web/web-sites-deploy.md).
 
 For a list of specific templates that are supported for both Visual C# and Visual Basic, see the section **Supported Project Templates** later in this topic.
 
@@ -56,17 +56,17 @@ To migrate and publish a web application to Azure from Visual Studio, follow the
 
 If you have a connection string for your web application that uses a SQL Server database that's on the premises, you must change this connection string to use an instance of SQL Database that Azure hosts instead.
 
->[AZURE.IMPORTANT] Your subscription must enable you to use SQL Database. If you access your subscription from the Azure Management Portal, you can determine what services your subscription provides. The following instructions apply to the released Management Portal. If you are using the Preview Management Portal, skip to the next procedure.|
+>[AZURE.IMPORTANT] Your subscription must enable you to use SQL Database. If you access your subscription from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), you can determine what services your subscription provides. The following instructions apply to the released [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). If you are using the [Azure portal](http://portal.microsoft.com), skip to the next procedure.
 
 ### To use a SQL Database instance in your web role for your connection string
 
-1. To create an instance of SQL Database in the Azure Management Portal, follow the steps in the following article: [Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109).
+1. To create an instance of SQL Database in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), follow the steps in the following article: [Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109).
 
     >[AZURE.NOTE] When you set up the firewall rules for your instance of SQL Database, you must select the **Allow other Azure services to access this server** check box.
 
 1. To create an instance of SQL Database to use for your connection string, follow the steps in the next section in the following article: [Create a SQL Database](http://go.microsoft.com/fwlink/?LinkId=225110).
 
-1. To copy the ADO.NET connection string to use for your connection string, perform the following steps in the management portal for Azure.  
+1. To copy the ADO.NET connection string to use for your connection string, perform the following steps in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).  
 
   1. Choose the **Database** button, and then open the node for the subscription that you used to create your instance of SQL Database.
 
@@ -100,9 +100,9 @@ If you have a connection string for your web application that uses a SQL Server 
 
 1. Save the file that you modified and republish your application.
 
-### To use an instance of SQL Database by using the Azure Management Portal
+### To use an instance of SQL Database by using the Azure classic portal
 
-1. In the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885), choose the SQL Databases node.
+1. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), choose the SQL Databases node.
 
   - If the instance of SQL Database that you want to use appears, choose to open it.
 
@@ -136,7 +136,7 @@ If you have a connection string for your web application that uses a SQL Server 
 
 1. (Optional) To cancel the deployment process, open the shortcut menu for the line item in the activity log and choose **Cancel and remove**. This stops the deployment process and deletes the deployment environment from Azure.
 
-    >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the Azure Management Portal.
+    >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Azure Compute** node in **Cloud Explorer** or **Server Explorer**. From here you can view the status of the individual role instances.
 
@@ -169,7 +169,7 @@ If you have a connection string for your web application that uses a SQL Server 
 
 1. To create a SQL Azure database that can be used for a ASP.NET Dynamic Entities web application, follow the steps in the procedure **Use a SQL Azure database for your application** earlier in this topic.
 
-1. Add the tables and fields that you need for this database from the Azure Management Portal.
+1. Add the tables and fields that you need for this database from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. The connection string for this type of application has the following format in the web.config file:  
 

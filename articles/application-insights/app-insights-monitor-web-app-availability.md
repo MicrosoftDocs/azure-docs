@@ -12,10 +12,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="06/21/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
+
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 After you've deployed your web application, you can set up web tests to monitor its availability and responsiveness. Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
 
@@ -65,6 +68,8 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 
 - **Alerts** are, by default, sent to you if there are failures in three locations over five minutes. A failure in one location is likely to be a network problem, and not a problem with your site. But you can change the threshold to be more or less sensitive, and you can also change who the emails should be sent to.
+
+    You can set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
 
 #### Test more URLs
 
@@ -234,9 +239,19 @@ Open an individual test to edit or disable it.
 
 You might want to disable web tests while you are performing maintenance on your service.
 
+## Performance tests
+
+You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
+
+From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Visual Studio Team Services account. 
+
+When the test is complete, you'll be shown response times and success rates.
+
+
 ## Automation
 
-You can [use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically. 
+* [Use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically. 
+* Set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## Questions? Problems?
 
@@ -254,7 +269,30 @@ You can [use PowerShell scripts to set up a web test](https://azure.microsoft.co
 
 * *I'd like to use availability tests on our internal server that runs behind a firewall.*
 
-    Configure your firewall to permit requests from the IP addresses in the list at the end of this article.
+    Configure your firewall to permit requests from the [IP addresses 
+    of web test agents](app-insights-ip-addresses.md#availability).
+
+* *Uploading a multi-step web test fails*
+
+    There's a size limit of 300K.
+
+    Loops aren't supported.
+
+    References to other web tests aren't supported.
+
+    Data sources aren't supported.
+
+    
+* *My multi-step test doesn't complete*
+
+    There's a limit of 100 requests per test.
+
+    The test will be stopped if runs longer than two minutes.
+
+* *How can I run a test with client certificates?*
+
+    We don't support that, sorry.
+
 
 ## <a name="video"></a>Video
 
@@ -266,125 +304,7 @@ You can [use PowerShell scripts to set up a web test](https://azure.microsoft.co
 
 [Troubleshooting][qna]
 
-
-## IP Addresses of web tests
-
-If you need to open a firewall to allow web tests, here's the current list of IP addresses. It might change from time to time.
-
-Open ports 80 (http) and 443 (https).
-
-```
-
-213.199.178.54
-213.199.178.55
-213.199.178.56
-213.199.178.61
-213.199.178.57
-213.199.178.58
-213.199.178.59
-213.199.178.60
-213.199.178.63
-213.199.178.64
-207.46.98.158
-207.46.98.159
-207.46.98.160
-207.46.98.157
-207.46.98.152
-207.46.98.153
-207.46.98.156
-207.46.98.162
-207.46.98.171
-207.46.98.172
-65.55.244.40
-65.55.244.17
-65.55.244.42
-65.55.244.37
-65.55.244.15
-65.55.244.16
-65.55.244.44
-65.55.244.18
-65.55.244.46
-65.55.244.47
-207.46.14.60
-207.46.14.61
-207.46.14.62
-207.46.14.55
-207.46.14.63
-207.46.14.64
-207.46.14.51
-207.46.14.52
-207.46.14.56
-207.46.14.65
-157.55.14.60
-157.55.14.61
-157.55.14.62
-157.55.14.47
-157.55.14.64
-157.55.14.65
-157.55.14.43
-157.55.14.44
-157.55.14.49
-157.55.14.50
-65.54.66.56
-65.54.66.57
-65.54.66.58
-65.54.66.61
-207.46.71.54
-207.46.71.52
-207.46.71.55
-207.46.71.38
-207.46.71.51
-207.46.71.57
-207.46.71.58
-207.46.71.37
-202.89.228.67
-202.89.228.68
-202.89.228.69
-202.89.228.57
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-207.46.56.57
-207.46.56.58
-207.46.56.59
-207.46.56.67
-207.46.56.61
-207.46.56.62
-207.46.56.63
-207.46.56.64
-65.55.82.84
-65.55.82.85
-65.55.82.86
-65.55.82.81
-65.55.82.87
-65.55.82.88
-65.55.82.89
-65.55.82.90
-65.55.82.91
-65.55.82.92
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-70.37.147.43
-70.37.147.44
-70.37.147.45
-70.37.147.48
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
-
-```
+[IP addresses of web test agents](app-insights-ip-addresses.md)
 
 
 <!--Link references-->

@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="06/13/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL differences
@@ -36,7 +36,7 @@ This topic discusses the features that are available with SQL Database when upgr
 
 ## Features partially supported in SQL Database V12
 
-SQL Database V12 supports some but not all of the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however the WITH ENCRYPTION option of CREATE PROCEDURE is not available. Refer to the linked syntax topics for details about the supported areas of each statement.
+SQL Database V12 supports some but not all of the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however all of the options of CREATE PROCEDURE are not available. Refer to the linked syntax topics for details about the supported areas of each statement.
 
 - Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx )/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - DMV's are generally available for features that are available
@@ -64,7 +64,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Eventing: events, event notifications, query notifications
 - Features related to database file placement, size, and database files which are automatically managed by Microsoft Azure.
 - Features that relate to high availability which is managed through your Microsoft Azure account: backup, restore, AlwaysOn, database mirroring, log shipping, recovery modes. For more information, see Azure SQL Database Backup and Restore.
-- Features that rely upon the log reader: Replication, Change Data Capture.
+- Features that rely upon the log reader running on SQL Database: Push Replication, Change Data Capture.
 - Features that rely upon the SQL Server Agent or the MSDB database: jobs, alerts, operators, Policy-Based Management, database mail, central management servers.
 - FILESTREAM
 - Functions: fn_get_sql, fn_virtualfilestats, fn_virtualservernodes
@@ -93,7 +93,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Trace flags
 - Transact-SQL debugging
 - Triggers: Server-scoped or logon triggers
-- USE statement
+- USE statement: To change the database context to a different database you must make a new connection to the new database.
 
 
 ## Full Transact-SQL reference

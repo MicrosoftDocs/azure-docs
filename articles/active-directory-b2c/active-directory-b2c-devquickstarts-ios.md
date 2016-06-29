@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory B2C Preview: Call a web API from an iOS application | Microsoft Azure"
-	description="This article will show you how to create an iOS "to-do list" app that calls a Node.js web API by using OAuth 2.0 bearer tokens. Both the iOS app and the web API use Azure Active Directory B2C to manage user identities and authenticate users."
+	description="This article will show you how to create an iOS 'to-do list' app that calls a Node.js web API by using OAuth 2.0 bearer tokens. Both the iOS app and the web API use Azure Active Directory B2C to manage user identities and authenticate users."
 	services="active-directory-b2c"
 	documentationCenter="ios"
 	authors="brandwe"
@@ -13,7 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="hero-article"
-	ms.date="02/17/2016"
+
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Call a web API from an iOS application

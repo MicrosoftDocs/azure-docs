@@ -3,8 +3,8 @@
 	description="Frequently Asked Questions about Azure SQL Database Elastic Scale." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="sidneyh" 
+	manager="jhubbard" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
-	ms.author="sidneyh"/>
+	ms.date="05/03/2016" 
+	ms.author="ddove"/>
 
 # Elastic database tools FAQ 
 

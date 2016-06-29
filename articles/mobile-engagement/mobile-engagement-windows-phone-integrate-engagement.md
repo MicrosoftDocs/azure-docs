@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight Engagement SDK Integration
@@ -207,7 +207,7 @@ We recommend to call `StartActivity` inside your `OnNavigatedTo` method of your 
 
 Optionally, you may want to report application specific events, errors and jobs, to do so, use the others methods found in the `EngagementAgent` class. The Engagement API allows to use all of Engagement's advanced capabilities.
 
-For further information, see [How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app](../mobile-engagement-windows-phone-use-engagement-api/).
+For further information, see [How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app](mobile-engagement-windows-phone-use-engagement-api.md).
 
 ##Advanced configuration
 

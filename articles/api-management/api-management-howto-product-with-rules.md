@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/27/2016"
+	ms.date="05/25/2016"
 	ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management
 
 This guide shows you how easy it is to add protection for your backend API by configuring rate limit and quota policies with Azure API Management.
 
-In this tutorial, you will create a "Free Trial" API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API using the [Limit call rate by subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) and [Set usage quota by subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) policies. You will then publish the API and test the rate limit policy.
+In this tutorial, you will create a "Free Trial" API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API using the [Limit call rate per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) and [Set usage quota per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) policies. You will then publish the API and test the rate limit policy.
 
 For more advanced throttling scenarios using the [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) and [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) policies, see [Advanced request throttling with Azure API Management](api-management-sample-flexible-throttling.md).
 
@@ -34,7 +34,7 @@ To get started, click **Manage** in the Azure Classic for your API Management se
 
 ![Publisher portal][api-management-management-console]
 
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+>If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API in Azure API Management][] tutorial.
 
 Click **Products** in the **API Management** menu on the left to display the **Products** page.
 
@@ -71,7 +71,7 @@ Select the **Developers** check box, and then click **Save**.
 
 In this step of the tutorial, we will add the Echo API to the new Free Trial product.
 
->Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
+>Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Manage your first API in Azure API Management][].
 
 Click **Products** from the **API Management** menu on the left, and then click **Free Trial** to configure the product.
 
@@ -99,11 +99,11 @@ To insert policies, position the cursor into either the **inbound** or **outboun
 
 ![Policy editor][api-management-policy-editor-inbound]
 
-The two policies we are adding in this tutorial are the [Limit call rate][] and [Set usage quota][] policies.
+The two policies we are adding in this tutorial are the [Limit call rate per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) and [Set usage quota per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) policies.
 
 ![Policy statements][api-management-limit-policies]
 
-After the cursor is positioned in the **inbound** policy element, click the arrow beside **Limit call rate** to insert its policy template.
+After the cursor is positioned in the **inbound** policy element, click the arrow beside **Limit call rate per subscription** to insert its policy template.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	<api name="name" calls="number">
@@ -111,7 +111,7 @@ After the cursor is positioned in the **inbound** policy element, click the arro
 	</api>
 	</rate-limit>
 
-**Limit call rate** can be used at the product level and can also be used at the API and individual operation name levels. In this tutorial, only product-level policies are used, so delete the **api** and **operation** elements from the **rate-limit** element, so only the outer **rate-limit** element remains, as shown in the following example.
+**Limit call rate per subscription** can be used at the product level and can also be used at the API and individual operation name levels. In this tutorial, only product-level policies are used, so delete the **api** and **operation** elements from the **rate-limit** element, so only the outer **rate-limit** element remains, as shown in the following example.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
@@ -121,7 +121,7 @@ In the Free Trial product, the maximum allowable call rate is 10 calls per minut
 	<rate-limit calls="10" renewal-period="60">
 	</rate-limit>
 
-To configure the **Set usage quota** policy, position your cursor immediately below the newly added **rate-limit** element within the **inbound** element, and then click the arrow to the left of **Set usage quota**.
+To configure the **Set usage quota per subscription** policy, position your cursor immediately below the newly added **rate-limit** element within the **inbound** element, and then click the arrow to the left of **Set usage quota per subscription**.
 
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 	<api name="name" calls="number" bandwidth="kilobytes">
@@ -277,7 +277,7 @@ When the rate limit policy of 10 calls per minute is in effect, subsequent calls
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Manage your first API in Azure API Management]: api-management-get-started.md
 [How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
 [Get started with Azure API Management]: api-management-get-started.md

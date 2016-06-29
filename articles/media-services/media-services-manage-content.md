@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -39,7 +39,7 @@ This topic shows how to perform the following content operations directly from t
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
-1. In the [Azreu Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
+1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
 2. Select the CONTENT page. 
 3. Click the **Upload** button on the page or at the bottom of the portal. 
 4. In the **Upload content** dialog, browse to the desired asset file. Click the file and then click **Open** or press **Enter**.

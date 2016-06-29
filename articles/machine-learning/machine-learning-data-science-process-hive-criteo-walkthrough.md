@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="The Cortana Analytics Process in action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Azure" 
-	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset" 
-	services="machine-learning,hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="The Team Data Science Process in action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Azure"
+	description="Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset"
+	services="machine-learning,hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/08/2016" 
-	ms.author="ginathan;bradsev" /> 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/14/2016"
+	ms.author="ginathan;bradsev" />
 
-# The Cortana Analytics Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
+# The Team Data Science Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
 
-In this walkthrough, we demonstrate using the The Cortana Analytics Process in an end-to-end with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. We use Azure Machine Learning to build a binary classification model on this data. We also show how to publish one of these models as a Web service.
+In this walkthrough, we demonstrate using the Team Data Science Process in an end-to-end scenario with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. We use Azure Machine Learning to build a binary classification model on this data. We also show how to publish one of these models as a Web service.
 
 It is also possible to use an IPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
@@ -27,17 +27,17 @@ It is also possible to use an IPython notebook to accomplish the tasks presented
 
 The Criteo data is a click prediction dataset that is approximately 370GB of gzip compressed TSV files (~1.3TB uncompressed), comprising more than 4.3 billion records. It is taken from 24 days of click data made available by [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). For the convenience of data scientists, we have unzipped data available to us to experiment with.
 
-Each record in this dataset contains 40 columns: 
+Each record in this dataset contains 40 columns:
 
-- the first column is a label column that indicates whether a user clicks on an add (value 1) or does not click (value 0) 
-- next 13 columns are numeric, and 
-- last 26 are categorical columns 
+- the first column is a label column that indicates whether a user clicks on an add (value 1) or does not click (value 0)
+- next 13 columns are numeric, and
+- last 26 are categorical columns
 
 The columns are anonymized and use a series of enumerated names: "Col1" (for the label column) to 'Col40" (for the last categorical column).            
 
 Here is an excerpt of the first 20 columns of two observations (rows) from this dataset:
 
-	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15			Col16			Col17			Col18			Col19		Col20	
+	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15			Col16			Col17			Col18			Col19		Col20
 
 	0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
 	0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
@@ -62,7 +62,7 @@ Two sample prediction problems are addressed in this walkthrough:
 
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
-1. [Create a storage account](storage-whatis-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
+1. [Create a storage account](../storage/storage-create-storage-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
 
 2. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
 
@@ -80,10 +80,10 @@ The [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dat
 
 Click on **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in a public [Azure blob storage](storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
+The data resides in a public [Azure blob storage](../storage/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
 
 1. The data in this public blob storage consists of three sub-folders of unzipped data.
-		
+
 	1. The sub-folder *raw/count/* contains the first 21 days of data - from day\_00 to day\_20
 	2. The sub-folder *raw/train/* consists of a single day of data, day\_21
 	3. The sub-folder *raw/test/* consists of two days of data, day\_22 and day\_23
@@ -94,16 +94,16 @@ An alternative approach to access, explore, and model this data that does not re
 
 ## <a name="login"></a>Log into the cluster headnode
 
-To login to the headnode of the cluster, use the [Azure Management](manage.windowsazure.com) portal to locate the cluster. Click on the HDInsight elephant icon on the left and then double click on the name of your cluster. Navigate to the **Configuration** tab, double click on the CONNECT icon on the bottom of the page, and enter your remote access credentials when prompted. This takes you to the headnode of the cluster. 
+To login to the headnode of the cluster, use the [Azure Management](https://manage.windowsazure.com) portal to locate the cluster. Click on the HDInsight elephant icon on the left and then double click on the name of your cluster. Navigate to the **Configuration** tab, double click on the CONNECT icon on the bottom of the page, and enter your remote access credentials when prompted. This takes you to the headnode of the cluster.
 
 Here is what a typical first login to the cluster headnode looks like:
 
 ![Login to cluster](./media/machine-learning-data-science-process-hive-criteo-walkthrough/Yys9Vvm.png)
 
 
-On the left, we see the "Hadoop Command Line", which will be our workhorse for the data exploration. We also see two useful URLs - "Hadoop Yarn Status" and "Hadoop Name Node". The yarn status URL shows job progress and the name node URL gives details on the cluster configuration. 
+On the left, we see the "Hadoop Command Line", which will be our workhorse for the data exploration. We also see two useful URLs - "Hadoop Yarn Status" and "Hadoop Name Node". The yarn status URL shows job progress and the name node URL gives details on the cluster configuration.
 
-Now we are set up and ready to begin first part of the walkthrough: data exploration using Hive and getting data ready for Azure Machine Learning. 
+Now we are set up and ready to begin first part of the walkthrough: data exploration using Hive and getting data ready for Azure Machine Learning.
 
 ## <a name="hive-db-tables"></a> Create Hive database and tables
 
@@ -111,20 +111,20 @@ To create Hive tables for our Criteo dataset, open the ***Hadoop Command Line***
 
     cd %hive_home%\bin
 
-**IMPORTANT NOTE**: **Run all Hive commands in this walkthrough from the above Hive bin/ directory prompt. This will take care of any path issues automatically. We will use the terms "Hive directory prompt", "Hive bin/ directory prompt",  and "Hadoop Command Line" interchangeably.** 
+**IMPORTANT NOTE**: **Run all Hive commands in this walkthrough from the above Hive bin/ directory prompt. This will take care of any path issues automatically. We will use the terms "Hive directory prompt", "Hive bin/ directory prompt",  and "Hadoop Command Line" interchangeably.**
 
-**IMPORTANT NOTE 2**: **To execute any Hive query, one can always do the following** 
+**IMPORTANT NOTE 2**: **To execute any Hive query, one can always do the following**
 		cd %hive_home%\bin
 		hive
 
 After the Hive REPL appears with a "hive >"sign, simply cut and paste the query to execute it.
 
-The code below creates a database "criteo" and then generates 4 tables: 
+The code below creates a database "criteo" and then generates 4 tables:
 
 
-* a *table for generating counts* built on days day\_00 to day\_20, 
-* a *table for use as the train dataset* built on day\_21, and 
-* two *tables for use as the test datasets* built on day\_22 and day\_23 respectively. 
+* a *table for generating counts* built on days day\_00 to day\_20,
+* a *table for use as the train dataset* built on day\_21, and
+* two *tables for use as the test datasets* built on day\_22 and day\_23 respectively.
 
 We split our test dataset into two different tables because one of the days is a holiday, and we want to determine if the model can detect differences between a holiday and non-holiday from the clickthrough rate.
 
@@ -159,7 +159,7 @@ The script [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;table
 	LINES TERMINATED BY '\n'
 	STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/test/day_23';
 
-We note that all these tables are external as we simply point to Azure Blob Storage (wasb) locations. 
+We note that all these tables are external as we simply point to Azure Blob Storage (wasb) locations.
 
 **There are two ways to execute ANY Hive query that we now mention.**
 
@@ -227,7 +227,7 @@ We now count the number of examples in the two test datasets. The contents of [s
 		SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
 This yields:
-	
+
 		189747893
 		Time taken: 267.968 seconds, Fetched: 1 row(s)
 
@@ -242,7 +242,7 @@ The command to do this is similar to the above (refer to [sample&#95;hive&#95;co
 		SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
 This gives:
-	
+
 		178274637
 		Time taken: 253.089 seconds, Fetched: 1 row(s)
 
@@ -259,12 +259,12 @@ This yields the label distribution:
 		Time taken: 459.435 seconds, Fetched: 2 row(s)
 
 Note that the percentage of positive labels is about 3.3% (consistent with the original dataset).
-		
+
 ### Histogram distributions of some numeric variables in the train dataset
 
 We can use Hive's native "histogram\_numeric" function to find out what the distribution of the numeric variables looks like. The contents of [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) are as below:
 
-		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
+		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
 			(SELECT
             histogram_numeric(col2, 20) as col2_hist
             FROM
@@ -322,20 +322,20 @@ This yields:
 		19011825
 		Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-We note that Col15 has 19M unique values! Using naive techniques like "one-hot encoding" to encode such high-dimensional categorical variables is infeasible. In particular, we explain and demonstrate a powerful, robust technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) for tackling this problem efficiently. 
+We note that Col15 has 19M unique values! Using naive techniques like "one-hot encoding" to encode such high-dimensional categorical variables is infeasible. In particular, we explain and demonstrate a powerful, robust technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) for tackling this problem efficiently.
 
 We end this sub-section by looking at the number of unique values for some other categorical columns as well. The contents of [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) are:
 
-		SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)), 
+		SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
 		COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
 		FROM criteo.criteo_train;
 
-This yields: 
+This yields:
 
 		30935   15200   7349    20067   3
 		Time taken: 1933.883 seconds, Fetched: 1 row(s)
 
-Again we see that except for Col20, all the other columns have many unique values. 
+Again we see that except for Col20, all the other columns have many unique values.
 
 ### Co-occurence counts of pairs of categorical variables in the train dataset
 
@@ -364,7 +364,7 @@ We reverse order the counts by their occurrence and look at the top 15 in this c
 
 ## <a name="downsample"></a> Down sample the datasets for Azure Machine Learning
 
-Having explored the datasets and demonstrated how we may do this type of exploration for any variables (including combinations), we now down sample the data sets so that we can build models in Azure Machine Learning. Recall that the problem we focus on is: given a set of example attributes (feature values from Col2 - Col40), we predict if Col1 is a 0 (no click) or a 1 (click). 
+Having explored the datasets and demonstrated how we may do this type of exploration for any variables (including combinations), we now down sample the data sets so that we can build models in Azure Machine Learning. Recall that the problem we focus on is: given a set of example attributes (feature values from Col2 - Col40), we predict if Col1 is a 0 (no click) or a 1 (click).
 
 To down sample our train and test datasets to 1% of the original size, we use Hive's native RAND() function. The next script, [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) does this for the train dataset:
 
@@ -423,9 +423,9 @@ There is a final important component before we move on to Azure Machine Learning
 
 ##<a name="count"></a> A brief discussion on the count table
 
-As we saw, several categorical variables have a very high dimensionality. In our walkthrough, we present a powerful technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner. More information on this technique is in the link provided. 
+As we saw, several categorical variables have a very high dimensionality. In our walkthrough, we present a powerful technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner. More information on this technique is in the link provided.
 
-**Note:** In this walkthrough, we focus on using count tables to produce compact representations of high-dimensional categorical features. This is certainly not the only way to encode categorical features ; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing). 
+**Note:** In this walkthrough, we focus on using count tables to produce compact representations of high-dimensional categorical features. This is certainly not the only way to encode categorical features ; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing).
 
 To build count tables on the count data, we use the data in the folder raw/count. In the modeling section, we show users how to build these count tables for categorical features from scratch, or alternatively to use a pre-built count table for their explorations. In what follows, when we refer to "pre-built count tables", we mean using the count tables that we provide. Detailed instructions on how to access these tables are below.
 
@@ -440,17 +440,17 @@ Our model building process in Azure Machine Learning will follow these steps:
 5. [Evaluate the model](#step5)
 6. [Publish the model as a web-service to be consumed](#step6)
 
-Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We will use the Azure Machine Learning **Reader** module to read this data. The credentials to access the storage account of this cluster are provided below.
+Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We will use the Azure Machine Learning **Import Data** module to read this data. The credentials to access the storage account of this cluster are provided below.
 
-### <a name="step1"></a> Step 1: Get data from Hive tables into Azure Machine Learning using the Reader module and select it for a machine learning experiment
+### <a name="step1"></a> Step 1: Get data from Hive tables into Azure Machine Learning using the Import Data module and select it for a machine learning experiment
 
-Start by selecting a **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Then, from the **Search** box on the top left, search for "Reader". Drag and drop the **Reader** module on to the experiment canvas (the middle portion of the screen) to use the module for data access.
+Start by selecting a **+NEW** -> **EXPERIMENT** -> **Blank Experiment**. Then, from the **Search** box on the top left, search for "Import Data". Drag and drop the **Import Data** module on to the experiment canvas (the middle portion of the screen) to use the module for data access.
 
-This is what the **Reader** looks like while getting data from the Hive table:
+This is what the **Import Data** looks like while getting data from the Hive table:
 
-![Reader gets data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
+![Import Data gets data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-For the **Reader** module, the values of the parameters that are provided in the graphic are just examples of the sort of values you will need to provide. Here is some general guidance on how to fill out the parameter set for the **Reader** module.
+For the **Import Data** module, the values of the parameters that are provided in the graphic are just examples of the sort of values you will need to provide. Here is some general guidance on how to fill out the parameter set for the **Import Data** module.
 
 1. Choose "Hive query" for **Data Source**
 2. In the **Hive database query** box, a simple SELECT * FROM <your\_database\_name.your\_table\_name> - is enough.
@@ -460,21 +460,21 @@ For the **Reader** module, the values of the parameters that are provided in the
 6. **Location of output data**: Choose "Azure"
 7. **Azure storage account name**: The storage account associated with the cluster
 8. **Azure storage account key**: The key of the storage account associated with the cluster.
-9. **Azure container name**: If the cluster name is "abc", then this is simply "abc", usually. 
+9. **Azure container name**: If the cluster name is "abc", then this is simply "abc", usually.
 
 
-Once the **Reader** finishes getting data (you see the green tick on the Module), save this data as a Dataset (with a name of your choice). What this looks like:
+Once the **Import Data** finishes getting data (you see the green tick on the Module), save this data as a Dataset (with a name of your choice). What this looks like:
 
-![Reader save data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
+![Import Data save data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
-Right click on the output port of the **Reader** module. This reveals a **Save as dataset** option and a **Visualize** option. The **Visualize** option, if clicked, displays 100 rows of the data, along with a right panel that is useful for some summary statistics. To save data, simply select **Save as dataset** and follow instructions.
+Right click on the output port of the **Import Data** module. This reveals a **Save as dataset** option and a **Visualize** option. The **Visualize** option, if clicked, displays 100 rows of the data, along with a right panel that is useful for some summary statistics. To save data, simply select **Save as dataset** and follow instructions.
 
 To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown below. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 ***IMPORTANT NOTE:*** **Do this for both the train and the test datasets. Also, remember to use the database name and table names that you gave for this purpose. The values used in the figure are solely for illustration purposes.**
- 
+
 ### <a name="step2"></a> Step 2: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
 
 Our Azure ML experiment looks like the below:
@@ -506,7 +506,7 @@ To build count features, we use the **Build Counting Transform** module that is 
 
 **Important Note** : In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns : from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
 
-To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration above can be reused for this purpose as well) and its credentials. The figures above illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case). 
+To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration above can be reused for this purpose as well) and its credentials. The figures above illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case).
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
@@ -558,7 +558,7 @@ It is instructive to see what the count features look like in our case. Below, w
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
-In this excerpt, we show that for the columns that we counted on, we get the counts and log odds in addition to any relevant backoffs. 
+In this excerpt, we show that for the columns that we counted on, we get the counts and log odds in addition to any relevant backoffs.
 
 We are now ready to build an Azure Machine Learning model using these transformed datasets. In the next section, we show how this can be done.
 
@@ -601,9 +601,9 @@ The ability to publish an Azure Machine Learning model as web services with a mi
 
 To do this, we first save our trained model as a Trained Model object. This is done by right clicking on the **Train Model** module and using the **Save as Trained Model** option.
 
-Next, we need to create input and output ports for our web service: 
+Next, we need to create input and output ports for our web service:
 
-* an input port takes data in the same form as the data that we need predictions for 
+* an input port takes data in the same form as the data that we need predictions for
 * an output port returns the Scored Labels and the associated probabilities.
 
 #### Select a few rows of data for the input port
@@ -621,19 +621,19 @@ As a zeroth step, since the count table is large, we take a few lines of test da
 
 ![Create BDT input data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OEJMmst.png)
 
-Note: for the input data format, we will now use the OUTPUT of the **Count Featurizer** module. Once this experiment finishes running, save the output from the **Count Featurizer** module as a Dataset. 
+Note: for the input data format, we will now use the OUTPUT of the **Count Featurizer** module. Once this experiment finishes running, save the output from the **Count Featurizer** module as a Dataset.
 
-**Important Note:** This Dataset will be used for the input data in the webservice. 
+**Important Note:** This Dataset will be used for the input data in the webservice.
 
 #### Scoring experiment for publishing webservice
 
-First, we show what this looks like. The essential structure is a **Score Model** module that accepts our trained model object and a few lines of input data that we generated in the previous steps using the **Count Featurizer** module. We use "Project Columns" to project out the Scored labels and the Score probabilities. 
+First, we show what this looks like. The essential structure is a **Score Model** module that accepts our trained model object and a few lines of input data that we generated in the previous steps using the **Count Featurizer** module. We use "Select Columns in Dataset" to project out the Scored labels and the Score probabilities.
 
-![Project Columns](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
+![Select Columns in Dataset](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
-Notice how the **Project Columns** module can be used for 'filtering' data out from a dataset. We show the contents below:
+Notice how the **Select Columns in Dataset** module can be used for 'filtering' data out from a dataset. We show the contents below:
 
-![Filtering with the Project Columns module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
+![Filtering with the Select Columns in Dataset module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
 To get the blue input and output ports, you simply click **prepare webservice** at the bottom right. Running this experiment also allows us to publish the web service  by clicking the **PUBLISH WEB SERVICE** icon at the bottom right, shown below.
 
@@ -646,12 +646,12 @@ Once the webservice is published, we get redirected to a page that looks thus:
 
 We see two links for webservices on the left side:
 
-* The **REQUEST/RESPONSE** Service (or RRS) is meant for single predictions and is what we will utilize in this workshop. 
+* The **REQUEST/RESPONSE** Service (or RRS) is meant for single predictions and is what we will utilize in this workshop.
 * The **BATCH EXECUTION** Service (BES) is used for batch predictions and requires that the input data used to make predictions reside in Azure Blob Storage.
 
-Clicking on the link **REQUEST/RESPONSE** takes us to a page that gives us pre-canned code in C#, python, and R. This code can be conveniently used for making calls to the webservice. Note that the API key on this page needs to be used for authentication. 
+Clicking on the link **REQUEST/RESPONSE** takes us to a page that gives us pre-canned code in C#, python, and R. This code can be conveniently used for making calls to the webservice. Note that the API key on this page needs to be used for authentication.
 
-It is convenient to copy this python code over to a new cell in the IPython notebook. 
+It is convenient to copy this python code over to a new cell in the IPython notebook.
 
 Below, we show a segment of python code with the correct API key.
 

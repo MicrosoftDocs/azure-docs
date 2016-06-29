@@ -13,7 +13,7 @@
 
 4. Add this line under *dependencies*: 
 
-   		compile 'com.google.android.gms:play-services-base:6.5.87'
+   		compile 'com.google.android.gms:play-services-gcm:8.4.0'
 
 5. Under *defaultConfig*, change *minSdkVersion* to 9.
  

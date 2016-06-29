@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="05/13/2016"
 	ms.author="kgremban"/>
 
 # Managing Role-Based Access Control with the REST API
@@ -22,6 +22,9 @@
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
+
+Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+
 
 ## List all role assignments
 
@@ -33,7 +36,7 @@ To list role assignments, you must have access to `Microsoft.Authorization/roleA
 
 Use the **GET** method with the following URI:
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
 Within the URI, make the following substitutions to customize your request:
 
@@ -53,8 +56,8 @@ Replace *{filter}* with the condition that you wish to apply to filter the role 
 | Condition | *{Filter}* | Replace |
 |-----------|------------|---------|
 | To list role assignments for only the specified scope, not including the role assignments at sub-scopes. | `atScope()` | |
-| To list role assignments for only specific user, group, or application                                          | `principalId%20eq%20'{objectId}'` | Replace *{objectId}* with the Azure AD objectId of the user, group, or service principal. For instance, `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| To list role assignments for only specific user including ones assigned to groups of which the user is a member | `assignedTo('{objectId}')` | Replace *{objectId}* with the Azure AD objectId of the user. For instance, `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+| To list role assignments for only specific user, group, or application                                          | `principalId%20eq%20'{objectId}'` | Replace *{objectId}* with the Azure AD objectId of the user, group, or service principal. For instance, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| To list role assignments for only specific user including ones assigned to groups of which the user is a member | `assignedTo('{objectId}')` | Replace *{objectId}* with the Azure AD objectId of the user. For instance, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 
 
@@ -256,7 +259,7 @@ To list roles, you must have access to `Microsoft.Authorization/roleDefinitions/
 
 Use the **GET** method with the following URI:
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
 Within the URI, make the following substitutions to customize your request:
 

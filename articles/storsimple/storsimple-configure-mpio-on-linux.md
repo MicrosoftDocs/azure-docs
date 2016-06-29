@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # Configure MPIO on a StorSimple host running CentOS

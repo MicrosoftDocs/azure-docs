@@ -14,11 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="rajram"/>
 
 # Develop an API for PowerApps
 
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about custom APIs in PowerApps, go to [What are Custom APIs](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+
+<!--Archived
 You can create or develop your own API that can be used within PowerApps. The steps include:
 
 - Build and deploy your API
@@ -129,3 +135,4 @@ Example:
 ```
 
 This is useful in scenarios where the inputs to an operation are dynamic. For example, consider the case of SQL. The schema of each table is different. So when a user selects a particular table, the Logic Flow designer needs to understand the structure of the table so that it can display the column names. In this context, if the swagger definition has _x-ms-dynamic-schema_, it calls the corresponding operation to fetch the schema.
+-->

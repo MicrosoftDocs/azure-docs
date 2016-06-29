@@ -3,7 +3,7 @@
    description="Create, deploy, and debug a Service Fabric application using Visual Studio"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/11/2016"
-   ms.author="seanmck"/>
+   ms.date="06/09/2016"
+   ms.author="ryanwi"/>
 
 # Create your first Azure Service Fabric application in Visual Studio
 
@@ -46,7 +46,7 @@ A Service Fabric application can contain one or more services, each with a speci
 
 	![New service dialog in Visual Studio][2]
 
-	>[AZURE.NOTE] For more information about the options, see [Choose a framework](service-fabric-choose-framework.md).
+	>[AZURE.NOTE] For more information about the options, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
 
 	Visual Studio creates the application project and the stateful service project and displays them in Solution Explorer.
 
@@ -58,7 +58,7 @@ A Service Fabric application can contain one or more services, each with a speci
 
 	- **Scripts**: Includes a PowerShell script for deploying/upgrading your application. This script is used behind-the-scenes by Visual Studio and can be invoked directly at the command line.
 
-	- **Application definition**: Includes the application manifest and associated application parameter files that define the application and allow you to configure it specifically for a given environment.
+	- **Application definition**: Includes the application manifest under *ApplicationPackageRoot* and associated application parameter files under *ApplicationParameters* that define the application and allow you to configure it specifically for a given environment.
 
     For an overview of the contents of the service project, see [Getting started with Reliable Services](service-fabric-reliable-services-quick-start.md).
 
@@ -80,7 +80,7 @@ Now that you have an application, you can try running it.
 
 	In the case of the stateful service template, the messages simply show the counter value that is being incremented in the `RunAsync` method of MyStatefulService.cs.
 
-3. Expand one of the events to see more details, including the node where the code is running. In this case, it is node 2, though it may differ on your machine.
+3. Expand one of the events to see more details, including the node where the code is running. In this case, it is _Node_2, though it may differ on your machine.
 
 	![Diagnostic events viewer detail][6]
 
@@ -100,7 +100,7 @@ Now that you have an application, you can try running it.
 
 6. In the left pane, expand **Cluster > Nodes** and find the node where your code is running.
 
-7. Click **Actions > Deactivate (Restart)** to simulate a machine restarting.
+7. Click **Actions > Deactivate (Restart)** to simulate a machine restarting. (Note you can also do this in a context menu in the node list view in the left pane by selecting the three dots.)
 
 	![Stop a node in Service Fabric Explorer][sfx-stop-node]
 
@@ -110,24 +110,19 @@ Now that you have an application, you can try running it.
 
     ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
 
-### Cleaning up
+## Cleaning up
 
-  Before wrapping up, it's important to remember that the local cluster is very real. Even after you stop the debugger and close Visual Studio, your applications will keep running in the background. Depending on the nature of your apps, this background activity can take up significant resources on your machine. You have several options to manage this:
+  Before wrapping up, it's important to remember that the local cluster is very real. Stopping the debugger will remove your application instance and unregister the application type.  The cluster will continue to run in the background, however. You have several options to manage this:
 
-  1. To remove an individual application and all of its data, use the **Remove application** action in Service Fabric Explorer.
+  1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
 
-  2. To shut down the cluster but keep the application data and traces, click **Stop Cluster** in the system tray app.
-
-  3. To delete the cluster entirely, click **Remove Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Use this only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
-
-
+  2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Use this only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
 
 ## Next steps
 
-- [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
-- [Learn how to create a cluster in Azure](service-fabric-cluster-creation-via-portal.md)
-- [Learn more about Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Try creating a service using the Reliable Actors programming model](service-fabric-reliable-actors-get-started.md)
+- Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
+- Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
+- Learn how you can expose your services to the Internet with a [web service front end](service-fabric-add-a-web-frontend.md).
 
 <!-- Image References -->
 
@@ -141,3 +136,4 @@ Now that you have an application, you can try running it.
 [sfx-stop-node]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
+[sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png

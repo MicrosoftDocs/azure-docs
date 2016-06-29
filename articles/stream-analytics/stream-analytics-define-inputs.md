@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/22/2016"
+	ms.date="06/15/2016"
 	ms.author="jeffstok"/>
 
 # Data connection: Learn about data stream inputs from events to Stream Analytics
@@ -41,7 +41,7 @@ It is important to note that the default timestamp of events coming from Event H
 
 Each Stream Analytics Event Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 
-## Configure Event Hub as an input data stream
+### Configure Event Hub as an input data stream
 
 The table below explains each property in the Event Hub input tab with its description:
 
@@ -79,11 +79,13 @@ FROM Input
 Azure Iot Hub is a highly scalable publish-subscribe event ingestor optimized for IoT scenarios.
 It is important to note that the default timestamp of events coming from IoT Hubs in Stream Analytics is the timestamp that the event arrived in IoT Hub which is EventEnqueuedUtcTime. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword must be used.
 
+> [AZURE.NOTE] Only messages sent with a DeviceClient property can be processed.
+
 ### Consumer groups
 
 Each Stream Analytics IoT Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding IoT Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job.
 
-## Configure IoT Hub as an data stream input
+### Configure IoT Hub as an data stream input
 
 The table below explains each property in the IoT Hub input tab with its description:
 

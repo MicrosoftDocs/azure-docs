@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="05/23/2016"
    ms.author="mwasson"/>
 
 # Authentication in multitenant apps, using Azure AD and OpenID Connect
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-multitenant-identity.md). There is also a complete [sample application] that accompanies this series.
 
@@ -41,7 +43,7 @@ Our [reference implementation](guidance-multitenant-identity-tailspin.md) is an 
 
 To enable OpenID Connect, the SaaS provider registers the application inside their own Azure AD tenant.
 
-To register the application, follow the steps in [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md), in the section "To register an application in the Azure Management Portal."
+To register the application, follow the steps in [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md), in the section [Adding an Application](../active-directory/active-directory-integrating-applications.md#adding-an-application).
 
 In the **Configure** page:
 
@@ -168,7 +170,7 @@ During the authentication process, the OpenID Connect middleware raises a series
 
 - **TokenResponseReceived**. Called after the middleware gets an access token from the IDP. Applies only to authorization code flow.
 
-- **AuthenticationValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about th euser. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](guidance-multitenant-identity-claims.md).
+- **AuthenticationValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about the user. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](guidance-multitenant-identity-claims.md).
 
 - **UserInformationReceived**. Called if the middleware gets the user profile from the user info endpoint. Applies only to authorization code flow, and only when `GetClaimsFromUserInfoEndpoint = true` in the middleware options.
 

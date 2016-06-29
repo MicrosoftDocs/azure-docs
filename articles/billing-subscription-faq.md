@@ -14,82 +14,84 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="06/22/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
 
 This article answers some of the most common questions about Azure Billing and Subscription.
 
-**Billing**
-
-- [What payment options do I have in purchasing Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
-
-- [How can I request the invoice method of payment?](#how-can-i-request-the-invoice-method-of-payment)
-
-- [How do I check the status of a payment made by credit card?](#how-do-i-check-the-status-of-a-payment-made-by-credit-card)
-
-- [How do I get a copy of my invoice?](#how-do-i-get-a-copy-of-my-invoice)
-
-- [How do I remove a credit card that I no longer use as an Azure payment method?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
-
-- [How can I update or change my credit card information?](#how-can-i-update-or-change-my-credit-card-information)
-
-- [How do we know in advance about service downtime for planned maintenance?](#how-do-we-know-in-advance-about-service-downtime-for-planned-maintenance)
-
-- [What is the Azure SLA agreement for uptime and connectivity?](#what-is-the-azure-sla-agreement-for-uptime-and-connectivity)
-
-- [What are the Azure SLA Credits?](#what-are-the-azure-sla-credits)
-
-- [How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
-
-**Subscriptions**
-
-- [How do I purchase Azure Support?](#how-do-i-purchase-azure-support)
-
-- [Does the monthly rate cover a single Azure plan or the entire account?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
-
-- [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
-
--	[When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
-
-- [What happens at the end of the term?](#what-happens-at-the-end-of-the-term)
-
-- [How do I cancel my Azure Support plan?](#how-do-i-cancel-my-azure-support-plan)
-
-- [How do I migrate data and services for my Azure subscription to a new subscription?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
+**Account Administration**
 
 - [How do I manage Administrator accounts in the new Azure portal?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
-
-- [How do I transfer ownership of my subscriptions?](#how-do-i-transfer-ownership-of-my-subscriptions)
-
-- [Can I transfer server licenses to Azure and run them on Virtual Machines?](#can-i-transfer-server-licenses-to-azure-and-run-them-on-virtual-machines)
-
-- [Where can I find the Benefits and Pricing information for Azure Services?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
-
-- [How do I change my pricing plan?](#how-do-i-change-my-pricing-plan)
-
 - [Can notifications be sent to a different email address other than the Account Owner email address associated with my account?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
-
-- [How can I edit my payment information for my Azure subscriptions?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
-
 - [Why I cannot edit or add details to my subscription?](#why-i-cannot-edit-or-add-details-to-my-subscription)
 
-- [Who can purchase Azure services?](#who-can-purchase-azure-services)
+
+**Billing**
+
+- [How do I get a copy of my invoice?](#how-do-i-get-a-copy-of-my-invoice)
+- [I do not see an invoice for the last billing period. Why?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+
+**Free Trial**
 
 - [Can I try Azure for free without any risk of being charged?](#can-i-try-azure-for-free-without-any-risk-of-being-charged)
+- [What is a trial subscription and how long does it last?](#what-is-a-trial-subscription-and-how-long-does-it-last)
+- [What resources are available when using a trial account?](#what-resources-are-available-when-using-a-trial-account)
+- [What happens if I remove the spending limit on my free trial?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
+- [Where can I get more details on Free Trial?](#where-can-i-get-more-details-on-free-trial)
 
-- [Can I turn the Spending Limit back on if I turn off it?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
-
-- [Can I adjust the amount of the Spending Limit?](#can-i-adjust-the-amount-of-the-spending-limit)
+**How to buy Azure**
 
 - [In which countries and regions is Microsoft Azure commercially available and what currencies can be used to purchase Azure?](#in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure)
-
 - [Do we restrict resale of Azure based service into countries under embargo?](#do-we-restrict-resale-of-azure-based-service-into-countries-under-embargo)
-
 - [Are Azure and SQL Database available through Microsoft Services Provider License Agreement?](#are-azure-and-sql-database-available-through-microsoft-services-provider-license-agreement)
 
-## Billing
+**Making Payments**
+
+- [What payment options do I have in purchasing Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
+- [How can I request the invoice method of payment?](#how-can-i-request-the-invoice-method-of-payment)
+- [How do I check the status of a payment made by credit card?](#how-do-i-check-the-status-of-a-payment-made-by-credit-card)
+- [How do I remove a credit card that I no longer use as an Azure payment method?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
+- [How can I update or change my credit card information?](#how-can-i-update-or-change-my-credit-card-information)
+- [How can I edit my payment information for my Azure subscriptions?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+
+**Azure Pricing**
+
+- [Where can I find the Benefits and Pricing information for Azure Services?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
+- [How do I change my pricing plan?](#how-do-i-change-my-pricing-plan)
+
+**Service Level Agreements (SLA)**
+
+- [How do we know in advance about service downtime for planned maintenance?](#how-do-we-know-in-advance-about-service-downtime-for-planned-maintenance)
+- [What is the Azure SLA agreement for uptime and connectivity?](#what-is-the-azure-sla-agreement-for-uptime-and-connectivity)
+- [What are the Azure SLA Credits?](#what-are-the-azure-sla-credits)
+- [How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
+
+**Azure Spending limits**
+
+- [Can I turn the Spending Limit back on if I turn off it?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
+- [Can I adjust the amount of the Spending Limit?](#can-i-adjust-the-amount-of-the-spending-limit)
+
+**Support Plans**
+
+- [How do I purchase Azure Support?](#how-do-i-purchase-azure-support)
+- [Does the monthly rate cover a single Azure plan or the entire account?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
+- [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
+- [When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
+- [What happens at the end of the term?](#what-happens-at-the-end-of-the-term)
+- [How do I cancel my Azure Support plan?](#how-do-i-cancel-my-azure-support-plan)
+
+**Migrating subscriptions, services and data**
+
+- [How do I migrate data and services for my Azure subscription to a new subscription?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
+- [How do I transfer ownership of my subscriptions?](#how-do-i-transfer-ownership-of-my-subscriptions)
+
+**Others**
+
+- [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
+- [Can I transfer server licenses to Azure and run them on Virtual Machines?](#can-i-transfer-server-licenses-to-azure-and-run-them-on-virtual-machines)
+- [Who can purchase Azure services?](#who-can-purchase-azure-services)
 
 ### What payment options do I have in purchasing Azure?
 
@@ -119,7 +121,7 @@ You must submit a support ticket to request assistance. To create a support tick
 
 ### How can I update or change my credit card information?
 
-For instructions about how to use a different credit card as a payment method, or how to add a new credit card see [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
+If your credit card gets renewed and the number remains the same, you can simply update the details of the existing credit card, such as expiration date. If your card number changes or you would like to use a different card, you will need to add the new card. You can find instructions to update or add a credit card here: [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
 
 ### How do we know in advance about service downtime for planned maintenance?
 
@@ -127,7 +129,7 @@ Our Service Level Agreement for availability applies to customer applications wh
 
 **Planned maintenance (Classic Portal)**: For both single- and multi-instance configurations, Azure sends email communications in advance to alert you of upcoming planned maintenance (one week in advance for single-instance and 48 hours in advance for multi-instance). The email will be sent to the Account Administrator, Service Administrator and Co-administrator email accounts provided in the subscription.
 
-**NOTE:** For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](./virtual-machines/virtual-machines-planned-maintenance.md).
+**NOTE:** For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
 **Unplanned maintenance:** In the event of an unplanned service disruption on the Azure Platform, status updates will be made on our [service dashboard](http://status.azure.com/)  and customers will also receive notice in the [Azure classic portal](https://manage.windowsazure.com/).
 
@@ -143,7 +145,20 @@ Azure SLA Credits are calculated on a per subscription basis as a percentage of 
 
 Azure Service Level Agreements are independent of our on-premises Microsoft licensing agreements. Our SLAs for Azure provide you a monthly uptime guarantee for those services you consume in the cloud, with SLA credits against what we have billed you in the event we fail to meet the guarantee.
 
-## Subscriptions
+### I do not see an invoice for the last billing period. Why?
+
+There could be several reasons for this:
+- It is less than 30 days from the day you subscribed to Azure.
+- Your subscription type is Free Trial or one of the member offers (MSDN/Open/BizSpark/DreamSpark) that doesn't have a credit card or other payment instrument associated with it.
+- The invoice generation date has not yet arrived.
+
+### I am unable to log in to the Azure portal
+
+The following article will help you troubleshoot some common causes of login issues:
+
+[I am unable to log in to manage my Azure subscription](billing-cannot-login-subscription.md)
+
+**Note** Make sure you are logging in as the right administrator: An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/).
 
 ### How do I purchase Azure Support?
 Azure Support plans may be purchased either online or through an Enterprise Agreement. The Developer, Standard, or Professional Direct Support plans are available online through the [Azure Support Plans](https://azure.microsoft.com/support/plans/) page. You must be the Microsoft Azure account owner to purchase a support plan.
@@ -262,3 +277,20 @@ Yes.
 ### Are Azure and SQL Database available through Microsoft Services Provider License Agreement?
 
 There are currently no plans to offer Azure or SQL Database through SPLA.
+
+### What is a trial subscription and how long does it last?
+
+An Azure trial subscription allows you a dollar amount of credit to use on Microsoft services based on your needs for a period of 30 days. To see what services free trial credits cover and do not cover, see the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/).
+
+You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/).
+
+### What resources are available when using a trial account?
+
+You receive $200 of Azure credits with the Free Trial. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details.
+
+### What happens if I remove the spending limit on my free trial?
+
+Once you remove the spending limit, you start getting charged for consuming resources beyond the free trial credit. You will not be able to reset the spending limit once it has been removed.
+
+### Where can I get more details on Free Trial?
+Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).

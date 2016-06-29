@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Azure Data Catalog  | Microsoft Azure"
-   description="This article shows the Keyboard shortcuts for Azure Data Catalog."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="Azure Data Catalog  | Microsoft Azure"
+	description="This article shows the Keyboard shortcuts for Azure Data Catalog."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/07/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="06/27/2016"
+	ms.author="spelluru"/>
 
 # Keyboard shortcuts for Azure Data Catalog
 
-## General keyboard shortcuts
+## Keyboard shortcuts for the Data Catalog data source registration tool
 
-The following are the keyboard shortcuts for Azure Data Catalog.
+### General keyboard shortcuts
 
 |To do this|Press
 |---|---
@@ -31,27 +31,27 @@ The following are the keyboard shortcuts for Azure Data Catalog.
 |Open page menu| ALT+SPACEBAR
 
 
-## Authentication page
+### Authentication page
 
 |To do this|Press
 |---|---
 |Sign into service|ALT+S
 
-## Data source selection page
+### Data source selection page
 
 |To do this|Press
 |---|---
 |Go to next page (if enabled)|ALT+N
 |Change selected type when the focus is on a tile|LEFT, UP, RIGHT, or DOWN ARROW
 
-## Data source connection page
+### Data source connection page
 
 |To do this|Press
 |---|---
 |Go to previous page (if enabled)|ALT+P
 |Choose Connect button.| ALT+C
 
-## Connection context page
+### Connection context page
 
 |To do this|Press
 |---|---
@@ -62,7 +62,7 @@ The following are the keyboard shortcuts for Azure Data Catalog.
 | Server Hierarchy, expand a tree view's node |RIGHT ARROW
 | Move selected items for **Available Objects** or **Objects to be registered** | SPACEBAR
 
-## Publish progress page
+### Publish progress page
 
 |To do this|Press
 |---|---
@@ -70,14 +70,15 @@ The following are the keyboard shortcuts for Azure Data Catalog.
 |Register More Objects button| ALT+R
 |View Portal button  | ALT+V
 
-## Publish progress page
+### Publish progress page
 
 |To do this|Press
 |---|---
 |Save button (if enabled)| ALT+S
 |Cancel button|ALT+C
 
-## Portal page
+## Keyboard shortcuts for the Data Catalog portal
+
 |To do this|Press
 |---|---
 |Navigate| TAB and SHIFT+TAB

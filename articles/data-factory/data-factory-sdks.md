@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory Developer Reference
 
-You can create, monitor, and manage the factories using either Azure Classic Portal, Azure PowerShell, .NET Class Library, or REST API.
+You can create, monitor, and manage the factories using either Azure Portal, Azure PowerShell, .NET Class Library, or REST API.
 
 Method | Resource Location | Developer References
 ---------------------------------------------------- | ------------------------------ | -----------

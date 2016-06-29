@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # Use Hive with HDInsight to analyze logs from websites
@@ -39,7 +39,7 @@ In this sample, you will use an HDInsight cluster to analyze website log files t
 
 ##To run the sample
 
-1. From the [Azure Portal](https://ms.portal.azure.com/), from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.
+1. From the [Azure Portal](https://portal.azure.com/), from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.
 
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**, and then from the **Cluster Dashboard** blade, click **HDInsight Cluster Dashboard**. Alternatively, you can directly open the dashboard by using the following URL:
 

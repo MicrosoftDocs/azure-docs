@@ -2,7 +2,7 @@
 	pageTitle="Manage Azure Media Services Accounts with PowerShell" 
 	description="Learn how to manage Azure Media Services accounts with PowerShell cmdlets." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 

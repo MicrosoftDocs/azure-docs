@@ -54,21 +54,18 @@ Modify the `App.xaml.cs`:
 
 ## Integration
 
-Engagement provides two ways to implement Reach notification and announcement: the Overlay integration and the Web View integration.
+Engagement provides two ways to add the Reach in-app banners and interstitial views for announcements and polls in your application: the overlay integration and the web views manual integration. You should not combine both approach on the same page.
 
-Overlay integration doesn't require a lot of code to write into your application. You just need to tag your pages, xaml and cs files, with EngagementPageOverlay. Moreover, if you customize the Engagement default view, your customization will be shared with all tagged pages and just defined once. But if your pages need to inherit from an object other than EngagementPageOverlay, you are stuck and forced to use Web View integration.
+The choice between the two integration could be summarized this way:
 
-Webview integration is more complicated to be implemented. But if your App pages need to inherit from an object other than "Page", then you have to integrate the Web View and its behavior.
-
-> [AZURE.TIP] You should consider adding a root level `<Grid></Grid>` element to surround all page content. For Webview integration, just add Webview as child of this grid. If you need to set Engagement component elsewhere, remember that you have to manage the display size yourself.
+-   You may choose the overlay integration if your pages already inherits from the Agent `EngagementPage`, it's just a matter of replacing `EngagementPage` by `EngagementPageOverlay` and `xmlns:engagement="using:Microsoft.Azure.Engagement"` by `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` in your pages.
+-   You may choose the web views manual integration if you want to precisely place the Reach UI within your pages or if you don't want to add another inheritance level to your pages. 
 
 ### Overlay integration
 
-Engagement provides an overlay for notification and announcement display.
+The Engagement overlay dynamically adds the UI elements used to display Reach campaigns in your page. If the overlay doesn't suit your layout you should consider the web views manual integration instead.
 
-If you want to use it, do not use webview integration.
-
-In your .xaml file change EngagementPage reference to EngagementPageOverlay
+In your .xaml file change `EngagementPage` reference to `EngagementPageOverlay`
 
 -   Add to your namespaces declarations:
 
@@ -81,7 +78,7 @@ In your .xaml file change EngagementPage reference to EngagementPageOverlay
 		<engagement:EngagementPage 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement">
 		
-		    <!-- layout -->
+		    <!-- Your layout -->
 		</engagement:EngagementPage>
 
 **With EngagementPageOverlay:**
@@ -89,19 +86,10 @@ In your .xaml file change EngagementPage reference to EngagementPageOverlay
 		<engagement:EngagementPageOverlay 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
 		
-		    <!-- layout -->
+		    <!-- Your layout -->
 		</engagement:EngagementPageOverlay>
 
-> **With EngagementPageOverlay for 8.1+:**
-
-		<engagement:EngagementPageOverlay 
-		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
-		    <Grid>
-		      <!-- layout -->
-		    </Grid>
-		</engagement:EngagementPageOverlay>
-
-Then in your .cs file tag your page in "EngagementPageOverlay" instead of "EngagementPage" and import "Microsoft.Azure.Engagement.Overlay".
+Then in your .cs file tag your page in `EngagementPageOverlay` instead of `EngagementPage` and import `Microsoft.Azure.Engagement.Overlay`.
 
 			using Microsoft.Azure.Engagement.Overlay;
 
@@ -131,156 +119,33 @@ Then in your .cs file tag your page in "EngagementPageOverlay" instead of "Engag
 			  }
 			}
 
-Now this page uses the engagement overlay mechanism, you don't have to insert a web view.
 
-The Engagement overlay uses the first “Grid” element it finds in your xaml file to add two web views on your page. If you want to locate where web views will be set, you can define a grid named “EngagementGrid” like this:
+The Engagement overlay adds a `Grid` element on top of your page composed of your layout and the two `WebView` elements one for the banner and the other one for the interstitial view.
 
-			<Grid x:Name="EngagementGrid"></Grid>
+You can customize the overlay elements directly in the `EngagementPageOverlay.cs` file.
 
-You can customize the overlay notification and announcement directly on their xaml and cs files:
+### Web views manual integration
 
--   `EngagementAnnouncement.html` : The `Announcement` web view html design.
--   `EngagementOverlayAnnouncement.xaml` : The `Announcement` xaml design.
--   `EngagementOverlayAnnouncement.xaml.cs` : The `EngagementOverlayAnnouncement.xaml` linked code.
--   `EngagementNotification.html` : The `Notification` web view html design.
--   `EngagementOverlayNotification.xaml` : The `Notification` xaml design.
--   `EngagementOverlayNotification.xaml.cs` : The `EngagementOverlayNotification.xaml` linked code.
--   `EngagementPageOverlay.cs` : The `Overlay` announcement and notification display code.
+Reach will be searching your pages for the two `WebView` elements responsible for displaying the banner and the interstitial view. The only thing you have to do is to add those two `WebView` elements somewhere in your pages, here is an example:
 
-### Web View integration
+    <Grid x:Name="engagementGrid">
 
-If you want to use it, do not use Overlay integration.
+      <!-- Your layout -->
 
-To display engagement content, you need to integrate the two xaml WebView in each page and you need to display notification and announcement. So add this code in your xaml file:
+      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+    </Grid>
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-> **For 8.1+ integration:**
+In this example the `WebView` elements are stretched to fit their container which automatically re-sizes them in case of screen rotation or window size change.
 
-			<engagement:EngagementPage
-			    xmlns:engagement="using:Microsoft.Azure.Engagement">
-			    <Grid>
-			      <!-- Your layout -->
-			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-			    </Grid>
-			</engagement:EngagementPage>
-
-And your associated .cs file have to look like:
-
-    using Microsoft.Azure.Engagement;
-    using System;
-    using Windows.ApplicationModel.Core;
-    using Windows.UI.ViewManagement;
-    using Windows.UI.Xaml;
-    using Windows.UI.Xaml.Navigation;
-
-    namespace My.Namespace.Example
-    {
-			/// <summary>
-			/// An empty page that can be used on its own or navigated to within a Frame.
-			/// </summary>
-			public sealed partial class ExampleEngagementReachPage : EngagementPage
-			{
-			  public ExampleEngagementReachPage()
-			  {
-			    this.InitializeComponent();
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-			
-			  #region to implement
-              /* Attach events when page is navigated. */
-              protected override void OnNavigatedTo(NavigationEventArgs e)
-              {
-                /* Update the webview when the app window is resized. */
-                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
-
-                /* Update the webview when the app/status bar is resized. */
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
-    #endif
-                base.OnNavigatedTo(e);
-              }
-
-			  /* When page is left ensure to detach SizeChanged handler. */
-			  protected override void OnNavigatedFrom(NavigationEventArgs e)
-			  {
-			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
-    #endif
-			    base.OnNavigatedFrom(e);
-			  }
-			  
-			  /* "width" and "height" are the current size of your application display. */
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
-			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
-    #else
-			  double width =  Window.Current.Bounds.Width;
-			  double height =  Window.Current.Bounds.Height;
-    #endif
-			
-			  /// <summary>
-			  /// Set your webview elements to the correct size.
-			  /// </summary>
-			  /// <param name="width">The width of your current display.</param>
-			  /// <param name="height">The height of your current display.</param>
-			  private void SetWebView(double width, double height)
-			  {
-			    #pragma warning disable 4014
-			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-			            () =>
-			            {
-			              this.engagement_notification_content.Width = width;
-			              this.engagement_announcement_content.Width = width;
-			              this.engagement_announcement_content.Height = height;
-			            });
-			  }
-			
-			  /// <summary>
-			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
-			  /// </summary>
-			  /// <param name="sender">Original event trigger.</param>
-			  /// <param name="e">Window Size Changed Event arguments.</param>
-			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
-			  {
-			    double width = e.Size.Width;
-			    double height = e.Size.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
-			  /// <summary>
-			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
-			  /// </summary>
-			  /// <param name="sender">The related application view.</param>
-			  /// <param name="e">Related event arguments.</param>
-			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
-			  {
-			    double width = sender.VisibleBounds.Width;
-			    double height = sender.VisibleBounds.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-    #endif
-			  #endregion
-			}
-    }
-
-> This implementation embedded WebView resizing when the device screen is turned.
+> [AZURE.WARNING] It is important to keep the same naming `engagement_notification_content` and `engagement_announcement_content` for the `WebView` elements. Reach is identifying them by their name. 
 
 ## Handle datapush (optional)
 
 If you want your application to be able to receive Reach data pushes, you have to implement two events of the EngagementReach class:
 
-In App.xaml.cs in "Public App(){}" add:
+In App.xaml.cs in the App() constructor add:
 
 			EngagementReach.Instance.DataPushStringReceived += (body) =>
 			{

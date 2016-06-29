@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="06/16/2016" 
 	ms.author="spelluru"/>
 
 # Move data from DB2 using Azure Data Factory
@@ -24,6 +24,8 @@ Data factory supports connecting to on-premises DB2 sources using the Data Manag
 **Note:** You need to leverage the gateway to connect to DB2 even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of DB2 hosted in cloud you can also install the gateway instance in the IaaS VM.
 
 Data factory currently supports only moving data from DB2 to other data stores, not from other data stores to DB2. 
+
+> [AZURE.NOTE] This DB2 connector currently support DB2 for LUW (Linux, UNIX, Windows). To copy data from DB2 for z/OS or DB2 for AS/400, consider to use generic ODBC connector and install the corresponding ODBC driver on the gateway machine. For example, to ingest data from DB2 for AS/400, you can use iSeries Access ODBC Driver and refer to [ODBC data sources on-premises/Azure IaaS](data-factory-odbc-connector.md) to set up the copy activity.
 
 ## Installation 
 
@@ -223,13 +225,13 @@ The following table provides description for JSON elements specific to DB2 linke
 | type | The type property must be set to: **OnPremisesDB2** | Yes |
 | server | Name of the DB2 server. | Yes |
 | database | Name of the DB2 database. | Yes |
-| schema | Name of the schema in the database. | No |
+| schema | Name of the schema in the database. The schema name is case sensitive. | No |
 | authenticationType | Type of authentication used to connect to the DB2 database. Possible values are: Anonymous, Basic, and Windows. | Yes |
 | username | Specify user name if you are using Basic or Windows authentication. | No |
 | password | Specify password for the user account you specified for the username. | No |
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. | Yes |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises DB2 data source. 
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises DB2 data source. 
 
 
 ## DB2 dataset type properties
@@ -240,7 +242,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
-| tableName | Name of the table in the DB2 Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) |
+| tableName | Name of the table in the DB2 Database instance that linked service refers to. The tableName is case sensitive. | No (if **query** of **RelationalSource** is specified) |
 
 ## DB2 copy activity type properties
 
@@ -253,7 +255,14 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------- | -------------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified)|
+| query | Use the custom query to read data. | SQL query string. For example: "query": "select * from \"MySchema\".\"MyTable\"". | No (if **tableName** of **dataset** is specified)|
+
+> [AZURE.NOTE] Schema and table names are case sensitive and they have to enclosed in "" (double quotes) in the query.  
+
+**Example:**
+
+ "query": "select * from \"DB2ADMIN\".\"Customers\""
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -314,6 +323,7 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
 

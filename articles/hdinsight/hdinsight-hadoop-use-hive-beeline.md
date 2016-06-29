@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/16/2016"
+   ms.date="04/27/2016"
    ms.author="larryfr"/>
 
 #Use Hive with Hadoop in HDInsight with Beeline
@@ -65,17 +65,19 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
         beeline
 
-2. From the `beeline>` prompt, use the following to connect to the HiveServer2 service. Replace __HOSTNAME__ with the host name returned for the head node ealier:
+2. From the `beeline>` prompt, use the following to connect to the HiveServer2 service. Replace __HOSTNAME__ with the host name returned for the head node earlier:
 
         !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
+        
+    This instructs Beeline to connect to port __10001__ on the specified __HOSTNAME__, and that __HTTP__ is the transport method. The __admin__ account is used to authenticate the connection.
 
     When prompted, enter the password for the administrator (admin) account for your HDInsight cluster. Once the connection is established, the prompt will change to the following:
     
         jdbc:hive2://HOSTNAME:10001/>
 
-3. Beeline commands usually begin with a `!` character, for example `!help` displays help. However the `!` can often be ommited. For example, `help` will also work.
+3. Beeline commands usually begin with a `!` character, for example `!help` displays help. However the `!` can often be omitted. For example, `help` will also work.
 
-    If you view help, you will notice `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can ommit the preceeding `!sql`. The following two statements have exactly the same results; displaying the tables currently available through Hive:
+    If you view help, you will notice `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can omit the preceding `!sql`. The following two statements have exactly the same results; displaying the tables currently available through Hive:
     
         !sql show tables;
         show tables;
@@ -176,7 +178,7 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
     
 3. To save the file, use __Ctrl__+___X__, then enter __Y__, and finally __Enter__.
 
-4. Use the following to run the file using Beeline. Replease __HOSTNAME__ with the name obtained earlier for the head node, and __PASSWORD__ with the password for the admin account:
+4. Use the following to run the file using Beeline. Replace __HOSTNAME__ with the name obtained earlier for the head node, and __PASSWORD__ with the password for the admin account:
 
         beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
 

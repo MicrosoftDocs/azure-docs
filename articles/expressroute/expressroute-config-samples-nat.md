@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="expressroute"
@@ -12,12 +12,12 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Router configuration samples to setup and manage NAT
 
-This page provides NAT configuration samples for Cisco ASA and Juniper MX series routers. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
+This page provides NAT configuration samples for Cisco ASA and Juniper SRX series routers. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
 
 >[AZURE.IMPORTANT] Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.
 
@@ -78,7 +78,7 @@ NAT Commands:
 	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## Juniper MX series routers 
+## Juniper SRX series routers 
 
 ### 1. Create redundant Ethernet interfaces for the cluster
 
@@ -120,36 +120,36 @@ NAT Commands:
  - Allow services on the interfaces
 
 
-	security {   
-	 zones {
-	        security-zone Trust {
-	            host-inbound-traffic {
-	                system-services {
-	                    ping;
-	                }
-	                protocols {
-	                    bgp;
-	                }
-	            }
-	            interfaces {
-	                reth0.100;
-	            }
-	        }
-	        security-zone Untrust {
-	            host-inbound-traffic {
-	                system-services {
-	                    ping;
-	                }
-	                protocols {
-	                    bgp;
-	                }
-	            }
-	            interfaces {
-	                reth1.100;
-	            }
-	        }
-	    }
-	}
+    security {
+        zones {
+            security-zone Trust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth0.100;
+                }
+            }
+            security-zone Untrust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth1.100;
+                }
+            }
+        }
+    }
 
 
 ### 3. Create security policies between zones

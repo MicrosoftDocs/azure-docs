@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Tutorial: Copy data from Azure Blob Storage to Azure SQL Database"
-	description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline that to copy data from an Azure blob to an Azure SQL database."
+	pageTitle="Copy data from Blob Storage to SQL Database | Microsoft Azure"
+	description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline to copy data from Blob storage to SQL database."
+	Keywords: "blob sql, blob storage, data copy"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,17 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/01/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
-# Tutorial: Copy data from Azure Blob Storage to Azure SQL Database
+# Copy data from Blob Storage to SQL Database using Data Factory 
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-In this tutorial, you will create an Azure data factory and create a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database.
+In this tutorial, you’ll create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
 The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.  
 
@@ -76,7 +78,7 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
-    ![Azure Storage Explorer](./media/data-factory-get-started/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer. Copy data from Blob storage to SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
 
@@ -90,14 +92,14 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. Note that this article uses the [Azure Classic Portal](http://manage.windowsazure.com), not the [Azure Portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
+	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. Note that this article uses the [Azure Portal](http://manage.windowsazure.com), not the [Azure Portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
 
 	**If you have Visual Studio 2013 installed on your computer:** in the [Azure Portal](https://portal.azure.com), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you will need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to configure the firewall for your Azure SQL server.
 
 
 Do the following:
 
-- Click [Using Data Factory Editor](data-factory-get-started-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Classic Portal.
+- Click [Using Data Factory Editor](data-factory-get-started-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
 - Click [Using PowerShell](data-factory-monitor-manage-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-get-started-using-vs.md) link at the top to perform the tutorial by using Visual Studio 2013.
 

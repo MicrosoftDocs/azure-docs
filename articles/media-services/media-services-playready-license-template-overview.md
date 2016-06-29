@@ -2,7 +2,7 @@
 	pageTitle="Media Services PlayReady License Template Overview" 
 	description="This topic gives an overview of a PlayReady license template that used to configure PlayReady licenses." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Media Services PlayReady License Template Overview
@@ -49,7 +49,7 @@ The following example shows the simplest (and most common) template that configu
 
 The XML conforms to the PlayReady license template XML schema defined in the PlayReady license template XML schema section.
 
-Media Services also defines a set of .NET classes that could be used to serialized and deserialized to and from the XML. For description of main classes, see [Media Services .NET classes]((media-services-playready-license-template-overview.md#classes). that are used to configure license templates.
+Media Services also defines a set of .NET classes that could be used to serialized and deserialized to and from the XML. For description of main classes, see [Media Services .NET classes](media-services-playready-license-template-overview.md#classes). that are used to configure license templates.
 
 For an end-to-end example that uses .NET classes to configure the PlayReady license template, see [Using PlayReady Dynamic Encryption and License Delivery Service](https://msdn.microsoft.com/library/azure/dn783467.aspx).
 

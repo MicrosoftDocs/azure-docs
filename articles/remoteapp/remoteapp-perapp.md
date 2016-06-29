@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="03/01/2016"
+   ms.date="05/31/2016"
    ms.author="piotrci"/>
 
 # Publish applications to individual users in an Azure RemoteApp collection (Preview)
@@ -36,7 +36,7 @@ This is now possible in Azure RemoteApp – currently as a limited preview featu
   - When set to application mode, user assignment in the collection cannot be managed through the Azure portal. User assignment has to be managed through PowerShell cmdlets.
 
 3. Users will only see the applications published directly to them. However, it may still be possible for a user to launch the other applications available on the image by accessing them directly in the operating system.
-  - This feature does not provide a secure lockdown of applications, it only limits visibility in the application feed.
+  - This feature does not provide a secure lockdown of applications; it only limits visibility in the application feed.
   - If you need to isolate users from applications, you will need to use separate collections for that.
 
 ## How to get Azure RemoteApp PowerShell cmdlets
@@ -82,13 +82,13 @@ This lists all users who can see the application.
 
 Note: You can see the application aliases (called "app alias" in the syntax above) by running Get-AzureRemoteAppProgram -CollectionName <collectionName>.
 
-## How to assing an application to a user
+## How to assign an application to a user
 
 Run the following cmdlet:
 
 		Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-The user will now see the applciation in the Azure RemoteApp client and will be able to connect to it.
+The user will now see the application in the Azure RemoteApp client and will be able to connect to it.
 
 ## How to remove an application from a user
 

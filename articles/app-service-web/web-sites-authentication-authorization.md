@@ -39,7 +39,7 @@ In many scenarios, you want to customize the authentication and authorization be
 	-	Azure AD delegates management of [relying party](http://en.wikipedia.org/wiki/Relying_party) applications to non-administrator roles, while application access to sensitive directory data must still be configured by global administrators.
 	-	Sends a general-purpose set of claim types for all relying party applications. For the list of claim types, see [Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx). Claims are not customizable.
 	-	[Azure AD Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx) enables application access to directory data in Azure AD.
--	[On-premises secure token service (STS), such as AD FS](../web-sites-dotnet-lob-application-adfs/) - You can implement authentication and authorization for your web app with an on-premises STS like AD FS. Using on-premises AD FS has the following characteristics:
+-	[On-premises secure token service (STS), such as AD FS](web-sites-dotnet-lob-application-adfs.md) - You can implement authentication and authorization for your web app with an on-premises STS like AD FS. Using on-premises AD FS has the following characteristics:
 	-	AD FS topology must be deployed on-premises, with cost and management overhead.
 	-	Best when company policy demands that AD data be stored on-premises.
 	-	Only AD FS administrators can configure [relying party trusts and claim rules](http://technet.microsoft.com/library/dd807108.aspx).

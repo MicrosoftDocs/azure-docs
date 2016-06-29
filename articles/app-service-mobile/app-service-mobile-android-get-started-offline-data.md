@@ -3,7 +3,7 @@
 	description="Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application"
 	documentationCenter="android"
 	authors="lindydonna"
-	manager="dwrede"
+	manager="erikre"
 	services="app-service\mobile"/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="donnam"/>
+	ms.date="05/03/2016"
+	ms.author="donnam;ricksal"/>
 
 # Enable offline sync for your Android mobile app
 

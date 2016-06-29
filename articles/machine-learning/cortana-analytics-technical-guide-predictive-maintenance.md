@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses | Microsoft Azure"
-	description="A technical guide to the Solution Template with Microsoft Cortana Analytics for predictive maintenance in aerospace, utilities, and transportation."
+	pageTitle="Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses | Microsoft Azure"
+	description="A technical guide to the Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="06/28/2016"
 	ms.author="fboylu" />
 
-# Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
+# Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
 
 ## **Acknowledgements**
 This article is authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boylu Uz and software engineer Dan Grecoe at Microsoft.
@@ -24,8 +24,8 @@ This article is authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boy
 ## **Overview**
 
 Solution Templates are designed to accelerate the process of building an
-E2E demo on top of Cortana Analytics Suite. A deployed template will
-provision your subscription with necessary Cortana Analytics components
+E2E demo on top of Cortana Intelligence Suite. A deployed template will
+provision your subscription with necessary Cortana Intelligence components
 and build the relationships between them. It also seeds the data pipeline with sample data generated from a data generator application which you will download and install on your local machine after you deploy the solution template. The data generated from the generator will hydrate the data pipeline and start generating machine learning predictions which can then be visualized on the Power BI dashboard. The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.  
 
 The goal of this document is to explain the reference architecture and

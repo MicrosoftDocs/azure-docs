@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="How to use Azure RemoteApp with Office 365 user accounts | Microsoft Azure"
-	description="Learn how to use Azure RemoteApp with my Office 365 user accounts"
+    pageTitle="How does Azure RemoteApp save user data and settings? | Microsoft Azure"
+	description="Learn how Azure RemoteApp saves user data using the user profile disk."
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/04/2015" 
+    ms.date="06/13/2016" 
     ms.author="elizapo" />
 
 # How does Azure RemoteApp save user data and settings?
@@ -27,7 +27,7 @@ Each UPD has 50GB of persistent storage and contains both user data and applicat
 
 Read on for specifics on user profile data.
 
->[AZURE.NOTE] Need to disable the UPD? You can do that now - check out Pavithra's blog post, [Disable User Profile Disks (UPDs) in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), for details.
+>[AZURE.NOTE] Need to disable the UPD? You can do that now - check out Pavithra's blog post, [Disable User Profile Disks (UPDs) in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/), for details.
 
 
 ## How can an admin get to the data?
@@ -87,7 +87,7 @@ You might want to disable UPDs in any of the following situations:
 - You have 3rd-party user profile management solutions on-premises and want to continue using them in your domain-joined Azure RemoteApp deployment. This would require the profile agent to be loaded into the gold image. 
 - You don’t need any local data storage or you have all data in the cloud (such as OneDrive for Business) or file share and would like to control saving of data locally using Azure RemoteApp.
 
-See  [Disable User Profile Disks (UPDs) in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) for more information.
+See  [Disable User Profile Disks (UPDs) in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/) for more information.
 
 ## Can I restrict users from saving data to the system drive?
 
@@ -122,6 +122,10 @@ If you want to run a startup script, start by creating a scheduled task in the t
 
 ![Create a system task that runs when a user logs on](./media/remoteapp-upd/upd2.png)
 
+On the **General** tab, be sure to change the **User Account** under Security to "BUILTIN\Users."
+
+![Change the user account to a group](./media/remoteapp-upd/upd4.png)
+
 The scheduled task will launch your startup script, using the user's credentials. Schedule the task to run every a time a user logs on.
 
 ![Set the trigger for the task as "At log on"](./media/remoteapp-upd/upd3.png)
@@ -137,3 +141,21 @@ No, that's not supported with Azure RemoteApp, which uses RDSH, which also does 
 ## Can I use mstsc.exe (the Remote Desktop program) to configure logon scripts?
 
 Nope, not supported by Azure RemoteApp.
+
+## Can I store data on the VM locally?
+
+NO, data stored anywhere on the VM other than in the UPD will be lost. There is a high chance the user will not get the same VM the next time that they sign into Azure RemoteApp. We do not maintain user-VM persistence, so the user will not sign into the same VM, and the data will be lost. Additionally, when we update the collection, the existing VMs are replaced with a new set of VMs - that means any data stored on the VM itself is lost. The recommendation is to store data in the UPD, shared storage like Azure Files, a file server inside a VNET, or on the cloud using OneDrive for Business or another supported cloud storage system like DropBox.
+
+## How do I mount an Azure File share on a VM, using PowerShell?
+
+You can use the Net-PSDrive cmdlet to mount the drive, as follows:
+
+    New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \\<storage-account-name>.file.core.windows.net\<share-name> -Credential :<storage-account-name>
+
+
+You can also save your credentials by running the following:
+
+    cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+
+
+That lets you skip the -Credential parameter in the New-PSDrive cmdlet.

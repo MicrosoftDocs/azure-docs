@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/17/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -66,7 +66,7 @@ Earlier in this document, I talked about how the VM Scale Set instances map to t
 
 The ports are allocated in ascending order of the VM Scale Set instance. so in my example for the FrontEnd node type, the ports for each of the five instances will be the following. you now need to do the same mapping for your VM Scale Set instance.
 
-|**VMSS Instance**|**Port**|
+|**VM Scale Set Instance**|**Port**|
 |-----------------------|--------------------------|
 |FrontEnd_0|3389|
 |FrontEnd_1|3390|

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="06/27/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -112,13 +112,13 @@ For outbound Synchronization Rules there are two different constants to use: NUL
 
 ### ImportedValue
 
-The function ImportedValues is different than all other functions since the attribute name must be enclosed in quotes rather than square brackets: ImportedValue(“proxyAddresses”).
+The function ImportedValue is different than all other functions since the attribute name must be enclosed in quotes rather than square brackets: ImportedValue("proxyAddresses").
 
 Usually during synchronization an attribute will use the expected value, even if it hasn’t been exported yet or an error was received during export (“top of the tower”). An inbound synchronization will assume that an attribute which hasn’t yet reached a connected directory will eventually reach it. In some cases it is important to only synchronize a value which has been confirmed by the connected directory and in this case the function ImportedValue is used (“hologram and delta import tower”).
 
 An example of this can be found in the out-of-box Synchronization Rule In from AD – User Common from Exchange where in Hybrid Exchange the value added by Exchange online should only be synchronized if it has been confirmed the value was exported successfully:
 
-`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 For a complete list of functions, see [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 # Troubleshoot connectivity issues with Azure AD Connect
@@ -27,22 +27,21 @@ In this article we will show how Fabrikam connects to Azure AD through its proxy
 First we need to make sure [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) is correctly configured.  
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] In some non-Microsoft blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
-
-
+>[AZURE.NOTE]
+In some non-Microsoft blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 Of these, the following table is the absolute bare minimum to be able to connect to Azure AD at all. This list does not include any optional features, such as password writeback, or Azure AD Connect Health. It is documented here to help in troubleshooting for the initial configuration.
 
-| URL | Port | Description |
-| ---- | ---- | ---- |
-| mscrl.microsoft.com | HTTP/80 | Used to download CRL lists. |
-| *.verisign.com | HTTP/80 | Used to download CRL lists. |
-| *.trust.com | HTTP/80 | Used to download CRL lists for MFA. |
-| *.windows.net | HTTPS/443 | Used to sign in to Azure AD. |
-| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Used for MFA. |
-| *.microsoftonline.com | HTTPS/443 | Used to configure your Azure AD directory and import/export data. |
+URL | Port | Description
+---- | ---- | ----
+mscrl.microsoft.com | HTTP/80 | Used to download CRL lists.
+\*.verisign.com | HTTP/80 | Used to download CRL lists.
+\*.entrust.com | HTTP/80 | Used to download CRL lists for MFA.
+\*.windows.net | HTTPS/443 | Used to sign in to Azure AD.
+secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Used for MFA.
+\*.microsoftonline.com | HTTPS/443 | Used to configure your Azure AD directory and import/export data.
 
 ## Errors in the wizard
 The installation wizard is using two different security contexts. On the page **Connect to Azure AD** it is using the currently signed in user. On the page **Configure** it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). The proxy configurations we make are global to the machine so if there is an issue, the issue will most likely appear already at the **Connect to Azure AD** page in the wizard.
@@ -83,10 +82,10 @@ If the proxy is not correctly configured, we will get an error:
 ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Error | Error Text | Comment |
-| ---- | ---- | ---- |
-| 403 | Forbidden | The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
-| 407 | Proxy Authentication Required | The proxy server required sign in and none was provided. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account. |
+Error | Error Text | Comment
+---- | ---- | ---- |
+403 | Forbidden | The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened.
+407 | Proxy Authentication Required | The proxy server required sign in and none was provided. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account.
 
 ## The communication pattern between Azure AD Connect and Azure AD
 If you have followed all these steps above and still cannot connect you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings which can be ignored if you are reading the network logs.
@@ -133,6 +132,42 @@ Time | URL
 1/11/2016 8:49 | connect://adminwebservice.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
+
+## Authentication errors
+This section covers errors which can be returned from ADAL (the authentication library used by Azure AD Connect) and PowerShell. The error explained should help you in understand your next steps.
+
+### Invalid Grant
+Invalid username or password. See [The password cannot be verified](#the-password-cannot-be-verified) for more information.
+
+### Unknown User Type
+Your Azure AD directory cannot be found or resolved. Maybe you try to login with a username in an unverified domain?
+
+### User Realm Discovery Failed
+Network or proxy configuration issues. The network cannot be reached, see [Troubleshoot connectivity issues in the installation wizard](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+
+### User Password Expired
+Your credentials have expired. Change your password.
+
+### AuthorizationFailure
+Unknown issue.
+
+### Authentication Cancelled
+The multi-factor authentication (MFA) challenge was cancelled.
+
+### ConnectToMSOnline
+Authentication was successful, but Azure AD PowerShell has an authentication problem.
+
+### AzureRoleMissing
+Authentication was successful. You are not a global administrator.
+
+### PrivilegedIdentityManagement
+Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. See [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) for more information.
+
+### CompanyInfoUnavailable
+Authentication was successful. Could not retrieve company information from Azure AD.
+
+### RetrieveDomains
+Authentication was successful. Could not retrieve domain information from Azure AD.
 
 ## Troubleshooting steps for previous releases.
 With releases starting with build number 1.1.105.0 (released February 2016) the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.

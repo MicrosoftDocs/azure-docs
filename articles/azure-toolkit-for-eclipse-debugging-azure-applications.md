@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -97,6 +97,7 @@ Once you know what public port number that instance was assigned, you can refere
     1. Within Eclipse's Project Explorer, expand **MyHelloWorld**, expand **WebContent**, and double-click **index.jsp**.
     1. Within index.jsp, right-click in the blue bar to the left of your Java code and click **Toggle Breakpoints**, as shown in the following:
         ![][ic551537]
+
        A breakpoint is set if you see a breakpoint icon within the blue bar to the left of your Java code.
 1. Start the application in the compute emulator by clicking the **Run in Azure Emulator** button on the Azure toolbar.
 1. Within Eclipse's menu, click **Run** and then click **Debug Configurations**.

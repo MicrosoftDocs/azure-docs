@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Tasks to prepare data for enhanced machine learning
 
-## Introduction
-Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Cortana Analytics Process (CAP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the CAP process, see the steps outlined in the [Cortana Analytics Process](cortana-analytics-process.md).
+Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Team Data Science Process (TDSP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the TDSP process, see the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 Pre-processing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning Studio, and with various tools and languages, such as R or Python, depending where your data is stored and how it is formatted. Since CAP is iterative in nature, these tasks can take place at various steps in the  workflow of the process.
 
-This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning. 
+This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning.
 
 For an example of data exploration and pre-processing done inside Azure Machine Learning studio, see the [Pre-processing data in Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
@@ -47,9 +46,9 @@ We can check the general quality of data by checking:
 * The number of **attributes** (or **features**).
 * The attribute **data types** (nominal, ordinal, or continuous).
 * The number of **missing values**.
-* **Well-formedness** of the data. 
-	* If the data is in TSV or CSV, check that the column separators and line separators always correctly separate columns and lines. 
-	* If the data is in HTML or XML format, check whether the data is well formed based on their respective standards. 
+* **Well-formedness** of the data.
+	* If the data is in TSV or CSV, check that the column separators and line separators always correctly separate columns and lines.
+	* If the data is in HTML or XML format, check whether the data is well formed based on their respective standards.
 	* Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.
 * **Inconsistent data records**. Check the range of values are allowed. e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.
 
@@ -92,7 +91,7 @@ Data can be discretized by converting continuous values to nominal attributes or
 * **Equal-Width Binning**: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.
 * **Equal-Height Binning**: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.  
 
-## How to reduce data? 
+## How to reduce data?
 
 There are various methods to reduce data size for easier data handling. Depending on data size and the domain, the following methods can be applied:
 
@@ -109,4 +108,3 @@ There are various methods to reduce data size for easier data handling. Dependin
 ## References
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
- 

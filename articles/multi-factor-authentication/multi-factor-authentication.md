@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Multi-Factor Authentication - What is It? | Microsoft Azure"
-	description="This topic explains what is Multifactor Authentication (mfa), why someone would use MFA, more information about the Multifactor Authentication client and the different methods and versions available. Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions."
+	description="This topic explains what is Multi-factor Authentication (mfa), why someone would use MFA, more information about the Multi-factor Authentication client and the different methods and versions available. Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an extra layer of security to user sign-ins and transactions."
 	keywords="introduction to MFA, mfa overview, what is mfa"
 	services="multi-factor-authentication"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/03/2016"
+	ms.date="06/16/2016"
 	ms.author="billmath"/>
 
 # What is Azure Multi-Factor Authentication?
@@ -35,7 +35,7 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 For an overview of how Azure Multi-Factor Authentication works see the following video.
 
 
-<center>[AZURE.VIDEO multi-factor-authentication-overview]</center>
+>[AZURE.VIDEO multi-factor-authentication-overview]
 
 ##Why use Azure Multi-Factor Authentication?
 
@@ -54,7 +54,7 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 
 For additional information on why use Azure Multi-Factor Authentication see the following video.
 
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
+>[AZURE.VIDEO windows-azure-multi-factor-authentication]
 
 
 ## How Azure Multi-Factor Authentication works
@@ -75,7 +75,7 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 
 For additional information oh how it works see the following video.
 
-[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+>[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ## Methods available for multi-factor authentication
 When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification.
@@ -95,7 +95,7 @@ Version  | Description
 ------------- | ------------- |
 Multi-Factor Authentication for Office 365 | This version works exclusively with Office 365 applications and is managed from the Office 365 portal. So administrators can now help secure their Office 365 resources by using multi-factor authentication.  This version comes with an Office 365 subscription.
 Multi-Factor Authentication for Azure Administrators | The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Azure administrators. Every administrative account of a Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality. So an administrator that wants to access Azure portal to create a VM, a web site, manage storage, mobile services or any other Azure Service can add multi-factor authentication to his administrator account.
-Azure Multi-Factor Authentication | Azure Multi-Factor Authentication offers the richest set of capabilities.  It provides additional configuration options via the Azure Management portal, advanced reporting, and support for a range of on-premises and cloud applications.  Azure Multi-Factor Authentication comes as part of Azure Active Directory Premium.
+Azure Multi-Factor Authentication | Azure Multi-Factor Authentication offers the richest set of capabilities.  It provides additional configuration options via the Azure Management portal, advanced reporting, and support for a range of on-premises and cloud applications.  Azure Multi-Factor Authentication comes as part of Azure Active Directory Premium and Enterprise Mobility Suite.
 
 ## Feature comparison of versions
 The following table below provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
@@ -108,7 +108,7 @@ Mobile app as a second factor|* | * | *
 Phone call as a second factor|* | * | *
 SMS as a second factor|* | * | *
 App passwords for clients that don't support MFA|* | * | *
-Admin control over authentication methods| (Public Preview)|(Public Preview) | *
+Admin control over authentication methods| *|* | *
 PIN mode| | | *
 Fraud alert| | | *
 MFA Reports| | | *
@@ -118,7 +118,7 @@ Customization of caller ID for phone calls| | | *
 Event Confirmation| | | *
 Trusted IPs| | | *
 Remember MFA for trusted devices |* | * | *
-MFA SDK| | | *
+MFA SDK | | | * requires Multi-Factor Auth provider and full Azure subscription
 MFA for on-premises applications using MFA server| | | *
 
 
@@ -137,7 +137,7 @@ When using an Azure Multi-Factor Authentication Provider there are two usage mod
 - **Per User**. Generally for enterprises that want to enable multi-factor authentication for a fixed number of employees who regularly need authentication.
 - **Per Authentication**. Generally for enterprises that want to enable multi-factor authentication for a large group of external users who infrequently need authentication.
 
-Azure Multi-Factor Authentication provides selectable verification methods for both cloud and server.  This means that you can choose which methods are available for your users to use with multi-factor authentication.  This feature is currently in public preview for the cloud version of multi-factor authentication.  For additional information see [selectable verification methods](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+Azure Multi-Factor Authentication provides selectable verification methods for both cloud and server.  This means that you can choose which methods are available for your users to use with multi-factor authentication.  This feature is currently in public preview for the cloud version of multi-factor authentication.  For additional information see [selectable verification methods](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
 For pricing details see [Azure MFA Pricing.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
@@ -193,7 +193,7 @@ One-way SMS as second factor | ● | ●
 Two-way SMS as second factor |  | ●
 Hardware Tokens as second factor |  | ●
 App passwords for clients that don’t support MFA | ● |  
-Admin control over authentication methods | (Public Preview) | ●
+Admin control over authentication methods | ● | ●
 PIN mode |  | ●
 Fraud alert | ● | ●
 MFA Reports | ● | ●

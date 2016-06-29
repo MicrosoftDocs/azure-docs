@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="06/20/2016" 
 	ms.author="anhoh"/>
 
 # DocumentDB hierarchical resource model and concepts
@@ -41,11 +41,11 @@ To start working with resources, you must [create a DocumentDB database account]
 
 |Resource 	|Description
 |-----------|-----------
-|Database account	|A database account is associated with a set of databases and a fixed amount of blob storage for attachments (preview feature). You can create one or more database accounts using your Azure subscription. Every standard database account is allocated a minimum capacity of one S1 collection. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+|Database account	|A database account is associated with a set of databases and a fixed amount of blob storage for attachments (preview feature). You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 |Database	|A database is a logical container of document storage partitioned across collections. It is also a users container.
 |User	|The logical namespace for scoping permissions. 
 |Permission	|An authorization token associated with a user for access to a specific resource.
-|Collection	|A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the cost is determined by the performance level associated with the collection. The performance levels (S1, S2 and S3) provide 10GB of storage and a fixed amount of throughput. For more information on performance levels, visit our [performance page](documentdb-performance-levels.md).
+|Collection	|A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the performance level associated with the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
 |Stored Procedure	|Application logic written in JavaScript which is registered with a collection and transactionally executed within the database engine.
 |Trigger	|Application logic written in JavaScript executed before or after either an insert, replace or delete operation.
 |UDF	|Application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core DocumentDB query language.
@@ -56,16 +56,42 @@ To start working with resources, you must [create a DocumentDB database account]
 ## System vs. user defined resources
 Resources such as database accounts, databases, collections, users, permissions, stored procedures, triggers, and UDFs - all have a fixed schema and are called system resources. In contrast, resources such as documents and attachments have no restrictions on the schema and are examples of user defined resources. In DocumentDB, both system and user defined resources are represented and managed as standard-compliant JSON. All resources, system or user defined, have the following common properties.
 
->[AZURE.NOTE] Note that all system generated properties in a resource are prefixed with an underscore (_) in their JSON representation.  
+> [AZURE.NOTE] Note that all system generated properties in a resource are prefixed with an underscore (_) in their JSON representation.
 
-
-Property |User settable or system generated?|Purpose
----|---|---
-_rid|System generated|System generated, unique and hierarchical identifier of the resource
-_etag|System generated|etag of the resource required for optimistic concurrency control
-_ts|System generated|Last updated timestamp of the resource
-_self|System generated|Unique addressable URI of the resource
-id|User settable|User defined unique name of the resource. If the user does not specify an id, an id will be system generated
+<table>
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Property</strong></p></td>
+            <td valign="top"><p><strong>User settable or system generated?</strong></p></td>
+            <td valign="top"><p><strong>Purpose</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_rid</p></td>
+            <td valign="top"><p>System generated</p></td>
+            <td valign="top"><p>System generated, unique and hierarchical identifier of the resource</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_etag</p></td>
+            <td valign="top"><p>System generated</p></td>
+            <td valign="top"><p>etag of the resource required for optimistic concurrency control</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_ts</p></td>
+            <td valign="top"><p>System generated</p></td>
+            <td valign="top"><p>Last updated timestamp of the resource</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_self</p></td>
+            <td valign="top"><p>System generated</p></td>
+            <td valign="top"><p>Unique addressable URI of the resource</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>id</p></td>
+            <td valign="top"><p>System generated</p></td>
+            <td valign="top"><p>User defined unique name of the resource (with the same partition key value). If the user does not specify an id, an id will be system generated</p></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Wire representation of resources
 DocumentDB does not mandate any proprietary extensions to the JSON standard or special encodings; it works with standard compliant JSON documents.  
@@ -76,21 +102,21 @@ All resources are URI addressable. The value of the **_self** property of a reso
 |Value of the _self	|Description
 |-------------------|-----------
 |/dbs	|Feed of databases under a database account
-|/dbs/{_rid-db}	|Database with an id matching the value {_rid-db}
-|/dbs/{_rid-db}/colls/	|Feed of collections under a database
-|/dbs/{_rid-db}/colls/{_rid-coll}	|Collection with an id matching the value {_rid-coll}
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs	|Feed of documents under a collection
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc}	|Document with an id matching the value {_rid-doc}
-|/dbs/{_rid-db}/users/	|Feed of users under a database
-|/dbs/{_rid-db}/users/{_rid-user}	|User with an id matching the value {_rid-user}
-|/dbs/{_rid-db}/users/{_rid-user}/permissions	|Feed of permissions under a user
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission}	|Permission with an id matching the value {_rid-permission}
+|/dbs/{dbName}	|Database with an id matching the value {dbName}
+|/dbs/{dbName}/colls/	|Feed of collections under a database
+|/dbs/{dbName}/colls/{collName}	|Collection with an id matching the value {collName}
+|/dbs/{dbName}/colls/{collName}/docs	|Feed of documents under a collection
+|/dbs/{dbName}/colls/{collName}/docs/{docId}	|Document with an id matching the value {doc}
+|/dbs/{dbName}/users/	|Feed of users under a database
+|/dbs/{dbName}/users/{userId}	|User with an id matching the value {user}
+|/dbs/{dbName}/users/{userId}/permissions	|Feed of permissions under a user
+|/dbs/{dbName}/users/{userId}/permissions/{permissionId}	|Permission with an id matching the value {permission}
   
-Each resource has a unique user defined name exposed via the id property. Note: for documents, if the user does not specify an id, the system will automatically generate a unique id for the document. The id is a user defined string, of up to 256 characters that is unique within the context of a specific parent resource. For instance, the value of the id property of all documents within a given collection are unique but they are not guaranteed to be unique across collections. Similarly, the value of the id property of all permissions for a given user are unique but they are not guaranteed to be unique across all users. The _rid property is used to construct the addressable _self link of a resource.   
+Each resource has a unique user defined name exposed via the id property. Note: for documents, if the user does not specify an id, the system will automatically generate a unique id for the document. The id is a user defined string, of up to 256 characters that is unique within the context of a specific parent resource. 
 
-Each resource also has a system generated hierarchical resource identifier (also referred to as an RID), which is available via the _rid property. The RID encodes the entire hierarchy of a given resource and it is a very convenient internal representation used to enforce referential integrity in a distributed manner. The RID is unique within a database account and it is internally used by DocumentDB for efficient routing without requiring cross partition lookups. 
+Each resource also has a system generated hierarchical resource identifier (also referred to as an RID), which is available via the _rid property. The RID encodes the entire hierarchy of a given resource and it is a convenient internal representation used to enforce referential integrity in a distributed manner. The RID is unique within a database account and it is internally used by DocumentDB for efficient routing without requiring cross partition lookups. The values of the _self and the  _rid properties are both alternate and canonical representations of a resource. 
 
-The values of the _self and the  _rid properties are both alternate and canonical representations of a resource.  
+The DocumentDB REST APIs support addressing of resources and routing of requests by both the id and the _rid properties.
 
 ## Database accounts
 You can provision one or more DocumentDB database accounts using your Azure subscription. Each Standard tier database account will be given a minimum capacity of one S1 collection.
@@ -100,12 +126,22 @@ You can [create and manage DocumentDB database accounts](documentdb-create-accou
 ### Database account properties
 As part of provisioning and managing a database account you can configure and read the following properties:  
 
-Property Name|Description
----|---
-Consistency Policy|Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using the [x-ms-consistency-level] request header. <p><p>Note that this property only applies to the <i>user defined resources</i>. All system defined resources are configured to support reads/queries with strong consistency.
-Primary Key and Secondary Key|These are the primary and secondary keys that provide administrative access to all of the resources under the database account.
-MaxMediaStorageUsageInMB (READ)|Maximum amount of media storage available for the database account.
-MediaStorageUsageInMB (READ)|Current usage of media storage for the database account.
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Property Name</strong></p></td>
+            <td valign="top"><p><strong>Description</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Consistency Policy</p></td>
+            <td valign="top"><p>Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using the [x-ms-consistency-level] request header. <p><p>Note that this property only applies to the <i>user defined resources</i>. All system defined resources are configured to support reads/queries with strong consistency.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Authorization Keys</p></td>
+            <td valign="top"><p>These are the primary and secondary master and readonly keys that provide administrative access to all of the resources under the database account.</p></td>
+        </tr>
+    </tbody>
+</table>
 
 Note that in addition to provisioning, configuring and managing your database account from the Azure Portal, you can also programmatically create and manage DocumentDB database accounts by using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) as well as [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
 
@@ -129,10 +165,10 @@ A DocumentDB database is also a container of users. A user, in-turn, is a logica
 As with other resources in the DocumentDB resource model, databases can be created, replaced, deleted, read or enumerated easily using either [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB guarantees strong consistency for reading or querying the metadata of a database resource. Deleting a database automatically ensures that you cannot access any of the collections or users contained within it.   
 
 ## Collections
-A DocumentDB collection is a container for your JSON documents. A collection is also a unit of scale for transactions and queries. You can scale out a DocumentDB database by adding more collections. If your application needs to scale more, you can add a collection, each allocated with SSD backed storage and a fixed amount of throughput depending on its performance tier.
- 
+A DocumentDB collection is a container for your JSON documents. A collection is also a unit of scale for transactions and queries. 
+
 ### Elastic SSD backed document storage
-A collection is intrinsically elastic - it automatically grows and shrinks as you add or remove documents. Although the first party usage of DocumentDB has tested it with thousands of collections within a database with each ranging from a few gigabytes to terabytes in size, DocumentDB currently limits the elasticity of a given collection to 10GB. 
+A collection is intrinsically elastic - it automatically grows and shrinks as you add or remove documents. Collections are logical resources and can span one or more physical partitions or servers. The number of partitions within a collection is determined by DocumentDB based on the storage size and the provisioned throughput of your collection. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. DocumentDB collections are **practically unlimited** in terms of storage and throughput. 
 
 ### Automatic indexing of collections
 DocumentDB is a true schema-free database system. It does not assume or require any schema for the JSON documents. As you add documents to a collection, DocumentDB automatically indexes them and they are available for you to query. Automatic indexing of documents without requiring schema or secondary indexes is a key capability of DocumentDB and is enabled by write-optimized, lock-free and log-structured index maintenance techniques. DocumentDB supports sustained volume of extremely fast writes while still serving consistent queries. Both document and index storage are used to calculate the storage consumed by each collection. You can control the storage and performance trade-offs associated with indexing by configuring the indexing policy for a collection. 
@@ -147,7 +183,7 @@ The indexing policy of each collection allows you to make performance and storag
 The indexing policy can be changed by executing a PUT on the collection. This can be achieved either through the [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), the [Azure Portal](https://portal.azure.com) or the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Querying a collection
-The documents within a collection can have arbitrary schemas and you can query documents within a collection without providing any schema or secondary indices upfront. You can query the collection using the [DocumentDB SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx), which provides rich hierarchical and relational operators and extensibility via JavaScript-based UDFs. JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes. This is exploited both by DocumentDB’s automatic indexing techniques as well as DocumentDB's SQL dialect. The DocumentDB query language consists of three main aspects:   
+The documents within a collection can have arbitrary schemas and you can query documents within a collection without providing any schema or secondary indices upfront. You can query the collection using the [DocumentDB SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx), which provides rich hierarchical, relational, and spatial operators and extensibility via JavaScript-based UDFs. JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes. This is exploited both by DocumentDB’s automatic indexing techniques as well as DocumentDB's SQL dialect. The DocumentDB query language consists of three main aspects:   
 
 1.	A small set of query operations that map naturally to the tree structure including hierarchical queries and projections. 
 2.	A subset of relational operations including composition, filter, projections, aggregates and self joins. 
@@ -376,7 +412,7 @@ Consider a social reading application which uses DocumentDB to store ink annotat
 -	An application may store each user’s metadata as a distinct document -- e.g. Joe’s metadata for book1 is stored in a document referenced by /colls/joe/docs/book1. 
 -	Attachments pointing to the content pages of a given book of a user are stored under the corresponding document e.g. /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 etc. 
 
-Note that the examples use friendly ids to convey the resource hierarchy. Resources are accessed via the REST APIs through unique resource ids. 
+Note that the examples listed above use friendly ids to convey the resource hierarchy. Resources are accessed via the REST APIs through unique resource ids. 
 
 For the media that is managed by DocumentDB, the _media property of the attachment will reference the media by its URI. DocumentDB will ensure to garbage collect the media when all of the outstanding references are dropped. DocumentDB automatically generates the attachment when you upload the new media and populates the _media to point to the newly added media. If you choose to store the media in a remote blob store managed by you (e.g. OneDrive, Azure Storage, DropBox etc), you can still use attachments to reference the media. In this case, you will create the attachment yourself and populate its _media property.   
 
@@ -402,7 +438,7 @@ Regardless of the specific sharding strategy you choose, you can model your actu
 Like all other resources, users in DocumentDB can be created, replaced, deleted, read or enumerated easily using either REST APIs or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a user resource. It is worth pointing out that deleting a user automatically ensures that you cannot access any of the permissions contained within it. Even though the DocumentDB reclaims the quota of the permissions as part of the deleted user in the background, the deleted permissions is available instantly again for you to use.  
 
 ## Permissions
-From the access control perspective, resources such as database accounts, databases, users and permission are considered *administrative* resources since these require administrative permissions. On the other hand, resources including the collections, documents, attachments, stored procedures, triggers, and UDFs are scoped under a given database and considered *application resources*. Corresponding to the two types of resources and the roles that access them (namely the administrator and user), the authorization model defines two types of *access keys*: *master key* and *resource key*. The master key is a part of the database account and is provided to the developer (or administrator) who is provisioning the database account. This master key has administrator semantics, in that it can be used to authorize access to both administrative and application resources. In contrast, a resource key is a granular access key that allows access to a *specific* application resource. Thus, it captures the relationship between the user of a database and the permissions the user has for a specific resource (e.g. collection, document, attachment, stored procedure, trigger, or UDF).   
+From an access control perspective, resources such as database accounts, databases, users and permission are considered *administrative* resources since these require administrative permissions. On the other hand, resources including the collections, documents, attachments, stored procedures, triggers, and UDFs are scoped under a given database and considered *application resources*. Corresponding to the two types of resources and the roles that access them (namely the administrator and user), the authorization model defines two types of *access keys*: *master key* and *resource key*. The master key is a part of the database account and is provided to the developer (or administrator) who is provisioning the database account. This master key has administrator semantics, in that it can be used to authorize access to both administrative and application resources. In contrast, a resource key is a granular access key that allows access to a *specific* application resource. Thus, it captures the relationship between the user of a database and the permissions the user has for a specific resource (e.g. collection, document, attachment, stored procedure, trigger, or UDF).   
 
 The only way to obtain a resource key is by creating a permission resource under a given user. Note that In order to create or retrieve a permission, a master key must be presented in the authorization header. A permission resource ties the resource, its access and the user. After creating a permission resource, the user only needs to present the associated resource key in order to gain access to the relevant resource. Hence, a resource key can be viewed as a logical and compact representation of the permission resource.  
 

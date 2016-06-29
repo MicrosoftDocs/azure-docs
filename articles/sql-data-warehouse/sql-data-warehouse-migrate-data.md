@@ -3,7 +3,7 @@
    description="Tips for migrating your data to Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="05/31/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migrate Your Data
-The primary objective when migrating data is to populate your SQLDW database. This process can be achieved in a number of ways. ADF Copy, SSIS and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
+Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
 
 This article firstly discusses the simple migration scenarios of ADF Copy, SSIS and bcp. It then look a little deeper into how the migration can be optimized.
 
@@ -30,7 +30,7 @@ PolyBase also provides a very high performance option for loading the data. Howe
 
 > [AZURE.NOTE] PolyBase requires your data files to be in UTF-8. This is ADF Copy's default encoding so there is nothing to change. This is just a reminder to not change the default behavior of ADF Copy.
 
-Head over to the following article for some great [ADF Copy examples].
+Head over to the following article for some great [ADF Copy examples][].
 
 ## Integration Services ##
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.
@@ -104,7 +104,7 @@ One of the slowest parts of data migration is the transfer of the data to Azure.
 Fortunately you have several options to improve the speed and resilience of this process:
 
 ### [ExpressRoute][]
-You may want to consider using [ExpressRoute][] to speed up the transfer. [ExpressRoute][]provides you with an established private connection to Azure so the connection does not go over the public internet. This is by no means a mandatory step. However, it will improve throughput when pushing data to Azure from an on-premises or co-location facility.
+You may want to consider using [ExpressRoute][] to speed up the transfer. [ExpressRoute][] provides you with an established private connection to Azure so the connection does not go over the public internet. This is by no means a mandatory step. However, it will improve throughput when pushing data to Azure from an on-premises or co-location facility.
 
 The benefits of using [ExpressRoute][] are:
 

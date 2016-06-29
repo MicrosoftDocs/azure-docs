@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/21/2016"
    ms.author="sngun; v-reagie"/>
 
 # Troubleshooting tips for common errors in Azure Automation
@@ -123,7 +123,7 @@ This error is caused when the PowerShell engine cannot find the cmdlet you are u
 **Troubleshooting tips:**
 Any of the following solutions will fix the problem:  
 
-- Check that you have entered the cmdlet name correctly, and verify that the path to the cmdlet is correct.  
+- Check that you have entered the cmdlet name correctly.  
 
 - Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run **Get-Command ``<CommandName>``**.  Once you have validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and ensure that you are using a valid parameter set in your runbook.  
 
@@ -189,7 +189,7 @@ This error typically occurs when the node is assigned to a configuration name (e
     - In order to assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
 
 
-### Scenario:  No node configurations(mof files) were produced when a configuration is compiled
+### Scenario:  No node configurations (MOF files) were produced when a configuration is compiled
 
 **Error:**
 Your DSC compilation job suspends with the error: “Compilation completed successfully, but no node configuration .mofs were generated”.
@@ -201,7 +201,7 @@ When the expression following the **Node** keyword in the DSC configuration eval
 Any of the following solutions will fix the problem:  
 
 - Make sure that the expression next to the **Node** keyword in the configuration definition is not evaluating to $null.  
-- If you are passing ConfigurationData when compiling the congifuration, make sure that you are passing the expected values that the configuration requires from [configurationData](automation-dsc-compile.md#configurationdata).
+- If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](automation-dsc-compile.md#configurationdata).
 
 
 ### Scenario:  The DSC node report becomes stuck “in progress” state

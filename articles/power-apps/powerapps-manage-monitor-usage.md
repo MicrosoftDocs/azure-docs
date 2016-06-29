@@ -14,11 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # Manage and secure your PowerApps
+
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about the available connections in PowerApps, go to [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/). 
+
+<!--Archived
 You create your app service environment, and add APIs and their connections. Now users in your organization can start consuming these APIs and connections. You can also manage all apps created in your organization. These options include:
 
 - See the different apps within your app service environment, including PowerApps, web apps, logic apps, mobile apps, and more.
@@ -164,7 +171,7 @@ Now that your Azure portal experience is configured, let's start creating your a
 - [Create an app from a template in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715536) 
 - [Create an app from data in PowerApps](http://go.microsoft.com/fwlink/?LinkId=715539) 
 - [Create an app from scratch in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715538)
-
+-->
 
 [1]: ./media/powerapps-manage-monitor-usage/addadmin.png
 [2]: ./media/powerapps-manage-monitor-usage/selectrole.png

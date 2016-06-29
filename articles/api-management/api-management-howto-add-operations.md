@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to add operations to an API in Azure API Management" 
+	pageTitle="How to add operations to an API in Azure API Management | Microsoft Azure" 
 	description="Learn how to add operations to an API in Azure API Management." 
 	services="api-management" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # How to add operations to an API in Azure API Management
@@ -40,9 +40,13 @@ Specify the **HTTP verb** by choosing from the drop-down list.
 
 ![HTTP method][api-management-http-method]
 
+<a name="url-template"></a>
+
 Define the URL template by typing in a URL fragment consisting of one or more URL path segments and zero or more query string parameters. The URL template, appended to the base URL of the API, identifies a single HTTP operation. It may contain one or more named variable parts that are identified by curly braces. These variable parts are called template parameters and are dynamically assigned values extracted from the request's URL when the request is being processed by the API Management platform.
 
 ![URL template][api-management-url-template]
+
+<a name="rewrite-url-template"></a>
 
 If desired, specify the **Rewrite URL template**. This allows you to use the standard URL template for processing incoming requests on the front-end, while calling the back-end via a converted URL according to the rewrite template. Template parameters from the URL template should be used in the rewrite template. The following example shows how content type encoded as path segment in the web service from the previous example can be provided as a query parameter in the API published via the API Management platform using the URL templates.
 

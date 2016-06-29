@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Use Case - Product Recommendations 
 
-Azure Data Factory is one of many services used to implement the Cortana Analytics Suite of solution accelerators.  See [Cortana Analytics Suite](http://www.microsoft.com/cortanaanalytics) page for details about this suite. In this document, we describe a common use case that Azure users have already solved and implemented using Azure Data Factory and other Cortana Analytics component services.
+Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  See [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) page for details about this suite. In this document, we describe a common use case that Azure users have already solved and implemented using Azure Data Factory and other Cortana Intelligence component services.
 
 ## Scenario
 
@@ -36,7 +36,7 @@ Third, the recommendations must be immediately deliverable to the user to provid
 
 ## Solution Overview
 
-This example use case has been solved and implemented by real Azure users with Azure Data Factory and other Cortana Analytics component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/) to ingest, prepare, transform, analyze, and publish the final data.
+This example use case has been solved and implemented by real Azure users with Azure Data Factory and other Cortana Intelligence component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/) to ingest, prepare, transform, analyze, and publish the final data.
 
 The online retailer uses an Azure Blob store, an on-premises SQL server, Azure SQL DB, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a SQL data warehouse. 
 
@@ -52,7 +52,7 @@ Finally, the result set of personalized product recommendations is moved to a re
 
 ## Benefits
 
-By optimizing their product recommendation strategy and aligning it with business goals, the solution met the online retailer’s merchandising and marketing objectives. Additionally they were able to operationalize and manage the product recommendation workflow in an efficient, reliable, and cost effective manner, making it easy for them to update their model and fine-tune its effectiveness based on the measures of sales click-to-conversion successes. By using Azure Data Factory, they were able to abandon their time consuming and expensive manual cloud resource management and move to on-demand cloud resource management, saving them time, money, and reducing their time to solution deployment. Data lineage views and operational service health became easy to visualize and troubleshoot with the intuitive Data Factory monitoring and management UI available from the Azure Classic Portal. Their solution can now be scheduled and managed so that finished data is reliably produced and delivered to their users, and data and processing dependencies are automatically managed without human intervention.
+By optimizing their product recommendation strategy and aligning it with business goals, the solution met the online retailer’s merchandising and marketing objectives. Additionally they were able to operationalize and manage the product recommendation workflow in an efficient, reliable, and cost effective manner, making it easy for them to update their model and fine-tune its effectiveness based on the measures of sales click-to-conversion successes. By using Azure Data Factory, they were able to abandon their time consuming and expensive manual cloud resource management and move to on-demand cloud resource management, saving them time, money, and reducing their time to solution deployment. Data lineage views and operational service health became easy to visualize and troubleshoot with the intuitive Data Factory monitoring and management UI available from the Azure Portal. Their solution can now be scheduled and managed so that finished data is reliably produced and delivered to their users, and data and processing dependencies are automatically managed without human intervention.
 
 By providing this personalized shopping experience, the online retailer created a more competitive, engaging customer experience and consequently increase sales and overall customer satisfaction.
 

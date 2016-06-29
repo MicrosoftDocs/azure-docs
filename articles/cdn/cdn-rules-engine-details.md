@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
 # CDN Rules Engine Match Condition and Feature Details
 
-This topic lists detailed descriptions of the available match conditions and features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-> [AZURE.NOTE] The Rules Engine requires the Premium CDN tier.  For more information on the features of the Standard and Premium CDN tiers, see [Overview of the Azure Content Delivery Network](cdn-overview.md).
+This topic lists detailed descriptions of the available match conditions and features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 ## Match conditions
 
@@ -98,6 +98,8 @@ A feature defines the type of action that will be applied to the type of request
 ### Access
 
 These features are designed to control access to content.
+
+> [AZURE.NOTE] Token auth is not generally available yet, but will be supported in a future release.
 
 Name | Purpose
 -----|--------

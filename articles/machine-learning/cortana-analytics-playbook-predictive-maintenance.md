@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cortana Analytics Solution Template Playbook for predictive maintenance in aerospace and other businesses | Microsoft Azure"
-	description="A Solution Template with Microsoft Cortana Analytics for predictive maintenance in aerospace, utilities, and transportation."
+	pageTitle="Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses | Microsoft Azure"
+	description="A Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="06/21/2016"
 	ms.author="fboylu" />
 
-# Cortana Analytics Solution Template Playbook for predictive maintenance in aerospace and other businesses
+# Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses
 
 ## Executive summary  
 Predictive maintenance is one of the most demanded applications of
@@ -33,10 +33,10 @@ as feature engineering, model development and performance evaluation. In
 essence, this playbook brings together the business and analytical
 guidelines needed for a successful development and deployment of
 predictive maintenance solutions. These guidelines are prepared to help
-the audience create an initial solution using Cortana Analytics Suite
+the audience create an initial solution using Cortana Intelligence Suite
 and specifically Azure Machine Learning as a starting point in their
 long term predictive maintenance strategy. The documentation regarding
-Cortana Analytics Suite and Azure Machine Learning can be found in
+Cortana Intelligence Suite and Azure Machine Learning can be found in
 [Cortana
 Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx)
 and [Azure Machine
@@ -44,9 +44,9 @@ Learning](https://azure.microsoft.com/services/machine-learning/)
 pages.
 
 >[AZURE.TIP]
-For a technical guide to implementing this Solution Template, see [Technical guide to the Cortana Analytics Solution Template for predictive maintenance](cortana-analytics-technical-guide-predictive-maintenance.md).
+For a technical guide to implementing this Solution Template, see [Technical guide to the Cortana Intelligence Solution Template for predictive maintenance](cortana-analytics-technical-guide-predictive-maintenance.md).
 To download a diagram that provides an architectural overview of this template, see
-[Architecture of the Cortana Analytics Solution Template for predictive maintenance](cortana-analytics-architecture-predictive-maintenance.md).
+[Architecture of the Cortana Intelligence Solution Template for predictive maintenance](cortana-analytics-architecture-predictive-maintenance.md).
 
 ## Playbook overview and target audience  
 This playbook is organized to benefit both technical

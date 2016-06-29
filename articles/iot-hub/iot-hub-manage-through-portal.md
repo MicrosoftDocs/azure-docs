@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="10/19/2015"
+	 ms.date="06/06/2016"
 	 ms.author="nasing"/>
 
 # Manage IoT hubs through the Azure portal
@@ -44,11 +44,11 @@ In order to create an IoT hub, you must name the hub. Note that this name must b
 
 ### Choose the pricing tier
 
-You can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The free tier allows only 10 devices to be connected to the IoT hub.
+You can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
 
-**S1 (Low Frequency)**: IoT Hubs S1 (Low Frequency) edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 (Low Frequency) edition allows connectivity of up to 500 devices or up to 50,000 messages per day across all connected devices.
+**S1 (Low Frequency)**: IoT Hubs S1 (Low Frequency) edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 (Low Frequency) edition allows up to 400,000 messages per day across all connected devices.
 
-**S2 (High Frequency)**: IoT Hub S2 (High Frequency) edition is designed for IoT solutions in which devices generate large amounts of data. Each unit of the S2 (High Frequency) edition allows connectivity of up to 500 devices or up to 1.5 million messages per day between all connected devices.  
+**S2 (High Frequency)**: IoT Hub S2 (High Frequency) edition is designed for IoT solutions in which devices generate large amounts of data. Each unit of the S2 (High Frequency) edition allows up to 6 million messages per day between all connected devices.  
 
 ![][4]
 
@@ -56,7 +56,7 @@ You can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The fr
 
 ### IoT hub units
 
-An IoT hub unit includes 500 devices, so choosing the number of IoT units means that the total number of devices supported for this hub is the number of units multiplied by 500. For example, if you want the IoT hub to support 1000 devices, you choose 2 units.
+An IoT hub unit includes a certain number of messages per day, so choosing the number of IoT units means that the total number of messages supported for this hub is the number of units multiplied by the number of messages per day for that tier. For example, if you want the IoT hub to support ingress of 700,000 messages, you choose 2 units of the S1 tier.
 
 ### Device to cloud partitions and resource group
 
@@ -120,6 +120,24 @@ Click the **Messaging** policies to display a list of messaging properties for t
 
 ![][11]
 
+## File upload
+
+To use the file upload functionality in IoT Hub, you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
+
+**Storage container**: Use the portal to select a blob container in a storage account in your current subscription to associate with your IoT Hub. If necessary, you can create a new storage account on the **Storage accounts** blade and new blob container on the **Containers** blade. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
+
+![][14]
+
+**Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.
+
+**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to 1 hour by default but can be customized to other values using the slider.
+
+**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to 1 day by default but can be customized to other values using the slider.
+
+**File notification maximum delivery count**: The number of times the IoT Hub will attempt to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
+
+![][13]
+
 ## Pricing and scale
 
 The pricing of an existing IoT hub can be changed through the **Pricing** settings, with the following exceptions:
@@ -129,7 +147,7 @@ The pricing of an existing IoT hub can be changed through the **Pricing** settin
 
 ![][12]
 
-Moving from a high tier (S2) to low tier (S1) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 50,000, then the tier for the IoT hub cannot be changed from S2 to S1.
+Moving from a high tier (S2) to low tier (S1) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub cannot be changed from S2 to S1.
 
 ## Delete the IoT hub
 
@@ -149,6 +167,8 @@ Follow these links to learn more about Azure IoT Hub:
   [10]: ./media/iot-hub-manage-through-portal/shared-access-policies.png
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
+  [13]: ./media/iot-hub-manage-through-portal/file-upload-settings.png
+  [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md

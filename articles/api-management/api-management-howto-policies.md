@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Policies in Azure API Management" 
+	pageTitle="Policies in Azure API Management | Microsoft Azure" 
 	description="Learn how to create, edit, and configure policies in API Management." 
 	services="api-management" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 
@@ -51,6 +51,8 @@ The policy is displayed read-only at first. In order to edit the definition clic
 The policy definition is a simple XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. A list of statements is provided to the right and statements applicable to the current scope are enabled and highlighted; as demonstrated by the **Limit Call Rate** statement in the screenshot above.
 
 Clicking an enabled statement will add the appropriate XML at the location of the cursor in the definition view. 
+
+>[AZURE.NOTE] If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section for that policy in the [Policy Reference][].
 
 A full list of policy statements and their settings are available in the [Policy Reference][].
 

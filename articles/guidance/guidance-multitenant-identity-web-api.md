@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="06/02/2016"
    ms.author="mwasson"/>
 
 # Securing a backend web API in a multitenant application
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
@@ -57,7 +59,7 @@ The Tailspin application implements delegated user identity. Here are the main d
 - The web API makes authorization decisions based on the user identity.
 - The web application needs to handle 403 (Forbidden) errors from the web API, if the user is not authorized to perform an action.
 - Typically, the web application still makes some authorization decisions that affect UI, such as showing or hiding UI elements).
-- With this approach, the web API can potentially be used by untrusted clients, such as a JavaScript application or a native client application.
+- The web API can potentially be used by untrusted clients, such as a JavaScript application or a native client application.
 
 **Application identity**
 
@@ -186,8 +188,8 @@ app.UseJwtBearerAuthentication(options =>
 > [AZURE.NOTE] See [Startup.cs].
 
 - **Audience**. Set this to the App ID URL for the web API, which you created when you registered the web API with Azure AD.
-- **Authority**. For a multitenant application, set this to `https://login.microsoftonline.com/common/``.
-- **TokenValidationParameters**. For a multitenant application, set **ValidateIssuer**. to false. That means the application will validate the issuer.
+- **Authority**. For a multitenant application, set this to `https://login.microsoftonline.com/common/`.
+- **TokenValidationParameters**. For a multitenant application, set **ValidateIssuer** to false. That means the application will validate the issuer.
 - **Events** is a class that derives from **JwtBearerEvents**.
 
 ### Issuer validation
@@ -219,18 +221,17 @@ You can also use the **ValidatedToken** event to do [claims transformation]. Rem
 
 ## Authorization
 
-For a general discussion of authorization, see [Authorization]. For a web API, the main difference is that the JwtBearer middleware handles the authorization responses.
+For a general discussion of authorization, see [Role-based and resource-based authorization][Authorization]. 
 
-For example, to restrict a controller action to authenticated users:
+The JwtBearer middleware handles the authorization responses. For example, to restrict a controller action to authenticated users, use the **[Authorize]** atrribute and specify **JwtBearerDefaults.AuthenticationScheme** as the authentication scheme:
 
 ```csharp
 [Authorize(ActiveAuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 ```
 
-
 This returns a 401 status code if the user is not authenticated.
 
-To restrict a controller action by authorizaton policy:
+To restrict a controller action by authorizaton policy, specify the policy name in the **[Authorize]** attribute:
 
 ```csharp
 [Authorize(Policy = PolicyNames.RequireSurveyCreator)]

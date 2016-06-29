@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="02/16/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Design concepts
@@ -36,6 +36,7 @@ This topic will only talk about sourceAnchor as it relates to users. The same ru
 The attribute value must follow the following rules:
 
 - Be less than 60 characters in length
+    - Characters not being a-z, A-Z, or 0-9 will be encoded and counted as 3 characters
 - Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 - Must be globally unique
 - Must be either a string, integer or binary
@@ -63,6 +64,32 @@ For this reason, the following restrictions apply to Azure AD Connect:
 - The sourceAnchor attribute can only be set during initial installation. If you re-run the installation wizard this option is read-only. If you need to change this, then you must uninstall and reinstall.
 - If you install another Azure AD Connect server, then you must select the same sourceAnchor attribute as previously used. If you have earlier been using DirSync and move to Azure AD Connect, then you must use **objectGUID** since that is the attribute used by DirSync.
 - If the value for sourceAnchor is changed after the object has been exported to Azure AD, then Azure AD Connect sync will throw an error and will not allow any more changes on that object before the issue has been fixed and the sourceAnchor is changed back in the source directory.
+
+## Azure AD sign-in
+
+While integrating your on-premises directory with Azure AD, it is important to understand how the synchronization settings can affect the way user authenticates. Azure AD uses userPrincipalName or UPN to authenticate the user. However, when you synchronize your users you must choose the attribute to be used for value of userPrincipalName carefully.
+
+### Choosing the attribute for userPrincipalName
+
+When you are selecting the attribute for providing the value of UPN to be used in Azure one should ensure
+
+* The attribute values conform to the UPN syntax (RFC 822), i.e. it should be of the format username@domain.
+* The suffix in the values matches to one of the verified custom domains in Azure AD
+
+In express settings, the assumed choice for the attribute is userPrincipalName. However, if you believe that userprincipalname attribute does not contain the value that you would want your users to use for logging in to Azure, then you must choose **Custom Installation** and provide appropriate attribute.
+
+### Custom domain state and UPN
+It is important to ensure that there is a verified domain for the UPN suffix.
+
+John is a user in contoso.com. You want John to use the on-premises UPN john@contoso.com for logging in to Azure after you have synced users to your Azure AD directory azurecontoso.onmicrosoft.com. In order to do so, you will need to add and verify contoso.com as a custom domain in Azure AD before you can start syncing the users. If the UPN suffix of John, i.e. contoso.com, does not match a verified domain in Azure AD, then Azure AD will replace the UPN suffix with azurecontoso.onmicrosoft.com and John will have to use john@azurecontoso.onmicrosoft.com to sign in to Azure.
+
+### Non-routable on-premises domains and UPN for Azure AD
+Some organizations have non-routable domains, like contoso.local or simple single label domains like contoso. In Azure AD you will not be able to verify a non-routable domain. Azure AD Connect can sync to only a verified domain in Azure AD. When you create an Azure AD directory, it creates a routable domain which becomes default domain for your Azure AD for example, contoso.onmicrosoft.com. Therefore, it becomes necessary to verify any other routable domain in such a scenario in case you dont want to sync to the default .onmicrosoft.com domain.
+
+Read [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more info on adding and verifying domains.
+
+Azure AD Connect detects if you are running in a non-routable domain environment and would appropriately warn you from going ahead with express settings. If you are operating in a non-routable domain, then it is likely that the UPN of the users are having non-routable suffix too. For example, if you are running under contoso.local, Azure AD Connect will suggest you to use custom settings rather than using express settings. Using custom settings, you will be able to specify the attribute that should be used as UPN for logging into Azure after the users are synced to Azure AD.
+See **Selecting attribute for user principal name in Azure AD** below for more info.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

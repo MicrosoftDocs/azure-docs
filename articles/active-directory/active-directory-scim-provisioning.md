@@ -57,7 +57,7 @@ You should check with your application provider, or your application provider's 
 
 Applications that support the SCIM profile described above can be connected to Azure Active Directory using the "custom" app feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process every 5 minutes where it queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
 
-**To connect an applicaiton that supports SCIM:**
+**To connect an application that supports SCIM:**
 
 1.	In a web browser, launch the Azure management portal at https://manage.windowsazure.com.
 2.	Browse to **Active Directory > Directory > [Your Directory] > Applications**, and select **Add > Add an application from the gallery**.

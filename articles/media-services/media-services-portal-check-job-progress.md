@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #How to: Check Job Progress
@@ -44,7 +44,7 @@
 
 ##Next Step
 
-Publish your content. For more information, see [How to: Encode an Asset](../media-services-manage-content#publish). 
+Publish your content. For more information, see [How to: Encode an Asset](media-services-manage-content.md#publish). 
 
 
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png

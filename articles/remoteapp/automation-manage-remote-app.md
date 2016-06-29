@@ -40,4 +40,4 @@ RemoteApp can be managed in Azure Automation by using the PowerShell cmdlets tha
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure RemoteApp, follow these links to learn more about Azure Automation.
 
-* See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md)
+* See the Azure Automation [Getting Started Tutorial](../automation/automation-first-runbook-graphical.md)
