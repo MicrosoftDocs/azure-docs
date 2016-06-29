@@ -1,21 +1,21 @@
 ## Using Azure Portal
 
-While this command is running, check your virtual machine in the [Azure portal](https://portal.azure.com). Notice that the VM's **Status** changes as following:
+1. Select the VM you wish to redeploy, and click the 'Redeploy' button in the 'Settings' blade:
 
-1. Initial **Status** is *Running*
+[Azure VM blade](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
 
-	![Redeploy initial status](./media/virtual-machines-common-redeploy-to-new-node/statusrunning1.png)
+2. Click the 'Redeploy' button to confirm the operation:
 
-2. **Status** changes to *Updating*
+[Redeploy a VM blade](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
 
-	![Redeploy status Updating](./media/virtual-machines-common-redeploy-to-new-node/statusupdating.png)
+2. You will see the **Status** of the VM change to *Updating* as the VM prepares to redeploy:
 
-3. **Status** changes to *Starting*
+[VM updating](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
 
-	![Redeploy status Starting](./media/virtual-machines-common-redeploy-to-new-node/statusstarting.png)
+3. The **Status** will then change to *Starting* as the VM starts on a new Azure host:
 
-4. **Status** changes back to *Running*
+[VM starting](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 
-	![Redeploy final status](./media/virtual-machines-common-redeploy-to-new-node/statusrunning2.png)
+4. After the VM finishes the boot process, the **Status** will then return to *Running*, indicating the VM has been successfully redeployed:
 
-When the **Status** is back to *Running*, the VM has successfully redeployed. 
+[VM running](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
