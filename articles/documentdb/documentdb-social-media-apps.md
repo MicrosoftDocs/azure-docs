@@ -106,6 +106,33 @@ The feed streams could be built using [Azure App Services’](https://azure.micr
 
 Points and likes over a post can be processed in a deferred manner using this same technique to create an eventually consistent environment.
 
+Followers are trickier. DocumentDB has a document size limit of 512Kb, if we would think of storing Followers as a document with this structure:
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"followersOf": "dse4-qwe2-ert4-aad2",
+    	"followers":[
+    		"ewr5-232d-tyrg-iuo2",
+    		"qejh-2345-sdf1-ytg5",
+    		//...
+    		"uie0-4tyg-3456-rwjh"
+    	]
+    }
+
+This might work for a user with a few thousands followers, but if some celebrity joins our ranks, this approach will eventually hit the document size cap.
+
+To solve this, we can use a mixed approach. We can store as part of the User Statistics document the amount of followers:
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"user": "dse4-qwe2-ert4-aad2",
+    	"followers":55230,
+    	"totalPosts":452,
+    	"totalPoints":11342
+    }
+
+And the actual graph of followers can be stored on Azure Storage Tables using an [Extension](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) that allows for simple "A-follows-B" storage and retrieval. This way we can delegate the retrieval process of the exact followers list (when we need it) to Azure Storage Tables but for a quick numbers lookup, we keep using DocumentDB.
+
 ## The “Ladder” pattern and data duplication
 
 As you might have noticed in the JSON document that references a post, there are multiple occurrences of a user. And you’d have guessed right, this means that the information that represents a user, given this denormalization, might be present in more than one place.
