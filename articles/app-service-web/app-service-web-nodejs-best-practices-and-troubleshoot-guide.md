@@ -281,5 +281,5 @@ Follow these links to learn more about node.js applications on Azure App Service
 * [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Node.js Developer Center](nodejs-use-node-modules-azure-apps.md)
+* [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
