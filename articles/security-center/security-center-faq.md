@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="06/29/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -129,3 +129,13 @@ Supported Linux virtual machines:
 - CentOS versions 6.\*, 7.*
 - Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
 - SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*
+
+VMs running in a cloud service are also supported. VM hosting options available in a cloud service are:
+
+- **Web role** - Runs Windows Server with your web app automatically deployed to IIS.
+- **Worker role** - Runs Windows Server without IIS.
+
+To learn more about cloud service, see:
+
+- [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)
+- [Cloud Service virtual machine sizes](../cloud-services/cloud-services-sizes-specs.md)
