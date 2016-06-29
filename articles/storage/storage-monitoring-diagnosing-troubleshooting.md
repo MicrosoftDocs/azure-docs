@@ -382,7 +382,7 @@ For the table and queue services, the Nagle algorithm can also cause high **Aver
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-You should check the client-side logs to see how many requests your client application is submitting, and check for general .NET related performance bottlenecks in your client such as CPU, .NET garbage collection, network utilization, or memory (as a starting point for troubleshooting .NET client applications, see [Debugging, Tracing, and Profiling](http://msdn.microsoft.com/library/7fe0dd2y).
+You should check the client-side logs to see how many requests your client application is submitting, and check for general .NET related performance bottlenecks in your client such as CPU, .NET garbage collection, network utilization, or memory. As a starting point for troubleshooting .NET client applications, see [Debugging, Tracing, and Profiling](http://msdn.microsoft.com/library/7fe0dd2y).
 
 #### Investigating network latency issues
 
