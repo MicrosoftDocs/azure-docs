@@ -132,11 +132,9 @@ The lock on a message is released when the transfer is settled into one of the t
 
 Even though the official Service Bus APIs do not directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the “pull-style” interaction of issuing one unit of credit for each receive request into a “push-style” model by issuing a very large number of link credits and then receive messages as they become available without any further interaction.
 
-In this context it’s important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity and not when the message is being put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it is therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock may have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
+In this context it's important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity and not when the message is being put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it is therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock may have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
 
-[BATCH receive and sends?]
-
-In summary, the following table provides a schematic overview of the performative flow during different API interactions. Some of those interactions may be “lazy”, meaning they may only be performed once required. Creating a message sender may not cause a network interaction until the first message is sent or requested.
+In summary, the following sections provide a schematic overview of the performative flow during different API interactions. Each section describes a different logical operation. Some of those interactions may be "lazy," meaning they may only be performed once required. Creating a message sender may not cause a network interaction until the first message is sent or requested.
 
 #### Create Message Receiver
 
