@@ -13,43 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
-   ms.author="mausher;sonyama;barbkess"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
 This topic lists some of the more common issues you might run into with Azure SQL Data Warehouse.
 
-## Connectivity
-More common connectivity issues include:
 
-- Firewall rules are not set
-- Using unsupported tools/protocols
+##Connection Failures
 
-### Firewall Rules
+If you are having trouble connecting, below are some of the more common issues reported by customers.
+
+### CTAIP error
+This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security Overview][] article.  This article explains how to create create a login on master and then how to create a user in the SQL Data Warehouse database.
+
+### Firewall rules
 Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [configure server firewall access for your client IP][] in the [provisioning instructions][].
 
-### Using unsupported tools/protocols
-SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.  
+### Unsupported tools/protocols
+SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.
 
-## Query Performance
 
-There are several simple things you can do in your database design to ensure that you get optimal query performance from your SQL Data Warehouse.  A good place to start to understand how your queries are performing is the article on [learning how to monitor your queries][].  Sometimes the solution to getting a query to execute faster is to simply add more compute power to your queries by [scaling your SQL Data Warehouse][]. To find many of these optimizations in one place, take a look at the article [SQL Data Warehouse Best Practices][].  
+## Performance Issues
 
-Below are some of the most common causes of query performance issues we see.
+The best place to start to learn ways to improve query performance is [SQL Data Warehouse Best Practices][] article.  If you are trying to troubleshoot a particular query, another good place to start is the article on [learning how to monitor your queries][].  Sometimes the solution to getting a query to execute faster is to simply add more compute power to your queries by [scaling your SQL Data Warehouse][].
 
-### Statistics
-
-[Statistics][] on your tables contain information about the range and frequency of values in a database column or combination of columns. The query engine uses these statistics to optimize query execution and improve query performance. Unlike SQL Server or SQL Database, SQL Data Warehouse does not automatically create or update statistics.  Statistics must be manually maintained on all tables.  To learn how to manage your statistics and identify tables which need statistics, take a look at the article [Manage statistics in SQL Data Warehouse][].
-
-### Table Design
-
-One of the most important choices you make in your SQL Data Warehouse is [choosing the right a hash distribution key for your table][] and [table design][].  As you move from getting started to getting faster performance out of your SQL Data Warehouse, be sure to understand the concepts in these articles.
-
-### Clustered Columnstore Segment Quality
+## Clustered Columnstore Segment Quality
 
 Clustered Columnstore segment quality is important to optimal query performance on Clustered Columnstore Tables.  Segment quality can be measured by number of rows in a compressed Row Group.  The following query will identify tables with poor Columnstore index segment health and generate the T-SQL to rebuild the columnstore index on these tables.  The first column of this query result will give you the T-SQL to rebuild each index.  The second column will provide a recommendation for the minimum resource class to use to optimize the compression. 
  
-**STEP 1:** Run this query on each SQL Data Warehouse database to identify any sub-optimal cluster columnstore indexes.  If no rows are returned, then this regression did not impact you and no further action is needed.
+**STEP 1:** Run this query on each SQL Data Warehouse database to identify any sub-optimal cluster columnstore indexes.  If no rows are returned, then no further action is needed.
 
 ```sql
 SELECT 
@@ -94,7 +87,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
  
 **STEP 5:** If rows are returned when you rerun the query from step 1, you might have tables with extra wide rows which need high amounts of memory to optimally build the clustered column store indexes.  If this is the case, retry this process for these table using the xlargerc class.  To change the resource class repeat step 2 using xlargerc.  Then repeat step 3 for the tables which still have suboptimal indexes.  If you are using a DW100 - DW300 and already used the xlargerc then you may choose to either leave the indexes as is or temporarily increase DWU to provide more memory to this operation.
  
-**FINAL STEPS:**  The resource class designated above is the recommended minimum resource class to build the highest quality columnstore indexes.   We recommend that you keep this setting for the user which loads your data.  However, if you wish to undo the change from step 2, you can do this with the following command.  
+**FINAL STEPS:**  The resource class designated above is the recommended minimum resource class to build the highest quality columnstore indexes.   We recommend that you keep this setting for the user which loads your data.  However, if you wish to undo the change from step 2, you can do this with the following command.
 
 ```sql
 EXEC sp_droprolemember 'smallrc', 'LoadUser'
@@ -104,24 +97,39 @@ The guidance for minimum resource class for loads to a CCI table is to use xlarg
 
 
 ## Next steps
-Please refer to the [SQL Data Warehouse Best Practices][] article for more information on how to optimize your SQL Data Warehouse solution.
+
+If you are were unable to find a solution to your issue above, here are some other resources you can try.
+
+- [Blogs]
+- [Feature Requests]
+- [Videos]
+- [CAT Team Blogs]
+- [Create Support Ticket]
+- [MSDN Forum]
+- [Stack Overflow Forum]
+- [Twitter]
 
 <!--Image references-->
 
 <!--Article references-->
+[Security Overview]: ./sql-data-warehouse-overview-manage-security.md
+[Create Support Ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
-[table design]: ./sql-data-warehouse-develop-table-design.md
-[choosing the right a hash distribution key for your table]: ./sql-data-warehouse-develop-hash-distribution-key
-[development overview]: ./sql-data-warehouse-overview-develop.md
 [learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
-[Manage statistics in SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
 [provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 or 2015]: ./sql-data-warehouse-get-started-connect.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Statistics]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 
-<!--Other web references-->
+<!--Other Web references-->
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[CAT Team Blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Feature Requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[MSDN Forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+[Stack Overflow Forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+

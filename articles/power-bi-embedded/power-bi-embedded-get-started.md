@@ -3,7 +3,7 @@
    description="Power BI Embedded, add interactive Power BI reports into your business intelligence application"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Get started with Microsoft Power BI Embedded Preview
 
-**Microsoft Power BI Embedded** is an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Embedded** works with existing applications without the need to redesign those applications or change the way their users log in.
+**Power BI Embedded** is an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Embedded** works with existing applications without the need to redesign those applications or change the way their users log in.
 
 To learn more about Power BI Embedded, see [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md).
 

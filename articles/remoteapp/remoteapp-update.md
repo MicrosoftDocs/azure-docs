@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="06/05/2016"
    ms.author="elizapo"/>
 
 # Update a collection in Azure RemoteApp

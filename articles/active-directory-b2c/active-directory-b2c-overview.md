@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Sign up and sign in consumers in your applications
@@ -54,7 +54,7 @@ Learn how to use specific Azure Active Directory B2C preview features:
 
 These links will be useful for exploring the service in depth:
 
-- See the [Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+- See the [Azure Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 - Get help on Stack Overflow by using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
 - Give us your thoughts on the preview version by using [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)--we want to hear them! Use the phrase "AzureADB2C:" in the title of your post so we can find it.
 - Azure Active Directory B2C supports industry-standard protocols, OpenID Connect and OAuth 2.0, using an application registration model that we call "App Model v2.0".
