@@ -64,7 +64,7 @@ The objective of this section is to outline how to enable the application integr
 
     ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769533.png "Syncplicity")
 
-##Configuring Single Sign-On
+##Configuring single sign-on
   
 This section outlines how to enable users to authenticate to Syncplicity with their account in Azure Active Directory, using federation based on the SAML protocol.
 
