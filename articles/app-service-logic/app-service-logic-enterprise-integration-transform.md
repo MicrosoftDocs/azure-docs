@@ -18,6 +18,8 @@
 
 # Enterprise integration with XML transforms
 
+>[AZURE.NOTE]We are hard at work on this document. It will be available to you soon. Thanks for your interest in the Enterprise Integration Pack.
+
 ## Overview
 The Enterprise integration Transform connector converts data from one format to another format. For example, you may have an incoming message that contains the current date in the YearMonthDay format. You can use a transform to reformat the date to be in the MonthDayYear format.
 
@@ -38,4 +40,7 @@ You can create transform by using Visual Studio using the [Enterprise Integratio
 - When you create the map, you don't need to add a schema. When your map is ready, add it to the Transform API App and you're ready to go.  
 - Includes support for the XML format.
 
-todo: 
+
+## Learn more
+- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about enterprise integration pack")  
+ 

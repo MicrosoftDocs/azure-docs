@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	pageTitle="Creating B2B solutions with Enterprise Integration pack | Microsoft Azure App Service" 
+	description="Learn how to create Logic apps with B2B features using the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -16,8 +16,10 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# Enterprise integration with flat files
+# B2B with the Enterprise Integration Pack
+
 >[AZURE.NOTE]We are hard at work on this document. It will be available to you soon. Thanks for your interest in the Enterprise Integration Pack.
+
 
 
 ## Learn more

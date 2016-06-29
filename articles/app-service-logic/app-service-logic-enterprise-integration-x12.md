@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	description="Learn how to use X12 agreements to create Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -18,7 +18,7 @@
 
 # Enterprise integration with X12 
 
-## Create an X12 agreement - todo: X12 not deployed...
+## Create an X12 agreement 
 
 ### Here's what you need before you get started
 - An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
@@ -27,7 +27,7 @@
 >[AZURE.NOTE]When creating an agreement, the content in the agreement file must match the agreement type.    
 
 
-After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an agreement by following these steps:  
+After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an X12 agreement by following these steps:  
 
 ### From the Azure portal home page
 
@@ -45,8 +45,8 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)   
 5. Select the **Add** button in the Agreements blade that opens.  
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
-6. Enter a **Name** for your agreement then select the **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-agreements/agreement-3.png)  
+6. Enter a **Name** for your agreement then select the **Agreement type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
+![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)  
 
 Here are a few details you may find useful when configuring the settings for your agreement: 
   
@@ -103,3 +103,8 @@ See the table below if you would like to learn more about what the send settings
 We are almost done!  
 9. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
+
+
+
+## Learn more
+- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about enterprise integration pack")  
