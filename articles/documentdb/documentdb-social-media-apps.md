@@ -106,7 +106,7 @@ The feed streams could be built using [Azure App Services’](https://azure.micr
 
 Points and likes over a post can be processed in a deferred manner using this same technique to create an eventually consistent environment.
 
-Followers are trickier. DocumentDB has a document size limit of 512Kb, if we would think of storing Followers as a document with this structure:
+Followers are trickier. DocumentDB has a document size limit of 512Kb, so you may think about storing followers as a document with this structure:
 
     {
     	"id":"234d-sd23-rrf2-552d",
@@ -121,7 +121,7 @@ Followers are trickier. DocumentDB has a document size limit of 512Kb, if we wou
 
 This might work for a user with a few thousands followers, but if some celebrity joins our ranks, this approach will eventually hit the document size cap.
 
-To solve this, we can use a mixed approach. We can store as part of the User Statistics document the amount of followers:
+To solve this, we can use a mixed approach. As part of the User Statistics document we can store the number of followers:
 
     {
     	"id":"234d-sd23-rrf2-552d",
@@ -216,7 +216,7 @@ Now that I got you hooked, you’ll probably think you need some PhD in math sci
 
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), part of the [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), is the a fully managed cloud service that lets you create workflows using algorithms in a simple drag-and-drop interface, code your own algorithms in [R](https://en.wikipedia.org/wiki/R_(programming_language)) or use some of the already-built and ready to use APIs such as: [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2),  [Content Moderator](https://www.microsoft.com/moderator) or [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
-To achieve any of these Machine Learning scenarios, we can use [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) to ingest the information from different sources, use [U-SQL](https://azure.microsoft.com/en-us/documentation/videos/data-lake-u-sql-query-execution/) to process the information and generate an output that can be processed by Azure Machine Learning.
+To achieve any of these Machine Learning scenarios, we can use [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) to ingest the information from different sources, and use [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) to process the information and generate an output that can be processed by Azure Machine Learning.
 
 ## Conclusion
 
