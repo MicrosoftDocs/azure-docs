@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Table using Azure Data Factory
@@ -360,7 +360,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes
+| tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination. |
 
 ### Schema by Data Factory
 For schema-free data stores such as Azure Table, the Data Factory service infers the schema in one of the following ways:  
@@ -380,7 +380,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No
+azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination.  
 azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
 
 ### azureTableSourceQuery examples
