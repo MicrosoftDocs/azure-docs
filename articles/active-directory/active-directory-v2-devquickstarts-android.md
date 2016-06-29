@@ -101,7 +101,7 @@ Now we need to import modules from the cloned repo to the current project
 
 Check the oidclib dependencies on the `oidlib-sample` module
 
-![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
+
 
 Click "OK" and Wait for gradle sync
 
