@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="06/29/2016"
    ms.author="hascipio" />
 
 # How to publish and manage an offer in the Azure Marketplace
@@ -24,9 +24,9 @@ The first thing you would want to do as a publisher is to define what kind of so
 ## Types of Offers
 |Offer Type| Definition |
 |---|---|
-|Virtual Machine Image | Pre-configured virtual machine (VM) image with a fully installed operating system and one or more applications. Virtual Machine Image offerings may include a single VM image or multiple VM images tied together by an ARM Template. A virtual machine image ("Image") provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service. An Image comprises of an operating system virtual hard drive and zero or more data disk virtual hard drives. Customers can deploy an number of virtual machines from a single image.|
+|Virtual Machine Image | Pre-configured virtual machine (VM) image with a fully installed operating system and one or more applications. Virtual Machine Image offerings may include a single VM image or multiple VM images tied together by a Solution Template. A virtual machine image ("Image") provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service. An Image comprises of an operating system virtual hard drive and zero or more data disk virtual hard drives. Customers can deploy an number of virtual machines from a single image.|
 |Developer Service| Fully managed service for information workers, business analysts, developers or IT professionals to use in customer application developer or system management. Developer Services provide functionality to enable customers to quickly develop cloud scale applications on Azure. Customers must have an Azure subscription to purchase Developer Services. Publishers are responsible for metering customers' usage of Developers Services and for reporting usage information to Microsoft, as detailed in the Microsoft Azure Marketplace Publisher Agreement.|
-|ARM Solution Template|An "Azure Resource Manager (ARM) Template" is a data structure that can reference one or more distinct offerings, including offerings published by other publishers, to enable Azure customers to deploy one or more offerings in a single, coordinated fashion.|
+|Solution Template|An "Azure Resource Manager (ARM) Solution Template" is a data structure that can reference one or more distinct offerings, including offerings published by other publishers, to enable Azure customers to deploy one or more offerings in a single, coordinated fashion.|
 
 Some steps are shared between the different types of solutions. This article provides a short overview of what steps you will need to complete for any type of solution.
 
@@ -41,17 +41,17 @@ Some steps are shared between the different types of solutions. This article pro
 ## 2. Publishing your offer
 ### 2.1 Complete offer specific technical pre-requisites
 - [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
-- [ARM Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
+- [Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ### 2.2 Create your offer
 1. Create your offer using the offer specific guides below.
     - [Create your VM offer](marketplace-publishing-vm-image-creation.md)
-    - [Create your ARM Solution Template offer](marketplace-publishing-solution-template-creation.md)
+    - [Create your Solution Template offer](marketplace-publishing-solution-template-creation.md)
 2. [Create your offer marketing content](marketplace-publishing-push-to-staging.md)
 
 ### 2.3 Test your offer in staging
 - [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md)
-- [Test your ARM Solution Template offer in staging](marketplace-publishing-solution-template-test-in-staging.md)
+- [Test your Solution Template offer in staging](marketplace-publishing-solution-template-test-in-staging.md)
 
 ### 2.4 Deploy your offer to the Marketplace
 - [Deploy your offer to the Azure Marketplace](marketplace-publishing-push-to-production.md)
@@ -73,6 +73,8 @@ Some steps are shared between the different types of solutions. This article pro
 - [Understanding your seller insights reporting](marketplace-publishing-report-seller-insights.md)
 - [Understanding your payout reporting](marketplace-publishing-report-payout.md)
 - [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
+
+### Virtual Machine Image specific ###
 
 
 ## Additional Resources
