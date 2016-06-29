@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	pageTitle="Overview of maps Enterprise Integration Pack | Microsoft Azure App Service" 
+	description="Learn how to use maps with the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -16,7 +16,7 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# Maps
+# Learn about maps and the Enterprise Integration Pack
 
 ## Overview
 Enterprise integration uses maps to transform XML data from one format to another format. 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	pageTitle="Learn to create an AS2 agreement for the Enterprise Integration Pack" 
+	description="Learn to create an AS2 agreement for the Enterprise Integration Pack" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -18,14 +18,11 @@
 
 # Enterprise integration with AS2
 
-##Overview
-
-
+## Overview
 
 ## Create an AS2 agreement
 
 ### Here's what you need before you get started
-### Prerequisites
 - An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
 - At least two [partners](./app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
 
@@ -58,9 +55,9 @@ Here are a few details you may find useful when configuring the settings for you
 |Property|Description|
 |----|----|
 |Host Partner|An agreement needs both a host and guest partner. The host partner represents the organization that is configuring the agreement.|
-|Host Identity|An identifier for the host partner. This is used for todo: _______ |
+|Host Identity|An identifier for the host partner. |
 |Guest Partner|An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner.|
-|Guest Identity|An identifier for the guest partner. This is used for todo: _______ |
+|Guest Identity|An identifier for the guest partner.|
 |Receive Settings|These properties apply to all messages received by an agreement|
 |Send Settings|These properties apply to all messages sent by an agreement|  
 Let's continue:  

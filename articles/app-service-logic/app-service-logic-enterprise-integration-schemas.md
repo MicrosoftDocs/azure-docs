@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	pageTitle="Overview of schemas and the Enterprise Integration Pack | Microsoft Azure App Service" 
+	description="Learn how to use schemas with the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -16,7 +16,7 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# Schemas  
+# Learn about schemas and the Enterprise Integration Pack  
 
 ## Why use a schema?
 You use schemas to confirm that XML documents you receive are valid, meaning that the documents contain the expected data in a predefined format.

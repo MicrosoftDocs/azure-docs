@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	pageTitle="Create an Enterprise Integration Pack integration account | Microsoft Azure App Service" 
+	description="Create an Enterprise Integration Pack integration account" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -16,7 +16,7 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# Partners
+# Learn about partners and enterprise integration pack
 
 ## Overview
 Before you can create a partner, you and the organization you intend to do business with must share information that will help you both identify and validate messages that are sent by each other. After you have these discussion, and you are ready to begin your business relationship, you can to create a *partner* in your integration account.

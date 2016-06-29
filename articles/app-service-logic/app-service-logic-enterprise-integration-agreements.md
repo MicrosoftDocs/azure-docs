@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	pageTitle="Overview of partners and Enterprise Integration Pack | Microsoft Azure App Service" 
+	description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -17,14 +17,14 @@
 	ms.author="deonhe"/>
 
 
-# Enterprise integration agreements
+# Learn about agreements and Enterprise Integration Pack
 
 ## Overview
 Agreements are the cornerstone of business-to-business (B2B) communications, allowing business entities to communicate seamlessly using industry standard protocols.  
 
 ## What is an agreement?
 
-An agreement, as far as the enterprise integration suite is concerned, is a communications arrangement between B2B trading partners. An agreement is based on the communications the partners wish to achieve and is protocol or transport specific.
+An agreement, as far as the enterprise integration pack is concerned, is a communications arrangement between B2B trading partners. An agreement is based on the communications the partners wish to achieve and is protocol or transport specific.
 
 Enterprise integration supports three protocol/transport standards:  
 

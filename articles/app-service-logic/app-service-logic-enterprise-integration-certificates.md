@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	pageTitle="Using certificates with Enterprise Integration pack | Microsoft Azure App Service" 
+	description="Learn how to use certificates with the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -16,7 +16,7 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# Certificates
+# Learn about certificates and enterprise integration pack
 
 ## Overview
 Enterprise integration uses certificates to secure B2B communications. You can use two types of certificates in your enterprise integration apps:
