@@ -37,11 +37,11 @@ The process of creating and updating statistics is currently a manual process, b
 
 ## Getting started with statistics
 
- Creating sampled statistics on every column is an easy way to get started with statistics.  Since it is equally important to keep statistics up-to-date, a conservative approach may be to update your statistics daily or after each load. There are always trade-offs between performance and the cost to create and update statistics.  If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns daily, as new values may be added rather then after every load. Again, you will gain the most benefit by having statistics on columns involved in JOINs, GROUP BY, HAVING and WHERE clauses.  If you have a table with a lot of columns which are only used in the SELECT clause, statistics on these columns may not help, and spending a little more effort to identify only the columns where statistics will help, can reduce the time to maintain your statistics.
+ Creating sampled statistics on every column is an easy way to get started with statistics.  Since it is equally important to keep statistics up-to-date, a conservative approach may be to update your statistics daily or after each load. There are always trade-offs between performance and the cost to create and update statistics.  If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns daily, as new values may be added rather than after every load. Again, you will gain the most benefit by having statistics on columns involved in JOINs, GROUP BY, HAVING and WHERE clauses.  If you have a table with a lot of columns which are only used in the SELECT clause, statistics on these columns may not help, and spending a little more effort to identify only the columns where statistics will help, can reduce the time to maintain your statistics.
 
 ## Multi-column statistics
 
-In addition to creating statistics on single columns, you may find that your queries will benefit from multi-column statistics.  Multi-column statistics are statistics created on a list of columns.  They include single column statistics on the first column in the list, plus some cross-column correlation information called densities.  For example, if you have a table that joins to another on two columns, you may find that SQL Data Warehouse can better optimize the plan if it understands the relationship between two columns.   Multi-column statistics can improve query performance for some operations such as composite joins and group by's.
+In addition to creating statistics on single columns, you may find that your queries will benefit from multi-column statistics.  Multi-column statistics are statistics created on a list of columns.  They include single column statistics on the first column in the list, plus some cross-column correlation information called densities.  For example, if you have a table that joins to another on two columns, you may find that SQL Data Warehouse can better optimize the plan if it understands the relationship between two columns.   Multi-column statistics can improve query performance for some operations such as composite joins and group by.
 
 ## Updating statistics
 
@@ -55,7 +55,7 @@ This question is not one that can be answered by the age of the data. An up to d
 
 For reference, **SQL Server** (not SQL Data Warehouse) automatically updates statistics for these situations:
 
-- If you have zero rows in the table, when you add a row(or rows), you’ll get an automatic update of statistics
+- If you have zero rows in the table, when you add rows, you’ll get an automatic update of statistics
 - When you add more than 500 rows to a table starting with less than 500 rows (e.g. at start you have 499 and then add 500 rows to a total of 999 rows), you’ll get an automatic update 
 - Once you’re over 500 rows you will have to add 500 additional rows + 20% of the size of the table before you’ll see an automatic update on the stats
 
@@ -96,7 +96,7 @@ For further explanation, see [Statistics][] on MSDN.
 
 ## Implementing statistics management
 
-It is often a good idea to extend your data loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore this is a logical place to implement some management processes.
+It is often a good idea to extend your data loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore, this is a logical place to implement some management processes.
 
 Some guiding principles are provided below for updating your statistics during the load process:
 
@@ -148,7 +148,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 ### C. Create single-column statistics by specifying the sample size
 
-Alternatively you can specify the sample size as a percent:
+Alternatively, you can specify the sample size as a percent:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
@@ -468,7 +468,7 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compar
 
 ## Next steps
 
-For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].  
+For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][].  
 
 <!--Image references-->
 
