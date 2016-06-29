@@ -66,7 +66,7 @@ Start by cloning the OIDCAndroidLib repo down to your computer.
 git@github.com:kalemontes/OIDCAndroidLib.git
 ```
 
-![androidStudio](https://help.github.com/assets/images/help/repository/remotes-url.png)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2remotes-url.png)
 
 ### Set Up Your Android Studio Environment
 
