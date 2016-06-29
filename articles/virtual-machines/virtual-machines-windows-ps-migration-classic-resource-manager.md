@@ -34,7 +34,7 @@ There are two main options for installation, [PowerShell Gallery](https://www.po
 
 For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
-## Step 3: Set your subscription and sign up for migration public preview
+## Step 3: Set your subscription and sign up for migration
 
 First, start a PowerShell prompt. For migration scenarios, you need to set up your environment for both classic and Resource Manager.
 

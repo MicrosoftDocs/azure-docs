@@ -28,7 +28,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 - Read through the [list of unsupported configurations or features](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 -	If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
-## Step 2: Set your subscription and sign up for migration public preview
+## Step 2: Set your subscription and sign up for migration
 
 For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../xplat-cli-install.md) and [select your subscription](../xplat-cli-connect.md).
 
