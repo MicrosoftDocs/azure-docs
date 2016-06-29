@@ -242,7 +242,6 @@ To bootstrap and run the sample, you need to configure each module that particip
 
 The following sections describe how to edit this configuration file for the BLE sample and assume that the gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Edison device. If the repository is elsewhere, you should adjust the paths accordingly:
 
-
 #### Logger configuration
 
 Assuming the gateway repository is located in the folder **/home/root/azure-iot-gateway-sdk/**, configure the logger module as follows:

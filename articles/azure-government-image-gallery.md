@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Government Image Gallery" 
-   description="This article provides an overview of the Azure Government Image Gallery and the images included" 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
+<properties
+   pageTitle="Azure Government Image Gallery | Microsoft Azure"
+   description="This article provides an overview of the Azure Government Image Gallery and the images included"
+   services="Azure-Government"
+   documentationCenter=""
+   authors="joharve2"
+   manager="chrisnie"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government" 
+   ms.workload="azure-government"
    ms.date="06/01/2016"
    ms.author="brendalee"/>
 
@@ -118,7 +118,7 @@ Visual Studio|Visual Studio Enterprise 2015 Update 2 with Azure SDK 2.9 on Windo
 
 The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the <a href="../azure-government-developer-guide">Azure Government Developer Guide</a> to uncover an programmatic differences with endpoints when working with Azure Government.
 
-###Other Resources: 
+###Other Resources:
 
 - [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 

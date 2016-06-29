@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-_This content in active development. It is useful today, so we are making it available for preview. We value your feedback._
+_This content is in active development. It is useful today, so we are making it available for preview. We value your feedback._
 
 Our reference architectures are arranged by scenario, with multiple related architectures grouped together.
 Each individual architecture offers recommended practices and prescriptive steps, as well as an executable component that embodies the recommendations.

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/08/2016"
-	ms.author="micurd"/>
+	ms.date="06/24/2016"
+	ms.author="robmcm"/>
 
 
 # How to use Queue storage from Node.js
