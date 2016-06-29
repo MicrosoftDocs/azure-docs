@@ -42,7 +42,7 @@ From the Azure portal:
 
 
 ## How to use schemas?
-- todo: 
+- Schemas are used to validate messages that are exchanged in a B2B scenario.  
 
 ## How to edit shemas?
 1. Select the **Schemas** tile  

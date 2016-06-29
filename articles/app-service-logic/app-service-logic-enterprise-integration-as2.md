@@ -18,8 +18,6 @@
 
 # Enterprise integration with AS2
 
-## Overview
-
 ## Create an AS2 agreement
 
 ### Here's what you need before you get started
