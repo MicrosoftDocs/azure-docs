@@ -25,7 +25,7 @@ The following are the published HDInsight applications:
 
 - **Datameer powered by Azure(Datameer)**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) is an end-to-end big data analytics platform built for Hadoop, designed to make self-service analysis easy with an Excel-like interface.
 
->[AZURE.NOTE] Datameer is currently only supported in Azure HDInsight version 3.4 clusters.
+>[AZURE.NOTE] Datameer is currently only supported in Azure HDInsight version 3.2 clusters.
 
 The instructions provided in this article use Azure Portal. You can also export the ARM template from the portal or obtain a copy of the ARM template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
