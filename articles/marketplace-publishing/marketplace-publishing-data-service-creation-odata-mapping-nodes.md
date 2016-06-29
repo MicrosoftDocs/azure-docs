@@ -41,7 +41,7 @@ A FunctionImport node represents one URL (entry point) that exposes a service to
 
 Details about this node are found at [here][MSDNFunctionImportLink]
 
-[MSDNFunctionImportLink]:'https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx'
+[MSDNFunctionImportLink]:(https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
 
 The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
@@ -156,7 +156,7 @@ A very helpful details document page about the “Parameter Element” node is f
 | Precision | No | The precision of the parameter. **Example:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | Scale | No | The scale of the parameter. **Example:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
-[MSDNParameterLink]:'http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx'
+[MSDNParameterLink]:(http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
 The following are the attributes that have been added to the CSDL specification:
 
