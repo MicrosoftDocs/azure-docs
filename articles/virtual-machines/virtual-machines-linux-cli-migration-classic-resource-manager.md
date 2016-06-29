@@ -27,7 +27,6 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 
 - Read through the [list of unsupported configurations or features](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 -	If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
-- Because the service is in public preview, make sure that your test environment for migration is isolated from your production environment. Do not mix storage accounts, virtual networks, or other resources between the test and production environments.
 
 ## Step 2: Set your subscription and sign up for migration public preview
 
@@ -37,7 +36,9 @@ Select the Azure subscription by using the following command.
 
 	azure account set "azure-subscription-name"
 
-Sign up for public preview by using the following command. Note that in some cases, this command times out. However, the registration will be successful.
+>[AZURE.NOTE] Registration is a one time step but it needs to be done once before attempting migration.  
+
+Register with the migration resource provider by using the following command. Note that in some cases, this command times out. However, the registration will be successful.
 
 	azure provider register Microsoft.ClassicInfrastructureMigrate
 
@@ -104,6 +105,22 @@ Check the configuration for the prepared virtual machines by using either CLI or
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
 
 	azure network vnet commit-migration virtualnetworkname
+
+### Migrate a storage account
+
+Once you're done migrating the virtual machines, we recommend you migrate the storage account.
+
+Prepare the storage account for migration by using the following command
+
+	azure storage account prepare-migration storageaccountname
+
+Check the configuration for the prepared storage account by using either CLI or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
+
+	azure storage account abort-migration storageaccountname
+
+If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
+
+	azure storage account commit-migration storageaccountname
 
 ## Next steps
 
