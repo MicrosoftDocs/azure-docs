@@ -120,7 +120,7 @@ BEGIN
 END
 ```
 
-For coding consistency it is a good practice to use this pattern for both tables and temporary tables.  It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them in your code.  In stored procedure development it is quite common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
+For coding consistency, it is a good practice to use this pattern for both tables and temporary tables.  It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them in your code.  In stored procedure development it is quite common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
 
 ```sql
 DROP TABLE #stats_ddl
@@ -128,7 +128,7 @@ DROP TABLE #stats_ddl
 
 ## Modularizing code
 
-Since temporary tables can be seen anywhere in a user session, this can be exploited to help you modularize your application code.  For example, the stored procedure below brings together the recommended practices from above to generate  DDL which will update all statistics in the database by statistic name.
+Since temporary tables can be seen anywhere in a user session, this can be exploited to help you modularize your application code.  For example, the stored procedure below brings together the recommended practices from above to generate DDL which will update all statistics in the database by statistic name.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -202,7 +202,7 @@ FROM    t1
 GO
 ```
 
-At this stage the only action that has occured is the creation of a stored proceedure which will simply generated a temporary table, #stats_ddl, with DDL statements.  This stored procedure will drop #stats_ddl if it already exists to ensure it does not fail if run more than once within a session.  However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it will leave the created table so that it can be read outside of the stored procedure.  In SQL Data Warehouse, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  SQL Data Warehouse temporary tables can be used **anywhere** inside the session. This can lead to more modular and manageable code as in the below example:
+At this stage the only action that has occurred is the creation of a stored procedure which will simply generated a temporary table, #stats_ddl, with DDL statements.  This stored procedure will drop #stats_ddl if it already exists to ensure it does not fail if run more than once within a session.  However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it will leave the created table so that it can be read outside of the stored procedure.  In SQL Data Warehouse, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  SQL Data Warehouse temporary tables can be used **anywhere** inside the session. This can lead to more modular and manageable code as in the below example:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -229,7 +229,7 @@ SQL Data Warehouse does impose a couple of limitations when implementing tempora
 
 ## Next steps
 
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For  more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
