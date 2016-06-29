@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/28/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Data types for tables in SQL Data Warehouse
@@ -27,7 +27,16 @@
 - [Statistics][]
 - [Temporary][]
 
+## Data type best practices
+
+ When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
+
+## Polybase limitation
+
+If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
+
 ## Supported data types
+
 SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.
 
 ||||
@@ -41,13 +50,6 @@ SQL Data Warehouse supports the most commonly used data types.  Below is a list 
 [datetime2][]|[real][]|[varbinary][]|
 [datetimeoffset][]|[smalldatetime][]|[varchar][]|
 
-## Performance Considerations
-
- When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
-
-## Polybase limitation
-
-If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
 
 ## Unsupported data types
 
