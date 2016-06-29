@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 # Use MongoChef with a DocumentDB account with protocol support for MongoDB
