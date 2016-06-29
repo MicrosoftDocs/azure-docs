@@ -19,7 +19,7 @@
 
 # Configure Secure HDInsight
 
-Learn how to setup a Linux-based HDInsight cluster with Azure Active Directory(AAD) and Apache Ranger to take advantage of strong authentication and rich role based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
+Learn how to setup an Azure HDInsight cluster with Azure Active Directory(AAD) and Apache Ranger to take advantage of strong authentication and rich role based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
 
 This is the first part of the 2-part tutorial:
 
@@ -32,7 +32,7 @@ An example of the final topology looks as follows:
 
 [jgao: I will update the image to match the names to the names used in this tutorial.]
 
-Because AAD currently only supports classic virtual networks (VNets) and the Linux-based HDInsight only supports Azure Resource Manager (ARM) based VNets, HDInsight AAD integration requires two VNets and a bridge between them. 
+Because AAD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager (ARM) based VNets, HDInsight AAD integration requires two VNets and a bridge between them. 
 
 Most of the Azure service names must be globally unique.  The following are the names used in this tutorial. Contoso is a fictitious name. You must replace *contoso* with a different name when you go through the tutorial.
 	
@@ -55,7 +55,7 @@ This tutorial mainly provides the steps to configure a secured HDInsight. Each s
 - Familiarize yourself with [ADDS](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 - Learn about [Apache Ranger](http://hortonworks.com/apache/ranger/), specifically how [Hive policies](http://hortonworks.com/apache/hive/) work.
 - Ensure that your subscription is whitelisted for this private preview. You can do so by sending an email to adnan.ijaz@microsoft.com with your subscription ID.
-- Azure PowerShell. Most of the steps use the Azure portal or Azure classic porta. Only a few steps in this tutorial requires Azure PowerShell.  You must install Azure PowerShell on a Windows workstation.
+- Azure PowerShell. Most of the steps use the Azure portal or Azure classic portal. Only a few steps in this tutorial require Azure PowerShell.  You must install Azure PowerShell on a Windows workstation.
 
 ## Procedures
 
