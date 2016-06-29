@@ -22,6 +22,8 @@ The microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 
 This application will allow a user to sign-in to their organization and then search for yourself in your organization using the Graph API.
 
+If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-oauth-code/).
+
 
 > [AZURE.NOTE]
 	Some features of our platform that do have an expression in these standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries. 
@@ -64,48 +66,48 @@ Start by cloning the OIDCAndroidLib repo down to your computer.
 git@github.com:kalemontes/OIDCAndroidLib.git
 ```
 
-<img src="https://help.github.com/assets/images/help/repository/remotes-url.png" alt="Git Clone" width="300px"/>
+![androidStudio](https://help.github.com/assets/images/help/repository/remotes-url.png)
 
 ### Set Up Your Android Studio Environment
 
 *  Create the project 
 Create a new AndroidStudio Project and follow the default wizzard.
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample1.PNG" alt="AndroidStudio New Project" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample1.PNG)
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample2.PNG" alt="AndroidStudio Wizard Target Devices" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample2.PNG)
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample3.PNG" alt="AndroidStudio Wizard Start Activity" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample3.PNG)
 
 *  Set up your project modules
 I think that the easiest way to set the modules is by moving the cloned repo to the project location. You can also start by creating the project then cloning directly to the project location.
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample4_1.PNG" alt="Project Directory Structure showing the moved repo" width="200px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample4_1.PNG)
 
 Next, open the project modules settings from the contextual menu or using the `Ctrl + Alt + Maj + S` shortcut.
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample4.PNG" alt="AndroidStudio Module Settings" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample4.PNG)
 
 Remove the default app module as we only want the project container settings.
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample5.PNG" alt="AndroidStudio Project Structure Properties" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample5.PNG)
 
 Now we need to import modules from the cloned repo to the current project
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample6.PNG" alt=AndroidStudio Wizard New Module" width="600px"/>
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample7.PNG" alt="AndroidStudio Wizard New Module" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample6.PNG)
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample7.PNG)
 
 > Repeat these steps for the `oidlib-sample` mobule
 
 Check the oidclib dependencies on the `oidlib-sample` module
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample8.PNG" alt="AndroidStudio Project Structure Dependencies" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample8.PNG)
 
 Click "OK" and Wait for gradle sync
 
 Your settings.gradle should look like 
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample8_1.PNG" alt="Generated settings.gradle file" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample8_1.PNG)
 
 *  Build the sample app to make sure you have the sample running correctly.
 
@@ -113,18 +115,18 @@ You won't be able to use this with Azure Active Directory yet. We'll need to con
 
 Build and run `oidlib-sample` as the target in Android Studio
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample9.png" alt="OidcAndroidLib Sample Screeshot" width="300px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample9.png)
 
 *  Clean Up
 
 You can safely delete the `app ` directory that was left when removing module from the project as AndroidStudio doesn't delete it for safety.
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample12.PNG" alt="Project dir explorer" width="200px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample12.PNG)
 
 Also you can remove the run configuration that was also left when removing module from the project by opening the "Edit Configurations" menu.
 
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample10.PNG" alt="AndroidStudio Edit Configurations" width="600px"/>
-<img src="https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample11.PNG" alt="AndroidStudio Edit Configurations" width="600px"/>
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample10.PNG)
+![androidStudio](https://github.com/kalemontes/OIDCAndroidLib/wiki/images/SetUpSample11.PNG)
 
 ## Configure the endpoints of the sample
 
@@ -158,10 +160,15 @@ Open the `oidc_clientconf.xml` file and make the following changes:
 ```xml
     <string-array name="oidc_scopes">
         <item>openid</item>
-        <item>https://graph.microsoft.com/User.ReadBasic.All</item>
+        <item>User.ReadBasic.All</item>
         <item>offline_access</item>
     </string-array>
 ```
+
+Here we set the `oidc_scopes`.  The scopes we will be requesting for this application is `User.ReadBasic.All` which allows us to read the basic profile of all the users in our directory.
+You can learn more about all the scopes that avaialble to [use with the Microsft Graph here](https://graph.microsoft.io/en-us/docs/authorization/permission_scopes).
+
+If you'd like explinations on `openid` or `offline_access` as scopes in OpenID Connect, look at a brief [overview of the protocol we've documented here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-oauth-code/).
 
 * Configure your client endpoints
 
@@ -177,8 +184,10 @@ Open the `oidc_endpoints.xml` file and make the following changes:
 </resources>
 ```
 
+These endpoints should never change if you are using OAuth2 as your protocol.
+
 > [AZURE.NOTE] 
-the endpoints for userInfoEndpoint and revocationEndpoint are currently not supported by Azure Active Directory so we will leave these with the default valiues of example.com which will provide a helpful reminder that it is not avaialble in the sample :-)
+Yhe endpoints for `userInfoEndpoint` and `revocationEndpoint` are currently not supported by Azure Active Directory so we will leave these with the default valiues of example.com which will provide a helpful reminder that it is not avaialble in the sample :-)
 
 
 ## Configure a Graph API call
@@ -189,6 +198,8 @@ Open the `HomeActivity.java` file and make the following changes:
    //TODO: set your protected resource url
     private static final String protectedResUrl = "https://graph.microsoft.com/v1.0/me/";
 ```
+
+Here we do a simple graph API call that will return our information 
 
 ## You're Done!
 
