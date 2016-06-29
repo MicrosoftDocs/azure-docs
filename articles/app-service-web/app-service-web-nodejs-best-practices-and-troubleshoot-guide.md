@@ -63,24 +63,24 @@ This [schema file](https://github.com/Azure/iisnode/blob/master/src/config/iisno
 
     The default behavior of IIS is that it buffers response data up to 4MB before flushing, or until the end of the response, whichever comes first. iisnode offers a configuration setting to override this behavior: to flush a fragment of the response entity body as soon as iisnode receives it from node.exe, you need to set the iisnode/@flushResponse attribute in web.config to 'true':
     
-    <code>
-    &lt;configuration&gt;    
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;system.webServer&gt;    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ... --&gt;    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;iisnode flushResponse="true" /&gt;    
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/system.webServer&gt;    
-    &lt;/configuration&gt;
-    </code>
+    ```
+    <configuration>    
+        <system.webServer>    
+            <!-- ... -->    
+            <iisnode flushResponse="true" />    
+        </system.webServer>    
+    </configuration>
+    ```
 
-    Enabling flushing of every fragment of the response entity body adds performance overhead that reduces the throughput of the system by ~5% (as of v0.1.13), so it is best to scope this setting only to endpoints that require response streaming (e.g. using the &lt;location&gt; element in the web.config)
+    Enabling flushing of every fragment of the response entity body adds performance overhead that reduces the throughput of the system by ~5% (as of v0.1.13), so it is best to scope this setting only to endpoints that require response streaming (e.g. using the <location> element in the web.config)
 
     In addition to this, for streaming applications, you will need to also set responseBufferLimit of your iisnode handler to 0.
     
-    <code>   
-    &lt;handlers&gt;    
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;add name="iisnode" path="app.js" verb="\*" modules="iisnode" responseBufferLimit="0"/&gt;    
-    &lt;/handlers&gt;
-    </code>
+    ```
+    <handlers>    
+        <add name="iisnode" path="app.js" verb="\*" modules="iisnode" responseBufferLimit="0"/>    
+    </handlers>
+    ```
 
 * watchedFiles
 
@@ -122,14 +122,14 @@ Many applications would want to make outbound connections as part of their regul
 
 Example agentKeepALive configuration:
 
-<code>
+```
 var keepaliveAgent = new Agent({    
-&nbsp;&nbsp;&nbsp;&nbsp;maxSockets: 40,    
-&nbsp;&nbsp;&nbsp;&nbsp;maxFreeSockets: 10,    
-&nbsp;&nbsp;&nbsp;&nbsp;timeout: 60000,    
-&nbsp;&nbsp;&nbsp;&nbsp;keepAliveTimeout: 300000    
+    maxSockets: 40,    
+    maxFreeSockets: 10,    
+    timeout: 60000,    
+    keepAliveTimeout: 300000    
 });
-</code>
+```
 
 This example assumes you have 4 node.exe running on your VM. If you have a different number of node.exe running on the VM, you will have to modify the maxSockets setting accordingly.
 
@@ -144,24 +144,24 @@ In cases where you think your application is consuming too much CPU and you cann
 
 For example, lets say you have a hello world app that you want to profile as shown below:
 
-<code>
+```
 var http = require('http');    
 function WriteConsoleLog() {    
-&nbsp;&nbsp;&nbsp;&nbsp;for(var i=0;i&lt;99999;++i) {    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('hello world');    
-&nbsp;&nbsp;&nbsp;&nbsp;}    
+    for(var i=0;i<99999;++i) {    
+        console.log('hello world');    
+    }    
 }
 
 function HandleRequest() {    
-&nbsp;&nbsp;&nbsp;&nbsp;WriteConsoleLog();    
+    WriteConsoleLog();    
 }
 
 http.createServer(function (req, res) {    
-&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(200, {'Content-Type': 'text/html'});    
-&nbsp;&nbsp;&nbsp;&nbsp;HandleRequest();    
-&nbsp;&nbsp;&nbsp;&nbsp;res.end('Hello world!');    
+    res.writeHead(200, {'Content-Type': 'text/html'});    
+    HandleRequest();    
+    res.end('Hello world!');    
 }).listen(process.env.PORT);
-</code>
+```
 
 Go to your scm site https://yoursite.scm.azurewebsites.net/DebugConsole
 
@@ -174,29 +174,29 @@ Run the command “npm install v8-profiler”
 This should install v8-profiler under node\_modules directory and all of its dependencies.
 Now, edit your server.js to profile your application.
 
-<code>
+```
 var http = require('http');    
 var profiler = require('v8-profiler');    
 var fs = require('fs');
 
 function WriteConsoleLog() {    
-&nbsp;&nbsp;&nbsp;&nbsp;for(var i=0;i&lt;99999;++i) {    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('hello world');    
-&nbsp;&nbsp;&nbsp;&nbsp;}    
+    for(var i=0;i<99999;++i) {    
+        console.log('hello world');    
+    }    
 }
 
 function HandleRequest() {    
-&nbsp;&nbsp;&nbsp;&nbsp;profiler.startProfiling('HandleRequest');    
-&nbsp;&nbsp;&nbsp;&nbsp;WriteConsoleLog();    
-&nbsp;&nbsp;&nbsp;&nbsp;fs.writeFileSync('profile.cpuprofile', JSON.stringify(profiler.stopProfiling('HandleRequest')));    
+    profiler.startProfiling('HandleRequest');    
+    WriteConsoleLog();    
+    fs.writeFileSync('profile.cpuprofile', JSON.stringify(profiler.stopProfiling('HandleRequest')));    
 }
 
 http.createServer(function (req, res) {    
-&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(200, {'Content-Type': 'text/html'});    
-&nbsp;&nbsp;&nbsp;&nbsp;HandleRequest();    
-&nbsp;&nbsp;&nbsp;&nbsp;res.end('Hello world!');    
+    res.writeHead(200, {'Content-Type': 'text/html'});    
+    HandleRequest();    
+    res.end('Hello world!');    
 }).listen(process.env.PORT);
-</code>
+```
 
 The above changes will profile the WriteConsoleLog function and then write the profile output to ‘profile.cpuprofile’ file under your site wwwroot. Send a request to your application. You will see a ‘profile.cpuprofile’ file created under your site wwwroot.
 
