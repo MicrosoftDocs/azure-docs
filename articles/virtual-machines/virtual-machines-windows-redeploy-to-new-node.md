@@ -39,3 +39,4 @@ Use this Azure PowerShell command to redeploy your virtual machine:
 
 
 ## Next steps
+You can find specific help on [troubleshooting RDP connections](virtual-machines-windows-troubleshoot-rdp-connection.md) or [detailed RDP troubleshooting steps](virtual-machines-windows-detailed-troubleshoot-rdp.md) if you are having issues connecting to your VM. You can also read [application troubleshooting issues](virtual-machines-windows-troubleshoot-app-connection.md) if you cannot access an application running on your VM.

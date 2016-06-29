@@ -33,10 +33,10 @@ Make sure you have the [latest Azure CLI installed](../xplat-cli-install.md) on 
 Use the following Azure CLI command to redeploy your virtual machine:
 
 ```bash
-azure vm redeploy -resourcegroup <resourcegroup> --vm-name <vmname> 
+azure vm redeploy --resourcegroup <resourcegroup> --vm-name <vmname> 
 ```
 
-If you list the status of the VM, you will see `PowerState` of the VM go from 'Running' to 'Updating', then 'Starting' and finally 'Running' as it goes through the redeploy process to a new host:
+You can see the status of the VM change as it goes through the redeploy process. The `PowerState` of the VM will go from 'Running' to 'Updating', then 'Starting', and finally 'Running' as it goes through the process of redeploying to a new host. Check the status of the VMs within a resource group with:
 
 ```bash
 azure vm list -g <resourcegroup>
@@ -47,3 +47,4 @@ azure vm list -g <resourcegroup>
 
 
 ## Next steps
+You can find specific help on [troubleshooting SSH connections](virtual-machines-linux-troubleshoot-ssh-connection.md) or [detailed SSH troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md) if you are having issues connecting to your VM. You can also read [application troubleshooting issues](virtual-machines-linux-troubleshoot-app-connection.md) if you cannot access an application running on your VM.

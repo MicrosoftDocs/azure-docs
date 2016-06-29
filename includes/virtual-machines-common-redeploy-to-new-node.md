@@ -12,7 +12,7 @@
 
 ![VM updating](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
 
-3. The **Status** will then change to *Starting* as the VM starts on a new Azure host:
+3. The **Status** will then change to *Starting* as the VM boots up on a new Azure host:
 
 ![VM starting](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 
