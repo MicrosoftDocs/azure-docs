@@ -23,7 +23,7 @@
 
 If you have been facing difficulties troubleshooting SSH or application access to an Azure virtual machine (VM), redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure CLI or the Azure portal.
 
-Please note that after you redeploy a VM, the temporary disk will be lost and dynamic IP addresses associated with virtual network interface will be updated. 
+> [AZURE.NOTE] After you redeploy a VM, the temporary disk will be lost and dynamic IP addresses associated with virtual network interface will be updated. 
 
 
 ## Using Azure CLI
