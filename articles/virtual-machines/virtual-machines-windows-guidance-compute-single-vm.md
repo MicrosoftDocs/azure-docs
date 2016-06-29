@@ -6,7 +6,7 @@
  authors="mikewasson"
  manager=""
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager"/>
 
 <tags
 ms.service="virtual-machines-windows"
