@@ -22,7 +22,7 @@ The microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 
 This application will allow a user to sign-in to their organization and then search for yourself in your organization using the Graph API.
 
-If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-oauth-code/).
+If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-v2-protocols-oauth-code.md).
 
 
 > [AZURE.NOTE]
@@ -166,9 +166,9 @@ Open the `oidc_clientconf.xml` file and make the following changes:
 ```
 
 Here we set the `oidc_scopes`.  The scopes we will be requesting for this application is `User.ReadBasic.All` which allows us to read the basic profile of all the users in our directory.
-You can learn more about all the scopes that avaialble to [use with the Microsft Graph here](https://graph.microsoft.io/en-us/docs/authorization/permission_scopes).
+You can learn more about all the scopes that avaialble to [use with the Microsft Graph here](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
-If you'd like explinations on `openid` or `offline_access` as scopes in OpenID Connect, look at a brief [overview of the protocol we've documented here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-oauth-code/).
+If you'd like explinations on `openid` or `offline_access` as scopes in OpenID Connect, look at a brief [overview of the protocol we've documented here](active-directory-v2-protocols-oauth-code.md).
 
 * Configure your client endpoints
 

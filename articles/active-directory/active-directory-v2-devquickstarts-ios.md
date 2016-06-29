@@ -22,7 +22,7 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 
 This application will allow a user to sign-in to their organization and then search for others in their organization using the Graph API.
 
-If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols-oauth-code/).
+If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-v2-protocols-oauth-code.md).
 
 
 > [AZURE.NOTE]
@@ -124,7 +124,7 @@ NSURL *authcode;
 Let's go in to these in detail.
 
 The first string we set is for the `scopes`.  The scopes we will be requesting for this application is `User.ReadBasic.All` which allows us to read the basic profile of all the users in our directory.
-You can learn more about all the scopes that avaialble to [use with the Microsft Graph here](https://graph.microsoft.io/en-us/docs/authorization/permission_scopes).
+You can learn more about all the scopes that avaialble to [use with the Microsft Graph here](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
 For `authURL`, `loginURL`, `bhh`, `tokenURL` you should use the values provided above. If you use our open source Microsoft Azure Identity Libraries we would pull this data down for you using our metadata endpoint. We've done the hard work of extracting these values for you.
 
