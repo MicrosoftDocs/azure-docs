@@ -102,8 +102,7 @@ The below view can be created and used on your system to compute the average row
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 SELECT
-        SUBSTRING(@@version,34,4)                                               AS [build_number]
-,       GETDATE()                                                               AS [execution_date]
+        GETDATE()                                                               AS [execution_date]
 ,       DB_Name()                                                               AS [database_name]
 ,       s.name                                                                  AS [schema_name]
 ,       t.name                                                                  AS [table_name]
@@ -142,7 +141,7 @@ JOIN    sys.[tables] t                              ON  mp.[object_id]          
 JOIN    sys.[schemas] s                             ON t.[schema_id]            = s.[schema_id]
 GROUP BY
         s.[name]
-        t.[name]
+,       t.[name]
 ;
 ```
 
