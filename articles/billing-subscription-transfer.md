@@ -29,7 +29,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 ## How to transfer an Azure subscription
 
-> [AZURE.VIDEO switch-to-a-different-azure-offer]
+> [AZURE.VIDEO transfer-an-azure-subscription]
 
 1.  Sign in at <https://account.windowsazure.com/Subscriptions>
 
