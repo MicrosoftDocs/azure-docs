@@ -40,6 +40,10 @@ The following administrator roles are available:
 
 - **User administrator**: Resets passwords, monitors service health, and manages user accounts, user groups, and service requests. Some limitations apply to the permissions of a user management administrator. For example, they cannot delete a global administrator or create other administrators. Also, they cannot reset passwords for billing, global, and service administrators.
 
+- **Security reader**: Read-only access to a number of security features of Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Protection Center.
+
+- **Security administrator**: Read-only access to a number of security features of Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Protection Center and additional administrative permissions for the same services.
+
 ## Administrator permissions
 
 ### Billing administrator
