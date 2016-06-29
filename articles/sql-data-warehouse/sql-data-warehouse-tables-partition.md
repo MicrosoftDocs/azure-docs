@@ -29,7 +29,7 @@
 
 ## Partitioning SQL Data Warehouse Tables
 
-Partitioning essentially divides it into multiple sections.  Primarily partitioning is used to improve performance of data maintenance through partition deletion, switching and merging.  Partitioning can also be use to improve query performance.  Partitioning is supported on all SQL Data Warehouse table types; including clustered columnstore, clustered index, and heap.  Also, all distribution strategies, whether hash or round robin distributed, also support partitioning.
+Partitioning essentially divides it into multiple sections.  Primarily partitioning is used to improve performance of data maintenance through partition deletion, switching and merging.  Partitioning can also be used to improve query performance.  Partitioning is supported on all SQL Data Warehouse table types; including clustered columnstore, clustered index, and heap.  Also, all distribution strategies, whether hash or round robin distributed, also support partitioning.
 
 SQL Data Warehouse uses a simplified definition of partitions which is slightly different from SQL Server.  Partitioning functions and schemes are not used.  Instead, all you need to do is identify partitioned column and the boundary points.
 
@@ -71,7 +71,7 @@ To learn more about partitions in SQL Server, see [Partitioned Tables and Indexe
 
 ## Partition sizing
 
-While partitining can be used to improve performance in data maintenance and query scenarios, creating a table with too many partitions can actually hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables.  For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help you make the best choices for your scenarios.
+While partitioning can be used to improve performance in data maintenance and query scenarios, creating a table with too many partitions can actually hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables.  For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help you make the best choices for your scenarios.
 
 ## Partition strategies
 
@@ -81,9 +81,9 @@ Normally table partitions are useful in two primary ways:
 
 2. Partitioning enables queries to easily skip processing of large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.  In effect, partitioning used in this way is a coarse grained index.
 
-When creating clustered columnstore tables in SQL Data Warehouse, you will need to consider an additional factor: number of rows.   Clustered columnstore tables can achieve a high degree of compression query performance when there are more rows per partition.  Due to how compression works internally in SQL Data Warehouse, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL Data Warehouse spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 1 million rows per distribution and partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the consider using fewer partitions in order to make the number of rows per distribution larger.  
+When creating clustered columnstore tables in SQL Data Warehouse, you will need to consider an additional factor: number of rows.   Clustered columnstore tables can achieve a high degree of compression query performance when there are more rows per partition.  Due to how compression works internally in SQL Data Warehouse, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL Data Warehouse spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 1 million rows per distribution and partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then consider using fewer partitions in order to make the number of rows per distribution larger.  
 
-To size your current SQL Server database at the partition level use a query like the one below:
+To size your current SQL Server database at the partition level, use a query like the one below:
 
 ```sql
 SELECT      s.[name]                        AS      [schema_name]
@@ -144,7 +144,7 @@ AND     rp.[name]    = 'SloDWPool'
 
 ## Partition switching
 
-To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table. If this is not the case then the parition switch will fail as the partition metadata will not be synchronised.
+To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table. If this is not the case, then the partition switch will fail as the partition metadata will not be synchronized.
 
 ### How to split a partition that contains data
 The most efficient method to split a partition that already contains data is to use a `CTAS` statement. If the partitioned table is a clustered columnstore then the table partition must be empty before it can be split.
@@ -182,7 +182,7 @@ VALUES (1,20000101,1,1,1,1,1,1);
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
-> [AZURE.NOTE] By Creating the statistic object we ensure that table metadata is more accurate. If we omit creating statistics then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
+> [AZURE.NOTE] By Creating the statistic object, we ensure that table metadata is more accurate. If we omit creating statistics, then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
 
 We can then query for the row count leveraging the `sys.partitions` catalog view:
 
@@ -210,7 +210,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 Msg 35346, Level 15, State 1, Line 44
 SPLIT clause of ALTER PARTITION statement failed because the partition is not empty.  Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.
 
-However we can use `CTAS` to create a new table to hold our data.
+However, we can use `CTAS` to create a new table to hold our data.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -361,6 +361,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [workload management]: sql-data-warehouse-develop-concurrency.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->
 [Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
