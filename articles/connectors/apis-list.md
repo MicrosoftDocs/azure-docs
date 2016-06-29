@@ -40,11 +40,13 @@ Select an icon to learn how to quickly leverage these connectors to build  apps 
 |[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|[![API Icon][trelloicon]<br/>**Trello**][trellodoc]|[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|
 |[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-## Enterprise Integration connectors
+## Enterprise Integration Pack (EIP) connectors
+Use the EIP connectors to create Logic apps for B2B scenarios that include EAI and EDI.  
+ 
 |EIP connectors ||||
 |-----------|-----------|-----------|-----------|
-|[![API Icon][as2icon]<br/>**AS2**][as2doc]|[![API Icon][x12icon]<br/>**X12**][x12Doc]|[![API Icon][flatfileicon]<br/>**Flat file**][flatfiledoc]|[![API Icon][xmlvalidateicon]<br/>**XML Validate**][xmlvalidatedoc]|
-|[![API Icon][xmltransformicon]<br/>**XML Transform**][xmltransformdoc]||||
+|[![API Icon][as2icon]<br/>**AS2</br>encode/decode**][as2doc]|[![API Icon][x12icon]<br/>**X12</br>encode/decode**][x12Doc]|[![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc]|[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc]|
+|[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc]|[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledoc]|||
 
 
 ### Connectors can be triggers
@@ -138,8 +140,9 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
-[as2icon]: ./media/apis-list/blobicon.png
-[x12icon]: ./media/apis-list/blobicon.png
-[flatfileicon]: ./media/apis-list/blobicon.png
-[xmlvalidateicon]: ./media/apis-list/blobicon.png
-[xmltransformicon]: ./media/apis-list/blobicon.png
+[as2icon]: ./media/apis-list/as2.png
+[x12icon]: ./media/apis-list/x12.png
+[flatfileicon]: ./media/apis-list/flatfileencoding.png
+[flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
+[xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
+[xmltransformicon]: ./media/apis-list/xsltransform.png
