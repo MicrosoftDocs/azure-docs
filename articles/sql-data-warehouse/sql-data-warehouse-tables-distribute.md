@@ -29,11 +29,11 @@
 
 ## Introduction to distributed tables
 
-SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
 
 ## Select distribution method
 
-Behind the scenes, SQL Data Warehouse divides your data into 60 databases.  Each individual database is referered to as a **distribution**.  When data is loaded into each table, SQL Data Warehouse has to know how to divide your data across these 60 distributions.  
+Behind the scenes, SQL Data Warehouse divides your data into 60 databases.  Each individual database is referred to as a **distribution**.  When data is loaded into each table, SQL Data Warehouse has to know how to divide your data across these 60 distributions.  
 
 The distribution method is defined at the table level and currently there are two choices:
 
@@ -44,9 +44,9 @@ By default, when you do not define a data distribution method, your table will b
 
 ### Round Robin Tables
 
-Using the Round Robin method of distributing data is very much how it sounds.  As your data is loaded, each row is simply sent to the next distribution.  This method of distributing the data will always randomly distribute the data very evenly across all of the distributions.  That is, there is no sorting done during the round robin process which places your data.  A round robin distribution is sometimes called a random hash for this reason.  With a round-robin distributed table there is no need to understand the data.  For this reason Round-Robin tables often make good loading targets.
+Using the Round Robin method of distributing data is very much how it sounds.  As your data is loaded, each row is simply sent to the next distribution.  This method of distributing the data will always randomly distribute the data very evenly across all of the distributions.  That is, there is no sorting done during the round robin process which places your data.  A round robin distribution is sometimes called a random hash for this reason.  With a round-robin distributed table there is no need to understand the data.  For this reason, Round-Robin tables often make good loading targets.
 
-By default, if no distribution method is choosen, the round robin distribution method will be used.  However, while round robin tables are easy to use, because data is randomly distributed across the system it means that the system can't guarantee which distribution each row is on.  As a result, the system some times needs to invoke a data movement operation to better organize your data before it can resolve a query.  This extra step can slow down your queries.
+By default, if no distribution method is chosen, the round robin distribution method will be used.  However, while round robin tables are easy to use, because data is randomly distributed across the system it means that the system can't guarantee which distribution each row is on.  As a result, the system sometimes needs to invoke a data movement operation to better organize your data before it can resolve a query.  This extra step can slow down your queries.
 
 Consider using Round Robin distribution for your table in the following scenarios:
 
@@ -95,7 +95,7 @@ WITH
 
 ### Hash Distributed Tables
 
-Using a **Hash distributed** algorithm to distribute your tables can improve performance for many scenarios by reducing data movement at query time.  Hash distributed tables are tables which are divided between the distributed databases using a hashing algorhythm on a single column which you select.  The distribution column is what determines how the data is divided across your distributed databases.  The hash function uses the distribution column to assign rows to distributions.  The hashing algorhytm and resulting distribution is deterministic.  That is the same value with the same data type will always has to the same distribution.    
+Using a **Hash distributed** algorithm to distribute your tables can improve performance for many scenarios by reducing data movement at query time.  Hash distributed tables are tables which are divided between the distributed databases using a hashing algorithm on a single column which you select.  The distribution column is what determines how the data is divided across your distributed databases.  The hash function uses the distribution column to assign rows to distributions.  The hashing algorithm and resulting distribution is deterministic.  That is the same value with the same data type will always has to the same distribution.    
 
 This example will create a table distributed on id:
 
@@ -131,11 +131,11 @@ Select a single column which will:
 
 Distribution columns are not updatable, therefore, select a column with static values.  If a column will need to be updated, it is generally not a good distribution candidate.  If there is a case where you must update a distribution column, this can be done by first deleting the row and then inserting a new row.
 
-### Distribute evenly aross distributions, avoiding data skew
+### Distribute evenly across distributions, avoiding data skew
 
-Since a distributed system performs only as fast as it's slowest distribution, it is important to divide the work evenly across the distributions in order to achieve balanced execution across the system.  The way the work is divided on a distributed system is based on where the data for each distibution lives.  This makes it very important to select the right distribution column for distributing the data so that each distribution has equal work and will take the same time to complete its portion of the work.  When work is well divided across the system, this is called balanced execution.  When data is not evenly divided on a system, and not well balanced, we call this **data skew**.  
+Since a distributed system performs only as fast as its slowest distribution, it is important to divide the work evenly across the distributions in order to achieve balanced execution across the system.  The way the work is divided on a distributed system is based on where the data for each distribution lives.  This makes it very important to select the right distribution column for distributing the data so that each distribution has equal work and will take the same time to complete its portion of the work.  When work is well divided across the system, this is called balanced execution.  When data is not evenly divided on a system, and not well balanced, we call this **data skew**.  
 
-To divide data evenly and avoid data skew, consider the following when selecting your distibution column:
+To divide data evenly and avoid data skew, consider the following when selecting your distribution column:
 
 1. Select a column which contains a significant number of distinct values.
 2. Avoid distributing data on columns with a high frequency of a few values or a high frequency of nulls.
@@ -150,14 +150,14 @@ When no good candidate columns exist, then consider using round robin as the dis
 
 ### Minimize data movement
 
-Minimizing data movement by selecting the right distribution column is one of the most important strategies for ptimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Hash distributing large fact tables on a commonly joined column is one of the most effective methods for minimizing data movement.  In addition to selecting a join column to avoid data movement, there are also some criteria which must be met to avoid data movement.  To avoid data movement:
+Minimizing data movement by selecting the right distribution column is one of the most important strategies for optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Hash distributing large fact tables on a commonly joined column is one of the most effective methods for minimizing data movement.  In addition to selecting a join column to avoid data movement, there are also some criteria which must be met to avoid data movement.  To avoid data movement:
 
 1. The tables involved in the join must be hash distributed on one of the join columns.
 2. The data types of the join columns must match.
 3. The columns must be joined with an equals operator.
 4. The join type may not be a `CROSS JOIN`.
 
-Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`and `HAVING` clauses all make for good hash distribution candidates. On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates because they limit which distributions participate in the query.  Generally speaking, if you have two large fact tables frequenly involved in a join, you will most often distribution on one of the join columns.  If you have a table that is never joined to another large fact table, then look to columns that are frequently in the `GROUP BY` clause.  Unless you cannot find a good candidate column that will distribute your data evenly, it will usually benefit you queries to select a distribution column rather than use the default round robin distribution.
+Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` and `HAVING` clauses all make for good hash distribution candidates. On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates because they limit which distributions participate in the query.  Generally speaking, if you have two large fact tables frequently involved in a join, you will most often distribution on one of the join columns.  If you have a table that is never joined to another large fact table, then look to columns that are frequently in the `GROUP BY` clause.  Unless you cannot find a good candidate column that will distribute your data evenly, it will usually benefit you queries to select a distribution column rather than use the default round robin distribution.
 
 
 ## Troubleshooting data skew
@@ -166,7 +166,7 @@ When table data is distributed using the hash distribution method there is a cha
 
 ### Identifying skew
 
-A simple way to identfy a table as skewed is to use `DBCC PDW_SHOWSPACEUSED`.  This is a very quick and simple way to see the number of table rows that are stored in each of the 60 distributions of your database.  Remember that for the most balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
+A simple way to identify a table as skewed is to use `DBCC PDW_SHOWSPACEUSED`.  This is a very quick and simple way to see the number of table rows that are stored in each of the 60 distributions of your database.  Remember that for the most balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
 
 ```sql
 -- Find data skew for a distributed table
@@ -279,7 +279,7 @@ order by two_part_name, row_count
 
 ### Resolving data skew
 
-Not all skew is enough to warrant a fix.  In some cases the performance of a table in some queries can outweight the harm of data skew.  To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload.   One way to look at the impact of skew is to use the steps in the [Query Monitoring][] article to monitor the impact of skew on query performance and specifically the impact to how long quereies take to complete on the individual distributions.
+Not all skew is enough to warrant a fix.  In some cases, the performance of a table in some queries can outweigh the harm of data skew.  To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload.   One way to look at the impact of skew is to use the steps in the [Query Monitoring][] article to monitor the impact of skew on query performance and specifically the impact to how long queries take to complete on the individual distributions.
 
 Distributing data is a matter of finding the right balance between minimizing data skew and minimizing data movement. These can be opposing goals, and sometimes you will want to keep data skew in order to reduce data movement. For example, when the distribution column is frequently the shared column in joins and aggregations, you will be minimizing data movement. The benefit of having the minimal data movement might outweigh the impact of having data skew. 
 
