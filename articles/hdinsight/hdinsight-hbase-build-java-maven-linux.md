@@ -73,8 +73,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
     | HDInsight cluster version | HBase version to use |
     | ----- | ----- |
     | 3.2 | 0.98.4-hadoop2 |
-    | 3.3 | 1.1.1 |
-    | 3.4 | 1.1.2 |
+    | 3.3 and 3.4 | 1.1.2 |
 
     For more information on HDInsight versions and components, see [What are the different Hadoop components available with HDInsight](hdinsight-component-versioning.md).
 
