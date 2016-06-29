@@ -24,6 +24,8 @@ You will need Visual Studio 2015 to complete this tutorial.  [Visual Studio Comm
 
 > [AZURE.TIP] The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is available for download on MSDN.
 
+[AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
+
 ## Create your project and add Nuget packages
 
 Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
