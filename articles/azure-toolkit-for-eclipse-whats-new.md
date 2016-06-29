@@ -36,6 +36,7 @@ The Azure Toolkit for Eclipse - June 2016 release includes the following enhance
 * **Integrated Samples**. The Azure Toolkit for Eclipse now features several sample applications to help developers get started.
 * **HDInsight Tool Integration**. Azure's HDInsight Tools are now bundled with the Azure Toolkit for Eclipse.
 * **Remote Debugging of Java Web Apps**. The Azure Toolkit for Eclipse now supports remote debugging of Java web apps on Azure App Service.
+* **Support for the Eclipse Luna release.** The new minimum required Eclipse IDE version is Luna.
 
 ### April 12, 2016
 
