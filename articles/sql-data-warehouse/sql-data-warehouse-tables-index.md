@@ -35,7 +35,7 @@ SQL Data Warehouse offers several indexing options including [clustered columnst
 
 By default, SQL Data Warehouse creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression as well as the best overall query performance.  Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables.  For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.  
 
-To create a clustered column store table, simply specify CLUSTERED COLUMNSTORE INDEX in the WITH clause, or leave the WITH clause off:
+To create a clustered columnstore table, simply specify CLUSTERED COLUMNSTORE INDEX in the WITH clause, or leave the WITH clause off:
 
 ```SQL
 CREATE TABLE myTable   
@@ -96,7 +96,7 @@ CREATE INDEX zipCodeIndex ON t1 (zipCode);
 
 ## Optimizing clustered columnstore indexes
 
-Clustered columstore tables are organized in data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
+Clustered columnstore tables are organized in data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
 
 The below view can be created and used on your system to compute the average rows per rowgroup and identify any sub-optimal cluster columnstore indexes.  The last column on this view will generate as SQL statement which can be used to rebuild your indexes.
 
@@ -195,7 +195,7 @@ These factors can cause a columnstore index to have significantly less than the 
 
 ### Memory pressure when index was built
 
-The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table table, the amount of DWU you've allocated to your system, and the amount of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the amount of DWU you've allocated to your system, and the amount of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
 
 ### High volume of DML operations
 
@@ -211,7 +211,7 @@ Batched update and insert operations that exceed the bulk threshold of 102,400 r
 
 Small loads that flow into SQL Data Warehouse are also sometimes known as trickle loads. They typically represent a near constant stream of data being ingested by the system. However, as this stream is near continuous the volume of rows is not particularly large. More often than not the data is significantly under the threshold required for a direct load to columnstore format.
 
-In these situations it is often better to land the data first in Azure blob storage and let it accumulate prior to loading. This technique is often known as *micro-batching*.
+In these situations, it is often better to land the data first in Azure blob storage and let it accumulate prior to loading. This technique is often known as *micro-batching*.
 
 ### Too many partitions
 
@@ -225,7 +225,7 @@ Once your tables have been loaded with some data, follow the below steps to iden
 
 One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view will return an ALTER INDEX REBUILD statement which can be used to rebuild your indexes.  When rebuilding your indexes, be sure that you allocate enough memory to the session which will rebuild your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum.  The resource class of the database owner user cannot be changed, so if you have not created a user on the system, you will need to do so first.  The minimum we recommend is xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
 
-Below is an example of how to allocate more memory to a user by increasing their resource class.  For more information about resource classes and how to create a new user can be found in the [concurrency and workload managment][Concurrency] article.
+Below is an example of how to allocate more memory to a user by increasing their resource class.  For more information about resource classes and how to create a new user can be found in the [concurrency and workload management][Concurrency] article.
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
@@ -311,6 +311,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
