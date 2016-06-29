@@ -24,7 +24,7 @@ This topic describes how to perform administration tasks such as rebooting and s
 
 ## Administration settings
 
-The Azure Redis Cache **Administration** settings allow you to perform the following administrative tasks for your premium cache. To access administration settings, click **Settings** or **All settings** from the Redis Cache blade.
+The Azure Redis Cache **Administration** settings allow you to perform the following administrative tasks for your premium cache. To access administration settings, click **Settings** or **All settings** from the Redis Cache blade and scroll to the **Administration** section in the **Settings** blade.
 
 ![Administration](./media/cache-administration/redis-cache-administration.png)
 
