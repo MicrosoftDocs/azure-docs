@@ -21,58 +21,59 @@
 
 Let's build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. You'll walk through the entire environment command by command, until you have working, secure Linux VMs to which you can connect from anywhere on the internet. Then you can move on to more complex networks and environments.
 
-Along the way, you'll understand the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. Once you see how the system is built, you can rebuild the system much faster using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you see how the parts of your environment fit together, creating templates to automate them becomes easier.
+Along the way, you'll learn about the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. After you see how the system is built, you can rebuild it much faster by using [Azure Resource Manager templates](../resource-group-authoring-templates.md). When you see how the parts of your environment fit together, creating templates to automate them becomes easier.
 
-The environment will contain:
+The environment contains:
 
 - Two VMs inside an availability set
-- A load balancer with load balancing rule on port 80
+- A load balancer with a load-balancing rule on port 80
 - Network security group rules to protect your VM from unwanted traffic
 
 ![Basic environment overview](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-To create this custom environment you'll need the latest [Azure CLI](../xplat-cli-install.md) installed and in resource manager mode (`azure config mode arm`). You'll also need a JSON parsing tool - this example uses [jq](https://stedolan.github.io/jq/).
+To create this custom environment you need the latest [Azure CLI](../xplat-cli-install.md)in Resource manager mode (`azure config mode arm`). You'll also need a JSON parsing tool--this example uses [jq](https://stedolan.github.io/jq/).
 
-## Quick Commands
-The following quick commands are used to build out your custom environment. For much more understanding and overview as to what each command is doing as you build out the environment, read through the [detailed walkthrough steps below](#detailed-walkthrough).
+## Quick commands
+The following quick commands are used to build out your custom environment. For more information about what each command is doing as you build out the environment, read the [detailed walkthrough steps below](#detailed-walkthrough).
 
-Create the Resource Group
+Create the resource group:
 
 ```bash
 azure group create TestRG -l westeurope
 ```
 
-Verify the RG using the JSON parser
+Verify the resource group by using the JSON parser:
 
 ```bash
 azure group show TestRG --json | jq '.'
 ```
 
-Create the Storage Account
+Create the storage account:
 
 ```bash
 azure storage account create -g TestRG -l westeurope --kind Storage --sku-name GRS computeteststore
 ```
 
-Verify the storage using the JSON parser
+Verify the storage by using the JSON parser:
 
 ```bash
 azure storage account show -g TestRG computeteststore --json | jq '.'
 ```
 
-Create the Virtual Network
+Create the Virtual Network:
 
 ```bash
 azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
 ```
 
-Create the Subnet
+Create the subnet:
 
 ```bash
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 ```
 
-Verify the VNet and Subnet using the JSON parser
+Verify the virtual network and subnet by using the JSON parser:
+
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
