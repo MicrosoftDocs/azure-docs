@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="06/23/2016"
+	ms.date="06/29/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -244,15 +244,11 @@ If you have a premium cache with clustering enabled, you can select which shards
 
 To reboot one ore more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
->[AZURE.IMPORTANT] If you reboot both the **Master** and **Slave** nodes all data in the cache is lost. If you reboot just one of the nodes, data is not typically lost, but it still may be.
-
-To test the resiliency of your application against failure of the primary node of your cache, reboot the **Master** node. To test the resiliency of your application against failure of the secondary node, reboot the **Slave** node. To test the resiliency of your application against total failure of the cache, reboot **Both** nodes.
-
->[AZURE.IMPORTANT] Reboot is only available for Premium tier caches.
+>[AZURE.IMPORTANT] Reboot is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Reboot](cache-administration.md#reboot).
 
 ### Schedule updates
 
-The **Schedule updates** blade allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window.
+The **Schedule updates** blade allows you to designate a maintenance window for Redis server updates for your cache. 
 
 >[AZURE.IMPORTANT] Note that the maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
 
@@ -260,7 +256,7 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
 
->[AZURE.IMPORTANT] Schedule updates is only available for Premium tier caches.
+>[AZURE.IMPORTANT] Schedule updates is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Schedule updates](cache-administration.md#schedule-updates).
 
 ## Diagnostics settings
 
