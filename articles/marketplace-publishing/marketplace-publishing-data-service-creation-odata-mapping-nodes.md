@@ -41,7 +41,7 @@ A FunctionImport node represents one URL (entry point) that exposes a service to
 
 Details about this node are found at [here][MSDNFunctionImportLink]
 
-[MSDNFunctionImportLink]:'http://msdn.microsoft.com/library/cc716710(v=vs.100).aspx'
+[MSDNFunctionImportLink]:'https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx'
 
 The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
