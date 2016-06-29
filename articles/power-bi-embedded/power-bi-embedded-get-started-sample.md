@@ -3,7 +3,7 @@
    description="Power BI Embedded, use SDK to add interactive Power BI reports into your business intelligence application"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Get started with Microsoft Power BI Embedded sample
 
-**Microsoft Power BI Embedded Preview** enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users. The following resources can help you get started integrating Power BI reports into your app.
+With **Microsoft Power BI Embedded Preview**, you can integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users. The following resources can help you get started integrating Power BI reports into your app.
 
  -	[Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt711493.aspx)

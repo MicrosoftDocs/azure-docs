@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -25,8 +25,8 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I manage Administrator accounts in the new Azure portal?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 - [Can notifications be sent to a different email address other than the Account Owner email address associated with my account?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
-- [Why I cannot edit or add details to my subscription?](#why-i-cannot-edit-or-add-details-to-my-subscription)
-
+- [Why cannot I edit or add details to my subscription?](#why-cannot-i-edit-or-add-details-to-my-subscription)
+- [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
 
 **Billing**
 
@@ -46,6 +46,8 @@ This article answers some of the most common questions about Azure Billing and S
 - [In which countries and regions is Microsoft Azure commercially available and what currencies can be used to purchase Azure?](#in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure)
 - [Do we restrict resale of Azure based service into countries under embargo?](#do-we-restrict-resale-of-azure-based-service-into-countries-under-embargo)
 - [Are Azure and SQL Database available through Microsoft Services Provider License Agreement?](#are-azure-and-sql-database-available-through-microsoft-services-provider-license-agreement)
+- [Can I use my existing Windows licenses that I bought outside of Azure?](#can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure)
+- [Who can purchase Azure services?](#who-can-purchase-azure-services)
 
 **Making Payments**
 
@@ -86,12 +88,6 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I migrate data and services for my Azure subscription to a new subscription?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 - [How do I transfer ownership of my subscriptions?](#how-do-i-transfer-ownership-of-my-subscriptions)
-
-**Others**
-
-- [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
-- [Can I transfer server licenses to Azure and run them on Virtual Machines?](#can-i-transfer-server-licenses-to-azure-and-run-them-on-virtual-machines)
-- [Who can purchase Azure services?](#who-can-purchase-azure-services)
 
 ### What payment options do I have in purchasing Azure?
 
@@ -207,9 +203,9 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions. We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own. Note that the recipient’s user account must be in the same country and that you cannot transfer subscriptions that are associated with a marketplace purchase.
 For details, see the article [How to transfer an Azure subscription](billing-subscription-transfer.md).
 
-### Can I transfer server licenses to Azure and run them on Virtual Machines?
+### Can I use my existing Windows licenses that I bought outside of Azure?
 
-Yes, through license mobility if you have SA you can "bring-your-own-license" for all Virtual Machines supported server products except for Windows Server.
+Yes, through license mobility if you have SA you can "bring-your-own-license" for all Virtual Machines supported server products except for Windows Server. For more information see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 ### Where can I find the Benefits and Pricing information for Azure Services?
 
@@ -243,7 +239,7 @@ For more information, see the article [How to change the credit card used to pay
 
 **NOTE**: Currently, the Change Payment Method tool does not allow you to remove an existing credit card as a payment method. For information about how to remove a credit card, see the FAQ "How do I remove a credit card that I no longer use as an Azure payment method?" in this article.
 
-### Why I cannot edit or add details to my subscription?
+### Why cannot I edit or add details to my subscription
 
 To view and edit the Azure account information, you must sign in to the Azure Account Center as the account administrator.  If you are the AA and still cannot edit the subscription, please submit a support ticket to request assistance. To create a support ticket, see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 

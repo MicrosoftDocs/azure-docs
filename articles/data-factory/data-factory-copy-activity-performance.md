@@ -228,6 +228,7 @@ Here is a sample definition of a Copy Activity with the above properties:
 	}
 	]
 
+
 ### Billing impact
 Note you will be charged based on the two stages of copy duration and its copy type respectively, which means:
 

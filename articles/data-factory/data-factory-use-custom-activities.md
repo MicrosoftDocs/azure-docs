@@ -736,8 +736,16 @@ To access these extended properties in the **Execute** method, use code similar 
 
 ## Auto-scaling feature of Azure Batch
 You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
- 
-	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+
+One VM per pending task at a time (for example: 5 pending tasks -> 5 VMs):
+
+	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+	$TargetDedicated = max(pendingTaskSampleVector);
+
+Max of one VM at a time irrespective of the number of pending tasks:
+
+	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+	$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 
 See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
 

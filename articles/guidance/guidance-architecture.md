@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="06/29/2016"
    ms.author="christb"/>
 
 # Azure Reference Architectures
@@ -46,7 +46,8 @@ This series starts by demonstrating the ways to connect your existing network to
 - [Implementing a hybrid network architecture with Azure and on-premises VPN](guidance-hybrid-network-vpn.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
 - [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
-- [Implementing a secure hybrid network architecture in Azure](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a DMZ between Azure and your on-premises datacenter](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
 
 ## Architecting scalable web application using Azure PaaS
 
