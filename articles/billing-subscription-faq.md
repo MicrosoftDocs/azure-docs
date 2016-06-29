@@ -25,7 +25,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I manage Administrator accounts in the new Azure portal?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 - [Can notifications be sent to a different email address other than the Account Owner email address associated with my account?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
-- [Why I cannot edit or add details to my subscription?](#why-i-cannot-edit-or-add-details-to-my-subscription)
+- [Why cannot I edit or add details to my subscription?](#why-cannot-i-edit-or-add-details-to-my-subscription)
 - [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
 
 **Billing**
@@ -239,7 +239,7 @@ For more information, see the article [How to change the credit card used to pay
 
 **NOTE**: Currently, the Change Payment Method tool does not allow you to remove an existing credit card as a payment method. For information about how to remove a credit card, see the FAQ "How do I remove a credit card that I no longer use as an Azure payment method?" in this article.
 
-### Why I cannot edit or add details to my subscription?
+### Why cannot I edit or add details to my subscription
 
 To view and edit the Azure account information, you must sign in to the Azure Account Center as the account administrator.  If you are the AA and still cannot edit the subscription, please submit a support ticket to request assistance. To create a support ticket, see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 
