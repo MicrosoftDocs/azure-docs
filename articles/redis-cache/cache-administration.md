@@ -24,7 +24,7 @@ This topic describes how to perform administration tasks such as rebooting and s
 
 ## Administration settings
 
-The Azure Redis Cache **Administration** settings allow you to perform the following administrative tasks for your premium cache. To access them, click **Settings** or **All settings** from the Redis Cache blade.
+The Azure Redis Cache **Administration** settings allow you to perform the following administrative tasks for your premium cache. To access administration settings, click **Settings** or **All settings** from the Redis Cache blade.
 
 ![Administration](./media/cache-administration/redis-cache-administration.png)
 
@@ -45,11 +45,10 @@ To reboot one ore more nodes of your cache, select the desired nodes and click *
 
 The impact on client applications varies depending on the node(s) that you reboot.
 
--	**Master** - When the master node is rebooted, Azure Redis Cache fails over to the replica node and promotes it to master, with only a short interval in which connections may fail to the cache.
--	**Slave** - When the slave node is rebooted, there is light to no impact to cache clients.
+-	**Master** - When the master node is rebooted, Azure Redis Cache fails over to the replica node and promotes it to master. During this failover there may be a short interval in which connections may fail to the cache.
+-	**Slave** - When the slave node is rebooted, there is typically no impact to cache clients.
 -	**Both master and slave** - When both cache nodes are rebooted, all data is lost in the cache and connections to the cache fail until the primary node comes back online.
--	**Node(s) of a premium cache with clustering enabled** - When you reboot the node(s) of a premium cache with clustering enabled, the behavior is the same as when you reboot the node of a non-clustered cache, except that the impact is limited to the specific shard of the cache.
-
+-	**Node(s) of a premium cache with clustering enabled** - When you reboot the node(s) of a premium cache with clustering enabled, the behavior is the same as when you reboot node(s) of a non-clustered cache, except that the impact is limited to the specific shard of the cache.
 
 
 >[AZURE.IMPORTANT] Reboot is only available for Premium tier caches.
@@ -60,7 +59,7 @@ The impact on client applications varies depending on the node(s) that you reboo
 -	[Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
 -	[Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 -	[Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
--	[What pricing tiers can use the Reboot functionality?](#what-pricing-tiers-can-use-the-reboot-functionality)
+-	[What pricing tiers can use the reboot functionality?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
 
 ### Which node should I reboot to test my application?
@@ -69,7 +68,7 @@ To test the resiliency of your application against failure of the primary node o
 
 ### Can I reboot the cache to clear client connections?
 
-Yes, if you reboot the cache all client connections are cleared. This can useful in the case where all client connections are used up, for example due to a logic error or a bug. Each pricing tier has different client connection limits for the various sizes, and once these limits are reached, no more client connections are accepted. Rebooting the cache provides a way to clear all client connections.
+Yes, if you reboot the cache all client connections are cleared. This can useful in the case where all client connections are used up, for example due to a logic error or a bug in the client application. Each pricing tier has different [client connection limits](cache-configure.md#default-redis-server-configuration) for the various sizes, and once these limits are reached, no more client connections are accepted. Rebooting the cache provides a way to clear all client connections.
 
 ### Will I lose data from my cache if I do a reboot?
 
@@ -79,7 +78,7 @@ If you reboot both the **Master** and **Slave** nodes all data in the cache (or 
 
 At this time you can't, but this functionality is coming soon.
 
-### What pricing tiers can use the Reboot functionality?
+### What pricing tiers can use the reboot functionality?
 
 Reboot is available only in the premium pricing tier.
 
