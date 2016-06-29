@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partitioning Tables in SQL Data Warehouse
@@ -27,11 +27,11 @@
 - [Statistics][]
 - [Temporary][]
 
-This article will introduce you to partitioning tables in SQL Data Warehouse.
+## Partitioning SQL Data Warehouse Tables
 
+Partitioning essentially divides it into multiple sections.  Primarily partitioning is used to improve performance of data maintenance through partition deletion, switching and merging.  Partitioning can also be use to improve query performance.  Partitioning is supported on all SQL Data Warehouse table types; including clustered columnstore, clustered index, and heap.  Also, all distribution strategies, whether hash or round robin distributed, also support partitioning.
 
-## Table partitions
-Table partitions are supported and easy to define.
+SQL Data Warehouse uses a simplified definition of partitions which is slightly different from SQL Server.  Partitioning functions and schemes are not used.  Instead, all you need to do is identify partitioned column and the boundary points.
 
 Example of SQL Data Warehouse partitioned `CREATE TABLE` command:
 
@@ -59,29 +59,29 @@ WITH
 ;
 ```
 
-Notice that there is no partitioning function or scheme in the definition. SQL Data Warehouse uses a simplified definition of partitions which is slightly different from SQL Server. All you have to do is identify the boundary points for the partitioned column.
+## Migrating SQL Server syntax to SQL Data Warehouse
 
-## Table partitions in SQL Data Warehouse
-
-To migrate SQL Server partition definitions to SQL Data Warehouse:
+To migrate SQL Server partition definitions to SQL Data Warehouse simply:
 
 - Remove SQL Server partition functions and schemes since this is managed for you when you create the table.
-- Define the partitions when you create the table. Simply specify partition boundary points and whether you want the boundary point to be effective `RANGE RIGHT` or `RANGE LEFT`.
+- Define the partitions during CREATE TABLE. 
+- Specify partition boundary points and whether you want the boundary point to be `RANGE RIGHT` or `RANGE LEFT`.
 
-NOTE: To learn more about partitions in SQL Server, see [Partitioned Tables and Indexes](https://msdn.microsoft.com/library/ms190787.aspx).
+To learn more about partitions in SQL Server, see [Partitioned Tables and Indexes][].
 
+## Partition sizing
 
-### Partition sizing
-SQL DW offers a DBA several choices for table types: heap, clustered index (CI), and clustered column-store index (CCI).   For each of these table types, the DBA can also partition the table, which means dividing it into multiple sections to improve performance.  However, creating a table with too many partitions can actually cause performance degradations or query failures under some circumstances.  These concerns are especially true for CCI tables.  For partitioning to be helpful, it is important for a DBA to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help DBAs make the best choices for their scenarios.
+While partitining can be used to improve performance in data maintenance and query scenarios, creating a table with too many partitions can actually hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables.  For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create.  These guidelines are intended to help you make the best choices for your scenarios.
+
+## Partition strategies
 
 Normally table partitions are useful in two primary ways:
 
 1. Using partition switching to quickly truncate a section of a table.  A commonly used design is for a fact table to contain rows only for some predetermined finite period.  For example, a sales fact table might contain data only for the past 36 months.  At the end of every month, the oldest month of sales data is deleted from the table.  This could be accomplished by simply deleting all of the rows for the oldest month, but deleting a large amount of data row-by-row can take a very long time.  To optimize for this scenario, SQL DW supports partition swapping, which enables the entire set of rows in a partition to be dropped in a single fast operation.   
 
-2. Partitioning enables queries to easily exclude processing a large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.   In effect, partitioning used in this way is a coarse grained index.
+2. Partitioning enables queries to easily skip processing of large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.  In effect, partitioning used in this way is a coarse grained index.
 
-When creating clustered column-store indexes in SQL DW, a DBA needs to consider an additional factor: number of row.   CCI tables can achieve a high degree of compression and helps SQL DW accelerate query performance.  Due to how compression works internally in SQL DW, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL DW spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 100,000 rows per distribution & partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 6 million rows per month, or 216 million rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the DBA should consider creating the table with fewer partitions in order to make the number of rows per distribution larger.  
-
+When creating clustered columnstore tables in SQL Data Warehouse, you will need to consider an additional factor: number of rows.   Clustered columnstore tables can achieve a high degree of compression query performance when there are more rows per partition.  Due to how compression works internally in SQL Data Warehouse, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL Data Warehouse spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 1 million rows per distribution and partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the consider using fewer partitions in order to make the number of rows per distribution larger.  
 
 To size your current SQL Server database at the partition level use a query like the one below:
 
@@ -118,27 +118,9 @@ GROUP BY    s.[name]
 ;
 ```
 
-The total number of distributions equals the number of storage locations used when we create a table. That's a complex way of saying that each table is created once per distribution.
+## Workload manangement
 
-You can also anticipate roughly how many rows, and therefore how big, each partition will be. The partition in the source data warehouse will be subdivided into each distribution.
-
-Use the following calculation to guide you when determining your partition size:
-
-MPP Partition Size = SMP Partition Size / Number of Distributions
-
-You can find out how many distributions your SQL Data Warehouse database has using the following query:
-
-```sql
-SELECT  COUNT(*)
-FROM    sys.pdw_distributions
-;
-```
-
-Now you know how big each partition is in the source system and what size you are anticipating for SQLDW you can decide on your partition boundary.
-
-### Workload manangement
-
-One final piece of information you need to factor in to the table partition decision is workload management. In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed by this feature. Please refer to the following article for more details on [workload management][]. Ideally your partition will be sized with in-memory operations such as columnstore index rebuilds in mind. An index rebuild is a memory intensive operation. Therefore you will want to ensure that the partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.
+One final piece of information you need to factor in to the table partition decision is workload management. In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed by this feature. Please refer to the following article for more details on [workload management][]. Ideally your partition will be sized with in-memory operations such as columnstore index rebuilds in mind. An index rebuild is a memory intensive operation, therefore you will want to ensure that the partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.
 
 Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views. In reality your memory grant will be less than the figures below. However, this provides a level of guidance that you can use when sizing your partitions for data management operations.
 
@@ -161,6 +143,7 @@ AND     rp.[name]    = 'SloDWPool'
 > [AZURE.NOTE] Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure you run the risk of memory pressure which in turn leads to less optimal compression.
 
 ## Partition switching
+
 To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table. If this is not the case then the parition switch will fail as the partition metadata will not be synchronised.
 
 ### How to split a partition that contains data
@@ -281,6 +264,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### Table partitioning source control
+
 To avoid your table definition from **rusting** in your source control system you may want to consider the following approach:
 
 1. Create the table as a partitioned table but with no partition values
@@ -379,5 +363,6 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [workload management]: sql-data-warehouse-develop-concurrency.md
 
 <!-- MSDN Articles -->
+[Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
 
 <!-- Other web references -->
