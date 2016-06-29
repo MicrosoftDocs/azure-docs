@@ -33,7 +33,7 @@
 
 ## Polybase limitation
 
-If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
+If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
 
 ## Supported data types
 
@@ -53,7 +53,7 @@ SQL Data Warehouse supports the most commonly used data types.  Below is a list 
 
 ## Unsupported data types
 
-If you are migrating your database from another SQL platform like Azure SQL Database, as you migrate, you may encouter some data types that are not supported on SQL Data Warehouse.  Below are unsupported data types as well as some alternatives you can use in place of unsupported data types.
+If you are migrating your database from another SQL platform like Azure SQL Database, as you migrate, you may encounter some data types that are not supported on SQL Data Warehouse.  Below are unsupported data types as well as some alternatives you can use in place of unsupported data types.
 
 |Data Type|Workaround|
 |---|---|
@@ -95,6 +95,7 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
