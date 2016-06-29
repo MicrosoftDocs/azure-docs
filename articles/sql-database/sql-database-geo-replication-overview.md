@@ -19,10 +19,6 @@
 
 # Overview: SQL Database Active Geo-Replication
 
-> [AZURE.SELECTOR]
-- [Business continuity](sql-database-business-continuity.md)
-- [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
-
 Active Geo-Replication enables you to configure up to 4 readable secondary databases in the same or different data center locations (regions). Secondary databases are available for querying and for failover in the case of a data center outage or the inability to connect to the primary database.
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.

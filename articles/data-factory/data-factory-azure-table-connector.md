@@ -360,7 +360,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| tableName | Name of the table in the Azure Table Database instance that linked service refers to. | No, but either tableName for dataset or azureTableSourceQuery for AzureTableSource in copy activity definition must be specified. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is specified, the query results are copied to the destination. If both are specified, the azureTableSourceQuery is used. |
+| tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination. |
 
 ### Schema by Data Factory
 For schema-free data stores such as Azure Table, the Data Factory service infers the schema in one of the following ways:  
@@ -380,7 +380,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No, but either tableName for dataset or azureTableSourceQuery for AzureTableSource in copy activity definition must be specified. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is specified, the query results are copied to the destination. If both are specified, the azureTableSourceQuery is used.  
+azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination.  
 azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
 
 ### azureTableSourceQuery examples
