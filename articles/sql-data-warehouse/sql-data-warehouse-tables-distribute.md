@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distributing Tables in SQL Data Warehouse
@@ -37,7 +37,29 @@ Behind the scenes, SQL Data Warehouse divides your data into 60 databases.  Each
 
 ### Round Robin Tables
 
-Using the Round Robin method of distributing data is very much how it sounds.  As your data is loaded, each row is simply sent to the next distribution.  This method of distributing the data will always distribute the data very evenly across all of the distributions.  By default, if no distribution method is choosen, this method will be used.  However, while round robin tables are easy to use, because data is randomly distributed across the system it means that the system can't guarantee which distribution each row is on.  As a result, the system some times needs to invoke a data movement operation to better organize your data before it can resolve a query.  This extra step can slow down your queries.  
+Using the Round Robin method of distributing data is very much how it sounds.  As your data is loaded, each row is simply sent to the next distribution.  This method of distributing the data will always distribute the data very evenly across all of the distributions.  By default, if no distribution method is choosen, this method will be used.  However, while round robin tables are easy to use, because data is randomly distributed across the system it means that the system can't guarantee which distribution each row is on.  As a result, the system some times needs to invoke a data movement operation to better organize your data before it can resolve a query.  This extra step can slow down your queries.
+
+Both of these examples will create a Round Robin Table:
+
+```SQL
+-- Round Robin by default
+CREATE TABLE RoundRobinByDefault   
+  (
+    id int NOT NULL,  
+    lastName varchar(20),  
+    zipCode varchar(6)  
+  )  
+;
+
+-- Explicitly Round Robin
+CREATE TABLE RoundRobinExplicit   
+  (
+    id int NOT NULL,  
+    lastName varchar(20),  
+    zipCode varchar(6)  
+  )  
+WITH ( DISTRIBUTION = ROUND_ROBIN ); 
+```
 
 ### Hash Distributed Tables
 
@@ -45,67 +67,61 @@ Using a **Hash distributed** algorithm to distribute your tables can improve per
 
 The distribution column is very much what it sounds like.  It is the column which is hashed in order to determine how the data in your tables is distributed across the compute node databases in your system.  Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse.  While round robin tables can be sufficient in some scenarios, defining distrubution columns can greatly reduce data movement during queries, thus optimizing performance.  Making smart hash distribution decisions is one of the most important ways you can improve query performance.
 
+This example will create a table distributed on id:
+
+```SQL
+CREATE TABLE DistributedById   
+  (
+    id int NOT NULL,  
+    lastName varchar(20),  
+    zipCode varchar(6)  
+  ) 
+WITH ( DISTRIBUTION = HASH(ID) );
+;
+```
+
 ## Select distribution column
 
-When you choose to **hash distributed** a table, you will need to select a distribution column.  When selecting a distribution column, there are three major factors to consider.  Select a column which will:
+When you choose to **hash distribute** a table, you will need to select a distribution column.  When selecting a distribution column, there are three major factors to consider.  
+
+Select a column which will:
 
 1. Not be updated
-2. Distribute data evenly
+2. Distribute data evenly, avoiding data skew
 3. Minimize data movement
 
 ### Not be updated
 
-### Distribute evenly aross distributions
+Distribution columns are not updatable, therefore, select a column with static values.  If a column will need to be updated, it is generally not a good distribution candidate.  If there is a case where you must update a distribution column, this can be done by first deleting the row and then inserting a new row.
+
+### Distribute evenly aross distributions, avoiding data skew
+
+Since a distributed system performs only as fast as it's slowest distribution, it is important to divide the work evenly across the distributions in order to achieve balanced execution across the system.  The way the work is divided on a distributed system is based on where the data for each distibution lives.  This makes it very important to select the right distribution column for distributing the data so that each distribution has equal work and will take the same time to complete its portion of the work.  When work is well divided across the system, this is called balanced execution.  When data is not evenly divided on a system, and not well balanced, we call this **data skew**.  
+
+To divide data evenly and avoid data skew, consider the following when selecting your distibution column:
+
+1. Select a column which contains a significant number of distinct values.
+2. Avoid distributing data on columns with a high frequency of a few values or a high frequency of nulls.
+3. Avoid distributing data on date columns.
+4. Avoid distributing on columns with less than 60 
+
+Since each value is hashed to one of 60 distributions, to achieve even distribution you will want to select a column that is highly unique and provides well over 60 unique values.  To illustrate, consider the extreme case where a column only has 40 unique values.  If this column was selected as the distribution key, the data for that table would be spread across only part of the system, leaving 20 distributions with no data and no processing to do.  Conversely, the other 40 distributions would have more work to do that if the data was evenly spread over 60 distributions.
+
+If you were to distribute a table on a highly nullable column, then all of the null values will land on the same distribution and that distribution will have to do more work than the other distributions, which will slow the entire system down.  Distributing on a date column can also cause processing skew in the cases where queries are highly selective on date and only a few dates are involved in a query.
+
+When no good candidate columns exist, then consider using round robin as the distribution method.
 
 ### Minimize data movement
 
-Minimizing data movement is a key way to optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Hash distributing tables on a commonly joined column is one of the most effective methods for minimizing this movement.  However, for the hash distribution to be effective in minimizing the movement the following criteria must all be true:
+Minimizing data movement by selecting the right distribution column is one of the most important strategies for ptimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Hash distributing large fact tables on a commonly joined column is one of the most effective methods for minimizing data movement.  In addition to selecting a join column to avoid data movement, there are also some criteria which must be met to avoid data movement.  To avoid data movement:
 
-1. The tables involved in the join must be hash distributed on one of the join columns
-2. The data types of the join columns must match
-3. The columns must be joined with an equals operator
-4. The join type may not be a `CROSS JOIN`
+1. The tables involved in the join must be hash distributed on one of the join columns.
+2. The data types of the join columns must match.
+3. The columns must be joined with an equals operator.
+4. The join type may not be a `CROSS JOIN`.
 
-Columns used in `JOIN`, `GROUP BY`, `DISTINCT` and `HAVING` clauses all make for good hash distribution candidates. On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates. See the section on balanced execution below.
+Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`and `HAVING` clauses all make for good hash distribution candidates. On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates because they limit which distributions participate in the query.  Generally speaking, if you have two large fact tables frequenly involved in a join, you will most often distribution on one of the join columns.  If you have a table that is never joined to another large fact table, then look to columns that are frequently in the `GROUP BY` clause.  Unless you cannot find a good candidate column that will distribute your data evenly, it will usually benefit you queries to select a distribution column rather than use the default round robin distribution.
 
-Data movement may also arise from query syntax (`COUNT DISTINCT` and the `OVER` clause both being great examples) when used with columns that do not include the hash distribution key.
-
-> [AZURE.NOTE] Round-Robin tables typically generate data movement. The data in the table has been allocated in a non-deterministic fashion and so the data must first be moved prior to most queries being completed.
-
-### Avoid data skew
-In order for hash distribution to be effective it is important that the column chosen exhibits the following properties:
-
-1. The column contains a significant number of distinct values.
-2. The column does not suffer from **data skew**.
-
-Each distinct value will be allocated to a distribution. Consequently, the data will require a reasonable number of distinct values to ensure enough unique hash values are generated. Otherwise we might get a poor quality hash. If the number of distributions exceeds the number of distinct values for example then some distributions will be left empty. This would hurt performance.
-
-Similarly, if all of the rows for the hashed column contained the same value then the data is said to be **skewed**. In this extreme case only one hash value would have been created resulting in all rows ending up inside a single distribution. Ideally, each distinct value in the hashed column would have the same number of rows.
-
-> [AZURE.NOTE] Round-robin tables do not exhibit signs of skew. This is because the data is stored evenly across the distributions.
-
-### Provide balanced execution
-Balanced execution is achieved when each distribution has the same amount of work to perform. Massively Parallel Processing (MPP) is a team game; everyone has to cross the line before anyone can be declared the winner. If every distribution has the same amount of work (i.e. data to process) then all of the queries will finish at about the same time. This is known as balanced execution.
-
-As has been seen, data skew can affect balanced execution. However, so can the choice of hash distribution key. If a column has been chosen that appears in the `WHERE` clause of a query then it is quite likely that the query will not be balanced.  
-
-> [AZURE.NOTE] The `WHERE` clause typically helps identify columns that are best used for partitioning.
-
-A good example of a column that appears in the `WHERE` clause would be a date field.  Date fields are a classic examples of great partitioning columns but often poor hash distribution columns. Typically, data warehouse queries are over a specified time period such as day, week or month. Hash distributing by date may have actually limited our scalablity and hurt our performance. If for example the date range specified was for a week i.e. 7 days then the maximum number of hashes would be 7 - one for each day. This means that only 7 of our distributions would contain data. The remaining distributions would not have any data. This would result in an unbalanced query execution as only 7 distributions are processing data.
-
-> [AZURE.NOTE] Round-robin tables typically provide balanced execution. This is because the data is stored evenly across the distributions.
-
-## Recommendations
-To maximize your performance and overall query throughput try and ensure that your hash distributed tables follow this pattern as much as possible:
-
-Hash distribution key:
-
-1. Is a static value since you cannot update the hash column.
-2. Is used in `JOIN`, `GROUP BY`, `DISTINCT`, or `HAVING` clauses in your queries.
-2. Is not used in `WHERE` clauses
-3. Has lots of different values, at least 1000.
-4. Does not have a disproportionately large number of rows that will hash to a small number of distributions.
-5. Is defined as NOT NULL. NULL rows will congregate in one distribution.
 
 ## Summary
 
