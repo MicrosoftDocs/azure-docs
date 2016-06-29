@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="06/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -46,7 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Scenario Description
+## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -99,7 +99,7 @@ To configure and test Azure AD single sign-on with Beeline, you need to complete
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Beeline application.
 
@@ -123,9 +123,9 @@ Your Beeline application expects the SAML assertions in a specific format. Pleas
 	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_04.png) 
 
 
-    a. In the IDENTIFIER textbox, type the URL used by your users to sign-on to your Beeline application using the following pattern: **“https://projects.beeline.net/\<instance name\>”**.
+    a. In the **Identifier** textbox, type the URL used by your users to sign-on to your Beeline application using the following pattern: `https://projects.beeline.net/<instance name>`
 
-	b. In the Reply URL type the URL in the following pattern: **"https://projects.beeline.net/\<instancename\>/SSO_External.ashx"** or **"https://projects.beeline.net/\<company name\>/SSO_External.ashx"**
+	b. In the Reply URL type the URL in the following pattern: `https://projects.beeline.net/<instance name>/SSO_External.ashx` or `https://projects.beeline.net/<company name>/SSO_External.ashx`
 
 
 4. On the **Configure single sign-on at Beeline** page, perform the following steps:
@@ -151,9 +151,9 @@ Your Beeline application expects the SAML assertions in a specific format. Pleas
 
 ### Creating an Azure AD test user
 In this section, you create a test user in the classic portal called Britta Simon.
-In the Users list, select **Britta Simon**.
 
-	![Create Azure AD User][20]
+
+![Create Azure AD User][20]
 
 **To create a test user in Azure AD, perform the following steps:**
 
@@ -221,7 +221,7 @@ In this section, you create a user called Britta Simon in Beeline. Beeline appli
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Beeline.
 
-	![Assign User][200] 
+![Assign User][200] 
 
 **To assign Britta Simon to Beeline, perform the following steps:**
 
@@ -244,13 +244,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	![Assign User][205]
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 When you click the Beeline tile in the Access Panel, you should get automatically signed-on to your Beeline application.
 
 
-## Additional Resources
+## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
