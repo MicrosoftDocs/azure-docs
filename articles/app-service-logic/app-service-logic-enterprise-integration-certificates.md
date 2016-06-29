@@ -57,12 +57,12 @@ Here are the detailed steps to upload your public certificates into your integra
 
 ### Private certificate
 You can upload private certificates into your integration account as well. To do this, you will need to perform the following steps:  
-1. Upload the private key to Key Vault  
-2. Upload the private certificate into the your integration account  
+1. [Upload your private key to key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
+2. Create a private certificate Upload the private certificate into the your integration account  
 
 After you have done the steps above, you can use the private certificate to create agreements.
 
-Here are the detailed steps to upload your public certificates into your integration account after you log into the Azure portal:   
+Here are the detailed steps to upload your private certificates into your integration account after you log into the Azure portal:   
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
@@ -78,6 +78,9 @@ Here are the detailed steps to upload your public certificates into your integra
 7. Within one minute, you will see a notification that indicates that the certificate upload is complete.  
 8. Select the **Certificates tile**. This refreshes the page and you should see the newly added certificate:  
 ![](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
+
+After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
+
 
 ## Next steps
 - [Create a B2B agreement](./app-service-logic-enterprise-integration-agreements.md)

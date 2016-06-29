@@ -29,7 +29,7 @@ For pricing information and a list of what is included with each Service Tier, s
 
 Select an icon to learn how to quickly leverage these connectors to build  apps that call these services. These connectors can be used to build Logic apps, PowerApps and Flows.
 
-| ||||
+|Connectors||||
 |-----------|-----------|-----------|-----------|
 |[![API Icon][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API Icon][boxicon]<br/>**Box**][boxDoc]|[![API Icon][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![API Icon][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![API Icon][facebookicon]<br/>**Facebook**][facebookdoc]|[![API Icon][ftpicon]<br/>**FTP**][ftpdoc]|[![API Icon][githubicon]<br/>**GitHub**][githubdoc]|[![API Icon][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
@@ -41,7 +41,7 @@ Select an icon to learn how to quickly leverage these connectors to build  apps 
 |[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 ## Enterprise Integration connectors
-| ||||
+|EIP connectors ||||
 |-----------|-----------|-----------|-----------|
 |[![API Icon][as2icon]<br/>**AS2**][as2doc]|[![API Icon][x12icon]<br/>**X12**][x12Doc]|[![API Icon][flatfileicon]<br/>**Flat file**][flatfiledoc]|[![API Icon][xmlvalidateicon]<br/>**XML Validate**][xmlvalidatedoc]|
 |[![API Icon][xmltransformicon]<br/>**XML Transform**][xmltransformdoc]||||
