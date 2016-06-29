@@ -21,7 +21,7 @@
 
 An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). 
 
-The following are the published HDInsight applications: 
+Currently there is one published application:
 
 - **Datameer powered by Azure(Datameer)**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) is an end-to-end big data analytics platform built for Hadoop, designed to make self-service analysis easy with an Excel-like interface.
 
