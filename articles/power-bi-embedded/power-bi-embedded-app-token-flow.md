@@ -20,7 +20,7 @@
 
 The **Power BI Embedded** service uses **App Tokens** for authentication and authorization instead of explicit end-user authentication.  In the **App Token** model, your application manages authentication and authorization for your end-users.  When necessary, your app creates and sends the **App Tokens** that tells our service to render the requested report. This design does not require your app to use **Azure Active Directory** for user authentication and authorization, although you can do this.
 
-**Here's how the app token key flow works**
+## Here's how the flow works
 
 1. Copy the API keys to your application. You can get the keys in **Azure Portal**.
 

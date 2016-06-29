@@ -26,7 +26,7 @@ Here are some scenarios for using **Power BI Embedded** in your applications.
 - Independent software vendors and customers building customer facing applications can use the **Power BI Embedded** service, and the Power BI SDK, to embed interactive reports. To learn how, see [Get started with Microsoft Power BI Embedded preview](power-bi-embedded-get-started.md).
 - As a developer, you can use the Power BI visualization framework to create custom visualizations that can be used in your own app. See [Extend Power BI with custom visuals](https://powerbi.microsoft.com/custom-visuals/).
 
-## See Also
+### See Also
 
 - [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 - [Get started sample](power-bi-embedded-get-started.md)
