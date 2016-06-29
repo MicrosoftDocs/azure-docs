@@ -27,7 +27,7 @@
 - [Statistics][]
 - [Temporary][]
 
-SQL Data Warehouse offers several indexing options on tables including [clustered columnstore indexes][], [clustered indexes and non-clustered indexes][].  In addition, it also offers a no index table option also know as [heap][].  This article covers the benefits of each as well as tips to getting the most performance out of your indexes.
+SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][], [clustered indexes and non-clustered indexes][].  In addition, it also offers a no index option also known as [heap][].  This article covers the benefits of each as well as tips to getting the most performance out of your indexes.
 
 ## Clustered columnstore indexes
 
@@ -35,34 +35,82 @@ By default, SQL Data Warehouse creates [clustered columnstore indexes][] on all 
 
 There area few scenarios where clustered columnstore may not be a good option:
 
-- Columnstore tables do not support secondary non-clustered indexes.
-- Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).
-- Columnstore tables may be less efficient for transient data.
+- Columnstore tables do not support secondary non-clustered indexes.  Consider heap or clustered index tables instead.
+- Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).  Consider heap or clustered index instead.
+- Columnstore tables may be less efficient for transient data.  Consider heap and perhaps even temporary tables.
+- Small tables with less than 100 million rows.  Consider heap tables.
 
-## Heap Tables
+## Heap tables
 
-When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster. If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table][Temporary] will also load much faster than loading a table to permanent storage.
+When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table][Temporary] will also load much faster than loading a table to permanent storage.  
 
-## Clustered and non clustered indexes
+For small lookup tables, less than 100 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 100 million rows.
 
-Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved.  For queries where a single or very few row lookup is required to performance with extreme speed, consider a cluster index or non-clustered secondary index.  
+## Clustered and nonclustered indexes
+
+Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved.  For queries where a single or very few row lookup is required to performance with extreme speed, consider a cluster index or nonclustered secondary index.  The disadvantage to using a clustered index is that only queries which use a highly selective filter on the clustered index column will benefit.  To improve filter on other columns a nonclustered index can be added to other columns.  However, each index which is added to a table will add both space and processing time to loads.
+
+## Optimizing clustered columnstore indexes
+
+Clustered columstore tables achieve optimal compression by organizing data into segments.  Clustered Columnstore segment quality is a very important to optimal query performance.  Segment quality can be measured by number of rows in a compressed Row Group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1M rows.  
+
+The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade off in memory vs. concurrency, the guidance on the right memory allocation depends on the data in each row of your table table, the amount of DWU you've allocated to your system, and the amount of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+
+Once your tables have been loaded with some data, follow the below steps to identify and rebuild tables with sub-optimal cluster columnstore indexes.
+
+**Step 1:** Run this query to identify any sub-optimal cluster columnstore indexes.  If no rows are returned, then no further action is needed.
+
+```SQL
+SELECT 
+     'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;' AS [T-SQL to Rebuild Index]
+    ,CASE WHEN n.nbr_nodes <= 3 THEN 'xlargerc' WHEN n.nbr_nodes BETWEEN 4 AND 6 THEN 'largerc' ELSE 'mediumrc' END AS [Resource Class Recommendation]
+    ,s.name AS [Schema Name]
+    ,t.name AS [Table Name]
+    ,AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) AS [Ave Rows in Compressed Row Groups]
+FROM 
+    sys.pdw_nodes_column_store_row_groups rg
+    JOIN sys.pdw_nodes_tables pt 
+        ON rg.object_id = pt.object_id AND rg.pdw_node_id = pt.pdw_node_id AND pt.distribution_id = rg.distribution_id
+    JOIN sys.pdw_table_mappings tm 
+        ON pt.name = tm.physical_name
+    INNER JOIN sys.tables t 
+        ON tm.object_id = t.object_id
+INNER JOIN sys.schemas s
+    ON t.schema_id = s.schema_id
+CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compute') n
+GROUP BY 
+    n.nbr_nodes, s.name, t.name
+HAVING 
+    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000 OR
+    AVG(CASE WHEN rg.State = 0 THEN rg.Total_rows ELSE NULL END) < 100000
+ORDER BY 
+    s.name, t.name
+```
+
+**STEP 2:** Increase the Resource Class of a user which has permissions to rebuild the index on this table to the recommended resource class from the 2nd column of the above query.  The resource class of the database owner user cannot be changed.  More information about resource classes and how to create a new user can be found in the [concurrency and workload managment][Concurrency] article.
+
+```sql
+EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+```
+
+**STEP 3:** Logon as the user from step 2 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements generated by the query in STEP 1.  Be sure that this user has ALTER permission to the tables identified in the query from STEP 1.
+ 
+**STEP 4:** Rerun the query from step 1.  If the indexes were built efficiently, no rows should be returned by this query.  If no rows are returned, you are done.  If rows are returned, continue on to step 5.
+ 
+**STEP 5:** If rows are returned when you rerun the query from step 1 after rebuilding your indexes, you might have tables with extra wide rows which need high amounts of memory to optimally build the clustered column store indexes.  If this is the case, retry this process for these table using the xlargerc class.  To change the resource class repeat step 2 using xlargerc.  Then repeat step 3 for the tables which still have suboptimal indexes.  If you are using a DW100 - DW300 and already used the xlargerc then you may choose to either leave the indexes as is or temporarily increase to a higer DWU to provide more memory to this operation.
+ 
+**FINAL STEPS:**  The resource class designated above is the recommended minimum resource class to build the highest quality columnstore indexes.   We recommend that you keep this setting for the user which loads your data.  However, if you wish to undo the change from step 2, you can do this with the following command.
+
+```sql
+EXEC sp_droprolemember 'smallrc', 'LoadUser'
+```
+
+## Impact of partitioning clustered columnstore tables
+
+Another thing to understand is the impact of partitioning on your clustered columnstore tables.  If you partition your data, then you will want to consider that each partition will need to have at least 1 million rows to benefit from a clustered columnstore index. If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows). If your table does not have 6 billion rows in this example, either reduce the number of partitions or consider using a heap table instead.
 
 
-Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL Data Warehouse table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows. For table with less than 60 million rows, it may not make any sense to have a columnstore index. It also may not hurt. Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index. If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows). If your table does not have 6 billion rows in this example, either reduce the number of partitions or consider using a heap table instead. It also may be worth experimenting to see if better performance can be gained with a heap table with secondary indexes rather than a columnstore table. Columnstore tables do not yet support secondary indexes.
-
-
-## Clustered columnstore 
-
-To get the best performance for queries on columnstore tables, having good segment quality is important. When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer. Segment quality can be measured by number of rows in a compressed Row Group. See the section Clustered Columnstore Segment Quality in the Troubleshooting for step by step instructions on detecting and improving segment quality for clustered columnstore tables. Because getting good quality columnstore segments is fairly important, it's generally a good idea to create a special users ids just for loading which utilize a medium or large resource class. The less DWUs you use, the larger the resource class you will want to assign to your loading user. 
-
-There are two subtle impacts of this change which may impact you.
-1.If you create staging tables for loads, where the main purpose is to load data into your database quickly and then move that data to a permanent table, you may find that heap tables perform better in that scenario.
-2.If you have automation which currently leverages a secondary index on a heap table, you will want to add the HEAP keyword to your DDL as secondary indexes are not yet supported on clustered columnstore tables.
-
-
-Depending on how you ingest data into the columnstore index, all of the data might not be stored with columnstore compression. When this happens you might not get the performance that columnstore indexes are designed to provide. 
-
-This tutorial explains how to manage columnstore indexes to improve query performance. 
+## Clustered columnstore DMVs
 
 Queries on columnstore indexes run best when the index compresses rows together into "rowgroups" of one million rows (1,048,576 to be exact). This gives the best compression and the best query performance. However, conditions can occur that cause the rowgroups to have significantly less than a million rows. When rowgroups are not densely populated with rows, you should consider making adjustments. 
 
@@ -305,4 +353,4 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 <!--Other Web references-->
 [clustered columnstore indexes]: https://msdn.microsoft.com/en-us/library/gg492088.aspx
 [heap]: https://msdn.microsoft.com/en-us/library/hh213609.aspx
-[clustered indexes and non-clustered indexes]: https://msdn.microsoft.com/en-us/library/ms190457.aspx
+[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/en-us/library/ms190457.aspx
