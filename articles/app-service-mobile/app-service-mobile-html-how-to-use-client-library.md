@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="06/29/2016"
 	ms.author="adrianha;ricksal"/>
 
 # How to Use the JavaScript Client Library for Azure Mobile Apps
@@ -91,63 +91,11 @@ Use the following steps to change the App Service settings to enable authenticat
 
 After the backend updates, you will be able to use the new loopback URLs in your app.
 
-##<a name="register-for-push"></a>How to: Register for Push Notifications
-
-Install the [phonegap-plugin-push] to handle push notifications.  This can be easily added using the `cordova plugin add`
-command on the command line, or via the Git plugin installer within Visual Studio.  The following code in your Apache
-Cordova app will register your device for push notifications:
-
-```
-var pushOptions = {
-    android: {
-        senderId: '<from-gcm-console>'
-    },
-    ios: {
-        alert: true,
-        badge: true,
-        sound: true
-    },
-    windows: {
-    }
-};
-pushHandler = PushNotification.init(pushOptions);
-
-pushHandler.on('registration', function (data) {
-    registrationId = data.registrationId;
-    // For cross-platform, you can use the device plugin to determine the device
-    // Best is to use device.platform
-    var name = 'gcm'; // For android - default
-    if (device.platform.toLowerCase() === 'ios')
-        name = 'apns';
-    if (device.platform.toLowerCase().substring(0, 3) === 'win')
-        name = 'wns';
-    client.push.register(name, registrationId);
-});
-
-pushHandler.on('notification', function (data) {
-    // data is an object and is whatever is sent by the PNS - check the format
-    // for your particular PNS
-});
-
-pushHandler.on('error', function (error) {
-    // Handle errors
-});
-```
-
-Use the Notification Hubs SDK to send push notifications from the server.  You should never
-send push notifications directly from clients as that could be used to trigger a denial of
-service attack against Notification Hubs or the PNS.
-
 <!-- URLs. -->
 [Azure Mobile Apps Quick Start]: app-service-mobile-cordova-get-started.md
 [Get started with authentication]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
-[phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
-[phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
-[cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
-[cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
+[JavaScript SDK for Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
