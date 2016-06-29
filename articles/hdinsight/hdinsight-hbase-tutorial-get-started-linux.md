@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
+	ms.date="06/27/2016"
 	ms.author="jgao"/>
 
 
@@ -61,7 +61,7 @@ The following procedure use an Azure ARM template to create an HBase cluster. To
 6. Click **Create**. It takes about around 20 minutes to create a cluster.
 
 
->[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
+>[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster. It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
 
 ## Create tables and insert data
 
@@ -110,6 +110,8 @@ It will make more sense after you finish the next procedure.
 6. Exit the shell
 
 		exit
+
+
 
 **To bulk load data into the contacts HBase table**
 
@@ -283,9 +285,12 @@ In a high availability cluster, you will find a link to the current active HBase
 
 ##Delete the cluster
 
+It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Next steps?
+## Next steps
+
 In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
 
 To learn more, see:
