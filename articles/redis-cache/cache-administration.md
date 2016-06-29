@@ -41,7 +41,7 @@ If you have a premium cache with clustering enabled, you can select which shards
 
 ![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
 
-To reboot one ore more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
+To reboot one or more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 The impact on client applications varies depending on the node(s) that you reboot.
 
