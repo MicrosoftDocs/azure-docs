@@ -3,8 +3,8 @@
 	description="You can use the Service Fabric solution to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters."
 	services="log-analytics"
 	documentationCenter=""
-	authors="bandersmsft"
-	manager="cfreeman"
+	authors="niniikhena"
+	manager="jochan"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/21/2016"
-	ms.author="banders"/>
+	ms.author="nini"/>
 
 
 # Service Fabric Solution in Log Analytics
@@ -307,10 +307,10 @@ function Select-StorageAccount {
                           }
 
                      else {
-                            $key = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1
+                            $key = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name)[0].Value
                            New-AzureRmOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables
 
-                            Write-Host "New Azure Storage Insight Configured. 'n"
+                            Write-Host "New Azure Storage Insight Configured. `n"
 
 
                            }
@@ -418,6 +418,13 @@ Click the **Service Fabric** tile to open the Service Fabric dashboard. The dash
 ![Service Fabric dashboard](./media/log-analytics-service-fabric/sf3.png)
 
 ![Service Fabric dashboard](./media/log-analytics-service-fabric/sf4.png)
+
+
+The following table shows data collection methods and other details about how data is collected for Service Fabric.
+
+| platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+|---|---|---|---|---|---|---|
+|Windows|![No](./media/log-analytics-malware/oms-bullet-red.png)|![No](./media/log-analytics-malware/oms-bullet-red.png)| ![Yes](./media/log-analytics-malware/oms-bullet-green.png)|            ![No](./media/log-analytics-malware/oms-bullet-red.png)|![No](./media/log-analytics-malware/oms-bullet-red.png)|10 minutes |
 
 
 >[AZURE.NOTE] You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or 6 hours. Or, you can select **Custom** to specify a custom date range.
