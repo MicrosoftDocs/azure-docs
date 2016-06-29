@@ -18,7 +18,7 @@
 
 # Working with Azure Resource Manager Templates in Visual Studio Code
 
-Azure Resource Manager templates are JSON files that describe a resource and related dependencies. These files can sometimes be large and complicated so tooling support is important. Visual Studio Code is a new, lightweight, open-source, cross-platform code editor from Microsoft that supports creating and editing Resource Manager templates through a [new extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code runs everywhere and doesn’t require Internet access unless you also want to deploy your Resource Manager templates.
+Azure Resource Manager templates are JSON files that describe a resource and related dependencies. These files can sometimes be large and complicated so tooling support is important. Visual Studio Code is a new, lightweight, open-source, cross-platform code editor. It supports creating and editing Resource Manager templates through a [new extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code runs everywhere and doesn't require Internet access unless you also want to deploy your Resource Manager templates.
 
 If you do not already have VS Code, you can install it at [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
@@ -36,7 +36,7 @@ To work with the JSON templates in VS Code, you need to install an extension. Th
 
  Job done!
 
-## Set up resource snippets
+## Set up Resource Manager snippets
 
 The previous steps installed the tooling support, but now we need to configure VS Code to use JSON template snippets.
 
