@@ -36,7 +36,9 @@ Select the Azure subscription by using the following command.
 
 	azure account set "azure-subscription-name"
 
->[AZURE.NOTE] Registration is a one time step but it needs to be done once before attempting migration.  
+>[AZURE.NOTE] Registration is a one time step but it needs to be done once before attempting migration. Without registering you'll see the following error message 
+
+>	*BadRequest : Subscription is not registered for migration.* 
 
 Register with the migration resource provider by using the following command. Note that in some cases, this command times out. However, the registration will be successful.
 
