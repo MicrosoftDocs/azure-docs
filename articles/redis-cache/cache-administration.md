@@ -47,7 +47,7 @@ The impact on client applications varies depending on the node(s) that you reboo
 
 -	**Master** - When the master node is rebooted, Azure Redis Cache fails over to the replica node and promotes it to master. During this failover there may be a short interval in which connections may fail to the cache.
 -	**Slave** - When the slave node is rebooted, there is typically no impact to cache clients.
--	**Both master and slave** - When both cache nodes are rebooted, all data is lost in the cache and connections to the cache fail until the primary node comes back online.
+-	**Both master and slave** - When both cache nodes are rebooted, all data is lost in the cache and connections to the cache fail until the primary node comes back online. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup will be restored when the cache comes back online.
 -	**Node(s) of a premium cache with clustering enabled** - When you reboot the node(s) of a premium cache with clustering enabled, the behavior is the same as when you reboot node(s) of a non-clustered cache.
 
 
@@ -72,7 +72,9 @@ Yes, if you reboot the cache all client connections are cleared. This can useful
 
 ### Will I lose data from my cache if I do a reboot?
 
-If you reboot both the **Master** and **Slave** nodes all data in the cache (or in that shard if you are using a premium cache with clustering enabled) is lost. If you reboot just one of the nodes, data is not typically lost, but it still may be.
+If you reboot both the **Master** and **Slave** nodes all data in the cache (or in that shard if you are using a premium cache with clustering enabled) is lost. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup will be restored when the cache comes back online.
+
+If you reboot just one of the nodes, data is not typically lost, but it still may be. For example if the master node is rebooted and a cache write is in progress, the data from the cache write is lost.
 
 ### Can I reboot my cache using PowerShell, CLI, or other management tools?
 
