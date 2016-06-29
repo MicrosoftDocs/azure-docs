@@ -463,7 +463,7 @@ There are many ways to upload a file to your HDInsight cluster, as described in 
                     -DefaultContainer $storage.container `
                     -DefaultStorageAccountName $storage.storageAccount `
                     -DefaultStorageAccountKey $storage.storageAccountKey `
-                    -HttpCredential $creds
+                    -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
         Write-Host "Display the standard output ..." -ForegroundColor Green

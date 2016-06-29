@@ -85,7 +85,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
             <version>4.4.0-HBase-1.1</version>
         </dependency>
     
-    This will load the phoenix-core components, which are used by Hbase version 1.1.x.
+    This will load the phoenix-core components, which are needed with Hbase version 1.1.x.
 
 2. Add the following code to the __pom.xml__ file. This must be inside the `<project>...</project>` tags in the file, for example, between `</dependencies>` and `</project>`.
 
