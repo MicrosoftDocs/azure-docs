@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Debug a Java Web App on Azure in Eclipse" 
+	pageTitle="Debug a Java Web App on Azure in Eclipse | Microsoft Azure" 
 	description="This tutorial shows you how to use the Azure Toolkit for Eclipse to debug a Java Web App running on Azure." 
 	services="app-service\web" 
 	documentationCenter="java" 
