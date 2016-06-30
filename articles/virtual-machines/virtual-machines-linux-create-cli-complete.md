@@ -60,7 +60,7 @@ Verify the storage by using the JSON parser:
 azure storage account show -g TestRG computeteststore --json | jq '.'
 ```
 
-Create the Virtual Network:
+Create the virtual network:
 
 ```bash
 azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
@@ -79,57 +79,57 @@ Verify the virtual network and subnet by using the JSON parser:
 azure network vnet show TestRG TestVNet --json | jq '.'
 ```
 
-Create a public IP
+Create a public IP:
 
 ```bash
 azure network public-ip create -g TestRG -n TestLBPIP -l westeurope -d testlb -a static -i 4
 ```
 
-Create the load balancer
+Create the load balancer:
 
 ```bash
 azure network lb create -g TestRG -n TestLB -l westeurope
 ```
 
-Create a front-end IP pool for the load balancer, and associate our public IP
+Create a front-end IP pool for the load balancer, and associate the public IP:
 
 ```bash
 azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
 ```
 
-Create our back-end IP pool for the load balancer
+Create the back-end IP pool for the load balancer:
 
 ```bash
 azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
 ```
 
-Create SSH inbound NAT rules for the load balancer
+Create SSH inbound NAT rules for the load balancer:
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Create our web inbound NAT rules for the load balancer
+Create the web inbound NAT rules for the load balancer:
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
      -t TestFrontEndPool -o TestBackEndPool
 ```
 
-Create our load balancer health probe
+Create the load balancer health probe:
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
 ```
 
-Verify the load balancer, IP pools, and NAT rules using the JSON parser
+Verify the load balancer, IP pools, and NAT rules by using the JSON parser:
 
 ```bash
 azure network lb show -g TestRG -n TestLB --json | jq '.'
 ```
 
-Create the first NIC
+Create the first NIC:
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -137,7 +137,7 @@ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name T
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
 ```
 
-Create the second NIC
+Create the second NIC:
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -145,7 +145,7 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
 ```
 
-Verify the NICs using the JSON parser
+Verify the NICs by using the JSON parser:
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
@@ -158,7 +158,7 @@ Create the NSG
 azure network nsg create -g TestRG -n TestNSG -l westeurope
 ```
 
-Add the inbound rules for the NSG
+Add the inbound rules for the NSG:
 
 ```bash
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
@@ -167,26 +167,26 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-Verify the NSG and inbound rules using the JSON parser
+Verify the NSG and inbound rules using the JSON parser:
 
 ```bash
 azure network nsg show -g TestRG -n TestNSG --json | jq '.'
 ```
 
-Bind the NSG to the NICs
+Bind the NSG to the NICs:
 
 ```bash
 azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
 azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 ```
 
-Create the availability set
+Create the availability set:
 
 ```bash
 azure availset create -g TestRG -n TestAvailSet -l westeurope
 ```
 
-Create the first Linux VM
+Create the first Linux VM:
 
 ```bash
 azure vm create \
@@ -204,7 +204,7 @@ azure vm create \
     --admin-username ops
 ```
 
-Create the second Linux VM
+Create the second Linux VM:
 
 ```bash
 azure vm create \
