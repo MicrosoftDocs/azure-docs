@@ -1,6 +1,6 @@
 <properties 
     pageTitle="AMQP 1.0 in Azure Service Bus and Event Hubs | Microsoft Azure" 
-    description="Protocol expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs" 
+    description="Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs" 
     services="service-bus" 
     documentationCenter=".net" 
     authors="clemensv" 
@@ -16,7 +16,7 @@
     ms.date="07/01/2016"
     ms.author="clemensv;jotaub;hillaryc;sethm"/>
 
-# AMQP 1.0 in Azure Service Bus and Event Hubs
+# AMQP 1.0 in Azure Service Bus and Event Hubs - protocol guide
 
 The Advanced Message Queueing Protocol 1.0 is a standardized framing and transfer protocol for asynchronously, securely, and reliably transferring messages between two parties. It is the primary protocol of Azure Service Bus Messaging and Azure Event Hubs. Both services also support HTTPS. The proprietary SBMP protocol that is also supported is being phased out in favor of AMQP.
 
@@ -30,7 +30,7 @@ The goal is for any developer using any existing AMQP 1.0 client stack on any pl
 
 Common general purpose AMQP 1.0 stacks, such as Apache Proton or AMQP.NET Lite, already implement all core AMQP 1.0 gestures. Those foundational gestures are sometimes wrapped with a higher level API; Apache Proton even offers two, the imperative Messenger API and the reactive Reactor API.
 
-In the following discussion, we will assume that the management of AMQP connections, sessions, and links and the handling of frame transfers and flow control are handled by the respective stack (such as Apache Proton-C) and do not require much if any specific attention from application developers. We will abstractly assume the existence of a few API primitives like the ability to connect, and to create some form of *sender* and *receiver* abstraction objects, which then have some shape of `send()` and `receive()` operation, respectively.
+In the following discussion, we will assume that the management of AMQP connections, sessions, and links and the handling of frame transfers and flow control are handled by the respective stack (such as Apache Proton-C) and do not require much if any specific attention from application developers. We will abstractly assume the existence of a few API primitives like the ability to connect, and to create some form of *sender* and *receiver* abstraction objects, which then have some shape of `send()` and `receive()` operations, respectively.
 
 When discussing advanced capabilities of Azure Service Bus, such as message browsing or management of sessions, those will be explained in AMQP terms, but also as a layered pseudo-implementation on top of this assumed API abstraction.
 
@@ -58,7 +58,7 @@ AMQP calls the communicating programs *containers*; those contain *nodes*, which
 
 The network connection is thus anchored on the container. It is initiated by the container in the client role making an outbound TCP socket connection to a container in the receiver role which listens for and accepts inbound TCP connections. The connection handshake includes negotiating the protocol version, declaring or negotiating the use of Transport Level Security (TLS/SSL), and an authentication/authorization handshake at the connection scope that is based on SASL.
 
-Azure Service Bus requires use of TLS at all times. It supports connections over TCP port 5671, whereby the TCP connection is first overlaid with TLS before entering the AMQP protocol handshake, and also supports connections over TCP port 5672 whereby the server immediately offers a mandatory upgrade of connection to TLS using the AMQP-prescribed model. The AMQP WebSockets binding creates a tunnel over TCP port 443 that is then equivalent to AMQP 5671 connections.
+Azure Service Bus requires the use of TLS at all times. It supports connections over TCP port 5671, whereby the TCP connection is first overlaid with TLS before entering the AMQP protocol handshake, and also supports connections over TCP port 5672 whereby the server immediately offers a mandatory upgrade of connection to TLS using the AMQP-prescribed model. The AMQP WebSockets binding creates a tunnel over TCP port 443 that is then equivalent to AMQP 5671 connections.
 
 After setting up the connection and TLS, Service Bus offers two SASL mechanism options:
 
@@ -208,27 +208,27 @@ The following sections explain which properties from the standard AMQP message s
 |----------------	|-------------------------------	|---------------	|
 | durable        	| -                             	| -             	|
 | priority       	| -                             	| -             	|
-| ttl            	| Time to live for this message 	| TimeToLive    	|
+| ttl            	| Time to live for this message 	| [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)    	|
 | first-acquirer 	| -                             	| -             	|
-| delivery-count 	| -                             	| DeliveryCount 	|
+| delivery-count 	| -                             	| [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) 	|
 
 #### properties
 
 | Field Name           	| Usage                                                                                                                           	| API Name                                   	|
 |----------------------	|---------------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------	|
-| message-id           	| Application-defined, free-form identifier for this message. Used for duplicate detection.                                       	| MessageId                                  	|
+| message-id           	| Application-defined, free-form identifier for this message. Used for duplicate detection.                                       	| [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx)                                  	|
 | user-id              	| Application-defined user identifier, not interpreted by Service Bus.                                                             	| Not accessible through the Service Bus API. 	|
-| to                   	| Application-defined destination identifier, not interpreted by Service Bus.                                                      	| To                                         	|
-| subject              	| Application-defined message purpose identifier, not interpreted by Service Bus.                                                  	| Label                                      	|
-| reply-to             	| Application-defined reply-path indicator, not interpreted by Service Bus.                                                        	| ReplyTo                                    	|
-| correlation-id       	| Application-defined correlation identifier, not interpreted by Service Bus.                                                      	| CorrelationId                              	|
-| content-type         	| Application-defined content-type indicator for the body, not interpreted by Service Bus.                                         	| ContentType                                	|
+| to                   	| Application-defined destination identifier, not interpreted by Service Bus.                                                      	| [To](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx)                                         	|
+| subject              	| Application-defined message purpose identifier, not interpreted by Service Bus.                                                  	| [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)                                      	|
+| reply-to             	| Application-defined reply-path indicator, not interpreted by Service Bus.                                                        	| [ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx)                                    	|
+| correlation-id       	| Application-defined correlation identifier, not interpreted by Service Bus.                                                      	| [CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx)                              	|
+| content-type         	| Application-defined content-type indicator for the body, not interpreted by Service Bus.                                         	| [ContentType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx)                                	|
 | content-encoding     	| Application-defined content-encoding indicator for the body, not interpreted by Service Bus.                                     	| Not accessible through the Service Bus API. 	|
-| absolute-expiry-time 	| Declares at which absolute instant the message will expire. Ignored on input (header ttl is observed), authoritative on output. 	| ExpiresAtUtc                               	|
+| absolute-expiry-time 	| Declares at which absolute instant the message will expire. Ignored on input (header ttl is observed), authoritative on output. 	| [ExpiresAtUtc](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.expiresatutc.aspx)                               	|
 | creation-time        	| Declares at which time the message was created. Not used by Service Bus                                                         	| Not accessible through the Service Bus API. 	|
-| group-id             	| Application-defined identifier for a related set of messages. Used for Service Bus sessions.                                    	| SessionId                                  	|
+| group-id             	| Application-defined identifier for a related set of messages. Used for Service Bus sessions.                                    	| [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx)                                  	|
 | group-sequence       	| Counter identifying the relative sequence number of the message inside a session. Ignored by Service Bus.                       	| Not accessible through the Service Bus API. 	|
-| reply-to-group-id    	| -                                                                                                                               	| ReplyToSessionId                           	|
+| reply-to-group-id    	| -                                                                                                                               	| [ReplyToSessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replytosessionid.aspx)                           	|
 
 ## Advanced Service Bus capabilities
 
@@ -242,10 +242,10 @@ All those gestures require a request/response interaction between the client and
 
 | Logical Operation            | Client                      | Service Bus                 |
 |------------------------------|-----------------------------|-----------------------------|
-| Create Request Response Path | \> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity”<br/>)                            |NA                             |
-|Create Request Response Path                              |-                             | \< attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>)                            |
-|Create Request Response Path                              | \> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)                            |                             |-
-|Create Request Response Path                              |-                             | \< attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)                            |
+| Create Request Response Path | --> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>)                            |No action                             |
+|Create Request Response Path                              |No action                             | \<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>)                            |
+|Create Request Response Path                              | --> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>)                            |                             |No action
+|Create Request Response Path                              |No action                             | \<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)                            |
 
 Having that pair of links in place, the request/response implementation is straightforward: A request is a message sent to an entity inside the messaging infrastructure that understands this pattern. In that request-message, the *reply-to* field in the *properties* section is set to the *target* identifier for the link onto which to deliver the response. The handling entity will process the request, and then deliver the reply over the link whose *target* identifier matches the indicated *reply-to* identifier.
 
@@ -277,16 +277,16 @@ The request message has the following application properties:
 
 | Key        | Optional | Value Type | Value Contents                             |
 |------------|----------|------------|--------------------------------------------|
-| operation  | No       | string     | “put-token”                                |
-| type       | No       | string     | The type of the token being put            |
-| name       | No       | string     | The “audience” to which the token applies. |
+| operation  | No       | string     | **put-token**                                |
+| type       | No       | string     | The type of the token being put.            |
+| name       | No       | string     | The "audience" to which the token applies. |
 | expiration | Yes      | timestamp  | The expiry time of the token.              |
 
 The *name* property identifies the entity with which the token shall be associated. In Service Bus it’s the path to the queue, or topic/subscription. The *type* property identifies the token type:
 
 | Token Type                      | Token Description      | Body Type           | Notes                                                    |
 |---------------------------------|------------------------|---------------------|----------------------------------------------------------|
-| amqp:jwt                        | JSON Web Token (JWT)   | AMQP Value (string) | Not yet available. Will be supported in a coming update. |
+| amqp:jwt                        | JSON Web Token (JWT)   | AMQP Value (string) | Not yet available.  |
 | amqp:swt                        | Simple Web Token (SWT) | AMQP Value (string) | Only supported for SWT tokens issued by AAD/ACS          |
 | servicebus.windows.net:sastoken | Service Bus SAS Token  | AMQP Value (string) | -                                                        |
 
