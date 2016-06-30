@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What's New in the Azure Toolkit for IntelliJ"
+	pageTitle="What's New in the Azure Toolkit for IntelliJ | Microsoft Azure"
 	description="Learn about the latest features in the Azure Toolkit for IntelliJ."
 	services=""
 	documentationCenter="java"
