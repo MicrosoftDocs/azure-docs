@@ -1,6 +1,6 @@
 <properties
    pageTitle="Indexing Tables in SQL Data Warehouse | Microsoft Azure"
-   description="Indexing Tables in SQL Data Warehouse in Azure SQL Data Warehouse."
+   description="Getting started with table indexing in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
