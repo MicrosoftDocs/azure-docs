@@ -53,21 +53,21 @@ If you don't find the add-on repository you can simply add these lines at the en
 
 For Oracle Linux 6 virtual machines:
 
-  [ol6_addons]
-  name=Add-Ons for Oracle Linux $releasever ($basearch)
-  baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
-  gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
-  gpgcheck=1
-  enabled=1
+    [ol6_addons]
+    name=Add-Ons for Oracle Linux $releasever ($basearch)
+    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
+    gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
+    gpgcheck=1
+    enabled=1
 
 For Oracle Linux 7 virtual machines:
 
-  [ol7_addons]
-  name=Oracle Linux $releasever Add ons ($basearch)
-  baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
-  gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-  gpgcheck=1
-  enabled=0
+    [ol7_addons]
+    name=Oracle Linux $releasever Add ons ($basearch)
+    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+    gpgcheck=1
+    enabled=0
 
 Then type:
 
