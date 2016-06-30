@@ -152,7 +152,7 @@ azure network nic show TestRG LB-NIC1 --json | jq '.'
 azure network nic show TestRG LB-NIC2 --json | jq '.'
 ```
 
-Create the NSG
+Create the NSG:
 
 ```bash
 azure network nsg create -g TestRG -n TestNSG -l westeurope
@@ -222,31 +222,31 @@ azure vm create \
     --admin-username ops
 ```
 
-Verify everything built using the JSON parser
+Verify everything built using the JSON parser:
 
 ```bash
 azure vm show -g TestRG -n TestVM1 --json | jq '.'
 azure vm show -g TestRG -n TestVM2 --json | jq '.'
 ```
 
-Export the environment you have built to a template to quickly re-create new instances:
+Export the environment that you built to a template to quickly re-create new instances:
 
 ```bash
 azure resource export TestRG
 ```
 
-## Detailed Walkthrough
-These more detailed steps explain what each command is doing as you build out your environment, helping you take these concepts as you thhen go on to build your own custom environments for development or production workloads.
+## Detailed walkthrough
+These more detailed steps explain what each command is doing as you build out your environment. These concepts will help you when you build your own custom environments for development or production.
 
-## Create resource group and choose deployment locations
+## Create resource groups and choose deployment locations
 
-Azure Resource Groups are logical deployment entities that contain configuration and other metadata to enable logical management of resource deployments.
+Azure resource groups are logical deployment entities that contain configuration information and metadata to enable the logical management of resource deployments.
 
 ```bash
 azure group create TestRG westeurope
 ```
 
-Output
+Output:
 
 ```bash                        
 info:    Executing command group create
@@ -264,9 +264,9 @@ info:    group create command OK
 
 ## Create a storage account
 
-You're going to need storage accounts for your VM disks and for any additional data disks you want to add, among other scenarios. In short, you're always going to create storage accounts almost immediately after you create resource groups.
+You need storage accounts for your VM disks and for any additional data disks you want to add, among other scenarios. You always create storage accounts almost immediately after you create resource groups.
 
-Here we use the `azure storage account create` command, passing the location of the account, the resource group that will control it, and the type of storage support you would like.
+Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want.
 
 ```bash
 azure storage account create \  
@@ -276,7 +276,7 @@ azure storage account create \
 computeteststore
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command storage account create
@@ -306,7 +306,7 @@ data:
 info:    group show command OK
 ```
 
-Let's use the [jq](https://stedolan.github.io/jq/) tool (you can use **jsawk** or any language library you prefer to parse the JSON) along with the `--json` Azure CLI option to examine our resource group using the `azure group show` command.
+Let's use the [jq](https://stedolan.github.io/jq/) tool along with the `--json` Azure CLI option to examine our resource group using the `azure group show` command. (You can use **jsawk** or any language library you prefer to parse the JSON.) 
 
 ```bash
 azure group show TestRG --json | jq                                                                                      
