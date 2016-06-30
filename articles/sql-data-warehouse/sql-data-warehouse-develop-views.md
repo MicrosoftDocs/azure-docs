@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/27/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -22,6 +22,8 @@
 Views are particularly useful in SQL Data Warehouse. They can be used in a number of different ways to improve the quality of your solution.
 
 This article highlights a few examples of how to enrich your solution by implementing with views. There are some limitations that also need to be considered.
+
+> [AZURE.NOTE] Syntax for `CREATE VIEW` is not discussed in this article. Please refer to the [CREATE VIEW][] article on MSDN for this reference information.
 
 ## Architectural abstraction
 A very common application pattern is to re-create tables using CREATE TABLE AS SELECT (CTAS) followed by an object renaming pattern whilst loading data.
@@ -64,6 +66,7 @@ Consequently the following options aren't available:
 
 ## Next steps
 For more development tips, see [SQL Data Warehouse development overview][].
+For `CREATE VIEW` syntax please refer to [CREATE VIEW][].
 
 <!--Image references-->
 
@@ -71,5 +74,6 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
+[CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
 
 <!--Other Web references-->
