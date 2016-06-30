@@ -23,6 +23,7 @@ This article has moved to [Indexing a Table][Index].
 ## Next steps
 
 To learn more about SQL Data Warehouse Tables, see:
+
 - [Table Overview][Overview]
 - [Table Data Types][Data Types]
 - [Distributing a Table][Distribute]
