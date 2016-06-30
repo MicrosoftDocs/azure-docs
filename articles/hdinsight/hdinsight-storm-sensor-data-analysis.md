@@ -35,21 +35,13 @@ The ARM template used in this document demonstrates how to create multiple Azure
     > * An HBase on HDInsight cluster (Linux-based, 2 worker nodes)
     > * An Azure Web App that hosts the web dashboard
 
-* [Node.js](http://nodejs.org/): Used for running the web dashboard and to send sensor data to Event Hub.
-
-    > [AZURE.NOTE] You must have Node.js installed on your development environment in order to test the topology and dashboard locally. You do not need to be familiar with Node.js development, as the dashboard should work as is.
+* [Node.js](http://nodejs.org/): This is used to preview the web dashboard locally on your development environment.
 
 * [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
 
-    > [AZURE.NOTE] You must have a properly configured Java environment, where the __JAVA_HOME__ environment variable points to the directory that contains the JDK.
-
 * [Maven](http://maven.apache.org/what-is-maven.html): Used to build and compile the project.
 
-    > [AZURE.NOTE] You do not need to be familiar with Maven, as steps are provided for compiling and packaging the Storm topology.
-
 * [Git](http://git-scm.com/): Used to download the project from GitHub.
-
-    > [AZURE.NOTE] The steps in this document assume that you have a working installation of Git, and provide the commands needed to create a local copy of the project.
 
 * An __SSH__ client: Used to connect to the Linux-based HDInsight clusters. For more information on using SSH with HDInsight, see the following documents.
 
@@ -85,7 +77,7 @@ This example consists of the following components:
 
 	* [D3.js](http://d3js.org/) is used to graph the data that is sent to the website.
 
-The topology reads data from Event Hub by using the [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) class, and writes data into HBase using the [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) class.. Communication with the website is accomplished by using [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
+The topology reads data from Event Hub by using the [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) class, and writes data into HBase using the [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) class. Communication with the website is accomplished by using [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
 The following is a diagram of the topology.
 
