@@ -309,8 +309,20 @@ Once the connection and session is established, attaching the links to the *$cbs
 
 The client is subsequently responsible for keeping track of token expiration. When a token expires, Service Bus will promptly drop all links on the connection to the respective entity. To prevent this, the client can replace the token for the node with a new one at any time through the virtual *$cbs* management node with the same *put-token* gesture, and without getting in the way of the payload traffic that flows on different links.
 
+## Next steps
+
+To learn more about AMQP, see the following links:
+
+- [Service Bus AMQP overview]
+- [AMQP 1.0 support for Service Bus partitioned queues and topics]
+- [AMQP in Service Bus for Windows Server]
+
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp/amqp1.png
 [2]: ./media/service-bus-amqp/amqp2.png
 [3]: ./media/service-bus-amqp/amqp3.png
 [4]: ./media/service-bus-amqp/amqp4.png
+
+[Service Bus AMQP overview]: service-bus-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
