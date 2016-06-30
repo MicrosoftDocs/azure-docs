@@ -27,6 +27,7 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+<br>
 
 > [AZURE.NOTE] If you will  be performing this task from a Windows computer, you can use PuTTY to SSH into your Linux machine. For more information, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-classic-log-on.md).
 
