@@ -144,6 +144,10 @@ When creating a database, you can specify credentials (username/password), and t
 
 In particular, if you use a well-known login on the underlying hosting server (like “sa”), there is a known issue where the hosting resource group cannot be deleted afterwards. 
 
+### SQL Server or MySQL Server gallery package fails to publish
+
+If publishing fails for a SQL Server or MySQL Server gallery package with multiple subscriptions fails, change the script to explicitly select the **Default Provider Subscription**.
+
 
 ## Platform Image Repository
 
@@ -160,6 +164,19 @@ Finally, we’ve seen reports where increasing the number of virtual processors 
 This is mentioned in the documentation but can be easily missed:
 
 To fix this, click Settings in the portal. Then, click Discard modifications under Portal customization.
+
+### Terminal provisioning state 'failed' error
+
+If you copy VHDX files in the file share, the Platform Image Repository (PIR) will also show them in the portal, even though VHDX images are not supported by Azure Stack.
+
+Workaround: If you get this error when deploying a custom image, double check that the disk you are using is not in the VHDX format, as this could be an easy mistake when preparing the sysprepped image.
+
+
+## Portal
+
+### Error when creating a storage account
+
+When creating a storage account in the portal, you must select a subscription first (before entering a name).
 
 ## PowerShell
 
@@ -238,9 +255,6 @@ with the following:
 
       "$schema": "http://schema.management.azure.com/schemas/2015-0101/deploymentParameters.json#",  
 
-
-
-
 ## Virtual machines
 
 ### Frequent crashes in the ComputeController (CRP.SelfHost) service
@@ -315,6 +329,16 @@ To get around this issue, try either of these options:
 ### Windows Update disabled on virtual machines in the POC
 
 During deployment, Windows Update is disabled on certain virtual machines (to prevent updates during deployment, which can trigger reboot pending issues). You can turn on Windows Update manually on all machines.
+
+### Performance issues while deploying or deleting tenant virtual machines
+
+If you see performance issues while deploying or deleting tenant virtual machines, try this workaround:
+
+1. Restart the WinRM service on the Hyper-V Host 2.
+
+2. If that doesn’t work, restart the CRP service on the xRPVM.
+
+3. If that doesn’t work, restart the xRPVM.
 
 ## Next steps
 
