@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Managing Statistics on Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Managing statistics on tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with statistics on tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Managing Statistics on Tables in SQL Data Warehouse
+# Managing statistics on tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -471,13 +471,13 @@ For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the 
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-statistics.md
-[Data Types]: ./sql-data-warehouse-tables-statistics.md
-[Distribute]: ./sql-data-warehouse-tables-statistics.md
-[Index]: ./sql-data-warehouse-tables-statistics.md
-[Partition]: ./sql-data-warehouse-tables-statistics.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [temporary tables]: ./sql-data-warehouse-develop-temporary-tables.md
 
