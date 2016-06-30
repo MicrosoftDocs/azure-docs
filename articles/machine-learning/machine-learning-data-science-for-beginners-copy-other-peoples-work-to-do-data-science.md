@@ -17,7 +17,7 @@
    ms.date="06/30/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Copy other people's work to do data science: Data Science for Beginners video 5
+# Data Science for Beginners video 5: Copy other people's work to do data science
 
 One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example to use for your own experiment.
 
@@ -83,7 +83,7 @@ Be sure to check out the other videos in “Data Science for Beginners” from M
 
   * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
   * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) 
-  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
+  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
   * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
   * Video 5: Copy other people's work to do data science 
 

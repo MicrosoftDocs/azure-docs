@@ -18,7 +18,7 @@
    ms.author="cgronlun;brohrer;garye"/>
 
 
-# Is your data ready for data science? Data Science for Beginners video 2
+# Data Science for Beginners video 2: Is your data ready for data science?
 
 Learn about evaluating your data to make sure it meets the basic criteria for data science.
 

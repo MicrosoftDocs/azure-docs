@@ -17,7 +17,7 @@
    ms.date="06/28/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Ask a question you can answer with data: Data Science for Beginners video 3 
+# Data Science for Beginners video 3: Ask a question you can answer with data 
 
 Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
