@@ -18,7 +18,7 @@
 
 # Temporary tables in SQL Data Warehouse
 
-This article has moved to [Table Overview][Overview].
+This article has moved to [Temporary Tables][Temporary].
 
 ## Next steps
 
