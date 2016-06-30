@@ -46,7 +46,7 @@ First, we'll start off with creating a Java project.
 
 1. Within Eclipse's Project Explorer view, expand **MyHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
 
-1. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **MyHelloWorld/WebContent**.
+1. In the **New JSP File** dialog box, name the file **index.jsp**, keep the parent folder as **MyHelloWorld/WebContent**, and then click **Next**.
 
 1. In the **Select JSP Template** dialog box, for purposes of this tutorial select **New JSP File (html)**, and then click **Finish**.
 
