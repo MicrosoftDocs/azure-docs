@@ -27,8 +27,6 @@
 - [Statistics][]
 - [Temporary][]
 
-## Indexing SQL Data Warehouse Tables
-
 SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][], [clustered indexes and nonclustered indexes][].  In addition, it also offers a no index option also known as [heap][].  This article covers the benefits of each index type as well as tips to getting the most performance out of your indexes. See [create table syntax][] for more detail on how to create a table in SQL Data Warehouse.
 
 ## Clustered columnstore indexes
