@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="AMQP 1.0 in Azure Service Bus and Event Hubs | Microsoft Azure" 
+    pageTitle="AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Azure" 
     description="Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs" 
     services="service-bus" 
     documentationCenter=".net" 
@@ -16,7 +16,7 @@
     ms.date="07/01/2016"
     ms.author="clemensv;jotaub;hillaryc;sethm"/>
 
-# AMQP 1.0 in Azure Service Bus and Event Hubs - protocol guide
+# AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
 
 The Advanced Message Queueing Protocol 1.0 is a standardized framing and transfer protocol for asynchronously, securely, and reliably transferring messages between two parties. It is the primary protocol of Azure Service Bus Messaging and Azure Event Hubs. Both services also support HTTPS. The proprietary SBMP protocol that is also supported is being phased out in favor of AMQP.
 
