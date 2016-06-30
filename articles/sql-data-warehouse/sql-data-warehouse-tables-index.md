@@ -313,10 +313,10 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
-[heap]: https://msdn.microsoft.com/en-us/library/hh213609.aspx
-[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/en-us/library/ms190457.aspx
-[create table syntax]: https://msdn.microsoft.com/en-US/library/mt203953.aspx
+[heap]: https://msdn.microsoft.com/library/hh213609.aspx
+[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
+[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 [Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
+[clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
-[clustered columnstore indexes]: https://msdn.microsoft.com/en-us/library/gg492088.aspx
