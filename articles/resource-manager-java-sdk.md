@@ -9,7 +9,7 @@
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="java"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
@@ -17,16 +17,6 @@
    ms.author="navale;tomfitz;"/>
    
 # Azure Resource Manager SDK for Java
-
-> [AZURE.SELECTOR]
-- [Java](resource-manager-java-sdk.md)
-- [Node.js](https://github.com/Azure/azure-sdk-for-node)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Go](https://github.com/Azure/azure-sdk-for-go)
-- [.NET](resource-manager-net-sdk.md)
-
    
 Azure Resource Manager (ARM) Preview SDKs are available for multiple languages and platforms. Each of these language implementations 
 are available through their ecosystem package managers and GitHub.
