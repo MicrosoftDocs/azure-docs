@@ -10,7 +10,7 @@
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="06/29/2016"
@@ -28,7 +28,7 @@ To work with the JSON templates in VS Code, you need to install an extension. Th
 
 1. Launch VS Code 
 2. Open Quick Open (Ctrl+P) 
-3. Paste the following command, and type enter 
+3. Run the following command: 
 
         ext install azurerm-vscode-tools
 
@@ -64,11 +64,11 @@ The easiest way to start working with a template is to either grab one of the Qu
 
     ![show files](./media/resource-manager-vs-code/show-files.png)
 
-2. Open the template.json file so that you can edit it and add some additional resources. After the **"resources": [** press enter to start a new line. If you type **arm** you'll be presented with a list of options. These options are the template snippets you installed. It should look like this: 
+2. Open the template.json file so that you can edit it and add some additional resources. After the **"resources": [** press enter to start a new line. If you type **arm**, you'll be presented with a list of options. These options are the template snippets you installed. It should look like this: 
 
     ![show snippets](./media/resource-manager-vs-code/type-snippets.png)
 
-3. Choose the snippet you wish. For this article, I am chosing **arm-ip** to create a new public IP address. Put a comma after the closing bracket "}" of the newly created resource to make sure your template syntax is valid.
+3. Choose the snippet you wish. For this article, I am choosing **arm-ip** to create a new public IP address. Put a comma after the closing bracket "}" of the newly created resource to make sure your template syntax is valid.
 
      ![add comma](./media/resource-manager-vs-code/add-comma.png)
 
