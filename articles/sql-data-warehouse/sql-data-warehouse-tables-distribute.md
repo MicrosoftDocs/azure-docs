@@ -171,7 +171,7 @@ A simple way to identify a table as skewed is to use `DBCC PDW_SHOWSPACEUSED`.  
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-However, if you query the Azure SQL Data Warehouse dynamic management views (DMV) you can perform a more detailed analysis.  To start, create the `dbo.vTableSizes` view from the [Table Overview][Overview] article.  Once the view is created, run this query to identify which tables have more than 10% data skew.
+However, if you query the Azure SQL Data Warehouse dynamic management views (DMV) you can perform a more detailed analysis.  To start, create the view [dbo.vTableSizes][] view using the SQL from [Table Overview][Overview] article.  Once the view is created, run this query to identify which tables have more than 10% data skew.
 
 ```sql
 select *
@@ -293,6 +293,7 @@ To learn more about table design, see the [Distribute][], [Index][], [Partition]
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
+[dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
 
 <!--MSDN references-->
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
