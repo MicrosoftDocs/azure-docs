@@ -344,7 +344,7 @@ UPDATE STATISTICS dbo.table1;
 
 This statement is easy to use. Just remember this updates all statistics on the table, and therefore might perform more work than is necessary. If the performance is not an issue, this is definitely the easiest and most complete way to guarantee statistics are up-to-date.
 
-> [AZURE.NOTE] When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics. If the table is large, has many columns, and many statistics, it might be more efficient to udpate individual statistics based on need.
+> [AZURE.NOTE] When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics. If the table is large, has many columns, and many statistics, it might be more efficient to update individual statistics based on need.
 
 For an implementation of an `UPDATE STATISTICS` procedure please see the [temporary tables] article. The implementation method is slightly different to the `CREATE STATISTICS` procedure above but the end result is the same.
 
