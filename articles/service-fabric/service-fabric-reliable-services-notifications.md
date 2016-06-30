@@ -44,7 +44,7 @@ The reliable state manager tracks the current inflight transactions. The only ch
 The reliable state manager maintains a collection of reliable states like reliable dictionary and reliable queue. The reliable state manager fires notifications when this collection changes: a reliable state is added or removed, or the entire collection is rebuilt.
 The collection of reliable state managers is rebuilt in three cases:
 
-- Recovery: When a replica starts, it recovers its previous state from the disk. At the end of recovery, it uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of recovered **IReliableState** interfaces.
+- Recovery: When a replica starts, it recovers its previous state from the disk. At the end of recovery, it uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of recovered reliable states.
 - Full copy: Before a replica can join the configuration set, it has to be built. Sometimes, this requires a full copy of the reliable state manager's state from the primary replica to be applied to the idle secondary replica. The reliable state manager on the secondary uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of reliable states that it acquired from the primary.
 - Restore: In disaster recovery scenarios, the replica's state can be restored from a backup via **RestoreAsync**. In such cases, the reliable state manager on the primary uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of reliable states that it restored from the backup.
 
