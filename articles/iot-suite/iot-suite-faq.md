@@ -27,7 +27,7 @@
 
 ### How many IoT Hub instances can I provision in a subscription? 
 
-Ten. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision ten IoT Hubs per subscription, as outlined in [Azure subscription limits][link-azuresublimits]. As a result, you can only provision up to ten preconfigured solutions in a given subscription. 
+Ten. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision ten IoT Hubs per subscription, as outlined in [Azure subscription limits][link-azuresublimits]. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to ten preconfigured solutions in a given subscription. 
 
 ### How many DocumentDB instances can I provision in a subscription?
 
