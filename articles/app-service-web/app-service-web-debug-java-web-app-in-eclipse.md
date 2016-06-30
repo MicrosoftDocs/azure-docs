@@ -53,7 +53,7 @@ To complete these steps in this section, you can use an existing Dynamic Web Pro
 
     ![][03]
 
-1. If this is the first time you are debugging your Dynamic Web Project, the **Debug Configurations** dialog will open; you can accept the default values which are specified by the Toolkit and click on **Debug**.
+1. If this is the first time you are debugging your Dynamic Web Project, the **Debug Configurations** dialog will open; you can accept the default values which are specified by the Toolkit on the **Connect** tab. On the **Source** tab, click **Add**, then **Java project**, select **Dynamic Web Project**, and then click **OK**. Once you have completed these steps, click **Debug**.
 
     ![][04]
 
