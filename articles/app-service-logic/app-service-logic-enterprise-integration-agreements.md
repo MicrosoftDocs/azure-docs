@@ -24,7 +24,7 @@ Agreements are the cornerstone of business-to-business (B2B) communications, all
 
 ## What is an agreement?
 
-An agreement, as far as the enterprise integration pack is concerned, is a communications arrangement between B2B trading partners. An agreement is based on the communications the partners wish to achieve and is protocol or transport specific.
+An agreement, as far as the Enterprise Integration Pack is concerned, is a communications arrangement between B2B trading partners. An agreement is based on the communications the partners wish to achieve and is protocol or transport specific.
 
 Enterprise integration supports three protocol/transport standards:  
 

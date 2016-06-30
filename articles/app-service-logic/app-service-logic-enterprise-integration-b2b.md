@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creating B2B solutions with Enterprise Integration pack | Microsoft Azure App Service" 
+	pageTitle="Creating B2B solutions with Enterprise Integration Pack | Microsoft Azure App Service" 
 	description="Learn how to create Logic apps with B2B features using the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -23,4 +23,4 @@
 
 
 ## Learn more
-- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about enterprise integration pack")  
+- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

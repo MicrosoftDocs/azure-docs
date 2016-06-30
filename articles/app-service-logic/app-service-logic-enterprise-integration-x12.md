@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Overview of X12 and the Enterprise Integration Pack | Microsoft Azure App Service" 
 	description="Learn how to use X12 agreements to create Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -107,4 +107,4 @@ We are almost done!
 
 
 ## Learn more
-- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about enterprise integration pack")  
+- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
