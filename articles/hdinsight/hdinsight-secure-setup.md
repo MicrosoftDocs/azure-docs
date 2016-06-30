@@ -1,6 +1,6 @@
 <properties
    	pageTitle="Configure Secure HDInsight | Microsoft Azure"
-   	description="Learn ...."
+   	description="Learn how to setup and configure secure HDInsight"
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
@@ -14,14 +14,14 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/15/2016"
+   	ms.date="06/29/2016"
    	ms.author="jgao"/>
 
 # Configure Secure HDInsight
 
 Learn how to setup an Azure HDInsight cluster with Azure Active Directory(AAD) and Apache Ranger to take advantage of strong authentication and rich role based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
 
-This is the first part of the 2-part tutorial:
+This is the first tutorial of the 2-part series:
 
 - Create an HDInsight cluster connected to AAD (via the Azure Directory Domain Services capability) with Apache Ranger enabled.
 - Create and apply Hive policies through Apache Ranger, and allow users (e.g. business analysts) to connect to Hive using ODBC-based tools e.g. Excel, Tableau etc. Currently, other workloads, such as HBase, Spark and Storm,  are not supported. [jgao: how about YARN?]
@@ -29,8 +29,6 @@ This is the first part of the 2-part tutorial:
 An example of the final topology looks as follows:
 
 ![Secure HDInsight topology](.\media\hdinsight-secure-setup\hdinsight-secure-topology.png)
-
-[jgao: I will update the image to match the names to the names used in this tutorial.]
 
 Because AAD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager (ARM) based VNets, HDInsight AAD integration requires two VNets and a bridge between them. 
 
@@ -41,12 +39,11 @@ Most of the Azure service names must be globally unique.  The following are the 
 - AAD VNet: contosoaadvnet
 - AAD Virtual Machine (VM): contosoaadadmin
 - AAD directory: contosoaaddirectory
-- AAD domain name: contoso157
+- AAD domain name: contoso157 (contoso157.onmicrosoft.com)
 
 - HDInsight VNet: contosohdivnet
 - HDInsight VNet resource group: contosohdirg
 - HDInsight cluster: contosohdicluster
-- ...
 
 This tutorial mainly provides the steps to configure a secured HDInsight. Each section has links to other articles which give you more background information.
 
@@ -55,23 +52,22 @@ This tutorial mainly provides the steps to configure a secured HDInsight. Each s
 - Familiarize yourself with [ADDS](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 - Learn about [Apache Ranger](http://hortonworks.com/apache/ranger/), specifically how [Hive policies](http://hortonworks.com/apache/hive/) work.
 - Ensure that your subscription is whitelisted for this private preview. You can do so by sending an email to adnan.ijaz@microsoft.com with your subscription ID.
-- Azure PowerShell. Most of the steps use the Azure portal or Azure classic portal. Only a few steps in this tutorial require Azure PowerShell.  You must install Azure PowerShell on a Windows workstation.
+- [Azure PowerShell](../powershell-install-configure.md). Most of the steps use the Azure portal or Azure classic portal. Only a few steps in this tutorial require Azure PowerShell.  You must install Azure PowerShell on a Windows workstation.
 
 ## Procedures
 
-1. Create an AAD VNet (classic).  
-2. Create and configure an AAD.
-3. Add an admin VM to the AAD.
-3. Configure an organizational unit
-4. Create an ARM VNet with an HDInsight cluster
+1. Create an Azure classic VNet for Azure Active Directory.  
+2. Create and configure an Azure Active Directory.
+3. (combine this with the next part?) Add an admin VM to the AAD.
+3. Configure an organizational unit.
+4. Create an HDInsight VNet (ARM VNet)
 5. Bridge the two VNets.
-6. Test the connection between the two VNets
+6. Create an HDInsight cluster.
+6. Test the connection between the two VNets.
 	
 ## Create an Azure classic VNet
 
-In this section, you will first create a classic VNet using the Azure classic portal. In the next section,  you will create an AAD and enabled the AAD service for the VNet.
-
-For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+In this section, you will create a classic VNet using the Azure classic portal. In the next section,  you will create an AAD and enabled the AAD service for the VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 **To create a classic VNet**
 
@@ -95,11 +91,11 @@ For additional information about the following procedure and using other VNet cr
 In this section, you will:
 
 - Create an AAD.
-- Create an AAD user. 
+- Create an AAD user. This is a domain user, which will be used to configure the AAD.
 - Create the AAD DC Administrators group and add the AAD user to the group. You will use this user to create the organizational unit.
 - Enable AAD Service for the VNet.
 - Update the DNS setting for the VNet - Use the AAD domain controllers for domain name resolution.
-- Configure LDAPS for the AAD [jgao: explain why].
+- Configure LDAPS for the AAD.
 
 **To create an AAD**
 
@@ -112,7 +108,6 @@ In this section, you will:
 	- Country or region: Select your country or region.
 4. Click **Complete**.
 
-This is a domain user, which will be used to configure the AAD.
 
 **Create an AAD user**
 
@@ -170,14 +165,14 @@ For more information, see [Azure AD Domain Services (Preview) - Enable Azure AD 
 3. Click **Configure** from the top menu.
 4. In the **DNS Servers** section, enter:
 
-	- "contosoaaddns1" - 10.1.0.5
-	- "contosoaaddns2" - 10.1.0.6
+	- "contosoaaddns1" - 10.1.0.4
+	- "contosoaaddns2" - 10.1.0.5
 5. Click **Save** from the bottom of the page.
 6. Click **Yes** to confirm.	
 
 For more information, see [Azure AD Domain Services (Preview) - Update DNS settings for the Azure virtual network](../active-directory/active-directory-ds-getting-started-dns.md).
 
-You can skip the next step. In your real implementation, you will need it:
+You can skip the next step in this tutorial. In your real implementation, you might need it:
 
 - (Optional) [Enable password synchronization to AAD domain services for a cloud-only Azure AD directory](../active-directory/active-directory-ds-getting-started-password-sync.md).
 	
@@ -219,7 +214,7 @@ For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain 
 
 In this section, you will add a virtual machine to the AAD VNet, you will install some administrative tools on this VM to perform:
 
-- Configure reverse DNS.  You will not need this step when the feature is in public preview.
+- Configure reverse DNS.  [jgao: is this step still needed?]
 - Configure AAD organizational unit.
 
 **To create a virtual machine into the virtual network**
@@ -263,14 +258,6 @@ In this section, you will add a virtual machine to the AAD VNet, you will instal
 
 For more information, see [Join a Windows Server virtual machine to a managed domain](../active-directory/active-directory-ds-admin-guide-join-windows-vm.md).
 
-**Add AAD DC Administrators to the Remote Desktop users**
-
-1. RDP into the Administrative VM.
-2. Click **Start**, click **Administrative Tools**, Click **Computer Management**.
-3. Expand **Local Users and Groups**, expand **Groups**, and then double-click **Remote Desktop Users**.
-4. Follow the instructions to add **AAD DC Administrators** to the group.
-
-
 **To install Active Directory administration tools and DNS tools**
 
 1. RDP into **contosoaadadmin**.
@@ -308,7 +295,6 @@ This step will not be needed in the future.
 
 ## Configure an organizational unit
 
-
 **Create an Organizational Unit (OU) on an AAD Domain Services managed domain**
 
 1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
@@ -329,54 +315,46 @@ For more information, See [Create an Organizational Unit (OU) on an AAD Domain S
 
 ## Create an ARM virtual network for HDInsight cluster
 
-In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+In this section, you will create an ARM VNet that will be used for the HDInsight cluster. An ARM template is used in this tutorial to create the VNet.  For more information on creating Azure VNET using other methods, see [Create a virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+
+After creating the VNet, you will configure the ARM VNet to use the same DNS servers as for the AAD VNet. If you follow the steps in this tutorial to create the classic VNet and the AAD, the DNS servers are 10.1.0.4 and 10.1.0.5.
+
+**To create an HDInsight cluster**
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-vnet-secure-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-vnet-v2.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
 2. From the **Parameters** blade, enter the following:
 
-    - **ClusterName**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster
-    - **Cluster login name and password**: The default login name is **admin**.
-    - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
-
-	- DomainName: contoso157.onmicrosoft.com
-	- OrganizationUnitDN: OU=HiveDev,DC=contoso157,DC=onmicrosoft,DC=com
-	- LDAPUrls: ["ldaps://40.84.54.252:636"]
-	- DomainAdminUserName: jgao@contoso157.onmicrosoft.com
-	- DomainAdminPassword: Kasa6500
-
-    A lot of properties have been hard-coded into the template. For example:
-    
-    - Location: East US 2
-    - Cluster worker node count: 2
-    - Default storage account: <Cluster Name>store
-    - Virtual network name: <Cluster Name>-vnet
-    - Virtual network address space: 10.2.0.0/16
-    - Subnet name: default
-    - Subnet address range: 10.2.0.0/24
+    - **VNetName**:  contosohdivnet.
+	- **VNetAddressPrefix**: 10.2.0.0/16
+	- **SubNet1Prefix**: 10.2.0.0/24
+	- **SubNetName**: Subnet1
 
 3. Click **OK** to save the parameters.
-4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
+4. From the **Custom deployment** blade, click **Create new** under **Resource Gropu**, and then enter **contosohdirg**.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 5. Click **Legal terms**, and then click **Create**.
-6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
-
-After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
-
+6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. 
 
 **To configure DNS for the ARM VNet**
 
-1. ...
-2. Click **Custom DNS**
-3. 
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Click **Browse** -> **Virtual networks**. Don't click **Virtual networks (classic).
+2. Click **contosohdivnet**.
+3. Click **Settings** from the top menu.
+4. Click **DNS servers** from the Settings blade.
+6. Click **Custom DNS**, and the enter the following:
+
+	- Primary DNS server: 10.1.0.4
+	- Secondary DNS server: 10.1.0.5
+
+	These DNS server IP addresses must match to the DNS servers in the AAD VNet (classic VNet).
 
 ## Bridge the AAD VNet and the HDInsight VNet
 
 
-3 steps:
+There are 3 steps in this section.
 
 **To create a VPN gateway for the AAD(classic) VNet**
 
@@ -453,6 +431,44 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 ## Create HDInsight cluster
 
 
+In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+
+**To create an HDInsight cluster**
+
+1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-vnet-v2.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+2. From the **Parameters** blade, enter the following:
+
+	- **ClusterVNetID**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>
+	- **ClusterVNetSubNetID**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
+    - **ClusterName**: Enter a name for the Hadoop cluster that you will create. For example contosohdicluster
+    - **Cluster login name and password**: The default login name is **admin**.
+    - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
+
+	- DomainName: contoso157.onmicrosoft.com
+	- OrganizationUnitDN: OU=HiveDev,DC=contoso157,DC=onmicrosoft,DC=com
+	- LDAPUrls: ["ldaps://40.84.54.252:636"]
+	- DomainAdminUserName: jgao@contoso157.onmicrosoft.com
+	- DomainAdminPassword: Kasa6500
+
+    Other properties have been hard-coded into the template. For example:
+    
+    - Location: East US 2
+    - Cluster worker node count: 2
+    - Default storage account: <Cluster Name>store
+    - Virtual network name: <Cluster Name>-vnet
+    - Virtual network address space: 10.2.0.0/16
+    - Subnet name: default
+    - Subnet address range: 10.2.0.0/24
+
+3. Click **OK** to save the parameters.
+4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
+5. Click **Legal terms**, and then click **Create**.
+6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
+
+After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
+
 ## Test the connection between the two VNets
 
 To test the connection between the two VNets, you will ping one of the cluster nodes from the Windows VM in the Classic VNet.
@@ -460,7 +476,7 @@ To test the connection between the two VNets, you will ping one of the cluster n
 **To find the cluster node ip addresses**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Open the cluster, contosohdicluster.
+2. Open the cluster. For example: contosohdicluster.
 3. Click **Dashboard**.
 4. Sign in to Ambari using the Hadoop HTTP username and password.
 5. Click **Hosts** from the top. You will see a list of the Hadoop nodes.  Write down the IP address of one of the nodes.
@@ -472,7 +488,8 @@ To test the connection between the two VNets, you will ping one of the cluster n
 3. Ping the IP address you wrote down earlier.
 
 
-## Next Steps 
+## Next steps:
+
+[jgao: coming soon]
 
 
-[jgao: bla, bla, bla ...]
