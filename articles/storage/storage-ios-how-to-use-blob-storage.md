@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="04/11/2016"
+    ms.date="06/30/2016"
     ms.author="micurd"/>
 
 # How to use Blob storage from iOS
@@ -27,20 +27,38 @@ This article will show you how to perform common scenarios using Microsoft Azure
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Build the framework file
+## Import the Azure Storage iOS library into your application
+
+You can import the Azure Storage iOS library into your application either by using the [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) or by importing the **Framework** file.
+
+## CocoaPod
+
+1. If you haven't done so already, [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) on your computer by opening a terminal window and running the following command
+
+        sudo gem install cocoapods
+
+2. Next, in the project directory (the directory containing your `.xcodeproj` file), create a new file called `Podfile`(no file extension). Add the following to `Podfile` and save
+
+        pod 'AZSClient'
+
+3. In the terminal window, navigate to the project directory and run the following command
+
+        pod install
+
+4. If your `.xcodeproj` is open in Xcode, close it. In your project directory open the newly created project file which will have the `.xcworkspace` extension. This is the file you'll work from for now on.
+
+## Framework
 In order to use the Azure Storage iOS library, you will first need to build the framework file.
 
 1. First, download or clone the [azure-storage-ios repo](https://github.com/azure/azure-storage-ios).
 
-2. Go into *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library*, and open `Azure Storage Client Library.xcodeproj` in Xcode.
+2. Go into *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library*, and open `AZSClient.xcodeproj` in Xcode.
 
 3. At the top-left of Xcode, change the active scheme from "Azure Storage Client Library" to "Framework".
 
-4. Build the project (⌘+B). This will create a `Azure Storage Client Library.framework` file on your Desktop.
+4. Build the project (⌘+B). This will create a `AZSClient.framework` file on your Desktop.
 
-## Import the Azure Storage iOS library into your application
-
-You can import the Azure Storage iOS library into your application by doing the following:
+You can then import the framework file into your application by doing the following:
 
 1. Create a new project or open up your existing project in Xcode.
 
@@ -48,13 +66,13 @@ You can import the Azure Storage iOS library into your application by doing the 
 
 3. Under the *Linked Frameworks and Libraries* section, click the Add button (+).
 
-4. Click *Add Other...*. Navigate to and add the `Azure Storage Client Library.framework` file you just created.
+4. Click *Add Other...*. Navigate to and add the `AZSClient.framework` file you just created.
 
 5. Under the *Linked Frameworks and Libraries* section, click the Add button (+) again.
 
 6. In the list of libraries already provided, search for `libxml2.2.dylib` and add it to your project.
 
-##Import Statement
+## Import Statement
 You will need to include the following import statement in the file where you want to invoke the Azure Storage API.
 
     // Include the following import statement to use blob APIs.
@@ -76,7 +94,7 @@ When using Shared Key authentication, you will create a connection string. The c
 
 - The **DefaultEndpointsProtocol** - you can choose HTTP or HTTPS. However, using HTTPS is highly recommended.
 - The **Account Name** - the name of your storage account
-- The **Account Key** - If you're using the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to find this information. If using the [Azure Classic Portal](https://manage.windowsazure.com), navigate to your storage account in the portal and click **Manage Access Keys**. 
+- The **Account Key** - If you're using the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to find this information. If using the [Azure Classic Portal](https://manage.windowsazure.com), navigate to your storage account in the portal and click **Manage Access Keys**.
 
 Here is how it will look in your application:
 
