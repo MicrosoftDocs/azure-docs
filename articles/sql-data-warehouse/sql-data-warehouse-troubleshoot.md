@@ -13,88 +13,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="06/30/2016"
    ms.author="sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
-This topic lists some of the more common issues you might run into with Azure SQL Data Warehouse.
 
+This topic lists some of the more common issues you might run into with Azure SQL Data Warehouse as well as links to some of our most useful articles.
 
-##Connection Failures
+## Connection failures
 
 If you are having trouble connecting, below are some of the more common issues reported by customers.
 
-### CTAIP error
-This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security Overview][] article.  This article explains how to create create a login on master and then how to create a user in the SQL Data Warehouse database.
+- **CTAIP error:** This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security Overview][] article.  This article explains how to create create a login on master and then how to create a user in the SQL Data Warehouse database.
+- **Firewall rules: **Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [configure server firewall access for your client IP][] in the [provisioning instructions][].
+- **Unsupported tools/protocols:** SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.
 
-### Firewall rules
-Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [configure server firewall access for your client IP][] in the [provisioning instructions][].
+## Performance
 
-### Unsupported tools/protocols
-SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.
+- **Query Performance:** If you are trying to troubleshoot a particular query, start with [learning how to monitor your queries][].
+- **Workload Management:** Understanding [Workload management][] is important in order to understand how to balance memory allocation with concurrency.
+- **Best Practices:** The best place to start to learn ways to improve query performance is [SQL Data Warehouse Best Practices][] article.   
+- **Pause and Scale**  Sometimes the solution to improving performance is to simply add more compute power to your queries by [scaling your SQL Data Warehouse][].
+- **Improve Clustered Columnstore Index Quality:** Some times queries can slowdown because of [Poor columnstore index quality][].  See this article for more information and how to [Rebuild indexes to improve segment quality][].
 
+## System management
 
-## Performance Issues
+- **Space Utilization:** See [Table Sizes][] to understand the space utilization of your system.
+- **Managing Tables:** See the [Table Overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].
 
-The best place to start to learn ways to improve query performance is [SQL Data Warehouse Best Practices][] article.  If you are trying to troubleshoot a particular query, another good place to start is the article on [learning how to monitor your queries][].  Sometimes the solution to getting a query to execute faster is to simply add more compute power to your queries by [scaling your SQL Data Warehouse][].
+## Unsupported features and limitations
 
-## Clustered Columnstore Segment Quality
+SQL Data Warehouse supports a subset of the features offered by SQL Database.  See these articles for more details on which features are unsupported as well as workarounds.
 
-Clustered Columnstore segment quality is important to optimal query performance on Clustered Columnstore Tables.  Segment quality can be measured by number of rows in a compressed Row Group.  The following query will identify tables with poor Columnstore index segment health and generate the T-SQL to rebuild the columnstore index on these tables.  The first column of this query result will give you the T-SQL to rebuild each index.  The second column will provide a recommendation for the minimum resource class to use to optimize the compression. 
- 
-**STEP 1:** Run this query on each SQL Data Warehouse database to identify any sub-optimal cluster columnstore indexes.  If no rows are returned, then no further action is needed.
+- **Table features:**  See [Unsupported Table Features][].
+- **Data types:** See [Unsupported Data Types][].
+- **DELETE and UPDATE limitations: ** See [UPDATE workarounds][], [DELETE workarounds][] and [Using CTAS to work around unsupported UPDATE and DELETE syntax][].
+- **MERGE**: See [MERGE workarounds][].
+- **Stored procedure limitations:**  See [Stored procedure limitations][] to understand some of the limitations of stored procedures.
 
-```sql
-SELECT 
-     'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;' AS [T-SQL to Rebuild Index]
-    ,CASE WHEN n.nbr_nodes < 3 THEN 'xlargerc' WHEN n.nbr_nodes BETWEEN 4 AND 6 THEN 'largerc' ELSE 'mediumrc' END AS [Resource Class Recommendation]
-    ,s.name AS [Schema Name]
-    ,t.name AS [Table Name]
-    ,AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) AS [Ave Rows in Compressed Row Groups]
-FROM 
-    sys.pdw_nodes_column_store_row_groups rg
-    JOIN sys.pdw_nodes_tables pt 
-        ON rg.object_id = pt.object_id AND rg.pdw_node_id = pt.pdw_node_id AND pt.distribution_id = rg.distribution_id
-    JOIN sys.pdw_table_mappings tm 
-        ON pt.name = tm.physical_name
-    INNER JOIN sys.tables t 
-        ON tm.object_id = t.object_id
-INNER JOIN sys.schemas s
-    ON t.schema_id = s.schema_id
-CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compute') n
-GROUP BY 
-    n.nbr_nodes, s.name, t.name
-HAVING 
-    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000 OR
-    AVG(CASE WHEN rg.State = 0 THEN rg.Total_rows ELSE NULL END) < 100000
+## Tools
 
-ORDER BY 
-    s.name, t.name
-```
- 
-**STEP 2:** Increase the Resource Class of a user which has permissions to rebuild the index on this table to the recommended resource class from the 2nd column of the above query.
-
-```sql
-EXEC sp_addrolemember 'xlargerc', 'LoadUser'
-```
-
-> [AZURE.NOTE]  LoadUser above should be a valid user you create to run the ALTER INDEX statement. The resource class of the db_owner user cannot be changed.  More information about resource classes and how to create a new user can be found in the link below.
-
- 
-**STEP 3:** Logon as the user from step 2 (for example “LoadUser”), which is now using a higher resource class, and execute the ALTER INDEX statements generated by the query in STEP 1.  Be sure that this user has ALTER permission to the tables identified in the query from STEP 1.
- 
-**STEP 4:** Rerun the query from step 1.  If the indexes were built efficiently, no rows should be returned by this query.  If no rows are returned, you are done.  If you have multiple SQL DW databases, then you will want to repeat this process on each of your databases.  If rows are returned, continue on to step 5.
- 
-**STEP 5:** If rows are returned when you rerun the query from step 1, you might have tables with extra wide rows which need high amounts of memory to optimally build the clustered column store indexes.  If this is the case, retry this process for these table using the xlargerc class.  To change the resource class repeat step 2 using xlargerc.  Then repeat step 3 for the tables which still have suboptimal indexes.  If you are using a DW100 - DW300 and already used the xlargerc then you may choose to either leave the indexes as is or temporarily increase DWU to provide more memory to this operation.
- 
-**FINAL STEPS:**  The resource class designated above is the recommended minimum resource class to build the highest quality columnstore indexes.   We recommend that you keep this setting for the user which loads your data.  However, if you wish to undo the change from step 2, you can do this with the following command.
-
-```sql
-EXEC sp_droprolemember 'smallrc', 'LoadUser'
-```
-
-The guidance for minimum resource class for loads to a CCI table is to use xlargerc for DW100 to DW300, largerc for DW400 to DW600, and mediumrc for anything at or above DW1000.  This guidance is a good practice for most workloads.  The goal is to give each index build operation 400 MB or more of memory.  However, one size does not fit all.  The memory needed to optimize a columnstore index is dependent on the data being loaded, which is primarily influenced by row size.  Tables with narrower row widths need less memory, wider row widths need more.  If you would like to experiment, you can use the query from Step 1, to see if you get optimal columnstore indexes at smaller memory allocations.  Minimally you want on average more than 100K rows per row group.  Above 500K is even better.  The maximum you will see is 1 million rows per row group. For details on how to manage resources classes and concurrency see the link below.
-
+- **Azure Active Directory users are not shown in SSDT Object Explorer:** This is a known issue.  As a workaround, view the users in [sys.database_principals][].  See [Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse.
 
 ## Next steps
 
@@ -120,9 +79,29 @@ If you are were unable to find a solution to your issue above, here are some oth
 [configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 or 2015]: ./sql-data-warehouse-get-started-connect.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Table Sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
+[Unsupported Table Features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[Unsupported Data Types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[MERGE workarounds]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[Stored procedure limitations]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
+[sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
