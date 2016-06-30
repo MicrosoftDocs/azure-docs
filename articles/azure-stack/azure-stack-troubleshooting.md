@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/30/2016"
 	ms.author="erikje"/>
 
 # Microsoft Azure Stack troubleshooting
@@ -136,6 +136,15 @@ By leveraging the steps mentioned just before in this document, you create such 
 
 However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. For this, you can just add your new .NET 3.5-enabled image to the Platform Image Repository (PIR), and change the “SKU”, “Publisher”, “Offer” fields from the SQL Server RP and Web Apps RP templates, to match your new values.
 
+### Can't delete resource groups hosting a SQL Server "virtual server"
+
+The SQL Server resource provider includes the notion of a “virtual server”, that you can create/reuse when you create a database. This creates a Contained Database authentication user, and provides tenant-scoped virtual servers that can be used to connect to specific databases on the underlying SQL Server hosting servers.
+
+When creating a database, you can specify credentials (username/password), and those credentials will be used for all the databases on the logical server you create, but you can’t specify existing wellknown logins on the backing hosting server (due to the access scoping that happens with the chosen account).  
+
+In particular, if you use a well-known login on the underlying hosting server (like “sa”), there is a known issue where the hosting resource group cannot be deleted afterwards. 
+
+
 ## Platform Image Repository
 
 ### A new image added to the Platform Image Repository (PIR) may not show up in the portal
@@ -211,6 +220,27 @@ SQL Server requires .NET Framework 3.5, and the image used in the template must 
 
 To create a new image with this component, see [Add an image to the Platform Image Repository (PIR) in Azure Stack](azure-stack-add-image-pir.md).
 
+### Template deployment fails using Visual Studio
+
+A deployment in Visual Studio may time out after one hour with an access token expiration (UTC is earlier than current UTC time). This is a known issue with Visual Studio.
+
+Workaround:  publish the template using PowerShell.
+
+### Template deployment fails using Visual Studio
+
+The schema header in some of the parameter JSON files in GitHub can cause deployment failures when deploying using Visual Studio.
+
+Workaround: Replacing the following line in the JSON file:
+
+      "$schema": "https://schema.management.azure.com/schemas/2015-0101/deploymentTemplate.json#",
+
+with the following:
+
+      "$schema": "http://schema.management.azure.com/schemas/2015-0101/deploymentParameters.json#",  
+
+
+
+
 ## Virtual machines
 
 ### Frequent crashes in the ComputeController (CRP.SelfHost) service
@@ -282,6 +312,9 @@ To get around this issue, try either of these options:
     2. From the portal, **Stop** the virtual machine and then **Start** it.
     ![Stop and restart the virtual machine](media/azure-stack-troubleshooting/vmstopstart.png) 
     
+### Windows Update disabled on virtual machines in the POC
+
+During deployment, Windows Update is disabled on certain virtual machines (to prevent updates during deployment, which can trigger reboot pending issues). You can turn on Windows Update manually on all machines.
 
 ## Next steps
 
