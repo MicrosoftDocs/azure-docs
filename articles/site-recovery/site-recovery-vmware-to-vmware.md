@@ -17,7 +17,6 @@
 	ms.author="nisoneji"/>
 
 
-
 # Replicate on-premises VMware virtual machines or physical servers to a secondary site
 
 
