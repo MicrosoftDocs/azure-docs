@@ -45,8 +45,8 @@ The reliable state manager maintains a collection of reliable states like reliab
 The collection of reliable state managers is rebuilt in three cases:
 
 - Recovery: When a replica starts, it recovers its previous state from the disk. At the end of recovery, it uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of recovered **IReliableState** interfaces.
-- Full copy: Before a replica can join the configuration set, it has to be built. Sometimes, this requires a full copy of the reliable state manager's state from the primary replica to be applied to the idle secondary replica. The reliable state manager on the secondary uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of **IReliableState** interfaces that it acquired from the primary.
-- Restore: In disaster recovery scenarios, the replica's state can be restored from a backup via **RestoreAsync**. In such cases, the reliable state manager on the primary uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of **IReliableState** interfaces that it restored from the backup.
+- Full copy: Before a replica can join the configuration set, it has to be built. Sometimes, this requires a full copy of the reliable state manager's state from the primary replica to be applied to the idle secondary replica. The reliable state manager on the secondary uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of reliable states that it acquired from the primary.
+- Restore: In disaster recovery scenarios, the replica's state can be restored from a backup via **RestoreAsync**. In such cases, the reliable state manager on the primary uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of reliable states that it restored from the backup.
 
 To register for transaction notifications and/or state manager notifications, you need to register with the **TransactionChanged** or **StateManagerChanged** events on the reliable state manager. A common place to register with these event handlers is the constructor of your stateful service. When you register on the constructor, you won't miss any notification that's caused by a change during the lifetime of **IReliableStateManager**.
 
@@ -194,7 +194,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 - *Do* complete notification events as fast as possible.
 - *Do not* execute any expensive operations (for example, I/O operations) as part of synchronous events.
-- *Do* check the action type before you process the event. You can add new action types in the future.
+- *Do* check the action type before you process the event. New action types might be added in the future.
 
 Here are some things to keep in mind:
 
