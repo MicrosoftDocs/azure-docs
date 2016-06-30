@@ -16,11 +16,9 @@
 	ms.date="06/29/2016"
 	ms.author="curtand"/>
 
-# Assigning administrator roles in Azure Active Directory (Azure AD)
+# Assigning administrator roles in Azure Active Directory
 
-Depending on the size of your company, you may want to designate several administrators who serve different functions. These administrators will have access to various features in the Azure portal or Azure classic portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things.
-
-It's important to understand that a user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure classic portal, or by using the Azure AD module for Windows PowerShell.
+Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. These administrators will have access to various features in the Azure portal or Azure classic portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things. A user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure classic portal, or by using the Azure AD module for Windows PowerShell.
 
 The following administrator roles are available:
 
@@ -42,7 +40,7 @@ The following administrator roles are available:
 
 - **Security reader**: Read-only access to a number of security features of Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Protection Center.
 
-- **Security administrator**: Read-only access to a number of security features of Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Protection Center and additional administrative permissions for the same services.
+- **Security administrator**: All of the read-only permissions of the **Security reader** role, plus a number of additional administrative permissions for the same services: Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Protection Center.
 
 ## Administrator permissions
 
