@@ -33,7 +33,7 @@ Getting started with creating tables in SQL Data Warehouse is simple.  The basic
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
  ``` 
 
-The above example creates a table named Customers with two columns, FirstName and LastName.  Each column is definded with a data type of VARCHAR(25), which limits the data to 25 characters.  These fundamental attributes of a table, as well as others, are mostly the same as other databases.  Data types are defined for each column and ensure the integrity of your data.  Indexes can be added to improve performance by reducing I/O.  Partitioning can be added to improve performance when you need to modify data.
+The above example creates a table named Customers with two columns, FirstName and LastName.  Each column is defined with a data type of VARCHAR(25), which limits the data to 25 characters.  These fundamental attributes of a table, as well as others, are mostly the same as other databases.  Data types are defined for each column and ensure the integrity of your data.  Indexes can be added to improve performance by reducing I/O.  Partitioning can be added to improve performance when you need to modify data.
 
 ## Distributing, indexing and partitioning
 
