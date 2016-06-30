@@ -23,7 +23,7 @@ Two types of objects support notifications: *Reliable State Manager* and *Reliab
 
 Common reasons for using notifications are:
 
-- Building materialized views, such as secondary indexes or aggregated filtered views of the replica's state. An example is a sorted index of all keys in a Reliable Dictionary.
+- Building materialized views, such as secondary indexes or aggregated filtered views of the replica's state. An example is a sorted index of all keys in Reliable Dictionary.
 - Sending monitoring data, such as the number of users added in the last hour.
 
 Notifications are fired as part of applying operations. 
