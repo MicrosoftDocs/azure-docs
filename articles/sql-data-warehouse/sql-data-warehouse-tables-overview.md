@@ -270,12 +270,12 @@ To learn more, see the articles on [Table Data Types][Data Types], [Distributing
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[Data Types]: ./sql-data-warehouse-tables-overview.md
+[Distribute]: ./sql-data-warehouse-tables-overview.md
+[Index]: ./sql-data-warehouse-tables-overview.md
+[Partition]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-overview.md
+[Temporary]: ./sql-data-warehouse-tables-overview.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
