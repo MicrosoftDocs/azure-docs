@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of Tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with Tables in Azure SQL Data Warehouse."
+   pageTitle="Overview of Tables in SQL Data Warehouse|Microsoft Azure"
+   description="Getting started with Azure SQL Data Warehouse Tables."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -26,8 +26,6 @@
 - [Partition][]
 - [Statistics][]
 - [Temporary][]
-
-## Introduction to SQL Data Warehouse tables
 
 Getting started with creating tables in SQL Data Warehouse is simple.  The basic syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table, you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
 
@@ -74,7 +72,7 @@ While SQL Data Warehouse contains many of the same table features offered by oth
 
 ## Next steps
 
-To learn more, see the articles on [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
