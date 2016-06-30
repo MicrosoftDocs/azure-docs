@@ -687,7 +687,6 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     OPENED=0
     for SFS in /sys/block/sd*; do
         DEV=`basename $SFS`
-        F=$SFS/${DEV}1/dev
         echo "> Trying device: $DEV ..." >&2
         mount /dev/${DEV}1 $MountPoint -t vfat -r >/dev/null
         if [ -f $MountPoint/$KeyFileName ]; then
