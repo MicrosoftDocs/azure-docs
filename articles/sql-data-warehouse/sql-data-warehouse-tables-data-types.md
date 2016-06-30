@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Data Types for Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Data types for tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with data types for Azure SQL Data Warehouse tables."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Data Types for Tables in SQL Data Warehouse
+# Data types for tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
