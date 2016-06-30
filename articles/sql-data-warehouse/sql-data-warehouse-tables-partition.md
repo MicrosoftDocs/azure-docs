@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Partitioning Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Partitioning tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with table partitioning in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Partitioning Tables in SQL Data Warehouse
+# Partitioning tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
