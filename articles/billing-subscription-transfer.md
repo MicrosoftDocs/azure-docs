@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="04/14/2016"
+   ms.date="06/29/2016"
    ms.author="genli"/>
 
 # Transferring an Azure subscription
@@ -28,6 +28,8 @@ Do you:
 You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own, no matter which country you operate in. We now support the transfer of Azure Marketplace Purchases for these subscription types as well.
 
 ## How to transfer an Azure subscription
+
+> [AZURE.VIDEO transfer-an-azure-subscription]
 
 1.  Sign in at <https://account.windowsazure.com/Subscriptions>
 
