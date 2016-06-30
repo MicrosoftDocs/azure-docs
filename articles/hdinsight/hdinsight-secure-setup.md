@@ -325,6 +325,31 @@ After creating the VNet, you will configure the ARM VNet to use the same DNS ser
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-vnet-secure-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
+	If you are interested in understanding the template, please pay attention to the following section in the cluster configuration:
+
+		"ranger-ugsync-site": {
+			"ranger.usersync.ldap.binddn": "[concat('CN=', variables('userNameAndDomain')[0], ',OU=AADDC Users', ',DC=', variables('domainNameParts')[0], ',DC=', variables('domainNameParts')[1], ',DC=', variables('domainNameParts')[2])]",
+			"ranger.usersync.ldap.user.searchbase": "[concat('OU=AADDC Users', ',DC=', variables('domainNameParts')[0], ',DC=', variables('domainNameParts')[1], ',DC=', variables('domainNameParts')[2])]"
+		},
+		"ranger-admin-site": {
+			"ranger.ldap.user.dnpattern": "[concat('CN={0}', ',OU=AADDC Users', ',DC=', variables('domainNameParts')[0], ',DC=', variables('domainNameParts')[1], ',DC=', variables('domainNameParts')[2])]",
+			"ranger.ldap.base.dn": "[concat('OU=AADDC Users', ',DC=', variables('domainNameParts')[0], ',DC=', variables('domainNameParts')[1], ',DC=', variables('domainNameParts')[2])]",                            
+			"ranger.ldap.ad.base.dn": "[concat('OU=AADDC Users', ',DC=', variables('domainNameParts')[0], ',DC=', variables('domainNameParts')[1], ',DC=', variables('domainNameParts')[2])]"
+		}
+
+	and the following in the node configurations:
+
+		"securityProfile": {
+			"activeDirectoryConfiguration": {
+				"directoryType": "ActiveDirectory",
+				"domain": "[parameters('domainName')]",
+				"organizationalUnitDN": "[parameters('organizationalUnitDN')]",
+				"ldapUrls": "[parameters('ldapUrls')]",
+				"domainAdminUsername": "[parameters('domainAdminUsername')]",
+				"domainAdminPassword": "[parameters('domainAdminPassword')]"
+			}
+		},
+
 2. From the **Parameters** blade, enter the following:
 
     - **VNetName**:  contosohdivnet.
