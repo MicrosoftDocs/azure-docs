@@ -16,7 +16,6 @@
 	ms.date="06/17/2016"
 	ms.author="marsma"/>
 
-
 # Batch feature overview for developers
 
 In this overview of the core components of the Azure Batch service, we discuss the primary service features that Batch developers can use to build large-scale parallel compute solutions.
@@ -151,27 +150,27 @@ When you create a pool, you can specify the following attributes:
 
 A job is a collection of tasks. It manages how computation is performed by its tasks on the compute nodes in a pool.
 
-- The job specifies the **pool** in which the work will be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job associated with a job schedule, or for all jobs associated with a job schedule.
-- You can specify an optional **job priority**. When a job is submitted with a higher priority than jobs currently in progress, the higher priority job's tasks are inserted into the queue ahead of lower priority jobs' tasks. Lower priority tasks that are already running will not be preempted.
+- The job specifies the **pool** in which the work will be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a job schedule, or for all jobs associated with a job schedule.
+- You can specify an optional **job priority**. When a job is submitted with a higher priority than jobs that are currently in progress, the tasks for the higher-priority job are inserted into the queue ahead of tasks for the lower priority jobs. Lower priority tasks that are already running will not be preempted.
 - Job **constraints** can specify certain limits for your jobs:
 
-	You can set a **maximum wallclock time**, so that if a job runs for longer than the maximum wallclock time specified, the job and all of its tasks are terminated.
+	You can set a **maximum wallclock time**, so that if a job runs for longer than the maximum wallclock time that is specified, the job and all of its tasks are terminated.
 
-	Batch can detect and then retry failed tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is *always* or *never* retried. Retrying a task means that the task is requeued to be run again.
+	Batch can detect and then retry failed tasks. You can specify the **maximum number of task retries** as a constraint, including whether a task is *always* or *never* retried. Retrying a task means that the task is requeued to be run again.
 
-- Tasks can be added to a job by your client application, or a [Job Manager task](#job-manager-task) may be specified. A job manager task contains the information necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is *required* for jobs created by a [job schedule](#scheduled-jobs), because is the only way to define the tasks before the job is instantiated.
+- Tasks can be added to a job by your client application, or a [job manager task](#job-manager-task) can be specified. A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch--it is queued as soon as the job is created, and restarted if it fails. A job manager task is *required* for jobs that are created by a [job schedule](#scheduled-jobs), because it is the only way to define the tasks before the job is instantiated.
 
 ### Job priority
 
 You can assign a priority to jobs that you create in Batch. The Batch service uses the priority value of the job to determine the order of job scheduling within an account (this is not to be confused with a [scheduled job](#scheduled-jobs)). The priority values range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest. You can update the priority of a job by using the [Update the properties of a job][rest_update_job] operation (Batch REST) or by modifying the [CloudJob.Priority][net_cloudjob_priority] property (Batch .NET).
 
-Within the same account, higher priority jobs have scheduling precedence over lower priority jobs. A job with a higher priority value in one account does not have scheduling precedence over another job with a lower priority value in a different account.
+Within the same account, higher-priority jobs have scheduling precedence over lower-priority jobs. A job with a higher-priority value in one account does not have scheduling precedence over another job with a lower-priority value in a different account.
 
-Job scheduling across pools is independent. Between different pools, it is not guaranteed that a higher priority job will be scheduled first if its associated pool is short of idle nodes. In the same pool, jobs with the same priority level have an equal chance of being scheduled.
+Job scheduling across pools is independent. Between different pools, it is not guaranteed that a higher-priority job will be scheduled first if its associated pool is short of idle nodes. In the same pool, jobs with the same priority level have an equal chance of being scheduled.
 
 ### Scheduled jobs
 
-[Job schedules][rest_job_schedules] enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule—how long and when the schedule is in effect—and how often during that time period jobs should be created.
+[Job schedules][rest_job_schedules] enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule--how long and when the schedule is in effect--and how often during that time period that jobs should be created.
 
 ## Task
 
@@ -217,9 +216,9 @@ It is typically desirable for the Batch service to wait for the start task to co
 
 If a start task fails on a compute node, then the state of the node is updated to reflect the failure, and the node will not be available for tasks to be assigned. A start task can fail if there is an issue copying its resource files from storage, or if the process executed by its command line returns a nonzero exit code.
 
-### Job Manager task
+### Job manager task
 
-A **Job Manager task** is typically used in controlling and/or monitoring job execution. For example, creating and submitting the tasks for a job, determining additional tasks to run, and determining when work is complete. A Job Manager task is not restricted to these activities, however—it is a fully fledged task that can perform any actions required for the job. For example, a Job Manager task might download a file specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
+A **job manager task** is typically used in controlling and/or monitoring job execution. For example, creating and submitting the tasks for a job, determining additional tasks to run, and determining when work is complete. A job manager task is not restricted to these activities, however—it is a fully fledged task that can perform any actions required for the job. For example, a job manager task might download a file specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
 
 A job manager task is started before all other tasks and provides the following features:
 
@@ -239,8 +238,8 @@ A job manager task is started before all other tasks and provides the following 
 
 Batch provides the job preparation task for pre-job execution setup, and the job release task for post-job maintenance or cleanup.
 
-- **Job preparation task** – The job preparation task runs on all compute nodes scheduled to run tasks, before any of the other job tasks are executed. Use the job preparation task to copy data shared by all tasks, but unique to the job, for example.
-- **Job release task** – When a job has completed, the job release task runs on each node in the pool that executed at least one task. Use the job release task to delete data copied by the job preparation task, or compress and upload diagnostic log data, for example.
+- **Job preparation task**: The job preparation task runs on all compute nodes scheduled to run tasks, before any of the other job tasks are executed. Use the job preparation task to copy data shared by all tasks, but unique to the job, for example.
+- **Job release task**: When a job has completed, the job release task runs on each node in the pool that executed at least one task. Use the job release task to delete data copied by the job preparation task, or compress and upload diagnostic log data, for example.
 
 Both job preparation and release tasks allow you to specify a command line to run when the task is invoked, and offer features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
