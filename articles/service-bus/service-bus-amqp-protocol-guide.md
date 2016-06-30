@@ -62,7 +62,7 @@ Azure Service Bus requires the use of TLS at all times. It supports connections 
 
 After setting up the connection and TLS, Service Bus offers two SASL mechanism options:
 
--   SASL PLAIN is commonly used for passing username and password credentials to a server. Service Bus does not have accounts, but named Shared Access Security rules [link], which confer rights and are associated with a key. The name of a rule is used as the user name and the key (as base64 encoded text) is used as the password. The rights associated with the chosen rule govern the operations allowed on the connection.
+-   SASL PLAIN is commonly used for passing username and password credentials to a server. Service Bus does not have accounts, but named [Shared Access Security rules](service-bus-shared-access-signature-authentication.md), which confer rights and are associated with a key. The name of a rule is used as the user name and the key (as base64 encoded text) is used as the password. The rights associated with the chosen rule govern the operations allowed on the connection.
 
 -   SASL ANONYMOUS is used for bypassing SASL authorization when the client wants to use the claims-based-security (CBS) model that will be described later. With this option, a client connection can be established anonymously for a short time during which the client can only interact with the CBS endpoint and the CBS handshake must complete.
 
@@ -130,7 +130,7 @@ A "receive" call at the API level translates into a *flow* performative being se
 
 The lock on a message is released when the transfer is settled into one of the terminal states *accepted*, *rejected*, or *released*. The message is removed from Service Bus when the terminal state is *accepted*. It remains in Service Bus and will be delivered to the next receiver when the transfer reaches any of the other states. Service Bus will automatically move the message into the entity's deadletter queue when it reaches the maximum delivery count allowed for the entity due to repeated rejections or releases.
 
-Even though the official Service Bus APIs do not directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the “pull-style” interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a very large number of link credits and then receive messages as they become available without any further interaction.
+Even though the official Service Bus APIs do not directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a very large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [MessagingFactory.PrefetchCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.prefetchcount.aspx) or [MessageReceiver.PrefetchCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.prefetchcount.aspx) property settings. When they are non-zero, the AMQP client uses it as the link credit.
 
 In this context it's important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity and not when the message is being put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it is therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock may have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
 
@@ -142,42 +142,42 @@ The arrows show the performative flow direction.
 
 | Client                                                                                                                                            	| Service Bus                                                                                                                                	|
 |---------------------------------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------	|
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id} )        	| Client attaches to entity as receiver                                                                                                      	|
-| Service Bus replies attaching its end of the link                                                                                                 	| <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id} )   	|
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>)        	| Client attaches to entity as receiver                                                                                                      	|
+| Service Bus replies attaching its end of the link                                                                                                 	| <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>)   	|
 
 #### Create Message Sender
 
 | Client                                                                                                           	| Service Bus                                                                                                        	|
 |------------------------------------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------	|
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}) 	| No action                                                                                                                 	|
-| No action                                                                                                               	| <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}) 	|
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) 	| No action                                                                                                                 	|
+| No action                                                                                                               	| <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) 	|
 
 #### Create Message Sender (Error)
 
 | Client                                                                                                           	| Service Bus                                                         	|
 |------------------------------------------------------------------------------------------------------------------	|---------------------------------------------------------------------	|
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}) 	| No action                                                                  	|
-| No action                                                                                                               	| <-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}) 	|
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) 	| No action                                                                  	|
+| No action                                                                                                               	| <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) 	|
 
 #### Close Message Receiver/Sender
 
 | Client                                          	| Service Bus                                     	|
 |-------------------------------------------------	|-------------------------------------------------	|
-| --> detach(<br/>handle={numeric handle},<br/>closed=**true**) 	| No action                                              	|
-| No action                                              	| <-- detach(<br/>handle={numeric handle},<br/>closed=**true**) 	|
+| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) 	| No action                                              	|
+| No action                                              	| <-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) 	|
 
 #### Send (Success)
 
 | Client                                                                                                                       	| Service Bus                                                                                          	|
 |------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
-| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**) 	| No action                                                                                                   	|
-| No action                                                                                                                           	| <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**) 	|
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) 	| No action                                                                                                   	|
+| No action                                                                                                                           	| <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) 	|
 
 #### Send (Error)
 
 | Client                                                                                                                       	| Service Bus                                                                                                                 	|
 |------------------------------------------------------------------------------------------------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------	|
-| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**) 	| No action                                                                                                                          	|
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) 	| No action                                                                                                                          	|
 | No action                                                                                                                           	| <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) 	|
 
 #### Receive
@@ -185,18 +185,18 @@ The arrows show the performative flow direction.
 | Client                                                                                               	| Service Bus                                                                                                                  	|
 |------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------------------------------------------------------	|
 | --> flow(<br/>link-credit=1<br/>)                                                                              	| No action                                                                                                                           	|
-| No action                                                                                                   	| < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**) 	|
-| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**) 	| No action                                                                                                                           	|
+| No action                                                                                                   	| < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) 	|
+| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) 	| No action                                                                                                                           	|
 
 #### Multi-Message Receive
 
 | Client                                                                                                 	| Service Bus                                                                                                                    	|
 |--------------------------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------------------	|
 | --> flow(<br/>link-credit=3<br/>)                                                                                	| No action                                                                                                                             	|
-| No action                                                                                                     	| < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**)   	|
-| No action                                                                                                     	| < transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**) 	|
-| No action                                                                                                     	| < transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**) 	|
-| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**) 	| No action                                                                                                                             	|
+| No action                                                                                                     	| < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   	|
+| No action                                                                                                     	| < transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) 	|
+| No action                                                                                                     	| < transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) 	|
+| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) 	| No action                                                                                                                             	|
 
 ### Messages
 
