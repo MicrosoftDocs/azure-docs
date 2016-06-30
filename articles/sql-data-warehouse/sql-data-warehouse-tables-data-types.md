@@ -86,13 +86,13 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-data-types.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
 [Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-data-types.md
-[Index]: ./sql-data-warehouse-tables-data-types.md
-[Partition]: ./sql-data-warehouse-tables-data-types.md
-[Statistics]: ./sql-data-warehouse-tables-data-types.md
-[Temporary]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
