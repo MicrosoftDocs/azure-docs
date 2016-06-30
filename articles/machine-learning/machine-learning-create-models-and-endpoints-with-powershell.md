@@ -79,7 +79,7 @@ Then, run the following PowerShell command:
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
 	    $endpointName = 'rentalloc' + $seq;
-	    Write-Host ('adding endpoint ' + $endpontName + '...')
+	    Write-Host ('adding endpoint ' + $endpointName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
 
@@ -90,6 +90,8 @@ Now we've created 10 endpoints and they all contain the same trained model train
 ## Update the endpoints to use separate training datasets using PowerShell
 
 The next step is to update the endpoints with models uniquely trained on each customer's individual data. But first we need to produce these models from the **Bike Rental Training** web service. Let's go back to the **Bike Rental Training** web service. We need to call its BES endpoint 10 times with 10 different training datasets in order to produce 10 different models. We'll use the **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet to do this.
+
+You will also need to provide credentials for your blob storage account into `$configContent`, namely, at the fields `AccountName`, `AccountKey` and `RelativeLocation`. The `AccountName` can be one of your account names as seen in the **Classic Azure Management Portal** (*Storage* tab). Once you click on a storage account, its `AccountKey` can be found by pressing the **Manage Access Keys** button at the bottom and copying the *Primary Access Key*. The `RelativeLocation` is the path relative to your storage where a new model will be stored. For instance, the path `hai/retrain/bike_rental/` in the script below points to a container named `hai`, and `/retrain/bike_rental/` are subfolders. As of yet, you cannot create subfolders through the portal UI, but there are [several Azure Storage Explorers](https://azure.microsoft.com/en-us/documentation/articles/storage-explorers/) that allow you to do so. It is recommended that you create a new container in your storage to store the new trained models (.ilearner files) as follows: from your storage page, click on the **Add** button at the bottom and name it `retrain`. In summary, the necassary changes to the script below pertain to `AccountName`, `AccountKey` and `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
 	# Invoke the retraining API 10 times
 	# This is the default (and the only) endpoint on the training web service 
