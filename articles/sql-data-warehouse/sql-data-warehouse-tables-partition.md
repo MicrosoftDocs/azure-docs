@@ -1,6 +1,6 @@
 <properties
    pageTitle="Partitioning Tables in SQL Data Warehouse | Microsoft Azure"
-   description="Partitioning Tables in SQL Data Warehouse in Azure SQL Data Warehouse."
+   description="Getting started with table partitioning in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -26,8 +26,6 @@
 - [Partition][]
 - [Statistics][]
 - [Temporary][]
-
-## Introduction to partitioning of SQL Data Warehouse tables
 
 Partitioning is supported on all SQL Data Warehouse table types; including clustered columnstore, clustered index, and heap.  Partitioning is also supported on all distribution types, including both hash or round robin distributed.  Partitioning enables you to divide your data into smaller groups of data and in most cases, partitioning is done on a date column.
 
@@ -353,7 +351,7 @@ With this approach the code in source control remains static and the partitionin
 
 ## Next steps
 
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For an more about best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
