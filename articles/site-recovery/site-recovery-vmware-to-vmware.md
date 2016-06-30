@@ -17,6 +17,7 @@
 	ms.author="nisoneji"/>
 
 
+
 # Replicate on-premises VMware virtual machines or physical servers to a secondary site
 
 
@@ -118,7 +119,7 @@ Update 3 includes the following bug fixes and enhancements:
 **Issue description**|**Implementation procedures**
 ---|---
 Authorization bypass via parameter tampering|Restricted access to non-applicable users.
-Cross-site request forgery|Implemented page-token concept, which generates randomly for every page. <br/>With this, you will see: <li> There is only a single sign-in instance for the same user.</li><li>Page refresh does not work--it will redirect to the dashboard.</li> 
+Cross-site request forgery|Implemented page-token concept, which generates randomly for every page. <br/>With this, you will see: <li> There is only a single sign-in instance for the same user.</li><li>Page refresh does not work--it will redirect to the dashboard.</li>
 Malicious file upload|Restricted files to certain extensions. Allowed extensions are: 7z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip.
 Persistent cross-site scripting | Added input validations.
 
