@@ -198,7 +198,7 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
-The application packages that you specify for a pool are installed on each compute node when that node joins the pool, and when the node is rebooted or reimaged. If an application package deployment fails for any reason, the Batch service marks the node [offline][net_disabletaskscheduling] and no tasks will be scheduled for execution on that node. In this case, you should **restart** the node to reinitiate the package deployment (restarting the node will also [re-enable task scheduling][net_enabletaskscheduling] on the node).
+The application packages that you specify for a pool are installed on each compute node when that node joins the pool, and when the node is rebooted or reimaged. If an application package deployment fails for any reason, the Batch service marks the node [unusable][net_nodestate] and no tasks will be scheduled for execution on that node. In this case, you should **restart** the node to reinitiate the package deployment (restarting the node will also re-enable task scheduling on the node).
 
 ## Execute the installed applications
 
@@ -286,8 +286,7 @@ With application packages, you can more easily provide your customers with the a
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
-[net_disabletaskscheduling]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.disablescheduling.aspx
-[net_enabletaskscheduling]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enablescheduling.aspx
+[net_nodestate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.state.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
 [rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
