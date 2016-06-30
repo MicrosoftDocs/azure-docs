@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Overview of Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Overview of tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with Azure SQL Data Warehouse Tables."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
-# Overview of Tables in SQL Data Warehouse
+# Overview of tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -270,12 +270,12 @@ To learn more, see the articles on [Table Data Types][Data Types], [Distributing
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-overview.md
-[Distribute]: ./sql-data-warehouse-tables-overview.md
-[Index]: ./sql-data-warehouse-tables-overview.md
-[Partition]: ./sql-data-warehouse-tables-overview.md
-[Statistics]: ./sql-data-warehouse-tables-overview.md
-[Temporary]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
