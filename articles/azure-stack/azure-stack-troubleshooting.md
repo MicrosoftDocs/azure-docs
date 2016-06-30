@@ -263,6 +263,24 @@ with the following:
 
       "$schema": "http://schema.management.azure.com/schemas/2015-0101/deploymentParameters.json#",  
 
+### Azure template won't deploy to Azure Stack
+
+Make sure that:
+
+- The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
+- The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack Technical Preview (TP) 1, vs the “East US” or “South India” in Azure).
+
+
+
+
+## Tenant
+
+### Tenant can't change plan's status to "public"
+
+If the service admin sets an offer/plan to private, the tenant admin cannot change it to public.
+
+Workaround: Change the plan and offer to public at the service admin level.  The tenant admin can then flip it to public or private.
+
 ## Virtual machines
 
 ### Frequent crashes in the ComputeController (CRP.SelfHost) service
