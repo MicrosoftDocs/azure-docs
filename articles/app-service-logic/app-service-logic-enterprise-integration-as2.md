@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Learn to create an AS2 agreement for the Enterprise Integration Pack" 
-	description="Learn to create an AS2 agreement for the Enterprise Integration Pack" 
+	description="Learn to create an AS2 agreement for the Enterprise Integration Pack| Microsoft Azure App Service" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
-	manager="erickre" 
+	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
@@ -19,6 +19,7 @@
 # Enterprise integration with AS2
 
 ## Create an AS2 agreement
+In order to use the enterprise features in Logic apps, you must first create agreements. 
 
 ### Here's what you need before you get started
 - An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  

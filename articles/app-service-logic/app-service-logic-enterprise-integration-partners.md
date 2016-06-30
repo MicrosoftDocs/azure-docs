@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Learn about partners and Enterprise Integration Pack | Microsoft Azure App Service" 
 	description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
-	manager="erickre" 
+	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
@@ -54,7 +54,7 @@ From the Azure portal:
 10. After you select the Partners tile, you will also see the newly added partner displayed in the Partners blade.    
 ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)  
 
-## How do edit a partner?
+## How to edit a partner
 
 Follow these steps to edit a partner that already exists in your integration account:  
 1. Select the **Partners** tile  
@@ -64,7 +64,7 @@ Follow these steps to edit a partner that already exists in your integration acc
 ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)  
 
 
-## How to delete a partner?
+## How to delete a partner
 1. Select the **Partners** tile  
 2. Select the partner you wish to edit when the Partners blade opens up  
 3. Select the **Delete** link    

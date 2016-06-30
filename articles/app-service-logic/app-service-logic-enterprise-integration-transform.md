@@ -4,7 +4,7 @@
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
-	manager="erickre" 
+	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
@@ -17,8 +17,6 @@
 	ms.author="deonhe"/>
 
 # Enterprise integration with XML transforms
-
->[AZURE.NOTE]We are hard at work on this document. It will be available to you soon. Thanks for your interest in the Enterprise Integration Pack.
 
 ## Overview
 The Enterprise integration Transform connector converts data from one format to another format. For example, you may have an incoming message that contains the current date in the YearMonthDay format. You can use a transform to reformat the date to be in the MonthDayYear format.

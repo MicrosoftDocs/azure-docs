@@ -4,7 +4,7 @@
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
-	manager="erickre" 
+	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
@@ -32,20 +32,20 @@ Enterprise integration supports three protocol/transport standards:
 - [X12](./app-service-logic-enterprise-integration-x12.md)
 - [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) (coming soon)
 
-## Why use agreements?
+## Why use agreements
 Some of the common benefits of using agreements are:
 - Enables different organizations and businesses to be able to exchange information in a well known format.  
 - Improves efficiency when conducting B2B transactions  
 - Easy to create, manage and use them when creating enterprise integration apps  
 
-## How to create agreements?
+## How to create agreements
 - [Create an AS2 agreement](./app-service-logic-enterprise-integration-as2.md)   
 - [Create an X12 agreement](./app-service-logic-enterprise-integration-x12.md)   
 
-## How to use an agreement?
+## How to use an agreement
 After creating an agreement, you can use it via the Azure portal to create [Logic apps](./app-service-logic-what-are-logic-apps.md "Learn about Logic apps") with B2B features.
 
-## How to edit an agreement?
+## How to edit an agreement
 You can edit any agreement by following these steps:  
 1. Select the Integration account that contains the agreement you wish to modify.  
 2. Select the **Agreements** tile  
@@ -53,7 +53,7 @@ You can edit any agreement by following these steps:
 4. Select **Edit** from the menu above   
 5. On the Edit menu that opens, make you changes then select the **OK** button to save the changes  
 
-## How to delete an agreement?
+## How to delete an agreement
 You can delete any agreement by following these steps from within the integration account that contains the agreement you wish to delete:   
 1. Select the **Agreements** tile  
 2. Select the agreement you wish to delete on the **Agreements** blade  

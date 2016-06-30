@@ -4,7 +4,7 @@
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
-	manager="erickre" 
+	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
@@ -19,6 +19,7 @@
 # Enterprise integration with X12 
 
 ## Create an X12 agreement 
+Before you can exchange X12 messages, you need to create an X12 agreement and store it in your integration account. The following steps will walk you through the process of creating an X12 agreement.
 
 ### Here's what you need before you get started
 - An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  

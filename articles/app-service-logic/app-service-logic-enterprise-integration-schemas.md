@@ -4,7 +4,7 @@
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
-	manager="erickre" 
+	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
@@ -18,10 +18,10 @@
 
 # Learn about schemas and the Enterprise Integration Pack  
 
-## Why use a schema?
+## Why use a schema
 You use schemas to confirm that XML documents you receive are valid, meaning that the documents contain the expected data in a predefined format.
 
-## How to add a schema?
+## How to add a schema
 From the Azure portal: 
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
@@ -41,10 +41,10 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)  
 
 
-## How to use schemas?
+## How to use schemas
 - Schemas are used to validate messages that are exchanged in a B2B scenario.  
 
-## How to edit shemas?
+## How to edit shemas
 1. Select the **Schemas** tile  
 2. Select the schema you wish to edit from the Schemas blade that opens up
 3. Select the **Upload** link on the Schemas blade  
@@ -55,7 +55,7 @@ From the Azure portal:
 6. You will receive a notification that indicates the upload was successful  
 ![](./media/app-service-logic-enterprise-integration-schemas/edit-3.png)  
 
-## How to delete schemas?
+## How to delete schemas
 1. Select the **Schemas** tile  
 2. Select the schema you wish to delete from the Schemas blade that opens up  
 3. Select the **Delete** link from the menu bar on the Shemas blade

@@ -4,7 +4,7 @@
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
-	manager="erickre" 
+	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
@@ -16,7 +16,7 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# Integration accounts
+# Overview of integration accounts
 
 ## What is an integration account?
 An integration account is an Azure account that allows Enterprise Integration apps to manage artifacts including schemas, maps, certificates, partners and agreements. Any integration app you create will need to use an integration account in order to access a schema, map or certificate, for example.

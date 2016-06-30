@@ -4,7 +4,7 @@
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
-	manager="erickre" 
+	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
@@ -16,7 +16,10 @@
 	ms.date="06/29/2016" 
 	ms.author="deonhe"/>
 
-# To create an integration account:
+# Create an Enterprise Integration Pack integration account
+
+Integration accounts are containers for artifacts that you will use to create Logic apps with B2B capabilities.
+
 1. Select **Browse**   
 ![](./media/app-service-logic-enterprise-integration-accounts/account-1.png)  
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
