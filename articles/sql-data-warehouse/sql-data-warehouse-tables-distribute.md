@@ -125,11 +125,11 @@ Select a single column which will:
 2. Distribute data evenly, avoiding data skew
 3. Minimize data movement
 
-### Not be updated
+### Select distribution column which will not be updated
 
 Distribution columns are not updatable, therefore, select a column with static values.  If a column will need to be updated, it is generally not a good distribution candidate.  If there is a case where you must update a distribution column, this can be done by first deleting the row and then inserting a new row.
 
-### Distribute evenly across distributions, avoiding data skew
+### Select distribution column which will distribute data evenly
 
 Since a distributed system performs only as fast as its slowest distribution, it is important to divide the work evenly across the distributions in order to achieve balanced execution across the system.  The way the work is divided on a distributed system is based on where the data for each distribution lives.  This makes it very important to select the right distribution column for distributing the data so that each distribution has equal work and will take the same time to complete its portion of the work.  When work is well divided across the system, this is called balanced execution.  When data is not evenly divided on a system, and not well balanced, we call this **data skew**.  
 
@@ -146,7 +146,7 @@ If you were to distribute a table on a highly nullable column, then all of the n
 
 When no good candidate columns exist, then consider using round robin as the distribution method.
 
-### Minimize data movement
+### Select distribution column which will minimize data movement
 
 Minimizing data movement by selecting the right distribution column is one of the most important strategies for optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Hash distributing large fact tables on a commonly joined column is one of the most effective methods for minimizing data movement.  In addition to selecting a join column to avoid data movement, there are also some criteria which must be met to avoid data movement.  To avoid data movement:
 
