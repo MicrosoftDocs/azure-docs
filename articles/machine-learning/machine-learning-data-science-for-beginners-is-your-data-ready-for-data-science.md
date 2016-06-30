@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Is your data ready for data science? - data evaluation | Microsoft Azure"
+   pageTitle="Is your data ready for data science? (data evaluation) - Data Science for Beginners | Microsoft Azure"
    description="Learn the 4 criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation."
    keywords="data evaluation,relevant data,evaluate data,prepare data,data criteria,data ready"
    services="machine-learning"

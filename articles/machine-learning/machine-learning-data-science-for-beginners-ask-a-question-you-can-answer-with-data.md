@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Ask a question you can answer with data | Microsoft Azure"
+   pageTitle="Ask a question you can answer with data - Data Science for Beginners | Microsoft Azure"
    description="Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions."
    keywords="choose a question,data science questions,formulate question,formulate questions,regression questions,classification questions,sharp question"
    services="machine-learning"

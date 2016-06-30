@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Copy other people's work to do data science | Microsoft Azure"
+   pageTitle="Copy other people's work to do data science - Data Science for Beginners | Microsoft Azure"
    description="Trade secret of data science: Get others to do your work for you. See examples in Cortana Analytics Gallery such as a clustering algorithm example."
    keywords="data science examples,algorithm example,experiment example,machine learning example,clustering algorithm"
    services="machine-learning"
