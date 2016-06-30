@@ -1,6 +1,6 @@
 <properties
    pageTitle="Managing Statistics on Tables in SQL Data Warehouse | Microsoft Azure"
-   description="Managing Statistics on Tables in SQL Data Warehouse in Azure SQL Data Warehouse."
+   description="Getting started with statistics on tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Managing Statistics on Tables in SQL Data Warehouse
@@ -26,8 +26,6 @@
 - [Partition][]
 - [Statistics][]
 - [Temporary][]
-
-## Introduction to statistics
 
 The more SQL Data Warehouse knows about your data, the faster it can execute queries against your data.  The way that you tell SQL Data Warehouse about your data, is by collecting statistics about your data.  Having statistics on your data is one of the most important things you can do to optimize your queries.  Statistics help SQL Data Warehouse create the most optimal plan for your queries.  This is because the SQL Data Warehouse query optimizer is a cost based optimizer.  That is, it compares the cost of various query plans and then chooses the plan with the lowest cost, which should also be the plan that will execute the fastest.
 
