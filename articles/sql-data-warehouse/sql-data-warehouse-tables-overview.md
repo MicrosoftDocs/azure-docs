@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Overview of Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Overview of tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with Azure SQL Data Warehouse Tables."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
-# Overview of Tables in SQL Data Warehouse
+# Overview of tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
