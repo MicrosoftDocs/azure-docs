@@ -27,7 +27,7 @@ To learn more about SQL Data Warehouse Tables, see:
 - [Table Data Types][Data Types]
 - [Distributing a Table][Distribute]
 - [Indexing a Table][Index]
-- [Partitioning a Table][Partition],
+- [Partitioning a Table][Partition]
 - [Maintaining Table Statistics][Statistics] 
 - [Temporary Tables][Temporary]
 
