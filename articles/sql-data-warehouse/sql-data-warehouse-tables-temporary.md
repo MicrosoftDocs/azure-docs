@@ -1,6 +1,6 @@
 <properties
    pageTitle="Temporary Tables in SQL Data Warehouse | Microsoft Azure"
-   description="Temporary Tables in SQL Data Warehouse in Azure SQL Data Warehouse."
+   description="Getting started with temporary tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Temporary tables in SQL Data Warehouse
+# Temporary Tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -229,7 +229,7 @@ SQL Data Warehouse does impose a couple of limitations when implementing tempora
 
 ## Next steps
 
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For  more about best practices, see [SQL Data Warehouse Best Practices][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Maintaining Table Statistics][Statistics].  For more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
