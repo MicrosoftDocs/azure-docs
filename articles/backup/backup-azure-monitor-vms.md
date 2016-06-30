@@ -13,34 +13,12 @@ ms.workload="storage-backup-recovery"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/23/2016"
+ms.date="06/29/2016"
 ms.author="trinadhk; giridham;"/>
 
-# Monitor events for Azure virtual machine backups
+# Monitor alerts for Azure virtual machine backups
 
-You can monitor the event logs to see the management operations performed on Recovery Services vaults. There are multiple ways to filter and view events. In the vault dashboard the **Backup Alerts** tile shows the counts for events with severity equal to Critical or Warning. Further into the vault dashboard, you can open the **Audit Logs** setting to view any event for any operations in the subscription. You can also use **Audit Logs** setting to customize the view of events for Recovery Services vaults or vault items however you like. The [Alert notifications](backup-azure-monitor-vms.md#alert-notifications) section provides information on using alerts with Recovery Service vaults. Event logs enable great post-mortem and audit support for the backup operations. The following operations are logged:
-
-- Register
-- Unregister
-- Configure protection
-- Backup (Both scheduled as well as on-demand backup)
-- Restore
-- Stop protection
-- Delete backup data
-- Add policy
-- Delete policy
-- Update policy
-- Cancel job
-
-For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
-
-## Alert notifications
-
-Alerts are responses from the service that a event threshold has been met or surpassed. The Backup Alerts tile in the vault dashboard displays the number of events with a Severity level of Critical or Warning. The complete view of alert information is on the Backup Alerts blade in Settings.
-
->[AZURE.TIP] You can configure the service to send email notifications when alerts occur.
-
-For details on setting up email notifications, see [Configure event notifications](backup-azure-monitor-vms.md#configure-event-notifications).
+Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. In the vault dashboard the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - as soon as it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
 
 To view information about the event that threw an alert, you must open the Backup Alerts blade. There are two ways to open the Backup Alerts blade: either from the Backup Alerts tile in the vault dashboard, or from the Alerts and Events blade.
 
@@ -71,7 +49,7 @@ To open the Backup Alerts blade from the Alerts and Events blade:
 
 ## Configure notifications
 
-Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. You can configure the service to send email notifications for the alerts that occurred over the past hour, or when particular types of events occur.
+ You can configure the service to send email notifications for the alerts that occurred over the past hour, or when particular types of events occur.
 
 To set up email notifications for alerts
 
@@ -223,5 +201,21 @@ Event-based alerts are subject to the following limitations:
 
 
 ## Next steps
+
+Event logs enable great post-mortem and audit support for the backup operations. The following operations are logged:
+
+- Register
+- Unregister
+- Configure protection
+- Backup (Both scheduled as well as on-demand backup)
+- Restore
+- Stop protection
+- Delete backup data
+- Add policy
+- Delete policy
+- Update policy
+- Cancel job
+
+For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md).
 
 For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). Learn about the management tasks for VM backups in the article, [Manage Azure virtual machine backups](backup-azure-manage-vms.md).
