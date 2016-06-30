@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 # Switching to a different Azure offer
@@ -25,6 +25,8 @@ You can switch your existing subscription to a more favorable offer without any 
 -	If you would like to avail of membership benefits such as MSDN or BizSpark, after you’ve already signed up for a Pay-As-You-Go subscription.
 
 ## How to switch your subscription to another offer
+
+> [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 2.	Select the subscription to transfer.
