@@ -112,7 +112,7 @@ This enables you to work with Azure Websites:
 
 ##<a id="datalake"></a>Microsoft Azure Data Lake Tools for Visual Studio
 
-For more information, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+For more information, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
 ##<a id="notincluded"></a>What's not included when you install the Azure SDK for .NET
 
