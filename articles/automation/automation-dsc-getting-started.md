@@ -84,7 +84,7 @@ Next, we'll import the configuration into the Automation account.
 
 3. On the **Automation account** blade, click **DSC Configurations**.
 
-4. On the **DSC Configurations blade, click **Add a configuration**.
+4. On the **DSC Configurations** blade, click **Add a configuration**.
 
 5. On the **Import Configuration** blade, browse to the `TestConfig.ps1` file on your computer.
     

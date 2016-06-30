@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/03/2016"
+   ms.date="06/29/2016"
    ms.author="christb"/>
 
 # Azure Guidance
@@ -127,10 +127,11 @@ Running virtual machines on Azure:
 
 Hybrid network architectures:
 
-- [Implementing a hybrid network architecture with Azure and on-premises VPN][ref-arch-hybrid-network-vpn]
-- [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
+- [Implementing a hybrid network architecture with Azure and on-premises VPN](guidance-hybrid-network-vpn.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
-- [Implementing a secure hybrid network architecture in Azure](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
+- [Implementing a DMZ between Azure and your on-premises datacenter](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
 
 Web applications (PaaS):
 
@@ -167,4 +168,3 @@ Web applications (PaaS):
 [ref-arch-3-tier-windows]: guidance-compute-3-tier-vm.md
 [ref-arch-n-tier-windows]: guidance-compute-n-tier-vm.md
 [ref-arch-multi-dc]: guidance-compute-multiple-datacenters.md
-[ref-arch-hybrid-network-vpn]: guidance-hybrid-network-vpn.md

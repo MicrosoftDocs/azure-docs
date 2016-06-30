@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="06/27/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
@@ -29,9 +29,9 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
 
 ## Investigate Query Execution
-To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is assigned sequentially for each new query.  Qyerying this table for a given session_id will show all queries for a given logon.
+To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is assigned sequentially for each new query.  Querying this table for a given session_id will show all queries for a given logon.
 
-In the scenario where you would like to investigate query execution for a particular query, here are some common steps to follow.
+Herre are steps to follow to investigate query execution plans and times for a particular query.
 
 ### STEP 1: Find the query to investigate
 
