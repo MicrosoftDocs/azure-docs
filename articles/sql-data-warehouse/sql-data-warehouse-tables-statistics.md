@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Managing Statistics on Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Managing statistics on tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with statistics on tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Managing Statistics on Tables in SQL Data Warehouse
+# Managing statistics on tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
