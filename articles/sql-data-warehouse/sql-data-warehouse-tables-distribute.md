@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Distributing Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Distributing tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with distributing tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Distributing Tables in SQL Data Warehouse
+# Distributing tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
