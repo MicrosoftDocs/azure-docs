@@ -125,10 +125,11 @@ Be sure to check out the other videos in "Data Science for Beginners" from Micro
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-  * Video 1: [The 5 questions data science can answer](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Available now.**
-  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **Available now.**
-  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Available now.**
-  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Available June 30.
+  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) 
+  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * Video 4: Predict an answer with a simple model 
+  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Next steps
 
