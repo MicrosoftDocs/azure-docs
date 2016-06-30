@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="07/01/2016" 
 	ms.author="stefsch"/>	
 
 # How To Control Inbound Traffic to an App Service Environment
 
 ## Overview ##
-An App Service Environment is always created in a subnet of a regional classic "v1" [virtual network][virtualnetwork].  A new regional classic "v1" virtual network and new subnet can be defined at the time an App Service Environment is created.  Alternatively, an App Service Environment can be created in a pre-existing regional classic "v1" virtual network and pre-existing subnet.  Currently only virtual networks with an RFC1918 address space (i.e. private addresses) are supported.  For more details on creating an App Service Environment see [How To Create an App Service Environment][HowToCreateAnAppServiceEnvironment].
+An App Service Environment is always created in a subnet of a regional classic "v1" [virtual network][virtualnetwork].  A new regional classic "v1" virtual network and new subnet can be defined at the time an App Service Environment is created.  Alternatively, an App Service Environment can be created in a pre-existing regional classic "v1" virtual network and pre-existing subnet.  With a recent change made in June 2016, ASEs can now be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses).  For more details on creating an App Service Environment see [How To Create an App Service Environment][HowToCreateAnAppServiceEnvironment].
 
 **Note:**  An App Service Environment cannot be created in a "v2" ARM-managed virtual network.
 
