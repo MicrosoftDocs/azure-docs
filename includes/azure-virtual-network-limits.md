@@ -34,7 +34,7 @@ NSG rules per NSG | 200 | 500
 User defined route tables | 100 | 400
 User defined routes per route table | 100 | 400
 Public IP addresses (dynamic) | 60 | contact support
-Reserved public IP addresses | 20 | contact support
+Public IP addresses (Static) | 20 | contact support
 Load balancers (internal and internet facing) | 100 | contact support
 Load balancer rules per load balancer | 150 | 150
 Public front end IP per load balancer | 5 | contact support

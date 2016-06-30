@@ -18,7 +18,7 @@
    ms.date="06/06/2016"
    ms.author="rickbyh"/>
 
-# SQL Database Authentication and Authorization: Granting Accessing 
+# SQL Database Authentication and Authorization: Granting Access 
 
 
 > [AZURE.SELECTOR]

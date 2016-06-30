@@ -25,6 +25,8 @@ Data factory supports connecting to on-premises DB2 sources using the Data Manag
 
 Data factory currently supports only moving data from DB2 to other data stores, not from other data stores to DB2. 
 
+> [AZURE.NOTE] This DB2 connector currently support DB2 for LUW (Linux, UNIX, Windows). To copy data from DB2 for z/OS or DB2 for AS/400, consider to use generic ODBC connector and install the corresponding ODBC driver on the gateway machine. For example, to ingest data from DB2 for AS/400, you can use iSeries Access ODBC Driver and refer to [ODBC data sources on-premises/Azure IaaS](data-factory-odbc-connector.md) to set up the copy activity.
+
 ## Installation 
 
 For Data Management Gateway to connect to the DB2 Database, you need to install [IBM DB2 Data Server Driver](http://go.microsoft.com/fwlink/p/?LinkID=274911) on the same system as the Data Management Gateway.

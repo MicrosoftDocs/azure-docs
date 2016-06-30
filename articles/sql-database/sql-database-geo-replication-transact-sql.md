@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-    ms.workload="data-management"
+   ms.workload="sqldb-bcdr"
     ms.date="06/14/2016"
     ms.author="carlrab"/>
 
@@ -24,9 +24,9 @@
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-This article shows you how to configure Active Geo-Replication for an Azure SQL Database using Transact-SQL.
+This article shows you how to configure Active Geo-Replication for an Azure SQL Database with Transact-SQL.
 
-To initiate failover, see [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-transact-sql.md).
+To initiate failover using Transact-SQL, see [Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
@@ -165,16 +165,5 @@ Use the following steps to monitor a Geo-Replication partnership.
 
 ## Next steps
 
-- [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-transact-sql.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
-
-
-## Additional resources
-
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
+- To learn more about Active Geo-Replication, see - [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)

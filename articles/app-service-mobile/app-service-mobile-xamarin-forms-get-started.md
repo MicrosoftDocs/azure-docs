@@ -159,10 +159,15 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 
 ##Next steps
 
-* [Add authentication to your app ](app-service-mobile-xamarin-forms-get-started-users.md)  
+* [Add authentication to your app](app-service-mobile-xamarin-forms-get-started-users.md)  
 Learn how to authenticate users of your app with an identity provider.
-* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-forms-get-started-push.md)  
-Learn how to add push notifications to your app.
+
+* [Add push notifications to your app](app-service-mobile-xamarin-forms-get-started-push.md)  
+Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
+
+* [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+
 * [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
 Learn how to work with the managed client SDK in your Xamarin app. 
 

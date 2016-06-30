@@ -3,7 +3,7 @@
    description="Azure portal tasks for restoring an Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
-   ms.author="elfish;barbkess;sonyama;nicw"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess;nicw"/>
 
 # Restore an Azure SQL Data Warehouse (Portal)
 

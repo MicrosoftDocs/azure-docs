@@ -80,7 +80,7 @@ For existing SQL Server virtual machines, you must use PowerShell to configure t
 
 ## Configuration with PowerShell
 
-After provisioning your SQL VM, use PowerShell to configure Automated Batching.
+After provisioning your SQL VM, use PowerShell to configure Automated Backup.
 
 In the following PowerShell example, Automated Backup is configured for an existing SQL Server 2014 VM. The **AzureRM.Compute\New-AzureVMSqlServerAutoBackupConfig** command configures the Automated Backup settings to store backups in the Azure storage account associated with the virtual machine. These backups will be retained for 10 days. The **Set-AzureRmVMSqlServerExtension** command updates the specified Azure VM with these settings.
 
