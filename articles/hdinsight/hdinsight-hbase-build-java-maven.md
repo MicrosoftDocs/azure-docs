@@ -58,17 +58,17 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
         <dependency>
           <groupId>org.apache.hbase</groupId>
           <artifactId>hbase-client</artifactId>
-          <version>1.1.1</version>
+          <version>1.1.2</version>
         </dependency>
 
-    This tells Maven that the project requires __hbase-client__ version __1.1.1__. At compile time, this will be downloaded from the default Maven repository. You can use the [Maven Central Repository Search](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) to learn more about this dependency.
+    This tells Maven that the project requires __hbase-client__ version __1.1.2__. At compile time, this will be downloaded from the default Maven repository. You can use the [Maven Central Repository Search](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) to learn more about this dependency.
 
     > [AZURE.IMPORTANT] The version number must match the version of HBase that is provided with your HDInsight cluster. Use the following table to find the correct version number.
 
     | HDInsight cluster version | HBase version to use |
     | ----- | ----- |
     | 3.2 | 0.98.4-hadoop2 |
-    | 3.3 | 1.1.1 |
+    | 3.3 | 1.1.2 |
 
     For more information on HDInsight versions and components, see [What are the different Hadoop components available with HDInsight](hdinsight-component-versioning.md).
 
