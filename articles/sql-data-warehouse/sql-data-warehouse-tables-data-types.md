@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Data Types for Tables in SQL Data Warehouse | Microsoft Azure"
-   description="Data Types for Tables in SQL Data Warehouse in Azure SQL Data Warehouse."
+   pageTitle="Data Types for Tables in SQL Data Warehouse|Microsoft Azure"
+   description="Getting started with data types for Azure SQL Data Warehouse tables."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,7 +16,7 @@
    ms.date="06/28/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Data types for tables in SQL Data Warehouse
+# Data Types for Tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -27,17 +27,7 @@
 - [Statistics][]
 - [Temporary][]
 
-## Data type best practices
-
- When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
-
-## Polybase limitation
-
-If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
-
-## Supported data types
-
-SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.
+SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.  For additional details on data type support, see [create table][].
 
 ||||
 |---|---|---|
@@ -50,6 +40,14 @@ SQL Data Warehouse supports the most commonly used data types.  Below is a list 
 [datetime2][]|[real][]|[varbinary][]|
 [datetimeoffset][]|[smalldatetime][]|[varchar][]|
 
+
+## Data type best practices
+
+ When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
+
+## Polybase limitation
+
+If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
 
 ## Unsupported data types
 
@@ -70,7 +68,7 @@ If you are migrating your database from another SQL platform like Azure SQL Data
 |[user defined types][]|convert back to their native types where possible|
 |default values|default values support literals and constants only.  Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.|
 
-To identify columns in your current SQL database which will not be supported by Azure SQL Data Warehouse:
+The below SQL can be run on your current SQL database to identify columns which are not be supported by Azure SQL Data Warehouse:
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -100,36 +98,37 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 <!--MSDN references-->
 
 <!--Other Web references-->
-[bigint]: https://msdn.microsoft.com/en-us/library/ms187745.aspx
-[binary]: https://msdn.microsoft.com/en-us/library/ms188362.aspx
-[bit]: https://msdn.microsoft.com/en-us/library/ms177603.aspx
-[char]: https://msdn.microsoft.com/en-us/library/ms176089.aspx
-[date]: https://msdn.microsoft.com/en-us/library/bb630352.aspx
-[datetime]: https://msdn.microsoft.com/en-us/library/ms187819.aspx
-[datetime2]: https://msdn.microsoft.com/en-us/library/bb677335.aspx
-[datetimeoffset]: https://msdn.microsoft.com/en-us/library/bb630289.aspx
-[decimal]: https://msdn.microsoft.com/en-us/library/ms187746.aspx
-[float]: https://msdn.microsoft.com/en-us/library/ms173773.aspx
-[geometry]: https://msdn.microsoft.com/en-us/library/cc280487.aspx
-[geography]: https://msdn.microsoft.com/en-us/library/cc280766.aspx
-[hierarchyid]: https://msdn.microsoft.com/en-us/library/bb677290.aspx
-[int]: https://msdn.microsoft.com/en-us/library/ms187745.aspx
-[money]: https://msdn.microsoft.com/en-us/library/ms179882.aspx
-[nchar]: https://msdn.microsoft.com/en-us/library/ms186939.aspx
-[nvarchar]: https://msdn.microsoft.com/en-us/library/ms186939.aspx
-[ntext,text,image]: https://msdn.microsoft.com/en-us/library/ms187993.aspx
-[real]: https://msdn.microsoft.com/en-us/library/ms173773.aspx
-[smalldatetime]: https://msdn.microsoft.com/en-us/library/ms182418.aspx
-[smallint]: https://msdn.microsoft.com/en-us/library/ms187745.aspx
-[smallmoney]: https://msdn.microsoft.com/en-us/library/ms179882.aspx
-[sql_variant]: https://msdn.microsoft.com/en-us/library/ms173829.aspx
-[sysname]: https://msdn.microsoft.com/en-us/library/ms186939.aspx
-[table]: https://msdn.microsoft.com/en-us/library/ms175010.aspx
-[time]: https://msdn.microsoft.com/en-us/library/bb677243.aspx
-[timestamp]: https://msdn.microsoft.com/en-us/library/ms182776.aspx
-[tinyint]: https://msdn.microsoft.com/en-us/library/ms187745.aspx
-[uniqueidentifier]: https://msdn.microsoft.com/en-us/library/ms187942.aspx
-[varbinary]: https://msdn.microsoft.com/en-us/library/ms188362.aspx
-[varchar]: https://msdn.microsoft.com/en-us/library/ms186939.aspx
-[xml]: https://msdn.microsoft.com/en-us/library/ms187339.aspx
-[user defined types]: https://msdn.microsoft.com/en-us/library/ms131694.aspx
+[create table]: https://msdn.microsoft.com/library/mt203953.aspx
+[bigint]: https://msdn.microsoft.com/library/ms187745.aspx
+[binary]: https://msdn.microsoft.com/library/ms188362.aspx
+[bit]: https://msdn.microsoft.com/library/ms177603.aspx
+[char]: https://msdn.microsoft.com/library/ms176089.aspx
+[date]: https://msdn.microsoft.com/library/bb630352.aspx
+[datetime]: https://msdn.microsoft.com/library/ms187819.aspx
+[datetime2]: https://msdn.microsoft.com/library/bb677335.aspx
+[datetimeoffset]: https://msdn.microsoft.com/library/bb630289.aspx
+[decimal]: https://msdn.microsoft.com/library/ms187746.aspx
+[float]: https://msdn.microsoft.com/library/ms173773.aspx
+[geometry]: https://msdn.microsoft.com/library/cc280487.aspx
+[geography]: https://msdn.microsoft.com/library/cc280766.aspx
+[hierarchyid]: https://msdn.microsoft.com/library/bb677290.aspx
+[int]: https://msdn.microsoft.com/library/ms187745.aspx
+[money]: https://msdn.microsoft.com/library/ms179882.aspx
+[nchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[nvarchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[ntext,text,image]: https://msdn.microsoft.com/library/ms187993.aspx
+[real]: https://msdn.microsoft.com/library/ms173773.aspx
+[smalldatetime]: https://msdn.microsoft.com/library/ms182418.aspx
+[smallint]: https://msdn.microsoft.com/library/ms187745.aspx
+[smallmoney]: https://msdn.microsoft.com/library/ms179882.aspx
+[sql_variant]: https://msdn.microsoft.com/library/ms173829.aspx
+[sysname]: https://msdn.microsoft.com/library/ms186939.aspx
+[table]: https://msdn.microsoft.com/library/ms175010.aspx
+[time]: https://msdn.microsoft.com/library/bb677243.aspx
+[timestamp]: https://msdn.microsoft.com/library/ms182776.aspx
+[tinyint]: https://msdn.microsoft.com/library/ms187745.aspx
+[uniqueidentifier]: https://msdn.microsoft.com/library/ms187942.aspx
+[varbinary]: https://msdn.microsoft.com/library/ms188362.aspx
+[varchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[xml]: https://msdn.microsoft.com/library/ms187339.aspx
+[user defined types]: https://msdn.microsoft.com/library/ms131694.aspx
