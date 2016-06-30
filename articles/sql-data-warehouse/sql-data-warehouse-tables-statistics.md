@@ -478,7 +478,7 @@ For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the 
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [temporary tables]: ./sql-data-warehouse-develop-temporary-tables.md
 
 <!--MSDN references-->  
