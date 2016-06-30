@@ -688,7 +688,8 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     cd /sys/block
     for DEV in sd*; do
         echo "> Trying device: $DEV ..." >&2
-        mount -t vfat -r /dev/${DEV}1 $MountPoint >/dev/null
+        mount -t vfat -r /dev/${DEV}1 $MountPoint >/dev/null||
+        mount -t ntfs -r /dev/${DEV}1 $MountPoint >/dev/null
         if [ -f $MountPoint/$KeyFileName ]; then
                 cat $MountPoint/$KeyFileName
                 umount $MountPoint 2>/dev/null
