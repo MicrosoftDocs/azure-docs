@@ -35,7 +35,7 @@ Partitioning can benefit data maintenance and query performance.  Whether it ben
 
 ### Benefits to loads
 
-The primary benefit of partitioning in SQL Data Warehouse is improve the efficiency and performance of loading data by use of partition deletion, switching and merging.  In most cases data is partitioned on a date column that is closely tied to the sequence which the data is loaded to the database.  One of the greatest benefits of using partitions to maintain data it the avoidance of transaction logging.  While simply inserting, updating or deleting data can be the most straightforward approach, with a little thought and effort, using partitioning during your load process can substaintially improve performance.
+The primary benefit of partitioning in SQL Data Warehouse is improve the efficiency and performance of loading data by use of partition deletion, switching and merging.  In most cases data is partitioned on a date column that is closely tied to the sequence which the data is loaded to the database.  One of the greatest benefits of using partitions to maintain data it the avoidance of transaction logging.  While simply inserting, updating or deleting data can be the most straightforward approach, with a little thought and effort, using partitioning during your load process can substantially improve performance.
 
 Partition switching can be used to quickly remove or replace a section of a table.  For example, a sales fact table might contain just data for the past 36 months.  At the end of every month, the oldest month of sales data is deleted from the table.  This data could be deleted by using a delete statement to delete the data for the oldest month.  However, deleting a large amount of data row-by-row with a delete statement can take a very long time, as well as create the risk of large transactions which could take a long time to rollback if something goes wrong.  A more optimal approach is to simply drop drop the oldest partition of data.  Where deleting the individual rows could take hours, deleting an entire partition could take seconds.
 
@@ -51,7 +51,7 @@ When creating partitioning on **clustered columnstore** tables, it is important 
 
 ## Syntax difference from SQL Server
 
-SQL Data Warehouse introduces a simplified definition of partitions which is slightly different from SQL Server.  Partitioning functions and schemes are not used in SQL Data Warhouse as they are in SQL Server.  Instead, all you need to do is identify partitioned column and the boundary points.  While the syntax of partitioning may be slighly different from SQL Server, the basic concepts are the same.  SQL Server and SQL Data Warehouse support one partition column per table, which can be ranged partition.  To learn more about partitioning, see [Partitioned Tables and Indexes][].
+SQL Data Warehouse introduces a simplified definition of partitions which is slightly different from SQL Server.  Partitioning functions and schemes are not used in SQL Data Warehouse as they are in SQL Server.  Instead, all you need to do is identify partitioned column and the boundary points.  While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same.  SQL Server and SQL Data Warehouse support one partition column per table, which can be ranged partition.  To learn more about partitioning, see [Partitioned Tables and Indexes][].
 
 The below example of a SQL Data Warehouse partitioned [CREATE TABLE][] statement, partitions the FactInternetSales table on the OrderDateKey column:
 
@@ -122,9 +122,9 @@ GROUP BY    s.[name]
 ;
 ```
 
-## Workload manangement
+## Workload management
 
-One final piece consideration to factor in to the table partition decision is [workload management][].  Workload management in SQL Data Warehouse is primarily the managment of memory and concurrency.  In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed resource classes.  Ideally your partitions will be sized in consideration of other factors like the memory needs of building clustered columnstore indexes.  Clustered columnstore indexes benefit greatly when they are allocated more memory.  Therefore you will want to ensure that a partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role, smallrc, to one of the other roles such as largerc.
+One final piece consideration to factor in to the table partition decision is [workload management][].  Workload management in SQL Data Warehouse is primarily the management of memory and concurrency.  In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed resource classes.  Ideally your partitions will be sized in consideration of other factors like the memory needs of building clustered columnstore indexes.  Clustered columnstore indexes benefit greatly when they are allocated more memory.  Therefore, you will want to ensure that a partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role, smallrc, to one of the other roles such as largerc.
 
 Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views. In reality your memory grant will be less than the figures below. However, this provides a level of guidance that you can use when sizing your partitions for data management operations.  Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure you run the risk of memory pressure which in turn leads to less optimal compression.
 
@@ -204,7 +204,7 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-If we try to split this table we will get an error:
+If we try to split this table, we will get an error:
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
