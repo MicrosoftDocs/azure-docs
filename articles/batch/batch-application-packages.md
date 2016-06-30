@@ -198,7 +198,7 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
-The application packages that you specify for a pool are installed on each compute node when that node joins the pool, and when the node is rebooted or reimaged. If an application package deployment fails for any reason, the Batch services marks the node [offline][net_disabletaskscheduling] and no tasks will be scheduled for execution on that node. In this case, you should **restart** the node to reinitiate the package deployment (restarting the node will also [re-enable task scheduling][net_enabletaskscheduling] on the node).
+The application packages that you specify for a pool are installed on each compute node when that node joins the pool, and when the node is rebooted or reimaged. If an application package deployment fails for any reason, the Batch service marks the node [offline][net_disabletaskscheduling] and no tasks will be scheduled for execution on that node. In this case, you should **restart** the node to reinitiate the package deployment (restarting the node will also [re-enable task scheduling][net_enabletaskscheduling] on the node).
 
 ## Execute the installed applications
 
