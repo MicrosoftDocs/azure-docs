@@ -148,6 +148,14 @@ In particular, if you use a well-known login on the underlying hosting server (l
 
 If publishing fails for a SQL Server or MySQL Server gallery package with multiple subscriptions fails, change the script to explicitly select the **Default Provider Subscription**.
 
+### "Page not found error" trying to browse to a Web App
+
+Workaround: Check the DNS records on the ADVM virtual machine. Ensure that there is a *.webapps folder and record in AzureStack.local zone.
+
+### "Signature verification failed on downloaded file" error during Web Apps resource provider deployment
+
+Workaround: Clear any previous cache you may have and try the download again.
+
 
 ## Platform Image Repository
 
@@ -339,6 +347,11 @@ If you see performance issues while deploying or deleting tenant virtual machine
 2. If that doesn’t work, restart the CRP service on the xRPVM.
 
 3. If that doesn’t work, restart the xRPVM.
+ 
+### "Loading..." message never stops when trying to deploy a new virtual machine
+
+Workaround: Reset IIS in the PortalVM.
+
 
 ## Next steps
 
