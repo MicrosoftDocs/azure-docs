@@ -3,7 +3,7 @@
 	description="This tutorial shows you how to consume an API app from an ASP.NET web app hosted in Azure App Service." 
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="syntaxc4" 
+	authors="tdykstra" 
 	manager="yochayk" 
 	editor="jimbe"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
 	ms.date="02/26/2016"
-	ms.author="cfowler"/>
+	ms.author="tdykstra"/>
 
 # Connect a web app to an API app in Azure App Service
 
