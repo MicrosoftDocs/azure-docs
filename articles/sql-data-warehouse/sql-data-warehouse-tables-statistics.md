@@ -471,13 +471,13 @@ For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the 
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
+[Overview]: ./sql-data-warehouse-tables-statistics.md
+[Data Types]: ./sql-data-warehouse-tables-statistics.md
+[Distribute]: ./sql-data-warehouse-tables-statistics.md
+[Index]: ./sql-data-warehouse-tables-statistics.md
+[Partition]: ./sql-data-warehouse-tables-statistics.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[Temporary]: ./sql-data-warehouse-tables-statistics.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [temporary tables]: ./sql-data-warehouse-develop-temporary-tables.md
 
