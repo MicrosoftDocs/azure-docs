@@ -319,7 +319,7 @@ In this section, you will create an ARM VNet that will be used for the HDInsight
 
 After creating the VNet, you will configure the ARM VNet to use the same DNS servers as for the AAD VNet. If you follow the steps in this tutorial to create the classic VNet and the AAD, the DNS servers are 10.1.0.4 and 10.1.0.5.
 
-**To create an HDInsight cluster**
+**To create an ARM VNet**
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
 
@@ -349,6 +349,8 @@ After creating the VNet, you will configure the ARM VNet to use the same DNS ser
 				"domainAdminPassword": "[parameters('domainAdminPassword')]"
 			}
 		},
+
+
 
 2. From the **Parameters** blade, enter the following:
 
@@ -461,6 +463,7 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 **To create an HDInsight cluster**
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-vnet-v2.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Parameters** blade, enter the following:
