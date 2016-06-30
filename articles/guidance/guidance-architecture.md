@@ -55,3 +55,4 @@ This series covers recommendations for constructing scalable and highly availabl
 
 - [Basic web application](guidance-web-apps-basic.md)
 - [Improving scalability in a web application](guidance-web-apps-scalability.md)
+- [Web application with high availability](guidance-web-apps-multi-region.md)
