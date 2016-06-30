@@ -61,7 +61,7 @@ The following procedure use an Azure ARM template to create an HBase cluster. To
 6. Click **Create**. It takes about around 20 minutes to create a cluster.
 
 
->[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster. It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
+>[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster. To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
 
 ## Create tables and insert data
 
@@ -285,7 +285,7 @@ In a high availability cluster, you will find a link to the current active HBase
 
 ##Delete the cluster
 
-It is recommended to disable the HBase tables before deleting the cluster to avoid inconsistencies.
+To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
