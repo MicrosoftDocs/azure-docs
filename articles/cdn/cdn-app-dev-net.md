@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/29/2016"
 	ms.author="casoper"/>
 
 # Get started with the Azure CDN Library for .NET
@@ -22,7 +22,7 @@ You can use the [Azure CDN Library for .NET](https://msdn.microsoft.com/library/
 
 You will need Visual Studio 2015 to complete this tutorial.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) is freely available for download.
 
-A completed example of this tutorial can be found [here](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+> [AZURE.TIP] The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is available for download on MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -142,7 +142,7 @@ Let's get the basic structure of our program written.
 		}
 		else
 		{
-			// They're not pressing Y or N.  Let's ask them again.
+			// They pressed something other than Y or N.  Let's ask them again.
 			return PromptUser(Question);
 		}
 	}

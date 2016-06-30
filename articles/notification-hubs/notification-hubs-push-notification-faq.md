@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="mobile"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
     keywords="push notification, push notifications, iOS push notifications, android push notifications, ios push, android push"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc" />
 
 #Push Notifications with Azure Notification Hubs - Frequently Asked Questions
