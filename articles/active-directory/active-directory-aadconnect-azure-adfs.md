@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Active Directory Federation Services in Azure"
+	pageTitle="Active Directory Federation Services in Azure | Microsoft Azure"
 	description="In this document you will learn how to deploy AD FS in Azure for high availablity."
-    keywords="introduction to AD FS, Azure, Azure AD Connect overview, AD FS in Azure"
+    keywords="introduction to AD FS, Azure, Azure AD Connect overview, AD FS in Azure, iaas, ADFS"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -27,7 +27,7 @@ There are several advantages of deploying AD FS in Azure, a few of them are list
 * **Cross-Geo Redundancy** – With Azure Geo Redundancy you can be assured that your infrastructure is highly available across the globe
 * **Easy to Manage** – With highly simplified management options in Azure portal, managing your infrastructure is very easy and hassle-free 
 
-## Design Principles
+## Design principles
 
 ![Deployment design](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
@@ -316,7 +316,7 @@ On successful sign-in, it will provide you with a success message as shown below
 
 ![Test success](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-## Additional Resources
+## Additional resources
 * [Availability Sets](https://aka.ms/Azure/Availability ) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
 * [Internal Load Balancer](https://aka.ms/Azure/ILB/Internal)
@@ -325,6 +325,10 @@ On successful sign-in, it will provide you with a success message as shown below
 * [Azure Virtual Networks](https://aka.ms/Azure/VNet)
 * [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
 
+## Next steps
+
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Configuring and managing your AD FS using Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
 
 
