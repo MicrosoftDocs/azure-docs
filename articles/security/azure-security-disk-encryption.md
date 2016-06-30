@@ -683,6 +683,7 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint
     modprobe vfat >/dev/null 2>&1
+    modprobe ntfs >/dev/null 2>&1
     sleep 2
     OPENED=0
     cd /sys/block
@@ -714,11 +715,19 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     Sda5_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
 
 3.If you are editing the *azure_crypt_key.sh* in Windows and copied it to Linux, do not forget to run *dos2unix /usr/local/sbin/azure_crypt_key.sh*.
-4.Run *update-initramfs -u -k all* to update the initramfs to make the keyscript take effect.
+4.Edit */etc/initramfs-tools/modules* by appending lines:
+
+    vfat
+    ntfs
+    nls_cp437
+    nls_utf8
+    nls_iso8859-1
+
+5.Run *update-initramfs -u -k all* to update the initramfs to make the keyscript take effect.
 
 ##### openSUSE 13.2.
 
-1.Edit the /etc/dracut.conf add_drivers+="vfat nls_cp437 nls_iso8859-1"
+1.Edit the /etc/dracut.conf add_drivers+="vfat ntfs nls_cp437 nls_iso8859-1"
 
 2.Comment out these lines by the end of the file “/usr/lib/dracut/modules.d/90crypt/module-setup.sh”:
 
@@ -742,9 +751,11 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
        echo "> Trying device:$SFS..." >&2
-       mount ${SFS}1 $MountPoint -t vfat -r >&2
+       mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+       mount ${SFS}1 $MountPoint -t ntfs -r >&2
        if [ -f $MountPoint/$KeyFileName ]; then
           echo "> keyfile got..." >&2
           luksfile=$MountPoint/$KeyFileName
@@ -755,7 +766,7 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
 5.Run the “dracut –f -v” to update the initrd
 
 ##### CentOS 7
-1.Edit the /etc/dracut.conf add_drivers+=" vfat nls_cp437 nls_iso8859-1"
+1.Edit the /etc/dracut.conf add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
 
 2.Comment out these lines by the end of the file “/usr/lib/dracut/modules.d/90crypt/module-setup.sh”:
 
@@ -780,9 +791,11 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
     echo "> Trying device:$SFS..." >&2
-    mount ${SFS}1 $MountPoint -t vfat -r >&2
+    mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+    mount ${SFS}1 $MountPoint -t ntfs -r >&2
     if [ -f $MountPoint/$KeyFileName ]; then
         echo "> keyfile got..." >&2
         luksfile=$MountPoint/$KeyFileName
