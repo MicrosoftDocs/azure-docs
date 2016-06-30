@@ -382,6 +382,6 @@ To learn more about table design, see the [Distribute][], [Index][], [Partition]
 [Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
 
 <!--MSDN references-->
-[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/en-us/library/mt204028.aspx
+[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->
