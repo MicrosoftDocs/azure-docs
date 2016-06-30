@@ -1,6 +1,6 @@
 <properties
    pageTitle="Distributing Tables in SQL Data Warehouse | Microsoft Azure"
-   description="Distributing Tables in SQL Data Warehouse in Azure SQL Data Warehouse."
+   description="Getting started with distributing tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -26,8 +26,6 @@
 - [Partition][]
 - [Statistics][]
 - [Temporary][]
-
-## Introduction to distributed tables
 
 SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
 
