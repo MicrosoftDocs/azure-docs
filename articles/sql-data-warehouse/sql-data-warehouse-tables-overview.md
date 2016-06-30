@@ -27,13 +27,19 @@
 - [Statistics][]
 - [Temporary][]
 
-Getting started with creating tables in SQL Data Warehouse is simple.  The basic syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table, you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
+Getting started with creating tables in SQL Data Warehouse is simple.  The basic [CREATE TABLE][] syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table, you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
  ``` 
 
 The above example creates a table named Customers with two columns, FirstName and LastName.  Each column is defined with a data type of VARCHAR(25), which limits the data to 25 characters.  These fundamental attributes of a table, as well as others, are mostly the same as other databases.  Data types are defined for each column and ensure the integrity of your data.  Indexes can be added to improve performance by reducing I/O.  Partitioning can be added to improve performance when you need to modify data.
+
+[Renaming][RENAME] a SQL Data Warehouse table looks like this:
+
+```sql  
+RENAME OBJECT Customer TO CustomerOrig; 
+ ```
 
 ## Distributed tables
 
@@ -248,8 +254,9 @@ To learn more, see the articles on [Table Data Types][Data Types], [Distributing
 [Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
 <!--MSDN references-->
-
-<!--Other Web references-->
+[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
+[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
 [Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 [Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
@@ -261,4 +268,5 @@ To learn more, see the articles on [Table Data Types][Data Types], [Distributing
 [Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
 [Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
 [Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
+
+<!--Other Web references-->
