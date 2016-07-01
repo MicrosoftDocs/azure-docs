@@ -62,28 +62,28 @@ After the solution is installed, you can view the summary of client and server e
 After clicking on the Overview tile you can view summaries of your logs and then drill-into details for the following categories:
 
 + Application Gateway Access Logs
-- Client and Server errors for Application Gateway access logs
-- Requests per hour for each Application Gateway
-- Failed requests per hour for each Application Gateway
-- Errors by user agent for Application Gateways
+  - Client and Server errors for Application Gateway access logs
+  - Requests per hour for each Application Gateway
+  - Failed requests per hour for each Application Gateway
+  - Errors by user agent for Application Gateways
 + Application Gateway Performance
-- Host health for Application Gateway
-- Maximum and 95th percentile for Application Gateway failed requests
+  - Host health for Application Gateway
+  - Maximum and 95th percentile for Application Gateway failed requests
 + Network Security Group Blocked Flows
-- Network Security Group Rules with blocked flows
-- MAC Addresses with Blocked flows
+  - Network Security Group Rules with blocked flows
+  - MAC Addresses with Blocked flows
 + Network Security Group Allowed Flows
-- Network Security Group Rules with allowed flows
-- MAC Addresses with allowed flows
+  - Network Security Group Rules with allowed flows
+  - MAC Addresses with allowed flows
 
 
 ![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking01.png)
 
-![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/ log-analytics-azurenetworking02.png)
+![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking02.png)
 
-![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/ log-analytics-azurenetworking03.png)
+![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking03.png)
 
-![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/ log-analytics-azurenetworking04.png)
+![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking04.png)
 
 ### To view details for any log summary
 
