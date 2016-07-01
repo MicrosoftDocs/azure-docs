@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/2012016"
+	ms.date="07/01/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption for Data at Rest (Preview)
