@@ -16,8 +16,9 @@
 	ms.date="07/05/2016"
 	ms.author="richrund"/>
 
-# Azure Networking Analytics solution in Log Analytics
+# Azure Networking Analytics (Preview) solution in Log Analytics
 
+>AZURE.NOTE This is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features)
 
 You can use the Azure Networking Analytics solution in Log Analytics to review Azure Application Gateway logs and Azure Network Security Group logs.
 
