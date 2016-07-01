@@ -58,7 +58,7 @@ After clicking on the Overview tile you can view summaries of your logs and then
 
 ![image of Azure Key Vault dashboard](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
 
-![image of Azure Key Vault dashboard](./media/log-analytics-azure-networking/log-analytics-keyvault02.png)
+![image of Azure Key Vault dashboard](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
 
 ### To view details for any operation
 
