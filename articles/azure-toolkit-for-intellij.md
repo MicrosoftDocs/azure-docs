@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/07/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Azure Toolkit for IntelliJ
@@ -28,6 +28,7 @@ The Azure Toolkit for IntelliJ provides templates and functionality that allow y
 
 The following articles will help you get started using the Azure Toolkit for IntelliJ:
 
+* [What's New in the Azure Toolkit for IntelliJ]
 * [Installing the Azure Toolkit for IntelliJ]
 * [Create a Hello World Web App for Azure in IntelliJ]
 
@@ -42,16 +43,19 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
 - *Azure Toolkit for IntelliJ (This Article)*
   - [Installing the Azure Toolkit for IntelliJ]
   - [Create a Hello World Web App for Azure in IntelliJ]
+  - [What's New in the Azure Toolkit for IntelliJ]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
 
 [Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
 [Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/

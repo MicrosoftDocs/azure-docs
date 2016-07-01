@@ -137,6 +137,7 @@ Web applications (PaaS):
 
 - [Basic web application](guidance-web-apps-basic.md)
 - [Improving scalability in a web application](guidance-web-apps-scalability.md)
+- [Web application with high availability](guidance-web-apps-multi-region.md)
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
