@@ -61,7 +61,7 @@ Azure AD Connect Health for AD FS & Azure AD Connect (Sync):
 
 Azure AD Connect Health for AD DS:
 
-1. Open the Domain Controllers, Domains and Sites dashboard. 
+1. Open the Domain Controllers dashboard. 
 2. Select the domain controller to be removed.
 3. Click on the "Delete Selected" button from the action bar. 
 4. Confirm the action to delete the server.
@@ -156,5 +156,6 @@ You can remove a user or a group added to Azure AD Connect Health Role Based Acc
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
