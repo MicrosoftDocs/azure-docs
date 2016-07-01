@@ -38,10 +38,12 @@ The following logs are supported for Network Security Groups
 Use the following instructions to install and configure the Azure Networking Analytics solution:
 
 1.	Enable diagnostics logging for the resources you want to monitor:
-+ [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
-+ [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
+  + [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
+  + [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
 2.	Configure log analytics to read the logs from blob storage using the process described in [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-powershell-azure-diagnostics-json.md).
 3.	Enable the Azure Networking Analytics solution using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+
+If you do not enable diagnostic logging for a particular resource type the dashboard blades for that resource will be blank.
 
 ## Azure Networking Analytics data collection details
 
