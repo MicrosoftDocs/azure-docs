@@ -23,6 +23,13 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 This article is designed to help you keep track of the versions that have been released.
 
 
+## July 2016
+
+**New preview features:**
+
+- [Azure AD Connect Health for AD DS](active-directory-aadconnect-health-adds.md).
+
+
 ## January 2016
 
 
