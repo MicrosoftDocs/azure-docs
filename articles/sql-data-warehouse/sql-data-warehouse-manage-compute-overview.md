@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="06/30/2016"
    ms.author="barbkess;sonyama"/>
 
 # Manage compute power in Azure SQL Data Warehouse (Overview)
@@ -120,9 +120,12 @@ To resume a database, use any of these individual methods.
 Please refer to the following articles to help you understand some additional key performance and scale concepts:
 
 - [concurrency model][]
-- [designing tables][]
-- [choose a hash distribution key for your table][]
-- [statistics to improve performance][]
+- [Table design overview][]
+- [Table distribution][]
+- [Table indexing][]
+- [Table partitioning][]
+- [Table statistics][]
+- [Best practices][]
 
 <!--Image reference-->
 
@@ -143,13 +146,14 @@ Please refer to the following articles to help you understand some additional ke
 [Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
 [Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
-[concurrency model]: sql-data-warehouse-develop-concurrency.md
-[designing tables]: sql-data-warehouse-develop-table-design.md
-[choose a hash distribution key for your table]: sql-data-warehouse-develop-hash-distribution-key.md
-[statistics to improve performance]: sql-data-warehouse-develop-statistics.md
-[development overview]: sql-data-warehouse-overview-develop.md
-
-
+[concurrency model]: ./sql-data-warehouse-develop-concurrency.md
+[Table design overview]: ./sql-data-warehouse-tables-overview.md
+[Table distribution]: ./sql-data-warehouse-tables-distribute.md
+[Table indexing]: ./sql-data-warehouse-tables-index.md
+[Table partitioning]: ./sql-data-warehouse-tables-partition.md
+[Table statistics]: ./sql-data-warehouse-tables-statistics.md
+[Best practices]: ./sql-data-warehouse-best-practices.md 
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
