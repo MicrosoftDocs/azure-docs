@@ -16,19 +16,9 @@
    ms.date="06/21/2016"
    ms.author="navale;tomfitz;"/>
 
-# Azure Resource Manager SDK for .Net 
-
-> [AZURE.SELECTOR]
-- [Java](resource-manager-java-sdk.md)
-- [Node.js](https://github.com/Azure/azure-sdk-for-node)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Go](https://github.com/Azure/azure-sdk-for-go)
-- [.NET](resource-manager-net-sdk.md)
-
-Azure Resource Manager SDKs are available for multiple languages and platforms.
-Each of these language implementations is available through its ecosystem package manager and GitHub.
+# Azure Resource Manager SDK for .Net  
+Azure Resource Manager SDKs are available for multiple languages and platforms. Each of these language implementations 
+are available through their ecosystem package managers and GitHub.
 
 The code in each of these SDKs is generated from [Azure RESTful API specifications](https://github.com/azure/azure-rest-api-specs). These specifications are open source and based on the Swagger 2.0 specification. The SDK code is generated via an open-source project called [AutoRest](https://github.com/azure/autorest). AutoRest transforms these RESTful API specifications into client libraries in multiple languages. If you want to improve any aspects of the generated code in the SDKs, the entire set of tools to create the SDKs are open, freely available, and based on a widely adopted API specification format.
 
