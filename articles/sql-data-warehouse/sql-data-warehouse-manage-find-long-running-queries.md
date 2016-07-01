@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="06/30/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Find long-running queries
 
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload and investigate query execution in Azure SQL Data Warehouse.
 
-## Monitor Connections
+## Monitor connections
 
 The [sys.dm_pdw_exec_sessions][] view allows you to monitor connections to your Azure SQL Data Warehouse database.  This view contains active sessions as well as a history of recently disconnected sessions.  The session_id is the primary key for this view and is assigned sequentially for each new logon.
 
@@ -28,7 +28,7 @@ The [sys.dm_pdw_exec_sessions][] view allows you to monitor connections to your 
 SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
 
-## Investigate Query Execution
+## Investigate query execution
 To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is assigned sequentially for each new query.  Qyerying this table for a given session_id will show all queries for a given logon.
 
 In the scenario where you would like to investigate query execution for a particular query, here are some common steps to follow.
@@ -93,7 +93,7 @@ Check the *operation_type* column of the long-running query step:
 - Proceed with Step 4a for **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
 - Proceed with Step 4b for **Data Movement operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### STEP 4a: Find the execution progress of a SQL Step
+### STEP 4a: Find the execution progress of a SQL step
 
 Use the Request ID and the Step Index to retrieve information from [sys.dm_pdw_sql_requests][] which contains details on the execution of the query on the distributed instances of SQL Server. Note the the Distribution ID and SPID if the query is still running and you wish to get the plan from the SQL Server distribution.
 
@@ -116,7 +116,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ```
 
-### STEP 4b: Find the execution progress of a DMS Step
+### STEP 4b: Find the execution progress of a DMS step
 
 Use the Request ID and the Step Index to retrieve information about the Data Movement Step running on each distribution from [sys.dm_pdw_dms_workers][].
 
@@ -144,16 +144,15 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 ## Next steps
 For more information on Dynamic Management Views (DMVs), see [System views][].  
-For tips on managing your SQL Data Warehouse, see [manage overview][].  
-For best practices, see [SQL Data Warehouse Best Practices][].
+For tips on managing your SQL Data Warehouse, see [Manage overview][].  
+For best practices, see [SQL Data Warehouse best practices][].
 
 <!--Image references-->
 
 <!--Article references-->
-[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
-[manage overview]: sql-data-warehouse-overview-manage.md
-[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
-[System views]: sql-data-warehouse-reference-tsql-system-views.md
+[Manage overview]: ./sql-data-warehouse-overview-manage.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
