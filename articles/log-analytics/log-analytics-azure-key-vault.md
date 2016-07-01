@@ -41,13 +41,13 @@ The following table shows data collection methods and other details about how da
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 |---|---|---|---|---|---|---|
-|Azure|![No](./media/log-analytics-azure-networking/oms-bullet-red.png)|![No](./media/log-analytics-azure-networking/oms-bullet-red.png)|![Yes](./media/log-analytics-azure-networking/oms-bullet-green.png)|            ![No](./media/log-analytics-azure-networking/oms-bullet-red.png)|![No](./media/log-analytics-azure-networking/oms-bullet-red.png)| 10 minutes|
+|Azure|![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png)|![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png)|![Yes](./media/log-analytics-azure-keyvault/oms-bullet-green.png)|            ![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png)|![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png)| 10 minutes|
 
 ## Use Azure Key Vault
 
 After the solution is installed, you can view the summary of request statuses over time for your monitored Key Vaults by using the **Azure Key Vault** tile on the **Overview** page in Log Analytics.
 
-![image of Azure Key Vault tile](./media/log-analytics-azure-key-vaults/log-analytics-keyvault-tile.png)
+![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 
 After clicking on the Overview tile you can view summaries of your logs and then drill-into details for the following categories:
 
@@ -56,9 +56,9 @@ After clicking on the Overview tile you can view summaries of your logs and then
 - Average Operational latency by operation
 - Quality of service for operations with number of operations taking more than 1000ms and list of operations taking more than 1000ms
 
-![image of Azure Key Vault dashboard](./media/log-analytics-azure-networking/log-analytics-azurenetworking01.png)
+![image of Azure Key Vault dashboard](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
 
-![image of Azure Key Vault dashboard](./media/log-analytics-azure-networking/ log-analytics-azurenetworking02.png)
+![image of Azure Key Vault dashboard](./media/log-analytics-azure-networking/ log-analytics-keyvault02.png)
 
 ### To view details for any operation
 
