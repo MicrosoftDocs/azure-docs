@@ -2,24 +2,24 @@
 	pageTitle="Example Infrastructure Walkthrough | Microsoft Azure"
 	description="Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure."
 	documentationCenter=""
-	services="virtual-machines-linux"
+	services="virtual-machines-windows"
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="07/01/2016"
 	ms.author="iainfou"/>
 
 # Example Azure infrastructure walkthrough
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
 
 This article walks through building out an example application infrastructure. We'll detail designing an infrastructure for a simple on-line store that brings together all of the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
@@ -28,13 +28,13 @@ This article walks through building out an example application infrastructure. W
 
 Adventure Works Cycles wants to build an on-line store application in Azure that consists of:
 
-- Two nginx servers running the client front-end in a web tier
-- Two nginx servers processing data and orders in an application tier
-- Two MongoDB servers part of a sharded cluster for storing product data and orders in a database tier
+- Two IIS servers running the client front-end in a web tier
+- Two IIS servers processing data and orders in an application tier
+- Two Microsoft SQL Server instances with AlwaysOn availability groups (two SQL Servers and a majority node witness) for storing product data and orders in a database tier
 - Two Active Directory domain controllers for customer accounts and suppliers in an authentication tier
 - All of the servers are located in two subnets:
 	- a front end subnet for the web servers 
-	- a back end subnet for the application servers, MongoDB cluster, and domain controllers
+	- a back end subnet for the application servers, SQL cluster, and domain controllers
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
@@ -70,7 +70,7 @@ Adventure Works Cycles is using their Enterprise subscription, named Adventure W
 Adventure Works Cycles determined that they needed two storage accounts:
 
 - **adventureazosusesawebapp** for the standard storage of the web servers, application servers, and domain controllers and their data disks.
-- **adventureazosusesadbclust** for the Premium storage of the MongoDB sharded cluster servers and their data disks.
+- **adventureazosusesasql** for the Premium storage of the SQL Server VMs and their data disks.
 
 
 ## Virtual network and subnets
@@ -96,7 +96,7 @@ To maintain high availability of all four tiers of their on-line store, Adventur
 
 - **azos-use-as-web** for the web servers
 - **azos-use-as-app** for the application servers
-- **azos-use-as-db** for the servers in the MongoDB sharded cluster
+- **azos-use-as-sql** for the SQL Servers
 - **azos-use-as-dc** for the domain controllers
 
 
@@ -108,8 +108,8 @@ Adventure Works Cycles decided on the following names for their Azure VMs:
 - **azos-use-vm-web02** for the second web server
 - **azos-use-vm-app01** for the first application server
 - **azos-use-vm-app02** for the second application server
-- **azos-use-vm-db01** for the first MongoDB server in the cluster
-- **azos-use-vm-db02** for the second MongoDB server in the cluster
+- **azos-use-vm-sql01** for the first SQL Server server in the cluster
+- **azos-use-vm-sql02** for the second SQL Server server in the cluster
 - **azos-use-vm-dc01** for the first domain controller
 - **azos-use-vm-dc02** for the second domain controller
 
@@ -130,4 +130,4 @@ This configuration incorporates:
 
 ## Next steps
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)] 
