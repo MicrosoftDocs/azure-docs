@@ -59,7 +59,7 @@ The following video will provide an overview of Azure AD Connect Health for sync
 
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
-## [Azure AD Connect Health for AD DS](active-directory-aadconnect-health-adds.md)
+## [Azure AD Connect Health for AD DS (preview)](active-directory-aadconnect-health-adds.md)
 Azure AD Connect Health for AD DS supports Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012R2. With a very easy and low cost installation of the health agent, Azure AD Connect Health for AD DS provides the following set of key capabilities:
 
 - Monitoring with alerts to know when domain controllers are not healthy.
@@ -106,7 +106,7 @@ The Azure AD Connect Health portal allows you to view alerts, performance monito
 
 - **Azure Active Directory Connect (Sync)** – this represents your Azure AD Connect servers that Azure AD Connect Health is currently monitoring. By selecting the entry, a blade will open with information about your Azure AD Connect servers. Read more about the capabilities [here.](active-directory-aadconnect-health-sync.md)
  
-- **Active Directory Domain Services** – this represents all of the AD DS forests that Azure AD Connect Health is currently monitoring. By selecting one of the forests, a blade will open with information about that forest.  This information includes an overview of essential information, Domain Controllers dashboard, Replication Status dasbhaord, alerts and monitoring. Read more about the capabilities [here.](active-directory-aadconnect-health-adds.md)
+- **Active Directory Domain Services** – this represents all of the AD DS forests that Azure AD Connect Health is currently monitoring. By selecting one of the forests, a blade will open with information about that forest.  This information includes an overview of essential information, Domain Controllers dashboard, Replication Status dashboard, alerts and monitoring. Read more about the capabilities [here.](active-directory-aadconnect-health-adds.md)
 
 - **Configure** – this allows you to turn the following on or off:
 
