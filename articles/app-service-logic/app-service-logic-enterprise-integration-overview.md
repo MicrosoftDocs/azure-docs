@@ -40,9 +40,10 @@ Here is an overview of the steps you need to take before you can create apps in 
 
 ## What are some common scenarios?
 
-Enterprise Integration supports these industry standards:  
+Enterprise Integration supports these industry standards:   
+
 - EDI - Electronic Data Interchange  
-- EAI - Enterprise Application Integration
+- EAI - Enterprise Application Integration  
 
 ## How much does it cost?
 For pricing information and a list of what is included with each service tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).

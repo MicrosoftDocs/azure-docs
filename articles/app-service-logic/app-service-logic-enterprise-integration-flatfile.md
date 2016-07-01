@@ -30,7 +30,7 @@ Follow these steps to create a Logic app and add a flat file encoding connector 
 2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
 ![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
 3. Add the flat file encoding action by:  
--  Select the ![](./media/app-service-logic-enterprise-integration-flatfile/plus.png) sign  
+-  Select the **plus** sign  
 -  Select the **Add an action** link that is presented after you have selected the plus sign  
 -  Enter *Flat* in the search box in order to filter all the actions to the one that you want to use   
 -  Select the **Flat File Encoding** action from the list   
@@ -39,7 +39,7 @@ Follow these steps to create a Logic app and add a flat file encoding connector 
 ![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-3.png)  
 7. Select the body tag as the content that you want to encode. The body tag will populate the content field.     
 ![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-4.png)  
-8. Select the **SCHEMA NAME** list box and chose the schema you want to use to encode the input *content* above     
+8. Select the **SCHEMA NAME** list box and choose the schema you want to use to encode the input *content* above     
 ![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-5.png)  
 9. Save your work   
 ![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)  
