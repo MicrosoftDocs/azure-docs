@@ -82,7 +82,7 @@ Until the review period is over, you can remind users to complete their review, 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_security_review.png
+[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
