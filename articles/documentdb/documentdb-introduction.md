@@ -44,7 +44,9 @@ As a JSON database, DocumentDB natively supports JSON documents enabling easy it
 
 Azure DocumentDB offers the following key capabilities and benefits:
 
--	**Elastically scalable throughput and storage:** Easily scale up or scale down your DocumentDB JSON database to meet your application needs. Your data is stored on solid state disks (SSD) for low predictable latencies. DocumentDB supports containers for storing JSON data called collections which can scale to virtually unlimited storage sizes and provioned throughput. You can elastically scale DocumentDB with predictable performance seamlessly as your application grows. 
+-	**Elastically scalable throughput and storage:** Easily scale up or scale down your DocumentDB JSON database to meet your application needs. Your data is stored on solid state disks (SSD) for low predictable latencies. DocumentDB supports containers for storing JSON data called collections that can scale to virtually unlimited storage sizes and provisioned throughput. You can elastically scale DocumentDB with predictable performance seamlessly as your application grows. 
+
+-	**Multi-region replication:** DocumentDB transparently replicates your data to all regions you've associated with your DocumentDB account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. Learn more in [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md).
 
 -	**Ad hoc queries with familiar SQL syntax:** Store heterogeneous JSON documents within DocumentDB and query these documents through a familiar SQL syntax. DocumentDB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all document content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query DocumentDB](documentdb-sql-query.md). 
 
@@ -102,7 +104,7 @@ If you already have an Azure account, you can get started with DocumentDB in the
 
 If you don't have an Azure account, you can:
 
-- Sign up for an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. 
+- Sign up for an [Azure free trial](https://azure.microsoft.com/en-us/free/), which gives you 30 days and $200 to try all the Azure services. 
 - If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
 
 Then, when you're ready to learn more, visit our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
