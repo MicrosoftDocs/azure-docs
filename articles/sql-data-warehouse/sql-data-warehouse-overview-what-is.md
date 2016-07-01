@@ -103,7 +103,7 @@ When you need faster results, increase your DWUs and pay for greater performance
 
 - When performing a heavy data loading or transformation operation, you may want to scale up so that your data is available more quickly.
 
-To understand what your ideal DWU value is, try scaling up and down, and running a few queries after loading your data. Since scaling is quick, you can try a number of different levels of performance in an hour or less.  Do keep in mind, that SQL Data Warehouse is designed to process large amounts of data and to see its true capabilities for scaling, especially at the larger scales we offer, you'll want to use a large data set which approaches or exceeds 1 TB
+To understand what your ideal DWU value is, try scaling up and down, and running a few queries after loading your data. Since scaling is quick, you can try a number of different levels of performance in an hour or less.  Do keep in mind, that SQL Data Warehouse is designed to process large amounts of data and to see its true capabilities for scaling, especially at the larger scales we offer, you'll want to use a large data set which approaches or exceeds 1 TB.
 
 
 ## Built on SQL Server
