@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="06/27/2016"
    ms.author="hascipio"/>
 
 # Create a Microsoft Developer account
@@ -159,14 +159,7 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
 
 
 ## Next steps
-Now that your account is created and registered, click the type of artifact (virtual machine, developer service, data service, or solution template) that you would like to publish to the Azure Marketplace. Visit one of the following articles to learn how to publish your respective offer:
-
-|| Virtual machine image | Developer service | Data service | Solution template |
-|----|-----|-----|-----|-----|
-|**Step 2: Create your offer** |[General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| Private Preview | [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
-|| [VM image technical prerequisites][link-single-vm-prereq] | Private Preview | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md)  | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [VM image publishing guide][link-single-vm] | Private Preview | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
-|| [Azure Marketplace marketing content guide][link-pushstaging] | Private Preview | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] |
+Now that your account is created and registered, ensure you fulfill or meet all of the non-technical pre-requisites to publish your offer by reviewing [Non-technical pre-requisites](marketplace-publishing-pre-requisites.md).
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
