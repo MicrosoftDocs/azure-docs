@@ -90,7 +90,7 @@ Follow these steps:
         logDirectory: iisnode
 
     Logging is now enabled for iisnode. For more information on how this works, see
-    [Get stdout and stderr logs from iisnode](app-service-web-nodejs-sails.md#iisnodelog).
+    [Get stdout and stderr logs from iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
 
 2. Open config/env/production.js to configure your production environment, and set `port` and `hookTimeout`:
 
