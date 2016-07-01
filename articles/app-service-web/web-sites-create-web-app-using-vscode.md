@@ -123,7 +123,8 @@ Now that you have created the web app and retrieved all the NuGet packages for t
 
 	The command window will display that the application has started. If the command window doesn't display this message, check the lower left corning of VS Code for errors in your project.
 	
-	> [AZURE.NOTE] Issuing a command from the **Command Palette** requires a **>** character at the beginning of the command line. You can view the details related to the **web** command in the *project.json* file. 
+	> [AZURE.NOTE] Issuing a command from the **Command Palette** requires a **>** character at the beginning of the command line. You can view the details related to the **web** command in the *project.json* file.   
+	> If the command does not appear or is not available, you may need to install the C# extension. Run  `>Extensions: Install Extension` and `ext install c#` to install the C# extensions.
 
 2. Open a browser and navigate to the following URL.
 

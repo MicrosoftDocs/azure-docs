@@ -62,7 +62,7 @@ Affixes can refer to different aspects that describe the particular resources. T
 | Environment                          | dev, stg, prod                                                         | Depending on the purpose and name of each environment.                                                     |
 | Location                             | usw (West US), use (East US 2)                                         | Depending on the region of the datacenter or the region of the organization.                               |
 | Azure component, service, or product | Rg for resource group, VNet for virtual network                        | Depending on the product for which the resource provides support.                                          |
-| Role                                 | sql, ora, sp, iis                                                      | Depending on the role of the virtual machine.                                                              |
+| Role                                 | db, app, web                                                           | Depending on the role of the virtual machine.                                                              |
 | Instance                             | 01, 02, 03, etc.                                                       | For resources that have more than one instance. For example, load balanced web servers in a cloud service. |
 
 

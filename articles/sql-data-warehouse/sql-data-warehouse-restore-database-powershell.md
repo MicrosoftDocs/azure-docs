@@ -16,7 +16,7 @@
    ms.date="06/28/2016"
    ms.author="sonyama;barbkess"/>
 
-# Restore an Azure SQL Data Warehouse  (PowerShell)
+# Restore an Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -34,7 +34,7 @@ Each SQL Data Warehouse is hosted by a SQL server logical server.  This logical 
 
 ### Install PowerShell
 
-In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
+In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name AzureRM**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
 ## Restore an active or paused database
 

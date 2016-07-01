@@ -198,6 +198,30 @@ Create an application gateway with all configuration items from the steps above.
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
+### Step 9
+Retrieve DNS and VIP details of the application gateway from the public IP resource attached to the application gateway.
+
+	Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+
+	Name                     : publicIP01
+	ResourceGroupName        : appgwtest 
+	Location                 : westus
+	Id                       : /subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/publicIPAddresses/publicIP01
+	Etag                     : W/"12302060-78d6-4a33-942b-a494d6323767"
+	ResourceGuid             : ee9gd76a-3gf6-4236-aca4-gc1f4gf14171
+	ProvisioningState        : Succeeded
+	Tags                     : 
+	PublicIpAllocationMethod : Dynamic
+	IpAddress                : 137.116.26.16
+	IdleTimeoutInMinutes     : 4
+	IpConfiguration          : {
+	                             "Id": "/subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fipconfig01"
+	                           }
+	DnsSettings              : {
+	                             "Fqdn": "ee7aca47-4344-4810-a999-2c631b73e3cd.cloudapp.net"
+	                           } 
+
+
 
 ## Delete an application gateway
 

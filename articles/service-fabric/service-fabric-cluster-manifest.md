@@ -19,7 +19,7 @@
 
 # Configuration settings for standalone Windows cluster
 
-This article describes how to configure a standalone Service Fabric cluster using the _**ClusterConfig.JSON**_ file. This file is downloaded to your work machine, when you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). The ClusterConfig.JSON file allows you to specify information such as the Service Fabric nodes and their ip addresses, different types of nodes on the cluster, the security configurations as well as the network topology in terms of failure/upgrade domains, for your Service Fabric cluster. 
+This article describes how to configure a standalone Service Fabric cluster using the _**ClusterConfig.JSON**_ file. This file is downloaded to your work machine, when you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). The ClusterConfig.JSON file allows you to specify information such as the Service Fabric nodes and their IP addresses, different types of nodes on the cluster, the security configurations as well as the network topology in terms of fault/upgrade domains, for your Service Fabric cluster. 
 
 We will examine the various sections of this file below.
 
@@ -75,9 +75,9 @@ You can configure parameters to enable diagnostics and troubleshooting node and 
         "etlReadIntervalInMinutes": "5",
         "uploadIntervalInMinutes": "10",
         "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
-        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
+        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
+        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
+        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
     },
 
 These variables help in collecting ETW trace logs, crash dumps as well as performance counters. Read [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) and [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx) for more information on ETW trace logs. [Crash dumps](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) for Service Fabric node as well as the cluster can be directed to the **crashDumpConnectionString** folder. The [performance counters](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) for the cluster can be directed to the **perfCtrConnectionString** folder on your machine.
@@ -97,7 +97,7 @@ The **security** section is necessary for a secure standalone Service Fabric clu
 		. . .
 	}
 
-The **metadata** is a description of your secure cluster and can be set as per your setup. The **ClusterCredentialType** and **ServerCredentialType** determine the type of security that the cluster and the nodes will implement. They can be set to either *X509* for a certificate based security, or *Windows* for an Azure Active Directory based security. The rest of the **security** section will be based on the type of the security. Read [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) or [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md) for information on how to fill out the rest of the **security** section.
+The **metadata** is a description of your secure cluster and can be set as per your setup. The **ClusterCredentialType** and **ServerCredentialType** determine the type of security that the cluster and the nodes will implement. They can be set to either *X509* for a certificate-based security, or *Windows* for an Azure Active Directory-based security. The rest of the **security** section will be based on the type of the security. Read [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) or [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md) for information on how to fill out the rest of the **security** section.
 
 ### **reliabilityLevel**
 The **reliabilityLevel** defines the number of copies of the system services that can run on the primary nodes of the cluster. This increases the reliability of these services and hence the cluster. You can set this variable to either *Bronze*, *Silver*, *Gold* or *Platinum* for 3, 5, 7 or 9 copies of these services respectively. See an example below.
@@ -109,7 +109,7 @@ Note that since a primary node runs a single copy of the system services, you wo
 
 <a id="nodetypes"></a>
 ### **nodeTypes**
-The **nodeTypes** section describes the type of the nodes that your cluster has. Atleast one node type must be specified for a cluster, as shown in the snippet below. 
+The **nodeTypes** section describes the type of the nodes that your cluster has. At least one node type must be specified for a cluster, as shown in the snippet below. 
 
 	"nodeTypes": [{
         "name": "NodeType0",
@@ -137,10 +137,10 @@ This section allows you to set the root directories for the Service Fabric data 
         "name": "Setup",
         "parameters": [{
             "name": "FabricDataRoot",
-            "value": "C:\\ProgramData\\SF"
+            "value": "C:\ProgramData\SF"
         }, {
             "name": "FabricLogRoot",
-            "value": "C:\\ProgramData\\SF\\Log"
+            "value": "C:\ProgramData\SF\Log"
     }]
 
 Note that if you customize only the data root, then the log root will be placed one level below the data root.
