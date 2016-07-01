@@ -36,7 +36,7 @@ Tasks:
 - Define what core infrastructure components you will need and if you will use dedicated Resource Groups.
 - Review how you can implement Resource Manager templates for consistent, reproducible deployments.
 - Define what user access roles you will need for controlling access to Resource Groups.
-- Create the set of Resource Groups using your naming convention. You can use the Azure CLI or portal.
+- Create the set of Resource Groups using your naming convention. You can use Azure PowerShell or the portal.
 
 
 ## Resource Groups

@@ -36,7 +36,7 @@ Decisions:
 Tasks:
 
 - Review I/O demands of the applications you will be deploying and plan the appropriate number and type of storage accounts.
-- Create the set of storage accounts using your naming convention. You can use the Azure CLI or the portal.
+- Create the set of storage accounts using your naming convention. You can use Azure PowerShell or the portal.
 
 
 ## Storage
@@ -52,7 +52,7 @@ Azure creates VMs with an operating system disk, a temporary disk, and zero or m
 
 Durability and high availability is provided by the underlying Azure Storage environment in order to ensure that your data remains protected against unplanned maintenance or hardware failures. As you design your Azure Storage environment, you can choose to replicate VM storage locally within a given Azure datacenter, across Azure datacenters within a given region, or even across Azure datacenters across different regions. You can read [more about the replication options for high availability](../storage/storage-introduction.md#replication-for-durability-and-high-availability).
 
-Operating system disks and data disks have a maximum size of 1023 gigabytes (GB) because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can use Logical Volume Manager (LVM) to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
+Operating system disks and data disks have a maximum size of 1023 gigabytes (GB) because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can use Storage Spaces in Windows Server 2012 to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
 
 There are some scalability limits when designing your Azure Storage deployments - see [Microsoft Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md#storage-limits) for more details. Also see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
 
