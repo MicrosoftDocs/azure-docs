@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Get started with the Azure CDN Library for .NET
+# Get started with Azure CDN development
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.js](cdn-app-dev-node.md)
 
 You can use the [Azure CDN Library for .NET](https://msdn.microsoft.com/library/mt657769.aspx) to automate creation and management of CDN profiles and endpoints.  This tutorial will walk through the creation of a simple .NET console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN Library for .NET in detail.
 

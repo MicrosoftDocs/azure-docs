@@ -102,7 +102,7 @@ If you encounter an error when configuring password reset, you might be able to 
             </td>
             <td>
               <p>Many elements of UI are hidden until they are needed. Try enabling all the options on the page if you want to see.</p>
-              <p>See <a href="../active-directory-passwords-customize#password-management-behavior">Customizing User Password Reset Policy</a> for more info about all of the controls that are available to you.</p>
+              <p>See <a href="active-directory-passwords-customize.md#password-management-behavior">Customizing User Password Reset Policy</a> for more info about all of the controls that are available to you.</p>
             </td>
           </tr>
           <tr>
@@ -114,7 +114,7 @@ If you encounter an error when configuring password reset, you might be able to 
             </td>
             <td>
               <p>This option is only visible if you have downloaded Azure AD Connect and configured Password Writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
-              <p>See <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
+              <p>See <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
             </td>
           </tr>
         </tbody></table>
@@ -305,7 +305,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
+              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
             </td>
           </tr>
           <tr>
@@ -638,7 +638,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>When attempting to reset a password on behalf of a user from the Azure Management Portal, you see a message stating: “The password reset service running in your on-premises environment does not support administrators resetting user passwords. Please upgrade to the latest version of Azure AD Connect to resolve this.”</p>
             </td>
             <td>
-              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect (for more information, see <a href="../active-directory-aadconnect#download-azure-ad-connect">Directory Integration Tools</a>) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
+              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect (for more information, see <a href="../active-directory-aadconnect">Directory Integration Tools</a>) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
             </td>
           </tr>
         </tbody></table>
