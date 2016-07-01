@@ -38,10 +38,10 @@ You can build and manage B2B apps using the Enterprise Integration Pack via the 
 Here is an overview of the steps you need to take before you can create apps in the 
 ![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
 
-## What are common scenarios?
+## What are some common scenarios?
 
-Enterprise Integration supports these industry standards:
-- EDI - Electronic Data Interchange
+Enterprise Integration supports these industry standards:  
+- EDI - Electronic Data Interchange  
 - EAI - Enterprise Application Integration
 
 ## How much does it cost?

@@ -21,7 +21,7 @@
 ## Overview
 Often, in B2B scenarios, the partners to an agreement need to validate that messages they exchange among each other are valid before processing of the data can begin. In the Enterprise Integration Pack, you can use the XML Validation connector to validate documents against a predefined schema.  
 
-## How to validate a document in a Logic app
+## How to validate a document with the XML Validation connector
 1. Create a Logic app and [link it to your integration account](./app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the schema you will use to validate the XML data.
 2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
 ![](./media/app-service-logic-enterprise-integration-xml/xml-1.png)    
@@ -33,14 +33,14 @@ Often, in B2B scenarios, the partners to an agreement need to validate that mess
 ![](./media/app-service-logic-enterprise-integration-xml/xml-1-5.png)
 7. Select the body tag as the content that will be validated.   
 ![](./media/app-service-logic-enterprise-integration-xml/xml-3.png)  
-8. Select the **SCHEMA NAME** list box  
+8. Select the **SCHEMA NAME** list box and chose the schema you want to use to validate the input *content* above     
 ![](./media/app-service-logic-enterprise-integration-xml/xml-4.png) 
 9. Save your work  
 ![](./media/app-service-logic-enterprise-integration-xml/xml-5.png) 
 
-At this point, you are finished setting up your map. In a real world application, you may want to store the validated data in an LOB application such as SalesForce. You can easily add an action to send the output of the validation to Salesforce. 
+At this point, you are finished setting up your validation connector. In a real world application, you may want to store the validated data in an LOB application such as SalesForce. You can easily add an action to send the output of the validation to Salesforce. 
 
-You can now test your transform by making a request to the HTTP endpoint.  
+You can now test your validation action by making a request to the HTTP endpoint.  
 
 ## Next steps
 - [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
