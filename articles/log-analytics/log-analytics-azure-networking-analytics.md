@@ -57,7 +57,7 @@ The following table shows data collection methods and other details about how da
 
 After the solution is installed, you can view the summary of client and server errors for your monitored Application Gateways by using the **Azure Networking Analytics** tile on the **Overview** page in Log Analytics.
 
-![image of Azure Networking Analytics tile](./media/log-analytics-azure-networking/oms-changetracking-tile.png)
+![image of Azure Networking Analytics tile](./media/log-analytics-azure-networking/log-analytics-azurenetworking-tile.png)
 
 After clicking on the Overview tile you can view summaries of your logs and then drill-into details for the following categories:
 
