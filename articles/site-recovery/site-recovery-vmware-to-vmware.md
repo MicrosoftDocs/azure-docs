@@ -100,7 +100,7 @@ Update 3 includes the following bug fixes and enhancements:
 - Windows Server 2008 R2 domain controllers fail to boot after recovery.
 - Offline sync is not working as expected.
 - After virtual machine (VM) failover, replication-pair deletion gets stuck in the CX UI for a long time, and users cannot complete the failback or resume operation.
-- Optimized overall snapshot operations that are done by the consistency job have been optimized to help reduce application disconnects like SQL clients.
+- Overall snapshot operations that are done by the consistency job have been optimized to help reduce application disconnects like SQL clients.
 - The performance of the consistency tool (VACP.exe) has been improved by reducing the memory usage that is required for creating snapshots on Windows.
 - The push install service crashes when the password is greater than 16 characters.
 - vContinuum is not checking and prompting for new vCenter credentials when the credentials are changed.
