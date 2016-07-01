@@ -24,7 +24,7 @@ Microsoft Power BI Embedded Service is now generally available with standard GA 
 
 ## What is Microsoft Power BI Embedded?
 
-Microsoft Power BI Embedded is now generally available. Power BI Embedded is an Azure service that allows Application developers to embed stunning, fully interactive reports and visualizations in customer facing apps without the time and expense of having to build your own controls from the ground-up. We now have Power BI Embedded available with SLA in 9 data centers worldwide. We have also enhanced functionalities in the service like support for data security via row-level security (RLS) in Power BI Embedded for advanced filtering. We have also simplified and updated the Power BI Embedded pricing model. To learn more, see [Power BI Embedded](https://azure.microsoft.com/en-us/services/power-bi-embedded/).  
+Microsoft Power BI Embedded is now generally available. Power BI Embedded is an Azure service that allows Application developers to embed stunning, fully interactive reports and visualizations in customer facing apps without the time and expense of having to build your own controls from the ground-up. We now have Power BI Embedded available with SLA in 9 data centers worldwide. We have also enhanced functionalities in the service like support for data security via row-level security (RLS) in Power BI Embedded for advanced filtering. We have also simplified and updated the Power BI Embedded pricing model. To learn more, see [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/).  
 
 ## Who would want to use Microsoft Power BI Embedded, and why?
 
@@ -32,7 +32,7 @@ Microsoft Power BI Embedded is for Application developers that want to offer stu
 
 ## How does Power BI Embedded relate to the Power BI service?
 
-The Power BI Embedded and the Power BI service are separate offerings. Power BI Embedded features a consumption-based billing model, is deployed through the Azure portal and is designed to enable ISVs to embed data visualizations in applications for their customers to use. The Power BI service is billed and deployed through the O365 portal and is a standalone general purpose BI offering primarily targeted at enterprise internal use. To learn more about the Power BI service, see [www.powerbi.com](www.powerbi.com).
+The Power BI Embedded and the Power BI service are separate offerings. Power BI Embedded features a consumption-based billing model, is deployed through the Azure portal and is designed to enable ISVs to embed data visualizations in applications for their customers to use. The Power BI service is billed and deployed through the O365 portal and is a standalone general purpose BI offering primarily targeted at enterprise internal use. To learn more about the Power BI service, see [www.powerbi.com](https://powerbi.microsoft.com).
 
 ## How does Power BI Embedded improve my app?
 
@@ -48,11 +48,11 @@ No, Power BI Embedded is only intended for use by external users and should not 
 
 ## Is this service available globally?
 
-The Power BI Embedded service is available in most data centers now. You can always check the latest availability [here](https://azure.microsoft.com/en-us/status/).
+The Power BI Embedded service is available in most data centers now. You can always check the latest availability [here](https://azure.microsoft.com/status/).
 
 ## What is the available SLA for the service?
 
-Power BI Embedded with Azure standard SLA. See [Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/) for more information.
+Power BI Embedded with Azure standard SLA. See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) for more information.
 
 ## How is this service priced?
 
@@ -92,17 +92,17 @@ No. Your application’s end-users are not required to buy or the Power BI subsc
 
 The Power BI Embedded service uses App Tokens for authentication and authorization instead of explicit end-user authentication. In the App Token model, your application manages authentication and authorization for your end-users. Then, when necessary, your app creates
 
-and sends the App Tokens which tells our service to render the requested report. This design does not require your app to use Azure AD for user authentication and authorization, although you can do this. You can learn more about App Tokens [here](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-app-token-flow/). We also introduced row-level security feature (RLS) in Power BI Embedded for advanced security filtering scenarios.
+and sends the App Tokens which tells our service to render the requested report. This design does not require your app to use Azure AD for user authentication and authorization, although you can do this. You can learn more about App Tokens [here](power-bi-embedded-app-token-flow.md). We also introduced row-level security feature (RLS) in Power BI Embedded for advanced security filtering scenarios.
 
 ## What data sources are currently supported with Power BI Embedded?
 
-We are going to support access to cloud data sources that use basic credentials via Direct Query. This means that sources such as Azure SQL DB and Azure SQL DW are supported right now. We will add support for other data sources and access types in the coming months. We’ll announce new supported data sources on the Power BI developer forum at  [http://dev.powerbi.com](http://dev.powerbi.com/).
+We are going to support access to cloud data sources that use basic credentials via Direct Query. This means that sources such as Azure SQL DB and Azure SQL DW are supported right now. We will add support for other data sources and access types in the coming months. We’ll announce new supported data sources on the Power BI developer forum at  [https://dev.powerbi.com](https://dev.powerbi.com/).
 
 ## How does the tenancy model work for Power BI Embedded?
 
 In the Power BI Embedded model, there is no explicit requirement to have your customers in Azure AD tenants. You can elect to require Azure AD for your customers, or not. As a result, the architecture of your application and infrastructure is what will determine the tenancy model required for Power BI Embedded.
 
-Developers/employees working on or building your application will need to have an AAD user account when they are to manage your Azure Subscription and Workspace Collections via the Azure Portal. Programmatic APIs to enable developers to import reports, modify connection strings and get embed URLs leverage App Tokens for authentication instead, and as a result do not require an AAD. Details on how to use our APIs and Azure Portal can be found at [Power BI Embedded documentation ]( https://azure.microsoft.com/en-us/documentation/services/power-bi-embedded/) on Azure.com.
+Developers/employees working on or building your application will need to have an AAD user account when they are to manage your Azure Subscription and Workspace Collections via the Azure Portal. Programmatic APIs to enable developers to import reports, modify connection strings and get embed URLs leverage App Tokens for authentication instead, and as a result do not require an AAD. Details on how to use our APIs and Azure Portal can be found at [Power BI Embedded documentation ]( https://azure.microsoft.com/documentation/services/power-bi-embedded/) on Azure.com.
 
 ## Where can I learn more?
 
