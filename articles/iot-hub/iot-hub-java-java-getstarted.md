@@ -85,7 +85,7 @@ In this section, you'll create a Java console app that creates a new device iden
 
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
-    private static final String deviceId = "javadevice";
+    private static final String deviceId = "myFirstJavaDevice";
     
     ```
     
@@ -325,12 +325,12 @@ In this section, you'll create a Java console app that simulates a device that s
     import java.util.concurrent.ExecutorService;
     ```
 
-7. Add the following class-level variables to the **App** class, replacing **{youriothubname}** with your IoT hub name, and **{yourdeviceid}** and **{yourdevicekey}** with the device values you generated in the *Create a device identity* section:
+7. Add the following class-level variables to the **App** class, replacing **{youriothubname}** with your IoT hub name, and **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
 
     ```
-    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
+    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
-    private static String deviceId = "{yourdeviceid}";
+    private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
 

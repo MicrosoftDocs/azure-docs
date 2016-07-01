@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	keywords="push notifications,push notification,android push notification"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 <tags
 	ms.service="notification-hubs"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Sending push notifications to Android with Azure Notification Hubs
