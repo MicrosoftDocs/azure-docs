@@ -24,7 +24,7 @@ You will use the flat file encoding connector from within a Logic app that encod
 
 ## How to create the flat file encoding connector
 
-Follow these steps to create a Logic app and add a flat file encoding connector to the Logic app**
+Follow these steps to create a Logic app and add a flat file encoding connector to the Logic app
 
 1. Create a Logic app and [link it to your integration account](./app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the schema you will use to encode the XML data.  
 2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
