@@ -12,7 +12,7 @@
 	ms.devlang="NA"
 	ms.date="06/09/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="sqldb-bcdr"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -20,9 +20,8 @@
 # Restore a deleted Azure SQL database using the Azure Portal
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-restore-deleted-database.md)
-- [Azure portal](sql-database-restore-deleted-database-portal.md)
-- [PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Deleted database restore: PowerShell](sql-database-restore-deleted-database-powershell.md)
 
 ## Select the database to restore 
 
@@ -38,21 +37,12 @@ To restore a database in the Azure Portal do the following:
 
     ![Restore an Azure SQL database](./media/sql-database-restore-deleted-database-portal/restore-deleted.png)
 
+
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Restore a deleted database](sql-database-restore-deleted-database.md)
-- [Restore a deleted database using PowerShell](sql-database-restore-deleted-database-powershell.md)
-- [Restore a deleted database using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)
-- [SQL Database automated backups](sql-database-automated-backups.md)
-
-## Additional resources
-
-- [Point-in-time restore](sql-database-point-in-time-restore.md)
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-
-
-
+- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

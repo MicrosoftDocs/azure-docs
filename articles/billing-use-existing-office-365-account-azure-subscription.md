@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="06/20/2016"
 	ms.author="cjiang"/>
 
 # Use your existing Office 365 account with your Azure subscription, or vice versa
@@ -145,4 +145,4 @@ See [How Azure subscription are associated with Azure Active Directory](./active
 - Office 365 subscriptions are owned by the directory itself. Users within the directory can operate on these subscriptions if they have the requisite permissions.
 
 ##Next steps
-There is a related scenario where you acquired both of the Azure and Office 365 subscriptions separately in the past, and wants to be able to access the Office 365 tenant from the Azure subscription. To learn how to accomplish this task, see [Use Office 365 tenant with Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md).
+There is a related scenario where you acquired both of the Azure and Office 365 subscriptions separately in the past, and wants to be able to access the Office 365 tenant from the Azure subscription. To learn how to accomplish this task, see [Associate an Office 365 tenant with an Azure subscription](billing-add-office-365-tenant-to-azure-subscription.md).

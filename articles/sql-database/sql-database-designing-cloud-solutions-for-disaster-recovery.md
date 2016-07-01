@@ -159,15 +159,12 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 ## Next steps
 
 - For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-geo-restore.md)
+- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
 
-## Additional resources
+## Next steps
 
-- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

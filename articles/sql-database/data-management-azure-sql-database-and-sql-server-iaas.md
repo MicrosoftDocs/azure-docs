@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="carlrab"/>
 
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database  or SQL Server on Azure VMs (IaaS)
@@ -67,7 +67,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 |||||
 |**Resources:**|You do not want to employ IT resources for support and maintenance of the underlying infrastructure, but want to focus on the application layer.|You have IT resources for support and maintenance.|
 |**Total cost of ownership:**|Eliminates hardware costs and reduces administrative costs.|Eliminates hardware costs.|
-|**Business continuity:**|In addition to built-in fault tolerance infrastructure capabilities, Azure SQL Database provides features, such as [Point-in-Time Restore](sql-database-point-in-time-restore.md), [Geo-Restore](sql-database-geo-restore.md), and [Active Geo-Replication](sql-database-active-geo-replication.md) to increase business continuity. For more information, see [SQL Database business continuity overview](sql-database-business-continuity.md).|SQL Server on Azure VMs lets you to set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).|
+|**Business continuity:**|In addition to built-in fault tolerance infrastructure capabilities, Azure SQL Database provides features, such as [automated backups](sql-database-automated-backups.md), [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore), [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore), and [Active Geo-Replication](sql-database-active-geo-replication.md) to increase business continuity. For more information, see [SQL Database business continuity overview](sql-database-business-continuity.md).|SQL Server on Azure VMs lets you to set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).|
 |**Hybrid cloud:**|Your on-premises application can access data in Azure SQL Database.|With SQL Server on Azure VMs, you can have applications that run partly in the cloud and partly on-premises. For example, you can extend your on-premises network and Active Directory Domain to the cloud via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). In addition, you can store on-premises data files in Azure Storage using [SQL Server Data Files in Azure](http://msdn.microsoft.com/library/dn385720.aspx). For more information, see [Introduction to SQL Server 2014 Hybrid Cloud](http://msdn.microsoft.com/library/dn606154.aspx).|
 ||Supports [SQL Server transactional replication](https://msdn.microsoft.com/library/mt589530.aspx) as a subscriber.|Supports [SQL Server transactional replication](https://msdn.microsoft.com/library/mt589530.aspx), disaster recovery and [AlwaysOn replicas in Azure VMs](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).|
 |||||
@@ -154,3 +154,4 @@ Choose **SQL Server on Azure VMs** if:
 - See [SQL Database tutorial: Create a SQL database in minutes using the Azure portal](sql-database-get-started.md) to get started with SQL Database.
 - See [SQL Database pricing] (https://azure.microsoft.com/pricing/details/sql-database/).
 - See [Provision a SQL Server virtual machine in Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) to get started with SQL Server on Azure VMs.
+- See [SQL Server on an Azure Virtual Machine: Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).

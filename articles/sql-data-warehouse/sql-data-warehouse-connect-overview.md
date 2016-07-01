@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="06/20/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connect to Azure SQL Data Warehouse
@@ -111,7 +111,7 @@ To start querying your data warehouse with Visual Studio and other applications,
 
 <!--Arcticles-->
 
-[Query with Visual Studio]: sql-data-warehouse-query-visual-studio
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
 [Azure portal]: https://portal.azure.com
