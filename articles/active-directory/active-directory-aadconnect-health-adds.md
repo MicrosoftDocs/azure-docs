@@ -1,3 +1,22 @@
+
+<properties
+	pageTitle="Using Azure AD Connect Health with AD DS | Microsoft Azure"
+	description="This is the Azure AD Connect Health page that will discuss how to monitor AD DS."
+	services="active-directory"
+	documentationCenter=""
+	authors="arluca"
+	manager="samueld"
+	editor="curtand"/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/1/2016"
+	ms.author="arluca"/>
+
 # Using Azure AD Connect Health with AD DS
 The following documentation is specific to monitoring Active Directory Domain Services with Azure AD Connect Health. For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md).
 
@@ -33,6 +52,7 @@ By default, the Used Processor metric is displayed. To see other performance met
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
+* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
