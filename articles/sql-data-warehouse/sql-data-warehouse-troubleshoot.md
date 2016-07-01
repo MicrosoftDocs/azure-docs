@@ -27,9 +27,8 @@ If you are having trouble connecting, below are some of the more common issues r
 | Issue                      | Resolution                                      |
 | :--------------------------| :---------------------------------------------- |
 | CTAIP error                | This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][] article.  This article explains how to create create a login on master and then how to create a user in the SQL Data Warehouse database.|
-
 | Firewall rules             |Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [Configure server firewall access for your client IP][] in the [Provisioning instructions][].|
-| Unsupported tools/protocols| SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.|
+| Unsupported tools/protocols | SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.|
 
 ## Performance
 
@@ -39,10 +38,10 @@ The below links will help you troubleshoot and improve performance.
 | :-------------------------| :---------------------------------------------- |
 | Query performance         | If you are trying to troubleshoot a particular query, start with [Learning how to monitor your queries][].|
 | Missing statistics        | The most common cause of poor performance is lack of statistics on your tables.  See [Maintaining table statistics][Statistics] for details on how to create statistics and why they are critical to your performance.|
-| Workload management       | Understanding [Workload management][] is important in order to understand how to balance memory allocation with concurrency.|
-| Best practices            | The best place to start to learn ways to improve query performance is [SQL Data Warehouse best practices][] article.|
-| Pause and scale           | Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your SQL Data Warehouse][].|
-| Improve clustered columnstore index quality:** Some times queries can slowdown because of [Poor columnstore index quality][].  See this article for more information and how to [Rebuild indexes to improve segment quality][].|
+| Understand workload management       | Understanding [Workload management][] is important in order to understand how to balance memory allocation with concurrency.|
+| Performance best practices            | The best place to start to learn ways to improve query performance is [SQL Data Warehouse best practices][] article.|
+| Scale to improve performance  | Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your SQL Data Warehouse][].|
+| Improve clustered columnstore index quality | Some times queries can slowdown because of [Poor columnstore index quality][].  See this article for more information and how to [Rebuild indexes to improve segment quality][].|
 
 ## System management
 
@@ -50,8 +49,8 @@ Below are some useful links to help you understand how to troubleshoot the space
 
 |  Issue                    | Resolution                                      |
 | :-------------------------| :---------------------------------------------- |
-| Space utilization         | See [Table sizes][] to understand the space utilization of your system.|
-| Managing tables           | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary].|
+| Investigating space utilization         | See [Table sizes][] to understand the space utilization of your system.|
+| Help with managing tables           | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary].|
 
 ## Polybase and external tables
 
@@ -60,7 +59,7 @@ If you are encountering errors with Polybase or external tables, you may find th
 |  Issue                    | Resolution                                      |
 | :-------------------------| :---------------------------------------------- |
 | UTF-8 Requirement         |  Currently PolyBase only supports loading data files that have been UTF-8 encoded.  See [Working around the PolyBase UTF-8 requirement][] for guidance on how to work around this limitation.|
-| VARCHAR(MAX), NVARCHAR(MAX) and VARBINARY(MAX) load fail| Currently large row support is not available for Polybase.  Loads for large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release.|
+| Load fails because of large rows | Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loads for large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release.|
 
 ## Unsupported features and limitations
 
@@ -68,10 +67,10 @@ SQL Data Warehouse supports a subset of the features offered by SQL Database.  S
 
 |  Issue                      | Resolution                                      |
 | :---------------------------| :---------------------------------------------- |
-| Table features              | See [Unsupported table features][].|
-| Data types                  | See [Unsupported data types][].|
+| Unsupported table features              | See [Unsupported table features][].|
+| Unsupported data types                  | See [Unsupported data types][].|
 | DELETE and UPDATE limitations| See [UPDATE workarounds][], [DELETE workarounds][] and [Using CTAS to work around unsupported UPDATE and DELETE syntax][].|
-| MERGE                       | See [MERGE workarounds][].|
+| MERGE statement is not supported  | See [MERGE workarounds][].|
 | Stored procedure limitations| See [Stored procedure limitations][] to understand some of the limitations of stored procedures.|
 
 ## Tools
@@ -80,7 +79,7 @@ If you are having trouble with tools, you may find some of these links useful.
 
 |  Issue                      | Resolution                                      |
 | :---------------------------| :---------------------------------------------- |
-| Azure Active Directory users are not shown in SSDT object explorer| This is a known issue.  As a workaround, view the users in [sys.database_principals][].  See [Authentication to Azure SQL Data Warehouse][] to learn more about using Azure Active Directory with SQL Data Warehouse.|
+| SSDT object explorer is missing Azure Active Directory users | This is a known issue.  As a workaround, view the users in [sys.database_principals][].  See [Authentication to Azure SQL Data Warehouse][] to learn more about using Azure Active Directory with SQL Data Warehouse.|
 
 ## Next steps
 
