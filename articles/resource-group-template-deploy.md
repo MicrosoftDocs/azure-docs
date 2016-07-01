@@ -24,6 +24,7 @@
 - [Portal](resource-group-template-deploy-portal.md)
 - [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [REST API](resource-group-template-deploy-rest.md)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
