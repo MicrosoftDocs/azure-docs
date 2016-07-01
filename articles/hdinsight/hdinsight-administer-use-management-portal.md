@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+    ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Portal
@@ -143,7 +143,7 @@ See also [Pause/shut down clusters](#pauseshut-down-clusters).
 ##Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
->[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-adminster-use-management-portal/#list-and-show-clusters).
+>[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-adminster-use-management-portal.md#list-and-show-clusters).
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -202,7 +202,7 @@ You are also charged for an HDInsight cluster, even when it is not in use. Since
 
 There are many ways you can program the process:
 
-- User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory/data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) and [Transform and analyze using Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) for on-demand and self-defined HDInsight linked services.
+- User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory/data-factory-compute-linked-services.md) and [Transform and analyze using Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) for on-demand and self-defined HDInsight linked services.
 - Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
 - Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
 - Use HDInsight .NET SDK. See [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md).

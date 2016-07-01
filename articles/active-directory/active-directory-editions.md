@@ -163,7 +163,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| 10 apps per user [1] (pre-integrated SaaS and developer-integrated apps)| 10 apps per user [1]  (free tier + Application proxy apps) | No Limit [2]  (free, Basic tiers +Self-Service App Integration templates)| 10 apps per user [1]  (pre-integrated SaaS and developer-integrated apps)|
+| 10 apps per user (1) | 10 apps per user (1) | No Limit (2) | 10 apps per user (1)|
 
 [1] With Azure AD Free and Azure AD Basic, end users who have been assigned access to SaaS apps, can see up to 10 apps in their Access Panel and get SSO access to them. Admins can configure SSO and assign user access to as many SaaS apps as they want with Free and Basic however end users will only see 10 apps in their Access Panel at a time.
 
