@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -166,7 +166,7 @@ Allocadia application expects the SAML assertions in a specific format. Please c
 
 7.  To get SSO configured for your application, contact [Allocadia Support](mailTo:support@allocadia.com) team and they will assist to configure SSO. Please note that you have to send email and attach downloaded metadata file to configure SSO on the Allocadia side.
  
-> [AZURE.NOTE] Please make sure that Allocadia team set the Identifier value in the test environment as **"https://na2standby.allocadia.com"** and for production environment, it should be: **"https://na2.allocadia.com"**
+	> [AZURE.NOTE] Please make sure that Allocadia team set the Identifier value in the test environment as **"https://na2standby.allocadia.com"** and for production environment, it should be: **"https://na2.allocadia.com"**
 
 
 8. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
