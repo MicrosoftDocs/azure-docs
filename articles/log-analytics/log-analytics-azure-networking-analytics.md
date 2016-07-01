@@ -81,6 +81,10 @@ After clicking on the Overview tile you can view summaries of your logs and then
 
 ![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/ log-analytics-azurenetworking02.png)
 
+![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/ log-analytics-azurenetworking03.png)
+
+![image of Azure Networking Analytics dashboard](./media/log-analytics-azure-networking/ log-analytics-azurenetworking04.png)
+
 ### To view details for any log summary
 
 1. On the **Overview** page, click the **Azure Networking Analytics** tile.
