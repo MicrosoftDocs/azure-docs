@@ -571,7 +571,3 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 - [Integrate a cloud service with Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
- 
-
