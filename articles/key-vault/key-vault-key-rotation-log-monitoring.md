@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/27/2016"
-	ms.author="jodehavi"/>
+	ms.author="jodehavi;stgriffi"/>
     
 Key Vault: End to end key rotation and auditing scenario
 =======================================================
@@ -252,7 +252,8 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.ServiceBus.Messaging; 
-using System.Text; using Newtonsoft.Json;
+using System.Text; 
+using Newtonsoft.Json;
 
 public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outputBlob, TraceWriter log) 
 { 
