@@ -29,7 +29,8 @@ The following logs are supported for Application Gateways
 + ApplicationGatewayAccessLog 
 + ApplicationGatewayPerformanceLog
 
-The following logs are supported for Network Security Groups 
+The following logs are supported for Network Security Groups
+
 + NetworkSecurityGroupEvent 
 + NetworkSecurityGroupRuleCounter
 
