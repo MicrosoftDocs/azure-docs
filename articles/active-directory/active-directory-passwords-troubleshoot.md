@@ -102,7 +102,7 @@ If you encounter an error when configuring password reset, you might be able to 
             </td>
             <td>
               <p>Many elements of UI are hidden until they are needed. Try enabling all the options on the page if you want to see.</p>
-              <p>See <a href="../active-directory-passwords-customize#password-management-behavior">Customizing User Password Reset Policy</a> for more info about all of the controls that are available to you.</p>
+              <p>See <a href="active-directory-passwords-customize.md#password-management-behavior">Customizing User Password Reset Policy</a> for more info about all of the controls that are available to you.</p>
             </td>
           </tr>
           <tr>
@@ -114,7 +114,7 @@ If you encounter an error when configuring password reset, you might be able to 
             </td>
             <td>
               <p>This option is only visible if you have downloaded Azure AD Connect and configured Password Writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
-              <p>See <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
+              <p>See <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
             </td>
           </tr>
         </tbody></table>
@@ -305,7 +305,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
+              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
             </td>
           </tr>
           <tr>
