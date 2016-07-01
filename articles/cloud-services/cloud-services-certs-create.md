@@ -1,4 +1,4 @@
-`<properties 
+<properties 
 	pageTitle="Cloud Services and management certificates | Microsoft Azure" 
 	description="Learn how to create and use certificates with Microsoft Azure" 
 	services="cloud-services" 
