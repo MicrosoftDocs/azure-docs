@@ -24,7 +24,7 @@ Introduction
 
 After creating your Azure Key Vault, you will be able to start leveraging that vault to store your Keys and Secrets. Your applications no longer need to persist your keys or secrets, but rather will request them from the key vault as needed. This allows you to update keys and secrets without impacting the behavior of your application, which opens up a breadth of possibilities around your key and secret management behavior.
 
-This article walks through an example of leveraging Azure Key Vault to store a secret, in this case an Azure Storage Account key, which is accessed by an application. It will also demonstrate implementation of a scheduled rotation of that storage account key. Finally, it will walk through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
+This article walks through an example of leveraging Azure Key Vault to store a secret, in this case an Azure Storage Account key which is accessed by an application. It will also demonstrate implementation of a scheduled rotation of that storage account key. Finally, it will walk through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
 
 > \[AZURE.NOTE\] This tutorial is not intended to explain in detail the initial set up of your Azure Key Vault. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli.md).
 
@@ -35,36 +35,48 @@ In order to enable an application to retrieve a secret from Azure Key Vault, you
 
 Start an Azure PowerShell session and sign in to your Azure account with the following command:
 
-> Login-AzureRmAccount
+```powershell
+Login-AzureRmAccount
+```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell will get all the subscriptions that are associated with this account and by default, uses the first one.
 
 If you have multiple subscriptions, you might have to specify a specific one that was used to create your Azure Key Vault. Type the following to see the subscriptions for your account:
 
-> Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
 Then, to specify the subscription that's associated with your key vault you will be logging, type:
 
-> Set-AzureRmContext -SubscriptionId <subscription ID> 
+```powershell
+Set-AzureRmContext -SubscriptionId <subscription ID> 
+```
 
-As this article demonstrates storing of a storage account key as a secret, you will first need to get that storage account key.
+As this article demonstrates storing of a storage account key as a secret, you will need to get that storage account key.
 
-> Get-AzureRmStorageAccountKey -ResourceGroupName <resource Group Name> -Name <storage Account Name>
+```powershell
+Get-AzureRmStorageAccountKey -ResourceGroupName <resource Group Name> -Name <storage Account Name>
+```
 
 After retrieving your secret, in this case your storage account key, you will need to convert that to a secure string and then create a secret with that value in your key vault.
 
-> $secretvalue = ConvertTo-SecureString <storage Account Key> -AsPlainText -Force
+```powershell
+$secretvalue = ConvertTo-SecureString <storage Account Key> -AsPlainText -Force
 
-> Set-AzureKeyVaultSecret -VaultName <vault Name> -Name <secret Name> -SecretValue $secretvalue
-
+Set-AzureKeyVaultSecret -VaultName <vault Name> -Name <secret Name> -SecretValue $secretvalue
+```
 Next you will want to get the URI for the secret you just created. This will be used in a later step when you are calling the Key Vault to retrieve your secret. Run the following PowerShell command and make note of the ‘Id’ value, which is the secret URI.
 
-> Get-AzureKeyVaultSecret –VaultName <vault Name>
-
+```powershell
+Get-AzureKeyVaultSecret –VaultName <vault Name>
+```
 Setting up Application
 ----------------------
 
 Now that you have a secret stored you will want to retrieve that secret and use it from code. There are a few steps required to achieve this, the first and most important of which is registering your application with Azure Active Directory and then telling Azure Key Vault your application information so that it can allow requests from your application.
+
+> \[AZURE.NOTE\] Your application must be created on the same Azure Active Directory tenant as your Key Vault. 
 
 First open the applications tab of Azure Active Directory
 
@@ -88,21 +100,25 @@ Next you will need to generate a key for your application to be able to interact
 
 ![Azure AD App Keys](./media/keyvault-keyrotation/Azure_AD_AppKeys.png)
 
-Before establishing any calls from your application into Key Vault, you will need to tell the Key Vault about your application and its’ permissions. The following command takes your vault name and the client ID from your Azure AD app and grants ‘Get’ access to your key vault for the application.
+Before establishing any calls from your application into Key Vault you will need to tell the Key Vault about your application and its’ permissions. The following command takes your vault name and the client ID from your Azure AD app and grants ‘Get’ access to your key vault for the application.
 
-	Set-AzureRmKeyVaultAccessPolicy -VaultName <vault Name> -ServicePrincipalName <client ID from Azure AD> -PermissionsToSecrets Get
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName <vault Name> -ServicePrincipalName <client ID from Azure AD> -PermissionsToSecrets Get
+```
 
-At this point you are ready to start building your application calls. In your application you will first need to install the NuGet packages required to interact with Azure Key Vault. From the Visual Studio Package Manager console enter the following commands. Note that at the writing of this article the current version of the ActiveDirectory package is 3.10.305231913.
+At this point you are ready to start building your application calls. In your application you will first need to install the NuGet packages required to interact with Azure Key Vault and Azure Active Directory. From the Visual Studio Package Manager console enter the following commands. Note that at the writing of this article the current version of the ActiveDirectory package is 3.10.305231913, so you may want to confirm the latest version and update accordingly.
 
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.305231913
 
 	Install-Package Microsoft.Azure.KeyVault
 
-In your application code, create a class to hold the method for you Active Directory authenitication. In this example that class is called ‘Utils’. You will then need to add the following using.
+In your application code, create a class to hold the method for your Active Directory authentication. In this example that class is called ‘Utils’. You will then need to add the following using.
 
+```csharp
 	using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```
 
-Next, add the following method to retrieve the JWT token from Azure AD.
+Next, add the following method to retrieve the JWT token from Azure AD. For maintainability you may want to move the hard coded string values into your web or application configuration.
 
 ```csharp
 public async static Task<string> GetToken(string authority, string resource, string scope)
@@ -130,7 +146,7 @@ Finally, you can add the necessary code to call Key Vault and retrieve your secr
 using Microsoft.Azure.KeyVault;
 ```
 
-Next you will add the method calls to invoke Key Vault and retrieve your secret. In this method you will provide the secret URI which you saved in a previous step.
+Next you will add the method calls to invoke Key Vault and retrieve your secret. In this method you will provide the secret URI which you saved in a previous step. Note the use of the GetToken method from the Utils class created above.
     
 ```csharp
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
@@ -157,6 +173,8 @@ While you are still in the Assets window you will also want to choose 'Modules',
 	AzureRM.KeyVault
 	AzureRM.Automation
 	AzureRM.Storage
+	
+> \[AZURE.NOTE\] At the writing of this article only the above noted modules needed to be updated for the script shared below. If you find that your automation job is failing, you should confirm that you have all necessary modules and their dependencies imported.
 
 After you have retrieved the application ID for your Azure Automation connection, you will need to tell your Azure Key Vault that this application has access to update secrets in your vault. This can be accomplished with the following PowerShell command.
 
@@ -196,6 +214,7 @@ catch {
     }
 }
 
+#Optionally you may set the following as parameters
 $StorageAccountName = <storage Account Name>
 $RGName = <storage Account Resource Group Name>
 $VaultName = <key Vault Name>
