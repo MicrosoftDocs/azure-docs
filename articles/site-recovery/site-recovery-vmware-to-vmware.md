@@ -99,7 +99,7 @@ Update 3 includes the following bug fixes and enhancements:
 - The configuration server is not syncing with RX when the ESX hardware details or network details contain any UTF-8 characters.
 - Windows Server 2008 R2 domain controllers fail to boot after recovery.
 - Offline sync is not working as expected.
-- After virtual machine (VM) failover, replication pair deletion gets stuck in the CX UI for long time, and users cannot complete the failback or resume operation.
+- After virtual machine (VM) failover, replication-pair deletion gets stuck in the CX UI for a long time, and users cannot complete the failback or resume operation.
 - Optimized overall snapshot operations that are done by the consistency job have been optimized to help reduce application disconnects like SQL clients.
 - The performance of the consistency tool (VACP.exe) has been improved by reducing the memory usage that is required for creating snapshots on Windows.
 - The push install service crashes when the password is greater than 16 characters.
@@ -118,7 +118,7 @@ Update 3 includes the following bug fixes and enhancements:
 **Issue description**|**Implementation procedures**
 ---|---
 Authorization bypass via parameter tampering|Restricted access to non-applicable users.
-Cross-site request forgery|Implemented page-token concept, which generates randomly for every page. <br/>With this, you will see: <li> There is only a single sign-in instance for the same user.</li><li>Page refresh does not work--it will redirect to the dashboard.</li>
+Cross-site request forgery|Implemented the page-token concept, which generates randomly for every page. <br/>With this, you will see: <li> There is only a single sign-in instance for the same user.</li><li>Page refresh does not work--it will redirect to the dashboard.</li>
 Malicious file upload|Restricted files to certain extensions. Allowed extensions are: 7z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip.
 Persistent cross-site scripting | Added input validations.
 
