@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimizing transactions for SQL Data Warehouse
@@ -413,7 +413,7 @@ See [Transactions in SQL Data Warehouse][] to learn more about isolation levels 
 
 <!--Article references-->
 [Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[table partition]: ./sql-data-warehouse-develop-table-partitions.md
+[table partition]: ./sql-data-warehouse-tables-partition.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md

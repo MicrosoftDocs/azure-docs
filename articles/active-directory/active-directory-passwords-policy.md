@@ -4,7 +4,7 @@
   services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/29/2016"
 	ms.author="curtand"/>
 
 
@@ -28,7 +28,7 @@ Every user account that needs to sign in to the Azure AD authentication	system m
 |   Property           |     UserPrincipalName requirements  |
 |   ----------------------- |   ----------------------- |
 |  Characters allowed    |  <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-|  Characters not allowed  | <ul> <li>@</li> <li>Cannot contain a period character '.' immediately preceding the '@' symbol</li></ul> |
+|  Characters not allowed  | <ul> <li>Any '@' character that is not separating the user name from the domain.</li> <li>Cannot contain a period character '.' immediately preceding the '@' symbol</li></ul> |
 | Length constraints  |       <ul> <li>Total length must not exceed 113 characters</li><li>64 characters before the ‘@’ symbol</li><li>48 characters after the ‘@’ symbol</li></ul>
 
 ## Password policies that apply only to cloud user accounts
