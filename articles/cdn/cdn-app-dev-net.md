@@ -16,7 +16,7 @@
 	ms.date="06/29/2016"
 	ms.author="casoper"/>
 
-# Get started with Azure CDN development libraries
+# Get started with Azure CDN development
 
 > [AZURE.SELECTOR]
 - [.NET](cdn-app-dev-net.md)
