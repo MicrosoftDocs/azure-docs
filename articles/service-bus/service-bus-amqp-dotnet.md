@@ -99,38 +99,19 @@ The following features of the Service Bus .NET API are not currently supported w
 
 -   Send via transfer destination.
 
--   Receive by message sequence number.
-
--   Message and session browse.
-
--   Session state.
-
--   Batch-based APIs.
-
 -   Scaled-out receive.
-
--   Runtime manipulation of subscription rules.
-
--   Session lock renewal.
 
 Specifically, the following APIs are not currently supported when using AMQP:
 
-- [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession][]
-- [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)][]
-
 - [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})][]
-
 - [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64)][]
 - [Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch][]
 - [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})][]
 - [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek][]
 - [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch][]
-
 - [Microsoft.ServiceBus.Messaging.QueueClient.Peek][]
 - [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch][]
-
 - [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})][]
-
 - [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64)][]
 - [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch][]
 - [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})][]
@@ -138,11 +119,9 @@ Specifically, the following APIs are not currently supported when using AMQP:
 - [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch][]
 - [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule][]
 - [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String)][]
-
 - [Microsoft.ServiceBus.Messaging.MessageSession.GetState][]
 - [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream)][]
 - [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock][]
-
 - [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock][]
 
 There are also some small differences in the behavior of the Service Bus .NET API when using AMQP, compared to the default protocol:
