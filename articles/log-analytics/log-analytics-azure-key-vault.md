@@ -16,8 +16,9 @@
 	ms.date="07/05/2016"
 	ms.author="richrund"/>
 
-# Azure Key Vault solution in Log Analytics
+# Azure Key Vault (Preview) solution in Log Analytics
 
+>AZURE.NOTE This is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features)
 
 You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs.
 
@@ -58,7 +59,7 @@ After clicking on the Overview tile you can view summaries of your logs and then
 
 ![image of Azure Key Vault dashboard](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
 
-![image of Azure Key Vault dashboard](./media/log-analytics-azure-networking/ log-analytics-keyvault02.png)
+![image of Azure Key Vault dashboard](./media/log-analytics-azure-networking/log-analytics-keyvault02.png)
 
 ### To view details for any operation
 
