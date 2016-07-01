@@ -3,7 +3,7 @@
 	description="You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault logs."
 	services="log-analytics"
 	documentationCenter=""
-	authors="richrundsmsft"
+	authors="richrundmsft"
 	manager="jochan"
 	editor=""/>
 
