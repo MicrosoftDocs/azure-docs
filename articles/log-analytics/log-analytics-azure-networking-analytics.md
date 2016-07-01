@@ -3,7 +3,7 @@
 	description="You can use the Azure Networking Analytics solution in Log Analytics to review Azure Network Security Group logs and Azure Application Gateway logs."
 	services="log-analytics"
 	documentationCenter=""
-	authors="richrundsmsft"
+	authors="richrundmsft"
 	manager="jochan"
 	editor=""/>
 
