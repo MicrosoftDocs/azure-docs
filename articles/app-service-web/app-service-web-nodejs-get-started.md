@@ -208,6 +208,7 @@ To enable Node-Inspector, follow these steps:
 ## More resources
 
 - [Specifying a Node.js version in an Azure application](../nodejs-specify-node-version-azure-apps.md)
+- [Best practices and troubleshooting guide for Node.js applications on Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md)
 - [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 - [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)

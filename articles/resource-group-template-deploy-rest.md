@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Resource Manager REST API
@@ -22,7 +22,6 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [Azure CLI](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [REST API](resource-group-template-deploy-rest.md)
 
 This article explains how to use the Resource Manager REST API with Resource Manager templates to deploy your resources to Azure.  
@@ -31,6 +30,8 @@ This article explains how to use the Resource Manager REST API with Resource Man
 >
 > - [View deployment operations with REST API](resource-manager-troubleshoot-deployments-rest.md) to learn about getting information that will help you troubleshoot your error
 > - [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
+
+Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
