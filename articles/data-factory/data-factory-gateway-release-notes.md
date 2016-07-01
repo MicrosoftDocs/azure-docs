@@ -29,7 +29,7 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 - User interface improvements for gateway configuration manager:
 	- Make gateway status more visible on the Home tab.
 	- Reorganized and simplified controls.
-- You can copy data from a storage other than Azure Blob into Azure SQL Data Warehouse via Polybase & staging blob using the [code-free copy preview tool](data-factory-copy-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general. 
+- You can copy data from a storage other than Azure Blob into Azure SQL Data Warehouse via Polybase & staging blob using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general. 
 - You can leverage Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
 - Performance improvements
 	- Improve performance on viewing Schema/Preview against SQL Server in code-free copy preview tool.
