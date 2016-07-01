@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Managing statistics on tables in SQL Data Warehouse
@@ -346,7 +346,7 @@ This statement is easy to use. Just remember this updates all statistics on the 
 
 > [AZURE.NOTE] When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics. If the table is large, has many columns, and many statistics, it might be more efficient to update individual statistics based on need.
 
-For an implementation of an `UPDATE STATISTICS` procedure please see the [temporary tables] article. The implementation method is slightly different to the `CREATE STATISTICS` procedure above but the end result is the same.
+For an implementation of an `UPDATE STATISTICS` procedure please see the [Temporary Tables][Temporary] article. The implementation method is slightly different to the `CREATE STATISTICS` procedure above but the end result is the same.
 
 For the full syntax, see [Update Statistics][] on MSDN.
 
@@ -479,21 +479,20 @@ For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the 
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[temporary tables]: ./sql-data-warehouse-develop-temporary-tables.md
 
 <!--MSDN references-->  
-[Cardinality Estimation]:https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]:https://msdn.microsoft.com/library/ms188038.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]:https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]:https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]:https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]:https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]:https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]:https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]:https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]:https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]:https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]:https://msdn.microsoft.com/library/ms187348.aspx
+[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
+[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
+[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
+[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
+[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
+[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
+[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
 <!--Other Web references-->  
