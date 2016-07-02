@@ -171,14 +171,16 @@ This will launch a command prompt followed by some PowerShell that will execute 
 
 After signing in, PowerShell will continue. Once it completes you can close PowerShell and the configuration is complete.
 
-At this point, the services should be started automatically and the agent will be now monitoring and gathering data.  Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections. Be sure to complete the requirements [here](active-directory-aadconnect-health-agent-install.md#requirements) prior to installing the agent. The screenshot below is an example of these errors.
+At this point, the services should be started automatically and the agent will be now monitoring and gathering data. The screenshot below is an example of the output. Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections. Be sure to complete the requirements [here](active-directory-aadconnect-health-agent-install.md#requirements) prior to installing the agent. 
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
-To verify the agent has been installed, open services and look for the following. These services should be running if you completed the configuration. Otherwise, they will not start until the configuration is complete.
+To verify the agent has been installed, open services and look for the following:
 
 - Azure AD Connect Health AD DS Insights Service
 - Azure AD Connect Health AD DS Monitoring Service
+
+These two services will not start until the configuration is complete.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
