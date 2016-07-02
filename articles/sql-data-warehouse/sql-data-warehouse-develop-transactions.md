@@ -46,7 +46,7 @@ In the table below the following assumptions have been made:
 
 The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. 
 
-To optimize and minimize the amount of data written to the log please refer to the [transactions best practices][] article.
+To optimize and minimize the amount of data written to the log please refer to the [Transactions best practices][] article.
 
 > [AZURE.WARNING] The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
 <!--REPLICATED_TABLE-->
@@ -130,14 +130,14 @@ They are as follows:
 - No support for DDL such as `CREATE TABLE` inside a user defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see transactions [best practices][].  To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices][].
+To learn more about optimizing transactions, see [Transactions best practices][].  To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [development overview]: ./sql-data-warehouse-overview-develop.md
-[transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
