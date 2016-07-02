@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="06/28/2016"
+	ms.date="06/30/2016"
 	ms.author="sdanie" />
 
 # How to administer Azure Redis Cache
@@ -109,6 +109,10 @@ Only Redis server updates are made during the scheduled maintenance window. The 
 ### What pricing tiers can use the schedule updates functionality?
 
 Schedule updates is available only in the premium pricing tier.
+
+## Next steps
+
+-	Explore more [Azure Redis Cache premium tier](cache-premium-tier-intro.md) features.
 
 
 
