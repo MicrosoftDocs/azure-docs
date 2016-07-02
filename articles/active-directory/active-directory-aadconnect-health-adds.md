@@ -23,10 +23,11 @@ The following documentation is specific to monitoring Active Directory Domain Se
 ![Azure AD Connect Health for AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
 
 ## Alerts for Azure AD Connect Health for AD DS
-The Alerts section within Azure AD Connect Health Alerts for AD DS, provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. 
+The Alerts section within Azure AD Connect Health for AD DS, provides you a list of active and resolved alerts, related to your Domain Controllers. Selecting an active or resolved alert will open a new blade with additional information, along with resolution steps, and links to supporting documentation. 
 
-By selecting an active or resolved alert you will see a new blade with additional information, along with steps you can take to resolve the alert, and links to additional supporting documentation. You can also view historical data on alerts that were resolved in the past by changing the time range in view.
-![Azure AD Connect sync error](./media/active-directory-aadconnect-health-sync/alert.png)
+Enabling email notifications for alerts is available within this blade, as well as changing the time range in view. Expanding the time range will allow you to see prior resolved alerts.
+
+![Azure AD Connect sync error](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
 
 ## Domain Controllers
 This feature provides a view of your environment while grouping domain controllers by domain or site, and including key operational metrics. This provides a quick and easy way to understand not only the layout of your environment (great if you have a large set of domain controllers) but also a way to understand the health status and identify any domain controllers that may require further investigation.
