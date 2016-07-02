@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/29/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: How to add or remove a user role
@@ -42,7 +42,7 @@ If you want to give another user access to PIM itself, the roles which PIM requi
 6. Select the user from the search results list, and click **Done**.
 4. Click **OK** to save your selection. The user you have selected will appear in the list as eligible for tht role.
 
-> [AXURE.NOTE]
+> [AZURE.NOTE]
 >New users in a role are only eligible for the role by default. If you want to make the role permanent, click the user in the list. The user's information will appear in a new blade. Select **Make perm** in the user information menu.  
 >If a user cannot register for Azure Multi-Factor Authentication (MFA), or is using a Microsoft account (usually @outlook.com), you need to make them permanent in all their roles. Temporary admins are asked to register for MFA during activation.
 
