@@ -19,7 +19,7 @@
 
 # Create a complete Linux environment by using the Azure CLI
 
-Let's build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. You'll walk through the entire environment command by command, until you have working, secure Linux VMs to which you can connect from anywhere on the internet. Then you can move on to more complex networks and environments.
+Let's build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. You'll walk through the entire environment command by command, until you have working, secure Linux VMs to which you can connect from anywhere on the Internet. Then you can move on to more complex networks and environments.
 
 Along the way, you'll learn about the dependency hierarchy that the Resource Manager deployment model gives you and how much power it provides. After you see how the system is built, you can rebuild it much faster by using [Azure Resource Manager templates](../resource-group-authoring-templates.md). When you see how the parts of your environment fit together, creating templates to automate them becomes easier.
 
@@ -264,7 +264,7 @@ info:    group create command OK
 
 ## Create a storage account
 
-You need storage accounts for your VM disks and for any additional data disks you want to add, among other scenarios. You always create storage accounts almost immediately after you create resource groups.
+You need storage accounts for your VM disks and for any additional data disks you want to add. You create storage accounts almost immediately after you create resource groups.
 
 Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want.
 
@@ -306,14 +306,14 @@ data:
 info:    group show command OK
 ```
 
-Let's use the [jq](https://stedolan.github.io/jq/) tool along with the `--json` Azure CLI option to examine our resource group using the `azure group show` command. (You can use **jsawk** or any language library you prefer to parse the JSON.) 
+Let's use the [jq](https://stedolan.github.io/jq/) tool along with the `--json` Azure CLI option to examine our resource group by using the `azure group show` command. (You can use **jsawk** or any language library you prefer to parse the JSON.)
 
 ```bash
 azure group show TestRG --json | jq                                                                                      
 ```
 
 
-Output
+Output:
 
 ```bash
 {
@@ -345,19 +345,19 @@ Output
 }
 ```
 
-To investigate the storage account using the CLI, you need to first set the account names and keys using a variation of the following command, replacing the name of this article's storage account with your own.
+To investigate the storage account by using the CLI, you need to first set the account names and keys by using a variation of the following command. Replace the name of this article's storage account with a name that you choose.
 
 ```
 AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show computeteststore --resource-group testrg --json | jq -r '.string')"
 ```
 
-Then you'll be able to view your storage information easily:
+Then you can view your storage information easily:
 
 ```bash
 azure storage container list
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command storage container list
@@ -370,13 +370,13 @@ info:    storage container list command OK
 
 ## Create your Virtual Network and subnet
 
-You're going to need to create an Azure Virtual Network and a subnet into which you can install your VMs.
+You're going to need to create an Azure Virtual Network and a subnet in which you can install your VMs.
 
 ```bash
 azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network vnet create
@@ -399,7 +399,7 @@ Again, let's see how we're building our resources using the --json option of `az
 azure group show TestRG --json | jq '.'
 ```
 
-Output
+Output:
 
 ```bash
 {
@@ -438,13 +438,13 @@ Output
 }
 ```
 
-Now let's create a subnet in the `TestVnet` virtual network into which the VMs will be deployed. We use the `azure network vnet subnet create` command, along with the resources we've already created: the `TestRG` resource group, the `TestVNet` virtual network, and we'll add the subnet name `FrontEnd` and the subnet address prefix `192.168.1.0/24`, as follows.
+Now let's create a subnet in the `TestVnet` virtual network into which the VMs will be deployed. We use the `azure network vnet subnet create` command, along with the resources we've already created: the `TestRG` resource group, and the `TestVNet` virtual network. We'll add the subnet name `FrontEnd` and the subnet address prefix `192.168.1.0/24`, as follows:
 
 ```bash
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network vnet subnet create
@@ -460,13 +460,13 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-As the subnet is logically inside the virtual network, we'll look for the subnet information with a slightly different command -- `azure network vnet show`, but still examining the JSON output using **jq**.
+Because the subnet is logically inside the virtual network, we'll look for the subnet information with a slightly different command -- `azure network vnet show`, but while still examining the JSON output using **jq**.
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
 ```
 
-Output
+Output:
 
 ```bash
 {
@@ -497,15 +497,15 @@ Output
 }
 ```
 
-## Create your Public IP address (PIP)
+## Create your public IP address (PIP)
 
-Now let's create your public IP address (PIP) that we'll assign to your load balancer and enable you to connect to your VMs from the internet using the `azure network public-ip create` command. Because the default is a dynamic address, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `-d testsubdomain` option.
+Now let's create the public IP address (PIP) that we'll assign to your load balancer. It will enable you to connect to your VMs from the Internet by using the `azure network public-ip create` command. Because the default is a dynamic address, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `-d testsubdomain` option.
 
 ```bash
 azure network public-ip create -d testsubdomain TestRG TestPIP westeurope
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network public-ip create
@@ -530,7 +530,7 @@ This is also a top-level resource, so you can see it with `azure group show`.
 azure group show TestRG --json | jq '.'
 ```
 
-Output
+Output:
 
 ```bash
 {
@@ -583,13 +583,13 @@ Output
 }
 ```
 
-And, as always, you can investigate more resource details, including the subdomain fully qualified domain name (FQDN) using the more complete `azure network public-ip show` command. Note that the public IP address resource has been allocated logically, but there is not yet a specific address assigned. For that, you're going to need a load balancer, which we have not yet created.
+You can investigate more resource details, including the subdomain fully qualified domain name (FQDN), by using the more complete `azure network public-ip show` command. Note that the public IP address resource has been allocated logically, but there is not yet a specific address assigned. For that, you're going to need a load balancer, which we have not yet created.
 
 ```bash
 azure network public-ip show TestRG TestPIP --json | jq '.'
 ```
 
-Output
+Output:
 
 ```bash
 {
@@ -609,7 +609,7 @@ Output
 ```
 
 ## Create your load balancer and IP pools
-Creating a load balancer allows you to distribute traffic across multiple VMs, such as when running web applications. It also provides redundancy to your application by running multiple VMs that respond to users requests in the event of maintenance or heavy load.
+When you create a load balancer, it enables you to distribute traffic across multiple VMs--when running web applications, for example. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads.
 
 We create our load balancer with:
 
@@ -621,7 +621,7 @@ azure network lb create -g TestRG -n TestLB -l westeurope
 azure network lb create -g TestRG -n TestLB -l westeurope
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network lb create
@@ -634,7 +634,7 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Our load balancer is pretty empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for our front-end, and one for our back-end. The front-end IP pool is what we'll have publicly visible and where we'll assign the PIP we created earlier. The back-end pool we'll then use for our VMs to connect to in order for the traffic to flow through the load balancer to them.
+Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer--one for the front end and one for the back end. The front-end IP pool is what will be publicly visible and where we'll assign the PIP that we created earlier. The back-end pool we'll then use for our VMs to connect to so that the traffic can flow through the load balancer to them.
 
 First, let's create our front-end IP pool:
 
@@ -642,7 +642,7 @@ First, let's create our front-end IP pool:
 azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network lb frontend-ip create
@@ -656,7 +656,7 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/Te
 info:    network lb frontend-ip create command OK
 ```
 
-Note how we used the `--public-ip-name` switch to pass in the TestLBPIP we created earlier. This assigns the public IP address to the load balancer so we can reach our VMs across the Internet.
+Note how we used the `--public-ip-name` switch to pass in the TestLBPIP that we created earlier. This assigns the public IP address to the load balancer so we can reach our VMs across the Internet.
 
 Next, let's create our second IP pool, this time for our back-end traffic:
 
@@ -664,7 +664,7 @@ Next, let's create our second IP pool, this time for our back-end traffic:
 azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network lb address-pool create
@@ -675,13 +675,13 @@ data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-We can check how our load balancer is looking with `azure network lb show` and examining the JSON output:
+We can see how our load balancer is by looking with `azure network lb show` and examining the JSON output:
 
 ```bash
 azure network lb show TestRG TestLB --json | jq '.'
 ```
 
-Output
+Output:
 
 ```bash
 {
@@ -727,7 +727,7 @@ To actually get traffic flowing through our load balancer, we need to create NAT
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network lb inbound-nat-rule create
@@ -753,14 +753,14 @@ Repeat the procedure for your second NAT rule for SSH:
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. Rather than hooking up the rule to our VMs individually means we can simply add or remove VMs from the IP pool and have the load balancer automatically adjust the flow of traffic:
+Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. By doing this rather than hooking up the rule to our VMs individually means we can simply add or remove VMs from the IP pool and have the load balancer automatically adjust the flow of traffic:
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
      -t TestFrontEndPool -o TestBackEndPool
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network lb rule create
@@ -784,13 +784,13 @@ info:    network lb rule create command OK
 
 ## Create your load balancer health probe
 
-A health probe will periodically check on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they will be removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information on health probes, you can look read [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
+A health probe periodically checks on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they will be removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information about health probes, see [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network lb probe create
@@ -806,10 +806,10 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-Here, we specified an interval of 15 seconds for our health checks, and we can miss a maximum of 4 probes (1 minute) before the load balancer is going to consider that host to no longer be functioning.
+Here, we specified an interval of 15 seconds for our health checks, and we can miss a maximum of four probes (one minute) before the load balancer considers that the host is no longer functioning.
 
 ## Verify your load balancer
-That's all of the load balancer configuration done. You created a load balancer, created a front-end IP pool and assigned a public IP to it, then created a back-end IP pool that VMs will be connected to. Next, you created NAT rules that will allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app. Finally, to make sure that our users don't try to access a VM that is no longer functioning and serving content, you added a health probe to periodically check the VMs.
+Now the load balancer configuration is done. You created a load balancer. Then you created a front-end IP pool and assigned a public IP to it. Next you created a back-end IP pool that VMs will connect to. Next, you created NAT rules that allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app. Finally, to make sure that our users don't try to access a VM that is no longer functioning and serving content, you added a health probe to periodically check the VMs.
 
 Let's review what your load balancer now looks like:
 
@@ -817,7 +817,7 @@ Let's review what your load balancer now looks like:
 azure network lb show -g TestRG -n TestLB --json | jq '.'
 ```
 
-Output
+Output:
 
 ```bash
 {
@@ -936,7 +936,7 @@ Output
 
 ## Create a NIC to use with the Linux VM
 
-Even NICs are programmatically available, as you may apply rules to their use and have more than one. Note that in the following `azure network nic create` command, you hook up our NIC to the load back-end IP pool and associated with our NAT rule to permit SSH traffic. To do this, you need to specify the subscription ID of your Azure subscription in place of `<GUID>`:
+ NICs are programmatically available because you can apply rules to their use and have more than one. Note that in the following `azure network nic create` command, you hook up the NIC to the load back-end IP pool and associate it with our NAT rule to permit SSH traffic. To do this, you need to specify the subscription ID of your Azure subscription in place of `<GUID>`:
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
