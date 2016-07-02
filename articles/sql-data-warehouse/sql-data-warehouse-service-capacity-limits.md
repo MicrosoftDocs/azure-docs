@@ -103,7 +103,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 <!--Article references-->
 [Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management][]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 [Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
