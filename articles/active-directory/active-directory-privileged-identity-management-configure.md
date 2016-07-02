@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/01/2016"
 	ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management
@@ -85,6 +85,8 @@ Using the role activation setting you can configure the eligible role activation
 - The information a user needs to provide during the role activation process  
 
 ![PIM settings - administrator activation - screenshot][4]
+
+Note that in the image, the buttons for **Multi-Factor Authentication** are disabled. For certain, highly-privileged roles, we require MFA for heightened protection.
 
 ## Role activation  
 
