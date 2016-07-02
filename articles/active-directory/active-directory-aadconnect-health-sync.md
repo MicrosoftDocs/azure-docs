@@ -18,7 +18,7 @@
 	ms.author="billmath"/>
 
 # Using Azure AD Connect Health for sync
-The following documentation is specific to monitoring Azure AD Connect sync with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md).
+The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 
 ![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/sync.png)
 
