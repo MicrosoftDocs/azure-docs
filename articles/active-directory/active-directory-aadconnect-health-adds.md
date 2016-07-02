@@ -30,14 +30,14 @@ Enabling email notifications for alerts is available within this blade, as well 
 ![Azure AD Connect sync error](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
 
 ## Domain Controllers
-This feature provides a view of your environment while grouping domain controllers by domain or site, and including key operational metrics. This provides a quick and easy way to understand not only the layout of your environment (great if you have a large set of domain controllers) but also a way to understand the health status and identify any domain controllers that may require further investigation.
+This dashboard provides a comprehensive view of your environment, along with key operational metrics that help understand the health of your domain controllers. Domain Controllers can be grouped by their respective domain or site, which is helpful for understanding the enviroment topology. 
 
 ![Domain Controllers](./media/active-directory-aadconnect-health/aadconnect-health-adds-domainsandsites-dashboard.png)
 
-By default, only a preselected number of columns are displayed by default; however, to see more operations on the connector or to view operations from other connectors, click on the columns command and choose the specific metrics you are interested in.
+By default, only a preselected set of columns are displayed; however, to see more columns on the dashboard, click on the columns command and choose the specific columns you are interested in. Selecting an active or resolved alert will open a new blade with additional information, along with resolution steps, and links to supporting documentation. 
 
 ## Replication Status
-This feature enables you to keep an eye on the state of replication. Not only does it allow you to see where replication is happening from, but it also includes helpful links to documentation, when an error is found.
+This feature provides a view of the replication status and replication topology of your domian controllers. The status of the most recent replication attempt is listed, along with helpful documentation for any error that is found. Selecting a domain controller with an error will open a new blade with additional information, along with resolution steps, and links to troubleshooting documentation. 
 
 ![Replication Status](./media/active-directory-aadconnect-health/aadconnect-health-adds-replication.png)
 
