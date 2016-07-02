@@ -24,14 +24,14 @@ As you would expect, SQL Data Warehouse supports transactions as part of the dat
 SQL Data Warehouse implements ACID transactions. However, the Isolation of the transactional support is limited to `READ UNCOMMITTED` and this cannot be changed. You can implement a number of coding methods to prevent dirty reads of data if this is a concern for you. The most popular methods leverage both CTAS and table partition switching (often known as the sliding window pattern) to prevent users from querying data that is still being prepared. Views that pre-filter the data is also a popular approach.  
 
 ## Transaction size
-A single data modification transaction is limited in size. The limit today is applied "per distribution". To get the total figure therefore we must multiply the limit by the distribution count. To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each column. For variable length columns consider taking an average column length rather than using the maximum size.
+A single data modification transaction is limited in size. The limit today is applied "per distribution". Therefore, the total allocation can be calculated by multiplying the limit by the distribution count. To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each row. For variable length columns consider taking an average column length rather than using the maximum size.
 
 In the table below the following assumptions have been made:
 
 * An even distribution of data has occurred 
 * The average row length is 250 bytes
 
-| DWU	 | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) | # Rows per distribution | Max Rows per transaction |
+| [DWU][]	 | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) | # Rows per distribution | Max Rows per transaction |
 | ------ | -------------------------- | ----------------------- | -------------------------- | ----------------------- | ------------------------ |
 | DW100	 |  1                         | 60                      |   60                       |   4,000,000             |    240,000,000           |
 | DW200	 |  1.5                       | 60                      |   90                       |   6,000,000             |    360,000,000           |
@@ -110,7 +110,7 @@ SELECT @xact;
 Notice that the rollback of the transaction has to happen before the read of the error information in the `CATCH` Block.
 
 ## Error_Line() function
-It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code you will need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. Please refer to the [query labels] article for more details on this feature.
+It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code you will need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. Please refer to the [LABEL][] article for more details on this feature.
 
 ## Using THROW and RAISERROR
 THROW is the more modern implementation for raising exceptions in SQL Data Warehouse but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
@@ -130,13 +130,16 @@ They are as follows:
 - No support for DDL such as `CREATE TABLE` inside a user defined transaction
 
 ## Next steps
-For more development tips, see [development overview][].
+To learn more about optimizing transactions, see transactions [best practices][].  To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices][].
 
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-[transactions best practices]: sql-data-warehouse-develop-best-practices-transactions.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 
