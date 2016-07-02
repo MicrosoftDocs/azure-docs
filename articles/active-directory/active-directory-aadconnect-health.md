@@ -64,7 +64,7 @@ Azure AD Connect Health for AD DS supports Windows Server 2008 R2, Windows Serve
 
 - Monitoring with alerts to know when domain controllers are not healthy.
 - Domain Controllers dashboard that includes key operational metrics.
-- Replication SStatus dashboard with links to troubleshooting guides.
+- Replication Status dashboard with links to troubleshooting guides.
 - View trends in performance data, useful for troubleshooting and monitoring of AD DS.
 - Email notifications for critical alerts
 
