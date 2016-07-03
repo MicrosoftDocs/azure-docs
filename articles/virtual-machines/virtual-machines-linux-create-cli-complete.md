@@ -934,9 +934,9 @@ Output:
 }
 ```
 
-## Create a NIC to use with the Linux VM
+## Create an NIC to use with the Linux VM
 
- NICs are programmatically available because you can apply rules to their use and have more than one. Note that in the following `azure network nic create` command, you hook up the NIC to the load back-end IP pool and associate it with our NAT rule to permit SSH traffic. To do this, you need to specify the subscription ID of your Azure subscription in place of `<GUID>`:
+ NICs are programmatically available because you can apply rules to their use. You can also have more than one. Note that in the following `azure network nic create` command, you hook up the NIC to the load back-end IP pool and associate it with the NAT rule to permit SSH traffic. To do this, you need to specify the subscription ID of your Azure subscription in place of `<GUID>`:
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -944,7 +944,7 @@ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name T
      -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command network nic create
@@ -971,13 +971,13 @@ data:
 info:    network nic create command OK
 ```
 
-You can see the details by examining the resource directly, using the `azure network nic show` command.
+You can see the details by examining the resource directly. You do this by using the `azure network nic show` command.
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
 ```
 
-Output
+Output:
 
 ```bash
 {
@@ -1019,7 +1019,7 @@ Output
 }
 ```
 
-Let's go ahead and create the second NIC, hooking in to our back-end IP pool again, and this time the second of our NAT rules to permit SSH traffic:
+Now we'll create the second NIC, hooking in to our back-end IP pool again. This time the second NAT rule permits SSH traffic:
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -1027,7 +1027,7 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
     -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
 ```
 
-## Create your Network Security Group and rules
+## Create your network security group and rules
 
 Now we create your network security group (NSG) and the inbound rules that govern access to the NIC.
 
@@ -1047,7 +1047,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we will bind the NSG to the VMs virtual network interface card (NIC), which means that any request to port 22 will be passed through to the NIC on our VM. Because this is a rule about a network connection -- and not an endpoint as in classic deployments -- to open a port, you must leave the `--source-port-range` set to '\*' (the default value) in order to accept inbound requests from **any** requesting port, which are typically dynamic.
+> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual network interface card (NIC), which means that any request to port 22 will be passed through to the NIC on our VM. Because this is a rule about a network connection -- and not an endpoint as in classic deployments -- to open a port, you must leave the `--source-port-range` set to '\*' (the default value) in order to accept inbound requests from **any** requesting port, which are typically dynamic.
 
 ## Bind to the NIC
 
@@ -1068,22 +1068,24 @@ Availability sets help spread your VMs across what are known as fault domains an
 azure availset create -g TestRG -n TestAvailSet -l westeurope
 ```
 
-Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains will not affect every VM that is running your app. Azure will automatically distribute VMs across the fault domains when placing them in to an availability set.
+Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains will not affect every VM that is running your app. Azure  automatically distributes VMs across the fault domains when placing them in to an availability set.
 
-Upgrade domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. The order of upgrade domains being rebooted may not proceed sequentially during planned maintenance, but only one upgrade will be rebooted at a time. Again, Azure will automatically distribute your VMs across upgrade domains when they are placed within an availability site.
+Upgrade domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. The order in which upgrade domains are rebooted might not be sequential during planned maintenance, but only one upgrade will be rebooted at a time. Again, Azure automatically distributes your VMs across upgrade domains when they are placed within an availability site.
 
-You can read more about [managing the availability of VMs](./virtual-machines-linux-manage-availability.md)
+Read more about [managing the availability of VMs](./virtual-machines-linux-manage-availability.md).
 
 ## Create your Linux VMs
 
-You've created the storage and network resources to support an internet accessible VMs. Now let's create that VMs, and secure them with an SSH key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md). We selected an image using the command `azure vm image list westeurope canonical | grep LTS`, and in this case we'll use `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`, but for the last field we'll pass `latest` so that in the future we always get the most recent build (the string we use will be `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
+You've created the storage and network resources to support Internet- accessible VMs. Now let's create those VMs and secure them with an SSH key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md).
+
+We selected an image using the command `azure vm image list westeurope canonical | grep LTS`. In this case we'll use `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`, but for the last field we'll pass `latest` so that in the future we always get the most recent build. (The string we use will be `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
 
 > [AZURE.NOTE] This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can either create them:
 <br />
     1. automatically by using the `azure vm create --generate-ssh-keys` option
-    2. manually using [the instructions to create them youself](virtual-machines-linux-ssh-from-linux.md)
+    2. manually by using [the instructions to create them youself](virtual-machines-linux-ssh-from-linux.md)
 <br />
-Alternatively, you can use the `azure vm create --admin-username --admin-password` options to use the typically less secure username and password method of authenticating your ssh connections once the VM is created.
+Alternatively, you can use the `azure vm create --admin-username --admin-password` options to use the typically less secure username and password method of authenticating your ssh connections after the VM is created.
 
 We create the VM by bringing all of our resources and information together with the `azure vm create` command.
 
@@ -1103,7 +1105,7 @@ azure vm create \
     --admin-username ops
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command vm create
@@ -1122,13 +1124,13 @@ info:    The storage URI 'https://computeteststore.blob.core.windows.net/' will 
 info:    vm create command OK
 ```
 
-Immediately, you can connect to your VM using your default SSH keys, making sure you specify the appropriate port since we're passing through the load balancer (for our first VM, we set up the NAT rule to forward port 4222 to our VM):
+You can connect to your VM immediately by using your default SSH keys. Make sure you specify the appropriate port since we're passing through the load balancer. (For our first VM, we set up the NAT rule to forward port 4222 to our VM):
 
 ```bash
  ssh ops@testlb.westeurope.cloudapp.azure.com -p 4222
 ```
 
-Output
+Output:
 
 ```bash
 The authenticity of host '[testlb.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1183,13 +1185,13 @@ azure vm create \
     --admin-username ops
 ```
 
-And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you have your running Ubuntu VMs behind a load balancer in Azure that you can only log into with the SSH key pair that you have; passwords are disabled. You can install nginx or httpd and deploy a web app and see the traffic flow through the load balancer to both of the VMs.
+And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you have your running Ubuntu VMs behind a load balancer in Azure that you can only sign into with the SSH key pair that you have because passwords are disabled. You can install nginx or httpd, deploy a web app, and see the traffic flow through the load balancer to both of the VMs.
 
 ```bash
 azure vm show TestRG TestVM1
 ```
 
-Output
+Output:
 
 ```bash
 info:    Executing command vm show
@@ -1247,13 +1249,13 @@ info:    vm show command OK
 
 
 ## Export the environment as a template
-Now that you have built out this environment, what if you want to create an additional development environment using the same parameters, or if you want to now create a production environment that matches? Resource Manager uses JSON templates that define all the parameters for your environment, allowing to you build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md), or simply export an existing environment to create the JSON template for you:
+Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment, allowing to you build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or simply export an existing environment to create the JSON template for you:
 
 ```bash
 azure group export TestRG
 ```
 
-This creates the `TestRG.json` file in your current working directory. When you then create a new environment from this template, you will prompted for all of the resource names such as for the load balancer, network interfaces, VMs, etc. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown above, editing your JSON template to specify the resource names, or by [creating a parameters.json file](../resource-group-authoring-templates.md#parameters) that just specifies the resource names.
+This creates the `TestRG.json` file in your current working directory. When you create a new environment from this template, you will prompted for all of the resource names such, including the names for the load balancer, network interfaces, VMs, and so on. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that  specifies the resource names.
 
 To create a new environment from your template:
 
@@ -1261,8 +1263,8 @@ To create a new environment from your template:
 azure group deployment create -f TestRG.json -g NewRGFromTemplate
 ```
 
-You may want to read [more details on deploying from templates](../resource-group-template-deploy-cli.md), including how to incrementally update environments, use the parameters file, and access templates from a single storage location.
+You might want to read [more details about how to deploy from templates](../resource-group-template-deploy-cli.md), including how to incrementally update environments, use the parameters file, and access templates from a single storage location.
 
 ## Next steps
 
-Now you're ready to begin with multiple networking components and VMs. You can use this sample environment to build out your application using the core components introduced here.
+Now you're ready to begin working with multiple networking components and VMs. You can use this sample environment to build out your application by using the core components introduced here.
