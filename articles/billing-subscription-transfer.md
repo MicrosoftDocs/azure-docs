@@ -32,10 +32,8 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **Subscription**.
 3. Select the subscription you want to check, and then select **Settings**.
-
   ![settings](./media/billing-subscription-transfer/settings.png)
 4. Select **Properties**. The account administrator of the subscription will be displayed in the **ACCOUNT ADMIN** box.
-
   ![checkaa](./media/billing-subscription-transfer/checkaa.png)
 
 ## How to transfer ownership an Azure subscription
