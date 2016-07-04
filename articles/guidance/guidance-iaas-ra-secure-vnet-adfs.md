@@ -117,8 +117,6 @@ The internal load balancer in the AD FS subnet provides access to the AD FS serv
 
 	[![19]][19]
 
-- *Health Probe - use federation metadata endpoint? - TBC*
-
 Using the *DNS Manager* console on the instance of AD DS running DNS, add an *A* record for the load balancer to the domain. Specify the IP address of the load balancer, and give it a name in the domain (adfs.contoso.com in the image shown below). This is the name by which clients will access the AD FS server farm.
 
 [![20]][20]
@@ -129,19 +127,11 @@ Perform the following tasks before configuring the first AD FS server in the far
 
 1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* and *subject alternative name* must contain the name by which clients access the federation service. This can be the DNS name registered for the load balancer, for example, adfs.contoso.com, or an appropriate wildcard such as *.contoso.com. You should use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own. For more information, see [Obtain and Configure an SSL Certificate for AD FS][adfs_certificates].
 
-2. [Create and configure a dedicated service account][create_service_account_for_adfs_farm] for running the servers in the federation server farm. Perform this operation using the *Active Directory Users and Computers* console on one of the AD DS domain controllers (unless you have already joined the AD DS server to the domain). Make sure that the password policy for this service is set to *Password never expires*.
-
-	[![21]][21]
-
-	>[AZURE.NOTE] Do not use the Network Service account for the AD FS service because it can result in random failures as a result of Kerberos tickets not validating from one server to another.
-
-3. On the domain controller, use the following PowerShell command to register the Service Principal Name (SPN) that will be used to access the server farm. Specify that the AD FS service will use the service account created in the previous step. For example:
+2. On the domain controller, use the following PowerShell command to generate a new root key for the Key Distribution Service. Set the effective time to be the current time minus 10 hours (this configuration reduces the delay that can occur in distributing and synchronizing keys across the domain). This step is necessary to support the group service account that will be used to run the AD FS service:
 
 	```powershell
-	setspn -a host/adfs.contoso.com ADFSService
+	Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
 	```
-
-	In this example, adfs.contoso.com is the DNS name of the load balancer in front of the AD FS servers, and ADFSService is the service account that will be used by the AD FS service. 
 
 On each AD FS server VM, perform the following tasks:
 
@@ -173,8 +163,8 @@ On each AD FS server VM, perform the following tasks:
 
 		[![26]][26]
 
-	- On the *Specify Service Account* page, select *Use an existing domain user account or group Managed Service Account*, and provide the account name of the dedicated service account and password, created earlier:
-
+	- On the *Specify Service Account* page, select *Create a Group Managed Service Account*, and provide a name for the new service account (such as `adfsservice`):
+	
 		[![27]][27]
 
 	- On the *Specify Configuration Database* page, select *Create a database on this server using Windows Internal Database*:
@@ -186,6 +176,8 @@ On each AD FS server VM, perform the following tasks:
 		```powershell
  		set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 		```
+
+	- Restart the VM.
 
 7. If this is not the first AD FS server VM in the AD FS server farm, perform the following steps:
 
@@ -201,11 +193,13 @@ On each AD FS server VM, perform the following tasks:
 
 	- On the *Specify Certificate* page, import the certificate to use for authenticating the server. Note that all AD FS servers in the farm should use the same certificate.
 
-	- On the *Specify Service Account* page, provide the account name of the dedicated service account and password, created earlier.
+	- On the *Specify Service Account* page, provide the account name of the service account and password, created when you set up the first server in the farm (`adfsservice` in the earlier example).
+
+	- When the installation has finished, restart the VM.
 
 8. Verify that the AD FS server farm has been correctly installed as follows:
 
-	- Using Internet Explorer on any VM in the cloud, browse to `https://<FQDN>/adfs/ls/IdpInitiatedSignon.aspx`, where <FQDN> is the DNS name assigned to the load balancer (adfs.contoso.com in the previous examples). The *Sign In* page should appear:
+	- Using Internet Explorer on any VM in the domain, browse to `https://<FQDN>/adfs/ls/IdpInitiatedSignon.aspx`, where `<FQDN>` is the DNS name assigned to the load balancer (adfs.contoso.com in the previous examples). The *Sign In* page should appear:
 
 		[![32]][32]
 
