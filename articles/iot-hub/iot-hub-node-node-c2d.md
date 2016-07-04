@@ -24,7 +24,7 @@
 
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of IoT devices and an application back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device that sends device-to-cloud messages.
 
-This tutorial builds on [Get started with IoT Hub]. It shows you how to
+This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
 - From your application cloud back end, send cloud-to-device messages to a single device through IoT Hub.
 - Receive cloud-to-device messages on a device.
@@ -106,52 +106,52 @@ In this section, you'll create a Node.js console app that sends cloud-to-device 
 
 5. Add the following code to **SendCloudToDeviceMessage.js** file and replace the connection string placeholder value with the connection string for the IoT hub you created in the [Get started with IoT Hub] tutorial and the target device placeholder with the device id of the device you added in the [Get started with IoT Hub] tutorial:
 
-  ```
-  var connectionString = '{iot hub connection string}';
-  var targetDevice = '{device id}';
+    ```
+    var connectionString = '{iot hub connection string}';
+    var targetDevice = '{device id}';
 
-  var serviceClient = Client.fromConnectionString(connectionString);
-  ```
+    var serviceClient = Client.fromConnectionString(connectionString);
+    ```
 
 6. Add the following function to print operation results to the console:
 
-  ```
-  function printResultFor(op) {
-    return function printResult(err, res) {
-      if (err) console.log(op + ' error: ' + err.toString());
-      if (res) console.log(op + ' status: ' + res.constructor.name);
-    };
-  }
-  ```
+    ```
+    function printResultFor(op) {
+      return function printResult(err, res) {
+        if (err) console.log(op + ' error: ' + err.toString());
+        if (res) console.log(op + ' status: ' + res.constructor.name);
+      };
+    }
+    ```
 
 7. Add the following function to print delivery feedback messages to the console:
 
-  ```
-  function receiveFeedback(err, receiver){
-    receiver.on('message', function (msg) {
-      console.log('Feedback message:')
-      console.log(msg.getData().toString('utf-8'));
-    });
-  }
-  ```
-
-8. Add the following code to send a message to your device and handle the feedback message when the device has acknowledged the cloud-to-device message:
-
-  ```
-  serviceClient.open(function (err) {
-    if (err) {
-      console.error('Could not connect: ' + err.message);
-    } else {
-      console.log('Service client connected');
-      serviceClient.getFeedbackReceiver(receiveFeedback);
-      var message = new Message('Cloud to device message.');
-      message.ack = 'full';
-      message.messageId = "My Message ID";
-      console.log('Sending message: ' + message.getData());
-      serviceClient.send(targetDevice, message, printResultFor('send'));
+    ```
+    function receiveFeedback(err, receiver){
+      receiver.on('message', function (msg) {
+        console.log('Feedback message:')
+        console.log(msg.getData().toString('utf-8'));
+      });
     }
-  });
-  ```
+    ```
+
+8. Add the following code to send a message to your device and handle the feedback message when the device acknowledges the cloud-to-device message:
+
+    ```
+    serviceClient.open(function (err) {
+      if (err) {
+        console.error('Could not connect: ' + err.message);
+      } else {
+        console.log('Service client connected');
+        serviceClient.getFeedbackReceiver(receiveFeedback);
+        var message = new Message('Cloud to device message.');
+        message.ack = 'full';
+        message.messageId = "My Message ID";
+        console.log('Sending message: ' + message.getData());
+        serviceClient.send(targetDevice, message, printResultFor('send'));
+      }
+    });
+    ```
 
 7. Save and close **SendCloudToDeviceMessage.js** file.
 
@@ -159,7 +159,7 @@ In this section, you'll create a Node.js console app that sends cloud-to-device 
 
 You are now ready to run the applications.
 
-1. Tt the command-prompt in the **simulateddevice** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
+1. At the command-prompt in the **simulateddevice** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
 
     ```
     node SimulatedDevice.js 
