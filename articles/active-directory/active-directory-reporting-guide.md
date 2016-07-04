@@ -27,5 +27,4 @@
  - [Azure Active Directory Reporting Backfill](active-directory-reporting-backfill.md)
  - [Azure Active Directory Reporting Latencies](active-directory-reporting-latencies.md)
  - [Azure Active Directory Reporting "Unknown Actor" event](active-directory-reporting-unknown-actor.md)
- - [Azure Active Directory All User Sign In Activity Report](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [View your access and usage reports](active-directory-view-access-usage-reports.md)

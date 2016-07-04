@@ -5,7 +5,7 @@
 	documentationCenter="ios"
     keywords="push notification,push notifications,ios push notifications"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Sending push notifications to iOS with Azure Notification Hubs
