@@ -39,19 +39,19 @@ The following steps show how to request a quota adjustment.
 
 	![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
 
-2. In the **Help + support** blade, click **Get Support**.
+2. In the **Help + support** blade, click **Create support request**.
 
 	![Screenshot of creating a support ticket](media/documentdb-increase-limits/getsupport.png)
 
-3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your DocumentDB account, **Service** to **DocumentDB**, and **Support plan** to **Quota SUPPORT - Included**. Finally, click **Next**.
+3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your DocumentDB account, **Quota type** to **DocumentDB**, and **Support plan** to **Quota SUPPORT - Included**. Finally, click **Next**.
 
 	![Screenshot of support ticket request type](media/documentdb-increase-limits/supportrequest1.png)
 
-4. In the **Problem** blade, choose a severity. Set **Problem type** to **DocumentDB** and include information about your quota increase in **Details**. Click **Next**.
+4. In the **Problem** blade, choose a severity and include information about your quota increase in **Details**. Click **Next**.
 
 	![Screenshot of support ticket subscription picker](media/documentdb-increase-limits/supportrequest2.png)
 
-5. Finally, fill in your contact information in the **Contact information** blade.
+5. Finally, fill in your contact information in the **Contact information** blade and click **Create**.
 
 	![Screenshot of support ticket resource picker](media/documentdb-increase-limits/supportrequest3.png)
 
