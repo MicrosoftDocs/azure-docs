@@ -19,9 +19,12 @@
 # How to build an application that can sign in any Azure Active Directory (AD) user (multi-tenant application)
 If you offer a Software as a Service application to many organizations, you can configure your application to accept sign-ins from any Azure AD tenant.  In Azure AD this is called making your application multi-tenant.  Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.  If you have an existing application that has its own account system, or supports other kinds of sign in from other cloud providers, adding Azure AD sign in from any tenant is as simple as registering your app, adding sign in code via OAuth2, OpenID Connect, or SAML, and putting a Sign In with Microsoft button on your application.
 
+![Sign in button][AAD-Sign-In] 
+
 This article assumes you’re already familiar with building a single tenant application for Azure AD.  If you’re not, head back up to the [developer guide homepage][AAD-Dev-Guide] and try one of our quick starts!
 
 There are four simple steps to convert your application into an Azure AD multi-tenant app:
+
 1.	Update your application registration to be multi-tenant
 2.	Update your code to send requests to the /common endpoint 
 3.	Update your code to handle multiple issuer values
@@ -32,7 +35,7 @@ Let’s look at each step in detail.
 ## Update registration to be multi-tenant
 By default, web app/API registrations in Azure AD are single tenant.  You can make your registration multi-tenant by finding the “Application is Multi-Tenant” switch on the configuration page of your application registration in the Azure classic portal and setting it to “Yes”.
 
->AZURE.NOTE: Before an application can be made multi-tenant, Azure AD requires the App ID URI of the application to be globally unique.
+> [AZURE.NOTE] Before an application can be made multi-tenant, Azure AD requires the App ID URI of the application to be globally unique.
 
 The App ID URI is one of the ways an application is identified in protocol messages.  For a single tenant app, it is sufficient for the App ID URI to be unique within that tenant.  For a multi-tenant application, it must be globally unique so Azure AD can find the application across all tenants.  Global uniqueness is enforced by requiring the App ID URI to have a host name that matches a verified domain of the Azure AD tenant.  For example, if the name of your tenant was contoso.onmicrosoft.com then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`.  If your tenant had a verified domain of `contoso.com`, then a valid App ID URI would also be `https://contoso.com/myapp`.  Setting an application as multi-tenant will fail if the App ID URI doesn’t follow this pattern.
 
@@ -105,7 +108,7 @@ If an application requires administrator consent, and the administrator signs in
 
 A tenant administrator can disable the ability for regular users to consent to applications.  If this capability is disabled, admin consent is always required for the application to be set up in the tenant.  If you want to test your application regular user consent disabled, you can find the configuration switch in the Azure AD tenant configuration section of the Azure portal.
 
->AZURE.NOTE: Some applications want an experience where regular users are able to consent initially, and later the application can involve the administrator and request permissions that require admin consent.  There is no way to do this with a single application registration in Azure AD today.  The upcoming Azure AD v2 endpoint will allow applications to request permissions at runtime, instead of at registration time, which will enable this scenario.  For more information, see the [Azure AD App Model v2 Developer Guide][AAD-V2-Dev-Guide].
+> [AZURE.NOTE] Some applications want an experience where regular users are able to consent initially, and later the application can involve the administrator and request permissions that require admin consent.  There is no way to do this with a single application registration in Azure AD today.  The upcoming Azure AD v2 endpoint will allow applications to request permissions at runtime, instead of at registration time, which will enable this scenario.  For more information, see the [Azure AD App Model v2 Developer Guide][AAD-V2-Dev-Guide].
 
 ### Consent and multi-tier applications
 Your application may have multiple tiers, each represented by its own registration in Azure AD.  For example, a native application that calls a web API, or a web application that calls a web API.  In both of these cases, the client (native app or web app) requests permissions to call the resource (web API).  For the client to be successfully consented into a customer’s tenant, all resources to which it requests permissions must already exist in the customer’s tenant.  If this condition isn’t met, Azure AD will return an error that the resource must be added first.
@@ -137,10 +140,10 @@ The [Azure AD Developer's Guide][AAD-Dev-Guide] is the main portal to use for al
 
 [These samples][AAD-MT-Samples] demonstrate a variety of Azure AD multi-tenant applications.
 
-For information related to the Azure AD Graph API, see:
+For information related to the Azure AD Graph API, see:  
 - [Azure Active Directory Graph API][AAD-Graph-Overview] for an overview
 - [Microsoft Graph API Permission Scopes][MSFT-Graph-AAD] for the Microsoft Graph REST implementation
-- [Azure AD Graph API Permission Scopes][AAD-Graph-Perm-Scopes] for the Azure AD REST implementation.
+- [Azure AD Graph API Permission Scopes][AAD-Graph-Perm-Scopes] for the Azure AD REST implementation
 
 Please use the Disqus comments section below to provide feedback and help us refine and shape our content.
 
@@ -158,7 +161,7 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
-
+[AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 
 
 
