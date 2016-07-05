@@ -18,13 +18,15 @@
 
 # Authenticating and authorizing with Power BI Embedded
 
-The Power BI Embedded service uses Keys and App Tokens for authentication and authorization instead of explicit end-user authentication. In this model, your application manages authentication and authorization for your end-users. When necessary, your app creates and sends the App Tokens that tells our service to render the requested report. This design does not require your app to use Azure Active Directory for user authentication and authorization, although you still can.
+The Power BI Embedded service uses **Keys** and **App Tokens** for authentication and authorization, instead of explicit end-user authentication. In this model, your application manages authentication and authorization for your end-users. When necessary, your app creates and sends the App Tokens that tells our service to render the requested report. This design doesn't require your app to use Azure Active Directory for user authentication and authorization, although you still can.
 
 ## Two ways to authenticate
 
-**Key** -  You can use keys for all Power BI Embedded REST API calls. The keys can be found in the Azure portal by clicking on All settings and then Access keys. Always treat your key as if it were a password. These keys have permissions to make any REST API call on a particular workspace collection.
+**Key** -  You can use keys for all Power BI Embedded REST API calls. The keys can be found in the **Azure portal** by clicking on **All settings** and then **Access keys**. Always treat your key as if it were a password. These keys have permissions to make any REST API call on a particular workspace collection.
 
-To use a key on a REST call, add the following authorization header: **Authorization: AppKey {your key}**
+To use a key on a REST call, add the following authorization header:            
+
+    Authorization: AppKey {your key}
 
 **App token** - App tokens are used for all embedding requests. They’re designed to be run client-side, so they're restricted to a single report and it’s best practice to set an expiration time.
 

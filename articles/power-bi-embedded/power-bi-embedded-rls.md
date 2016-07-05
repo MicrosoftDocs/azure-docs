@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/01/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # Row level security with Power BI Embedded
@@ -100,6 +100,8 @@ The full app token will look something like this:
 ![](media\power-bi-embedded-rls\pbi-embedded-rls-app-token-string-12.png)
 
 Now, with all the pieces together, when someone logs into our application to view this report, they’ll only be able to see the data that they are allowed to see, as defined by our row-level security.
+
+![](media\power-bi-embedded-rls\pbi-embedded-rls-dashboard-13.png)
 
 ## See also
 [Row-level security (RLS) with Power](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
