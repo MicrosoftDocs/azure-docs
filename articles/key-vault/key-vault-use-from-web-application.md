@@ -244,7 +244,7 @@ To learn more about adding a Certificate to a Web App, see [Using Certificates i
 
 
 **Add a Certificate to Key Vault as a secret**
-Instead of uploading your certificate to the Web App service, you can store it and deploy from Key Vault as a secret. This is a two-step process that is outlined in the blog post, [Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
+Instead of uploading your certificate to the Web App service directly, you can store it in Key Vault as a secret and deploy it from there. This is a two-step process that is outlined in the following blog post, [Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
 
 
