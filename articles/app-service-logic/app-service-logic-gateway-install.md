@@ -23,19 +23,24 @@
 ### Prerequisites
 
 Minimum:
+
 * .NET 4.5 Framework
 * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
 Recommended:
+
 * 8 Core CPU
 * 8 GB Memory
 * 64-bit version of Windows 2012 R2 (or later)
 
 Related considerations:
+
 * You can't install a gateway on a domain controller.
 * You shouldn't install a gateway on a computer, such a laptop, that may be turned off, asleep, or not connected to the Internet because the gateway can't run under any of those circumstances. In addition, gateway performance might suffer over a wireless network.
 
 ### Install a gateway
+
+You can get the [installer for the on-premises data gateway here](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 Specify **On-premises data gateway** as the mode, sign in with your work or school account, and then either configure a new gateway or migrate, restore, or take over an existing gateway.
 
@@ -78,7 +83,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-If you want to be exhaustive, substitute the **ComputerName** and **Port** values with those listed under [Configure ports](#Configure-ports) later in this topic.
+If you want to be exhaustive, substitute the **ComputerName** and **Port** values with those listed under [Configure ports](#configure-ports) later in this topic.
 
 The firewall may also be blocking the connections that the Azure Service Bus makes to the Azure data centers. If that is the case, you'll want to whitelist (unblock) all of the IP addresses for your region for those data centers. You can get a list of [Azure IP addresses here](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -88,16 +93,16 @@ The gateway creates an outbound connection to Azure Service Bus. It communicates
 
 Learn more about [hybrid solutions](../service-bus/service-bus-fundamentals-hybrid-solutions.md).
 
-| DOMAIN NAMES	| OUTBOUND PORTS | DESCRIPTION |
-| -- | -- | -- |
-|*.analysis.windows.net | 443 |HTTPS
-|*.login.windows.net | 443 | HTTPS
-|*.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP)
-|*.servicebus.windows.net | 443, 9350-9354 |Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition)
-|*.frontend.clouddatahub.net |443 |HTTPS
-|*.core.windows.net	| 443 | HTTPS
-|login.microsoftonline.com| 443 | HTTPS
-|*.msftncsi.com | 443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service.
+| DOMAIN NAMES | OUTBOUND PORTS | DESCRIPTION |
+| ----- | ------ | ------ |
+| *.analysis.windows.net | 443 | HTTPS |
+| *.login.windows.net | 443 | HTTPS |
+| *.servicebus.windows.net |5671-5672 | Advanced Message Queuing Protocol (AMQP) |
+| *.servicebus.windows.net | 443, 9350-9354 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
+| *.frontend.clouddatahub.net | 443 | HTTPS |
+| *.core.windows.net | 443 | HTTPS |
+| login.microsoftonline.com | 443 | HTTPS |
+| *.msftncsi.com | 443 | Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
 
 If you need to white list IP addresses instead of the domains, you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). In some cases, the Azure Service Bus connections will be made with IP Address instead of the fully qualified domain names.
 
@@ -115,59 +120,68 @@ This isn't the account used to connect to on-premises data sources or the work o
 
 ### General
 
-**Question**: What data sources does the gateway support?
-**Answer**: As of this writing, SQL Server and SharePoint.
+**Question**: What data sources does the gateway support?<br/>
+**Answer**: As of this writing, SQL Server.
 
-**Question**: Do I need a gateway for data sources in the cloud, such as SQL Azure? 
+**Question**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
 **Answer**: No. A gateway connects to on-premises data sources only.
 
-**Question**: What is the actual Windows service called? 
+**Question**: What is the actual Windows service called?<br/>
 **Answer**: In Services, the gateway is called Power BI Enterprise Gateway Service.
 
-**Question**: Are there any inbound connections to the gateway from the cloud? 
+**Question**: Are there any inbound connections to the gateway from the cloud? <br/>
 **Answer**: No. The gateway uses outbound connections to Azure Service Bus.
 
-**Question**: What if I block outbound connections? What do I need to open? 
+**Question**: What if I block outbound connections? What do I need to open? <br/>
 **Answer**: See the ports and hosts that the gateway uses.
 
-**Question**: Does the gateway have to be installed on the same machine as the data source? 
+
+**Question**: Does the gateway have to be installed on the same machine as the data source? <br/>
 **Answer**: No. The gateway will connect to the data source using the connection information that was provided. Think of the gateway as a client application in this sense. 
 It will just need to be able to connect to the server name that was provided.
 
-**Question**: What is the latency for running queries to a data source from the gateway? What is the best architecture? 
+
+**Question**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
 **Answer**: To reduce network latency, install the gateway as close to the data source as possible. If you can install the gateway on the actual data source, it will minimize the latency introduced. Consider the data centers as well. For example, if your service is using the West US data center and you have SQL Server hosted in an Azure VM, you'll want to have the Azure VM in West US as well. This will minimize latency and avoid egress charges on the Azure VM.
 
-**Question**: Are there any requirements for network bandwidth? 
+
+**Question**: Are there any requirements for network bandwidth? <br/>
 **Answer**: It is recommended to have good throughput for your network connection. Every environment is different, and the amount of data being sent will affect the results. Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure data centers.
 
 You can use the third-party tool Azure Speed Test app to help gauge what your throughput is.
 
-**Question**: Can the gateway Windows service run with an Azure Active Directory account? 
+
+**Question**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
 **Answer**: No. The Windows service must have a valid Windows account. By default, it will run with the Service SID, NT SERVICE\PBIEgwService.
 
-**Question**: How are results sent back to the cloud? 
+
+**Question**: How are results sent back to the cloud? <br/>
 **Answer**: This is done by way of the Azure Service Bus. For more information, see how it works.
 
-**Question**: Where are my credentials stored? 
+
+**Question**: Where are my credentials stored? <br/>
 **Answer**: The credentials that you enter for a data source are stored encrypted in the gateway cloud service. The credentials are decrypted at the gateway on-premises.
 
 ### High availability/disaster recovery
 
-**Question**: Are there any plans for enabling high availability scenarios with the gateway? 
+**Question**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
 **Answer**: This is on the roadmap, but we don’t have a timeline yet.
 
-**Question**: What options are available for disaster recovery? 
+
+**Question**: What options are available for disaster recovery? <br/>
 **Answer**: You can use the recovery key to restore or move a gateway. When you install the gateway, specify the recovery key.
 
-**Question**: What is the benefit of the recovery key? 
+
+**Question**: What is the benefit of the recovery key? <br/>
 **Answer**: It provides a way to migrate or recover your gateway settings after a disaster.
 
 ### Troubleshooting
 
-**Question**: Where are the gateway logs? 
+**Question**: Where are the gateway logs? <br/>
 **Answer**: See Tools later in this topic.
 
-**Question**: How can I see what queries are being sent to the on-premises data source? 
+
+**Question**: How can I see what queries are being sent to the on-premises data source? <br/>
 **Answer**: You can enable query tracing, which will include the queries being sent. Remember to change it back to the original value when done troubleshooting. Leaving query tracing enabled will cause the logs to be larger.
 
 You can also look at tools that your data source has for tracing queries. For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
@@ -218,3 +232,8 @@ The Data Management Gateway and PowerBIGateway logs are present under **Applicat
 ### Fiddler Trace
 
 [Fiddler](http://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic.  You can see the back and forth with the Power BI service from the client machine. This may show errors and other related information.
+
+## Next Steps
+- [Create an on-premises connection to Logic Apps](app-service-logic-gateway-connection.md)
+- [Enterprise integration features](app-service-logic-enterprise-integration-overview.md)
+- [Logic Apps connectors](../connectors/apis-list.md)
