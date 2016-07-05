@@ -25,6 +25,10 @@
 
 Advanced users can fix SQL Server database compatibility issues using SQL Server Management Studio before migration to Azure SQL Database.
 
+
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## Using SQL Server Management Studio
 
 Use SQL Server Management Studio to fix compatibility issues using various Transact-SQL commands, such as **ALTER DATABASE**. This method is primarily for advanced users that are comfortable working Transact-SQL on a live database. Otherwise, it is recommended that you use SSDT. 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/05/2016"
 	ms.author="casoper"/>
 
 
@@ -37,3 +37,6 @@ This topic lists current POP locations for **Azure CDN from Verizon** and **Azur
 | Middle East/West Asia | Muscat, Oman | **&#x2713;**\* |
 | Africa | | **&#x2713;**\* |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia | **&#x2713;**\* |
+
+## See Also
+* [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx)
