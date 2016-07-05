@@ -108,7 +108,7 @@ If you want to download the metrics for long-term storage or to analyze them loc
 - Write a custom application or script to read and store the tables.
 
 Many third-party storage-browsing tools are aware of these tables and enable you to view them directly.
-Please see [Azure Storage Explorers](../storage-explorers.md) for a list of available tools.
+Please see [Azure Storage Explorers](storage-explorers.md) for a list of available tools.
 
     > [AZURE.NOTE] Starting with version 0.8.0 of the [Microsoft Azure Storage Explorer] (http://storageexplorer.com/), you will now be able to view and download the analytics metrics tables.
 
