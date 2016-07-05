@@ -35,7 +35,7 @@ They do not require you to change your code or redeploy your application.
 
 For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/web-sites/).  
 
-> [AZURE.NOTE] Before switching an App Service plan from the **Free** tier, you must first remove the spending caps in place for your Azure App Service subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+> [AZURE.NOTE] Before switching an App Service plan from the **Free** tier, you must first remove the [spending limits](/pricing/spending-limits/) in place for your Azure subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a>
 <a name="scalingstandard"></a>
