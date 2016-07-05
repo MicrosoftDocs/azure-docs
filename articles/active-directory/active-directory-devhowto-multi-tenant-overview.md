@@ -17,7 +17,9 @@
    ms.author="skwan;bryanla"/>
 
 # How to build an application that can sign in any Azure Active Directory (AD) user (multi-tenant application)
-If you offer a Software as a Service application to many organizations, you can configure your application to accept sign-ins from any Azure AD tenant.  In Azure AD this is called making your application multi-tenant.  Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.  If you have an existing application that has its own account system, or supports other kinds of sign in from other cloud providers, adding Azure AD sign in from any tenant is as simple as registering your app, adding sign in code via OAuth2, OpenID Connect, or SAML, and putting a Sign In with Microsoft button on your application.
+If you offer a Software as a Service application to many organizations, you can configure your application to accept sign-ins from any Azure AD tenant.  In Azure AD this is called making your application multi-tenant.  Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.  
+
+If you have an existing application that has its own account system, or supports other kinds of sign in from other cloud providers, adding Azure AD sign in from any tenant is as simple as registering your app, adding sign in code via OAuth2, OpenID Connect, or SAML, and putting a Sign In with Microsoft button on your application.
 
 ![Sign in button][AAD-Sign-In] 
 
@@ -33,7 +35,7 @@ There are four simple steps to convert your application into an Azure AD multi-t
 Let’s look at each step in detail.
 
 ## Update registration to be multi-tenant
-By default, web app/API registrations in Azure AD are single tenant.  You can make your registration multi-tenant by finding the “Application is Multi-Tenant” switch on the configuration page of your application registration in the Azure classic portal and setting it to “Yes”.
+By default, web app/API registrations in Azure AD are single tenant.  You can make your registration multi-tenant by finding the “Application is Multi-Tenant” switch on the configuration page of your application registration in the [Azure classic portal][AZURE-classic-portal] and setting it to “Yes”.
 
 > [AZURE.NOTE] Before an application can be made multi-tenant, Azure AD requires the App ID URI of the application to be globally unique.
 
@@ -69,7 +71,7 @@ to download two critical pieces of information that are used to validate tokens:
 
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
 
-where the GUID value is the rename-safe version of the tenant ID of the tenant.  If you click on the metadata link above for contoso.onmicrosoft.com, you can see this issuer value in the document.
+where the GUID value is the rename-safe version of the tenant ID of the tenant.  If you click on the metadata link above for `contoso.onmicrosoft.com`, you can see this issuer value in the document.
 
 When a single tenant application sends a request to an endpoint and receives a token in the response, it checks the signature of the token against the signing keys, and makes sure the issuer value in the token matches the one that was found in the metadata for the endpoint.
 
@@ -77,21 +79,23 @@ Since the /common endpoint doesn’t correspond to a tenant and isn’t an issue
 
     https://sts.windows.net/{tenantid}/
 
-Therefore, a multi-tenant application can’t validate tokens just by matching the issuer value in the metadata with the issuer value in the token.  A multi-tenant application needs logic to decide which issuer values are valid and which are not, based on the tenant ID portion of the issuer value.  For example, if a multi-tenant application only allows sign in from specific tenants who have signed up for their service, then it must check either the issuer value or the tid claim value in the token to make sure that tenant is in their list of subscribers.  If a multi-tenant application only deals with individuals and doesn’t make any access decisions based on tenants, then it can ignore the issuer value altogether.
+Therefore, a multi-tenant application can’t validate tokens just by matching the issuer value in the metadata with the `issuer` value in the token.  A multi-tenant application needs logic to decide which issuer values are valid and which are not, based on the tenant ID portion of the issuer value.  
+
+For example, if a multi-tenant application only allows sign in from specific tenants who have signed up for their service, then it must check either the issuer value or the `tid` claim value in the token to make sure that tenant is in their list of subscribers.  If a multi-tenant application only deals with individuals and doesn’t make any access decisions based on tenants, then it can ignore the issuer value altogether.
 
 In the multi-tenant samples you’ll find in the [Related Content](#related-content) section at the end of this article, issuer validation is disabled to enable any Azure AD tenant to sign in.
 
 Now let’s look at the user experience for users that are signing in to multi-tenant applications.
 
 ## Understanding user and admin consent
-For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant.  This allows the organization to do things like apply unique policies when users from their tenant sign in to the application.  For a single tenant application this registration is simple, it’s the one that happens when you register the application in the portal.
+For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant.  This allows the organization to do things like apply unique policies when users from their tenant sign in to the application.  For a single tenant application this registration is simple; it’s the one that happens when you register the application in the [Azure classic portal][AZURE-classic-portal].
 
 For a multi-tenant application, the initial registration for the application lives in the Azure AD tenant used by the developer.  When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application.  If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign in can continue. A delegation is also created in the directory that records the user’s consent to the application. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for details on the application's Application and ServicePrincipal objects, and how they relate to each other.
 
 This consent experience is affected by the permissions requested by the application.  Azure AD supports two kinds of permissions, app-only and delegated:
 
-•	A delegated permission grants an application the ability to act as a signed in user for a subset of the things the user can do.  For example, you can grant an application the delegated permission to read the signed in user’s calendar.
-•	An app-only permission is granted directly to the identity of the application.  For example, you can grant an application the app-only permission to read the list of users in a tenant, and it will be able to do this regardless of who is signed in to the application.
+- A delegated permission grants an application the ability to act as a signed in user for a subset of the things the user can do.  For example, you can grant an application the delegated permission to read the signed in user’s calendar.
+- An app-only permission is granted directly to the identity of the application.  For example, you can grant an application the app-only permission to read the list of users in a tenant, and it will be able to do this regardless of who is signed in to the application.
 
 Some permissions can be consented to by a regular user, while others require a tenant administrator’s consent.
 
@@ -106,14 +110,14 @@ The `prompt=admin_consent` parameter can also be used by applications that reque
 
 If an application requires administrator consent, and the administrator signs in to the application but the `prompt=admin_consent` parameter is not sent, the admin will be able to successfully consent to the application but they will only consent for their user account.  Regular users will still not be able to sign in and consent to the application.  This is useful if you want to give the tenant administrator the ability to explore your application before allowing other users access.
 
-A tenant administrator can disable the ability for regular users to consent to applications.  If this capability is disabled, admin consent is always required for the application to be set up in the tenant.  If you want to test your application regular user consent disabled, you can find the configuration switch in the Azure AD tenant configuration section of the Azure portal.
+A tenant administrator can disable the ability for regular users to consent to applications.  If this capability is disabled, admin consent is always required for the application to be set up in the tenant.  If you want to test your application regular user consent disabled, you can find the configuration switch in the Azure AD tenant configuration section of the [Azure classic portal][AZURE-classic-portal].
 
 > [AZURE.NOTE] Some applications want an experience where regular users are able to consent initially, and later the application can involve the administrator and request permissions that require admin consent.  There is no way to do this with a single application registration in Azure AD today.  The upcoming Azure AD v2 endpoint will allow applications to request permissions at runtime, instead of at registration time, which will enable this scenario.  For more information, see the [Azure AD App Model v2 Developer Guide][AAD-V2-Dev-Guide].
 
 ### Consent and multi-tier applications
 Your application may have multiple tiers, each represented by its own registration in Azure AD.  For example, a native application that calls a web API, or a web application that calls a web API.  In both of these cases, the client (native app or web app) requests permissions to call the resource (web API).  For the client to be successfully consented into a customer’s tenant, all resources to which it requests permissions must already exist in the customer’s tenant.  If this condition isn’t met, Azure AD will return an error that the resource must be added first.
 
-This can be a problem if your logical application consists of two or more application registrations, for example a separate client and resource.  How do you get the resource into the customer tenant first?  Azure AD covers this case by enabling client and resource to be consented in a single step, where the user sees the sum total of the permissions requested by both the client and resource on the consent page.  To enable this behavior, the resource’s application registration must include the client’s App ID as a knownClientApplications in its application manifest.  For example:
+This can be a problem if your logical application consists of two or more application registrations, for example a separate client and resource.  How do you get the resource into the customer tenant first?  Azure AD covers this case by enabling client and resource to be consented in a single step, where the user sees the sum total of the permissions requested by both the client and resource on the consent page.  To enable this behavior, the resource’s application registration must include the client’s App ID as a `knownClientApplications` in its application manifest.  For example:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -125,7 +129,7 @@ A similar case happens if the different tiers of an application are registered i
 Users and administrators can revoke consent to your application at any time:
 
 - Users revoke access to individual applications by removing them from their [Access Panel Applications][AAD-Access-Panel] list.
-- Administrators revoke access to applications by removing them from Azure AD using the Azure AD management section of the Azure classic portal.
+- Administrators revoke access to applications by removing them from Azure AD using the Azure AD management section of the [Azure classic portal][AZURE-classic-portal].
 
 If an administrator consents to an application for all users in a tenant, users cannot revoke access individually.  Only the administrator can revoke access, and only for the whole application.
 
@@ -140,7 +144,8 @@ The [Azure AD Developer's Guide][AAD-Dev-Guide] is the main portal to use for al
 
 [These samples][AAD-Samples-MT] demonstrate a variety of Azure AD multi-tenant applications.
 
-For information related to the Azure AD Graph API, see:  
+For information related to the Azure AD Graph API, see: 
+
 - [Azure Active Directory Graph API][AAD-Graph-Overview] for an overview
 - [Microsoft Graph API Permission Scopes][MSFT-Graph-AAD] for the Microsoft Graph REST implementation
 - [Azure AD Graph API Permission Scopes][AAD-Graph-Perm-Scopes] for the Azure AD REST implementation
@@ -158,6 +163,7 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
+[AZURE-classic-portal]: https://manage.windowsazure.com
 [MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
