@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create SQL Data Warehouse using Powershell
@@ -56,7 +56,7 @@ Before starting, be sure you have the following prerequisites.
 
 The parameters required for this cmdlet are:
 
-- **RequestedServiceObjectiveName**: The amount of DWU you are requesting, in the form "DWXXX". DWU represents an allocation of CPU and memory.  Each DWU value represents a linear increase in these resources.  Currently supported values are: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
+- **RequestedServiceObjectiveName**: The amount of [DWU][] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, and DW2000.
 - **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
 - **ServerName**: The name of the server that you are using for creation (must be V12).
 - **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
@@ -73,12 +73,12 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 <!--Image references-->
 
 <!--Article references-->
-
-[migrate]: sql-data-warehouse-overview-migrate.md
-[develop]: sql-data-warehouse-overview-develop.md
-[load]: sql-data-warehouse-load-with-bcp.md
-[loading sample data]: sql-data-warehouse-get-started-load-sample-databases.md
-[PowerShell cmdlets and REST APIs]: sql-data-warehouse-reference-powershell-cmdlets.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-load-with-bcp.md
+[loading sample data]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md
@@ -88,7 +88,7 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [resource groups]: ../azure-portal/resource-group-portal.md
 
 <!--MSDN references--> 
-[MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
 
