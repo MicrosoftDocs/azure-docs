@@ -23,7 +23,7 @@ An HDInsight application is an application that users can install on a Linux-bas
 
 Currently there is one published application:
 
-- **Datameer powered by Azure(Datameer)**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) is an end-to-end big data analytics platform built for Hadoop, designed to make self-service analysis easy with an Excel-like interface.
+- **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offers analysts an interactive way to discover, analyze, and visualize the results on Big Data. Pull in additional data sources easily to discover new relationships and get the answers you need quickly..
 
 >[AZURE.NOTE] Datameer is currently only supported in Azure HDInsight version 3.2 clusters.
 
@@ -45,10 +45,16 @@ The following procedure shows you how to install HDInsight applications to an ex
 4. From the **Settings** blade, click **Applications** under the **General** category. The **Installed Apps** blade lists all the installed applications. 
 
     ![hdinsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. Click **Submit New** from the blade menu. You shall see a list of existing HDInsight applications.
+
+5. Click **Add** from the blade menu. 
 
     ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
-6. Click one of the applications, and then click **Select**.
+
+	You shall see a list of existing HDInsight applications.
+
+	![hdinsight applications available applications](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+
+6. Click one of the applications, accept the legal terms, and then click **Select**.
 
 You can see the installation status from the portal notifications (click the bell icon on the top of the portal). After the application is installed, the application will appear on the Installed Apps blade.
 
