@@ -66,7 +66,7 @@ When a federated or password hash sync’d user comes to reset or change his or 
 10.	If the password set operation fails, we return the error to the user and let them try again.  The operation might fail because the service was down, because the password they selected did not meet organization policies, because we could not find the user in the local AD, or any number of reasons.  We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
 ### Scenarios supported for password writeback
-The table below describes which scenarios are supported for which versions of our sync capabilities.  In general, it is highly recommended that you install the latest version of [Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect) if you want to use password writeback.
+The table below describes which scenarios are supported for which versions of our sync capabilities.  In general, it is highly recommended that you install the latest version of [Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect) if you want to use password writeback.
 
   ![][002]
 
