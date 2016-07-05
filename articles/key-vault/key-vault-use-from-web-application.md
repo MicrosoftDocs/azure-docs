@@ -232,7 +232,7 @@ The last code change is in the Application_Start method. First we need to call t
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 
 
-**Add a Certificate to your Web App manually through the Azure Portal**
+**Add a Certificate to your Web App through the Azure Portal**
 Adding a Certificate to your Web App is a simple two-step process. First, go to the Azure Portal and navigate to your Web App. On the Settings blade for your Web App, click on the entry for "Custom domains and SSL". On the blade that opens you will be able to upload the Certificate that you created above, KVWebApp.pfx, make sure that you remember the password for the pfx.
 
 ![Adding a Certificate to a Web App in the Azure Portal][2]
