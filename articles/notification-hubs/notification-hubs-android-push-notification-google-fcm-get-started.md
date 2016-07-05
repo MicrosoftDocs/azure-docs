@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="07/01/2016"
+	ms.date="07/05/2016"
 	ms.author="wesmc"/>
 
 # Sending push notifications to Android with Azure Notification Hubs
@@ -22,8 +22,12 @@
 
 ##Overview
 
+> [AZURE.IMPORTANT] This topic demonstrates push notification with Google Firebase Cloud Messaging (FCM). If you are still using Google Cloud Messaging (GCM), see [Sending push notifications to Android with Azure Notification Hubs and FCM](notification-hubs-android-push-notification-google-gcm-get-started.md).
+
 This tutorial shows you how to use Azure Notification Hubs and Firebase Cloud Messaging to send push notifications to an Android application.
 You'll create a blank Android app that receives push notifications by using Firebase Cloud Messaging (FCM).
+
+
 
 [AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
