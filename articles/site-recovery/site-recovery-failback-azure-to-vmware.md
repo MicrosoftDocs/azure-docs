@@ -97,7 +97,7 @@ If you have protected your machines as classic resources (that is the VM recover
 
 1.  In the Vault > Settings > Manage Site Recovery Infrastructure > **Configuration Servers** under the For VMware and Physical Machines heading, select the configuration server. Click on + Process server
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
+	![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
 
 2. Choose to deploy the process server as "Deploy a failback process server in Azure"
 
@@ -111,7 +111,7 @@ If you have protected your machines as classic resources (that is the VM recover
 	
 	1. Name of the image is *Microsoft Azure Site Recovery Process Server V2*. make sure you select *Classic* as the deployment model.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.png)
+		![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
 	
 	2. Install the Process server as per the steps [given here](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server)
 	
