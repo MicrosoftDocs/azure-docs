@@ -72,9 +72,9 @@ shows a SQL Database resource and an Azure Storage resource.
 
 	You can also turn on [geo replication](../sql-database/sql-database-geo-replication-overview.md) for your SQL Database.
 
-   For an Azure Storage resource, click **Settings** > **Configuration** to scale up your storage options.
+    For an Azure Storage resource, click **Settings** > **Configuration** to scale up your storage options.
 
-	![Scale up the Azure Storage account used by your Azure app](./media/web-sites-scale/ScaleStorage.png)
+    ![Scale up the Azure Storage account used by your Azure app](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="devfeatures"></a>
 ## Developer Features
