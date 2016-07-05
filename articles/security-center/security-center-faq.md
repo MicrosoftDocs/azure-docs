@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/01/2016"
+   ms.date="07/05/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -114,15 +114,15 @@ To edit a security policy, you must be an Owner or Contributor of the subscripti
 ## Virtual Machines
 
 ### What types of virtual machines will be supported?
-Virtual machines created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md) are supported, including virtual machines that are part of Azure Service Fabric clusters.
+Security health monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md), including VMs that are part of Azure Service Fabric clusters.
 
-Supported Windows virtual machines:
+Supported Windows VMs:
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-Supported Linux virtual machines:
+Supported Linux VMs:
 
 - Ubuntu versions 12.04, 14.04, 15.10, 16.04
 - Debian versions 7, 8
@@ -130,12 +130,6 @@ Supported Linux virtual machines:
 - Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
 - SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*
 
-VMs running in a cloud service are also supported. VM hosting options available in a cloud service are:
+VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
 
-- **Web role** - Runs Windows Server with your web app automatically deployed to IIS.
-- **Worker role** - Runs Windows Server without IIS.
-
-To learn more about cloud service, see:
-
-- [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)
-- [Cloud Service virtual machine sizes](../cloud-services/cloud-services-sizes-specs.md)
+Security Center recommendation [apply system updates](security-center-recommendations.md) recommends that you deploy missing system security and critical updates to VMs. For VMs in cloud services, the recommendation **update OS version** recommends that the OS be updated to the latest version.
