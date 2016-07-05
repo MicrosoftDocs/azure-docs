@@ -91,6 +91,9 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click an HDInsight cluster.
 4. From the **Settings** blade, click **Applications** under the **General** category. The Installed Apps blade lists all the installed applications. 
+
+   ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+
 5. Click one of the installed applications to show the property. The property blade lists:
 
     - App name: application name.
@@ -98,6 +101,8 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
     - Webpage: The URL of the web application that you have deployed to the edge node if there is any. The credential is the same as the HTTP user credentials that you have configured for the cluster.
     - HTTP endpoint: The credential is the same as the HTTP user credentials that you have configured for the cluster. 
     - SSH endpoint: You can use [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) to connect to the edge node. The SSH credentials are the same as the SSH user credentials that you have configured for the cluster.
+
+6. To delete a application, right-click the application, and then click **Delete** from the context menu.
 
 ## Connect to the edge node
 
