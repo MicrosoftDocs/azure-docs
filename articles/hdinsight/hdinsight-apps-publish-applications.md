@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/01/2016"
+   	ms.date="06/28/2016"
    	ms.author="jgao"/>
 
 # Publish HDInsight applications into the Azure Marketplace
@@ -64,7 +64,7 @@ Create a zip file that contains all required files for installing your HDInsight
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. See a sample at [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
-	>[AZURE.IMPORTANT] The name of the application install script names must be unique for a particular cluster with the format below. 
+	>[AZURE.IMPORTANT] The name of the application install script names must be unique for a particular cluster with the format below. Additionally any install and uninstall script actions should be idempotent, meaning the scripts can be called repeatly while producing the same result.
 	
 	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
 		
