@@ -21,9 +21,11 @@
 
 This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model. This functionality allows you to install and configure a Linux distro to your requirements and then use that base disk to quickly create Azure virtual machines (VMs).
 
-> [AZURE_NOTE] The Azure platform SLA applies to VMs running the Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
+>[AZURE_NOTE] The Azure platform SLA applies to VMs running the Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
 
 ## Quick commands
+Make you have [the Azure CLI](../xplat-cli-install.md) logged in using resource managed mode (`azure config mode arm`).
+
 First, create a resource group:
 
 ```bash
@@ -81,7 +83,7 @@ Note that you will still need all the additional parameters required by the `azu
 ## Requirements
 In order to complete the above steps, you will need:
 
-- **Linux operating system installed in a .vhd file** - You have installed an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format
+- **Linux operating system installed in a .vhd file** - Install an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format
 	- Multiple tools exist to create VHD - for example, you can use Hyper-V to create a VM, then install and configure a Linux distro. For more details, see [Install Hyper-V on Windows 10](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [AZURE.NOTE] The newer VHDX format is not supported in Azure. When you create a VM, specify the original VHD format. If needed, you can convert a VHDX to VHD format using Hyper-V Manager or the `Convert-VHD` cmdlet. Further, Azure does not support uploading dynamic VHDs, so you need to convert such disks to static VHDs before uploading. You can use tools such as [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) to convert dynamic disks during the process of uploading to Azure.
@@ -101,3 +103,7 @@ Azure supports a variety of Linux distributions (see [Endorsed Distributions](vi
 - **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)**
 
 Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)** for more general tips on preparing Linux images for Azure.
+
+
+## Next steps
+After you have prepared and uploaded your custom virtual disk, you can read more about [using resource manager and templates](../resource-group-overview.md). You may also want to [add a data disk](virtual-machines-linux-add-disk.md) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](virtual-machines-linux-nsg-quickstart.md).
