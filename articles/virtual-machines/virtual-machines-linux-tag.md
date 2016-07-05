@@ -25,7 +25,7 @@ This article describes different ways to tag a Linux virtual machine in Azure th
 
 ## Tagging with Azure CLI
 
-To begin, [install and configure the Azure CLI][../xplat-cli-azure-resource-manager.md] and make sure you are in Resource Manager mode (`azure config mode arm`).
+To begin, [install and configure the Azure CLI](../xplat-cli-azure-resource-manager.md) and make sure you are in Resource Manager mode (`azure config mode arm`).
 
 You can view all properties for a given Virtual Machine, including the tags, using this command:
 
