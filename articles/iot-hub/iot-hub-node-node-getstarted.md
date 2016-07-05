@@ -236,7 +236,7 @@ In this section, you'll create a Node.js console app that simulates a device tha
             var message = new Message(data);
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
-        }, 2000);
+        }, 1000);
       }
     };
     ```

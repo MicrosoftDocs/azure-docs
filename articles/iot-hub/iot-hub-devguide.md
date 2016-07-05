@@ -551,7 +551,7 @@ The following is the list of enforced throttles. Values refer to an individual h
 
 | Throttle | Per-hub value |
 | -------- | ------------- |
-| Identity registry operations (create, retrieve, list, update, delete) | 100/min/unit, up to 5000/min/unit (for S1 and S2). |
+| Identity registry operations (create, retrieve, list, update, delete) | 5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
 | Device connections | 6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units is 2\*12 = 24/sec, but you will have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
 | Device-to-cloud sends | 6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units is 2\*12 = 24/sec, but you will have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
 | Cloud-to-device sends | 5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
