@@ -127,7 +127,7 @@ If you have protected your machines as classic resources (that is the VM recover
 	
 	5. Choose the specific Subnet and the Network Interface to connect to it. Note - you need to create your own [Network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while deploying.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.png)
+		![](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 	
 	6. Click OK. This will trigger a job that will create a Resource Manager deployment type virtual machine with process server setup. You need to run the setup inside the VM to register the server to the configuration server. You can do this by following [these steps](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
