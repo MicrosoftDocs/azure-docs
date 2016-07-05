@@ -231,9 +231,9 @@ For details on enabling, collecting and viewing metrics data, please see, [Enabl
 
 The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data.
 The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'analytics'* shows the storage capacity consumed by the analytics logs.
-This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account.
 
-> [AZURE.NOTE] The same method can also be used for estimating storage costs for block and append blobs in general-purpose storage accounts.
+This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account.
+The same method can also be used for estimating storage costs for block and append blobs in general-purpose storage accounts.
 
 ##### Transaction costs
 
@@ -245,11 +245,9 @@ In order to estimate transaction costs for Blob storage accounts, you will need 
 - Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
 - All other transactions.
 
-These numbers can then be used to estimate the cost of transactions against the storage account.
+In order to estimate transaction costs for general-purpose storage accounts, you need to aggregate all transactions irrespective of the operation/API.
 
-> [AZURE.NOTE] In order to estimate transaction costs for general-purpose storage accounts, you need to aggregate all transactions irrespective of the operation/API.
-
-##### Data access costs
+##### Data access and geo-replication data transfer costs
 
 While storage analytics does not provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table.
 The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API.
@@ -260,8 +258,9 @@ In order to estimate the data access costs for Blob storage accounts, you will n
 - The amount of data retrieved from the storage account can be estimated by looking at the sum of *'TotalEgress'* for primarily the *'GetBlob'* and *'CopyBlob'* operations.
 - The amount of data written to the storage account can be estimated by looking at the sum of *'TotalIngress'* for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
 
-These numbers can then be used to estimate the cost of data access for the storage account.
-The cost of geo-replication data transfer can also be estimated by using the estimate for the amount of data written in case of a GRS or RA-GRS storage account.
+The cost of geo-replication data transfer for Blob storage accounts can also be calculated by using the estimate for the amount of data written in case of a GRS or RA-GRS storage account.
+
+> [AZURE.NOTE] For a more detailed example about calculating the costs for using the hot or cool storage tier, please take a look at the FAQ titled *'What are Hot and Cool access tiers and how should I determine which one to use?'* in the [Azure Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/).
 
 ### Migrating existing data
 
