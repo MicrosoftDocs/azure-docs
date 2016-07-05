@@ -19,25 +19,25 @@
 
 # Uploading a virtual hard disk
 
-This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model. You can install and configure a Linux distro to your requirements and then use this disk to quickly create Azure VMs.
+This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model. This functionality allows you to install and configure a Linux distro to your requirements and then use that base disk to quickly create Azure virtual machines (VMs).
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
+> [AZURE_NOTE] The Azure platform SLA applies to VMs running the Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
 
 ## Quick commands
-If needed, first create a resource group:
+First, create a resource group:
 
 ```bash
 azure group create TestRG --location "WestUS"
 ```
 
-Create a storage account that you will upload your virtual disks to:
+Create a storage account to hold your virtual disks:
 
 ```bash
-azure storage account create testuploadedstorage --resource-group TestRG --location "WestUS" \
-	--kind Storage --sku-name LRS
+azure storage account create testuploadedstorage --resource-group TestRG \
+	--location "WestUS" --kind Storage --sku-name LRS
 ```
 
-List the storage keys for the storage account you just created:
+List the storage keys for the storage account you just created and make a note of `key1`:
 
 ```bash
 azure storage account keys list testuploadedstorage --resource-group TestRG
@@ -55,34 +55,37 @@ data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w
 info:    storage account keys list command OK
 ```
 
-Create a container within your storage account using the displayed storage key:
+Create a container within your storage account using the storage key you just obtained:
 
 ```bash
-azure storage container create --account-name testuploadedstorage --account-key <key1> --container vm-images
+azure storage container create --account-name testuploadedstorage \
+	--account-key <key1> --container vm-images
 ```
 
 Finally, upload your VHD to the container you just created:
 
 ```bash
 azure storage blob upload --blobtype page --account-name testuploadedstorage \
-	--account-key <key1> --container vm-images /path/to/disk/localdisk.vhd
+	--account-key <key1> --container vm-images /path/to/disk/yourdisk.vhd
 ```
 
 You can now create a VM from your uploaded virtual disk [using a resource manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) or through the CLI by specifying the URI to your disk as follows:
 
 ```bash
 azure vm create TestVM -l "WestUS" --resource-group TestRG \
-	-Q https://testuploadedstorage.blob.core.windows.net/vm-images/uploadeddisk.vhd
+	-Q https://testuploadedstorage.blob.core.windows.net/vm-images/yourdisk.vhd
 ```
 
-## Prerequisites
-This article assumes that you have the following items:
+Note that you will still need all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username and SSH keys, etc. You read more about the [available CLI resource manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)
 
-- **Linux operating system installed in a .vhd file**  - You have installed an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format. Multiple tools exist to create .vhd files - for example you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
+## Requirements
+In order to complete the above steps, you will need:
 
-	> [AZURE.NOTE] The newer VHDX format is not supported in Azure. You can convert a VHDX to VHD format using Hyper-V Manager or the `Convert-VHD` cmdlet. Further, Azure does not support uploading dynamic VHDs, so you need to convert such disks to static VHDs before uploading. You can use tools such as [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) to convert dynamic disks.
+- **Linux operating system installed in a .vhd file** - You have installed an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format
+	- Multiple tools exist to create VHD - for example, you can use Hyper-V to create a VM, then install and configure a Linux distro. For more details, see [Install Hyper-V on Windows 10](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
-- **Azure CLI** - Install and configure the latest [Azure CLI](../virtual-machines-command-line-tools.md) tools.
+> [AZURE.NOTE] The newer VHDX format is not supported in Azure. When you create a VM, specify the original VHD format. If needed, you can convert a VHDX to VHD format using Hyper-V Manager or the `Convert-VHD` cmdlet. Further, Azure does not support uploading dynamic VHDs, so you need to convert such disks to static VHDs before uploading. You can use tools such as [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) to convert dynamic disks during the process of uploading to Azure.
+
 
 <a id="prepimage"> </a>
 ## Prepare the image to be uploaded
