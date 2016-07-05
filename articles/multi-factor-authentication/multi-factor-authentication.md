@@ -137,7 +137,7 @@ When using an Azure Multi-Factor Authentication Provider there are two usage mod
 - **Per User**. Generally for enterprises that want to enable multi-factor authentication for a fixed number of employees who regularly need authentication.
 - **Per Authentication**. Generally for enterprises that want to enable multi-factor authentication for a large group of external users who infrequently need authentication.
 
-Azure Multi-Factor Authentication provides selectable verification methods for both cloud and server.  This means that you can choose which methods are available for your users to use with multi-factor authentication.  This feature is currently in public preview for the cloud version of multi-factor authentication.  For additional information see [selectable verification methods](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+Azure Multi-Factor Authentication provides selectable verification methods for both cloud and server.  This means that you can choose which methods are available for your users to use with multi-factor authentication.  This feature is currently in public preview for the cloud version of multi-factor authentication.  For additional information see [selectable verification methods](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
 For pricing details see [Azure MFA Pricing.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 

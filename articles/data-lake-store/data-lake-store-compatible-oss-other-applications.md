@@ -34,6 +34,7 @@ This article lists the open source big data applications that work with Azure Da
 | [Apache Zookeeper](http://zookeeper.apache.org/)           | HDInsight 3.2 and 3.4                   |
 | [Apache HBase](http://hbase.apache.org/)                | HDInsight 3.2 and 3.4                   |
 | [Apache Tez](http://tez.apache.org/)                 | HDInsight 3.2 and 3.4	  			   |
+| [Apache Spark](http://spark.apache.org/)                 | HDInsight 3.4	  			   |
 
 
 ## See also

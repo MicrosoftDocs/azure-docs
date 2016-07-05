@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/17/2016"
+	ms.date="06/29/2016"
 	ms.author="marsma"/>
 
 # Batch feature overview for developers
@@ -252,7 +252,7 @@ For a detailed discussion on running MPI jobs in Batch using the Batch .NET libr
 
 #### Task dependencies
 
-Task dependencies, as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task. To use this feature, you must first enable task dependencies on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
+[Task dependencies](batch-task-dependencies.md), as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task. To use this feature, you must first enable task dependencies on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
 
 With task dependencies, you can configure scenarios such as the following:
 
@@ -260,7 +260,7 @@ With task dependencies, you can configure scenarios such as the following:
 * *taskC* depends on both *taskA* and *taskB*
 * *taskD* depends on a range of tasks, such as tasks *1* through *10*, before it executes
 
-Check out the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository. In it, you will see how to configure tasks that depend on other tasks using the [Batch .NET][batch_net_api] library.
+Check out [Task dependencies in Azure Batch](batch-task-dependencies.md) and the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository for more in-depth details on this feature.
 
 ## Environment settings for tasks
 
@@ -287,11 +287,11 @@ The following environment variables are set by the Batch service, and are availa
 | `AZ_BATCH_TASK_ID`              | The ID of the current task.                                              |
 | `AZ_BATCH_TASK_WORKING_DIR`     | The full path of the task working directory on the node.                 |
 
->[AZURE.IMPORTANT] These environment variables are available only in the context of the **task user**, that is, the user account on the node under which a task is executed. You will **not** see these if you [connect remotely](#connecting-to-compute-nodes) to a compute node via RDP or SSH and list the environment variables.
+>[AZURE.IMPORTANT] These environment variables are available only in the context of the **task user**, that is, the user account on the node under which a task is executed. You will **not** see these if you [connect remotely](#connecting-to-compute-nodes) to a compute node via RDP or SSH and list the environment variables because the user account used for remote connection is not the same as the account used by the task.
 
 ## Files and directories
 
-Each task has a working directory under which it creates zero or more files and directories for storing the program that is run by the task, the data that it processes, and the output of the processing performed by the task. These files and directories are then available for use by other tasks during the running of a job. All tasks, files, and directories on a node are owned by a single user account.
+Each task has a *working directory* under which it creates zero or more files and directories. This working directory can be used for storing the program that is run by the task, the data that it processes, and the output of the processing it performs. All files and directories of a task are owned by the task user.
 
 The Batch service exposes a portion of the file system on a node as the "root directory." The root directory is available to a task by accessing the `AZ_BATCH_NODE_ROOT_DIR` environment variable. For more information about using environment variables, see [Environment settings for tasks](#environment-settings-for-tasks).
 

@@ -1,9 +1,9 @@
-The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+The following table lists the limits associated with the different service tiers (S1, S2, S3, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | F1 Free |
-| -------- | ----------- | ----------- | ------- |
-| Messages/day | 400,000 | 6,000,000 | 8,000 |
-| Maximum units | 200 | 200 | 1 |
+| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
+| -------- | ----------- | ----------- | ----------- | ------- |
+| Messages/day | 400,000 | 6,000,000   | 300,000,000 | 8,000   |
+| Maximum units | 200    | 200         | 200         | 1       |
 
 > [AZURE.NOTE] If you anticipate using more than 200 units with an S1 or S2 tier hub, please contact Microsoft support.
 
@@ -22,6 +22,8 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum delivery count for cloud-to-device <br/> messages | 100 |
 | Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message | 100 |
 | Maximum TTL for feedback messages in <br/> response to a cloud-to-device message | 2 days |
+
+> [AZURE.NOTE] If you need more than 10 IoT hubs in an Azure subscription, please contact Microsoft support.
 
 The IoT Hub service throttles requests when the following quotas are exceeded:
 

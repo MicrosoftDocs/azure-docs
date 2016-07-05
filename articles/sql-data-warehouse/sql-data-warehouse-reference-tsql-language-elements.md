@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="06/28/2016"
    ms.author="barbkess;sonyama"/>
 
 # Language elements
@@ -96,11 +96,13 @@
 - [ASIN](https://msdn.microsoft.com/library/ms181581.aspx)
 - [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
 - [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
+- [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
 - [CASE](https://msdn.microsoft.com/library/ms181765.aspx)
 - [CAST and CONVERT](https://msdn.microsoft.com/library/ms187928.aspx)
 - [CEILING](https://msdn.microsoft.com/library/ms189818.aspx)
 - [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
 - [CHARINDEX](https://msdn.microsoft.com/library/ms186323.aspx)
+- [CHECKSUM](https://msdn.microsoft.com/library/ms189788.aspx)
 - [COALESCE](https://msdn.microsoft.com/library/ms190349.aspx)
 - [COL_NAME](https://msdn.microsoft.com/library/ms174974.aspx)
 - [COLLATIONPROPERTY](https://msdn.microsoft.com/library/ms190305.aspx)
@@ -109,6 +111,7 @@
 - [COT](https://msdn.microsoft.com/library/ms188921.aspx)
 - [COUNT](https://msdn.microsoft.com/library/ms175997.aspx)
 - [COUNT_BIG](https://msdn.microsoft.com/library/ms190317.aspx)
+- [CUME_DIST](https://msdn.microsoft.com/library/hh231078.aspx)
 - [CURRENT_TIMESTAMP](https://msdn.microsoft.com/library/ms188751.aspx)
 - [CURRENT_USER](https://msdn.microsoft.com/library/ms176050.aspx)
 - [DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx)
@@ -134,6 +137,7 @@
 - [ERROR_SEVERITY](https://msdn.microsoft.com/library/ms178567.aspx)
 - [ERROR_STATE](https://msdn.microsoft.com/library/ms180031.aspx)
 - [EXP](https://msdn.microsoft.com/library/ms179857.aspx)
+- [FIRST_VALUE](https://msdn.microsoft.com/library/hh213018.aspx)
 - [FLOOR](https://msdn.microsoft.com/library/ms178531.aspx)
 - [GETDATE](https://msdn.microsoft.com/library/ms188383.aspx)
 - [GETUTCDATE](https://msdn.microsoft.com/library/ms178635.aspx)
@@ -144,6 +148,7 @@
 - [ISNULL](https://msdn.microsoft.com/library/ms184325.aspx)
 - [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
 - [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
+- [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
 - [LEAD](https://msdn.microsoft.com/library/hh213125.aspx)
 - [LEFT](https://msdn.microsoft.com/library/ms177601.aspx)
 - [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
@@ -167,10 +172,12 @@
 - [PATINDEX](https://msdn.microsoft.com/library/ms188395.aspx)
 - [PERCENTILE_CONT](https://msdn.microsoft.com/library/hh231473.aspx)
 - [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
+- [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
 - [PI](https://msdn.microsoft.com/library/ms189512.aspx)
 - [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 - [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 - [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
+- [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
 - [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 - [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
 - [REPLICATE](https://msdn.microsoft.com/library/ms174383.aspx)

@@ -13,20 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
-# Azure Conditional Access Preview for SaaS Apps
+# Getting started with conditional access to Azure AD  
 
-The Azure Conditional Access for SaaS apps is available for public preview. The preview allows you to configure per-application multi-factor authentication (MFA) access rules and the ability to block access for users not on a trusted network. 
+The Azure Active Directory Conditional Access for SaaS apps and Azure AD connected apps is available for public preview. The preview allows you to configure conditional access based on group, location, and application sensitivity. 
 
-You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
+You can apply multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. With conditional access based on application sensitivity, you can set multi-factor authentication (MFA) access rules per application, that provides the ability to block access for users who are not on a trusted network. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
+
 These capabilities will be available to customers that have purchased an Azure Active Directory Premium license.
 
 ## Scenario prerequisites
 * License for Azure Active Directory Premium
 
-* Federated or Managed Azure Active Directory tenant
+* Federated or managed Azure Active Directory tenant
 
 * Federated tenants require that multi-factor authentication be enabled.
 

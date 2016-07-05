@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 # How to Use iOS Client Library for Azure Mobile Apps
@@ -24,7 +24,7 @@ This guide teaches you to perform common scenarios using the latest [Azure Mobil
 
 ## Reference documentation
 
-The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference](http://azure.github.io/azure-mobile-services/iOS/v3/).
+The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference](http://azure.github.io/azure-mobile-apps-ios-client/).
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
