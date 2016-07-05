@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create and upload a Linux VHD | Microsoft Azure"
-	description="Create and upload an Azure virtual hard disk (VHD) using the resource manager deployment model."
+	description="Create and upload to Azure a virtual hard disk (VHD) using the resource manager deployment model."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -21,10 +21,10 @@
 
 This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model. This functionality allows you to install and configure a Linux distro to your requirements and then use that base disk to quickly create Azure virtual machines (VMs).
 
->[AZURE_NOTE] The Azure platform SLA applies to VMs running the Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
+> [AZURE.NOTE] The Azure platform SLA applies to VMs running the Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
 
 ## Quick commands
-Make you have [the Azure CLI](../xplat-cli-install.md) logged in using resource managed mode (`azure config mode arm`).
+Make sure you have [the Azure CLI](../xplat-cli-install.md) logged in using resource manager mode (`azure config mode arm`).
 
 First, create a resource group:
 
@@ -78,7 +78,7 @@ azure vm create TestVM -l "WestUS" --resource-group TestRG \
 	-Q https://testuploadedstorage.blob.core.windows.net/vm-images/yourdisk.vhd
 ```
 
-Note that you will still need all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username and SSH keys, etc. You read more about the [available CLI resource manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)
+Note that you will still need all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username and SSH keys, etc. You can read more about the [available CLI resource manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 ## Requirements
 In order to complete the above steps, you will need:
