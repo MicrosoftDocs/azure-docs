@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/5/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
 # What's Microsoft Power BI Embedded?
