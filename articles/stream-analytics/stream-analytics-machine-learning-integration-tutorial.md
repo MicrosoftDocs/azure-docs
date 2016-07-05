@@ -123,7 +123,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 	From subquery  
 ```    
 
-12. Click **Save** to save the query.
+Then simply click **Save** to save the query.
 
 ## Start the Stream Analytics Job and observe the output
 
