@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/05/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -95,11 +95,13 @@ This section summarizes recommendations for implementing AD FS running in Azure,
 
 - Installing and configuring AD FS proxy servers.
 
-### VM recommendations for hosting AD DS and AD FS ###
+- Modifying the network security settings for the web tier subnet.
+
+### VM recommendations for hosting AD DS and AD FS
 
 Create VMs with sufficient resources to handle the expected volume of traffic. Use the size of the machines hosting AD FS on premises as a starting point. Monitor the resource utilization; you can resize the VMs and scale down if they are too large.
 
-### Network recommendations for AD FS VMs ###
+### Network recommendations for AD FS VMs
 
 Using the Azure portal, configure the network interface for each of the VMs hosting AD FS with static private IP addresses.
 
@@ -107,7 +109,7 @@ Using the Azure portal, configure the network interface for each of the VMs host
 
 Also, use the Azure portal to set the IP address of the preferred and secondary DNS servers for the network interfaces for each AD FS VM to reference the DNS servers in the cloud. This step is necessary to enable each AD FS VM to join the domain.
 
-### Load balancer recommendations for the AD FS VMs ###
+### Load balancer recommendations for the AD FS VMs
 
 The internal load balancer in the AD FS subnet provides access to the AD FS servers. Configure the load balancer as follows:
 
@@ -121,7 +123,7 @@ Using the *DNS Manager* console on the instance of AD DS running DNS, add an *A*
 
 [![20]][20]
 
-### AD FS recommendations ###
+### AD FS recommendations
 
 Perform the following tasks before configuring the first AD FS server in the farm:
 
@@ -207,7 +209,7 @@ On each AD FS server VM, perform the following tasks:
 
 		[![33]][33]
 
-### Network recommendations for AD FS proxy VMs ###
+### Network recommendations for AD FS proxy VMs
 
 The network configuration for the AD FS proxy VMs closely matches that of the AD FS VMs. Use the Azure portal to configure the network interface for each AD FS proxy VM as follows:
 
@@ -217,7 +219,7 @@ The network configuration for the AD FS proxy VMs closely matches that of the AD
 
 -	Set the IP address of the preferred and secondary DNS servers for the network interfaces to reference the DNS servers in the cloud.
 
-### Load balancer recommendations for the AD FS proxy VMs ###
+### Load balancer recommendations for the AD FS proxy VMs
 
 Configure the load balancer for the AD FS proxy VMs follows:
 
@@ -227,7 +229,7 @@ Configure the load balancer for the AD FS proxy VMs follows:
 
 - *Health Probe - use federation metadata endpoint? - TBC*
 
-### AD FS proxy server recommendations ###
+### AD FS proxy server recommendations
 
 >[AZURE.NOTE] **Do not join the AD FS proxy servers to the domain in the cloud.**
 
@@ -290,6 +292,10 @@ Perform the following tasks on each AD FS proxy server VM:
 	[![45]][45]
 
 9. *TBD - Check connectivity via LB*
+
+### Network security recommendations for the web tier subnet
+
+AD FS is heavily dependent on the HTTPS protocol, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, and public DMZ, as well as the subnet containing the AD FS servers.
 
 ## Solution components
 
