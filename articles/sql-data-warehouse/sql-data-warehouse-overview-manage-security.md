@@ -18,6 +18,16 @@
 
 # Secure a database in SQL Data Warehouse
 
+> [AZURE.SELECTOR]
+- [Security Overview](sql-data-warehouse-overview-manage-security.md)
+- [Threat detection](sql-data-warehouse-security-threat-detection.md)
+- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Auditing Overview](sql-data-warehouse-auditing-overview.md)
+- [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 This article walks through the basics of securing your Azure SQL Data Warehouse database. In particular, this article will get you started with resources for limiting access, protecting data, and monitoring activities on a database.
 
 ## Connection security
