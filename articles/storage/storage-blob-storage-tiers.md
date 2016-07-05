@@ -159,7 +159,7 @@ In this section we will demonstrate the following scenarios using the Azure port
 
 	For more details on Azure Storage replication options, check out [Azure Storage replication](storage-redundancy.md).
 
-7. Select the desired storage tier: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
+7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
 
 8. Select the subscription in which you want to create the new storage account.
 
@@ -177,11 +177,11 @@ In this section we will demonstrate the following scenarios using the Azure port
 
 3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
 
-4. Select the desired storage tier: Set the **Access tier** to either **Cool** or **Hot**.
+4. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
 
 5. Click Save at the top of the blade.
 
-    > [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
 
 ## Evaluating and migrating to Blob storage accounts
 
@@ -197,16 +197,17 @@ In both cases, the first order of business is to estimate the cost of storing an
 In order to estimate the cost of storing and accessing data stored in a Blob storage account, you will need to evaluate your existing usage pattern or approximate your expected usage pattern. In general, you will want to know:
 
 - Your storage consumption - How much data is being stored and how does this change on a monthly basis?
-- Your storage access pattern - How much data is being read from and written to the account (including new data)? How many and which transactions are used for data access?
+- Your storage access pattern - How much data is being read from and written to the account (including new data)? How many transactions are used for data access, and what kinds of transactions are they?
 
 #### Monitoring existing storage accounts
 
 To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics which performs logging and provides metrics data for a storage account.
-Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts, in well known tables in the same storage account.
+Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts.
+This data is stored in well-known tables in the same storage account.
 
-For more details please see, [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+For more details, please see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
-    > [AZURE.NOTE] Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account.
+> [AZURE.NOTE] Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account.
 
 To monitor the storage consumption for the Blob storage service, you will need to enable the capacity metrics.
 With this enabled, capacity data is recorded daily for a storage account’s Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
@@ -214,7 +215,7 @@ With this enabled, capacity data is recorded daily for a storage account’s Blo
 To monitor the data access pattern for the Blob storage service, you will need to enable the hourly transaction metrics at an API level.
 With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint in case of RA-GRS storage accounts.
 
-    > [AZURE.NOTE] In case you have a general-purpose storage account, in which you have stored page blobs and virtual machine disks alongside block and append blob data, this estimation process is not applicable. This is because, you will have no way of distinguishing capacity and transaction metrics based on the type of blob for only block and append blobs which can be migrated to a Blob storage account.
+> [AZURE.NOTE] In case you have a general-purpose storage account in which you have stored page blobs and virtual machine disks alongside block and append blob data, this estimation process is not applicable. This is because you will have no way of distinguishing capacity and transaction metrics based on the type of blob for only block and append blobs which can be migrated to a Blob storage account.
 
 To get a good approximation of you data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage, and extrapolate.
 One option is to retain the metrics data for 7 days and collect the data every week, for analysis at the end of the month.
@@ -222,20 +223,23 @@ Another option is to retain the metrics data for the last 30 days and collect an
 
 For details on enabling, collecting and viewing metrics data, please see, [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md).
 
-    > [AZURE.NOTE] Storing, accessing and downloading analytics data is also charged just like regular user data.
+> [AZURE.NOTE] Storing, accessing and downloading analytics data is also charged just like regular user data.
 
 #### Utilizing usage metrics to estimate costs
 
 ##### Storage costs
 
-The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data while the entry in the table with the row key *'analytics'* shows the storage capacity consumed by the analytics logs which is enabled are stored as blobs in the same storage account.
-This number can then be used to estimate the cost of storing data in the storage account.
+The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data.
+The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'analytics'* shows the storage capacity consumed by the analytics logs.
+This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account.
+
+> [AZURE.NOTE] The same method can also be used for estimating storage costs for block and append blobs in general-purpose storage accounts.
 
 ##### Transaction costs
 
-The sum of *'TotalBillableRequests'*, across all entries for an API in the transaction metrics table indicates the total number of transactions for that particular API. *E.g.*, The total number of *'GetBlob'* transactions in a given period can be calculated by the sum of total billable requests for all entries with the row key *'user;GetBlob'*.
+The sum of *'TotalBillableRequests'*, across all entries for an API in the transaction metrics table indicates the total number of transactions for that particular API. *e.g.*, the total number of *'GetBlob'* transactions in a given period can be calculated by the sum of total billable requests for all entries with the row key *'user;GetBlob'*.
 
-In order to estimate transaction costs you will need to break down the transactions into three groups.
+In order to estimate transaction costs for Blob storage accounts, you will need to break down the transactions into three groups since they are priced differently.
 
 - Write transactions such as *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'*, and *'CopyBlob'*.
 - Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
@@ -243,13 +247,15 @@ In order to estimate transaction costs you will need to break down the transacti
 
 These numbers can then be used to estimate the cost of transactions against the storage account.
 
+> [AZURE.NOTE] In order to estimate transaction costs for general-purpose storage accounts, you need to aggregate all transactions irrespective of the operation/API.
+
 ##### Data access costs
 
 While storage analytics does not provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table.
-The sum of *'TotalIngress'*, across all entries for an API in the transaction metrics table indicates the total amount of ingress data, in bytes for that particular API.
-Similarly the sum of *'TotalEgress'*, indicates the total amount of egress data, in bytes.
+The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API.
+Similarly the sum of *'TotalEgress'* indicates the total amount of egress data, in bytes.
 
-In order to estimate the data access costs you will need to break down the transactions into two groups.
+In order to estimate the data access costs for Blob storage accounts, you will need to break down the transactions into two groups.
 
 - The amount of data retrieved from the storage account can be estimated by looking at the sum of *'TotalEgress'* for primarily the *'GetBlob'* and *'CopyBlob'* operations.
 - The amount of data written to the storage account can be estimated by looking at the sum of *'TotalIngress'* for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
@@ -259,7 +265,7 @@ The cost of geo-replication data transfer can also be estimated by using the est
 
 ### Migrating existing data
 
-A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
+A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
 You can use the following methods to migrate existing data into Blob storage accounts from on-premise storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
 
 #### AzCopy

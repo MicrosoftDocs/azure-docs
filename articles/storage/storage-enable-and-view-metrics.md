@@ -110,7 +110,7 @@ If you want to download the metrics for long-term storage or to analyze them loc
 Many third-party storage-browsing tools are aware of these tables and enable you to view them directly.
 Please see [Azure Storage Explorers](storage-explorers.md) for a list of available tools.
 
-    > [AZURE.NOTE] Starting with version 0.8.0 of the [Microsoft Azure Storage Explorer] (http://storageexplorer.com/), you will now be able to view and download the analytics metrics tables.
+> [AZURE.NOTE] Starting with version 0.8.0 of the [Microsoft Azure Storage Explorer] (http://storageexplorer.com/), you will now be able to view and download the analytics metrics tables.
 
 In order to access the analytics tables programmatically, do note that the analytics tables do not appear if you list all the tables in your storage account. You can either access them directly by name, or use the [CloudAnalyticsClient API](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) in the .NET client library to query the table names.
 
