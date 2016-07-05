@@ -92,7 +92,7 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
 3. Click an HDInsight cluster.
 4. From the **Settings** blade, click **Applications** under the **General** category. The Installed Apps blade lists all the installed applications. 
 
-   ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+	![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 
 5. Click one of the installed applications to show the property. The property blade lists:
 
