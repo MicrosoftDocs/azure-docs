@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/06/2016" 
 	ms.author="jeffstok"
 /> 
 
@@ -27,11 +27,11 @@ In this tutorial a sample CSV file with text (as shown in figure 1 below) is pro
 
 Figure 1:  
 
-![stream analytics machine learning tutorial figure 1](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
+![stream analytics machine learning tutorial figure 1](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
 Figure 2:    
 
-![stream analytics machine learning tutorial figure 2](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
+![stream analytics machine learning tutorial figure 2](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
 ## Prerequisites
 
