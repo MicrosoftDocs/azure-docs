@@ -161,7 +161,7 @@ This topic lists every topic that applies directly to the SQL Database service o
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
 | 83 | [Create and manage a SQL Database elastic database jobs using PowerShell (preview)](sql-database-elastic-jobs-powershell.md) | PowerShell used to manage Azure SQL Database pools |
-| 84 | [Create and manage scaled out SQL Azure databases (preview)](sql-database-elastic-jobs-create-and-manage.md) | Walk through creation and management of an elastic database job. |
+| 84 | [Create and manage scaled out Azure SQL Databases (preview)](sql-database-elastic-jobs-create-and-manage.md) | Walk through creation and management of an elastic database job. |
 | 85 | [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md) | how to use elastic database jobs |
 | 86 | [Installing Elastic Database jobs overview](sql-database-elastic-jobs-service-installation.md) | Walk through installation of the elastic job feature. |
 | 87 | [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md) | Illustrates the elastic database job service |
