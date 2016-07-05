@@ -21,6 +21,8 @@
 
 Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
+To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+
 > [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
 
 ## Transcript: Ask a question you can answer with data

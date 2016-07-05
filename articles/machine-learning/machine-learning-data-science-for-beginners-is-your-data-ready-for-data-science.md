@@ -22,6 +22,8 @@
 
 Learn about evaluating your data to make sure it meets the basic criteria for data science.
 
+To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
 ## Transcript: Is your data ready for data science?

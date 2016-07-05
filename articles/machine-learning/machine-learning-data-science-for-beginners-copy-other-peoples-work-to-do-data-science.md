@@ -21,6 +21,8 @@
 
 One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example to use for your own experiment.
 
+To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+
 > [AZURE.VIDEO data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science]
 
 ## Transcript: Copy other people's work to do data science
