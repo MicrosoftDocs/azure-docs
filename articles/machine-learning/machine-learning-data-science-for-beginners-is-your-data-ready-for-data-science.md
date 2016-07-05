@@ -100,7 +100,7 @@ With data that's relevant, connected, accurate, and enough, we have all the ingr
 Be sure to check out the other 4 videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
 
 
-## Other videos in the series
+## Other videos in this series
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 

@@ -83,7 +83,7 @@ We’ve talked about some basic principles for asking a question you can answer 
 
 Be sure to check out the other videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
 
-## Other videos in the series
+## Other videos in this series
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
