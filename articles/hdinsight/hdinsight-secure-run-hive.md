@@ -44,3 +44,5 @@ In this limited private preview, 'cluster users' are not prevented from SSHing i
 4. Login as **admin** with the password **admin**.
 
 
+## Create Ranger user groups
+
