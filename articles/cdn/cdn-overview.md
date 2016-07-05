@@ -78,6 +78,6 @@ If you are an existing CDN customer, you can now manage your CDN endpoints throu
 
 To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Learn how to automate CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
+Learn how to automate Azure CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
 
 For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).
