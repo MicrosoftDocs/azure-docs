@@ -107,7 +107,7 @@ If you have protected your machines as classic resources (that is the VM recover
 
 5. If you have selected a *classic deployment* network - you will be asked to create a new VM via the Azure gallery and install the process sever in it.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.png)
+	![](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
 	
 	1. Name of the image is *Microsoft Azure Site Recovery Process Server V2*. make sure you select *Classic* as the deployment model.
 	
