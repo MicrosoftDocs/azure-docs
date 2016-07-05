@@ -20,7 +20,7 @@
 
 To receive AppSource certification for Azure AD, your application must implement the multi-tenant sign in pattern with Azure AD using the OpenID Connect, OAuth 2.0, or SAML 2.0 protocols. 
 
-If you’re not familiar with Azure AD sign in, start by reading about the [Browser to Web App scenarios in Authentication Scenarios for Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp]. Next, check out the Azure AD [web application quick-start guides][[AAD-QuickStart-Web-Apps]], which demonstrate how to implement sign-in, demonstrated in companion code samples. 
+If you’re not familiar with Azure AD sign in, start by reading about the [Browser to Web App scenarios in Authentication Scenarios for Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp]. Next, check out the Azure AD [web application quick-start guides][AAD-QuickStart-Web-Apps], which demonstrate how to implement sign-in, and include companion code samples. 
 
 To learn how to implement the multi-tenant sign in pattern with Azure AD, check out the topic [How to build an application that can sign in any Azure Active Directory (AD) user (multi-tenant application)][AAD-Howto-Multitenant-Overview]
 
