@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/22/2016"
+   ms.date="07/05/2016"
    ms.author="skwan;bryanla"/>
 
 # How to build an application that can sign in any Azure Active Directory (AD) user (multi-tenant application)
@@ -138,7 +138,7 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 ## Related content
 The [Azure AD Developer's Guide][AAD-Dev-Guide] is the main portal to use for all Azure AD development related topics. It includes articles that discuss benefits and [why you would want to integrate with Azure AD][AAD-Why-To-Integrate], an overview of [application integration][AAD-Integrating-Apps], and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
 
-[These samples][AAD-MT-Samples] demonstrate a variety of Azure AD multi-tenant applications.
+[These samples][AAD-Samples-MT] demonstrate a variety of Azure AD multi-tenant applications.
 
 For information related to the Azure AD Graph API, see:  
 - [Azure Active Directory Graph API][AAD-Graph-Overview] for an overview
@@ -156,7 +156,7 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-Graph-Overview]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
-[AAD-MT-Samples]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
+[AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
