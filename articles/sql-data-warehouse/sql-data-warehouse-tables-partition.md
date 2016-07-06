@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Partitioning Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Partitioning tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with table partitioning in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Partitioning Tables in SQL Data Warehouse
+# Partitioning tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -356,13 +356,13 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-partition.md
-[Data Types]: ./sql-data-warehouse-tables-partition.md
-[Distribute]: ./sql-data-warehouse-tables-partition.md
-[Index]: ./sql-data-warehouse-tables-partition.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-partition.md
-[Temporary]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [workload management]: ./sql-data-warehouse-develop-concurrency.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

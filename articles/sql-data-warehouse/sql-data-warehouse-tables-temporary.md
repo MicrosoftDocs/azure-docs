@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Temporary Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Temporary tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with temporary tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Temporary Tables in SQL Data Warehouse
+# Temporary tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -234,12 +234,12 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-temporary.md
-[Data Types]: ./sql-data-warehouse-tables-temporary.md
-[Distribute]: ./sql-data-warehouse-tables-temporary.md
-[Index]: ./sql-data-warehouse-tables-temporary.md
-[Partition]: ./sql-data-warehouse-tables-temporary.md
-[Statistics]: ./sql-data-warehouse-tables-temporary.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

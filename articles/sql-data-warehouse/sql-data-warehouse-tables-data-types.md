@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Data Types for Tables in SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Data types for tables in SQL Data Warehouse | Microsoft Azure"
    description="Getting started with data types for Azure SQL Data Warehouse tables."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Data Types for Tables in SQL Data Warehouse
+# Data types for tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -86,13 +86,13 @@ To learn more, see the articles on [Table Overview][Overview], [Distributing a T
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-data-types.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
 [Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-data-types.md
-[Index]: ./sql-data-warehouse-tables-data-types.md
-[Partition]: ./sql-data-warehouse-tables-data-types.md
-[Statistics]: ./sql-data-warehouse-tables-data-types.md
-[Temporary]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->

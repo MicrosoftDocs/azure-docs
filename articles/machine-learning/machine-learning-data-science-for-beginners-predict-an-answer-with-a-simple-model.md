@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Predict an answer with a simple model | Microsoft Azure"
+   pageTitle="Predict an answer with a simple model - Data Science for Beginners | Microsoft Azure"
    description="How to create a simple model to predict the price of a diamond in Data Science for Beginners video 4. Includes a basic linear regression with target data."                                  
    keywords="create a model,simple model,simple data model,price prediction,simple regression model"
    services="machine-learning"
@@ -17,9 +17,11 @@
    ms.date="06/29/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Predict an answer with a simple model: Data Science for Beginners video 4
+# Data Science for Beginners video 4: Predict an answer with a simple model
 
 Learn how to create a simple model to predict the price of a diamond in Data Science for Beginners video 4. We'll draw a regression model with target data.
+
+To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
@@ -121,14 +123,15 @@ Today, we've talked about how to do linear regression, and we made a prediction 
 Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
 
 
-## Other videos in the series
+## Other videos in this series
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-  * Video 1: [The 5 questions data science can answer](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Available now.**
-  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **Available now.**
-  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Available now.**
-  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Available June 30.
+  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) 
+  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * Video 4: Predict an answer with a simple model 
+  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Next steps
 

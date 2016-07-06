@@ -18,7 +18,7 @@
 
 # SQL Database automated backups
 
-The Azure SQL Database service protects all databases with an automated backup that is retained for 7 days for Basic, 14 days for Standard, and 35 days for Premium. See [Service-tiers](sql-database-service-tiers.md) for more information features avaiable with each service tier. 
+The Azure SQL Database service protects all databases with an automated backup that is retained for 7 days for Basic, 35 days for Standard, and 35 days for Premium. See [Service-tiers](sql-database-service-tiers.md) for more information features avaiable with each service tier. 
 
 The database backups are taken automatically with no need to opt-in and no additional charges. These automated backups and point-in-time restore provide a zero-cost, zero-admin way to protect databases from accidental corruption or deletion, whatever the cause. You can use these automated backup to perform point-in-time restores and to restore a deleted database after accidental data corruption or deletion.
 
@@ -48,7 +48,7 @@ You can also use [SQL Database automated backups](sql-database-automated-backups
 
 ## What happens to my restore point retention period when I downgrade/upgrade by service tier?
 
-After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded from P1 to S3, the retention period will change from 35 days to 14 days immediately, all the restore points prior to 14 days will no longer be available. Subsequently, if it is upgraded to P1 again, the retention period would begin from 14 days and start building up to 35 days.
+After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded from P1 to S3, the retention period will change from 35 days to 35 days immediately, all the restore points prior to 35 days will no longer be available. Subsequently, if it is upgraded to P1 again, the retention period would begin from 35 days and start building up to 35 days.
 
 ## How long is the retention period for a dropped DB? 
 The retention period is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.
