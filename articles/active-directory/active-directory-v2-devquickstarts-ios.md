@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD v2.0 iOS App | Microsoft Azure"
-	description="How to build an iOS app that signs users in with both personal Microsoft Account and work or school accounts using third-party libraries."
+	description="How to build an iOS app that signs in users with both personal Microsoft account and work or school accounts by using third-party libraries."
 	services="active-directory"
 	documentationCenter=""
 	authors="brandwe"
@@ -33,7 +33,7 @@ The v2.0 endpoint does not support all Azure Active Directory scenarios and feat
 > [AZURE.NOTE]
     To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-## Download
+## Download code from GitHub
 The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
 
 ```
@@ -47,7 +47,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## Register an app
-Create a new app at the [Application Registration Portal](https://apps.dev.microsoft.com), or follow the detailed steps at  [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at the [Application registration portal](https://apps.dev.microsoft.com), or follow the detailed steps at  [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy the **Application Id** that's assigned to your app because you'll need it soon.
 - Add the **Mobile** platform for your app.
@@ -60,7 +60,7 @@ For this walkthrough, you will use the OAuth2Client from GitHub, which is an OAu
 
 ### Add the library to your project by using CocoaPods
 
-CocoaPods, which is a dependency manager for XCode projects, manages the previous installation steps automatically.
+CocoaPods is a dependency manager for Xcode projects. It manages the previous installation steps automatically.
 
 ```
 $ vi Podfile
@@ -77,7 +77,7 @@ $ vi Podfile
 	 end
 	```
 
-2. Load the podfile by using CocoaPods. This will create a new XCode workspace that you will load.
+2. Load the podfile by using CocoaPods. This will create a new Xcode workspace that you will load.
 
 	```
 	$ pod install
@@ -85,7 +85,7 @@ $ vi Podfile
 	$ open QuickStart.xcworkspace
 	```
 
-## The structure of the project
+## Explore the structure of the project
 
 The following structure is set up for our project in the skeleton:
 
@@ -93,13 +93,13 @@ The following structure is set up for our project in the skeleton:
 - A Detail View for the data about the selected user
 - A Login View where a user can sign in to the app to query the graph
 
-We will move to various files in the skeleton to add authentication. Other parts of the code, such as the visual code, does not pertain to identity but are provided for you.
+We will move to various files in the skeleton to add authentication. Other parts of the code, such as the visual code, do not pertain to identity but are provided for you.
 
 ## Set up the settings.plst file in the library
 
--	In the QuickStart project, open the plist `settings.plist` file. Replace the values of the elements in the section to reflect the values that you used in the Azure Portal. Your code will reference these values whenever it uses the Active Directory Authentication Library.
-    -	The `clientId` is the clientId of your application that you copied from the portal.
-    -	The `redirectUri` is the redirect url that the portal provided.
+-	In the QuickStart project, open the `settings.plist` file. Replace the values of the elements in the section to reflect the values that you used in the Azure portal. Your code will reference these values whenever it uses the Active Directory Authentication Library.
+    -	The `clientId` is the client ID of your application that you copied from the portal.
+    -	The `redirectUri` is the redirect URL that the portal provided.
 
 ## Set up the NXOAuth2Client library in your LoginViewController
 
@@ -124,15 +124,15 @@ The NXOAuth2Client library requires some values to get set up. After you complet
 
 Let's look at details about the code.
 
-The first string is for the `scopes`.  The `User.ReadBasic.All` value allows you to read the basic profile of all the users in your directory.
+The first string is for `scopes`.  The `User.ReadBasic.All` value allows you to read the basic profile of all the users in your directory.
 
 You can learn more about all the available scopes at [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
 For `authURL`, `loginURL`, `bhh`, and `tokenURL`, you should use the values provided previously. If you use the open source Microsoft Azure Identity Libraries, we pull this data down for you by using our metadata endpoint. We've done the hard work of extracting these values for you.
 
-The `keychain` value is the container that the NXOAuth2Client library will use to create a keychain to store your tokens. If you'd like to get single sign-on (SSO) across numerous apps, you can specify the same keychain in each of your applications and request the use of that keychain in your XCode entitlements. This is explained in the Apple documentation.
+The `keychain` value is the container that the NXOAuth2Client library will use to create a keychain to store your tokens. If you'd like to get single sign-on (SSO) across numerous apps, you can specify the same keychain in each of your applications and request the use of that keychain in your Xcode entitlements. This is explained in the Apple documentation.
 
-The rest of these values are required to use the library and simply create places for you to carry values to the context.
+The rest of these values are required to use the library and create places for you to carry values to the context.
 
 ### Create a URL cache
 
@@ -160,7 +160,7 @@ A WebView can prompt the user for additional factors like SMS text message (if c
 
 ```objc
 -(void)requestOAuth2Access {
-    //in order to login to Microsoft APIs using OAuth2 we must show an embedded browser (UIWebView)
+    //to sign in to Microsoft APIs using OAuth2, we must show an embedded browser (UIWebView)
     [[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:@"myGraphService"
                                    withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
                                        //navigate to the URL returned by NXOAuth2Client
@@ -173,7 +173,7 @@ A WebView can prompt the user for additional factors like SMS text message (if c
 
 ### Override the WebView methods to handle authentication
 
-To tell the WebView what happens when a user needs to sign in as discussed previously, you can simply paste the following code.
+To tell the WebView what happens when a user needs to sign in as discussed previously, you can paste the following code.
 
 ```objc
 - (void)resolveUsingUIWebView:(NSURL *)URL {
@@ -246,7 +246,7 @@ The following code will handle the redirectURL that returns from the WebView. If
 }
 ```
 
-### Set up the OAuth Context (called Account Store)
+### Set up the OAuth Context (called account store)
 
 Here you can call `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` on the shared account store for each service that you want the application to be able to access. The account type is a string that is used as an identifier for a certain service. Because you are accessing the Graph API, the code refers to it as `"myGraphService"`. You then set up an observer that will tell you when anything changes with the token. After you get the token, you return the user back to the `masterView`.
 
@@ -300,13 +300,13 @@ Here you can call `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:to
 A Master-View-Controller (MVC) app that displays the returned data in the grid is beyond the scope of this walkthrough, and many online tutorials explain how to build one. All this code is in the skeleton file. However, you do need to deal with a few things in this MVC application:
 
 * Intercept when a user types something in the search field
-* Provide an object of data back to the Master View so it can display the results in the grid
+* Provide an object of data back to the MasterView so it can display the results in the grid
 
 We'll do those below.
 
 ### Add a check to see if you're logged in
 
-The application does little if the user is not signed in, so it's smart to check if there is already a token in the cache. If not, you redirect to the LoginView for the user to sign-in. If you recall, the best way to do actions when a view loads is to use the `viewDidLoad()` method that Apple provides us.
+The application does little if the user is not signed in, so it's smart to check if there is already a token in the cache. If not, you redirect to the LoginView for the user to sign in. If you recall, the best way to do actions when a view loads is to use the `viewDidLoad()` method that Apple provides us.
 
 ```objc
 - (void)viewDidLoad {
@@ -328,7 +328,7 @@ The application does little if the user is not signed in, so it's smart to check
 
 ### Update the Table View when data is received
 
-When the Graph API returns data, you need to display the data. For simplicity here is all the code to update the table. You can just paste the right values in your MVC boilerplate code.
+When the Graph API returns data, you need to display the data. For simplicity, here is all the code to update the table. You can just paste the right values in your MVC boilerplate code.
 
 ```objc
 #pragma mark - Table View
@@ -404,7 +404,7 @@ if (searchText.length > 0) {
 
 ## Write a Helper class to access the Graph API
 
-This is the core of our application. Whereas the rest was inserting code in the default MVC pattern from Apple, here you write code to query the graph as the user types and then return that data. Here's the code and detail explanation follow it.
+This is the core of our application. Whereas the rest was inserting code in the default MVC pattern from Apple, here you write code to query the graph as the user types and then return that data. Here's the code, and a detailed explanation follows it.
 
 ### Create a new Objective C header file
 
@@ -419,7 +419,7 @@ Name the file `GraphAPICaller.h`, and add the following code.
 @end
 ```
 
-Here you see that a specified method takes a string and returns a completionBlock. This completionBlock, as you may have guessed, will update the table by providing an object with populated data in real-time as the user searches.
+Here you see that a specified method takes a string and returns a completionBlock. This completionBlock, as you may have guessed, will update the table by providing an object with populated data in real time as the user searches.
 
 
 ### Create a new Objective C file
