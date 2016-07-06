@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="07/06/2016"
 	ms.author="nitinme"/>
 
 
@@ -42,7 +42,7 @@ This article provides step-by-step guidance on how to use the HDInsight tools pl
  
 * IntelliJ IDEA. This article uses version 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
  
-* HDInsight Tools plugin for IntelliJ IDEA. For instructions on installing the plugin, see [Install HDInsight Tools plugin for IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin.md#install-hdinsight-tools-plugin-for-intellij-idea).
+* HDInsight Tools plugin for IntelliJ IDEA. HDInsight tools plugin for IntelliJ IDEA is available as part of the Azure Toolkit for IntelliJ. For instructions on how to install the Azure Toolkit, see [Installing the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
  
 * While running Spark Scala application for remote debugging on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) that occurs due to a missing WinUtils.exe on Windows. To work around this error, you must [download the executable from here](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**. You must then add an environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
 
@@ -329,6 +329,8 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
 ### Tools and extensions
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+
+* [Use HDInsight Tools Plugin for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
