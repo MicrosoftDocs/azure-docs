@@ -46,7 +46,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [API Implementation][APIImplementation] 
 
-    A set of recommended practices for implementing and publishing a web API .
+    A set of recommended practices for implementing and publishing a web API.
 
 - [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
 
