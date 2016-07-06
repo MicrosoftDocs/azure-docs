@@ -91,7 +91,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 --> 
 
 #### Additional
-- Hybrid Connections support on-premises resources installed on the following operating systems:
+- Hybrid Connection Manager can be installed on the following operating systems:
 
 	- Windows Server 2008 R2 (.NET Framework 4.5+ and Windows Management Framework 4.0+ required)
 	- Windows Server 2012 (Windows Management Framework 4.0+ required)
