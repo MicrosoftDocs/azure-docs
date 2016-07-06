@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Stream data from Azure Storage Blob into Data Lake Store using Azure Stream Analytics
