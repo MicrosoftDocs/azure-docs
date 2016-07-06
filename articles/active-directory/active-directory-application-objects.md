@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="identity"
-ms.date="06/22/2016"
+ms.date="07/06/2016"
 ms.author="bryanla;mbaldwin"/>
 
 # Application and service principal objects in Azure Active Directory
