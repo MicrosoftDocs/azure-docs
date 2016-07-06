@@ -23,12 +23,12 @@ Updates to **Power BI Embedded** are released on a regular basis. However, not e
 ## July 11th, 2016
 
 Included in this release:
--	**Great news!** The Power BI Embedded service is no longer in preview - it’s now GA (generally available).  
--	All REST APIs have moved from **/beta** to **/v1.0**.
--	.NET and JavaScript SDKs has been updated for **v1.0**.
--	Power BI API calls can now be authenticated directly by using API keys. App tokens are only needed for embedding. As part of this, provision and dev tokens have been deprecated in v1.0 APIs, but they’ll continue to work in the beta version until 12/30/2016. To learn more, see [Authenticating and Authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md).
--	Row level security (RLS) support for app tokens and embedded reports. To learn more, see [Row level security with Power BI Embedded](power-bi-embedded-rls.md).
--	Updated sample application for all **v1.0** API calls.
--	Power BI Embedded support for Azure SDK, PowerShell and CLI.
--   Users can export visualization data to a **.csv**.
--   Power BI Embedded is now supported in all the same languages/locales as Microsoft Azure. To learn more, see  [Azure - Languages](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+-    **Great news!** The Power BI Embedded service is no longer in preview - it’s now GA (generally available).  
+-    All REST APIs have moved from **/beta** to **/v1.0**.
+-    .NET and JavaScript SDKs has been updated for **v1.0**.
+-    Power BI API calls can now be authenticated directly by using API keys. App tokens are only needed for embedding. As part of this, provision and dev tokens have been deprecated in v1.0 APIs, but they’ll continue to work in the beta version until 12/30/2016. To learn more, see [Authenticating and Authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md).
+-    Row level security (RLS) support for app tokens and embedded reports. To learn more, see [Row level security with Power BI Embedded](power-bi-embedded-rls.md).
+-    Updated sample application for all **v1.0** API calls.
+-    Power BI Embedded support for Azure SDK, PowerShell and CLI.
+-    Users can export visualization data to a **.csv**.
+-    Power BI Embedded is now supported in all the same languages/locales as Microsoft Azure. To learn more, see  [Azure - Languages](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
