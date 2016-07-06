@@ -26,7 +26,7 @@ Installing on a new fresh installation of Windows Server 2016 Technical Preview 
 
 If you install from a bare metal server without using the provided Virtual Hard Disk (VHD), make sure that you only install the prerequisite hotfix (KB3124262), as having additional updates has been found to generate deployment issues in some situations.
 
-The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates.
+The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Azure Active Directory
 
@@ -148,9 +148,6 @@ In particular, if you use a well-known login on the underlying hosting server (l
 
 If publishing fails for a SQL Server or MySQL Server gallery package with multiple subscriptions fails, change the script to explicitly select the **Default Provider Subscription**.
 
-### "Page not found error" trying to browse to a Web App
-
-Workaround: Check the DNS records on the ADVM virtual machine. Ensure that there is a *.webapps folder and record in AzureStack.local zone.
 
 ### "Signature verification failed on downloaded file" error during Web Apps resource provider deployment
 
@@ -251,17 +248,6 @@ A deployment in Visual Studio may time out after one hour with an access token e
 
 Workaround:  publish the template using PowerShell.
 
-### Template deployment fails using Visual Studio
-
-The schema header in some of the parameter JSON files in GitHub can cause deployment failures when deploying using Visual Studio.
-
-Workaround: Replacing the following line in the JSON file:
-
-      "$schema": "https://schema.management.azure.com/schemas/2015-0101/deploymentTemplate.json#",
-
-with the following:
-
-      "$schema": "http://schema.management.azure.com/schemas/2015-0101/deploymentParameters.json#",  
 
 ### Azure template won't deploy to Azure Stack
 
@@ -355,10 +341,6 @@ To get around this issue, try either of these options:
     2. From the portal, **Stop** the virtual machine and then **Start** it.
     ![Stop and restart the virtual machine](media/azure-stack-troubleshooting/vmstopstart.png) 
     
-### Windows Update disabled on virtual machines in the POC
-
-During deployment, Windows Update is disabled on certain virtual machines (to prevent updates during deployment, which can trigger reboot pending issues). You can turn on Windows Update manually on all machines.
-
 ### Performance issues while deploying or deleting tenant virtual machines
 
 If you see performance issues while deploying or deleting tenant virtual machines, try this workaround:
