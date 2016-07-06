@@ -234,6 +234,8 @@ The following sections explain which properties from the standard AMQP message s
 
 This section covers advanced capabilities of Azure Service Bus that are based on draft extensions to AMQP currently being developed in the OASIS Technical Committee for AMQP. Azure Service Bus implements the latest status of these drafts and will adopt changes introduced as those drafts reach standard status.
 
+> [AZURE.NOTE] Service Bus Messaging advanced operations are supported thought a request/response pattern. The details of these operations are described in the document [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx).
+
 ### AMQP management
 
 The AMQP Management specification is the first of the draft extensions we’ll discuss here. This specification defines a set of protocol gestures layered on top of the AMQP protocol that allow management interactions with the messaging infrastructure over AMQP. The specification defines generic operations such as *create*, *read*, *update*, and *delete* for managing entities inside a messaging infrastructure and a set of query operations.
