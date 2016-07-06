@@ -16,11 +16,9 @@
 	ms.date="07/05/2016"
 	ms.author="jodehavi;stgriffi"/>
     
-How to setup Key Vault with end to end key rotation and auditing
-================================================================
+#How to setup Key Vault with end to end key rotation and auditing
 
-Introduction
-------------
+##Introduction
 
 After creating your Azure Key Vault, you will be able to start leveraging that vault to store your Keys and Secrets. Your applications no longer need to persist your keys or secrets, but rather will request them from the key vault as needed. This allows you to update keys and secrets without impacting the behavior of your application, which opens up a breadth of possibilities around your key and secret management behavior.
 
@@ -28,8 +26,7 @@ This article walks through an example of leveraging Azure Key Vault to store a s
 
 > \[AZURE.NOTE\] This tutorial is not intended to explain in detail the initial set up of your Azure Key Vault. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli.md).
 
-Setting up KeyVault
--------------------
+##Setting up KeyVault
 
 In order to enable an application to retrieve a secret from Azure Key Vault, you must first create the secret and upload it to your vault. This can be accomplished easily via PowerShell as shown below.
 
@@ -71,8 +68,8 @@ Next you will want to get the URI for the secret you just created. This will be 
 ```powershell
 Get-AzureKeyVaultSecret –VaultName <vault Name>
 ```
-Setting up Application
-----------------------
+
+##Setting up Application
 
 Now that you have a secret stored you will want to retrieve that secret and use it from code. There are a few steps required to achieve this, the first and most important of which is registering your application with Azure Active Directory and then telling Azure Key Vault your application information so that it can allow requests from your application.
 
@@ -156,8 +153,7 @@ var sec = kv.GetSecretAsync(<SECRET_ID>).Result.Value;
 
 When you run your application, you should now be authenticating to Azure Active Directory and then retrieving your secret value from your Azure Key Vault.
 
-Key Rotation using Azure Automation
------------------------------------
+##Key Rotation using Azure Automation
 
 There are various options for implementing a rotation strategy for values you store as Azure Key Vault secrets. Secrets can be rotated as part of a manual process, they may be rotated programatically by leveraging API calls, or they may be rotated by way of an automation script. For the purposes of this article we will be leveraging Azure PowerShell combined with Azure Automation to change an Azure Storage Account access key, and then we will update a key vault secret with that new key. 
 
@@ -231,8 +227,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 From the editor pane you can choose 'Test pane' to test your script. Once the script is running without error you can select the 'Publish' option, and then you can apply a schedule for the runbook back at the runbook configuration pane.
 
-Key Vault Auditing pipeline
---------------------------
+##Key Vault Auditing pipeline
 
 When you setup an Azure Key Vault you can turn on auditing to collect logs on access requests made to the Key Vault. These logs are stored in a designated Azure Storage account and can then be pulled out, monitored and analyzed. Below we will walk through a scenario that leverages Azure Functions, Azure Logic Apps and the Key Vault audit logs to create a pipeline to send an email when secrets from the vault are retrieved by an app that does match the app id of the web app.
 
