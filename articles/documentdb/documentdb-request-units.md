@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 #Request Units in DocumentDB
@@ -64,6 +64,9 @@ To help customers fine tune their throughput estimations, there is a web based [
 - Document creates (writes)
 - Document reads
 - Document deletes
+- Document updates
+
+The tool also includes support for estimating data storage needs based on the sample documents you provide.
 
 Using the tool is simple:
 
@@ -71,11 +74,13 @@ Using the tool is simple:
 
 	![Upload documents to the request unit calculator][2]
 
-2. Enter the number of document create, read, and delete operations you require (on a per-second basis).
+2. To estimate data storage requirements, enter the total number of documents you expect to store.
+
+3. Enter the number of document create, read, update, and delete operations you require (on a per-second basis). To estimate the request unit charges of document update operations, upload a copy of the sample document from step 1 above that includes typical field updates.  For example, if document updates typically modify two properties named lastLogin and userVisits, then simply copy the sample document, update the values for those two properties, and upload the copied document.
 
 	![Enter throughput requirements in the request unit calculator][3]
 
-3. Click calculate and examine the results.
+4. Click calculate and examine the results.
 
 	![Request unit calculator results][4]
 

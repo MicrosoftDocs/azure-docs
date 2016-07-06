@@ -28,7 +28,7 @@ If you encounter the connection issues, try the troubleshoot steps that are desc
 Connection problems may be caused by any of the following:
 
 - Failure to apply best practices and design guidelines during the application design process.  See [SQL Database Development Overview](sql-database-develop-overview.md) to get started.
-- SQL Azure database reconfiguration
+- Azure SQL Database reconfiguration
 - Firewall settings
 - Connection time-out
 - Incorrect login information
@@ -53,7 +53,7 @@ If your application is experiencing transient errors, review the following topic
 
 ## Troubleshoot persistent errors (non-transient errors)
 
-If the application persistently fails to connect to SQL Azure Database, it usually indicates an issue with one of the following:
+If the application persistently fails to connect to Azure SQL Database, it usually indicates an issue with one of the following:
 
 - Firewall configuration. The Azure SQL database or client-side firewall is blocking connections to Azure SQL Database.
 - Network reconfiguration on the client side: for example, a new IP address or a proxy server.

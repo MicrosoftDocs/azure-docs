@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="04/08/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Pipelines and Activities in Azure Data Factory: Create/Schedule Pipelines and Chain Activities

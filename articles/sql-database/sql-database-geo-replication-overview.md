@@ -19,15 +19,11 @@
 
 # Overview: SQL Database Active Geo-Replication
 
-> [AZURE.SELECTOR]
-- [Business continuity](sql-database-business-continuity.md)
-- [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
-
 Active Geo-Replication enables you to configure up to 4 readable secondary databases in the same or different data center locations (regions). Secondary databases are available for querying and for failover in the case of a data center outage or the inability to connect to the primary database.
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
- You can configure Active Geo-Replication using the [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+ You can configure Active Geo-Replication using the [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md), or the [REST API - Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 > [AZURE.SELECTOR]
 - [Configure: Azure Portal](sql-database-geo-replication-portal.md)
@@ -36,7 +32,7 @@ Active Geo-Replication enables you to configure up to 4 readable secondary datab
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can *failover* to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
-You can failover to a secondary using the [Azure portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), or the [REST API]((https://msdn.microsoft.com/library/azure/mt163685.aspx)).
+You can failover to a secondary using the [Azure portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), the [REST API - Planned Failover](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx), or [REST API - Unplanned Failover](https://msdn.microsoft.com/library/azure/mt582027.aspx).
 
 
 > [AZURE.SELECTOR]
@@ -44,7 +40,7 @@ You can failover to a secondary using the [Azure portal](sql-database-geo-replic
 - [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
-The Active Geo-Replication feature implements a mechanism to provide database redundancy within the same Microsoft Azure region or in different regions (geo-redundancy). Active Geo-Replication asynchronously replicates committed transactions from a database to up to four copies of the database on different servers. When Active Geo-Replication is configured a secondary database is created on the specified server. The original database becomes the primary database. The primary database asynchronously replicates committed transactions to each of the secondary databases. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to always be transactionally consistent with changes committed to the primary database.
+The Active Geo-Replication feature implements a mechanism to provide database redundancy within the same Microsoft Azure region or in different regions (geo-redundancy). Active Geo-Replication asynchronously replicates committed transactions from a database to up to four copies of the database on different servers, using read committed snapshot isolation (RCSI) for isolation. When Active Geo-Replication is configured a secondary database is created on the specified server. The original database becomes the primary database. The primary database asynchronously replicates committed transactions to each of the secondary databases. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to always be transactionally consistent with changes committed to the primary database.
 
 One of the primary benefits of Active Geo-Replication is that it provides a database-level disaster recovery solution with very low recovery time. When you place the secondary database on a server in a different region you add maximum resilience to your application. The cross-region redundancy enables applications to recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The following figure shows an example of Active Geo-Replication configured on a Premium database with a primary in the North Central US region and secondary in the South Central US region.
 
@@ -85,7 +81,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 ## Programmatically managing Active Geo-Replication
 
-As discussed above, in addiition to the Aazure portal, Active Geo-Replication can be managed programmically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
+As discussed above, in addiition to the Azure portal, Active Geo-Replication can be managed programmically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
 
 - **Azure Resource Manager API and role-based security**: Active Geo-Replication includes a set of [Azure Resource Manager (ARM) APIs]( https://msdn.microsoft.com/library/azure/mt163571.aspx) for management, including [ARM-based PowerShell cmdlets](sql-database-geo-replication-powershell.md). These APIs require the use of resource groups and support role based security (RBAC). For more information on how to implement access roles see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
@@ -120,8 +116,12 @@ As discussed above, in addiition to the Aazure portal, Active Geo-Replication ca
 
 |API|Description|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates, updates, or restores a primary or a secondary database|
-|[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Returns the status during a create operation|
+|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates, updates, or restores a primary or a secondary database.|
+|[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Returns the status during a create operation.|
+|[Set Secondary Database as Primary (Planned Failover)r](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promote a secondary database in a Geo-Replication partnership to become the new primary database.|
+|[Set Secondary Database as Primary (Unplanned Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|To force a failover to the secondary database and set the secondary as the primary.|
+|[Get Replication Links](https://msdn.microsoft.com/library/azure/mt600929.aspx)|Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view.|
+|[Get Replication Link](https://msdn.microsoft.com/library/azure/mt600778.aspx)|Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view.|
 ||||
 
 

@@ -19,12 +19,6 @@
 
 # Business continuity with Azure SQL Database
 
-> [AZURE.SELECTOR]
-- [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
-- [Automated backups](sql-database-automated-backups.md)
-- [Database recovery](sql-database-recovery-using-backups.md)
-- [Active Geo-Replication](sql-database-geo-replication-overview.md)
-
 Azure SQL Database provides a number of business continuity solutions. Business continuity is about designing, deploying, and running applications in a way that is resilient to planned or unplanned disruptive events that result in permanent or temporary loss of the application’s ability to conduct its business function. Unplanned events range from human errors to permanent or temporary outages to regional disasters that could cause wide scale loss of facility in a particular Azure region. The planned events include application redeployment to a different region and application upgrades. The goal of business continuity is for your application to continue to function during these events with minimal impact on the business function.
 
 To discuss SQL Database cloud business continuity solutions, there are several concepts with which you need be familiar. These are:
@@ -68,7 +62,7 @@ The following table lists the SQL Database business continuity features and show
 
 | Capability | Basic tier | Standard tier |Premium tier
 | --- |--- | --- | ---
-| Point In Time Restore | Any restore point within 7 days | Any restore point within 14 days | Any restore point within 35 days
+| Point In Time Restore | Any restore point within 7 days | Any restore point within 35 days | Any restore point within 35 days
 | Geo-Restore | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
 | Active Geo-Replication | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 
@@ -79,7 +73,7 @@ These features are provided to address the scenarios listed earlier.
 
 ###Point-in-time restore
 
-[Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 14 days with Standard, and 35 days with Premium. 
+[Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 35 days with Standard, and 35 days with Premium. 
 
 ### Geo-Restore
 
@@ -123,8 +117,6 @@ You should use Active Geo-Replication if your application meets the following cr
 When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) for guidance.
 
 For detailed recovery strategies when using an elastic pool, see [Disaster recovery strategies for applications using SQL Database Elastic Pool](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-
-
 
 ## Next steps
 

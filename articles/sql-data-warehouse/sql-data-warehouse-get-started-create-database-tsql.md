@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
@@ -53,15 +53,13 @@ Alternatively, you can run the same command with sqlcmd by runnig the following 
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-The **MAXSIZE** and **SERVICE_OBJECTIVE** parameters specify the maximum space the database may use on disk and the compute resources allocated to your Data Warehouse instance.  The Service Objective is essentially an allocation of CPU and memory which scales linearly with the size of DWU.  
-
-The MAXSIZE can be between 250 GB and 240 TB.  The Service Objective can be between DW100 and DW2000.  For a complete list of all valid values for MAXSIZE and SERVICE_OBJECTIVE see the MSDN documentation for [CREATE DATABASE][].  Both the MAXSIZE and SERVICE_OBJECTIVE can also be changed with an [ALTER DATABASE][] T-SQL command.  Caution should be used when changing the SERVICE_OBJECTIVE as this causes a restart of services which will cancel all queries in flight.  Changing MAXSIZE does not restart services as it is just a simple metadata operation.
+The `MAXSIZE` can be between 250 GB and 240 TB.  The `SERVICE_OBJECTIVE` can be between DW100 and DW2000 [DWU][].  For a list of all valid values, see the MSDN documentation for [CREATE DATABASE][].  Both the MAXSIZE and SERVICE_OBJECTIVE can also be changed with an [ALTER DATABASE][] T-SQL command.  Caution should be used when changing the SERVICE_OBJECTIVE as this causes a restart of services which will cancel all queries in flight.  Changing MAXSIZE does not restart services as it is just a simple metadata operation.
 
 ## Next steps
 After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
 
 <!--Article references-->
-
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
 [Connect to SQL Data Warehouse with Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [migrate]: ./sql-data-warehouse-overview-migrate.md
