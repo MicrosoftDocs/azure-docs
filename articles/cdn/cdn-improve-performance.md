@@ -119,7 +119,7 @@ These tables describe Azure CDN compression behavior for every scenario.
 |Uncompressed|Uncompressed|Uncompressed|     |	
 |Uncompressed|Not cached|Uncompressed|     |
 
-<sup>\*</sup> **Azure CDN from Verizon** edge servers will pass the uncompressed file on the first request and then compress and cache the file for subsequent requests.  Accordingly, files with the `Cache-Control: no-cache` header will never be compressed.
+<sup>\*</sup>**Azure CDN from Verizon** edge servers will pass the uncompressed file on the first request and then compress and cache the file for subsequent requests.  Accordingly, files with the `Cache-Control: no-cache` header will never be compressed.
 
 ## Media Services CDN Compression
 
