@@ -20,7 +20,7 @@
 
 In this article you will learn how to use Azure Data Lake Store as an output for an Azure Stream Analytics job. This article demonstrates a simple scenario that reads data from an Azure Storage blob (input) and writes the data to Data Lake Store (output).
 
->[AZURE.NOTE] At this time, creation and configuration of Data Lake Store outputs for Stream Analytics is supported only in the [Azure Classic Portal](manage.windowsazure.com). Hence, some parts of this tutorial will use the Azure Classic Portal.
+>[AZURE.NOTE] At this time, creation and configuration of Data Lake Store outputs for Stream Analytics is supported only in the [Azure Classic Portal](http://manage.windowsazure.com). Hence, some parts of this tutorial will use the Azure Classic Portal.
 
 ## Prerequisites
 
