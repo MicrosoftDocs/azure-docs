@@ -30,7 +30,7 @@ When you register an application in the [Azure classic portal](https://manage.wi
 
 - A [service principal object](active-directory-dev-glossary.md#service-principal): As mentioned above, the application object serves as the template for an application's identity configuration, from which its service principal object(s) are *derived*. It is the service principal object to which policy and permissions are applied, for use at run-time by the tenant in which it lives. A service principal object is required in each tenant for which an instance of the application must be represented, governing access to resources protected by user accounts from that tenant.
 
-    For a [multi-tenant](#multi-tenant-application) [Web application](#web-application), the service principal object is created in the end-user's Azure AD tenant after successful consent, acknowledging permission to access a protected resource on behalf of the user. Going forward, the service principal object will be consulted for future authorization requests. 
+    For a multi-tenant Web application, the service principal object is created in the end-user's Azure AD tenant after successful consent, acknowledging permission to access a protected resource on behalf of the user. Going forward, the service principal object will be consulted for future authorization requests. 
 
 > [AZURE.NOTE] Any changes you make to your application object, are also reflected in it's service principal object in the application's home tenant only (ie: the tenant where it was registered). If your application is configured for multi-tenant access, changes to the application object are not reflected in any consumer tenants' service principal objects, until the consumer tenant removes access and grants access again.
 
@@ -45,7 +45,7 @@ The diagram below illustrates the relationship between an application's applicat
 
 In the diagram above, Step 1 is the process of creating the application and service principal objects in their home tenant.
 
-In Step 2, when the Contoso and Fabrikam administrators complete consent and grant access to the application, a service principal object is created in their company's Azure AD tenant and is assigned the permissions that the company administrator granted.
+In Step 2, when Contoso and Fabrikam administrators complete consent and grant access to the application, a service principal object is created in their company's Azure AD tenant and is assigned the permissions that the company administrator granted. Note: the HR app could also be designed to allow consent by users for individual use.
 
 In Step 3, the consumer tenants of the HR application (such as Contoso and Fabrikam) each have their own service principal object that represents their use of an instance of the application at runtime, governed by the permissions consented by the administrator.
 
