@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,38 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/30/2016"
    ms.author="kgremban"/>
 
 # How to manage role activation settings in Azure AD Privileged Identity Management
 
-A privileged role administrator can customize Azure AD Privileged Identity Management (PIM) in their organization, including changing the experience for a user who is activating a temporary role assignment.
+A privileged role administrator can customize Azure AD Privileged Identity Management (PIM) in their organization, including changing the experience for a user who is activating an eligible role assignment.
 
 ## Manage the role activation settings
 
 1. Go to the [Azure portal](https://portal.azure.com) and select the **Azure AD Privileged Identity Management** app from the dashboard.
 2. Select the role you want to manage from the roles table.
 3. Click **Settings**.
-4. Set the default activation duration in hours by adjusting the slider or entering the number of hours in the text field. The maximum is 72 hours.
-5. Click **Enable** or **Disable** to send notifications about the activation to administrators, or not. (Enabling notifications may help detect unauthorized administrator activity.)
-6. Click **Enable** to allow administrators to enter ticketing information into their activation request. (This information can be helpful when auditing role access later.)
-7. Click **Enable** or **Disable** to require multi-factor authentication for an activation request, or not.
-8. Click **Save**.
 
-You cannot disable MFA for highly privileged roles for Azure AD and Office365, including:  
-- Global administrator
-- Privileged role administrator   
-- User account administrator  
-- Directory writer  
-- Partner tier1 support  
-- Partner tier2 support  
-- Billing administrator  
-- Security administrator  
-- Exchange administrator  
-- Mailbox administrator  
-- Skype for Business administrator  
-- SharePoint administrator  
-- Compliance administrator  
+On the settings page for each role, there are a number of settings you can configure. These settings only affect users who are eligible admins, not permanent admins.
+
+**Activations**: The time, in hours, that a role stays active before it expires. This can be between 1 and 72 hours.
+
+**Notifications**: You can choose whether or not the system sends emails to admins confirming that they have activated a role. This can be useful for detecting unauthorized or illegitimate activations.
+
+**Incident/Request Ticket**: You can choose whether or not to require eligible admins to include a ticket number when they activate their role. This can be useful when you perform role access audits.
+
+**Multi-Factor Authentication**: You can choose whether or not to require users to verify their identity with MFA before they can activate their roles. They only have to verify this once per session, not every time they activate a role. There are two tips to keep in mind when you enable MFA:
+
+- Users who have Microsoft accounts for their email addresses (typically @outlook.com, but not always) cannot register for Azure MFA. If you want to assign roles to users with Microsoft accounts, you should either make them permanent admins or disable MFA for that role.
+
+- You cannot disable MFA for highly privileged roles for Azure AD and Office365. This is a safety feature because these roles should be carefully protected:  
+
+    - Global administrator
+    - Privileged role administrator   
+    - User account administrator  
+    - Directory writer  
+    - Partner tier1 support  
+    - Partner tier2 support  
+    - Billing administrator  
+    - Security administrator  
+    - Exchange administrator  
+    - Mailbox administrator  
+    - Skype for Business administrator  
+    - SharePoint administrator  
+    - Compliance administrator  
 
 For more information about using MFA with PIM see [How to Require MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
