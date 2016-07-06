@@ -231,7 +231,7 @@ From the editor pane you can choose 'Test pane' to test your script. Once the sc
 
 When you setup an Azure Key Vault you can turn on auditing to collect logs on access requests made to the Key Vault. These logs are stored in a designated Azure Storage account and can then be pulled out, monitored and analyzed. Below we will walk through a scenario that leverages Azure Functions, Azure Logic Apps and the Key Vault audit logs to create a pipeline to send an email when secrets from the vault are retrieved by an app that does match the app id of the web app.
 
-First, you will need to enable logging on your Key Vault. This can be done via the following PowerShell commands (Full details can be seen [here](https://azure.microsoft.com/en-us/documentation/articles/key-vault-logging/)):
+First, you will need to enable logging on your Key Vault. This can be done via the following PowerShell commands (Full details can be seen [here](key-vault-logging.md)):
 
 ```powershell
 $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard\_LRS -Location 'East US'
@@ -243,16 +243,16 @@ Once this is enabled, then audit logs will start collecting into the designated 
 
 > \[AZURE.NOTE\] You can access your logging information at most, 10 minutes after the key vault operation. In most cases, it will be quicker than this.
 
-The next step is to [create an Azure Service Bus queue](https://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-get-started-with-queues/). This will be used to push the events to and have the Logic App pick them up and act on them. To create a Service Bus is relatively straight-forward and below are the high level steps:
+The next step is to [create an Azure Service Bus queue](../service-bus/service-bus-dotnet-get-started-with-queues.md). This will be used to push the events to and have the Logic App pick them up and act on them. To create a Service Bus is relatively straight-forward and below are the high level steps:
 
 1. Create a Service Bus namespace (if you already have on that you want to use for this then skip to step 2).
 2. Browse to the Service Bus in the portal and select the namespace you want to create the queue in.
 3. Select New and choose Service Bus -> Queue and enter the required details.
 4. Grab the Service Bus connection information by choosing the namespace and clicking _Connection Information_. You will need this information for the next part.
 
-Next, you will [create an Azure Function](https://azure.microsoft.com/en-us/documentation/articles/functions-create-first-azure-function/) to poll the Key Vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
+Next, you will [create an Azure Function](../azure-functions/functions-create-first-azure-function.md) to poll the Key Vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
 
-Create an Azure Function (choose New -> Function App in the portal). During creation you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found [here](https://azure.microsoft.com/en-us/documentation/articles/functions-scale/).
+Create an Azure Function (choose New -> Function App in the portal). During creation you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found [here](../azure-functions/functions-scale/).
 
 When the Function App is created, navigate to it and choose a timer function and C\# then click **Create** from the start screen.
 
@@ -391,7 +391,7 @@ and add a new file called _project.json_ with following content:
 ```
 Upon _Save_ this will trigger Azure Functions to download the required binaries. 
 
-Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the code above, it expects the timer to be called _myTimer_. Give the timer a [CRON expression](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateScheduledCRON) as follows: 0 \* \* \* \* \* which will cause the function to run once a minute. 
+Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the code above, it expects the timer to be called _myTimer_. Give the timer a [CRON expression](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) as follows: 0 \* \* \* \* \* which will cause the function to run once a minute. 
 
 In the same **Integrate** tab, add an input which will be of type _Azure Blob Storage_. This will point to the _sync.txt_ file that will contain the timestamp of the last event looked at by the function. This will be made available within the function by the parameter name. In the code above, the Azure Blob Storage input expects the parameter name to be _inputBlob_. Choose the storage account where the _sync.txt_ file will reside (it could be the same or a different storage account) and in the path field, provide the path where the file lives, in the format of {container-name}/path/to/sync.txt.
 
@@ -403,7 +403,7 @@ At this point the function is ready. Make sure to switch back to the **Develop**
 
 Next we will need to create an Azure Logic App that will pick up the events that the function is pushing to the Service Bus queue, parse the content and send an email based on a condition being matched.
 
-[Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) by going to New -> Logic App. 
+[Create a Logic App](../app-service-logic/app-service-logic-create-a-logic-app.md) by going to New -> Logic App. 
 
 Once the Logic App is created, navigate to it and choose _edit_. Within the Logic App editor, choose the _Service Bus Queue_ managed api and enter your Service Bus credentials to connect it the the queue the function is pushing messages to.
 
