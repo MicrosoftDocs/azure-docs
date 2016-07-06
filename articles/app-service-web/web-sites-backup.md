@@ -23,7 +23,7 @@ The Backup and Restore feature in [Azure App Service](../app-service/app-service
 create app backups manually or automatically. You can restore your app to a previous state, or create a new app based on 
 one of your original app's backups. 
 
-For information on restoring an app from backup, see [Restore an app backup in Azure](web-sites-restore.md).
+For information on restoring an app from backup, see [Restore an app in Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 ## What gets backed up 
@@ -169,7 +169,7 @@ The database backup for the app is stored in the root of the .zip file. For a SQ
 
 <a name="nextsteps"></a>
 ## Next Steps
-For information on restoring an app from a backup, see [Restore an app in Azure from a backup](web-sites-restore.md). You can also backup and restore App Service apps
+For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). You can also backup and restore App Service apps
 using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
