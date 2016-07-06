@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/05/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a lab
@@ -32,7 +32,7 @@ You grant access to your lab through two roles:
 	-  A **DevTest Labs User** role must be assigned through the **Add Users** tiles of the lab.
 	-  Users in the **DevTest Labs User** role can perform these operations only inside in the lab that they are assigned to.
 	For example, a **DevTest Labs User** cannot create a virtual machine using the Virtual Machine service of the subscription. Creating a virtual machine is only allowed from the DevTest Labs account.
-	- *External* users must have an account in one of the Microsoft account domains (i.e. @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com, or any variant for a specific country).
+	- *External* users are users with a Microsoft Account (MSA).
  
 Once a VM gets created, the user that created it gets automatically assigned to the **Owner** role on the created VM, which allows them to perform all the actions that are offered in the lab.
 
