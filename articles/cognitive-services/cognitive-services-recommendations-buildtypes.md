@@ -69,22 +69,22 @@ The recommendation build has two capabilities that make it attractive:
  
 #### Recommendations build parameters 
  
-| Name  | 	Description |	Default <br>  Value | Type, <br>  Valid Values 
-|-------|------------------|-------------------|-------------------
-| NumberOfModelIterations |	The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the better accuracy you will get, but the compute time will take longer.  |	 40 |	Integer, <br> 	10 to 50 |
-| NumberOfModelDimensions |	The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine-tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. |	20 | Integer, <br> 10 to 40 |
-| ItemCutOffLowerBound |	Defines the minimum number of usage points an item should be in for it to be considred in the model. |	2 |	Integer, <br> 2 or More. |
-| ItemCutOffUpperBound | 	Defines the maximum number of usage points an item should be in for it to be considered in the model. | 2147483647 | Integer, <br>2 or More.|
-|UserCutOffLowerBound |	Defines the minimum number of transactions a user must have performed to be considered in the model. |	2 |	Integer, <br> 2 or More.
-| ItemCutOffUpperBound |	Defines the maximum number of transactions a user must have performed to be considered in the model. |	2147483647 | Integer , <br>2 or More.|
-| UseFeaturesInModel |	Indicates if features can be used in order to enhance the recommendation model. | 	True	 | Boolean 
-|ModelingFeatureList |	Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. 	(Depends on the features that are important) ||	String, up to 512 chars
-| AllowColdItemPlacement |	Indicates if the recommendation should also push cold items via feature similarity.	| False | 	Boolean	
-| EnableFeatureCorrelation	| Indicates if features can be used in reasoning. |	False|	Boolean	
-| ReasoningFeatureList |	Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).	(Depends on the features that are important to customers) | | 	String, up to 512 chars
-| EnableU2I |	Enable personalized recommendation a.k.a. U2I (user to item recommendations). | True |	Boolean
-|EnableModelingInsights |	Defines whether offline evaluation should be performed in order to gather modeling insights (i.e. precision and diversity metrics). If set to true, a subset of the data will not be used for training as it will need to be reserved for testing of the model. Read more about [offline evaluations](#OfflineEvaluation) | False |	Boolean 
-| SplitterStrategy | If enable modeling insights is set to true, the way in which data should be split for evaluation purposes  | RandomSplitter | String, *RandomSplitter* or *LastEventSplitter*
+| Name  | 	Description |	 Type, <br>  Valid Values <br> (Default Value)
+|-------|-------------------|------------------
+| NumberOfModelIterations |	The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the better accuracy you will get, but the compute time will take longer.  |	 Integer, <br> 	10 to 50 <br>Default: 40 
+| NumberOfModelDimensions |	The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine-tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. |	Integer, <br> 10 to 40 <br> Default: 20 |
+| ItemCutOffLowerBound |	Defines the minimum number of usage points an item should be in for it to be considred in the model. |		Integer, <br> 2 or More. <br> Default: 2 |
+| ItemCutOffUpperBound | 	Defines the maximum number of usage points an item should be in for it to be considered in the model. |  Integer, <br>2 or More.<br> Default: 2147483647 |
+|UserCutOffLowerBound |	Defines the minimum number of transactions a user must have performed to be considered in the model. |	Integer, <br> 2 or More. <br> Default: 2 
+| ItemCutOffUpperBound |	Defines the maximum number of transactions a user must have performed to be considered in the model. |	Integer , <br>2 or More. <br> Default: 2147483647|
+| UseFeaturesInModel |	Indicates if features can be used in order to enhance the recommendation model. | 	 Boolean<br> Default: True 
+|ModelingFeatureList |	Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. 	(Depends on the features that are important) |	String, up to 512 chars
+| AllowColdItemPlacement |	Indicates if the recommendation should also push cold items via feature similarity.	| Boolean <br> Default: False	
+| EnableFeatureCorrelation	| Indicates if features can be used in reasoning. |	Boolean <br> Default: False
+| ReasoningFeatureList |	Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).	(Depends on the features that are important to customers) | String, up to 512 chars
+| EnableU2I |	Enable personalized recommendation a.k.a. U2I (user to item recommendations). | Boolean <br>Default: True
+|EnableModelingInsights |	Defines whether offline evaluation should be performed in order to gather modeling insights (i.e. precision and diversity metrics). If set to true, a subset of the data will not be used for training as it will need to be reserved for testing of the model. Read more about [offline evaluations](#OfflineEvaluation) | Boolean <br> Default: False
+| SplitterStrategy | If enable modeling insights is set to true, the way in which data should be split for evaluation purposes  | String, *RandomSplitter* or *LastEventSplitter* <br>Default:  RandomSplitter 
 
 
 <a name="FBTBuild"></a>
@@ -103,12 +103,12 @@ FBT builds do not support cold items today, as they by definition expect two ite
 
 #### FBT build parameters 
  
-| Name  | 	Description |	Default <br> Value |	Type,  <br> Valid Values | 
-|-------|------------------|-----------------------|---------------|
-| FbtSupportThreshold | How conservative the model is. Number of co-occurrences of items to be considered for modeling. | 6 |  Integer, <br> 3-50 
-| FbtMaxItemSetSize | Bounds the number of items in a frequent set.| 2 |  Integer	<br> 2-3 
-| FbtMinimalScore | Minimal score that a frequent set should have in order to be included in the returned results. The higher the better. | 0 | Double <br> 0 and above
-| FbtSimilarityFunction | Defines the similarity function to be used by the build. Lift favors serendipity, Co-occurrence favors predictability, and Jaccard is a nice compromise between the two. | jaccard | String,  <br>  <i>cooccurrence, lift, jaccard</i> 
+| Name  | 	Description |		Type,  <br> Valid Values <br> (Default Value)
+|-------|---------------|-----------------------
+| FbtSupportThreshold | How conservative the model is. Number of co-occurrences of items to be considered for modeling. |  Integer, <br> 3-50 <br> Default: 6 
+| FbtMaxItemSetSize | Bounds the number of items in a frequent set.| Integer	<br> 2-3 <br> Default: 2
+| FbtMinimalScore | Minimal score that a frequent set should have in order to be included in the returned results. The higher the better. | Double <br> 0 and above <br> Default: 0
+| FbtSimilarityFunction | Defines the similarity function to be used by the build. Lift favors serendipity, Co-occurrence favors predictability, and Jaccard is a nice compromise between the two. | String,  <br>  <i>cooccurrence, lift, jaccard</i><br> Default: <i>jaccard</i> 
 
 <a name="SelectBuild"></a>
 ## How do I select the exact build to use? ##
