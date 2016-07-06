@@ -31,4 +31,4 @@ Included in this release -
 -	Updated sample application for all **v1.0** API calls.
 -	Power BI Embedded support for Azure SDK, PowerShell and CLI.
 -   Users can export visualization data to a **.csv**.
--   Power BI Embedded is now supported in all the same languages/locales as Microsoft Azure. To learn more, see  [Windows Azure - Languages](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+-   Power BI Embedded is now supported in all the same languages/locales as Microsoft Azure. To learn more, see  [Azure - Languages](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
