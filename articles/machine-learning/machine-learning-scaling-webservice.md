@@ -14,6 +14,7 @@
    ms.workload="data-services"
    ms.tgt_pltfrm="na"
    ms.topic="article"
+   ms.date="07/06/2016"
    ms.author="neerajkh"/>
 
 # Scaling a web service
