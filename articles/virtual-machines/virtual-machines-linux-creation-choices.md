@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Different ways to create a Linux VM | Microsoft Azure"
-	description="Lists the different ways to create a Linux virtual machine on Azure and links to tools and tutorials for each method"
+	description="Lists the different ways to create a Linux virtual machine on Azure and links to tools and tutorials for each method."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
 # Different ways to create a Linux virtual machine with Resource Manager
@@ -85,7 +85,7 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
 
 See [Navigate and select Azure virtual machine images with the Azure CLI](virtual-machines-linux-cli-ps-findimage.md) for more examples on browsing and using available images.
 
-The `azure vm quick-create` and `azure vm create` commands have some aliases you can use to quickly access the more common distros and their latest releases, rather than needing to specify the published, offer, SKU, and version each time you create a VM:
+The `azure vm quick-create` and `azure vm create` commands also have some aliases you can use to quickly access the more common distros and their latest releases. This is easier than needing to specify the publisher, offer, SKU, and version each time you create a VM:
 
 | Alias     | Publisher | Offer        | SKU         | Version |
 |:----------|:----------|:-------------|:------------|:--------|
