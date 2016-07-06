@@ -50,9 +50,9 @@ This article provides step-by-step guidance on how to use the HDInsight tools pl
 
 Follow the instructions from the below links to create an Azure Virtual Network and then verify the connectivity between the desktop and Azure Virtual Network.
 
-* [Create a VNet with a site-to-site VPN connection using Azure Portal](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Create a VNet with a site-to-site VPN connection using PowerShell](..\vpn-gateway\vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Configure a point-to-site connection to a virtual network using PowerShell](..\vpn-gateway\vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Create a VNet with a site-to-site VPN connection using Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Create a VNet with a site-to-site VPN connection using PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Configure a point-to-site connection to a virtual network using PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## Step 2: Create an HDInsight Spark cluster
 
@@ -156,7 +156,7 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
 
 6. Update the `core-site.xml` to make the following changes.
 
-	1. `core-site.xml` includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. See [Manage your storage access keys](..\storage\storage-create-storage-account.md#manage-your-storage-account).
+	1. `core-site.xml` includes the encrypted key to the storage account associated with the cluster. In the `core-site.xml` that you added to the project, replace the encrypted key with the actual storage key associated with the default storage account. See [Manage your storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-account).
 
 			<property>
 	      		<name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
