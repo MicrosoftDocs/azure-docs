@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD v2.0 Android App | Microsoft Azure"
-	description="How to build an Android app that signs users in with both personal Microsoft Account and work or school accounts and calls the Graph API using third party libraries."
+	pageTitle="Azure Active Directory v2.0 Android app | Microsoft Azure"
+	description="How to build an Android app that signs in users with both personal Microsoft account and work or school accounts and calls the Graph API by using third party libraries."
 	services="active-directory"
 	documentationCenter=""
 	authors="brandwe"
@@ -31,7 +31,7 @@ The v2.0 endpoint does not support all Azure Active Directory scenarios and feat
 > [AZURE.NOTE] To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 
-## Download
+## Download the code from GitHub
 The code for this tutorial is maintained [on GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git).  To follow along, you can  [download the app's skeleton as a .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) or clone the skeleton:
 
 ```
@@ -45,7 +45,7 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 ```
 
 ## Register an app
-Create a new app at the  [Application Registration Portal](https://apps.dev.microsoft.com), or follow the detailed steps at [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at the [Application registration portal](https://apps.dev.microsoft.com), or follow the detailed steps at [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy the **Application Id** that's assigned to your app because you'll need it soon.
 - Add the **Mobile** platform for your app.
@@ -54,7 +54,7 @@ Create a new app at the  [Application Registration Portal](https://apps.dev.micr
 
 ## Download the NXOAuth2 third-party library and create a workspace
 
-For this walkthrough, you will use the OIDCAndroidLib from GitHub, which is an OAuth2 library based on Google's OpenID Connect code. It implements the native application profile and supports the authorization endpoint of the user. These are all the things that you'll need to integrate with the Microsoft identity platform.
+For this walkthrough, you will use the OIDCAndroidLib from GitHub, which is an OAuth2 library based on the OpenID Connect code of Google. It implements the native application profile and supports the authorization endpoint of the user. These are all the things that you'll need to integrate with the Microsoft identity platform.
 
 Clone the OIDCAndroidLib repo to your computer.
 
@@ -64,44 +64,44 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 ![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/emotes-url.png)
 
-## Set Up Your Android Studio Environment
+## Set up your Android Studio environment
 
 1. Create a new Android Studio project and accept the defaults in the wizard.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
+	![Create new project in Android Studio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
+	![Target Android devices](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
+	![Add an activity to mobile](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
 
 2. To set up your project modules, move the cloned repo to the project location. You can also create the project and then clone it directly to the project location.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4_1.PNG)
+	![Project modules](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4_1.PNG)
 
-3. Open the project modules settings by using the context menu or by using the **Ctrl + Alt + Maj + S** shortcut.
+3. Open the project modules settings by using the context menu or by using the Ctrl+Alt+Maj+S shortcut.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4.PNG)
+	![Project modules settings](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4.PNG)
 
 4. Remove the default app module because you only want the project container settings.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
+	![The default app module](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 
 5. Import modules from the cloned repo to the current project.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+	![Import gradle project](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
+	![Create new module page](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 
 6. Repeat these steps for the `oidlib-sample` module.
 
 7. Check the oidclib dependencies on the `oidlib-sample` module.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
+	![oidclib dependencies on the oidlib-sample module](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
 
 8. Click **OK** and wait for gradle sync.
 
 	Your settings.gradle should look like:
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8_1.PNG)
+	![Screenshot of settings.gradle](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8_1.PNG)
 
 9. Build the sample app to make sure that the sample running correctly.
 
@@ -109,16 +109,16 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 10. Build and run `oidlib-sample` as the target in Android Studio.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample9.png)
+	![Progress of oidlib-sample build](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample9.png)
 
 11. Delete the `app ` directory that was left when you removed the module from the project because Android Studio doesn't delete it for safety.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample12.PNG)
+	![File structure that includes the app directory](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample12.PNG)
 
 12. Open the **Edit Configurations** menu to remove the run configuration that was also left when you removed the module from the project.
 
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
-	![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)
+	![Edit configurations menu](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
+	![Run configuration of app](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)
 
 ## Configure the endpoints of the sample
 
@@ -132,7 +132,7 @@ Now that you have the `oidlib-sample` running successfully, let's edit some endp
 	    <bool name="oidc_oauth2only">true</bool>
 	```
 
-2. Configure your Client ID that you received from the registration portal.
+2. Configure your client ID that you received from the registration portal.
 
 	```xml
 	    <string name="oidc_clientId">86172f9d-a1ae-4348-aafa-7b3e5d1b36f5</string>
@@ -191,9 +191,7 @@ The endpoints for `userInfoEndpoint` and `revocationEndpoint` are currently not 
 
 Here a simple Graph API call returns our information.
 
-## You're Done!
-
-Those are all the changes that you need to do! Run the `oidlib-sample` application, and click **Sign in**.
+Those are all the changes that you need to do. Run the `oidlib-sample` application, and click **Sign in**.
 
 After you've successfully authenticated, select the **Request Protected Resource** button to test your call to the Graph API.
 
