@@ -82,7 +82,7 @@ Not at this time.
 
 ### Can I deploy my own images as a tenant?
 
-Yes, just like in Azure, a tenant can upload images in Azure Stack, in addition to using the images from the service administrator.  
+Yes, just like in Azure, a tenant can upload images in Azure Stack, in addition to using the images from the service administrator. For an overview, see the [Deploying your own images as a tenant blog post](http://www.danielstechblog.de/microsoft-azure-stack-deploying-your-own-images-as-a-tenant/). 
 
 ## Testing
 
