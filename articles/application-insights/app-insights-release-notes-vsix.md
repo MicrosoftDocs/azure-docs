@@ -107,8 +107,6 @@ If you have an ASP.NET application with the Application Insights SDK, do the fol
 
 ![Upload complete](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
-
-
 ## Version 4.2
 In this release, we added features to make searching for data easier in the context of events, with the ability to jump to code from more data events, and an effortless experience to send your logging data to Application Insights. This extension is updated monthly. If you have feedback or feature requests, send it to aidevtools@microsoft.com.
 ### No-click logging experience
