@@ -62,7 +62,7 @@ The following table lists the SQL Database business continuity features and show
 
 | Capability | Basic tier | Standard tier |Premium tier
 | --- |--- | --- | ---
-| Point In Time Restore | Any restore point within 7 days | Any restore point within 14 days | Any restore point within 35 days
+| Point In Time Restore | Any restore point within 7 days | Any restore point within 35 days | Any restore point within 35 days
 | Geo-Restore | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
 | Active Geo-Replication | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 
@@ -73,7 +73,7 @@ These features are provided to address the scenarios listed earlier.
 
 ###Point-in-time restore
 
-[Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 14 days with Standard, and 35 days with Premium. 
+[Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 35 days with Standard, and 35 days with Premium. 
 
 ### Geo-Restore
 

@@ -111,7 +111,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 
     ![stream analytics machine learning tutorial machine learning web service](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)    
 
-11.	Navigate to **Query** tab and modify the query as below:  
+11.	Navigate to **Query** tab and modify the query as below:    
 
 ```
 	WITH subquery AS (  
@@ -121,9 +121,9 @@ Take note of the web service URL and access key from the downloaded excel as sho
 	Select text, result.[Score]  
 	Into output  
 	From subquery  
-```
+```    
 
-12. Click **Save** to save the query.    
+Then simply click **Save** to save the query.
 
 ## Start the Stream Analytics Job and observe the output
 

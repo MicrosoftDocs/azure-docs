@@ -37,4 +37,4 @@ This error occurs when the Azure database is being moved (or reconfigured) and y
 
 ## Next steps
 - If you receive a different error, evaluate the [error message](sql-database-develop-error-messages.md) for clues about the cause.
-- If the issue is persistent, visit the guidance in [Troubleshoot common connection issues to SQL Azure Database](sql-database-troubleshoot-common-connection-issues.md).
+- If the issue is persistent, visit the guidance in [Troubleshoot common connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
