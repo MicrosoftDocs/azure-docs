@@ -17,7 +17,7 @@
    ms.author="iainfou"/>
 
 # Opening ports and endpoints
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+You open a port, or create an endpoint, in Azure by creating a network filter that allows traffic to your chosen port on a subnet or virtual machine (VM) network interface. These filters, which control both inbound and outbound traffic, are placed in a Network Security Group and attached to the resource that will receive the traffic. Let's use a common example of web traffic on port 80.
 
 ## Quick commands
 To create a Network Security Group and rules you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/15/2016" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -117,7 +117,6 @@ See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-build-y
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456

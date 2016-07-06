@@ -445,9 +445,9 @@ Resource Manager provides several functions for working with array values.
 
 - [concat](#concat)
 - [length](#length)
-- [take](#take)
 - [skip](#skip)
 - [split](#split)
+- [take](#take)
 
 <a id="length" />
 ### length
@@ -470,37 +470,6 @@ Or, you can use with a string:
     },
     "variables": { 
         "nameLength": "[length(parameters('appName'))]"
-    }
-
-<a id="take" />
-### take
-**take(originalValue, numberToTake)**
-
-Returns an array or string with the specified number of elements or characters from the start of the array or string.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| originalValue                      |   Yes    | The array or string to take the elements or characters from.
-| numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
-
-The following example takes the specified number of elements from the array.
-
-    "parameters": {
-      "first": {
-        "type": "array",
-        "defaultValue": [ "one", "two", "three" ]
-      },
-      "second": {
-        "type": "int"
-      }
-    },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "array",
-        "value": "[take(parameters('first'),parameters('second'))]"
-      }
     }
 
 <a id="skip" />
@@ -531,6 +500,37 @@ The following example skips the specified number of elements in the array.
       "return": {
         "type": "array",
         "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Returns an array or string with the specified number of elements or characters from the start of the array or string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The array or string to take the elements or characters from.
+| numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
+
+The following example takes the specified number of elements from the array.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
       }
     }
 

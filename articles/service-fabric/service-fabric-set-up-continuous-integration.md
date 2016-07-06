@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/29/2016"
+   ms.date="06/28/2016"
    ms.author="mthalman" />
 
 # Set up continuous integration for a Service Fabric application by using Visual Studio Team Services

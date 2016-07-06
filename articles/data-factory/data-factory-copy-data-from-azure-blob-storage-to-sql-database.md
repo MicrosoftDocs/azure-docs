@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/01/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Copy data from Blob Storage to SQL Database using Data Factory 
@@ -112,7 +112,6 @@ See [Data Movement Activities](data-factory-data-movement-activities.md) article
 [azure-portal]: https://portal.azure.com/
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md 

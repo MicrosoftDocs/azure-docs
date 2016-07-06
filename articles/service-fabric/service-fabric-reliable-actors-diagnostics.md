@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="07/05/2016"
    ms.author="abhisram"/>
 
 # Diagnostics and performance monitoring for Reliable Actors
@@ -118,7 +118,7 @@ The Reliable Actors runtime publishes the following performance counters related
 |Service Fabric Actor|Average milliseconds actor lock held|Time (in milliseconds) for which the per-actor lock is held|
 
 ### Actor state management events and performance counters
-The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-state-management).
+The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-state-management.md).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
