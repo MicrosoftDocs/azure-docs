@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Automation Runbook Types"
-   description="Describes the difference types of runbooks that you can use in Azure Automation and considerations that you should take into account when determining which type to use. "
+   description="Describes the different types of runbooks that you can use in Azure Automation and considerations that you should take into account when determining which type to use. "
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/31/2016"
+   ms.date="07/06/2016"
    ms.author="bwren" />
 
 # Azure Automation runbook types
@@ -102,7 +102,7 @@ You should take into account the following additional considerations when determ
 
 - To learn more about Graphical runbook authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 - To understand the differences between PowerShell and PowerShell workflows for runbooks, see [Learning Windows PowerShell Workflow](automation-powershell-workflow.md)
-- For more information on how to create or importa Runbook, see [Creating or Importing a Runbook](automation-creating-importing-runbook.md)
+- For more information on how to create or import a Runbook, see [Creating or Importing a Runbook](automation-creating-importing-runbook.md)
 
 
 
