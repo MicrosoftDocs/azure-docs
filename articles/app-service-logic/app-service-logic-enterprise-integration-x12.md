@@ -48,7 +48,6 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
 6. Enter a **Name** for your agreement then select the **Agreement type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
 ![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)  
-
 7. After you have set the receive settings properties, select the **OK** button 
 Let's continue:  
 8. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
@@ -58,7 +57,7 @@ Let's continue:
 ![](./media/app-service-logic-enterprise-integration-x12/x12-3.png)  
 10. Select the **OK** button to save your settings.  
 
-To configure the settings that handle messages you send to partners:
+To configure the settings that handle messages you send to partners:  
 11. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
 
 The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Character Sets and Separators and  Validation. 
