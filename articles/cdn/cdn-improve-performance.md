@@ -114,12 +114,12 @@ These tables describe Azure CDN compression behavior for every scenario.
 |----------------|-----------|------------|-----|
 |Compressed|Compressed|Compressed|CDN transcodes between supported formats|
 |Compressed|Uncompressed|Compressed|CDN performs compression|
-|Compressed|Not cached|Compressed|CDN performs compression if origin returns uncompressed<sup>1</sup>. 
+|Compressed|Not cached|Compressed|CDN performs compression if origin returns uncompressed<sup>\*</sup>. 
 |Uncompressed|Compressed|Uncompressed|CDN performs decompression|
 |Uncompressed|Uncompressed|Uncompressed|     |	
 |Uncompressed|Not cached|Uncompressed|     |
 
-<sup>1</sup> **Azure CDN from Verizon** edge servers will pass the uncompressed file on the first request and the compress and cache the file for subsequent requests.  Accordingly, files with the `Cache-Control: no-cache` header will never be compressed.
+<sup>\*</sup> **Azure CDN from Verizon** edge servers will pass the uncompressed file on the first request and then compress and cache the file for subsequent requests.  Accordingly, files with the `Cache-Control: no-cache` header will never be compressed.
 
 ## Media Services CDN Compression
 
