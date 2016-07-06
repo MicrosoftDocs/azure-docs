@@ -93,7 +93,7 @@ If you need to install HDInsight into a secured Virtual Network, you must allow 
 
 Allowing inbound access from port 443 for these addresses will allow you to successfully install HDInsight into a secured virtual network.
 
-> [AZURE.IMPORTANT] HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules, only use inbound rules.
+> [AZURE.IMPORTANT] HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, only use inbound rules.
 
 The following examples demonstrate how to create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
 
