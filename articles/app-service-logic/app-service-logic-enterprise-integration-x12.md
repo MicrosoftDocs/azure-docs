@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/05/2016" 
 	ms.author="deonhe"/>
 
 # Enterprise integration with X12 
@@ -48,64 +48,31 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
 6. Enter a **Name** for your agreement then select the **Agreement type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
 ![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)  
-
-Here are a few details you may find useful when configuring the settings for your agreement: 
-  
-|Property|Description|
-|----|----|
-|Host Partner|An agreement needs both a host and guest partner. The host partner represents the organization that is configuring the agreement.|
-|Host Identity|An identifier for the host partner. |
-|Guest Partner|An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner.|
-|Guest Identity|An identifier for the guest partner.|
-|Receive Settings|These properties apply to all messages received by an agreement|
-|Send Settings|These properties apply to all messages sent by an agreement|  
+7. After you have set the receive settings properties, select the **OK** button 
 Let's continue:  
-7. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
- 
- - Optionally, you can override the properties in the incoming message. To do this, select the **Override message properties** checkbox.
-  - Select the **Message should be signed** checkbox if you'd like to require all incoming messages to be signed. If you select this option, you will also need to select the **Certificate** that will be used to validate the signature on the messages.
-  - Optionally, you can require messages to be encrypted as well. To do this, select the **Message should be encrypted** checkbox. You would then need to select the **Certificate** that will be used to decode the incoming messages.
-  - You can also require messages to be compressed. To do this, select the **Message should be compressed** checkbox.  
-![](./media/app-service-logic-enterprise-integration-agreements/agreement-4.png)  
+8. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
+9. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations and Internal Settings. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
+![](./media/app-service-logic-enterprise-integration-x12/x12-2.png)  
 
-See the table below if you would like to learn more about what the receive settings enable.  
+![](./media/app-service-logic-enterprise-integration-x12/x12-3.png)  
+10. Select the **OK** button to save your settings.  
 
-|Property|Description|
-|----|----|
-|Override message properties|Select this to indicate that properties in received messages can be overridden |
-|Message should be signed|Enable this to require messages to be digitally signed|
-|Message should be encrypted|Enable this to require messages to be encrypted. Non-encrypted messages will be rejected.|
-|Message should be compressed|Enable this to require messages to be compressed. Non-compressed messages will be rejected.|
-|MDN Text|This is a default MDN to be sent to the message sender|
-|Send MDN|Enable this to allow MDNs to be sent.|
-|Send signed MDN|Enable this to require MDNs to be signed.|
-|MIC Algorithm||
-|Send asynchronous MDN|Enable this to require messages to be sent asynchronously.|
-|URL|This is the URL to which messages will be sent.|
-Now, let's continue:  
-8. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
-![](./media/app-service-logic-enterprise-integration-agreements/agreement-5.png)  
+To configure the settings that handle messages you send to partners:  
+11. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
 
-See the table below if you would like to learn more about what the send settings enable.  
+The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Character Sets and Separators and  Validation. 
 
-|Property|Description|
-|----|----|
-|Enable message signing|Select this checkbox to enable all messages sent from the agreement to be signed.|
-|MIC Algorithm|Select the algorithm to use in message signing|
-|Certificate|Select the certificate to use in message signing|
-|Enable message encryption|Select this checkbox to encrypt all messages sent from this agreement.|
-|Encryption Algorithm|Select the encryption algorithm to use in message encryption|
-|Unfold HTTP headers|Select this checkbox to unfold the HTTP content-type header into a single line.|
-|Request MDN|Enable this checkbox to request an MDN for all messages sent from this agreement|
-|Request signed MDN|Enable to request that all MDNs sent to this agreement are signed|
-|Request asynchronous MDN|Enable to request asynchronous MDN to be sent to this agreement|
-|URL|The URL to which MDNs will be sent|
-|Enable NRR|Select this checkbox to enable Non-Repudiation of Receipt|
+Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
+![](./media/app-service-logic-enterprise-integration-x12/x12-4.png)  
+
+![](./media/app-service-logic-enterprise-integration-x12/x12-5.png)  
+
+![](./media/app-service-logic-enterprise-integration-x12/x12-6.png)  
+12. Select the **OK** button to save your settings.  
+
 We are almost done!  
-9. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
+13. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
-
-
 
 ## Learn more
 - [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
