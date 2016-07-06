@@ -45,11 +45,7 @@ This topic lists every topic that applies directly to the Data Factory service o
 | [Build your first Azure data factory using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) | In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell. |
 | [Tutorial: Build your first Azure data factory using Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md) | In this tutorial, you will create a sample Azure Data Factory pipeline using an Azure Resource Manager template. |
 | [Tutorial: Build your first data factory (overview)](data-factory-build-your-first-pipeline.md) | This tutorial shows you how to create a data factory with a data pipeline that transforms data using Azure HDInsight. |
-| [Tutorial: Copy data from Azure Blob Storage to Azure SQL Database](data-factory-get-started.md) | This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline that to copy data from an Azure blob to an Azure SQL database. |
-| [Tutorial: Create a pipeline with Copy Activity using Azure PowerShell](data-factory-monitor-manage-using-powershell.md) | In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Azure PowerShell. |
 | [Tutorial: Create a pipeline with Copy Activity using Data Factory Copy Wizard](data-factory-copy-data-wizard-tutorial.md) | In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory |
-| [Tutorial: Create a pipeline with Copy Activity using Data Factory Editor](data-factory-get-started-using-editor.md) | In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure Portal. |
-| [Tutorial: Create a pipeline with Copy Activity using Visual Studio](data-factory-get-started-using-vs.md) | In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio. |
 
 ## Data Movement
 

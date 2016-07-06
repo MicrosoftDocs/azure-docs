@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/01/2016"
    ms.author="sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
@@ -34,7 +34,6 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Issue                              | Resolution                                      |
 | :----------------------------------| :---------------------------------------------- |
 | Visual Studio object explorer is missing AAD users | This is a known issue.  As a workaround, view the users in [sys.database_principals][].  See [Authentication to Azure SQL Data Warehouse][] to learn more about using Azure Active Directory with SQL Data Warehouse.|
-| SSMS error messages                 |SQL Server Management Studio (SSMS) is not yet supported.  While it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work only after you ignore some error messages or disable some options.|
 
 ## Performance
 
