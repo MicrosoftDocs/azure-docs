@@ -1,0 +1,27 @@
+<properties
+	pageTitle="Title | Microsoft Azure"
+	description="This provides a comparision of features and guidance on developing applications for Azure Government"
+	services=""
+	documentationCenter=""
+	authors="ryansoc"
+	manager=""
+	editor=""/>
+
+<tags
+	ms.service="multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="azure-government"
+	ms.date="10/29/2015"
+	ms.author="ryansoc"/>
+
+
+The following information identifies the Azure Government boundary for Azure Storage:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+
+
+Refer to the <a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and <a href="https://azure.microsoft.com/en-us/documentation/services/sql-database/"> Azure SQL Database </a>for additional guidance on metadata visibility configuration, and protection best practices.

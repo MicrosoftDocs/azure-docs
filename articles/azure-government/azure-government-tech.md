@@ -16,12 +16,11 @@
 	ms.date="10/29/2015"
 	ms.author="ryansoc"/>
 
-
 #  Azure Government Technical Information
-
+![alt text](media\azure-government-us-cloud.PNG)
 ## <a name="Overview"></a>Overview
 
-Microsoft Azure Government is a separate instance of the Microsoft Azure addressing the security and compliance needs of U.S. federal agencies, state and local governments and their solutions providers. Azure Government offers physical and network isolation from non-U.S. government deployments and provides screened U.S. personnel.
+Azure Government is enabling U.S. Government & their partners to transform their mission-critical workloads to a trusted hyper-scale cloud.  
 
 Microsoft provides a number of tools to create and deploy cloud applications to Microsoft’s global Azure service (“Global Service”) and Microsoft Azure Government services.
 

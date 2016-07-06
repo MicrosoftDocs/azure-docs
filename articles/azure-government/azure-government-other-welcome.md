@@ -18,6 +18,7 @@
 
 
 #  Welcome to Azure Government Documentation
+![alt text](media\azure-government-us-cloud.PNG)
 
 This site describes the capabilities of <a href="https://azure.microsoft.com/en-us/features/gov/"> Microsoft Azure Government</a> services, and provides general guidance applicable to all customers. Before including specifically regulated data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
 
