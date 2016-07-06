@@ -1,6 +1,6 @@
 <properties
-   pageTitle="FAQ"
-   description="Row-level security with Power BI Embedded"
+   pageTitle="Row-level security with Power BI Embedded"
+   description="Details about row-level security with Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="minewiskan"
