@@ -30,9 +30,9 @@ This article provides directions for creating an Azure SQL database by importing
 
 A BACPAC is a .bacpac file that contains a database schema and data. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
 
-The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-export-powershell.md).
+The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Archive an Azure SQL database to a BACPAC file using PowerShell](sql-database-export-powershell.md).
 
-> [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+> [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [SQL Database automated backups](sql-database-automated-backups.md).
 
 
 To import a SQL database you need the following:
@@ -65,11 +65,9 @@ The blob name is the name of an existing .bacpac file that you want to create th
 
     $StorageName = "storageaccountname"
     $StorageKeyType = "storageKeyType"
-    $StorageUri = " http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
+    $StorageUri = "http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
     $StorageKey = "primaryaccesskey"
 
-
-## Create a pointer to your server and storage account
 
 Running the **Get-Credential** cmdlet opens a window asking for your username and password. Enter the admin login and password for the SQL Database server ($ServerName from above), and not the username and password for your Azure account.
 
