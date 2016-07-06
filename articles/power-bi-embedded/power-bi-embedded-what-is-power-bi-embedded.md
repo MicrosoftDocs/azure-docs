@@ -16,13 +16,13 @@
    ms.date="07/05/2016"
    ms.author="owend"/>
 
-# What's Microsoft Power BI Embedded?
+# What is Microsoft Power BI Embedded?
 
 With **Power BI Embedded**, you can integrate Power BI reports right into your web or mobile applications.
 
 ![](media\powerbi-embedded-whats-is\what-is.png)
 
-**Power BI Embedded** is an Azure service that enables Independent Software Vendors (ISVs) to surface Power BI data experiences within their applications. As an ISV you've built applications, and these applications have their own users and distinct set of features. These apps may also happen to have some built-in data elements like charts and reports that can now be powered by **Microsoft Power BI Embedded**. Users of the application do not need a Power BI account to use your app. They can continue to sign into your application as they had before, and view and interact with the Power BI reporting and tile experience without requiring any additional licensing.
+Power BI Embedded is an **Azure service** that enables app developers to surface Power BI data experiences within their applications. As a developer, you've built applications, and those applications have their own users and distinct set of features. Those apps may also happen to have some built-in data elements like charts and reports that can now be powered by Microsoft Power BI Embedded. Users don’t need a Power BI account to use your app. They can continue to sign in to your application just like before,  and view and interact with the Power BI reporting experience without requiring any additional licensing.
 
 ## Licensing for Microsoft Power BI Embedded
 
@@ -32,7 +32,7 @@ In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is no
 
 ![](media\powerbi-embedded-whats-is\model.png)
 
-Like any other service in Azure, resources for **Microsoft Power BI Embedded** are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that you provision is a **Power BI Workspace Collection**.
+Like any other service in Azure, resources for Power BI Embedded are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that you provision is a **Power BI Workspace Collection**.
 
 ## Workspace Collection
 

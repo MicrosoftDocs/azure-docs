@@ -33,17 +33,17 @@ To use a key on a REST call, add the following authorization header:
 App tokens are a JWT (JSON Web Token) that is signed by one of your keys.
 
 Your app token can contain the following claims:
--	**ver** – The version of the app token. 1.0.0 is the current version.
--	**aud** – The intended recipient of the token. For Power BI Embedded use: “https://analysis.windows.net/powerbi/api”.
--	**iss** – A string indicating the application which issued the token.
--	**type** – The type of app token which is being created. Current the only supported type is **embed**.
--	**wcn** – Workspace collection name the token is being issued for.
--	**wid** – Workspace ID the token is being issued for.
--	**rid** – Report ID the token is being issued for.
--	**username** (optional) – Used with RLS, this is a string that can help identify the user when applying RLS rules.
--	**roles** (optional) – A string containing the roles to select when applying Row Level Security rules. If passing more than one role, they should be passed as a sting array.
--	**exp** (optional) – Indicates the time in which the token will expire. These should be passed in as Unix timestamps.
--	**nbf** (optional) – Indicates the time in which the token starts being valid. These should be passed in as Unix timestamps.
+-	**ver** \– The version of the app token. 1.0.0 is the current version.
+-	**aud** \– The intended recipient of the token. For Power BI Embedded use: “https://analysis.windows.net/powerbi/api”.
+-	**iss** \– A string indicating the application which issued the token.
+-	**type** \– The type of app token which is being created. Current the only supported type is **embed**.
+-	**wcn** \– Workspace collection name the token is being issued for.
+-	**wid** \– Workspace ID the token is being issued for.
+-	**rid** \– Report ID the token is being issued for.
+-	**username** (optional) \– Used with RLS, this is a string that can help identify the user when applying RLS rules.
+-	**roles** (optional) \– A string containing the roles to select when applying Row Level Security rules. If passing more than one role, they should be passed as a sting array.
+-	**exp** (optional) \– Indicates the time in which the token will expire. These should be passed in as Unix timestamps.
+-	**nbf** (optional) \– Indicates the time in which the token starts being valid. These should be passed in as Unix timestamps.
 
 A sample app token will look like this:
 

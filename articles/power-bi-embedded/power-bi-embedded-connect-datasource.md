@@ -26,8 +26,6 @@ Here are the differences between using **Import** and **DirectQuery**.
 |---|---
 |Tables, columns, *and data* are imported or copied into the report's dataset. To see changes that occurred to the underlying data, you must refresh, or import, a complete, current dataset again.|Only *tables and columns* are imported or copied into the report's dataset. You always view the most current data.
 
-The next section describes the benefits and limitations of using **DirectQuery**.
-
 ## Benefits of using DirectQuery
 
 There are two primary benefits when using **DirectQuery**:
@@ -52,4 +50,4 @@ To ensure queries sent to the underlying data source have acceptable performance
 
 ## See Also
 - [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
-- [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+- [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
