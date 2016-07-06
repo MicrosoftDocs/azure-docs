@@ -251,7 +251,7 @@ When using GUIDs and strings, the values are hashed to an Int64. However, when e
  - [Actor state management](service-fabric-reliable-actors-state-management.md)
  - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
  - [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+ - [Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
  
 <!--Image references-->

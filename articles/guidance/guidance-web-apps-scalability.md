@@ -56,10 +56,6 @@ The architecture has the following components:
 
 > [AZURE.NOTE] If you intend to use the "Easy Tables" or "Easy APIs" features of App Service Mobile Apps, you should create a separate App Service app for this purpose.  These features rely on a specific application framework to enable them.
 
-If you need very high scale (more than 20 instances), consider using an [App Service Environment][app-service-environment]. App Service Environments provide a fully isolated and dedicated environment for running apps at high scale. 
-
-> [AZURE.NOTE] This article does not cover deploying or configuring an App Service Environment. 
-
 **WebJobs**. If the WebJob is resource intensive, consider deploying it to an empty App Service app within a separate App Service plan, to provide dedicated instances for the WebJob. See [Background jobs guidance][webjobs-guidance].  
 
 **Cache.** You can improve performance and scalability by using [Azure Redis Cache][azure-redis] to cache some data. Consider using Redis Cache for:
@@ -123,7 +119,6 @@ Similarly, consider putting a WebJob into its own plan, so that background tasks
 <!-- links -->
 
 [api-guidance]: ../best-practices-api-design.md
-[app-service-environment]: ../app-service-web/app-service-app-service-environment-intro.md
 [app-service-web-app]: ../app-service-web/app-service-web-overview.md
 [app-service-api-app]: ../app-service-api/app-service-api-apps-why-best-platform.md
 [app-service-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/

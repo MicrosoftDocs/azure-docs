@@ -32,16 +32,16 @@ Overview of the considerations, best practices, and tasks for monitoring user qu
 
 
 
-## Next Steps
+## Next steps
 
 For more management tips head over to the [Management overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Find long-running queries]: sql-data-warehouse-manage-find-long-running-queries.md
-[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
-[Management overview]: sql-data-warehouse-overview-manage.md
+[Find long-running queries]: ./sql-data-warehouse-manage-monitor.md
+[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
