@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="06/27/2016"
+	ms.date="07/06/2016"
 	ms.author="tarcher" />
 
 # Getting started with Storage Explorer (Preview)
@@ -44,19 +44,15 @@ Storage Explorer (Preview) provides a myriad ways to connect to storage accounts
 
 	![][0]
 
-1. The left pane will now display a drop-down that includes all of the Microsoft accounts you've logged into. Select the drop-down arrow.
+1. The left pane will now display all the Microsoft accounts you've logged into. To connect to another account, select **Add an account**, and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
 
 	![][1]
 
-1. Select **Add an account**, and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
-
-	![][2]
-
-1. Once you successfully sign in with a Microsoft account, the left pane will populate with all the Azure subscriptions associated with the Microsoft account. Select the Azure subscriptions you want to work with, and then select **Apply**. Selecting **All subscriptions** toggles selecting all or none of the listed Azure subscriptions.
+1. Once you successfully sign in with a Microsoft account, the left pane will populate with the Azure subscriptions associated with that account. Select the Azure subscriptions with which you want to work, and then select **Apply**. (Selecting **All subscriptions** toggles selecting all or none of the listed Azure subscriptions.)
 
 	![][3]
 
-1. The left pane will now display the all the storage accounts associated with the selected Azure subscriptions.
+1. The left pane will now display the storage accounts associated with the selected Azure subscriptions.
 
 	![][4]
 
@@ -66,7 +62,7 @@ Storage Explorer (Preview) enables you to work against local storage using the A
 
 >[AZURE.NOTE] The Azure Storage Emulator is currently supported only for Windows. 
 
-1. In Storage Explorer (Preview), expand the **(Development)** node.
+1. In the left pane of Storage Explorer (Preview), expand the **(Local and Attached** > **Storage Accounts** > **(Development)** node.
 
 	![][21]
 
@@ -223,8 +219,7 @@ To clear the search, select the **x** button in the search box.
 - [Manage Azure blob storage resources with Storage Explorer (Preview)](./vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
-[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/accounts-dropdown-arrow.png
-[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/accounts-dropdown-list.png
+[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
 [3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/subscriptions-list.png
 [4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-accounts-list.png
 [5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/access-keys.png
