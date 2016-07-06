@@ -23,19 +23,35 @@ Azure offers different ways to create a VM using the Resource Manager deployment
 
 ## Azure CLI 
 
-You can read more about [how to install the Azure CLI](../xplat-cli-install.md) via npm, Docker container, or install script. The following tutorials provide examples on using the Azure CLI:
+The Azure CLI is available across platforms via an npm package, distro-provided packages, or Docker container. You can read more about [how to install and configure the Azure CLI](../xplat-cli-install.md). The following tutorials provide examples on using the Azure CLI. Read each article for more details on the CLI quick-start commands shown:
 
-* [Create a Linux VM from the Azure CLI for dev and test](virtual-machines-linux-quick-create-cli.md) 
+* [Create a Linux VM from the Azure CLI for dev and test](virtual-machines-linux-quick-create-cli.md)
+
+	```bash
+	azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
+	```
 
 * [Create a secured Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
+	```bash
+	azure group create --name TestRG --location WestUS 
+		--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+	```
+
 * [Create a Linux VM from the ground up using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
+
+* [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md)
+
+	```bash
+	azure vm disk attach-new --resource-group TestRG --vm-name TestVM <size-in-GB>
+	```
 
 ## Azure portal
 
 The graphical user interface of the [Azure portal](https://portal.azure.com) is an easy way to try out a VM, especially if you're just starting out with Azure since there is nothing to install on your system. Use the Azure portal to create the VM:
 
-* [Create a virtual machine running Linux using the Azure portal](virtual-machines-linux-quick-create-portal.md) 
+* [Create a Linux VM using the Azure portal](virtual-machines-linux-quick-create-portal.md) 
+* [Attach a disk using the Azure portal](virtual-machines-linux-attach-disk-portal.md)
 
 ## Operating system and image choices
 
@@ -43,7 +59,33 @@ With both methods, you choose an image based on the operating system you want to
 
 ### Azure images
 
-In all of the above articles, you can easily use an existing Azure image to create a VM and customize it for networking, load balancing, and more. The portal provides the Azure Marketplace for Azure supplied images. You can get similar lists using the command line. For example, in Azure CLI, run `azure vm image list` to get a list of all available images, by location and publisher. See [Navigate and select Azure virtual machine images with the Azure CLI](virtual-machines-linux-cli-ps-findimage.md) for examples on browsing and using available images.
+To create a VM, you need to specify an image that is the base OS install and configuration. The Azure Marketplace contains images provided by a number of Linux distros, and you can also provide your own custom image (see below).  
+
+List available publishers:
+
+```bash
+azure vm image list-publishers --location WestUS
+```
+
+List available products (offers) for a given publisher:
+
+```bash
+azure vm image list-offers --location WestUS --publisher Canonical
+```
+
+List available SKUs (distro releases) of a given offer:
+
+```bash
+azure vm image list-skus --location WestUS --publisher Canonical --offer UbuntuServer
+```
+
+List all available images for a given release:
+
+```bash
+azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
+```
+
+See [Navigate and select Azure virtual machine images with the Azure CLI](virtual-machines-linux-cli-ps-findimage.md) for more examples on browsing and using available images.
 
 ### Use your own image
 
@@ -53,7 +95,13 @@ If you require specific customizations, you can use an image based on an existin
 
 * [Information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)
 
-* [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image.md). 
+* [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image.md). Quick-start commands:
+
+	```bash
+	azure vm deallocate --resource-group TestRG --vm-name TestVM
+	azure vm generalize --resource-group TestRG --vm-name TestVM
+	azure vm capture --resource-group TestRG --vm-name TestVM --vhd-name-prefix CapturedVM
+	```
 
 ## Next steps
 
