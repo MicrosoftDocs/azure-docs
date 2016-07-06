@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -138,7 +138,7 @@ e. Click **Complete**
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_04.png) 
 
-    a. In the **Reply URL** textbox, type the URL in the following pattern: **"https://www.benselect.com/enroll/<company name-pricing>"**
+    a. In the **Reply URL** textbox, type the URL in the following pattern: `https://www.benselect.com/enroll/<company name-pricing>`
 	
 	b. click **Next**
  
