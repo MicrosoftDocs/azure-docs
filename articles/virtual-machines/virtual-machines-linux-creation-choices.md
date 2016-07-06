@@ -54,12 +54,10 @@ The graphical user interface of the [Azure portal](https://portal.azure.com) is 
 * [Attach a disk using the Azure portal](virtual-machines-linux-attach-disk-portal.md)
 
 ## Operating system and image choices
-
-With both methods, you choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools pre-installed. Or, you you can upload one of your own images.
+When creating a VM, you choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools pre-installed. Or, you you can upload one of your own images (see below).
 
 ### Azure images
-
-To create a VM, you need to specify an image that is the base OS install and configuration. The Azure Marketplace contains images provided by a number of Linux distros, and you can also provide your own custom image (see below).  
+You can use the `azure vm image` CLI commands to see what's available by publisher, distro release, and builds.
 
 List available publishers:
 
@@ -86,6 +84,18 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
 ```
 
 See [Navigate and select Azure virtual machine images with the Azure CLI](virtual-machines-linux-cli-ps-findimage.md) for more examples on browsing and using available images.
+
+The `azure vm quick-create` and `azure vm create` commands have some aliases you can use to quickly access the more common distros and their latest releases, rather than needing to specify the published, offer, SKU, and version each time you create a VM:
+
+| Alias     | Publisher | Offer        | SKU         | Version |
+|:----------|:----------|:-------------|:------------|:--------|
+| CentOS    | OpenLogic | Centos       | 7.2         | latest  |
+| CoreOS    | CoreOS    | CoreOS       | Stable      | latest  |
+| Debian    | credativ  | Debian       | 8           | latest  |
+| openSUSE  | SUSE      | openSUSE     | 13.2        | latest  |
+| RHEL      | Redhat    | RHEL         | 7.2         | latest  |
+| SLES      | SLES      | SLES         | 12-SP1      | latest  |
+| UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | latest  |
 
 ### Use your own image
 
