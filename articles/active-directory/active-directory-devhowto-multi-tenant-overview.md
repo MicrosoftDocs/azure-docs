@@ -16,7 +16,7 @@
    ms.date="07/05/2016"
    ms.author="skwan;bryanla"/>
 
-# How to build an application that can sign in any Azure Active Directory (AD) user (multi-tenant application)
+# How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern
 If you offer a Software as a Service application to many organizations, you can configure your application to accept sign-ins from any Azure AD tenant.  In Azure AD this is called making your application multi-tenant.  Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.  
 
 If you have an existing application that has its own account system, or supports other kinds of sign in from other cloud providers, adding Azure AD sign in from any tenant is as simple as registering your app, adding sign in code via OAuth2, OpenID Connect, or SAML, and putting a Sign In with Microsoft button on your application.
@@ -41,7 +41,7 @@ By default, web app/API registrations in Azure AD are single tenant.  You can ma
 
 The App ID URI is one of the ways an application is identified in protocol messages.  For a single tenant app, it is sufficient for the App ID URI to be unique within that tenant.  For a multi-tenant application, it must be globally unique so Azure AD can find the application across all tenants.  Global uniqueness is enforced by requiring the App ID URI to have a host name that matches a verified domain of the Azure AD tenant.  For example, if the name of your tenant was contoso.onmicrosoft.com then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`.  If your tenant had a verified domain of `contoso.com`, then a valid App ID URI would also be `https://contoso.com/myapp`.  Setting an application as multi-tenant will fail if the App ID URI doesn’t follow this pattern.
 
-Native client registrations are multi-tenant by default.  You don’t need to take any action to make a native client application multi-tenant.
+Native client registrations are multi-tenant by default.  You don’t need to take any action to make a native client application registration multi-tenant.
 
 ## Update your code to send requests to /common
 In a single tenant application, sign in requests are sent to the tenant’s sign in endpoint.   For example, for contoso.onmicrosoft.com the endpoint would be:
@@ -59,6 +59,10 @@ The sign in response to the application then contains a token representing the u
 Let’s take a look at this in more detail.
 
 ## Update your code to handle multiple issuer values
+Web applications and web APIs receive and validate tokens from Azure AD.  
+
+> [AZURE.NOTE] While native client applications request and receive tokens from Azure AD, they do so to send them to APIs, where they are validated.  Native applications do not validate tokens and must treat them as opaque.
+
 Let’s look at how an application validates tokens it receives from Azure AD.  A single tenant application will normally take an endpoint value like:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
@@ -140,7 +144,7 @@ Consent is supported in Azure AD via the OAuth, OpenID Connect, WS-Federation, a
 Multi-tenant applications can also get access tokens to call APIs that are protected by Azure AD.  A common error when using the Active Directory Authentication Library (ADAL) with a multi-tenant application is to initially request a token for a user using /common, receive a response, and then request a subsequent token for that user also using /common.  Since the response from Azure AD comes from a tenant, not /common, ADAL caches the token as being from the tenant. The subsequent call to /common to get an access token for the user misses the cache entry, and the user is prompted to sign in again.  To avoid missing the cache, make sure subsequent calls for an already signed in user are made to the tenant’s endpoint.
 
 ## Related content
-The [Azure AD Developer's Guide][AAD-Dev-Guide] is the main portal to use for all Azure AD development related topics. It includes articles that discuss benefits and [why you would want to integrate with Azure AD][AAD-Why-To-Integrate], an overview of [application integration][AAD-Integrating-Apps], and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
+The [Azure AD Developer's Guide][AAD-Dev-Guide] is the main portal to use for all Azure AD development related topics. It includes articles that discuss benefits and [why you would want to integrate with Azure AD][AAD-Why-To-Integrate], an overview of [application integration][AAD-Integrating-Apps] and the [Consent Framework][AAD-Consent-Overview], and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
 
 [These samples][AAD-Samples-MT] demonstrate a variety of Azure AD multi-tenant applications.
 
@@ -157,6 +161,7 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Graph-Overview]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes

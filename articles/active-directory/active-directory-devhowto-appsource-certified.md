@@ -24,7 +24,7 @@ If you’re not familiar with Azure AD sign in or multi-tenant application devel
 
 1. Start by reading about the [Browser to Web App scenarios in Authentication Scenarios for Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp]. 
 2. Next, check out the Azure AD [web application quick-start guides][AAD-QuickStart-Web-Apps], which demonstrate how to implement sign-in, and include companion code samples. 
-3. To learn how to implement the multi-tenant sign in pattern with Azure AD, check out [How to build an application that can sign in any Azure AD user (multi-tenant application).][AAD-Howto-Multitenant-Overview]
+3. To learn how to implement the multi-tenant sign in pattern with Azure AD, check out [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern][AAD-Howto-Multitenant-Overview]
 
 ## Related content
 For more information on building applications that support Azure AD sign in, or to get help and support, refer to the [Azure AD Developer's Guide][AAD-Dev-Guide].
