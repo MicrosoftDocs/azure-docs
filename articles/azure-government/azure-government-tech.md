@@ -19,6 +19,18 @@
 
 #  Azure Government Technical Information
 
+## <a name="Overview"></a>Overview
+
+Microsoft Azure Government is a separate instance of the Microsoft Azure addressing the security and compliance needs of U.S. federal agencies, state and local governments and their solutions providers. Azure Government offers physical and network isolation from non-U.S. government deployments and provides screened U.S. personnel.
+
+Microsoft provides a number of tools to create and deploy cloud applications to Microsoft’s global Azure service (“Global Service”) and Microsoft Azure Government services.
+
+When creating and deploying applications to the Azure Government Services, as opposed to the Global Service, developers need to know the key differences of the two services.  Specifically around setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying them as services to Azure Government.
+
+The information accessible from this site summarizes those differences and supplements the information available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information may also be available in many other locations such as the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"/), [Azure Documentation Center](https://azure.microsoft.com/documentation/) and in [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs"/).
+
+This content is intended for customers, partners and developers who are deploying to Microsoft Azure Government.
+
 ## <a name="Guidance"></a> General Guidance for Developers
 Because most of the technical content that is available currently assumes that applications are being developed for the Global Service rather than for Microsoft Azure Government, it’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Government.
 
