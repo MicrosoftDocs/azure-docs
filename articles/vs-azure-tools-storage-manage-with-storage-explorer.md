@@ -24,16 +24,16 @@ Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you 
 
 ## Prerequisites
 
-- [Download and install Storage Explorer (preview)](http://go.microsoft.com/fwlink/?LinkId=708343)
+- [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
 
 ## Connect to a storage account or service
 
 Storage Explorer (Preview) provides a myriad ways to connect to storage accounts. This includes connecting to storage accounts associated with your Azure subscriptions, connecting to storage accounts and services shared from other Azure subscriptions, and even connecting to and managing local storage using the Azure Storage Emulator:
 
 - [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscription.
-- [Connect to local storage](#connect-to-local-storage) - Manage local storage using the Azure Storage Emulator. 
+- [Work with local development storage](#work-with-local-development-storage) - Manage local storage using the Azure Storage Emulator. 
 - [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription using the storage account's account name and key.
-- [Attach account using SAS](#attach-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
+- [Attach storage account using SAS](#attach-storage-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
 - [Attach service using SAS](#attach-service-using-sas) - Manage a specific storage service (blob container, queue, or table) belonging to another Azure subscription using a SAS.
 
 ## Connect to an Azure subscription
@@ -56,7 +56,7 @@ Storage Explorer (Preview) provides a myriad ways to connect to storage accounts
 
 	![][4]
 
-## Connect to local storage
+## Work with local development storage
 
 Storage Explorer (Preview) enables you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
 
@@ -73,6 +73,7 @@ Storage Explorer (Preview) enables you to work against local storage using the A
 1. Once the emulator is installed, you'll have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, select on the appropriate link below:
 
 	- [Manage Azure blob storage resources](./vs-azure-tools-storage-explorer-blobs.md)
+	- Manage Azure file share storage resources - *Coming soon*
 	- Manage Azure queue storage resources - *Coming soon*
 	- Manage Azure table storage resources - *Coming soon*
 
@@ -131,11 +132,9 @@ select **Detach**.
 
 1.	When the confirmation message box appears, select **Yes** to confirm the detachment from the external storage account.
 
-	![][12]
+## Attach storage account using SAS
 
-## Attach account using SAS
-
-A SAS (Shared Access Signature) gives the admin of an Azure subscription the ability to
+A [SAS (Shared Access Signature)](storage/storage-dotnet-shared-access-signature-part-1.md) gives the admin of an Azure subscription the ability to
 grant access to a storage account on a temporary basis without having to provide their Azure
 subscription credentials. 
 
@@ -185,6 +184,7 @@ In this context, a service can be a blob container, queue, or table. The followi
 explain how to generate the SAS for the listed service:
 
 - [Get the SAS for a blob container](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+- Get the SAS for a file share - *Coming soon*
 - Get the SAS for a queue - *Coming soon*
 - Get the SAS for a table - *Coming soon*
 
