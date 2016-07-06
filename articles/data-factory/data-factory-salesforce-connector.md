@@ -214,6 +214,11 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 > [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## Salesforce request limits
+Salesforce has limits for both total API requests and concurrent API requests. See **API Request Limits** section in the [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details. 
+ 
+If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures. If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours. You may also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios.  
  
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
