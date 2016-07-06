@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/04/2016"
+	ms.date="07/06/2016"
 	ms.author="genli"/>
 
 # How to add or change Azure administrator roles
@@ -113,6 +113,6 @@ To transfer ownership of the Azure account to another account, see [Transferring
 
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](./active-directory/active-directory-understanding-resource-access.md)
 
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated directory.md)
+* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory]active-directory-how-subscriptions-associated-directory.md
 
 * For more information on how Azure Active Directory relates to your Azure subscription, see [Assigning administrator roles in Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md)
