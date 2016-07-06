@@ -85,13 +85,13 @@ Allocation of resources to your SQL Data Warehouse is measured in Data Warehouse
 
 - Microsoft can rapidly improve performance in SQL Data Warehouse, in a way the is scalable and evenly effects the system.
 
-Specifically, Data Warehouse Units provide a measure of three precise metrics that are highly correlated with data warehousing workload performance. The goal is that the following key workload metrics will scale linearly with the DWUs that you have chosen for your data warehouse.
+Data Warehouse Units provide a measure of three precise metrics that are highly correlated with data warehousing workload performance. The goal is that the following key workload metrics will scale linearly with the DWUs that you have chosen for your data warehouse.
 
 **Scan/Aggregation:** This workload metric takes a standard data warehousing query that scans a large number of rows and then performs a complex aggregation. This is an I/O and CPU intensive operation.
 
 **Load:** This metric measures the ability to ingest data into the service. Loads are completed with PolyBase loading a representative data set from Azure Blob storage. This metric is designed to stress network and CPU aspects of the service.
 
-**Create Table As Select (CTAS):** CTAS measures the ability to create copy of a table. This involves reading data from storage, distributing it across the nodes of the appliance, and writing it to storage again. It is a CPU and network intensive operation.
+**Create Table As Select (CTAS):** CTAS measures the ability to copy a table. This involves reading data from storage, distributing it across the nodes of the appliance and writing it to storage again. It is a CPU, IO and network intensive operation.
 
 ## Pause and scale on demand
 

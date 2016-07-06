@@ -34,7 +34,7 @@ You may encounter a situation in which you accidentally modified some data in a 
 
 | DB Restore | Basic tier | Standard tiers | Premium tiers |
 | :-- | :-- | :-- | :-- |
-|  Point In Time Restore |  Any restore point within 7 days|Any restore point within 14 days| Any restore point within 35 days|
+|  Point In Time Restore |  Any restore point within 7 days|Any restore point within 35 days| Any restore point within 35 days|
 
 ## Copying the table from the restored database by using the SQL Database Migration tool
 1. Download and install the [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
