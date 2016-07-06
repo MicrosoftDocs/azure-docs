@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to setup Key Vault with end to end key rotation and auditing | Microsoft Azure"
-	description="Use this tutorial to help you get setup with key rotation and monitoring key vault logs"
-	services="key-vault"
+	description="Use this how-to to help you get setup with key rotation and monitoring key vault logs"
+	services="key-vault, automation,app-service\logic"
 	documentationCenter=""
 	authors="stgriffi"
 	manager=""
-	tags="azure-resource-manager"/>
+	tags=""/>
 
 <tags
 	ms.service="key-vault"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/05/2016"
 	ms.author="jodehavi;stgriffi"/>
     
 How to setup Key Vault with end to end key rotation and auditing
-=======================================================
+================================================================
 
 Introduction
 ------------
