@@ -23,7 +23,7 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 	1, 2016-01-12, "azure-search,azure,cloud" 
 	2, 2016-07-07, "cloud,mobile" 
 
-you might want to parse it into 2 document, each containing "id", "datePublished", and "tags" fields.
+you might want to parse it into 2 documents, each containing "id", "datePublished", and "tags" fields.
 
 This article shows how to configure Azure Search blob indexer for CSV parsing. Happy indexing! 
 
@@ -42,6 +42,8 @@ To index CSV blobs, enable the `delimitedText` parsing mode:
 If blobs don't contain an initial header line, the headers should be specified in the indexer configuration: 
 
 	"parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
+
+Currently, only the comma `','` character is supported as the delimiter. If you need support for other delimiters, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
 > [AZURE.IMPORTANT] When you use the delimited text parsing mode, Azure Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
