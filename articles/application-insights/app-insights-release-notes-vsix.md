@@ -117,21 +117,31 @@ If you already have one of these logging frameworks configured, the following se
 **If you've already added Application Insights:**
 1. Right-click the project node, and then click **Application Insights**, and then click **Configure Application Insights**. Make sure that you see the option to add the correct adapter in the configuration window.
 2. Alternatively, when you build the solution, note the pop-up window that appears on the top right of your screen and click **Configure**.
+
 ![Logging notification](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
 When you have the Logging adapter installed, run your application and make sure you see the data in the diagnostic tools tab, like this:
+
 ![Traces](./media/app-insights-release-notes-vsix/Traces.png)
+
 ### Jump to or find the code where the telemetry event property is emitted
 With the new release user can click on any value in the event detail and this will search for a matching string in the current open solution. Results will show up in Visual Studio "Find Results" list as shown below:
+
 ![Find match](./media/app-insights-release-notes-vsix/FindMatch.png)
+
 ### New Search window for when you are not signed in
 We've improved the look of the Application Insights Search window to help you search your data while your app is in production.
+
 ![Search window](./media/app-insights-release-notes-vsix/SearchWindow.png)
+
 ### See all telemetry events associated with the event
 We've added a new tab, with predefined queries for all data related to the telemetry event the user is viewing, next to the tab for event details. For example, a request has a field called **Operation ID**. Every event associated to this request has the same value for **Operation ID**. If an exception occurs while the operation is processing the request, the exception is given the same operation ID as the request to make it easier to find. If you're looking at a request, click **All telemetry for this operation** to open a new tab that displays the new search results.
+
 ![Related items](./media/app-insights-release-notes-vsix/RelatedItems.png)
+
 ### Forward and Back history in Search
 Now you can go back and forth between search results.
+
 ![Go back](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ## Version 4.1
@@ -150,8 +160,8 @@ If you click the hyperlink, you'll jump to the location of the selected method i
 
 ### New entry points to the Search experience in Solution Explorer
 Now you can access Search through Solution Explorer.
-![Search in Solution Explorer](./media/app-insights-release-notes-vsix/searchentry.png)
 
+![Search in Solution Explorer](./media/app-insights-release-notes-vsix/searchentry.png)
 
 ### Displays a notification when publish is completed
 A pop-up dialog box appears when the project is published online, so that you can view your Application Insights data in production.
