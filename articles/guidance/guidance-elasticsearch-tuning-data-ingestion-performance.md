@@ -261,7 +261,7 @@ DS series or better. DS machines cost the same as the equivalent D-series VMs, b
 for using premium storage.
 
 In cases where the maximum transfer rate per disk is insufficient to support the expected workload,
-consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](../virtual-machinesvirtual-machines-linux-configure-raid.md).
+consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](../virtual-machines/virtual-machines-linux-configure-raid.md).
 
 > [AZURE.NOTE] Experience within Microsoft has shown that using RAID 0 is particularly beneficial for
 > smoothing out the I/O effects of *spiky* workloads that generate frequent bursts of activity.
