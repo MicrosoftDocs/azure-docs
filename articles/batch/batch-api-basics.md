@@ -150,15 +150,15 @@ When you create a pool, you can specify the following attributes:
 
 A job is a collection of tasks. It manages how computation is performed by its tasks on the compute nodes in a pool.
 
-- The job specifies the **pool** in which the work will be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a job schedule, or for all jobs associated with a job schedule.
-- You can specify an optional **job priority**. When a job is submitted with a higher priority than jobs that are currently in progress, the tasks for the higher-priority job are inserted into the queue ahead of tasks for the lower priority jobs. Lower priority tasks that are already running will not be preempted.
-- Job **constraints** can specify certain limits for your jobs:
+- The job specifies the **pool** in which the work will be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a job schedule, or for all jobs that are associated with a job schedule.
+- You can specify an optional **job priority**. When a job is submitted with a higher priority than jobs that are currently in progress, the tasks for the higher-priority job are inserted into the queue ahead of tasks for the lower-priority jobs. Lower-priority tasks that are already running will not be preempted.
+- You can use job **constraints** to specify certain limits for your jobs:
 
 	You can set a **maximum wallclock time**, so that if a job runs for longer than the maximum wallclock time that is specified, the job and all of its tasks are terminated.
 
 	Batch can detect and then retry failed tasks. You can specify the **maximum number of task retries** as a constraint, including whether a task is *always* or *never* retried. Retrying a task means that the task is requeued to be run again.
 
-- Tasks can be added to a job by your client application, or a [job manager task](#job-manager-task) can be specified. A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch--it is queued as soon as the job is created, and restarted if it fails. A job manager task is *required* for jobs that are created by a [job schedule](#scheduled-jobs), because it is the only way to define the tasks before the job is instantiated.
+- Your client application can add tasks to a job, or you can specify a [job manager task](#job-manager-task). A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch--it is queued as soon as the job is created, and is restarted if it fails. A job manager task is *required* for jobs that are created by a [job schedule](#scheduled-jobs) because it is the only way to define the tasks before the job is instantiated.
 
 ### Job priority
 
@@ -170,29 +170,29 @@ Job scheduling across pools is independent. Between different pools, it is not g
 
 ### Scheduled jobs
 
-[Job schedules][rest_job_schedules] enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule--how long and when the schedule is in effect--and how often during that time period that jobs should be created.
+[Job schedules][rest_job_schedules] enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. You can specify the duration of the schedule--how long and when the schedule is in effect--and how often during that time period that jobs should be created.
 
 ## Task
 
-A task is a unit of computation that is associated with a job and runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. Put simply, a task runs one or more programs or scripts on a compute node to perform the work you need done.
+A task is a unit of computation that is associated with a job. It runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. Put simply, a task runs one or more programs or scripts on a compute node to perform the work you need done.
 
 When you create a task, you can specify:
 
 - The **command line** of the task. This is the command line that runs your application or script on the compute node.
 
-	It is important to note that command line does not actually run under a shell, and therefore cannot natively take advantage of shell features such as [environment variable](#environment-settings-for-tasks) expansion (this includes the `PATH`). To take advantage of such features, you must **invoke the shell in the command line**. For example, by launching `cmd.exe` on Windows nodes or `/bin/sh` on Linux:
+	It is important to note that the command line does not actually run under a shell. Therefore, it cannot natively take advantage of shell features such as [environment variable](#environment-settings-for-tasks) expansion (this includes the `PATH`). To take advantage of such features, you must invoke the shell in the command line--for example, by launching `cmd.exe` on Windows nodes or `/bin/sh` on Linux:
 
 	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
 	`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
-	If your tasks need to run an application or script not in the node's `PATH` or reference environment variables, invoke the shell explicitly in the task command line.
+	If your tasks need to run an application or script that is not in the node's `PATH` or reference environment variables, invoke the shell explicitly in the task command line.
 
-- **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in a **General purpose** Azure Storage account before the task's command line is executed. For more information, see [Start task](#start-task) and [Files and directories](#files-and-directories) below.
+- **Resource files** that contain the data to be processed. These files are automatically copied to the node from Blob storage in a **General purpose** Azure Storage account before the task's command line is executed. For more information, see the sections [Start task](#start-task) and [Files and directories](#files-and-directories).
 
-- The **environment variables** that are required by your application. For more information, see [Environment settings for tasks](#environment-settings-for-tasks) below.
+- The **environment variables** that are required by your application. For more information, see the [Environment settings for tasks](#environment-settings-for-tasks) section.
 
-- The **constraints** under which the task should execute. For example, the maximum time the task is allowed to run, the maximum number of times a failed task should be retried, and the maximum time that files in its working directory are retained.
+- The **constraints** under which the task should execute. For example, the maximum time that the task is allowed to run, the maximum number of times a failed task should be retried, and the maximum time that files in the task's working directory are retained.
 
 In addition to tasks that you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
@@ -204,23 +204,23 @@ In addition to tasks that you define to perform computation on a node, the follo
 
 ### Start task
 
-By associating a **start task** with a pool, you can prepare the operating environment of its nodes, performing actions such as installing the applications your tasks will run and starting background processes. The start task runs every time a node starts for as long as it remains in the pool, including when the node is first added to the pool, and when it is restarted or reimaged.
+By associating a **start task** with a pool, you can prepare the operating environment of its nodes. For example, you can perform actions such as installing the applications that your tasks will run and starting background processes. The start task runs every time a node starts, for as long as it remains in the pool--including when the node is first added to the pool and when it is restarted or reimaged.
 
-A primary benefit of the start task is that it can contain all of the information necessary to configure a compute node and install the applications required for task execution. Thus, increasing the number of nodes in a pool is as simple as specifying the new target node count—Batch already has the information needed to configure the new nodes and get them ready for accepting tasks.
+A primary benefit of the start task is that it can contain all of the information that is necessary to configure a compute node and install the applications that are required for task execution. Therefore, increasing the number of nodes in a pool is as simple as specifying the new target node count--Batch already has the information that is needed to configure the new nodes and get them ready for accepting tasks.
 
-As with any Azure Batch task, a list of **resource files** in [Azure Storage][azure_storage] can be specified, in addition to a **command line** to be executed. Batch will first copy the resource files to the node from Azure Storage, then run the command line. For a pool start task, the file list typically contains the task application and its dependencies, but it could also include reference data to be used by all tasks running on the compute node. For example, a start task's command line could perform a `robocopy` operation to copy application files—which were specified as resource files and downloaded to node—from the start task's [working directory](#files-and-directories) to the [shared folder](#files-and-directories), then subsequently run an MSI or `setup.exe`.
+As with any Azure Batch task, you can specify a list of **resource files** in [Azure Storage][azure_storage], in addition to a **command line** to be executed. Batch first copies the resource files to the node from Azure Storage, and then runs the command line. For a pool start task, the file list typically contains the task application and its dependencies. However, it could also include reference data to be used by all tasks that are running on the compute node. For example, a start task's command line could perform a `robocopy` operation to copy application files (which were specified as resource files and downloaded to the node) from the start task's [working directory](#files-and-directories) to the [shared folder](#files-and-directories), and then run an MSI or `setup.exe`.
 
-> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation, and job release tasks) must specify resource files that reside *only* in **General purpose** storage accounts.
+> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) must specify resource files that reside *only* in **General purpose** storage accounts.
 
-It is typically desirable for the Batch service to wait for the start task to complete before considering the node ready to be assigned tasks, but this is configurable.
+It is typically desirable for the Batch service to wait for the start task to complete before considering the node ready to be assigned tasks, but you can configure this.
 
 If a start task fails on a compute node, then the state of the node is updated to reflect the failure, and the node will not be available for tasks to be assigned. A start task can fail if there is an issue copying its resource files from storage, or if the process executed by its command line returns a nonzero exit code.
 
 ### Job manager task
 
-A **job manager task** is typically used in controlling and/or monitoring job execution. For example, creating and submitting the tasks for a job, determining additional tasks to run, and determining when work is complete. A job manager task is not restricted to these activities, however—it is a fully fledged task that can perform any actions required for the job. For example, a job manager task might download a file specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
+You typically use a **job manager task** to control and/or monitor job execution--for example, to create and submit the tasks for a job, determine additional tasks to run, and determine when work is complete. However, a job manager task is not restricted to these activities. It is a fully fledged task that can perform any actions that are required for the job. For example, a job manager task might download a file that is specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
 
-A job manager task is started before all other tasks and provides the following features:
+A job manager task is started before all other tasks. It provides the following features:
 
 - It is automatically submitted as a task by the Batch service when the job is created.
 
@@ -230,36 +230,36 @@ A job manager task is started before all other tasks and provides the following 
 
 - Its termination can be tied to the termination of all tasks in the job.
 
-- The job manager task is given the highest priority when it needs to be restarted. If an idle node is not available, the Batch service may terminate one of the other running tasks in the pool to make room for the job manager task to run.
+- A job manager task is given the highest priority when it needs to be restarted. If an idle node is not available, the Batch service might terminate one of the other running tasks in the pool to make room for the job manager task to run.
 
 - A job manager task in one job does not have priority over the tasks of other jobs. Across jobs, only job-level priorities are observed.
 
 ### Job preparation and release tasks
 
-Batch provides the job preparation task for pre-job execution setup, and the job release task for post-job maintenance or cleanup.
+Batch provides job preparation tasks for pre-job execution setup. Job release tasks are for post-job maintenance or cleanup.
 
-- **Job preparation task**: The job preparation task runs on all compute nodes scheduled to run tasks, before any of the other job tasks are executed. Use the job preparation task to copy data shared by all tasks, but unique to the job, for example.
-- **Job release task**: When a job has completed, the job release task runs on each node in the pool that executed at least one task. Use the job release task to delete data copied by the job preparation task, or compress and upload diagnostic log data, for example.
+- **Job preparation task**: A job preparation task runs on all compute nodes that are scheduled to run tasks, before any of the other job tasks are executed. You can use a job preparation task to copy data that is shared by all tasks, but is unique to the job, for example.
+- **Job release task**: When a job has completed, a job release task runs on each node in the pool that executed at least one task. You can use a job release task to delete data that is copied by the job preparation task, or to compress and upload diagnostic log data, for example.
 
-Both job preparation and release tasks allow you to specify a command line to run when the task is invoked, and offer features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
+Both job preparation and release tasks allow you to specify a command line to run when the task is invoked. They offer features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
 For more information on job preparation and release tasks, see [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
 ### Multi-instance task
 
-A [multi-instance task](batch-mpi.md) is a task that is configured to run on more than one compute node simultaneously. With multi-instance tasks, you can enable high performance computing scenarios like Message Passing Interface (MPI) that require a group of compute nodes allocated together to process a single workload.
+A [multi-instance task](batch-mpi.md) is a task that is configured to run on more than one compute node simultaneously. With multi-instance tasks, you can enable high-performance computing scenarios that require a group of compute nodes that are allocated together to process a single workload (like Message Passing Interface (MPI)).
 
-For a detailed discussion on running MPI jobs in Batch using the Batch .NET library, check out [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md).
+For a detailed discussion on running MPI jobs in Batch by using the Batch .NET library, check out [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md).
 
 ### Task dependencies
 
-[Task dependencies](batch-task-dependencies.md), as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task. To use this feature, you must first enable task dependencies on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
+[Task dependencies](batch-task-dependencies.md), as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task--or when an upstream task performs some initialization that is required by a downstream task. To use this feature, you must first enable task dependencies on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
 
 With task dependencies, you can configure scenarios such as the following:
 
-* *taskB* depends on *taskA* (*taskB* will not begin execution until *taskA* has completed)
-* *taskC* depends on both *taskA* and *taskB*
-* *taskD* depends on a range of tasks, such as tasks *1* through *10*, before it executes
+* *Task B* depends on *task A* (*task B* will not begin execution until *task A* has completed).
+* *Task C* depends on both *task A* and *task B*.
+* *Task D* depends on a range of tasks, such as tasks *1* through *10*, before it executes.
 
 Check out [Task dependencies in Azure Batch](batch-task-dependencies.md) and the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository for more in-depth details on this feature.
 
