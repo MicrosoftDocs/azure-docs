@@ -15,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/05/2016"
 	ms.author="jodehavi;stgriffi"/>
-    
 #How to setup Key Vault with end to end key rotation and auditing
 
 ##Introduction
@@ -252,7 +251,7 @@ The next step is to [create an Azure Service Bus queue](../service-bus/service-b
 
 Next, you will [create an Azure Function](../azure-functions/functions-create-first-azure-function.md) to poll the Key Vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
 
-Create an Azure Function (choose New -> Function App in the portal). During creation you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found [here](../azure-functions/functions-scale/).
+Create an Azure Function (choose New -> Function App in the portal). During creation you can use an existing hosting plan or create a new one. You could also opt for dynamic hosting. More details on Function hosting options can be found [here](../azure-functions/functions-scale.md).
 
 When the Function App is created, navigate to it and choose a timer function and C\# then click **Create** from the start screen.
 
