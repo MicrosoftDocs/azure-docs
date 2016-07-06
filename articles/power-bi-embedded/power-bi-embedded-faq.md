@@ -20,7 +20,7 @@
 
 ## What's your most recent announcement about Power BI Embedded?
 
-Microsoft Power BI Embedded Service is now generally available with standard GA SLA.
+Microsoft Power BI Embedded Service is now generally available with standard GA SLA. To learn more about this release, see [What's new](power-bi-embedded-whats-new.md).
 
 ## What is Microsoft Power BI Embedded?
 

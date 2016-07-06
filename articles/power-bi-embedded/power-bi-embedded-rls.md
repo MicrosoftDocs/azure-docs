@@ -83,8 +83,8 @@ Now, filters can also flow from the Sales table to the **Item** table:
 
 **Note** If you're using DirectQuery mode for your data, you will need to enable bidirectional-cross filtering by selecting these two options:
 
-1.	File -> Options and Settings -> Preview Features -> Enable cross filtering in both directions for DirectQuery.
-2.	File -> Options and Settings -> DirectQuery -> Allow unrestricted measure in DirectQuery mode.
+1.	**File** -> **Options and Settings** -> **Preview Features** -> **Enable cross filtering in both directions for DirectQuery**.
+2.	**File** -> **Options and Settings** -> **DirectQuery** -> **Allow unrestricted measure in DirectQuery mode**.
 
 
 To learn more about bidirectional cross-filtering, download the [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) whitepaper.

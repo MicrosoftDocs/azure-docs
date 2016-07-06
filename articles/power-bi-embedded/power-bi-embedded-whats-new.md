@@ -22,7 +22,7 @@ Updates to **Power BI Embedded** are released on a regular basis. However, not e
 
 ## July 11th, 2016
 
-Included in this release -
+Included in this release:
 -	**Great news!** The Power BI Embedded service is no longer in preview - it’s now GA (generally available).  
 -	All REST APIs have moved from **/beta** to **/v1.0**.
 -	.NET and JavaScript SDKs has been updated for **v1.0**.
