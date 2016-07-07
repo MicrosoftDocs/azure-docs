@@ -7,6 +7,8 @@ With the Twitter connector, you can create valuable workflows for your organizat
 
 To explore Twitter triggers and actions, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
+---
+
 ## Getting Started
 
 ### Connect to Twitter
@@ -45,6 +47,8 @@ Logic App connectors come with triggers by which you can set up your workflow to
 
 6) Click save at the top left corner of the toolbar, and your logic app will both save and publish (activate).
 
+---
+
 ## Technical Details
 
 ### Triggers
@@ -76,7 +80,7 @@ Actions represent the things that occur when your trigger activates. The Twitter
 
 #### Post a new tweet 
 Tweet.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -92,7 +96,7 @@ TweetResponseModel: model representing posted tweet.
 
 #### When a new tweet appears 
 Triggers a workflow when a new tweet is posted which matches your search query.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -107,7 +111,7 @@ TriggerBatchResponse[TweetModel]:
 
 #### Get home timeline 
 Retrieves the most recent tweets and re-tweets posted me and my followers.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -127,7 +131,7 @@ TweetModel: representation of tweet object
 
 #### Get user 
 Retrieves details about the specified user (example: user name, description, followers count, etc.).  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -149,7 +153,7 @@ UserDetailsModel: representation of a Twitter user's details
 
 #### Get user timeline 
 Retrieves a collection of the most recent tweets posted by the specified user.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -170,7 +174,7 @@ TweetModel: representation of tweet object
 
 #### Search tweet 
 Retrieves a collection of relevant tweets matching a specified query.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -191,7 +195,7 @@ TweetModel: representation of tweet object
 
 #### Get followers 
 Retrieves users following the specified user.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -214,7 +218,7 @@ UserDetailsModel: representation of a Twitter user's details
 
 #### Get my followers 
 Retrieves users who are following me.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -236,7 +240,7 @@ UserDetailsModel: representation of a Twitter user's details
 
 #### Get following 
 Retrieves users who the specified user is following.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -259,7 +263,7 @@ UserDetailsModel: representation of a Twitter user's details
 
 #### Get my following 
 Retrieves users that I am following.  
-* means required field
+An * means required field
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -293,6 +297,8 @@ When making calls to various actions, you might get certain responses. Below is 
 |404|Not Found|
 |500|Internal Server Error. Unknown error occurred|
 |default|Operation Failed.|
+
+---
 
 ## Next Steps
 
