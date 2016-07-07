@@ -150,16 +150,16 @@ In this exercise you use the registration tool to register data assets from the 
 	5. Select **Include Data Profile** to include a snapshot of the object statistics for the data profile (for example: minimum, maximum, and average values for a column, number of rows etc...).
 	5. In the **Add tags**, enter **adventure works, cycles**. This will add search tags for these data assets. Tags are a great way to help users find a registered data source.
 	6. (optional) Specify name of an **expert** on this data.
-
+	
     	![Azure Data Catalog tutorial - objects to be registered](media/data-catalog-get-started/data-catalog-objects-register.png)
-
-    f.	Click **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from Adventure Works are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently resides, and remains under the control of the administrators and policies of the current system.
+    
+	7. Click **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from Adventure Works are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently resides, and remains under the control of the administrators and policies of the current system.
 	
 		![Azure Data Catalog - registered objects](media/data-catalog-get-started/data-catalog-registered-objects.png)
 
-    g.	To see your registered data source objects, click **View Portal**. In the **Azure Data Catalog** portal, confirm that you see all the four tables and the database in the grid view . 
-
-    ![Objects in Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
+	8. To see your registered data source objects, click **View Portal**. In the **Azure Data Catalog** portal, confirm that you see all the four tables and the database in the grid view . 
+ 
+    	![Objects in Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
   
 	
 In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise you learn how to discover registered data assets.
