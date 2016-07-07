@@ -105,7 +105,7 @@ Federated authentication with a client certificate is not supported.
 
 
 
-## Getting Started 
+## Getting started 
 
 
 To get started, you need to configure the certificate authorities in Azure Active Directory. For each certificate authority, upload the following: 
