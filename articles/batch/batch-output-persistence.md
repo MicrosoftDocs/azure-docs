@@ -16,21 +16,43 @@
 	ms.date="07/11/2016"
 	ms.author="marsma" />
 
-# Persist task output with the TaskOutputs library
+# Store and retrieve task output
 
-If you want to...
+The tasks in your Batch jobs likely produce some form of output, and you typically need to save some or all of this output for later access. You may need to download the files directly--perhaps even after the compute nodes have been removed from the pool--or downstream tasks might need to access the output of upstream tasks in a [task dependencies](batch-task-dependencies.md) scenario.
 
-## heading1
+This article provides details on a conventions-based method for persisting your task output later retrieval. Following such conventions will also enable viewing your task output in the "Saved output files" and "Saved logs" blades in the the [Azure portal][portal].
 
-In this article we discuss...
+>[AZURE.NOTE] The file storage and retrieval method discussed here provides similar functionality to the [FEATURE_NAME_HERE] feature in **Batch Apps** (now deprecated).
 
-## heading2
+## Requirement: Linked storage account
+
+Persisting your task output with this method requires that you link an Azure Storage account with your Batch account. If you haven't already, link a Storage account to your Batch account by using the [Azure portal][portal]:
+
+**Batch account** blade > **Settings** > **Storage Account** > **Storage Account** (None) > Select a Storage account in your subscription
+
+For a more detailed walk-through on linking a Storage account, see the [Link a storage account](batch-application-packages.md#link-a-storage-account) section of [Application deployment with Azure Batch application packages](batch-application-packages.md).
+
+## File name conventions
+
+At the heart of this method of output persistence are naming conventions for blob storage containers and the files your tasks upload. When you save task output to Azure Storage, the Azure portal is able to discover the files associated with your jobs and tasks only if the files have been named using the conventions described in [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL).
+
+## Persist output
 
 Words.
 
+## Retrieve output
+
+Words.
+
+## View output in the Azure portal
+
+By following the guidance in this article, you will be able to view the output of your tasks and jobs in the Azure portal.
+
+**[screeshot_here]**
+
 ## Code sample
 
-The [ProjectName][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution...
+The [PersistOutputs][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution...
 
 ## Next steps
 
@@ -50,6 +72,7 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_dependson]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.dependson.aspx
 [net_exitcode]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.exitcode.aspx
+[net_fileconventions_readme]: https://github.com/Azure/batch-sdk-for-net-pr/blob/batch/develop/src/Batch/FileConventions/README.md
 [net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_onid]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onid.aspx
 [net_onids]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onids.aspx
@@ -58,6 +81,7 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
 [net_usestaskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.usestaskdependencies.aspx
 [net_taskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskdependencies.aspx
+[portal]: https://portal.azure.com
 
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagram: one-to-one dependency"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagram: one-to-many dependency"
