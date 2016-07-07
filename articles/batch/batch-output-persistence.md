@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/11/2016"
+	ms.date="07/12/2016"
 	ms.author="marsma" />
 
 # Store and retrieve task output
 
 The tasks in your Batch jobs likely produce some form of output, and you typically need to save some or all of this output for later access. You may need to download the files directly--perhaps even after the compute nodes have been removed from the pool--or downstream tasks might need to access the output of upstream tasks in a [task dependencies](batch-task-dependencies.md) scenario.
 
-This article provides details on a conventions-based method for persisting your task output later retrieval. Following such conventions will also enable viewing your task output in the "Saved output files" and "Saved logs" blades in the the [Azure portal][portal].
+This article provides details on a conventions-based method for persisting your task output for later retrieval. Following such conventions will also enable viewing your task output in the "Saved output files" and "Saved logs" blades in the the [Azure portal][portal].
 
 >[AZURE.NOTE] The file storage and retrieval method discussed here provides similar functionality to the [FEATURE_NAME_HERE] feature in **Batch Apps** (now deprecated).
 
@@ -48,7 +48,7 @@ Words.
 
 By following the guidance in this article, you will be able to view the output of your tasks and jobs in the Azure portal.
 
-**[screeshot_here]**
+**[screenshot_here]**
 
 ## Code sample
 
