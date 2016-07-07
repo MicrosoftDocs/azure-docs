@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="07/07/2016"
 	ms.author="iainfou"/>
 
 # Uploading a virtual hard disk
 
-This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model. This functionality allows you to install and configure a Linux distro to your requirements and then use that base disk to quickly create Azure virtual machines (VMs).
+This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
 > [AZURE.NOTE] The Azure platform SLA applies to VMs running the Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
 
@@ -83,8 +83,9 @@ Note that you will still need all the additional parameters required by the `azu
 ## Requirements
 In order to complete the above steps, you will need:
 
-- **Linux operating system installed in a .vhd file** - Install an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format
-	- Multiple tools exist to create VHD - for example, you can use Hyper-V to create a VM, then install and configure a Linux distro. For more details, see [Install Hyper-V on Windows 10](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+- **Linux operating system installed in a .vhd file** - Install an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
+	- Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](http://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. You can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) using `qemu-img convert` if needed.
+	- You can also use Hyper-V [on Windows 10](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [AZURE.NOTE] The newer VHDX format is not supported in Azure. When you create a VM, specify the original VHD format. If needed, you can convert a VHDX to VHD format using Hyper-V Manager or the `Convert-VHD` cmdlet. Further, Azure does not support uploading dynamic VHDs, so you need to convert such disks to static VHDs before uploading. You can use tools such as [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) to convert dynamic disks during the process of uploading to Azure.
 
