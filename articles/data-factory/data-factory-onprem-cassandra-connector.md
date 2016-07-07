@@ -80,7 +80,7 @@ This example uses the **Cassandra** linked service. See [Cassandra linked servic
 		"name": "CassandraInput",
 		"properties": {
 			"linkedServiceName": " CassandraLinkedService",
-			"type": "RelationalTable",
+			"type": "CassandraTable",
 			"typeProperties": {
 			"tableName": "mytable",
 			"keySpace": "myschema" 
@@ -176,7 +176,6 @@ See [RelationalSource type properties](#cassandrasource-type-properties) for the
 			]	
 		}
 	}
-
 ## OnPremisesCassandra linked service properties
 
 The following table provides description for JSON elements specific to Cassandra linked service.
@@ -187,7 +186,7 @@ The following table provides description for JSON elements specific to Cassandra
 | host | One or more IP addresses or host names of Cassandra servers.<br/><br/>Specify a comma-separated list of IP addresses or host names to connect to all servers concurrently. | Yes | 
 | port | The TCP port that the Cassandra server uses to listen for client connections. | No, default value: 9042 |
 | authenticationType | Basic, or Anonymous | Yes |
-| userName |Specify user name for the user account. | Yes, if authenticationType is set to Basic. |
+| username |Specify user name for the user account. | Yes, if authenticationType is set to Basic. |
 | password | Specify password for the user account.  | Yes, if authenticationType is set to Basic. |
 | gatewayName | The name of the gateway that will be used to connect to the on-premises Cassandra database. | Yes |
 | encryptedCredential | Credential encrypted by the gateway. | No | 
@@ -213,7 +212,7 @@ In case of Copy Activity when source is of type **CassandraSource**, the followi
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | query | Use the custom query to read data. | Should be SQL-92 queries expression or CQL operations.<br/><br/>See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). | No (if tableName and keyspace on dataset are defined).  |
-| consistencyLevel | The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. Select one of the following settings: ANY, ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for details. | No. Default value is ONE. |  
+| consistencyLevel | The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. Select one of the following settings: ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for details. | No. Default value is ONE. |  
 
  
 
