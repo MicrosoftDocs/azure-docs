@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na" 
    ms.date="07/07/2016"
-   ms.author=""/>
+   ms.author="mandia"/>
 
 # Get started with the Twitter connector
 With the Twitter connector, you can create valuable workflows for your organization and accomplish a great deal.
