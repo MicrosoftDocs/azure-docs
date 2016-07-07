@@ -134,7 +134,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
-| [DevTeach](http://www.btug.be/events) | Ken Cenerelli  | Montreal, Canada | July 4-8, 2016 | [NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
+| [DevTeach](http://devteach.com/) | Ken Cenerelli  | Montreal, Canada | July 4-8, 2016 | [NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
 | [Integration and IoT ](http://www.btug.be/events) | Eldert Grootenboer | Kontich, Belgium | June 30, 2016 | n/a |
 | [Do Logic Apps support error handling?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/?event_date=2016-06-20) | Howard S. Edidin | Webcast | June 20, 2016 | n/a |
 | [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Andrew Liu  | London, UK | May 12, 2016 | n/a
