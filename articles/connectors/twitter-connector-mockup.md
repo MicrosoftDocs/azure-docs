@@ -80,7 +80,7 @@ Actions represent the things that occur when your trigger activates. The Twitter
 
 #### Post a new tweet 
 Tweet.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -96,7 +96,7 @@ TweetResponseModel: model representing posted tweet.
 
 #### When a new tweet appears 
 Triggers a workflow when a new tweet is posted which matches your search query.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -111,7 +111,7 @@ TriggerBatchResponse[TweetModel]:
 
 #### Get home timeline 
 Retrieves the most recent tweets and re-tweets posted me and my followers.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -131,7 +131,7 @@ TweetModel: representation of tweet object
 
 #### Get user 
 Retrieves details about the specified user (example: user name, description, followers count, etc.).  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -153,7 +153,7 @@ UserDetailsModel: representation of a Twitter user's details
 
 #### Get user timeline 
 Retrieves a collection of the most recent tweets posted by the specified user.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -174,7 +174,7 @@ TweetModel: representation of tweet object
 
 #### Search tweet 
 Retrieves a collection of relevant tweets matching a specified query.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -195,7 +195,7 @@ TweetModel: representation of tweet object
 
 #### Get followers 
 Retrieves users following the specified user.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -218,7 +218,7 @@ UserDetailsModel: representation of a Twitter user's details
 
 #### Get my followers 
 Retrieves users who are following me.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -240,7 +240,7 @@ UserDetailsModel: representation of a Twitter user's details
 
 #### Get following 
 Retrieves users who the specified user is following.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
@@ -263,7 +263,7 @@ UserDetailsModel: representation of a Twitter user's details
 
 #### Get my following 
 Retrieves users that I am following.  
-An * means required field
+An * means required field.
 
 |Property Name|Display Name|Description|
 |---|---|---|
