@@ -19,10 +19,6 @@
 
 # Overview: SQL Database Active Geo-Replication
 
-> [AZURE.SELECTOR]
-- [Business continuity](sql-database-business-continuity.md)
-- [Continuity and recovery scenarios](sql-database-business-continuity-scenarios.md)
-
 Active Geo-Replication enables you to configure up to 4 readable secondary databases in the same or different data center locations (regions). Secondary databases are available for querying and for failover in the case of a data center outage or the inability to connect to the primary database.
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
@@ -44,7 +40,7 @@ You can failover to a secondary using the [Azure portal](sql-database-geo-replic
 - [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
-The Active Geo-Replication feature implements a mechanism to provide database redundancy within the same Microsoft Azure region or in different regions (geo-redundancy). Active Geo-Replication asynchronously replicates committed transactions from a database to up to four copies of the database on different servers. When Active Geo-Replication is configured a secondary database is created on the specified server. The original database becomes the primary database. The primary database asynchronously replicates committed transactions to each of the secondary databases. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to always be transactionally consistent with changes committed to the primary database.
+The Active Geo-Replication feature implements a mechanism to provide database redundancy within the same Microsoft Azure region or in different regions (geo-redundancy). Active Geo-Replication asynchronously replicates committed transactions from a database to up to four copies of the database on different servers, using read committed snapshot isolation (RCSI) for isolation. When Active Geo-Replication is configured a secondary database is created on the specified server. The original database becomes the primary database. The primary database asynchronously replicates committed transactions to each of the secondary databases. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to always be transactionally consistent with changes committed to the primary database.
 
 One of the primary benefits of Active Geo-Replication is that it provides a database-level disaster recovery solution with very low recovery time. When you place the secondary database on a server in a different region you add maximum resilience to your application. The cross-region redundancy enables applications to recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The following figure shows an example of Active Geo-Replication configured on a Premium database with a primary in the North Central US region and secondary in the South Central US region.
 

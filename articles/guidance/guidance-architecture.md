@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="06/29/2016"
    ms.author="christb"/>
 
 # Azure Reference Architectures
@@ -36,8 +36,10 @@ This series begins with recommended practices for optimal VM configuration and c
 - [Running a Linux VM on Azure](guidance-compute-single-vm-linux.md)
 - [Running multiple VMs for scalability and availability](guidance-compute-multi-vm.md)
 - [Running VMs for an N-tier architecture](guidance-compute-3-tier-vm.md)
-- [Adding reliability to an N-tier architecture](guidance-compute-n-tier-vm.md)
-- [Running VMs in multiple datacenters for high availability](guidance-compute-multiple-datacenters.md)
+- [Adding reliability to an N-tier architecture (Windows)](guidance-compute-n-tier-vm.md)
+- [Adding reliability to an N-tier architecture (Linux)](guidance-compute-n-tier-vm-linux.md)
+- [Running VMs in multiple regions for high availability (Windows)](guidance-compute-multiple-datacenters.md)
+- [Running VMs in multiple regions for high availability (Linux)](guidance-compute-multiple-datacenters-linux.md)
 
 ## Connecting your on-premises network to Azure
 
@@ -46,7 +48,8 @@ This series starts by demonstrating the ways to connect your existing network to
 - [Implementing a hybrid network architecture with Azure and on-premises VPN](guidance-hybrid-network-vpn.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
 - [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
-- [Implementing a secure hybrid network architecture in Azure](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a DMZ between Azure and your on-premises datacenter](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
 
 ## Architecting scalable web application using Azure PaaS
 
@@ -54,3 +57,4 @@ This series covers recommendations for constructing scalable and highly availabl
 
 - [Basic web application](guidance-web-apps-basic.md)
 - [Improving scalability in a web application](guidance-web-apps-scalability.md)
+- [Web application with high availability](guidance-web-apps-multi-region.md)

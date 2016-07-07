@@ -191,7 +191,7 @@ Whereas, in the **hybrid copy scenario**, where source is on-premises and sink i
 
 When you enable data movement using staging store, you can specify whether you want the data to be compressed prior to moving data from the source data store to interim/staging data store and decompressed before moving data from interim /staging data store to the sink data store.
 
-Copying data from a cloud data store to an on-prem data store or between two on-prem data stores with staging store is not supported at this point and would be ensbaled shortly. 
+Copying data from a cloud data store to an on-prem data store or between two on-prem data stores with staging store is not supported at this point and would be enabled shortly. 
 
 ### Configuration
 You can configure **enableStaging** setting on Copy Activity to specify whether you want the data to be staged in an Azure blob storage before loading into a destination data store. When you set enableStaging to true, you need to  specify additional properties listed in the following table. And You need to create an Azure Storage or Azure Storage SAS linked service as staging if you don’t yet have one.
@@ -228,7 +228,6 @@ Here is a sample definition of a Copy Activity with the above properties:
 	}
 	]
 
-> [AZURE.IMPORTANT] If you are copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine which will be used to transform your source data into proper format. Note that a 64-bit gateway requires 64-bit JRE and a 32-bit gateway requires 32-bit JRE. Download the appropriate version from  [Java Downloads location](http://go.microsoft.com/fwlink/?LinkId=808605).
 
 ### Billing impact
 Note you will be charged based on the two stages of copy duration and its copy type respectively, which means:

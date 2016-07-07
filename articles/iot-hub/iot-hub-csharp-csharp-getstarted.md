@@ -229,11 +229,11 @@ This tutorial takes you through the steps to create an IoT Hub device client. Yo
 
 You are now ready to run the applications.
 
-1.	In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the **ProcessDeviceToCloudMessages** and **SimulatedDevice** projects.
+1.	In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the **ReadDeviceToCloudMessages** and **SimulatedDevice** projects.
 
    	![Startup project properties][41]
 
-2.	Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device sends to your IoT hub. The console output from the **ProcessDeviceToCloudMessages** app shows the messages that your IoT hub receives.
+2.	Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device sends to your IoT hub. The console output from the **ReadDeviceToCloudMessages** app shows the messages that your IoT hub receives.
 
    	![Console output from apps][42]
 

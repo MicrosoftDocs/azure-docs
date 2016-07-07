@@ -20,14 +20,7 @@
 
 # Business continuity scenarios for Azure SQL Database
 
-> [AZURE.SELECTOR]
-- [Business continuity](sql-database-business-continuity.md)
-- [Recover from an outage](sql-database-disaster-recovery.md)
-- [Recover from an error](sql-database-user-error-recovery.md)
-- [Perform a disaster recovery drill](sql-database-disaster-recovery-drills.md)
-- [Manage application upgrades](sql-database-manage-application-rolling-upgrade.md)
-- [Design an application for disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Design an elastic pool application for disaster recovery](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+This article introduces serveral disaster recovery scenarios and several application design scenarios for business continuity.
 
 ## Recover from an outage
 

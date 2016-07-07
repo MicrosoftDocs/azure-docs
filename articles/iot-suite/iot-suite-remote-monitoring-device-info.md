@@ -67,6 +67,8 @@ A device information metadata JSON document stored in the device registry Docume
 - **IsSimulatedDevice**: A flag that identifies a device as a simulated device.
 - **id**: The unique DocumentDB identifier for this device document.
 
+> [AZURE.NOTE] Device information can also include metadata to describe the telemetry the device sends to IoT Hub. The remote monitoring solution uses this telemetry metadata to customize how the dashboard displays [dynamic telemetry][lnk-dynamic-telemetry].
+
 ## Lifecycle
 
 When you first create a device in the solution portal, the solution creates an entry in its device registry as shown above. Much of the information is initially stubbed out and the **HubEnabledState** is set to **null**. At this point the solution also creates an entry for the device in the IoT Hub device identity registry which generates the keys the device uses to authenticate with IoT Hub.
@@ -268,10 +270,11 @@ You can read more about how to customize the preconfigured solutions in [Customi
 [img-device-remove]: media/iot-suite-remote-monitoring-device-info/image3.png
 
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-identity-registry]: https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
 [lnk-docdb]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-ref-arch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-connect-custom]: https://azure.microsoft.com/documentation/articles/iot-suite-connecting-devices/
-[lnk-customize]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
+[lnk-connect-custom]: iot-suite-connecting-devices.md
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-dm-preview]: https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/
+[lnk-dm-preview]: ../iot-hub/iot-hub-device-management-overview.md
+[lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
