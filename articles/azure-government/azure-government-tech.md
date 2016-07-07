@@ -17,7 +17,6 @@
 	ms.author="ryansoc"/>
 
 #  Azure Government Technical Information
-![alt text](./media/azure-government-capability-private-connectivity/azure-government-capability-private-connectivity-options.PNG)
 ![alt text](./media/azure-government-capability-private-connectivity/azure-government-us-cloud.PNG)
 ## <a name="Overview"></a>Overview
 
