@@ -45,9 +45,6 @@ Enterprise Integration supports these industry standards:
 - EDI - Electronic Data Interchange  
 - EAI - Enterprise Application Integration  
 
-## How much does it cost?
-For pricing information and a list of what is included with each service tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
-
 ## Here's what you need to get started now
 - An Azure subscription with an integration account
 - Visual Studio 2015 to create maps and schemas

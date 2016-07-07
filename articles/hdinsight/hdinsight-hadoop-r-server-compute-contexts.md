@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/07/2016"
    ms.author="jeffstok"
 />
 
@@ -46,7 +46,7 @@ Currently, there is no formula that tells you which compute context to use. Ther
 2.	Repeated analyses are faster if the data is local, and if it's in XDF.
 3.	It's preferable to stream small amounts of data from a text data source; if the amount of data is larger, convert it to XDF prior to analysis.
 4.	The overhead of copying or streaming the data to the edge node for analysis becomes unmanageable for very large amounts of data.
-5.	Spark is faster than Map Reduce for analysis in Hadoop until the amount of data gets very large and can no longer fit in distributed memory.
+5.	Spark is faster than Map Reduce for analysis in Hadoop.
 
 Given these principles, some general rules of thumb for selecting a compute context are:
 
@@ -61,7 +61,7 @@ Given these principles, some general rules of thumb for selecting a compute cont
 
 ### Hadoop Map Reduce
 
-- If the amount of data to analyze is very large and Spark performance begins to deteriorate, then try an analysis via Map Reduce.
+- Use only if you encounter an insurmountable problem with use of the Spark compute context since generally it will be slower.  
 
 ## Inline help on rxSetComputeContext
 
