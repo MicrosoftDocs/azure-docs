@@ -154,8 +154,6 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 	- **Region**
 	- Leave **Database server** set to **No database**
 
-    <!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonCreateWebSite.png) -->
-
 1. Accept all other defaults and click **Publish**.
 
 1. Your web browser will open automatically to the published web app. You should see the web app working as expected, using the **MySQL** database hosted on Azure.
