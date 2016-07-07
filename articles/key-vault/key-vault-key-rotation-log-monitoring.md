@@ -3,7 +3,7 @@
 	description="Use this how-to to help you get setup with key rotation and monitoring key vault logs"
 	services="key-vault, automation,app-service\logic"
 	documentationCenter=""
-	authors="stgriffi"
+	authors="swgriffith"
 	manager=""
 	tags=""/>
 
