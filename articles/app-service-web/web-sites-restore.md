@@ -67,9 +67,13 @@ backups to be performed than **Standard** tier.
 	
 	The blade for the storage account will be displayed.
 
-3. Select the container you want, and then select backup file you want to download or delete.
+3. In the storage accountn blade, select the container you want
 	
 	![View Containers][ViewContainers]
+
+4. Select backup file you want to download or delete.
+
+	![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
 
 5. Click **Download** or **Delete** depending on what you want to do.  
 
