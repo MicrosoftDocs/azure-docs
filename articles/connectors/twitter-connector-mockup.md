@@ -3,9 +3,9 @@
 	description="Overview of Twitter connector with REST API parameters"
 	services=""
 	documentationCenter="" 
-	authors=""
+	authors="MandiOhlinger"
 	manager=""
-	editor=""
+	editor="Armin"
 	tags="connectors"/>
 
 <tags
