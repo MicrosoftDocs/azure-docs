@@ -104,7 +104,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 4.	Type or copy and paste the following code that will handle the authentication with your Automation Run As account:
 
     ```
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```
@@ -122,8 +122,8 @@ Now that our runbook is authenticating to our Azure subscription, we can manage 
     workflow MyFirstRunbook-Workflow
     {
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+ 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
     ```
@@ -145,8 +145,7 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -159,9 +158,9 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
 
 7.	When the runbook completes, check that the virtual machine was started.
 
-## Next Steps
+## Next steps
 
 -  To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
--	To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
+-  To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 -  To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
--	For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+-  For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
