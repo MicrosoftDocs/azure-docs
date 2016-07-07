@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Deploying a new ARM based Web Service"
+   pageTitle="Deploying a new Web Service"
    description="The workflow of deploying an ARM based web service"
    services="machine-learning"
    documentationCenter=""
@@ -13,10 +13,10 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="05/05/2016"
+   	ms.date="07/06/2016"
    	ms.author="v-donglo"/>
 
-## Deploying a Web Service
+# Deploy a new web service
 
 Microsoft Azure Machine learning now provides web services that are based on Azure Resource Manager allowing for new billing plan options and deploying your web service to multiple regions.
 
@@ -82,7 +82,7 @@ When deployed as a web service, Azure Machine Learning experiments provide a RES
  
 On the Consuming page you can find:
 
-* The API key and URI’s for consuming web service in apps.
+* The API key and URI's for consuming web service in apps.
 * Excel and web app templates to kick start your consumption process.
 * Sample code in C#, python, and R to get you started.
 
