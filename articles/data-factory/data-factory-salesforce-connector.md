@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="07/07/2016" 
 	ms.author="spelluru"/>
 
 # Move data from Salesforce using Azure Data Factory
@@ -25,6 +25,11 @@ Data factory currently supports only moving data from Salesforce to [supported s
 - You must use one of the following editions: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
 - API permission must be enabled. See [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/). 
 - To copy data from Salesforce to on-premises data stores, you must have Data Management Gateway version 2.0 or above installed in your on-premises environment. 
+
+## Copy data wizard
+The easiest way to create a pipeline that copies data from Salesforce to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 ## Sample: Copy data from Salesforce to Azure Blob
 
