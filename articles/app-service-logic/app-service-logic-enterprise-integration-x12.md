@@ -58,6 +58,7 @@ Let's continue:
 10. Select the **OK** button to save your settings.  
 
 ### Identifiers
+
 |Property|Description |
 |---|---|
 |ISA1 (Authorization Qualifier)|Select the Authorization qualifier value from the drop-down list.|
@@ -75,31 +76,31 @@ Let's continue:
 
 ### Schemas
 
+Choose a schema for each transaction type (ST1) and Sender Application (GS2). The receive pipeline disassembles the incoming message by matching the values for ST1 and GS2 in the incoming message with the values you set here, and the schema of the incoming message with the schema you set here.
+
 |Property|Description |
 |----|----|
 |Version||
-|Transaction Type (ST01)||
-|Sender Application (GS02)||
-|Schema||
+|Transaction Type (ST01)|Select the transaction type.|
+|Sender Application (GS02)|Select the sender application|
+|Schema|Select the schema file you want to us. Schema files are located in your integration account.|
 
 ### Envelopes
+
 |Property|Description |
 |----|----|
-|||
-|||
-|||
-|||
-|||
+|ISA11 Usage|Use this field to specify the separator in a transaction set:</br></br>Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^).|
 
 ### Control Numbers
+
 |Property|Description |
 |----|----|
 |Disallow Interchange Control Number duplicates|Check this option to block duplicate interchanges. If selected, the BizTalk Services Portal checks that the interchange control number (ISA13) for the received interchange does not match the interchange control number. If a match is detected, the receive pipeline does not process the interchange.<br/>If you opted to disallow duplicate interchange control numbers, then you can specify the number of days at which the check is performed by giving the appropriate value for Check for duplicate ISA13 every x days.|
 |Disallow Group control number duplicates|Check this option to block interchanges with duplicate group control numbers.|
 |Disallow Transaction set control number duplicates|Check this option to block interchanges with duplicate transaction set control numbers.|
 
-
 ### Validations
+
 |Property|Description |
 |----|----|
 |Message Type|EDI Message type, like 850-Purchase Order or 999-Implementation Acknowledgement.|
@@ -109,6 +110,7 @@ Let's continue:
 |Trailing Separator Policy|Generates trailing separators on the interchange received. Options include NotAllowed, Optional, and Mandatory.|
 
 ### Internal Settings
+
 |Property|Description |
 |----|----|
 |Convert implied decimal format Nn to base 10 numeric value|Converts an EDI number that is specified with the format Nn into a base-10 numeric value in the intermediate XML in the BizTalk Services Portal.|
@@ -116,7 +118,6 @@ Let's continue:
 |Inbound batching processing|Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets. </br>Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br>Preserve Interchange - suspend transaction sets on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if onAe or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets, while continuing to process all other transaction sets.</br>Preserve Interchange - suspend interchange on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br>|
 
 Your agreement is ready to handle incoming messages that conform to the schema you selected.
-
 
 To configure the settings that handle messages you send to partners:  
 11. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
