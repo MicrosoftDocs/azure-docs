@@ -78,6 +78,8 @@ Actions represent the things that occur when your trigger activates. The Twitter
 
 ### Action Details
 
+The Twitter connector comes with a variety of possible actions. Below, there is information on each of the actions, their required and optional input fields, and the corresponding output details associated with their usage.
+
 #### Post a new tweet 
 Tweet.  
 An * means required field.
