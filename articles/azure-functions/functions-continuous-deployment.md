@@ -64,7 +64,7 @@ The following are some typical deployment scenarios
 
 ###Create a staging deployment
 
-Function Apps doesn't yet support deployment slots. However, you can still manage separate staging and production deployments by using continuous integration, as long as your deployment source that supports branches. 
+Function Apps doesn't yet support deployment slots. However, you can still manage separate staging and production deployments by using continuous integration.
 
 The process to configure and work with a staging deployment looks generally like this:
 
