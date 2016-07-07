@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Migrate Automation Account and Resources"
+   pageTitle="Migrate Automation Account and Resources | Microsoft Azure"
    description="This article describes how to move an Automation Account in Azure Automation and associated resources from one subscription to another. "
    services="automation"
    documentationCenter=""
@@ -9,7 +9,7 @@
 <tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/07/2016"
