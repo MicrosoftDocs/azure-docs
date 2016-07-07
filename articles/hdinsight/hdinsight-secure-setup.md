@@ -58,7 +58,7 @@ This tutorial mainly provides the steps to configure a secured HDInsight. Each s
 
 1. Create an Azure classic VNet for Azure Active Directory.  
 2. Create and configure an Azure Active Directory.
-3. (combine this with the next part?) Add an admin VM to the AAD.
+3. Add an admin VM to the AAD.
 3. Configure an organizational unit.
 4. Create an HDInsight VNet (ARM VNet)
 5. Bridge the two VNets.
@@ -119,6 +119,12 @@ In this section, you will:
 5. Configure user profile; In **Role**, select **Global Admin**; and then click **Next**.
 6. Click **Create** to get a temporary password.
 7. Make a copy of the password - Kasa6500, and then click **Complete**. jgao@contoso157.onmicrosoft.com
+
+
+Follow the same procedure to create 2 more users with the **User** role.
+
+- HiveUser1
+- HiveUser2
 
 **To create the AAD DC Administrators' group, and add the AAD user**
 
@@ -277,7 +283,7 @@ For more information, see [Install Active Directory administration tools on the 
 
 **To configure reverse DNS on the AAD DC/DNS**
 
-This step will not be needed in the future.
+[This step will not be needed in the future.]
 
 1. RDP to contosoaadadmin using the AAD user account.
 2. Click **Start**, click **Administrative Tools**, and then click **DNS**. The DNS Manager opens.
@@ -295,13 +301,17 @@ This step will not be needed in the future.
 
 ## Configure an organizational unit
 
+[jgao: how about adding a step here to check the AADDC Users OU?]
+
+This organization unit will be used when creating the HDInsight cluster. It will be used to retain the Hadoop system users.
+
 **Create an Organizational Unit (OU) on an AAD Domain Services managed domain**
 
 1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
 2. Click **Start**, click **Administrative Tools**, and then click **Active Directory Administrative Center**.
 5. Click the domain name in the left pane. For example contoso157.
 6. Click **New** under the domain name in the **Task** pane, and then click **Organizational Unit**.
-7. Enter a name, and then click **OK**.  For example, "HiveDev".
+7. Enter a name, for sample **Hadoop System Users**, and then click **OK**. 
 
 *****************************************
 **additional steps**
@@ -475,10 +485,12 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 
 	- DomainName: contoso157.onmicrosoft.com
-	- OrganizationUnitDN: OU=HiveDev,DC=contoso157,DC=onmicrosoft,DC=com
+	- OrganizationUnitDN: OU=Hadoop System Users,DC=contoso157,DC=onmicrosoft,DC=com
 	- LDAPUrls: ["ldaps://40.84.54.252:636"]
 	- DomainAdminUserName: jgao@contoso157.onmicrosoft.com
 	- DomainAdminPassword: Kasa6500
+
+	The organizational unit is what you created earlier in the article.
 
     Other properties have been hard-coded into the template. For example:
     
@@ -497,7 +509,35 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
+
+
+## Configure the Ranger user sync service
+
+**To configure the Ranger user sync service**
+
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Open the cluster. For example: contosohdicluster.
+3. Click **Dashboard**.
+4. Sign in to Ambari using the Hadoop HTTP username and password.
+5. Click **Ranger** from the left menu.
+6. Click the **Configs** tab.
+7. Click the **Ranger User Info** tab.
+8. click the **Common Configs** tab.
+9. Configue the fields highlighted in the following screenshots:
+
+	![Secure HDInsight Ranger user sync configuration](.\media\hdinsight-secure-setup\hdinsight-secure-ranger-user-sync-common-configs.png)
+
+	By default, new users belong to the **AADDC Users** OU. If your AD is configured differently, then specify the appropriate OU.
+
+	![Secure HDInsight Ranger user sync configuration](.\media\hdinsight-secure-setup\hdinsight-secure-ranger-user-sync-user-configs.png)
+
+10. Click **Save**.
+11. Click **Restart**.
+
+
 ## Test the connection between the two VNets
+
+[jgao: users can test the configuration by creating domain users and verify the users in Ranger.]
 
 To test the connection between the two VNets, you will ping one of the cluster nodes from the Windows VM in the Classic VNet.
 
@@ -514,6 +554,8 @@ To test the connection between the two VNets, you will ping one of the cluster n
 1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
 2. Click **Start**, and then click **Windows PowerShell**.
 3. Ping the IP address you wrote down earlier.
+
+
 
 
 ## Next steps:
