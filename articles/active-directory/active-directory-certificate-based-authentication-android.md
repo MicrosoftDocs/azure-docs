@@ -110,9 +110,9 @@ Federated authentication with a client certificate is not supported.
 
 To get started, you need to configure the certificate authorities in Azure Active Directory. For each certificate authority, upload the following: 
 
-1. The public portion of the certificate, in *.cer* format 
+- The public portion of the certificate, in *.cer* format 
 
-2. The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
+- The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
  
 
 Below is the schema for a certificate authority: 
@@ -159,7 +159,7 @@ Below are examples for adding, removing or modifying a certificate authority.
 
 ### Adding a new certificate authority
 
-Set various properties of the certificate authority and add it to Azure Active Directory: 
+1. Set various properties of the certificate authority and add it to Azure Active Directory: 
 
         $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
         $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
@@ -231,9 +231,9 @@ You should be successfully signed in.
 
 To access Exchange ActiveSync via certificate based authentication, an EAS profile containing the client certificate must be available to application. The EAS profile must contain the following information:
 
-1.	The user certificate to be used for authentication 
+- The user certificate to be used for authentication 
 
-2.	The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
+- The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
 
 An EAS profile can be configured and placed on the device through the utilization of an MDM such as Intune or by manually placing the certificate in the EAS profile on the device.  
 
