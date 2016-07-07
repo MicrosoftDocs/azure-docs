@@ -13,19 +13,20 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="07/07/2016"
  ms.author="nberdy"/>
 
 # Introduction to operations monitoring
 
 IoT Hub operations monitoring enables users to monitor the status of operations on their IoT hub in real time. IoT Hub tracks events across several categories of operations, and users can opt into having events from one or more categories sent to an endpoint of their IoT hub for processing. Users can monitor the data for errors or set up more complex processing based on data patterns.
 
-IoT Hub monitors four categories of events:
+IoT Hub monitors five categories of events:
 
 - Device identity operations
 - Device telemetry
 - Cloud-to-device commands
 - Connections
+- File uploads
 
 ## How to enable operations monitoring
 
