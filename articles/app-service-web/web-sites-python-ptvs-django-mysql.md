@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python"
 	ms.topic="get-started-article" 
-	ms.date="06/23/2016"
+	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
 # Django and MySQL on Azure with Python Tools 2.2 for Visual Studio 
@@ -31,7 +31,7 @@ See the [Python Developer Center] for more articles that cover development of Az
 ## Prerequisites
 
  - Visual Studio 2015
- - [Python 2.7 32-bit]
+ - [Python 2.7 32-bit] or [Python 3.4 32-bit]
  - [Python Tools 2.2 for Visual Studio]
  - [Python Tools 2.2 for Visual Studio Samples VSIX]
  - [Azure SDK Tools for VS 2015]
@@ -49,7 +49,7 @@ In this section, you'll create a Visual Studio project using a sample template. 
 
 1. In Visual Studio, select **File**, **New Project**.
 
-1. The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**. Select **Polls Django Web Project** and click OK to create the project.
+1. The project templates from the [Python Tools 2.2 for Visual Studio Samples VSIX] are available under **Python**, **Samples**. Select **Polls Django Web Project** and click OK to create the project.
 
     ![New Project Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
 
@@ -57,7 +57,7 @@ In this section, you'll create a Visual Studio project using a sample template. 
 
     ![External Packages Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
 
-1. Select **Python 2.7** as the base interpreter.
+1. Select **Python 2.7** or **Python 3.4** as the base interpreter.
 
     ![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
 
@@ -190,6 +190,7 @@ For more information, see the [Python Developer Center](/develop/python/).
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Remote Debugging on Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Web Projects]: http://go.microsoft.com/fwlink/?LinkId=624027
