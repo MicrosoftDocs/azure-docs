@@ -39,11 +39,11 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
- ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
+![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)    
 3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
-![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
+![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)  
 4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)   
+![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)     
 5. Select the **Add** button in the Agreements blade that opens.  
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
 6. Enter a **Name** for your agreement then select the **Agreement type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
@@ -80,8 +80,8 @@ Choose a schema for each transaction type (ST1) and Sender Application (GS2). Th
 
 |Property|Description |
 |----|----|
-|Version||
-|Transaction Type (ST01)|Select the transaction type.|
+|Version|Select the X12 version|
+|Transaction Type (ST01)|Select the transaction type|
 |Sender Application (GS02)|Select the sender application|
 |Schema|Select the schema file you want to us. Schema files are located in your integration account.|
 
@@ -115,7 +115,7 @@ Choose a schema for each transaction type (ST1) and Sender Application (GS2). Th
 |----|----|
 |Convert implied decimal format Nn to base 10 numeric value|Converts an EDI number that is specified with the format Nn into a base-10 numeric value in the intermediate XML in the BizTalk Services Portal.|
 |Create empty XML tags if trailing separators are allowed|Select this check box to have the interchange sender include empty XML tags for trailing separators.|
-|Inbound batching processing|Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets. </br>Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br>Preserve Interchange - suspend transaction sets on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if onAe or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets, while continuing to process all other transaction sets.</br>Preserve Interchange - suspend interchange on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br>|
+|Inbound batching processing|Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets. </br></br>Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br></br>Preserve Interchange - suspend transaction sets on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if onAe or more transaction sets in the interchange fail validation, then BizTalk Services suspends only those transaction sets, while continuing to process all other transaction sets.</br></br>Preserve Interchange - suspend interchange on error: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then BizTalk Services suspends the entire interchange.</br></br>|
 
 Your agreement is ready to handle incoming messages that conform to the schema you selected.
 
@@ -150,9 +150,9 @@ Here is a view of these controls. Make the selections based on how you want to h
 ### Schemas
 |Property|Description |
 |----|----|
-|Version||
-|Transaction Type (ST01)||
-|SCHEMA||
+|Version|Select the X12 version|
+|Transaction Type (ST01)|Select the transaction type|
+|SCHEMA|Select the schema to use. Schemas are located in your integration account. To access your schemas, first link your integration account to your Logic app.|
 
 ### Envelopes
 |Property|Description |
@@ -191,7 +191,7 @@ Other than the character set, you can enter a different set of delimiters to be 
 
 After you select **OK** on the open blades:  
 13. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
+![](./media/app-service-logic-enterprise-integration-x12/x12-7.png)   
 
 ## Learn more
 - [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
