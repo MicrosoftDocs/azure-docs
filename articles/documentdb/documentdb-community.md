@@ -136,6 +136,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
 | [DevTeach](http://devteach.com/) | Ken Cenerelli  | Montreal, Canada | July 4-8, 2016 | [NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
 | [Integration and IoT ](http://www.btug.be/events) | Eldert Grootenboer | Kontich, Belgium | June 30, 2016 | n/a |
+| [MongoDB World 2016](https://www.mongodb.com/world16) | Kirill Gavrylyuk | New York, New York | June 28-29, 2016 | n/a |
 | [Do Logic Apps support error handling?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/?event_date=2016-06-20) | Howard S. Edidin | Webcast | June 20, 2016 | n/a |
 | [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Andrew Liu  | London, UK | May 12, 2016 | n/a
 |[Meetup: ONETUG - Orlando .NET User Group ](http://www.meetup.com/ONETUG/events/230797164/)| Santosh Hari| Orlando, FL| May 12, 2016| n/a 
