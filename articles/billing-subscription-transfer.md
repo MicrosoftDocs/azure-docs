@@ -57,17 +57,18 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
     ![Second subscription transfer web page](./media/billing-subscription-transfer/image5.PNG)
 
 7. Success! The subscription is now transferred.
+
 <a id="faq"></a>
 ## Frequently asked questions (FAQ)
 
 -   **How can I know who is the account administrator of the subscriptions?**
 
- You can confirm who is the account administrator of the subscription as follows:
+    You can confirm who is the account administrator of the subscription as follows:
 
- 1. Sign in to the [Azure portal](https://portal.azure.com).
- 2. On the Hub menu, select **Subscription**.
- 3. Select the subscription you want to check, and then select **Settings**.
- 4. Select **Properties**. The account administrator of the subscription will be displayed in the **ACCOUNT ADMIN** box.
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    2. On the Hub menu, select **Subscription**.
+    3. Select the subscription you want to check, and then select **Settings**.
+    4. Select **Properties**. The account administrator of the subscription will be displayed in the **ACCOUNT ADMIN** box.  
 
 -   **Does a subscription transfer result in any service downtime?**
 
