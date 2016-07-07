@@ -37,7 +37,7 @@ The following rules that pertain to actor interfaces are worth mentioning:
 
 - Actor interface methods cannot be overloaded.
 - Actor interface methods must not have out, ref, or optional parameters.
-- Actor interfaces cannot be generic.
+- Generic interfaces are not supported.
 
 ## Create a new project in Visual Studio
 After you have installed the Service Fabric tools for Visual Studio, you can create new project types. The new project types are under the **Cloud** category of the **New Project** dialog box.
