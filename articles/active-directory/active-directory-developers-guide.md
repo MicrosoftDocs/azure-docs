@@ -67,14 +67,13 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 These articles describe how to perform specific tasks by using Azure Active Directory:
 
 - [Get an Azure AD tenant](active-directory-howto-tenant.md)
-- [List your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
-- [Understand the Azure Active Directory application manifest](active-directory-application-manifest.md)
-- [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
-- [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Sign in any Azure AD user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md) 
 - Enable cross-app SSO using ADAL, on [Android](active-directory-sso-android.md) and on [iOS](active-directory-sso-ios.md) devices
-- [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](active-directory-branding-guidelines.md)
 - [Make your application AppSource Certified for Azure AD](active-directory-devhowto-appsource-certified.md)
-- [Sign in any Azure AD user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
+- [List your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
+- [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Understand the Azure Active Directory application manifest](active-directory-application-manifest.md)
+- [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](active-directory-branding-guidelines.md)
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
 - [Preview: How to build apps that sign up & sign in consumers](../active-directory-b2c/active-directory-b2c-overview.md)
 
