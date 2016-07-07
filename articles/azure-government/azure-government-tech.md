@@ -17,7 +17,8 @@
 	ms.author="ryansoc"/>
 
 #  Azure Government Technical Information
-![alt text](media\azure-government-us-cloud.PNG)
+![alt text](./media/azure-government-capability-private-connectivity/azure-government-capability-private-connectivity-options.PNG)
+![alt text](./media/azure-government-capability-private-connectivity/azure-government-us-cloud.PNG)
 ## <a name="Overview"></a>Overview
 
 Azure Government is enabling U.S. Government & their partners to transform their mission-critical workloads to a trusted hyper-scale cloud.  
