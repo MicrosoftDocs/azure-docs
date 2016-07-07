@@ -21,6 +21,10 @@
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
+> [AZURE.SELECTOR]
+- [Running VMs in multiple datacenters (Linux)](guidance-compute-multiple-datacenters-linux.md)
+- [Running VMs in multiple datacenters (Windows)](guidance-compute-multiple-datacenters.md)
+
 In this article, we recommend a set of practices to run Windows virtual machines (VMs) in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource groups] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
