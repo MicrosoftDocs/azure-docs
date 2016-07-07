@@ -34,6 +34,8 @@ Hive understands how to work with structured and semi-structured data, such as t
 
 Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using UDFs with Hive, see the following:
 
+* [Use a Java User Defined Function with Hive](hdinsight-hadoop-hive-java-udf.md)
+
 * [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
 
 * [Use C# with Hive and Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
