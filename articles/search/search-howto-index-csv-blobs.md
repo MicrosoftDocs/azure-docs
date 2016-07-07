@@ -1,5 +1,5 @@
 <properties
-pageTitle="Indexing CSV blobs with Azure Search blob indexer"
+pageTitle="Indexing CSV blobs with Azure Search blob indexer | Microsoft Azure"
 description="Learn how to index CSV blobs with Azure Search"
 services="search"
 documentationCenter=""
@@ -43,7 +43,7 @@ If blobs don't contain an initial header line, the headers should be specified i
 
 	"parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Currently, only the comma `','` character is supported as the delimiter. If you need support for other delimiters, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+Currently, only the UTF-8 encoding is supported. Also, only the comma `','` character is supported as the delimiter. If you need support for other encodings or delimiters, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
 > [AZURE.IMPORTANT] When you use the delimited text parsing mode, Azure Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
@@ -73,7 +73,7 @@ Indexer:
 	{
 	  "name" : "my-csv-indexer",
 	  "dataSourceName" : "my-blob-datasource",
-	  "targetIndexName" : "my-target-index"
+	  "targetIndexName" : "my-target-index",
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
 	}
 
