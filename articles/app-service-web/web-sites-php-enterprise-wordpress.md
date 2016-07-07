@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Enterprise-class WordPress on Azure App Service"
+	pageTitle="Enterprise-class WordPress on Azure App Service | Microsoft Azure"
 	description="Learn how to host an enterprise-class WordPress site on Azure App Service"
 	services="app-service\web"
 	documentationCenter=""
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="sunbuild"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="04/08/2016"
-	ms.author="robmcm"/>
+	ms.date="07/06/2016"
+	ms.author="sumuth"/>
 
 #Enterprise-class WordPress on Azure App Service
 
