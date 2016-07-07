@@ -77,4 +77,4 @@ Using a CDN helps you take load off your servers by caching your content in the 
 __What happens if you don't use a CDN?__ If you aren't using a CDN then all of your customer traffic comes directly to your resources. This means that you will see higher loads on your servers which decreases their scalability. Additionally, your customers may experience higher latencies as CDNs offer locations around the world that are likely closer to your customers.
 
 ##Next steps:
-Is you would like to read more about how to design your applications for high availability, please read [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
+If you would like to read more about how to design your applications for high availability, please read [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
