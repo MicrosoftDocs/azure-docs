@@ -39,7 +39,7 @@ Logic App connectors come with triggers by which you can set up your workflow to
 
 4) Once the connection is established, and a trigger is successfully setup, we can begin applying Twitter actions. In the text box, type “Twitter” to get a list of all the available Twitter actions.
 
-![](../../includes/media/connectors-create-api-twitterr/using-action-2.png)
+![](../../includes/media/connectors-create-api-twitter/using-action-2.png)
 
 5) In our example, we’ll choose the post a new tweet action. We can either choose something to tweet, or we can utilize some of the available outputs from when the tweet appeared in our trigger.
 
