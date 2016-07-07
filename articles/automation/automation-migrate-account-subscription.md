@@ -41,7 +41,7 @@ To move existing Automation resources to another resource group or subscription,
 The first example shows how to move an Automation account to a new resource group.
 
    ```
-    $resource = Get-AzureRmResource -ResourceName "TestAzureAutomation" -ResourceGroupName "ResourceGroup01"
+    $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup"
    ``` 
 
@@ -50,7 +50,7 @@ After you execute the above code example, you will be prompted to verify you wan
 To move to a new subscription, include a value for the *DestinationSubscriptionId* parameter.
 
    ```
-    $resource = Get-AzureRmResource -ResourceName "TestAzureAutomation" -ResourceGroupName "ResourceGroup01"
+    $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup" -DestinationSubscriptionId "SubscriptionId"
    ``` 
 
