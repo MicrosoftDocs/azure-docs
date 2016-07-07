@@ -19,8 +19,6 @@
 #  Azure Government Supported Services
 ![alt text](./media/azure-government-us-cloud.PNG)
 
-Azure Government regions currently support the following services.  For additional information on please contact you account representative.
-
 ## <a name="Overview"></a>Compute
 * [Virtual Machines](azure-government-tech-virtual-machines.md)
 * Azure Resource Manager
@@ -33,27 +31,27 @@ Azure Government regions currently support the following services.  For addition
 * Redis Cache
 * Store Simple
 
-## <a name="Compute"></a>Hybrid Integration
+## <a name="Overview"></a>Hybrid Integration
 * Service Bus
 * Backup
 * Site Recovery
 
-## <a name="Compute"></a>Identity & Access Management
+## <a name="Overview"></a>Identity & Access Management
 * Azure Active Directory
 * Multi-Factor Authentication
 
-## <a name="Compute"></a>IoT
+## <a name="Overview"></a>IoT
 * Event Hubs
 * Notification Hubs
 
-## <a name="Compute"></a>Management & Security
+## <a name="Overview"></a>Management & Security
 * Automation
 * [Key Vault](azure-government-tech-keyvault.md)
 * Next Generation Portal (Ibiza)
 * Portal
 * Scheduler
 
-## <a name="Compute"></a>Networking
+## <a name="Overview"></a>Networking
 * Application Gateway
 * DNS
 * [Express Route](azure-government-tech-expressroute.md)
@@ -62,10 +60,10 @@ Azure Government regions currently support the following services.  For addition
 * [Virtual Networks](azure-government-tech-virtual-networks.md)
 * VPN Gateway
 
-## <a name="Compute"></a>Web & Mobile
+## <a name="Overview"></a>Web & Mobile
 * Web Apps
 
-## <a name="Compute"></a>Media & CDN
+## <a name="Overview"></a>Media & CDN
 * Media Services
 
 For supplemental information and updates please subscribe to the

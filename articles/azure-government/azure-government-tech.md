@@ -52,5 +52,7 @@ Most of the technical content that is available currently assumes that applicati
 
 - Third, you should refer to the Azure Government Technical services documentation available from this site for information that identifies the Azure Government boundary and customer regulated/controlled data guidance and best practices.
 
+Add image gallery here or create its own page?  https://github.com/zakramer/azure-content-pr/blob/zakramerScreening/articles/azure-government-image-gallery.md
+
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
