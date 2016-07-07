@@ -25,7 +25,7 @@
 **A**: Based on customer feedback, Azure Machine Learning introduces a new type of web services with tiered plans on July 15th, 2016: this will let customers determine their consumption levels and drive more predictability in their activities. 
 These new web services, which apply to deployment of APIs into a production environment with more flexibility, come with pre-defined included quantities of API transactions and Production Compute hours per month. 
 
-Q - Can you explain more about Azure ML Web Services?
+**Q** - Can you explain more about Azure ML Web Services?
 **A**: With the Azure Machine Learning web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning web service call returns prediction results to an external application. To make a Machine Learning web service call, you pass an API key which is created when you deploy a prediction. The Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
 
 Azure Machine Learning has two types of services:
@@ -164,6 +164,7 @@ Note: Included quantities is reallocated every 30 days and unused included quant
 
 
 **Q** - What specific kind of compute resources will my production API calls be run on?
+
 **A**: The Machine Learning service is a multitenant service, and actual compute resources used on the backend will vary and are optimized for performance and predictability.
 
 ## Management of New Web Services 
@@ -320,6 +321,6 @@ No, the Standard tier is equivalent to the version of the Machine Learning servi
 
 ## Guest access
 
-What is Guest Access to Azure Machine Learning Studio?
+**Q** - What is Guest Access to Azure Machine Learning Studio?
 
 **A**: Guest Access is a restricted trial experience that allows you to create and run experiments in the Azure Machine Learning Studio at no cost and without authentication. Guest sessions are non-persistent (cannot be saved) and limited to 8 hours. Other limitations include lack of R and Python support, lack of staging APIs and restricted dataset size and storage capacity. By comparison, users who choose to sign in with a Microsoft account will have full access to the Free-tier of Machine Learning Studio described above which includes a persistent workspace and more comprehensive capabilities. Choose your free Machine Learning experience by Clicking on the "Get started" button on [https://studio.azureml.net](https://studio.azureml.net), and selecting either Guess Access or Sign-In with Microsoft account.

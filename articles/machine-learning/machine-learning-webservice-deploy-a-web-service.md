@@ -18,7 +18,7 @@
 
 # Deploy a new web service
 
-Microsoft Azure Machine learning now provides web services that are based on Azure Resource Manager allowing for new billing plan options and deploying your web service to multiple regions.
+Microsoft Azure Machine learning now provides web services that are based on [Azure Resource Manager](../azure-portal/resource-group-overview.md) allowing for new billing plan options and deploying your web service to multiple regions.
 
 The general workflow to deploy a web service using Microsoft Azure Machine Learning Web Services is:
 
@@ -35,9 +35,9 @@ The following graphic illustrates the workflow.
  
 ## Deploy web service from Studio 
 
-To deploy an experiment as a new ARM based web service. Sign into the Machine Learning Studio and create a new predictive web service. 
+To deploy an experiment as a new web service. Sign into the Machine Learning Studio and create a new predictive web service. 
 
-**Note**: If you have already deployed an experiment as a classic web service you cannot deploy it as a new ARM based web service.
+**Note**: If you have already deployed an experiment as a classic web service you cannot deploy it as a new web service.
  
 Click **Run** at the bottom of the experiment canvas and then click **[Preview] Deploy Web Service**. The deployment page of the Machine Learning Web Service manager will open.
 
@@ -60,7 +60,7 @@ From the Quickstart page, click Test web service under common tasks.
 
 To test the web service as a Request-Response Service (RRS):
 
-* Click **Test*on the menu bar.
+* Click **Test** on the menu bar.
 * Click **Request-Response**.
 * Enter appropriate values for the input columns of your experiment.
 * Click Test **Request-Response**.
