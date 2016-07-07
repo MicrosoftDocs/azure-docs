@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Customize exported Resource Manager template | Microsoft Azure"
-	description="Add parameters to an exported Azure Resource Manager template and redeploy it through Azure PowerShell or Azure CLI."
+	pageTitle="Best practices Resource Manager template | Microsoft Azure"
+	description="Guidelines for simplifying your Azure Resource Manager templates."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="tfitzmac"
+	authors="marcvaneijk"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -31,7 +31,7 @@ The following guidelines will help you create Resource Manager templates that ar
 
 - Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
  + Values a user may wish to vary based on the environment (such as a sku).
- + Values that are globally unique (such as website name).  These are usually endpoints that the user may need to be aware of. However, in many cases a unique name can be generated automatically by using the [uniqueString()](https://azure.microsoft.com/documentation/articles/resource-group-template-functions/#uniquestring) template language function.
+ + Values that are globally unique (such as website name).  These are usually endpoints that the user may need to be aware of. However, in many cases a unique name can be generated automatically by using the [uniqueString()](resource-group-template-functions.md#uniquestring) template language function.
  + Values (such as admin user name) that a user must know to complete a workflow.
  + Secrets (such as passwords)
  
@@ -205,7 +205,7 @@ The following guidelines will help you create Resource Manager templates that ar
 
 - Using tags to add metadata to resources allows you to add additional information about your resources. A good use case for tags is adding metadata to a resource for billing detail purposes. 
 
-- The **domainNameLabel** property for publicIPAddresses must be **unique**. domainNameLabel is required to be betweeen 3 and 63 characters long and to follow the rules specified by this regular expression ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
+- The **domainNameLabel** property for publicIPAddresses must be **unique**. domainNameLabel is required to be betweeen 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
 
  ```
  "parameters": {
@@ -349,7 +349,7 @@ It is possible to deploy a nested template based on parameter input. The paramet
 
 ### Nested templates design for more advanced scenarios
 
-When you decide to decompose your template design into multiple nested templates, the following guidelines will help to standardize the design. These guidelines are based on the [best practices for designing Azure Resource Manager templates](https://azure.microsoft.com/en-us/documentation/articles/best-practices-resource-manager-design-templates/) documentation.
+When you decide to decompose your template design into multiple nested templates, the following guidelines will help to standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation.
 For this guidance a deployment of a SharePoint farm is used as an example. The SharePoint farm consists of multiple tiers. Each tier can be created with high availability. The recommended design consists of the following templates.
 
 + **Main template** (azuredeploy.json). Used for the input parameters.
