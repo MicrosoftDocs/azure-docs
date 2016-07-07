@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use a Java user defined function (UDF) with Hive in HDInsight | Microsoft Azure"
-description="Learn how to create and use a Java user defined function (UDF) from Hive in HDInsight."
+pageTitle="Use a Java user-defined function (UDF) with Hive in HDInsight | Microsoft Azure"
+description="Learn how to create and use a Java user-defined function (UDF) from Hive in HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -18,7 +18,7 @@ ms.author="larryfr"/>
 
 #Use a Java UDF with Hive in HDInsight
 
-Hive is great for working with data in HDInsight, but sometimes you need a more general purpose language. Hive allows you to create user defined functions (UDF) using a variety of programming languages. In this document, you will learn how to use a Java UDF from Hive.
+Hive is great for working with data in HDInsight, but sometimes you need a more general purpose language. Hive allows you to create user-defined functions (UDF) using a variety of programming languages. In this document, you will learn how to use a Java UDF from Hive.
 
 ## Requirements
 
@@ -164,4 +164,4 @@ Hive is great for working with data in HDInsight, but sometimes you need a more 
 
 For other ways to work with Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md).
 
-For more information on Hive User Defined Functions, see [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) section of the Hive wiki at apache.org.
+For more information on Hive User-Defined Functions, see [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) section of the Hive wiki at apache.org.
