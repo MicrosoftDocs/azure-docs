@@ -18,6 +18,7 @@
 
 
 #  Virtual Networks
+![alt text](./media/azure-government-us-cloud.PNG)
 
 The following information identifies the Azure Government boundary for Azure Virtual Networks:
 
@@ -27,3 +28,6 @@ The following information identifies the Azure Government boundary for Azure Vir
 
 
 For additional information, please see the <a href=https://azure.microsoft.com/en-us/documentation/services/virtual-network/> Azure Virtual Networks public documentation </a>.
+
+For supplemental information and updates please subscribe to the
+<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
