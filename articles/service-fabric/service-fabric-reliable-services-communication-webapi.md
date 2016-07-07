@@ -167,7 +167,7 @@ Further details about the service host process and service registration are beyo
 
 Given that your Web API application code is hosted in its own process, how do you hook it up to a web server? Enter [OWIN](http://owin.org/). OWIN is simply a contract between .NET web applications and web servers. Traditionally when ASP.NET (up to MVC 5) is used, the web application is tightly coupled to IIS through System.Web. However, the Web API implements OWIN, so you can write a web application that is decoupled from the web server that hosts it. Because of this, you can use a *self-hosted* OWIN web server that you can start in your own process. This fits perfectly with the Service Fabric hosting model we just described.
 
-In this article, we'll use Katana as the OWIN host for the Web API application. Katana is an open-source OWIN host implementation built on [System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx) and the Windows [HTTP Server API](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364510.aspx).
+In this article, we'll use Katana as the OWIN host for the Web API application. Katana is an open-source OWIN host implementation built on [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) and the Windows [HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx).
 
 > [AZURE.NOTE] To learn more about Katana, go to the [Katana site](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). For a quick overview of how to use Katana to self-host the Web API, see [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
 
