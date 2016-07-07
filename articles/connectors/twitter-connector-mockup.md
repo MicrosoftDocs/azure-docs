@@ -27,23 +27,23 @@ Logic App connectors come with triggers by which you can set up your workflow to
 
 1) After following the steps in [connect to Twitter](../articles/connectors/connectors-create-api-twitter.md#connect-to-twitter) and establishing the Twitter connection, your trigger is almost set up. Next, you'll have to enter the query text for which you want to search Twitter.
 
-![](./media/connectors-create-api-twitter/using-trigger.png)
+![](../../includes/media/connectors-create-api-twitter/using-trigger.png)
 
 ### Using an action
 	
 2) Select the plus sign, and then you’ll see several choices: "Add an action", "Add a condition", or one of the "More" options.
 
-![](./media/connectors-create-api-twitter/using-action-1.png)
+![](../../includes/media/connectors-create-api-twitter/using-action-1.png)
 
 3) In this scenario, let’s choose "Add an action" so that we can practice adding a Twitter action.
 
 4) Once the connection is established, and a trigger is successfully setup, we can begin applying Twitter actions. In the text box, type “Twitter” to get a list of all the available Twitter actions.
 
-![](./media/connectors-create-api-twitter/using-action-2.png)
+![](../../includes/media/connectors-create-api-twitterr/using-action-2.png)
 
 5) In our example, we’ll choose the post a new tweet action. We can either choose something to tweet, or we can utilize some of the available outputs from when the tweet appeared in our trigger.
 
-![](./media/connectors-create-api-twitter/using-action-3.png)
+![](../../includes/media/connectors-create-api-twitter/using-action-3.png)
 
 6) Click save at the top left corner of the toolbar, and your logic app will both save and publish (activate).
 
