@@ -66,7 +66,7 @@ The following SDKs are available for working with Key Vault:
 
 |[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt430941.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[.NET SDK Documentation](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[.NET SDK Documentation](https://msdn.microsoft.com/library/mt430941.aspx)|[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[.NET SDK Package](https://azure.microsoft.com/documentation/api/)|[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault)|
 
 
