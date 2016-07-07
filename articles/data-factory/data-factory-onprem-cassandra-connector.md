@@ -34,8 +34,6 @@ The easiest way to create a pipeline that copies data from a Cassandra database 
 The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 ## Sample: Copy data from Cassandra to Blob
-
-The sample below shows:
 The sample copies data from a Cassandra database to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. Data can be copied directly to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article by using the Copy Activity in Azure Data Factory. 
 
 1.	A linked service of type [OnPremisesCassandra](#onpremisescassandra-linked-service-properties).
