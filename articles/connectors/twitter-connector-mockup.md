@@ -1,3 +1,22 @@
+<properties
+	pageTitle="Add the Twitter connector in Logic Apps | Microsoft Azure"
+	description="Overview of Twitter connector with REST API parameters"
+	services=""
+	documentationCenter="" 
+	authors=""
+	manager=""
+	editor=""
+	tags="connectors"/>
+
+<tags
+   ms.service="multiple"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na" 
+   ms.date="07/07/2016"
+   ms.author=""/>
+
 # Get started with the Twitter connector
 With the Twitter connector, you can create valuable workflows for your organization and accomplish a great deal.
 
