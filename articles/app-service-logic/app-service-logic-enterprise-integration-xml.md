@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of XML validation in the Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Learn how validation works in the Enterprise Integration Pack and Logic apps" 
+	pageTitle="Overview of XML processing in the Enterprise Integration Pack | Microsoft Azure App Service" 
+	description="Learn how to process and validate XML messages using the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
