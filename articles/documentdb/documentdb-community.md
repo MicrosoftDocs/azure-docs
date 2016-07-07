@@ -22,7 +22,6 @@
 
 Let us promote your project! Show us the awesome project you're working on with DocumentDB, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-
 ### documentdb-lumenize
 
 *by Larry Maccherone*
@@ -30,7 +29,6 @@ Let us promote your project! Show us the awesome project you're working on with 
 Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
 
 Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
-
 
 ### DocumentDB Studio
 
@@ -40,7 +38,6 @@ A client management viewer/explorer for Microsoft Azure DocumentDB service.
 
 Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
-
 ### DoQmentDB
 
 *by Ariel Mashraki*
@@ -49,7 +46,6 @@ DoQmentDB is a Node.js promise-based client, that provide a MongoDB-like layer o
 
 Check it out on [Github](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
 
-
 ### Swagger REST API for DocumentDB
 
 *by Howard Edidin*
@@ -57,7 +53,6 @@ Check it out on [Github](https://github.com/a8m/doqmentdb) and [npm](https://www
 A DocumentDB REST API Swagger file that can be easily deployed as an API App.
 
 Check it out on [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
-
 
 ### fluent-plugin-documentdb
 
@@ -75,47 +70,47 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 **Community posts:**
 
-* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matias Quarantaas*
+- [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matias Quarantaas*
 
-* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *by Eric Langland*
+- [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *by Eric Langland*
 
-* [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) - *by Howard Edidin*
+- [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) - *by Howard Edidin*
 
-* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
+- [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
 
-* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *by Peter Mannerhult*
+- [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *by Peter Mannerhult*
 
-* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *by George Saadeh*
+- [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *by George Saadeh*
 
-* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *by Robert Sheldon*
+- [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *by Robert Sheldon*
 
-* [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *by Jan Hentschel*
+- [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *by Jan Hentschel*
 
-* [**Azure DocumentDB in production!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - *by Alexandre Walsh and Marc-Olivier Duval*
+- [**Azure DocumentDB in production!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - *by Alexandre Walsh and Marc-Olivier Duval*
 
-* [**Azure Search Indexers – DocumentDB Queries (Spanish)**](http://www.ealsur.com.ar/wp/index.php/2015/11/19/azure-search-indexers-documentdb-queries/) - *by Matthias Quaranta*
+- [**Azure Search Indexers – DocumentDB Queries (Spanish)**](http://www.ealsur.com.ar/wp/index.php/2015/11/19/azure-search-indexers-documentdb-queries/) - *by Matthias Quaranta*
 
-* [**Azure DocumentDB のSQLクエリ基礎**](http://beachside.hatenablog.com/entry/2015/12/06/000045) - *by Atsushi Yokohama*
+- [**Azure DocumentDB SQL query basics (Japanese)**](http://beachside.hatenablog.com/entry/2015/12/06/000045) - *by Atsushi Yokohama*
 
-* [**Data Points - Aurelia Meets DocumentDB: A Matchmaker’s Journey**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *by Julie Lerman*
+- [**Data Points - Aurelia Meets DocumentDB: A Matchmaker’s Journey**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *by Julie Lerman*
 
-* [**Infrastructure as Code and Continuous Deployment of a Node.js + Azure DocumentDB Solution**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *by Thiago Almedia*
+- [**Infrastructure as Code and Continuous Deployment of a Node.js + Azure DocumentDB Solution**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *by Thiago Almedia*
 
-* [**Why DocumentDb Makes Good Business Sense for Some Projects**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *by Samuel Uresin*
+- [**Why DocumentDb Makes Good Business Sense for Some Projects**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *by Samuel Uresin*
 
-* [**Azure DocumentDB の開発ことはじめ - Client クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *by Atsushi Yokohama*
+- [**Azure DocumentDB development moving forward – development of the Client class (1 of 2) (Japanese)**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *by Atsushi Yokohama*
 
-* [**Azure DocumentDB を使うときに知っておきたいいくつかのこと**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *by Atsushi Yokohama*
+- [**Things you need to know when using Azure DocumentDB (Japanese)**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *by Atsushi Yokohama*
 
-* [**Dealing with RequestRateTooLarge errors in Azure DocumentDB and testing performance**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *by Azim Uddin*
+- [**Dealing with RequestRateTooLarge errors in Azure DocumentDB and testing performance**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *by Azim Uddin*
 
-* [**Data Points - An Overview of Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *by Julie Lerman*
+- [**Data Points - An Overview of Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *by Julie Lerman*
 
-* [**Using DocumentDB With F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *by Jamie Dixon*
+- [**Using DocumentDB With F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *by Jamie Dixon*
 
-* [**Analysing Application Logs with DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *by Vincent-Philippe Lauzon*
+- [**Analysing Application Logs with DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *by Vincent-Philippe Lauzon*
 
-* [**Azure DocumentDB – Point in time Backups**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *by Juan Carlos Sanchez*
+- [**Azure DocumentDB – Point in time Backups**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *by Juan Carlos Sanchez*
 
 *Do you have a blog post, code sample, or case-study you'd like to share? [Let us know](mailto:askdocdb@microsoft.com)!*
 
@@ -260,13 +255,13 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 
 DocumentDB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the DocumentDB team.
       
-                                                                                                                                                                                                                                                                                                           Wizard | Picture 
- --- | --- 
- [Allan Mitchell](https://twitter.com/allansqlis) | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) 
- [Jen Stirrup](https://twitter.com/jenstirrup) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup)            
- [Lenni Lobel](https://twitter.com/lennilobel) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) |          
- [Mihail Mateev](https://twitter.com/mihailmateev) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) |
- [Larry Maccherone](https://twitter.com/lmaccherone) | [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) 
- [Howard Edidin](https://twitter.com/hsedidin) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) 
+                                                                                                                                                                                                                                                                                                           | Wizard | Picture | 
+| ------ | ------- |
+| [Allan Mitchell](https://twitter.com/allansqlis) | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) |
+| [Jen Stirrup](https://twitter.com/jenstirrup) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) |           
+| [Lenni Lobel](https://twitter.com/lennilobel) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) |          
+| [Mihail Mateev](https://twitter.com/mihailmateev) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) |
+| [Larry Maccherone](https://twitter.com/lmaccherone) | [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) |
+| [Howard Edidin](https://twitter.com/hsedidin) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) |
 
 Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
