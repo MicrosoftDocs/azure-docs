@@ -22,9 +22,9 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 Data factory currently supports only moving data from a Cassandra database to [supported sink data stores](data-factory-data-movement-activities.md#supported-data-stores), but not  moving data from other data stores to a Cassandra database.
 
 ## Prerequisites
-For the Azure Data Factory service to be able to connect to your on-premises Oracle database , you must install the following: 
+For the Azure Data Factory service to be able to connect to your on-premises Cassandra database , you must install the following: 
 
-- Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. When you install the gateway, it automatically installs an ODBC driver for Cassandra. 
+- Data Management Gateway 2.0 or above on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.  
 
 > [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
@@ -82,9 +82,9 @@ This example uses the **Cassandra** linked service. See [Cassandra linked servic
 			"linkedServiceName": " CassandraLinkedService",
 			"type": "CassandraTable",
 			"typeProperties": {
-			"tableName": "mytable",
-			"keySpace": "myschema" 
-		}
+				"tableName": "mytable",
+				"keySpace": "mykeyspace" 
+			}
 			"availability": {
 				"frequency": "Hour",
 				"interval": 1
@@ -114,7 +114,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 			"linkedServiceName": "AzureStorageLinkedService",
 			"typeProperties":
 			{
-				"folderPath": "adfgetstarted/alltypes_c"
+				"folderPath": "adfgetstarted/fromcassandra"
 			},
 			"availability":
 			{
@@ -155,7 +155,7 @@ See [RelationalSource type properties](#cassandrasource-type-properties) for the
 				"typeProperties": {
 					"source": {
 						"type": "CassandraSource",
-						"query": "select col_bigint, col_byte from testdata.users",
+						"query": "select id, firstname, lastname from mykeyspace.mytable",				
 						"consistencyLevel": "TWO" 										
 					},
 					"sink": {
@@ -199,8 +199,9 @@ The **typeProperties** section is different for each type of dataset and provide
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| tableName | Name of the table in Cassandra database. | Yes (If  **query** for **CassandraSource** is not defined). | 
-| keyspace | Name of the keyspace or schema in Cassandra database. | Yes (If **query** for **CassandraSource** is not defined). | 
+| keyspace | Name of the keyspace or schema in Cassandra database. | Yes (If **query** for **CassandraSource** is not defined). |
+| tableName | Name of the table in Cassandra database. | Yes (If  **query** for **CassandraSource** is not defined). |
+
 
 ## CassandraSource type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
@@ -212,11 +213,8 @@ In case of Copy Activity when source is of type **CassandraSource**, the followi
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | query | Use the custom query to read data. | Should be SQL-92 queries expression or CQL operations.<br/><br/>See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). | No (if tableName and keyspace on dataset are defined).  |
-| consistencyLevel | The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. Select one of the following settings: ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for details. | No. Default value is ONE. |  
+| consistencyLevel | The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. | ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for details. | No. Default value is ONE. |  
 
- 
-
-[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Type mapping for Cassandra
 Cassandra Type | .Net Based Type
