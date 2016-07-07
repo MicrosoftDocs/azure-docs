@@ -24,6 +24,7 @@ Data factory currently supports only moving data from Salesforce to [supported s
 ## Prerequisites
 - You must use one of the following editions: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
 - API permission must be enabled. See [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/). 
+- To copy data from Salesforce to on-premises data stores, you must have Data Management Gateway version 2.0 or above installed in your on-premises environment. 
 
 ## Sample: Copy data from Salesforce to Azure Blob
 
@@ -47,9 +48,9 @@ This example uses the **Salesforce** linked service. See [Salesforce linked serv
 			"type": "Salesforce",
 			"typeProperties":
 			{
-				"userName": "<user name>",
+				"username": "<user name>",
 				"password": "<password>",
-				"securityToken": "<security token>",
+				"securityToken": "<security token>"
 			}
 		}
 	}
@@ -150,7 +151,7 @@ See [RelationalSource type properties](#relationalsource-type-properties) for th
 				"typeProperties": {
 					"source": {
 						"type": "RelationalSource",
-						"query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c",				
+						"query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"				
 					},
 					"sink": {
 						"type": "BlobSink"
@@ -182,7 +183,7 @@ The following table provides description for JSON elements specific to Salesforc
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **Salesforce** | Yes | 
-| userName |Specify user name for the user account. | Yes |
+| username |Specify user name for the user account. | Yes |
 | password | Specify password for the user account.  | Yes |
 | securityToken | Specify security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get security token. To learn about security token in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).  | Yes | 
 
@@ -209,7 +210,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified) |
+| query | Use the custom query to read data. | SQL-92 query or [Salesforce Object Query Language (SOQL) ](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  select * from MyTable__c. | No (if **tableName** of **dataset** is specified) |
 
 > [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
 
