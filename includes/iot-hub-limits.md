@@ -1,9 +1,9 @@
-The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+The following table lists the limits associated with the different service tiers (S1, S2, S3, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | F1 Free |
-| -------- | ----------- | ----------- | ------- |
-| Messages/day | 400,000 | 6,000,000 | 8,000 |
-| Maximum units | 200 | 200 | 1 |
+| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
+| -------- | ----------- | ----------- | ----------- | ------- |
+| Messages/day | 400,000 | 6,000,000   | 300,000,000 | 8,000   |
+| Maximum units | 200    | 200         | 200         | 1       |
 
 > [AZURE.NOTE] If you anticipate using more than 200 units with an S1 or S2 tier hub, please contact Microsoft support.
 

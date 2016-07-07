@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/03/2016"
+   ms.date="06/06/2016"
    ms.author="telmos"/>
 
 # Implementing a highly available hybrid network architecture
@@ -64,8 +64,6 @@ The following diagram highlights the important components in this architecture:
 - **Azure ExpressRoute gateway.** The ExpressRoute gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network. 
 
 - **N-tier cloud application.** This is the application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs). For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].
-
-    > [AZURE.NOTE] This article describes the cloud application as a single entity. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
 
 ## Implementing this architecture
 
@@ -309,7 +307,6 @@ switch($PSCmdlet.ParameterSetName) {
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
-[implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
 [script]: #sample-solution-script
 [expressroute-prereq]: ../expressroute/expressroute-prerequisites.md
 [implementing-expressroute]: ./guidance-hybrid-network-expressroute.md#implementing-this-architecture

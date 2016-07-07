@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/06/2016" 
 	ms.author="deonhe"/>
 
 # Enterprise integration with XML transforms
@@ -40,7 +40,7 @@ In the preview, you will need to:
 >[AZURE.TIP] Make a note of the the name of the Azure Functions container, you will need it in the next step.  
 
 
--  [Add a function to the Azure Functions container](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "This template creates a webhook based C# azure function with transform capabilites to use in logic apps integration scenarios")  
+-  [Add a function to the Azure Functions container](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "This template creates a webhook based C# azure function with transform capabilities to use in logic apps integration scenarios")  
 
 
 >[AZURE.TIP] Make a note of the the name of the function, you will need it in the next step.  
@@ -54,7 +54,7 @@ Now that you've taken care of the prerequisites, it's time to create your Logic 
 ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)   
 4. Enter the word *transform* in the search box in order to filter all the actions to the one that you want to use  
 ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)  
-5. Select the **Tansform XML** action   
+5. Select the **Transform XML** action   
 ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png)  
 6. Select the **FUNCTION CONTAINER** that contains the function you will use. This is the name of the Azure Functions container you created earlier in these steps.
 7. Select the **FUNCTION** you want to use. This is the name of the Azure Function you created earlier.

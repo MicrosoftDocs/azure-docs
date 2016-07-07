@@ -25,7 +25,7 @@ An App Service Environment is always created in a subnet of a regional classic "
 
 An App Service Environment must always be created within a subnet because a subnet provides a network boundary which can be used to lock down inbound traffic behind upstream devices and services such that HTTP and HTTPS traffic is only accepted from specific upstream IP addresses.
 
-Inbound and outbound network traffic on a subnet is controlled using a [network security group][NetworkSecurityGroups].  Controlling inbound traffic requires creating network security rules in a network security group, and then assigning the network security group the subnet containing the App Service Environment.
+Inbound and outbound network traffic on a subnet is controlled using a [network security group][NetworkSecurityGroups]. Currently only network security groups created in the classic deployment model are supported for App Service Environment. Controlling inbound traffic requires creating network security rules in a network security group, and then assigning the network security group the subnet containing the App Service Environment.
 
 Once a network security group is assigned to a subnet, inbound traffic to apps in the App Service Environment is allowed/blocked based on the allow and deny rules defined in the network security group.
 
@@ -67,7 +67,7 @@ It is also recommended that any custom DNS servers on the vnet be setup ahead of
 ## Creating a Network Security Group ##
 For full details on how network security groups work see the following [information][NetworkSecurityGroups].  The details below touch on highlights of network security groups, with a focus on configuring and applying a network security group to a subnet that contains an App Service Environment.
 
-**Note:** Network security groups can only be configured using the Powershell cmdlets described below.  Network security groups cannot be configured graphically using the [Azure Portal](https://portal.azure.com) because the Azure Portal only allows graphical configuration of NSGs associated with "v2" virtual networks.  However, App Service Environments currently only work with classic "v1" virtual networks.  As a result only Powershell cmdlets can be used to configure network security groups associated with "v1" virtual networks.
+**Note:** Network security groups can be configured graphically using the [Azure Portal](https://portal.azure.com) or through Azure PowerShell.
 
 Network security groups are first created as a standalone entity associated with a subscription. Since network security groups are created in an Azure region, ensure that the network security group is created in the same region as the App Service Environment.
 
