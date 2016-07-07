@@ -32,6 +32,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-picturepark-tutorial/IC795055.png "Scenario")
+
 ##Enabling the application integration for Picturepark
   
 The objective of this section is to outline how to enable the application integration for Picturepark.
@@ -63,6 +64,7 @@ The objective of this section is to outline how to enable the application integr
 7.  In the results pane, select **Picturepark**, and then click **Complete** to add the application.
 
     ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
+
 ##Configuring single sign-on
   
 The objective of this section is to outline how to enable users to authenticate to Picturepark with their account in Azure AD using federation based on the SAML protocol.  
