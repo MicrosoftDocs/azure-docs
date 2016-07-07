@@ -14,12 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/22/2016"
    ms.author="mikewasson"/>
 
 # Running VMs in multiple datacenters on Azure for high availability
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
+> [AZURE.SELECTOR]
+- [Running VMs in multiple datacenters (Linux)](guidance-compute-multiple-datacenters-linux.md)
+- [Running VMs in multiple datacenters (Windows)](guidance-compute-multiple-datacenters.md)
 
 In this article, we recommend a set of practices to run Windows virtual machines (VMs) in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
 
@@ -132,7 +136,7 @@ When Traffic Manager fails over, there is a period of time when clients cannot r
 
 - DNS servers must update the cached DNS records for the IP address, which depends on the DNS time-to-live (TTL). The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
-With default settings, the maximum failover time is about 7 minutes. Make sure this meets your [RTO] and [RPO] requirements. For details, see [About Traffic Manager Monitoring][tm-monitoring]. 
+For details, see [About Traffic Manager Monitoring][tm-monitoring]. 
 
 **Failback**. After Traffic Manager fails over, we recommend performing a manual failback, rather than automatically failing back. Verify that all application subsystems are healthy first. Otherwise, you can create a situation where the application flips back and forth between data centers.
 
@@ -185,8 +189,6 @@ For the SQL Server cluster, there are two failover scenarios to consider:
 [regional-pairs]: ../best-practices-availability-paired-regions.md
 [resource groups]: ../resource-group-overview.md
 [resource-group-links]: ../resource-group-link-resources.md
-[RPO]: https://en.wikipedia.org/wiki/Recovery_point_objective
-[RTO]: https://en.wikipedia.org/wiki/Recovery_time_objective
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [sql-always-on]: https://msdn.microsoft.com/en-us/library/hh510230.aspx
 [tablediff]: https://msdn.microsoft.com/en-us/library/ms162843.aspx

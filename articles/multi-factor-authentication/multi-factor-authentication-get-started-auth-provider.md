@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/16/2016" 
+	ms.date="06/29/2016" 
 	ms.author="billmath"/>
 
 
@@ -50,7 +50,7 @@ Use the following steps to create an Azure Multi-Factor Auth Provider.
 	2. **Directory** – The Azure Active Directory tenant that the Multi-Factor Authentication Provider is associated with. Please be aware of the following:
 		- You do not need an Azure AD directory to create a Multi-Factor Auth Provider.  Simply leave the box blank if you are only planning to use the Azure Multi-Factor Authentication Server or SDK.
 		- The Multi-Factor Auth Provider must be associated with an Azure AD directory to take advantage of the advanced features.
-		- Azure AD Connect, AAD Sync, or DirSync are only a requirement if you are synchronizing your on-premises Active Directory environment with an Azure AD directory.  If you only use an Azure AD directory that is not synchronized, then 
+		- Azure AD Connect, AAD Sync, or DirSync are only a requirement if you are synchronizing your on-premises Active Directory environment with an Azure AD directory.  If you only use an Azure AD directory that is not synchronized, then this is not required. 
 ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)	
 5. Once you click create, the Multi-Factor Authentication Provider is created and you should see a message stating: **Successfully created Multi-Factor Authentication Provider**. Click **Ok**.
 ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)	

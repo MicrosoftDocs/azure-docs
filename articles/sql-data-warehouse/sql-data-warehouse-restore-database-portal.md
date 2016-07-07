@@ -3,7 +3,7 @@
    description="Azure portal tasks for restoring an Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
-   ms.author="elfish;barbkess;sonyama;nicw"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess;nicw"/>
 
 # Restore an Azure SQL Data Warehouse (Portal)
 
@@ -60,6 +60,9 @@ To restore a database:
 8. Click **OK**
 9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+
+
 ## Restore a deleted database
 
 To restore a deleted database:
@@ -89,6 +92,8 @@ To restore a deleted database:
 8. Click **OK**
 9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+
 
 ## Next steps
 To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
@@ -101,6 +106,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[Finalize a recovered database]: ./sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 

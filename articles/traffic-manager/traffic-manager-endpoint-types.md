@@ -121,7 +121,7 @@ Once it receives a DNS query, Traffic Manager will respond with the DNS name of 
 
 Note that for the Traffic Manager health checks to function correctly, the service will also need to expose an IPv4 endpoint.  This needs to be mapped from the same endpoint DNS name, using a DNS A record.
 
-### Can I use Traffic Manager with more than one web apps in the same region?
+### Can I use Traffic Manager with more than one Web App in the same region?
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions.  However, it can also be used where an application has more than one deployment in the same region.
 

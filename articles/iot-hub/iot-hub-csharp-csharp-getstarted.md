@@ -229,11 +229,11 @@ This tutorial takes you through the steps to create an IoT Hub device client. Yo
 
 You are now ready to run the applications.
 
-1.	In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the **ProcessDeviceToCloudMessages** and **SimulatedDevice** projects.
+1.	In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the **ReadDeviceToCloudMessages** and **SimulatedDevice** projects.
 
    	![Startup project properties][41]
 
-2.	Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device sends to your IoT hub. The console output from the **ProcessDeviceToCloudMessages** app shows the messages that your IoT hub receives.
+2.	Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device sends to your IoT hub. The console output from the **ReadDeviceToCloudMessages** app shows the messages that your IoT hub receives.
 
    	![Console output from apps][42]
 
@@ -248,7 +248,7 @@ In this tutorial, you configured a new IoT hub in the portal, and then created a
 
 - [Send Cloud-to-Device messages with IoT Hub][lnk-c2d-tutorial] shows how to send messages to devices, and process the delivery feedback produced by IoT Hub.
 - [Process Device-to-Cloud messages][lnk-process-d2c-tutorial] shows how to reliably process telemetry and interactive messages coming from devices.
-- [Uploading files from devices][lnk-upload-tutorial] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+- [Uploading files from devices][lnk-upload-tutorial] shows how to upload files from devices.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png

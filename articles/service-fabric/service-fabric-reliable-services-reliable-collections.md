@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Reliable Collections | Microsoft Azure"
    description="Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications."
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
@@ -136,6 +136,8 @@ Note that the above deadlock scenario is a great example of how an Update lock c
 - Do not modify an object of custom type returned by read operations (e.g., `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
 - Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
 - Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
+- Do not use a transaction after it has been committed, aborted, or disposed.
+- Enumerators constructed inside a transaction scope should not be used outside the transaction scope.
 - Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
 - Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on this for merging checkpoints.
 - Consider using backup and restore functionality to have disaster recovery.
@@ -153,6 +155,7 @@ Of course, reads from Primary are always stable: can never be false progressed.
 ## Next steps
 
 - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+- [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
 - [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 - [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 - [Getting started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)

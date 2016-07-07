@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="douglasl"/>
 
 # Restore Stretch-enabled databases
@@ -56,21 +56,6 @@ To restore a deleted Azure database to the point when it was deleted by using th
 5. Specify a new **Database name** and click **Create**.
 6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
 
-### Recover an Azure database in a different Azure region  
-The SQL Server Stretch Database service on Azure copies snapshots asynchronously to a different geographical Azure region for added recoverability in case of a regional failure. If you cannot access your database because of a failure in an Azure region, you can restore your database to one of the geo\-redundant snapshots.
-
->   [AZURE.NOTE] Recovering the Azure database in a different Azure region requires changing the connection string in client applications after recovery and may result in permanent data loss. Do this type of recovery only when the outage is likely to last a long time.
-
-To recover an Azure database to an earlier point in time in a different Azure region by using the Azure portal, do the following things.
-
-1. Log in to the Azure portal.
-2. On the left side of the screen select **+NEW**, then select **Data and Storage**, and then select **SQL Data Warehouse**
-3. Select **BACKUP** as the source and then select the geo-redundant backup you want to recover from
-4. Specify the rest of the database properties and click **Create**
-5. The database restore process will begin and can be monitored using **NOTIFICATIONS**
-
-After you restore the Azure database in a different region, you have to run the stored procedures **sys.sp_rda_deauthorize_db** and **sys.sp_rda_reauthorize_db** to re-establish the connection between the Stretch\-enabled SQL Server database and the remote Azure database. For more info, see [Restore the connection between the SQL Server database and the remote Azure database](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
-
 ## Restore the connection between the SQL Server database and the remote Azure database
 
 1.  If you're going to connect to a restored Azure database with a different name or in a different region, run the stored procedure [sys.sp_rda_deauthorize_db](https://msdn.microsoft.com/library/mt703716.aspx) to disconnect from the previous Azure database.  
@@ -81,11 +66,13 @@ After you restore the Azure database in a different region, you have to run the 
 
 	-   Specify whether to make a copy of the remote data and connect to the copy (recommended).  
 
-	```tsql  
-	DECLARE @credentialName nvarchar(128);   
-	SET @credentialName = N'<existing_database_scoped_credential_name>';   
-	EXEC sp_rda_reauthorize_db @credential = @credentialName, @with_copy = 1;  
-
+    ```tsql  
+    USE <Stretch-enabled database name>;
+	GO
+	EXEC sp_rda_reauthorize_db
+	    @credential = N'<existing_database_scoped_credential_name>',
+		@with_copy = 1 ;  
+	GO
 	```  
 
 ## See also

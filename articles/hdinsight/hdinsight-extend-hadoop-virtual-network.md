@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2016"
+   ms.date="07/06/2016"
    ms.author="larryfr"/>
 
 
@@ -68,10 +68,6 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
 
-###Subnets
-
-It is highly recommended that you create a single subnet for each HDInsight cluster.
-
 ###Classic or v2 Virtual Network
 
 Windows-based clusters require a v1 (Classic) Virtual Network, while Linux-based clusters require a v2 (Azure Resource Manager,) Virtual Network. If you do not have the correct type of network, it will not be usable when you create the cluster.
@@ -96,6 +92,8 @@ If you need to install HDInsight into a secured Virtual Network, you must allow 
 * 138.91.141.162
 
 Allowing inbound access from port 443 for these addresses will allow you to successfully install HDInsight into a secured virtual network.
+
+> [AZURE.IMPORTANT] HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, only use inbound rules.
 
 The following examples demonstrate how to create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
 

@@ -87,6 +87,13 @@ The following articles and scenarios provide task specific guidance for working 
 
 For more task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones ARM template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
+## Integrated with Key Vault
+
+These articles are about other scenarios and services that make us of or integrate with Key Vault. 
+
+- [Azure Disk Encryption](../azure-security-disk-encryption.md) leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
+
+
 ## Supporting Libraries
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) provides `IKey` and `IKeyResolver` interfaces for locating keys from identifiers and performing operations with keys.
