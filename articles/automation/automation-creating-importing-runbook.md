@@ -92,7 +92,7 @@ You can use the [Import-AzureRMAutomationRunbook](https://msdn.microsoft.com/lib
 
 The following sample commands show how to import a script file into a runbook.
 
-    $automationAccountName =  AutomationAccount"
+    $automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
     $RGName = "ResourceGroup"
