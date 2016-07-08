@@ -60,13 +60,13 @@ The following video will provide an overview of Azure AD Connect Health for sync
 >[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
 ## [Azure AD Connect Health for AD DS (preview)](active-directory-aadconnect-health-adds.md)
-Azure AD Connect Health for AD DS supports Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012R2. With a very easy and low cost installation of the health agent, Azure AD Connect Health for AD DS provides the following set of key capabilities:
+Azure AD Connect Health for AD DS provides monitoring for Domain Controllers installed on Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2. An easy and low cost health agent installation, enables you to monitor your on-premises AD DS environenment straight from the cloud. Azure AD Connect Health for AD DS provides the following set of key capabilities:
 
-- Monitoring with alerts to know when domain controllers are not healthy.
+- Monitoring with alerts to inform you when domain controllers are not healthy.
 - Domain Controllers dashboard that includes key operational metrics.
 - Replication Status dashboard with links to troubleshooting guides.
-- View trends in performance data, useful for troubleshooting and monitoring of AD DS.
-- Email notifications for critical alerts
+- Performance data graphs, useful for troubleshooting and monitoring AD DS.
+- Email notifications for critical alerts.
 
 The following video will provide an overview of Azure AD Connect Health for AD DS
 
