@@ -27,7 +27,7 @@ The environment contains:
 
 - Two VMs inside an availability set.
 - A load balancer with a load-balancing rule on port 80.
-- Network security group rules to protect your VM from unwanted traffic.
+- Network security group (NSG) rules to protect your VM from unwanted traffic.
 
 ![Basic environment overview](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
@@ -129,7 +129,7 @@ Verify the load balancer, IP pools, and NAT rules by using the JSON parser:
 azure network lb show -g TestRG -n TestLB --json | jq '.'
 ```
 
-Create the first NIC:
+Create the first network interface card (NIC):
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -167,7 +167,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-Verify the NSG and inbound rules using the JSON parser:
+Verify the NSG and inbound rules by using the JSON parser:
 
 ```bash
 azure network nsg show -g TestRG -n TestNSG --json | jq '.'
@@ -264,7 +264,7 @@ info:    group create command OK
 
 ### Create a storage account
 
-You need storage accounts for your VM disks and for any additional data disks you want to add. You create storage accounts almost immediately after you create resource groups.
+You need storage accounts for your VM disks and for any additional data disks that you want to add. You create storage accounts almost immediately after you create resource groups.
 
 Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want.
 
@@ -460,7 +460,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Because the subnet is logically inside the virtual network, we'll look for the subnet information with a slightly different command -- `azure network vnet show`--but while still examining the JSON output by using **jq**.
+Because the subnet is logically inside the virtual network, we'll look for the subnet information with a slightly different command. The command we'll use is `azure network vnet show`, but we'll continue to examine the JSON output by using **jq**.
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
@@ -583,7 +583,7 @@ Output:
 }
 ```
 
-You can investigate more resource details, including the subdomain fully qualified domain name (FQDN), by using the more complete `azure network public-ip show` command. Note that the public IP address resource has been allocated logically, but there is not yet a specific address assigned. For that, you're going to need a load balancer, which we have not yet created.
+You can investigate more resource details, including the subdomain fully qualified domain name (FQDN), by using the more complete `azure network public-ip show` command. Note that the public IP address resource has been allocated logically, but a specific address has not yet been assigned. For that, you're going to need a load balancer, which we have not yet created.
 
 ```bash
 azure network public-ip show TestRG TestPIP --json | jq '.'
@@ -609,7 +609,7 @@ Output:
 ```
 
 ### Create your load balancer and IP pools
-When you create a load balancer, it enables you to distribute traffic across multiple VMs--when running web applications, for example. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads.
+When you create a load balancer, it enables you to distribute traffic across multiple VMs. You can do this when running web applications, for example. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads.
 
 We create our load balancer with:
 
@@ -634,7 +634,7 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer--one for the front end and one for the back end. The front-end IP pool is what will be publicly visible and where we'll assign the PIP that we created earlier. The back-end pool we'll then use for our VMs to connect to so that the traffic can flow through the load balancer to them.
+Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer--one for the front end and one for the back end. The front-end IP pool will be publicly visible. It's also the location to which  we'll assign the PIP that we created earlier. Then we'll use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
 
 First, let's create our front-end IP pool:
 
@@ -675,7 +675,7 @@ data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-We can see how our load balancer is by looking with `azure network lb show` and examining the JSON output:
+We can see how our load balancer is doing by looking with `azure network lb show` and examining the JSON output:
 
 ```bash
 azure network lb show TestRG TestLB --json | jq '.'
@@ -721,7 +721,7 @@ Output:
 ```
 
 ### Create your load balancer NAT rules
-To actually get traffic flowing through our load balancer, we need to create NAT rules that specify either inbound or outbound actions. You can specify the protocol in use, then map external ports to internal ports as desired. For our environment, let's create some rules that allow SSH through our load balancer to our VMs. We'll set up TCP ports 4222 and 4223 to direct to TCP port 22 on our VMs (which we'll create later):
+To get traffic flowing through our load balancer, we need to create NAT rules that specify either inbound or outbound actions. You can specify the protocol in use, then map external ports to internal ports as desired. For our environment, let's create some rules that allow SSH through our load balancer to our VMs. We'll set up TCP ports 4222 and 4223 to direct to TCP port 22 on our VMs (which we'll create later):
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
@@ -753,7 +753,7 @@ Repeat the procedure for your second NAT rule for SSH:
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. By doing this rather than hooking up the rule to our VMs individually means we can simply add or remove VMs from the IP pool and have the load balancer automatically adjust the flow of traffic:
+Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. If we do this, instead of hooking up the rule to our VMs individually, we can simply add or remove VMs from the IP pool. Then the load balancer automatically adjusts the flow of traffic:
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
@@ -784,7 +784,7 @@ info:    network lb rule create command OK
 
 ### Create your load balancer health probe
 
-A health probe periodically checks on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they will be removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information about health probes, see [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
+A health probe periodically checks on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they're removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information about health probes, see [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
@@ -809,9 +809,14 @@ info:    network lb probe create command OK
 Here, we specified an interval of 15 seconds for our health checks, and we can miss a maximum of four probes (one minute) before the load balancer considers that the host is no longer functioning.
 
 ### Verify your load balancer
-Now the load balancer configuration is done. You created a load balancer. Then you created a front-end IP pool and assigned a public IP to it. Next you created a back-end IP pool that VMs will connect to. Next, you created NAT rules that allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app. Finally, to make sure that our users don't try to access a VM that is no longer functioning and serving content, you added a health probe to periodically check the VMs.
+Now the load balancer configuration is done. Here are the steps you took:   
+1. First you created a load balancer.
+- Then you created a front-end IP pool and assigned a public IP to it.
+- Next you created a back-end IP pool that VMs can connect to.
+- After that, you created NAT rules that allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app.
+- Finally you added a health probe to periodically check the VMs. This ensures that users don't try to access a VM that is no longer functioning or serving content.
 
-Let's review what your load balancer now looks like:
+Let's review what your load balancer looks like now:
 
 ```bash
 azure network lb show -g TestRG -n TestLB --json | jq '.'
@@ -1029,7 +1034,7 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
 
 ### Create your network security group and rules
 
-Now we create your network security group (NSG) and the inbound rules that govern access to the NIC.
+Now we create your NSG and the inbound rules that govern access to the NIC.
 
 ```bash
 azure network nsg create TestRG TestNSG westeurope
@@ -1047,7 +1052,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual network interface card (NIC), which means that any request to port 22 will be passed through to the NIC on our VM. Because this is a rule about a network connection -- and not an endpoint as in classic deployments -- to open a port, you must leave the `--source-port-range` set to '\*' (the default value) in order to accept inbound requests from **any** requesting port, which are typically dynamic.
+> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual NIC, which means that any request to port 22 will be passed through to the NIC on our VM. This is a rule about a network connection, and not about an endpoint, which is what it would be about in classic deployments. This means that to open a port, you must leave the `--source-port-range` set to '\*' (the default value) to accept inbound requests from **any** requesting port. Ports are typically dynamic.
 
 ### Bind to the NIC
 
@@ -1062,30 +1067,30 @@ azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 ```
 
 ### Create an availability set
-Availability sets help spread your VMs across what are known as fault domains and upgrade domains. Let's create an availability set for your VMs:
+Availability sets help spread your VMs across fault domains and upgrade domains. Let's create an availability set for your VMs:
 
 ```bash
 azure availset create -g TestRG -n TestAvailSet -l westeurope
 ```
 
-Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains will not affect every VM that is running your app. Azure  automatically distributes VMs across the fault domains when placing them in to an availability set.
+Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains will not affect every VM that is running your app. Azure  automatically distributes VMs across the fault domains when placing them in an availability set.
 
-Upgrade domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. The order in which upgrade domains are rebooted might not be sequential during planned maintenance, but only one upgrade will be rebooted at a time. Again, Azure automatically distributes your VMs across upgrade domains when they are placed within an availability site.
+Upgrade domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. The order in which upgrade domains are rebooted might not be sequential during planned maintenance, but only one upgrade will be rebooted at a time. Again, Azure automatically distributes your VMs across upgrade domains when placing them in an availability site.
 
 Read more about [managing the availability of VMs](./virtual-machines-linux-manage-availability.md).
 
 ### Create your Linux VMs
 
-You've created the storage and network resources to support Internet- accessible VMs. Now let's create those VMs and secure them with an SSH key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md).
+You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information by using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md).
 
-We selected an image using the command `azure vm image list westeurope canonical | grep LTS`. In this case we'll use `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`, but for the last field we'll pass `latest` so that in the future we always get the most recent build. (The string we use will be `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
+We selected an image by using the command `azure vm image list westeurope canonical | grep LTS`. In this case, we'll use `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`. For the last field we'll pass `latest` so that in the future we always get the most recent build. (The string we use will be `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
 
-> [AZURE.NOTE] This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can either create them:
-<br />
-    1. automatically by using the `azure vm create --generate-ssh-keys` option
-    2. manually by using [the instructions to create them youself](virtual-machines-linux-ssh-from-linux.md)
-<br />
-Alternatively, you can use the `azure vm create --admin-username --admin-password` options to use the typically less secure username and password method of authenticating your ssh connections after the VM is created.
+This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac by using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can either create them:
+
+- Automatically, by using the `azure vm create --generate-ssh-keys` option
+- Manually, by using [the instructions to create them youself](virtual-machines-linux-ssh-from-linux.md)
+
+Alternatively, you can use the `azure vm create --admin-username --admin-password` options to use the user name and password method of authenticating your ssh connections after the VM is created. This method is typically less secure.
 
 We create the VM by bringing all of our resources and information together with the `azure vm create` command.
 
@@ -1185,7 +1190,7 @@ azure vm create \
     --admin-username ops
 ```
 
-And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you have your running Ubuntu VMs behind a load balancer in Azure that you can only sign into with the SSH key pair that you have because passwords are disabled. You can install nginx or httpd, deploy a web app, and see the traffic flow through the load balancer to both of the VMs.
+And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you're running your Ubuntu VMs behind a load balancer in Azure that you can sign into only with your SSH key pair (because passwords are disabled). You can install nginx or httpd, deploy a web app, and see the traffic flow through the load balancer to both of the VMs.
 
 ```bash
 azure vm show TestRG TestVM1
@@ -1249,13 +1254,13 @@ info:    vm show command OK
 
 
 ### Export the environment as a template
-Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment, allowing to you build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or simply export an existing environment to create the JSON template for you:
+Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. This means you can build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or simply export an existing environment to create the JSON template for you:
 
 ```bash
 azure group export TestRG
 ```
 
-This creates the `TestRG.json` file in your current working directory. When you create a new environment from this template, you will prompted for all of the resource names such, including the names for the load balancer, network interfaces, VMs, and so on. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that  specifies the resource names.
+This creates the `TestRG.json` file in your current working directory. When you create a new environment from this template, you will prompted for all of the resource names, including the names for the load balancer, network interfaces, VMs, and so on. You can populate these in your template file by adding the `-p` or `--includeParameterDefaultValue` to the `azure group export` command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that  specifies the resource names.
 
 To create a new environment from your template:
 
@@ -1263,7 +1268,7 @@ To create a new environment from your template:
 azure group deployment create -f TestRG.json -g NewRGFromTemplate
 ```
 
-You might want to read [more details about how to deploy from templates](../resource-group-template-deploy-cli.md), including how to incrementally update environments, use the parameters file, and access templates from a single storage location.
+You might want to read [more about how to deploy from templates](../resource-group-template-deploy-cli.md). Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location.
 
 ## Next steps
 
