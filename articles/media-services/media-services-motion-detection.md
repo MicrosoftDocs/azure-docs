@@ -85,17 +85,11 @@ DetectionZones|An array of detection zones:<br/>- Detection Zone is an array of 
 
 A motion detection job will return a JSON file in the output asset which describes the motion alerts, and their categories, within the video. The file will contain information about the time and duration of motion detected in the video.
 
-Currently, motion detection supports only the generic motion category, which is referred to as ***type 2*** in the output.
-
-X and Y coordinates and sizes will be listed using a normalized float between 0.0 and 1.0. Multiply this by the video height and width resolution to get the bounding box for the region of detected motion.
-
-Each output is split into fragments and subdivided into intervals to define the data within the video. Fragment lengths do not need to be equal, and may span long lengths when there is no motion at all detected.
-
 The Motion Detector API provides indicators once there are objects in motion in a fixed background video (e.g. a surveillance video). The Motion Detector is trained to reduce false alarms, such as lighting and shadow changes. Current limitations of the algorithms include night vision videos, semi-transparent objects, and small objects.
 
 ###<a id="output_elements"></a>Elements of the output JSON file
 
->[AZURE.NOTE] The Output JSON format has changed, and may represent a breaking change for some customers.
+>[AZURE.NOTE]In the latest release, the Output JSON format has changed and may represent a breaking change for some customers.
 
 The following table describes elements of the output JSON file.
 
@@ -112,7 +106,7 @@ Interval|The interval of each entry in the event, in "ticks".
 Events|Each event fragment contains the motion detected within that time duration.
 Type|In the current version, this is always ‘2’ for generic motion. This label gives Video APIs the flexibility to categorize motion in future versions.
 RegionID|As explained above, this will always be 0 in this version. This label gives Video API the flexibility to find motion in various regions in future versions.
-Regions|Refers to the area in your video where you care about motion. In the current version of Video APIs.<br/><br/>-"id" represents the region area – in this version there is only one, ID 0. <br/>-"type" represents the shape of the region you care about for motion. Currently, "rectangle" and "polygon" are supported.<br/> If you specified "rectangle", the region has dimensions in X, Y, Width, and Height. The X and Y coordinates represent the upper left hand XY coordinates of the region in a normalized scale of 0.0 to 1.0. The width and height represent the size of the region in a normalized scale of 0.0 to 1.0. In the current version, X, Y, Width, and Height are always fixed at 0, 0 and 1, 1. <br/>If you specified "polygon", the region has dimensions in points. <br/>
+Regions|Refers to the area in your video where you care about motion. <br/><br/>-"id" represents the region area – in this version there is only one, ID 0. <br/>-"type" represents the shape of the region you care about for motion. Currently, "rectangle" and "polygon" are supported.<br/> If you specified "rectangle", the region has dimensions in X, Y, Width, and Height. The X and Y coordinates represent the upper left hand XY coordinates of the region in a normalized scale of 0.0 to 1.0. The width and height represent the size of the region in a normalized scale of 0.0 to 1.0. In the current version, X, Y, Width, and Height are always fixed at 0, 0 and 1, 1. <br/>If you specified "polygon", the region has dimensions in points. <br/>
 Fragments|The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). A fragment with no events means that no motion was detected during that start time and duration.
 Brackets []|Each bracket represents one interval in the event. Empty brackets for that interval means that no motion was detected.
 locations|This new entry under events lists the location where the motion occurred. This is more specific than the detection zones.
