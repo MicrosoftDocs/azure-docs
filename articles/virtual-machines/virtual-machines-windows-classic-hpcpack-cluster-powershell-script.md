@@ -26,7 +26,7 @@ Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC clus
 
 ## Example configuration files
 
-In the following examples, substitute your own values for your subscription Id and account and service names.
+In the following examples, substitute your own values for your subscription Id or name and the account and service names.
 
 ### Example 1
 

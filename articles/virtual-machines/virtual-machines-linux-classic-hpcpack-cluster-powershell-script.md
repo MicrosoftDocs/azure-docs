@@ -35,7 +35,7 @@ _MyLnxCN-0005_ in _MyLnxCNService01_ and _mylnxstorage01_, and _MyLnxCN-0006_ to
 _MyLnxCN-0010_ in _MyLnxCNService02_ and _mylnxstorage02_). The compute nodes
 are created from an OpenLogic CentOS version 7.0 Linux image. 
 
-Substitute your own values for your subscription Id and account and service names.
+Substitute your own values for your subscription name and the account and service names.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -98,7 +98,7 @@ forwarder DNS server doesn’t resolve properly.
     
 ## Next steps
 
-* See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for information about moving data and submitting jobs to an HPC Pack cluster with Linux compute nodes.
+* See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for information about supported Linux distributions, moving data, and submitting jobs to an HPC Pack cluster with Linux compute nodes.
 * For tutorials that use the script to create a cluster and run a Linux HPC workload, see:
     * [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
     * [Run OpenFOAM with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
