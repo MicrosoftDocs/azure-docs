@@ -36,11 +36,18 @@ Saving and retrieving task output presents several challenges for the Batch user
 
 ## Solving task output challenges
 
-The Batch team has addressed the challenges discussed earlier in a two-fold manner.
+The Batch team has addressed these challenges by introducing task output viewing support in the portal, as well as by supplying a helper library to assist with output storing and retrieval in a format that the portal can consume.
 
-* The Azure portal now supports viewing a task's outputs and logs directly.
+**Task output in the Azure portal**
 
-At the heart of this method of output persistence are naming conventions for blob storage containers and the files your tasks upload. When you save task output to Azure Storage, the Azure portal is able to discover the files associated with your jobs and tasks only if the files have been named using the conventions described in [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL).
+The Azure portal now supports viewing a task's outputs and logs directly. There are two requirements to enable this support, both of which we discuss in-depth in this article:
+
+ 1. [Linked Azure Storage account](#linked-storage-account)
+ 2. Adherence to predefined Storage container and output file [name conventions](#requirement-name-conventions)
+
+**File conventions helper library**
+
+The [Azure Batch File Conventions][net_fileconventions_readme] (NOT REAL URL) library assists you in storing your task output to Azure Storage using the naming conventions required by the Azure portal. It also provides helper methods for retrieving task outputs.
 
 ## Requirement: linked storage account
 
@@ -50,15 +57,21 @@ Persisting your task output with this method requires that you link an Azure Sto
 
 For a more detailed walk-through on linking a Storage account, see the [Link a storage account](batch-application-packages.md#link-a-storage-account) section of [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
+## Requirement: name conventions
+
+At the heart of this method of output persistence are naming conventions for blob storage containers and the files your tasks upload. When you save task output to Azure Storage, the Azure portal is able to discover the files associated with your jobs and tasks only if the files have been named using the conventions described in [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL).
+
+## Using the file conventions library
+
+Words.
+
 ## Persist output
 
 Words.
 
 ## Retrieve output
 
-Words.
-
-don't need to know the layout in storage, don't need storage logic, you can just say "get me the files for this task"
+Words...don't need to know the layout in storage, don't need storage logic, you can just say "get me the files for this task."
 
 ## View output in the Azure portal
 
