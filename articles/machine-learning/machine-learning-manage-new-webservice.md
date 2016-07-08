@@ -64,14 +64,14 @@ From the dashboard you can view overall usage of your web service over a period 
 - **Average Request-Response Compute Time** displays an average of the time  needed to execute the received requests.
 - **Batch Requests** displays the total number of Batch Requests the service has received over the selected time period and how many of them failed.
 - **Average Job Latency** displays an average of the time needed to execute the received requests.
-- **Errors** displays
-- **Services Costs**
+- **Errors** displays the aggregate number of errors that have occurred on calls to the the web service.
+- **Services Costs** displays the charges for the billing plan associated with the service.
 
 ## Configuring the web service ##
 
 Click the **CONFIGURE** menu option.
 
-You can update the 
+You can update the following properties:
 
 * **Description** allows you to enter a description for the web service.
 * **Title** allows you to enter a title for the web service

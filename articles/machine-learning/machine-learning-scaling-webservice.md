@@ -19,7 +19,7 @@
 
 # Scaling a web service
 
->[AZURE.NOTE] This topic describes techniques applicable to a classic web service. For information on techniques to accomplish similar tasks on a new web service, see (TBD).
+>[AZURE.NOTE] This topic describes techniques applicable to a classic web service. 
 
 By default, each published web service is configured to support 20 concurrent requests and can be as high as 200 concurrent requests. While the Azure Classic Portal provides a way to set this value, Azure Machine Learning automatically optimizes this setting to provide the best performance for your web service and the portal value is ignored. 
 

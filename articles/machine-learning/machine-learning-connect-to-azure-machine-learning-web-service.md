@@ -65,7 +65,7 @@ When you deploy your experiment, API keys are generated for the web service. Whe
 
 To retrieve the API key, for a new Machine Learning web service, you must log in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal.
 
-1. In the Azure Machine Learning Web Services Portal, click **WEB SERVICES** on the top menu.
+1. In the Azure Machine Learning Web Services portal, click **WEB SERVICES** on the top menu.
 2. Click the web service for which you want to retrieve the key.
 3. On the top menu, click **Consume**.
 4. Copy and save the **Primary Key**.
@@ -81,9 +81,9 @@ The Machine Learning API help contains details about a prediction web service.
 **To view Machine Learning API help for a classic web service**
 In Machine Learning Studio:
 
-1. Choose **WEB SERVICES**.
-2. Choose a web service.
-3. Choose **API help page** - **REQUEST/RESPONSE** or **BATCH EXECUTION**
+1. Click **WEB SERVICES**.
+2. Click a web service.
+3. Click **API help page** - **REQUEST/RESPONSE** or **BATCH EXECUTION**
 
 **To view Machine Learning API help for a New web service**
 In the Azure Machine Learning Web Services Portal:

@@ -26,6 +26,7 @@
 These new web services, which apply to deployment of APIs into a production environment with more flexibility, come with pre-defined included quantities of API transactions and Production Compute hours per month. 
 
 **Q** - Can you explain more about Azure ML Web Services?
+
 **A**: With the Azure Machine Learning web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning web service call returns prediction results to an external application. To make a Machine Learning web service call, you pass an API key which is created when you deploy a prediction. The Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
 
 Azure Machine Learning has two types of services:

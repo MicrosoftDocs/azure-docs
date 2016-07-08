@@ -60,12 +60,12 @@ Once you have a web service, click on the **WEB SERVICES** section on the left o
 
 5. To score more than one row, fill the second row with data and the predicted values are produced. You can even paste several rows at once.
 
-6. Now use any of the Excel features (graphs, power map, conditional formatting, etcetera) with the predicted values!    
+You can use any of the Excel features (graphs, power map, conditional formatting, etc.) with the predicted values to help visualize the data.    
 
 
 ## Sharing your workbook
 
-In order for the macros to work, your ACCESS KEY needs to be part of the spreadsheet. That means that you should share the workbook only with entities/individuals you trust.
+For the macros to work, your API Key must be part of the spreadsheet. That means that you should share the workbook only with entities/individuals you trust.
 
 ## Automatic updates
 

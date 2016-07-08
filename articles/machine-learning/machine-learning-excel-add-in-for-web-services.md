@@ -61,14 +61,15 @@ Get the API key for your web service. Where you do this depends on whether you p
 3. Look for the **Basic consumption info** section.  Copy and save the **Primary Key** and the **Request-Response** URL.
 
 
-Adding he 
-1. In Excel, go to the **Web Services** section (if you are in the **Predict** section, click the back arrow to go to the list of web services).
+## Steps to Add a New Web Service
+
+1. Publish a web service ([this page](machine-learning-walkthrough-5-publish-web-service.md) explains how to do it) or use an existing web service.
+2. In Excel, go to the **Web Services** section (if you are in the **Predict** section, click the back arrow to go to the list of web services).
 
 	![Go to web service selection][03]
-
-2. Click **Add Web Service**.
+3. Click **Add Web Service**.
 4. Paste the URL into the Excel add-in text box labeled **URL**.
-3. Paste the API/Primary key into the text box labeled **API key**.
+5. Paste the API/Primary key into the text box labeled **API key**.
 6. Click **Add**.
 
 	![URL and API key for a classic web service.][06]
