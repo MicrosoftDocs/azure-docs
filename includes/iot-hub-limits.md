@@ -5,7 +5,7 @@ The following table lists the limits associated with the different service tiers
 | Messages/day | 400,000 | 6,000,000   | 300,000,000 | 8,000   |
 | Maximum units | 200    | 200         | 200         | 1       |
 
-> [AZURE.NOTE] If you anticipate using more than 200 units with an S1 or S2 tier hub, please contact Microsoft support.
+> [AZURE.NOTE] If you anticipate using more than 200 units with an S1 or S2 or S3 tier hub, please contact Microsoft support.
 
 The following table lists the limits that apply to IoT Hub resources:
 
