@@ -25,13 +25,11 @@ By enabling the Microsoft Monitoring Agent (MMA) or OMS Agent for Linux virtual 
 For Windows virtual machines you enable the Microsoft Monitoring Agent VM extension.
 For Linux virtual machines you enable the OmsAgentForLinux virtual machine extension.
 
-Learn more about [Azure virtual machine extensions](../virtual-machines/virtual-machines-windows-extensions-features.md).
-
->[AZURE.NOTE] The [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md) must be installed before you can install the agent for Log Analytics.
+Learn more about [Azure virtual machine extensions](../virtual-machines/virtual-machines-windows-extensions-features.md) and the [Linux agent] (../virtual-machines/virtual-machines-linux-agent-user-guide.md).
 
 When you use agent-based collection for log data, you must configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics that you want to collect.
 
->[AZURE.IMPORTANT] If you’ve configured Log Analytics to index log data by using [Azure diagnostics](log-analytics-azure-storage.md), and you configure the agent to collect the same logs, then the logs will be collected twice. You will be charged normal data rates for both data sources. If you have the agent installed, then you should collect log data by using the agent alone. Don't collect log data by using Azure diagnostics.
+>[AZURE.IMPORTANT] If you’ve configured Log Analytics to index log data by using [Azure diagnostics](log-analytics-azure-storage.md), and you configure the agent to collect the same logs, then the logs will be collected twice. You will be charged for both data sources. If you have the agent installed, then you should collect log data by using the agent alone. Don't configure Log Analytics to collect log data from Azure diagnostics.
 
 There are three easy ways to enable the Log Analytics virtual machine extension:
 
@@ -362,41 +360,30 @@ You can deploy a template by using the following PowerShell example:
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
-## Troubleshooting
+## Troubleshooting Windows Virtual Machines
 
 If the VM agent extension for Log Analytics is not installing you can perform the following steps to troubleshoot the issue.
 
-1. Check if the Azure VM agent extension is installed and working correctly. 
-  + In the Azure portal navigate to the VM machine, select Extensions
-  + Verify Microsoft.Insights.VMDiagnosticsSettings is present and healthy
-    - Refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) 
-    - Refer to [troubleshooting Windows extensions](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)
-2. Ensure the virtual machine can run PowerShell scripts
-3. Ensure permissions on C:\Windows\temp haven’t been changed
-4. Open Task Scheduler and confirm that the following task is enabled and set to run every 1 minute:
+1. Check if the Azure VM agent extension is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
+  + You can also review the VM agent log in `C:\WindowsAzure\logs\WaAppAgent.log`
+2. Confirm the extension heartbeat task is running using the following steps:
+  + Login to the virtual machine
+  + Open task scheduler and find the `update_azureoperationalinsight_agent_heartbeat` task
+  + Confirm the task is enabled and is running every 1 minute
+  + Check the heatbeat logfile in `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
+3. Review the MMA vm extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
+3. Ensure the virtual machine can run PowerShell scripts
+4. Ensure permissions on C:\Windows\temp haven’t been changed
+5. View the status of the MMA by typing the following in a cmd window on the virtual machine
+  ```
+  $mmasettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+  $mmasettings.AzureOperationalInsightsEnabled
+  $mmasettings.AzureOperationalInsightsConnectionStatus
+  $mmasettings.AzureOperationalInsightsConnectionStatusText
+  ```
+6. Review the MMA log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-update_azureoperationalinsight_agent_heartbeat” under Task Scheduler, check if this task is enabled and still get triggered every 1 minutes.
-
-If anything goes wrong with the heartbeat script, we should have heartbeat.log under \WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\
-
-C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent
-
-\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs
-
-\WindowsAzure\logs\WaAppAgent.log
-\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent
-
-
-Can you run the following script on a machine have that error, and let me know the result? 
- 
-$mmasettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
-$mmasettings.AzureOperationalInsightsEnabled
-$mmasettings.AzureOperationalInsightsConnectionStatus
-$mmasettings.AzureOperationalInsightsConnectionStatusText
-
-
-WaAppAgent.log from C:\WindowsAzure\logs\
-
+For more information refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) and [troubleshooting Windows extensions](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)
 
 ## Next steps
 
