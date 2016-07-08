@@ -41,7 +41,7 @@ By default, Visual Studio will remove existing instances of your application typ
 1. On the application project's shortcut menu, choose **Properties** (or press the **F4** key).
 2. In the **Properties** window, set the **Application Debug Mode** property to either **Remove** or **Auto Upgrade**.
 
-  ![Set Application Debug Mode Property][debugmodeproperty]
+    ![Set Application Debug Mode Property][debugmodeproperty]
 
 Setting this property value to **Auto Upgrade** will leave the application running on the local cluster. The next **F5** will treat the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
 
@@ -69,14 +69,14 @@ The new service will be added to your solution and existing application package.
 
 To deploy the application and its services to a cluster, you need to create an application package.  The package organizes the application manifest, service manifest(s), and other necessary files in a specific layout.  Visual Studio sets up and manages the package in the application project's folder, in the 'pkg' directory.  Clicking **Package**  from the **Application** context menu creates or updates the application package.  You may want to do this if you deploy the application by using custom PowerShell scripts.
 
-## Remove an application
+## Remove applications and application types using Cloud Explorer
 
-You can deprovision an application type from your local cluster by using Service Fabric Explorer.  The cluster explorer is accessible from the cluster's HTTP gateway endpoint (typically 19080 or 19007), e.g. http://localhost:19080/Explorer.  This will revert the deployment steps described above:
-
-1. Remove any running application instances
-2. Unregister the application type
+You can perform basic cluster management operations from within Visual Studio using Cloud Explorer, which you can launch from the **View** menu. For instance, you can delete applications and unprovision application types on local or remote clusters.
 
 ![Remove an application](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+
+>[AZURE.TIP] For richer cluster management functionality, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
