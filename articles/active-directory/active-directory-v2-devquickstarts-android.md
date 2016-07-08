@@ -149,7 +149,7 @@ Open the `oidc_clientconf.xml` file and make the following changes:
     <string name="oidc_clientSecret"></string>
 ```
 
-3. Configure your redirect URI that you received from the registration portal.
+3. Configure your redirect URI with the one below.
 
 ```xml
     <string name="oidc_redirectUrl">https://login.microsoftonline.com/common/oauth2/nativeclient</string>

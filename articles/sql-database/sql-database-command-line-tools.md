@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/07/2016" 
 	ms.author="sstein"/>
 
 # Manage Azure SQL Database with PowerShell
@@ -83,14 +83,14 @@ You can delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.
 
 You can also delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) command. The following example deletes a server named server12.
 
+
+>[AZURE.NOTE]  The delete operation is async and may take some time, so verify the operation is finished before performing any additional operations that depend on the server being completely deleted - for example, creating a new server with the same name.
+
+
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
-If you will be creating these Azure SQL resources again or a similar ones, you can: 
-
-- Save this as a PowerShell script file (*.ps1)
-- Save this as an Azure automation runbook in the Automation section of the Azure Classic Portal 
 
 ## Next steps
 

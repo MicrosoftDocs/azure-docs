@@ -1,7 +1,7 @@
 <properties 
     pageTitle="AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Azure" 
     description="Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs" 
-    services="service-bus" 
+    services="service-bus,event-hubs" 
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
