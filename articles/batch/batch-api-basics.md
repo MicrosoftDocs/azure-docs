@@ -30,7 +30,7 @@ The following high-level workflow is typical of nearly all applications and serv
 
 1. Upload the **data files** that you want to process to an [Azure Storage][azure_storage] account. Batch includes built-in support for accessing Azure Blob storage, and your tasks can download these files to [compute nodes](#compute-node) when the tasks are run.
 
-2. Upload the **application files** that your tasks will run. These files can be binaries or scripts and their dependencies, and are executed by the tasks in your jobs. You can retrieve these files from your Storage account and download them to the compute nodes by the tasks, or you can use the [application packages](#application-packages) feature of Batch for application management and deployment.
+2. Upload the **application files** that your tasks will run. These files can be binaries or scripts and their dependencies, and are executed by the tasks in your jobs. Your tasks can download these files from your Storage account, or you can use the [application packages](#application-packages) feature of Batch for application management and deployment.
 
 3. Create a [pool](#pool) of compute nodes. When you create a pool, you specify the number of compute nodes for the pool, their size, and the operating system. When each task in your job runs, it's assigned to execute on one of the nodes in your pool.
 
@@ -259,9 +259,9 @@ For a detailed discussion on running MPI jobs in Batch by using the Batch .NET l
 
 With task dependencies, you can configure scenarios such as the following:
 
-* *Task B* depends on *task A* (*task B* will not begin execution until *task A* has completed).
-* *Task C* depends on both *task A* and *task B*.
-* *Task D* depends on a range of tasks, such as *task 1* through *task 10*, before it executes.
+* *taskB* depends on *taskA* (*taskB* will not begin execution until *taskA* has completed).
+* *taskC* depends on both *taskA* and *taskB*.
+* *taskD* depends on a range of tasks, such as tasks *1* through *10*, before it executes.
 
 Check out [Task dependencies in Azure Batch](batch-task-dependencies.md) and the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository for more in-depth details on this feature.
 
@@ -369,7 +369,7 @@ Task failures fall into these categories:
 
 - **Scheduling failures**
 
-	If the transfer of files that is specified for a task fails for any reason, a "scheduling error" is set for the task.
+	If the transfer of files that are specified for a task fails for any reason, a "scheduling error" is set for the task.
 
 	Scheduling errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
 
@@ -403,7 +403,7 @@ It is also possible for an intermittent issue to cause a task to hang or take to
 
 ### Connecting to compute nodes
 
-You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain SSH connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
+You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
 
 >[AZURE.IMPORTANT] To connect to a node via RDP or SSH, you must first create a user on the node. To do this, you can use the Azure portal, [add a user account to a node][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET, or call the [add_user][py_add_user] method in the Batch Python module.
 
