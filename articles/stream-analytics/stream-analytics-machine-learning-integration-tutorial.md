@@ -56,7 +56,7 @@ For this step, you can use any CSV file, such as the one already specified as av
 
     ![Stream Analytics Machine Learning tutorial, Server Explorer](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)  
 
-2.	Expand the storage you attached in step 1, choose **Create Blob Container**, and then enter a logical name. After you create the container, double-click it to view its contents. (It will be empty at this point).  
+2.	Expand the storage you attached in step 1, choose **Create Blob Container**, and then enter a logical name. After you create the container, open it to view its contents. (It will be empty at this point).  
 
     ![Stream Analytics Machine Learning tutorial, create blob](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)  
 
@@ -78,7 +78,7 @@ For this step, you can use any CSV file, such as the one already specified as av
 
 ![Stream Analytics Machine Learning tutorial, analysis data](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)  
 
-Choose the **Apps** link for **Excel 2010 or earlier workbook** to get your API key and the URL that you’ll need later to set up the Stream Analytics job. (This step is required only to use a Machine Learning model from another Azure account workspace. This tutorial assumes this is the case, to address that scenario.)  
+In the **Apps** column, choose the link for **Excel 2010 or earlier workbook** to get your API key and the URL that you’ll need later to set up the Stream Analytics job. (This step is required only to use a Machine Learning model from another Azure account workspace. This tutorial assumes this is the case, to address that scenario.)  
 
 Note the web service URL and access key from the downloaded Excel file, as shown below:  
 
@@ -92,9 +92,9 @@ Note the web service URL and access key from the downloaded Excel file, as shown
 
     ![Stream Analytics Machine Learning tutorial, add Machine Learning input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)  
 
-4.	On the first page of the **Add Input** wizard, choose **Data stream**, and then click **next**. On the next page, choose **Blob Storage** as the input, and then choose **next**.  
-5.	On the **Blob Storage Settings** page of the wizard, provide the storage account blob container name you defined earlier when you uploaded the data. Click **next**. For **Event Serialization Format**, choose **CSV**. Accept the default values for the rest of the **Serialization settings** page. Click **OK**.  
-6.	On the **Outputs** tab, click **Add an Output**.  
+4.	On the first page of the **Add Input** wizard, choose **Data stream**, and then choose **next**. On the next page, choose **Blob Storage** as the input, and then choose **next**.  
+5.	On the **Blob Storage Settings** page of the wizard, provide the storage account blob container name you defined earlier when you uploaded the data. Choose **next**. For **Event Serialization Format**, choose **CSV**. Accept the default values for the rest of the **Serialization settings** page. Choose **OK**.  
+6.	On the **Outputs** tab, choose **Add an Output**.  
 
     ![Stream Analytics Machine Learning tutorial, add output](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)  
 
@@ -108,7 +108,7 @@ Note the web service URL and access key from the downloaded Excel file, as shown
 
     ![Stream Analytics Machine Learning tutorial, Machine Learning web service](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)    
 
-11.	On the **Query** tab, modify the query as follows:    
+11.	On the **Query** tab, modify the query as follows, and then choose **Save** to save the query.    
 
 ```
 	WITH subquery AS (  
@@ -119,12 +119,11 @@ Note the web service URL and access key from the downloaded Excel file, as shown
 	Into output  
 	From subquery  
 ```    
-12.	Choose **Save** to save the query.
 
 ## Start the Stream Analytics job and observe the output
 
 1.	Choose **Start** at the bottom of the job page.
-2.	On the **Start Query Dialog**, choose **Custom Time**, and then choose a time prior to when you uploaded the CSV to Blob storage. Click **OK**.  
+2.	On the **Start Query Dialog**, choose **Custom Time**, and then choose a time prior to when you uploaded the CSV to Blob storage. Choose **OK**.  
 
     ![Stream Analytics Machine Learning tutorial, custom time](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-custom-time.png)  
 
@@ -136,7 +135,7 @@ Note the web service URL and access key from the downloaded Excel file, as shown
 
 ## Conclusion
 
-This tutorial demonstrates how to create a Stream Analytics job that reads streaming text data and applies sentiment analytics to the data in real time. You can accomplish all of this without needing to worry about the intricacies of building a sentiment analytics model. This is one of the advantages of the Cortana Intelligence Gallery.
+This tutorial demonstrates how to create a Stream Analytics job that reads streaming text data and applies sentiment analytics to the data in real time. You can accomplish all of this without needing to worry about the intricacies of building a sentiment analytics model. This is one of the advantages of the Cortana Intelligence Suite.
 
 You also can view Azure Machine Learning function-related metrics. To do this, choose the **Monitor** tab. Three function-related metrics are displayed.  
 
