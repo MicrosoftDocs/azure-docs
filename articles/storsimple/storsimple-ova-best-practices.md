@@ -48,7 +48,7 @@ Implement the following best practices when provisioning the virtual array:
 When sizing your StorSimple Virtual Array, you will need to consider the following factors:
 
 - Local reservation for volumes or shares. Approximately 12% of the space is reserved on the local tier for each provisioned tiered volume or share.Roughly 10% of the space is also reserved for a locally pinned volume for file system.
-- Snapshot overhead. Roughly 25% space on the local tier is reserved for snapshots.
+- Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
 - Need for restores. Sizing should account for space needed for restore if doing restore as a new operation. Note that restore is done to a share or volume of the same size or larger.
 - Some buffer should be allocated for any unexpected growth.
 
@@ -71,7 +71,7 @@ On your virtual array, you want to be able to
 
 For the above volumes or shares, let us calculate the space requirements on the local tier. 
 
-First, for each tiered volume/share, set aside local storage capacity equal to 12% of the volume/share size. For the locally pinned volume/share, set aside 10% for the file system. In this example, you will need
+First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation would be 10% of the volume/share size. In this example, you will need
 
 - 240 GB local reservation (for a 2 TB tiered volume/share)
 - 120 GB local reservation (for a 1 TB tiered volume/share)
@@ -79,12 +79,12 @@ First, for each tiered volume/share, set aside local storage capacity equal to 1
 
 The total space required on the local tier so far will be: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Second, set aside at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
+Second, we will need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
 If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
 
-Third, set aside 25% of your total so far to store local snapshots, so that only 75% of it will be available. In this example, that would be around 990 GB = 0.75*X TB. So, X would be (990*1.33)= 1320 GB = 1.32 TB ~ 1.5 TM
+Third, we will need 15% of your total local space so far to store local snapshots, so that only 85% of it will be available. In this example, that would be around 990 GB = 0.85*provisioned data disk TB. So, the provisioned data disk would be (990*(1/0.85))= 1320 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
 
-Factoring in unexpected growth and new restores, you should provision a local disk of around 1.5 - 1.75 TB.
+Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
 
 > [AZURE.NOTE] We also recommend that the local disk be thinly provisioned. This is because the restore space is only needed when you want to restore data that is older than 5 days. Item-level recovery will allow you to restore data for the last 5 days without requiring the extra space for restore.
 
@@ -103,7 +103,7 @@ Total space required on the local tier will be: 240 GB + 330 GB = 570 GB
 
 The minimum local space needed for restore would be 330 GB. 
 
-25% of your total disk would be used to store snapshots so that only 0.75 will be available. So, the disk size would be (900*1.33) = 1.2 TB ~ 1.25 TM  
+15% of your total disk would be used to store snapshots so that only 0.85 will be available. So, the disk size would be (900*(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
 
 Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
 
