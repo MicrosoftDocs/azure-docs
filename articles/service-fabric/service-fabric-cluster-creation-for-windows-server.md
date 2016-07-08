@@ -103,7 +103,7 @@ For more detailed information on upgrade domains and fault domain read the [Desc
 After you have gone through steps outlined in the planning and preparation section above, you are now ready to create your cluster.
 
 ### Step 1: Modify cluster configuration
-The cluster is described in a *ClusterConfig.json* file. For details on the sections in this file read the [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md) article. 
+The cluster is described in a *ClusterConfig.json* file. For details on the sections in this file read the [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md) article.
 Open one of the *ClusterConfig.json* files from the package you downloaded and modify the following settings:
 
 |**Configuration Setting**|**Description**|
@@ -132,11 +132,11 @@ This script can be run on any machine that has admin access to all the machines 
 ### Step 3: Connect to the Cluster
 Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html
 
-## Add nodes to your cluster 
+## Add nodes to your cluster
 
-1. Prepare the VM/machine you want to add to your cluster (refer to step #2 in Plan and prepare for cluster deployment section above). 
+1. Prepare the VM/machine you want to add to your cluster (refer to step #2 in Plan and prepare for cluster deployment section above).
 2. Plan as to which fault domain and upgrade domain you are going to add this VM/machine to.
-3. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to the VM/machine you are planning to add to the cluster. 
+3. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to the VM/machine you are planning to add to the cluster.
 4. Open up a Powershell admin prompt, navigate to the location of the unzipped package.
 5. Run *AddNode.ps1* Powershell with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0, IP address 182.17.34.52 into UD1 and FD1. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. You can choose *any* node IP address for this in the cluster.
 
@@ -144,7 +144,7 @@ Now you can connect to the cluster with Service Fabric Explorer either directly 
 .\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1
 ```
 
-## Remove nodes from your cluster 
+## Remove nodes from your cluster
 
 1. Remote desktop (RDP) into the VM/machine that you want to remove from the cluster.
 2. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to the VM/machine you are planning to add to the cluster.
@@ -155,7 +155,7 @@ Now you can connect to the cluster with Service Fabric Explorer either directly 
 .\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.50:19000
 ```
 
-## Remove your cluster 
+## Remove your cluster
 To remove a cluster run the *RemoveServiceFabricCluster.ps1* Powershell script from the package folder and pass in the path to the JSON configuration file and the location of the package CAB file.
 
 This script can be run on any machine that has admin access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster
@@ -166,45 +166,49 @@ This script can be run on any machine that has admin access to all the machines 
 
 ## How To: Create a three node cluster with Azure IaaS VMs
 The following steps describe how to create a cluster on Azure IaaS VMs using the standalone Windows Server installer. Note that Service Fabric runtime on this IaaS cluster is entirely managed by you, unlike clusters created through the Azure portal that are upgraded by the Service Fabric resource provider.
+
 1. Log into the Azure portal and create a new Windows Server 2012 R2 Datacenter VM in a resource group.
 2. Add two more Windows Server 2012 R2 Datacenter VMs to the same resource group. Ensure that each of the VMs has the same admin user name and password when created. Once created you should see all three VMs in the same virtual network.
-3. Connect to each of the VMs and turn-off the Windows Firewall using the Server Manager, Local Server dashboard. This ensures that network traffic can communicate between the machines. Whilst on each machine get the IP address by opening a command prompt and typing *ipconfig*. Alternatively you can see the IP address of each machine by selecting the virtual network resource for the resource group in the Azure portal 
+3. Connect to each of the VMs and turn-off the Windows Firewall using the Server Manager, Local Server dashboard. This ensures that network traffic can communicate between the machines. Whilst on each machine get the IP address by opening a command prompt and typing *ipconfig*. Alternatively you can see the IP address of each machine by selecting the virtual network resource for the resource group in the Azure portal
 4. Connect to one of the machines and test that you can ping the other two machines successfully.
-5. Connect to one of the VMs and download the standalone Windows Server package into a new folder on the machine and unzip the package. 
-6. Open the *ClusterConfig.Unsecure.MultiMachine.json   * file in Notepad and edit each node with the three IP addresses of the machines, change the cluster name at the top and save the file.  A partial example of the cluster manifest is shown below showing the IP addresses of each machine.
-```
-{
-    "name": "TestCluster",
-    "clusterManifestVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
-    "nodes": [
-      {
-        "nodeName": "vm0",
-        		"metadata": "Replace the localhost with valid IP address or FQDN below",
-        "iPAddress": "10.7.0.5",
-        "nodeTypeRef": "NodeType0",
-        "faultDomain": "fd:/dc1/r0",
-        "upgradeDomain": "UD0"
-      },
-      {
-        "nodeName": "vm1",
-        		"metadata": "Replace the localhost with valid IP address or FQDN below",
-        "iPAddress": "10.7.0.4",
-        "nodeTypeRef": "NodeType0",
-        "faultDomain": "fd:/dc2/r0",
-        "upgradeDomain": "UD1"
-      },
-      {
-        "nodeName": "vm2",
-        		"metadata": "Replace the localhost with valid IP address or FQDN below",
-        "iPAddress": "10.7.0.6",
-        "nodeTypeRef": "NodeType0",
-        "faultDomain": "fd:/dc3/r0",
-        "upgradeDomain": "UD2"
-      }
+5. Connect to one of the VMs and download the standalone Windows Server package into a new folder on the machine and unzip the package.
+6. Open the *ClusterConfig.Unsecure.MultiMachine.json* file in Notepad and edit each node with the three IP addresses of the machines, change the cluster name at the top and save the file.  A partial example of the cluster manifest is shown below showing the IP addresses of each machine.
+
+    ```
+    {
+        "name": "TestCluster",
+        "clusterManifestVersion": "1.0.0",
+        "apiVersion": "2015-01-01-alpha",
+        "nodes": [
+        {
+            "nodeName": "vm0",
+        	"metadata": "Replace the localhost with valid IP address or FQDN below",
+            "iPAddress": "10.7.0.5",
+            "nodeTypeRef": "NodeType0",
+            "faultDomain": "fd:/dc1/r0",
+            "upgradeDomain": "UD0"
+        },
+        {
+            "nodeName": "vm1",
+        	"metadata": "Replace the localhost with valid IP address or FQDN below",
+            "iPAddress": "10.7.0.4",
+            "nodeTypeRef": "NodeType0",
+            "faultDomain": "fd:/dc2/r0",
+            "upgradeDomain": "UD1"
+        },
+        {
+            "nodeName": "vm2",
+        	"metadata": "Replace the localhost with valid IP address or FQDN below",
+            "iPAddress": "10.7.0.6",
+            "nodeTypeRef": "NodeType0",
+            "faultDomain": "fd:/dc3/r0",
+            "upgradeDomain": "UD2"
+        }
     ],
-```
+    ```
+
 7. Open a Powershell ISE window and navigate to the folder where you downloaded and unzipped the standalone installer package and saved the manifest file above. Run the following Powershell command.
+
  ```
  .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
  ```
@@ -216,5 +220,3 @@ The following steps describe how to create a cluster on Azure IaaS VMs using the
 
 - [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
 - [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
-
-
