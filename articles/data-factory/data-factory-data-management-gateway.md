@@ -19,7 +19,7 @@
 # Data Management Gateway
 The Data Management Gateway is a client agent that you must install in your on-premises environment to enable movement of data between cloud and on-premises data stores that are [supported by the Copy Activity](data-factory-data-movement-activities.md##supported-data-stores).
 
-This article complements the content in [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud) article, which has a walkthrough for creating a Data Factory pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob. This article provides detailed in-depth information about the Data Management Gateway.   
+This article complements the content in [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article, which has a walkthrough for creating a Data Factory pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob. This article provides detailed in-depth information about the Data Management Gateway.   
 
 ## Capabilities
 Data Management Gateway provides the following capabilities:
