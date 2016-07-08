@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="femila"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -83,8 +83,7 @@ To configure the integration of BenSelect into Azure AD, you need to add BenSele
 
 7. In the results pane, select **BenSelect**, and then click **Complete** to add the application.
 
-	![Selecting the app in the gallery](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_001.png)<br><br>
-
+	![Selecting the app in the gallery](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_001.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with BenSelect based on a test user called "Britta Simon".
@@ -103,46 +102,53 @@ To configure and test Azure AD single sign-on with BenSelect, you need to comple
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to outline how to enable users to authenticate to BenSelect with their account in Azure AD using federation based on the SAML protocol.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your BenSelect application.
 
-Your BenSelect application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.
-The following screenshot shows an example for this.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_06.png)
+BenSelect application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**Atrribute**" tab of the application. The following screenshot shows an example for this. 
+
+![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_06.png)
 
 **To configure Azure AD single sign-on with BenSelect, perform the following steps:**
 
-1. In the classic portal, on the BenSelect application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_07.png)
+1. In the Azure classic portal, on the **BenSelect** application integration page, in the menu on the top, click **Attributes**.
 
-2. To add the required attribute mappings, perform the following steps:
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_08.png)<br><br>
-a. For each data row in the table above, click **add user attribute**.<br>
-b. In the **Attribute Name** textbox, type the attribute name shown for that row.<br>
-c. From the **Attribute Value** list, type ExtractMailPrefix().<br>
-d. From the **Mail** list, type User.userprincipalname.<br>
-e. Click **Complete**
+	 ![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_07.png)
 
-3. Click **Apply Changes**.
+2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
 
-4. In your browser, click **Back** to open the Quick Start dialog again
+	| Attribute Name | Attribute Value |
+	| --- | --- |    
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier    | extractmailprefix([userprincipalname]) |
 
-5. Click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+	a. Click **add user attribute** to open the **Add User Attribure** dialog.
 
-	![Configure Single Sign-On][6]
+	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_08.png)
 
-2. On the **How would you like users to sign on to BenSelect** page, select **Azure AD Single Sign-On**, and then click **Next**.
+	b. In the **Attribute Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Attribute Value** list, type ExtractMailPrefix().
+
+	d. From the **Mail** list, type User.userprincipalname.
+	
+	e. Click **Complete**
+
+3. In the menu on the top, click **Quick Start**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_09.png)
+
+4. On the **How would you like users to sign on to BenSelect** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_03.png) 
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+5. On the **Configure App Settings** dialog page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_04.png) 
 
-    a. In the **Reply URL** textbox, type the URL in the following pattern: `https://www.benselect.com/enroll/<company name-pricing>`
+    a. In the **Reply URL** textbox, type the URL in the following pattern: **"https://www.benselect.com/enroll/<company name-pricing>"**
 	
 	b. click **Next**
  
-4. On the **Configure single sign-on at BenSelect** page, perform the following steps:
+6. On the **Configure single sign-on at BenSelect** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_05.png)
 
@@ -151,15 +157,15 @@ e. Click **Complete**
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your BenSelect support team via <mailto:support@selerix.com> (Phone:214-856-4290) and attach the downloaded certificate file to your email. Also please do provide the SAML SSO URL, Sign Out URL and Issuer URL so that they can be configured for SSO integration.
+7. To get SSO configured for your application, contact your BenSelect support team via <mailto:support@selerix.com> (Phone:214-856-4290) and attach the downloaded certificate file to your email. Also please do provide the SAML SSO URL, Sign Out URL and Issuer URL so that they can be configured for SSO integration.
 
 > [AZURE.NOTE] Please mention to BenSelect team that this integration need SHA256 Algorithm (SHA1 will not be supported) so that they can set the SSO on the appropriate server like app2101 etc.
 
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+8. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
 	![Azure AD Single Sign-On][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+9. On the **Single sign-on confirmation** page, click **Complete**.  
  
 	![Azure AD Single Sign-On][11]
 
