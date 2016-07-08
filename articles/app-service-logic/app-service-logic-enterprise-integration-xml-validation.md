@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Enterprise integration with XML validation
@@ -44,4 +44,4 @@ You can now test your validation action by making a request to the HTTP endpoint
 
 ## Next steps
 
-[Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
