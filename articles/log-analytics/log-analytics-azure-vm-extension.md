@@ -13,16 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="07/11/2016"
 	ms.author="richrund"/>
 
 # Connect Azure virtual machines to Log Analytics
 
 For Windows and Linux computers, the recommended method for collecting logs and metrics is by installing the Log Analytics agent.
 
-By enabling the Microsoft Monitoring Agent (MMA) virtual machine extension, you can easily install the Log Analytics agent for Azure virtual machines. When you use a virtual machine extension, it simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be upgraded automatically, ensuring that you have the latest features and fixes.
+By enabling the Microsoft Monitoring Agent (MMA) or OMS Agent for Linux virtual machine extension, you can easily install the Log Analytics agent on Azure virtual machines. When you use a virtual machine extension, it simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be upgraded automatically, ensuring that you have the latest features and fixes.
 
-The Microsoft Monitoring Agent is available as an [Azure virtual machine extension](../virtual-machines/virtual-machines-windows-extensions-features.md) for both Windows and Linux computers.
+For Windows virtual machines you enable the Microsoft Monitoring Agent VM extension.
+For Linux virtual machines you enable the OmsAgentForLinux virtual machine extension.
+
+Learn more about [Azure virtual machine extensions](../virtual-machines/virtual-machines-windows-extensions-features.md).
 
 >[AZURE.NOTE] The [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md) must be installed before you can install the agent for Log Analytics.
 
@@ -70,9 +73,13 @@ $workspaceKey="enter workspace key here"
 $hostedService="enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
-Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
-```
 
+# For Windows VM uncomment the following line
+# Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
+
+# For Linux VM uncomment the following line
+# Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
+```
 
 For Resource Manager virtual machines, use the following PowerShell example:
 
@@ -97,7 +104,11 @@ $workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGrou
 $vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+# For Windows VM uncomment the following line
+# Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
+# For Linux VM uncomment the following line
+# Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux' -ExtensionType 'OmsAgentForLinux' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
 
 
 ```
@@ -350,6 +361,42 @@ You can deploy a template by using the following PowerShell example:
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
+
+## Troubleshooting
+
+If the VM agent extension for Log Analytics is not installing you can perform the following steps to troubleshoot the issue.
+
+1. Check if the Azure VM agent extension is installed and working correctly. 
+  + In the Azure portal navigate to the VM machine, select Extensions
+  + Verify Microsoft.Insights.VMDiagnosticsSettings is present and healthy
+    - Refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) 
+    - Refer to [troubleshooting Windows extensions](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)
+2. Ensure the virtual machine can run PowerShell scripts
+3. Ensure permissions on C:\Windows\temp haven’t been changed
+4. Open Task Scheduler and confirm that the following task is enabled and set to run every 1 minute:
+
+update_azureoperationalinsight_agent_heartbeat” under Task Scheduler, check if this task is enabled and still get triggered every 1 minutes.
+
+If anything goes wrong with the heartbeat script, we should have heartbeat.log under \WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\
+
+C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent
+
+\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs
+
+\WindowsAzure\logs\WaAppAgent.log
+\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent
+
+
+Can you run the following script on a machine have that error, and let me know the result? 
+ 
+$mmasettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+$mmasettings.AzureOperationalInsightsEnabled
+$mmasettings.AzureOperationalInsightsConnectionStatus
+$mmasettings.AzureOperationalInsightsConnectionStatusText
+
+
+WaAppAgent.log from C:\WindowsAzure\logs\
+
 
 ## Next steps
 
