@@ -36,7 +36,7 @@ Saving and retrieving task output presents several challenges for the Batch user
 
 ## Solving task output challenges
 
-The Batch team has addressed these challenges by introducing task output viewing support in the portal, as well as by supplying a helper library to assist with output storing and retrieval in a format that the portal can consume.
+The Batch team has addressed these challenges by introducing task output viewing support in the portal, as well as by supplying a helper library to assist with output storage using a format that the portal can consume.
 
 **Task output in the Azure portal**
 
@@ -47,7 +47,7 @@ The Azure portal now supports viewing a task's outputs and logs directly. There 
 
 **File conventions helper library**
 
-The [Azure Batch File Conventions][net_fileconventions_readme] (NOT REAL URL) library assists you in storing your task output to Azure Storage using the naming conventions required by the Azure portal. It also provides helper methods for retrieving task outputs.
+The [Azure Batch File Conventions][net_fileconventions_readme] (NOT REAL URL) library assists you in storing your task output to Azure Storage using the naming conventions required by the Azure portal. It also provides helper methods for easy retrieval of task outputs.
 
 ## Requirement: linked storage account
 
