@@ -66,8 +66,6 @@ Apps also frequently need to access corporate resources such as internal databas
 
 For more details on how App Service Environments work with virtual networks and on-premises networks consult the following articles on [Network Architecture][NetworkArchitectureOverview], [Controlling Inbound Traffic][ControllingInboundTraffic], and [Securely Connecting to Backends][SecurelyConnectingToBackends]. 
 
-**Note:**  An App Service Environment cannot be created in a "v2" virtual network.
-
 ## Getting started
 
 To get started with App Service Environments, see [How To Create An App Service Environment][HowToCreateAnAppServiceEnvironment]
