@@ -73,6 +73,13 @@ Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure.<br>
 No. A mechanism for specifying arbitrary username/password for Basic Authentication is not currently supported.
 
 
+**Q: What version of AD DS are supported by Azure AD Connect Health for AD DS?**
+
+Monitoring of AD DS is supported while installed on the following OS Versions: 
+
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 ## Operations Questions
 
