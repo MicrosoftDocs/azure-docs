@@ -223,3 +223,11 @@ You can query for the following live channel metrics.
 	        }
 	    }
 	}
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
