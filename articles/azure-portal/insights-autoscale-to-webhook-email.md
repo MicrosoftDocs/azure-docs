@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/08/2016"
 	ms.author="ashwink"/>
 
 # Use autoscale actions to send email and webhook alert notifications in Azure Insights
@@ -35,7 +35,42 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 ![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
 ## Virtual Machine scale sets
-For newer ARM based Virtual Machines (Virtual Machine scale sets), you can configure this using REST API, PowerShell, and CLI. A portal interface is not yet available.
+For newer ARM based Virtual Machines (Virtual Machine scale sets), you can configure this using REST API, ARM templates, PowerShell, and CLI. A portal interface is not yet available.
+When using the REST API or ARM template, include the notifications element with the following options.
+
+```
+"notifications": [
+      {
+        "operation": "Scale",
+        "email": {
+          "sendToSubscriptionAdministrator": false,
+          "sendToSubscriptionCoAdministrators": false,
+          "customEmails": [
+              "user1@mycompany.com",
+              "user2@mycompany.com"
+              ]
+        },
+        "webhooks": [
+          {
+            "serviceUri": "https://foo.webhook.example.com?token=abcd1234",
+            "properties": {
+              "optional_key1": "optional_value1",
+              "optional_key2": "optional_value2"
+            }
+          }
+        ]
+      }
+    ]
+```
+|Field	|Mandatory?|	Description|
+|---|---|---|
+|operation	|yes	|value must be "Scale"|
+|sendToSubscriptionAdministrator	|yes	|value must be "true" or "false"|
+|sendToSubscriptionCoAdministrators	|yes	|value must be "true" or "false"|
+|customEmails	|yes	|value can be null [] or string array of emails|
+|webhooks	|yes	|value can be null or valid Uri|
+|serviceUri	|yes	|a valid https Uri|
+|properties	|yes	|value must be empty {} or can contain key-value pairs|
 
 
 ## Authentication in webhooks
