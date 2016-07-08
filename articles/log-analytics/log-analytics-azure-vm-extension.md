@@ -364,9 +364,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 
 If the VM agent extension for Log Analytics is not installing you can perform the following steps to troubleshoot the issue.
 
-1. Check if the Azure VM agent extension is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
+1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
   + You can also review the VM agent log in `C:\WindowsAzure\logs\WaAppAgent.log`
-2. Confirm the extension heartbeat task is running using the following steps:
+2. Confirm the MMA extension heartbeat task is running using the following steps:
   + Login to the virtual machine
   + Open task scheduler and find the `update_azureoperationalinsight_agent_heartbeat` task
   + Confirm the task is enabled and is running every 1 minute
