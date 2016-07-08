@@ -3,7 +3,7 @@
    description="This article talks about the testability actions found in Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="heeldin"
+   authors="motanv"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/05/2016"
-   ms.author="heeldin;motanv"/>
+   ms.date="07/08/2016"
+   ms.author="motanv;heeldin"/>
 
 # Testability actions
 In order to simulate an unreliable infrastructure, Azure Service Fabric provides you, the developer, with ways to simulate various real-world failures and state transitions. These are exposed as testability actions. The actions are the low-level APIs that cause a specific fault injection, state transition, or validation. By combining these actions, you can write comprehensive test scenarios for your services.
