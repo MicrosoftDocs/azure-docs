@@ -39,17 +39,15 @@
 
 ###<a name="1.9.0"/>1.9.0</a>
 
-- Added the retry policy support for throttle requests(Request Rate too large - Error code 429). By default, we now retry 9 times for    each request when we get a 429, honoring the retryAfter time in the response header.
-  We also allow setting a fixed retry interval time as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. We will also 
-  now wait for max 30 sec for each request that is being throttled(irrespective of retry count) and will return the request with a 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
+- Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the request with a 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
 
-- We also return x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the   throttle retry count and the cummulative time the request waited between the retries.
+- DocumentDB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
 
-- Introducing a RetryOptions class and exposing the RetryOptions property on ConnectionPolicy class that can be used to override some    of the default retry options we set.
-  - 
+- The RetryOptions class was added, exposing the RetryOptions property on the ConnectionPolicy class that can be used to override some    of the default retry options.
+
 ###<a name="1.8.0"/>1.8.0</a>
 
-  - Added the support for multi-region database accounts.
+ - Added the support for multi-region database accounts.
 
 ###<a name="1.7.0"/>1.7.0</a>
 
