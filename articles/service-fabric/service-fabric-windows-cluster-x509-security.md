@@ -179,7 +179,10 @@ Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -
 
  To see the details of a certificate installed on the machine you can run the following Powershell command.
 
-    (Get-Item Cert:\LocalMachine\My\<Thumbprint>).ToString($true)
+```
+$cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
+Write-Host $cert.ToString($true)
+```
 
  Alternatively, if you have an Azure subscription, you can follow the section [Acquire the X.509 certificates](service-fabric-secure-azure-cluster-with-certs.md#acquirecerts) to create your certificates.
 
@@ -187,52 +190,51 @@ Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -
  Once you have certificate(s), you can install them on the cluster nodes. Your nodes need to have the latest Windows PowerShell 3.x installed on them. You will need to repeat these steps on each node, for both Cluster and Server certificates and any secondary certificates.
 
 - Copy the .pfx file(s) to the node.
-
 - Open a PowerShell window as an administrator and enter the following commands. Replace the *$pswd* with the password that you used to create this certificate. Replace the *$PfxFilePath* with the full path of the .pfx copied to this node.
 
-```
-$pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
-$PfcFilePath ="C:\mypfx.pfx"
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
-```
+    ```
+    $pswd = "1234"
+    $PfcFilePath ="C:\mypfx.pfx"
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
+    ```
 
 - Next you need to set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script providing the thumbprint of the certificate and NETWORK SERVICE for the serviceAccount. You can check that the ACLs on the certificate are correct using the certmgr.exe tool and looking at the Manage Private Keys on the cert.
 
-```
-param
- (
-    [Parameter(Position=1, Mandatory=$true)]
-    [ValidateNotNullOrEmpty()]
-    [string]$pfxThumbPrint,
+    ```
+    param
+    (
+        [Parameter(Position=1, Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [string]$pfxThumbPrint,
 
-    [Parameter(Position=2, Mandatory=$true)]
-    [ValidateNotNullOrEmpty()]
-    [string]$serviceAccount
- )
+        [Parameter(Position=2, Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [string]$serviceAccount
+        )
 
- $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; };
+        $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; };
 
- # Specify the user, the permissions and the permission type
- $permission = "$($serviceAccount)","FullControl","Allow"
- $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission;
+        # Specify the user, the permissions and the permission type
+        $permission = "$($serviceAccount)","FullControl","Allow"
+        $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission;
 
- # Location of the machine related keys
- $keyPath = $env:ProgramData + "\Microsoft\Crypto\RSA\MachineKeys\";
- $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName;
- $keyFullPath = $keyPath + $keyName;
+        # Location of the machine related keys
+        $keyPath = $env:ProgramData + "\Microsoft\Crypto\RSA\MachineKeys\";
+        $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName;
+        $keyFullPath = $keyPath + $keyName;
 
-# Get the current acl of the private key
-$acl = (Get-Item $keyFullPath).GetAccessControl('Access')
+        # Get the current acl of the private key
+        $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
 
-# Add the new ace to the acl of the private key
-$acl.SetAccessRule($accessRule);
+        # Add the new ace to the acl of the private key
+        $acl.SetAccessRule($accessRule);
 
-# Write back the new acl
-Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
+        # Write back the new acl
+        Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
 
-#Observe the access rights currently assigned to this certificate.
-get-acl $keyFullPath| fl
-```
+        #Observe the access rights currently assigned to this certificate.
+        get-acl $keyFullPath| fl
+        ```
 
 Repeat the steps above for each server certificate. You can use these steps to also install the client certificates on the machines that you want to allow access to the cluster.
 
