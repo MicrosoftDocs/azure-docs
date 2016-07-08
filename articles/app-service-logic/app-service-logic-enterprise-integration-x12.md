@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Overview of X12 and the Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Overview of X12 and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to use X12 agreements to create Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Enterprise integration with X12 
@@ -194,4 +194,4 @@ After you select **OK** on the open blades:
 ![](./media/app-service-logic-enterprise-integration-x12/x12-7.png)   
 
 ## Learn more
-- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

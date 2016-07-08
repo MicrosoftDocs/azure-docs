@@ -11,12 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="07/08/2016" 
     ms.author="markvi" />
 
 
 
-# Get started with certificate based authentication on Android 
+# Get started with certificate based authentication on Android - Public Preview  
 
 > [AZURE.SELECTOR]
 - [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -42,7 +42,7 @@ Configuring this feature eliminates the need to enter a username and password co
 
 For all scenarios in this topic, the following tasks are required:  
 
-- Access to a private PKI with certificate authority(s) to issue client certificates.  
+- Access to certificate authority(s) to issue client certificates.  
 
 - The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the Getting Started section.  
 
