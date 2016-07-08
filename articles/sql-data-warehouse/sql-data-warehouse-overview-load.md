@@ -124,7 +124,7 @@ For more development tips, see the [development overview][].
 
 [Load sample databases]: ./sql-data-warehouse-load-sample-databases.md
 [Migration overview]: ./sql-data-warehouse-overview-migrate.md
-[solution partners]: ./sql-data-warehouse-integrate-solution-partners.md
+[solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 
