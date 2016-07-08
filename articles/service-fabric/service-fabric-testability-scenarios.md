@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="motanv"
    manager="timlt"
-   editor="motanv"/>
+   editor="toddabel"/>
 
 <tags
    ms.service="service-fabric"
