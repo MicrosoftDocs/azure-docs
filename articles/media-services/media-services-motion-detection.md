@@ -354,7 +354,7 @@ The following program shows how to:
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Related links
-[Azure Media Services Motion Detector blog](https://azure.microsoft.com/en-us/blog/motion-detector-update/)
+[Azure Media Services Motion Detector blog](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
