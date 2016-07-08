@@ -20,7 +20,7 @@
 
 ## Overview
 
-You may want to encode XML content before you send it to a business partner in a business-to-business (B2B) scenario. In a logic app made by the Logic Apps feature of the Azure App Service, you can use the flat file encoding connector to do this. The logic app that you create can get its XML content from a variety of sources, including from an HTTP request trigger, from another application, or even from one of the many [connectors](../connectors/apis-list.md). For more information about logic apps, see the [Logic apps documentation](./app-service-logic-what-are-logic-apps.md "Learn more about Logic apps").  
+You may want to encode XML content before you send it to a business partner in a business-to-business (B2B) scenario. In a logic app made by the Logic Apps feature of the Azure App Service, you can use the flat file encoding connector to do this. The logic app that you create can get its XML content from a variety of sources, including from an HTTP request trigger, from another application, or even from one of the many [connectors](../connectors/apis-list.md). For more information about logic apps, see the [logic apps documentation](./app-service-logic-what-are-logic-apps.md "Learn more about Logic apps").  
 
 ## How to create the flat file encoding connector
 
@@ -54,8 +54,7 @@ You can now test your connector by making a request to the HTTP endpoint, and in
 
 ## How to create the flat file decoding connector
 
-### Prerequisite
-To complete these steps, you need to have a schema file already uploaded into you integration account.
+>[AZURE.NOTE] To complete these steps, you need to have a schema file already uploaded into you integration account.
 
 1. Add a **Request - When an HTTP request is received** trigger to your logic app.  
 ![Screenshot of trigger to select](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
