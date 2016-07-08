@@ -22,7 +22,7 @@ With the Twitter connector, you can create valuable workflows for your organizat
 
 - Create logic app workflows that activate (trigger) when there is a new tweet.  
 - Use any of the actions our team designed to enable the freedom and flexibility of interacting with Twitter and drawing the data you need, or executing your desired outcome. 
-- Our actions include posting tweets, searching tweets, and various other options. For example, when a new tweet appears (trigger), you can post this tweet (action) on Facebook. See the full list of [triggers and actions](../articles/connectors/connectors-create-api-twitter.md#triggers-and-actions) for Twitter below.
+- Our actions include posting tweets, searching tweets, and various other options. For example, when a new tweet appears (trigger), you can post this tweet (action) on Facebook. See the full list of triggers and actions for Twitter below.
 
 To explore Twitter triggers and actions, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -44,7 +44,7 @@ When you add this connector to your logic apps, you must authorize logic apps to
 
 Logic App connectors come with triggers by which you can set up your workflow to activate. Here’s an example sequence of how to setup a Twitter trigger in the logic app designer.
 
-1) After following the steps in [connect to Twitter](../articles/connectors/connectors-create-api-twitter.md#connect-to-twitter) and establishing the Twitter connection, your trigger is almost set up. Next, you'll have to enter the query text for which you want to search Twitter.
+1) After following the steps in connect to Twitter and establishing the Twitter connection, your trigger is almost set up. Next, you'll have to enter the query text for which you want to search Twitter.
 
 ![](../../includes/media/connectors-create-api-twitter/using-trigger.png)
 
