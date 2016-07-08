@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="07/07/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -36,6 +36,16 @@
 
 ## Release notes
 
+### <a name="1.9.0"/>[1.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)
+- Added the retry policy support for throttle requests(Request Rate too large - Error code 429). By default, we now retry 9 times for    each request when we get a 429, honoring the retryAfter time in the response header.
+  We also allow setting a fixed retry interval time as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. We will also 
+  now wait for max 30 sec for each request that is being throttled(irrespective of retry count) and will return the request with a 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
+
+- We also return x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the   throttle retry count and the cummulative time the request waited between the retries.
+
+- Removing the RetryPolicy class and the corresponding property(retry_policy) exposed on document_client class and instead introducing   a RetryOptions class and exposing the RetryOptions property on ConnectionPolicy class 
+  that can be used to override some of the default retry options we set.
+  
 ### <a name="1.8.0"/>[1.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)
   - Added the support for multi-region database accounts.
 
@@ -83,6 +93,7 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.9.0](#1.9.0) | July 07, 2016 |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---
 | [1.6.1](#1.6.1) | April 08, 2016 |---
