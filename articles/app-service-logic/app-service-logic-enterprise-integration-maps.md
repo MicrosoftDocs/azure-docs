@@ -65,4 +65,5 @@ Follow these steps to upload a new map that replaces an existing map:
 ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)   
 
 ## Next Steps
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 - [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  

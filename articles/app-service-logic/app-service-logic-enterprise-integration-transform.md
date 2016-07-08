@@ -34,6 +34,7 @@ After you upload the transform into your integration account, you can use it to 
 
 ### Prerequisites 
 In the preview, you will need to:  
+
 -  [Create an Azure Functions container](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Create an Azure Functions container")  
 -  [Add a function to the Azure Functions container](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "This template creates a webhook based C# azure function with transform capabilities to use in logic apps integration scenarios")    
 -  Create an integration account and add a map to it  
