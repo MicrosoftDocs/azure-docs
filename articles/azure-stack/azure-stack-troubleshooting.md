@@ -151,7 +151,7 @@ If publishing fails for a SQL Server or MySQL Server gallery package with multip
 
 ### "Signature verification failed on downloaded file" error during Web Apps resource provider deployment
 
-Workaround: Clear any previous cache you may have and try the download again.
+Workaround: Clear any previous cache (C:/Users/<your alias>/AppData/Local/Temp/Websites/WebsitesSetup/) you may have and try the download again.
 
 
 ## Platform Image Repository
