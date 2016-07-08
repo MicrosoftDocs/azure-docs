@@ -29,11 +29,15 @@ The **Azure Media Motion Detector** MP is currently in Preview.
 This topic gives details about  **Azure Media Motion Detector** and shows how to use it with Media Services SDK for .NET
 
 
+##Motion Detector input files
+
+Video files. Currently, the following formats are supported: MP4, MOV, and WMV.
+
 ##Task configuration (preset)
 
 When creating a task with **Azure Media Motion Detector**, you must specify a configuration preset. 
 
-###Parameters description
+###Parameters
 
 You can use the following parameters:
 
@@ -76,9 +80,6 @@ DetectionZones|An array of detection zones:<br/>- Detection Zone is an array of 
 	  }
 	}
 
-##Motion Detector input files
-
-Video files. Currently, the following formats are supported: MP4, MOV, and WMV.
 
 ##Motion Detector output files
 
@@ -111,7 +112,7 @@ Interval|The interval of each entry in the event, in "ticks".
 Events|Each event fragment contains the motion detected within that time duration.
 Type|In the current version, this is always ‘2’ for generic motion. This label gives Video APIs the flexibility to categorize motion in future versions.
 RegionID|As explained above, this will always be 0 in this version. This label gives Video API the flexibility to find motion in various regions in future versions.
-Regions|Refers to the area in your video where you care about motion. In the current version of Video APIs.<br/><br/>-"id" represents the region area – in this version there is only one, ID 0. <br/>"type" represents the shape of the region you care about for motion. Currently, only the "polygon" is supported.<br/>-The region has dimensions in points. <br/>
+Regions|Refers to the area in your video where you care about motion. In the current version of Video APIs.<br/><br/>-"id" represents the region area – in this version there is only one, ID 0. <br/>-"type" represents the shape of the region you care about for motion. Currently, "rectangle" and "polygon" are supported.<br/> If you specified "rectangle", the region has dimensions in X, Y, Width, and Height. The X and Y coordinates represent the upper left hand XY coordinates of the region in a normalized scale of 0.0 to 1.0. The width and height represent the size of the region in a normalized scale of 0.0 to 1.0. In the current version, X, Y, Width, and Height are always fixed at 0, 0 and 1, 1. <br/>If you specified "polygon", the region has dimensions in points. <br/>
 Fragments|The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). A fragment with no events means that no motion was detected during that start time and duration.
 Brackets []|Each bracket represents one interval in the event. Empty brackets for that interval means that no motion was detected.
 locations|This new entry under events lists the location where the motion occurred. This is more specific than the detection zones.
