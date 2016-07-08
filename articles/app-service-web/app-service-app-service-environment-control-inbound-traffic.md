@@ -19,7 +19,7 @@
 # How To Control Inbound Traffic to an App Service Environment
 
 ## Overview ##
-An App Service Environment can be created in **either** a Resource Manager virtual network, **or** a Classic [virtual network][virtualnetwork].  A new virtual network and new subnet can be defined at the time an App Service Environment is created.  Alternatively, an App Service Environment can be created in a pre-existing virtual network and pre-existing subnet.  With a recent change made in June 2016, ASEs can now be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses).  For more details on creating an App Service Environment see [How To Create an App Service Environment][HowToCreateAnAppServiceEnvironment].
+An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork].  A new virtual network and new subnet can be defined at the time an App Service Environment is created.  Alternatively, an App Service Environment can be created in a pre-existing virtual network and pre-existing subnet.  With a recent change made in June 2016, ASEs can now be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses).  For more details on creating an App Service Environment see [How To Create an App Service Environment][HowToCreateAnAppServiceEnvironment].
 
 An App Service Environment must always be created within a subnet because a subnet provides a network boundary which can be used to lock down inbound traffic behind upstream devices and services such that HTTP and HTTPS traffic is only accepted from specific upstream IP addresses.
 
