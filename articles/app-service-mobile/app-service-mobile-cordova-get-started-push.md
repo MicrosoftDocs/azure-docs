@@ -46,7 +46,7 @@ Although push notifications are supported on Android Emulators, we have found th
 
 ##Update the server project to send push notifications
 
-[AZURE.INCLUDE [app-service-update-server-project-for-push-template](../../includes/app-service-update-server-project-for-push-template.md)]
+[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## (Optional) Configure and run the app on Android
 
