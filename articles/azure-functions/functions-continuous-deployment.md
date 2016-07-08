@@ -26,7 +26,7 @@ Continuous deployment is a great option for projects where multiple and frequent
 
 + [Bitbucket](https://bitbucket.org/)
 + [Dropbox](https://bitbucket.org/)
-+ [Git local repo](../app-service/app-service-deploy-local-git.md)
++ [Git local repo](../app-service-web/app-service-deploy-local-git.md)
 + Git external repo
 + [GitHub]
 + Mercurial external repo
