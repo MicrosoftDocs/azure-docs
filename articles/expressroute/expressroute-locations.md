@@ -75,7 +75,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Interxion** | Supported | Supported | Amsterdam, London, Paris |
 | **Jisc** | Coming soon | Coming soon | London+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Supported | Supported | Dallas, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
+| **Megaport** | Supported | Supported | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
 | **MTN** | Supported | Supported | London |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
 | **NTT Communications** | Supported | Supported | London, Osaka, Tokyo |
