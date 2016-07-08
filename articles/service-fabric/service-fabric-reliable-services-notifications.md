@@ -68,7 +68,7 @@ The **TransactionChanged** event handler uses **NotifyTransactionChangedEventArg
 It contains the action property (for example, **NotifyTransactionChangedAction.Commit**) that specifies the type of change. 
 It also contains the transaction property that provides a reference to the transaction that changed.
 
->[AZURE.NOTE] **TransactionChanged** events are raised only if the transaction is committed. Then, the action is equal to **NotifyTransactionChangedAction.Commit**. We recommend checking the action and processing the event only if it's one that you expect.
+>[AZURE.NOTE] Today, **TransactionChanged** events are raised only if the transaction is committed. The action is then equal to **NotifyTransactionChangedAction.Commit**. But in the future, events might be raised for other types of transaction state changes. We recommend checking the action and processing the event only if it's one that you expect.
 
 Following is an example **TransactionChanged** event handler.
 
