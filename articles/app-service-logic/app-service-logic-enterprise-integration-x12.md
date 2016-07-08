@@ -48,7 +48,7 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
 6. Enter a **Name** for your agreement then select the **Agreement type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
 ![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)  
-7. After you have set the receive settings properties, select the **OK** button 
+7. After you have set the receive settings properties, select the **OK** button  
 Let's continue:  
 8. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
 9. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations and Internal Settings. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  

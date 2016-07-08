@@ -162,13 +162,13 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Create Support Ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-integrate-solution-partners.md
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Create Support Ticket]: sql-data-warehouse-get-started-create-support-ticket.md
+[load sample data]: sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Migration documentation]: sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
@@ -176,7 +176,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [CAT Team Blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature Requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN Forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+[MSDN Forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Stack Overflow Forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
