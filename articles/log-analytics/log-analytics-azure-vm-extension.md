@@ -20,9 +20,9 @@
 
 For Windows and Linux computers, the recommended method for collecting logs and metrics is by installing the Log Analytics agent.
 
-By enabling the Microsoft Monitoring Agent (MMA) or OMS Agent for Linux virtual machine extension, you can easily install the Log Analytics agent on Azure virtual machines. When you use a virtual machine extension, it simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be upgraded automatically, ensuring that you have the latest features and fixes.
+By enabling the *Microsoft Monitoring Agent (MMA)* or *OMS Agent for Linux* virtual machine extension, you can easily install the Log Analytics agent on Azure virtual machines. When you use a virtual machine extension, it simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be upgraded automatically, ensuring that you have the latest features and fixes.
 
-For Windows virtual machines you enable the Microsoft Monitoring Agent VM extension.
+For Windows virtual machines you enable the Microsoft Monitoring Agent virtual machine extension.
 For Linux virtual machines you enable the OmsAgentForLinux virtual machine extension.
 
 Learn more about [Azure virtual machine extensions](../virtual-machines/virtual-machines-windows-extensions-features.md) and the [Linux agent] (../virtual-machines/virtual-machines-linux-agent-user-guide.md).
