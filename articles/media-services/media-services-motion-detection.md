@@ -171,7 +171,31 @@ The following program shows how to:
 1. Creates a job with a video motion detection task based on a configuration file that contains the following json preset. 
 					
 		{
-		    "version": "1.0"
+		  'Version': '1.0',
+		  'Options': {
+		    'SensitivityLevel': 'medium',
+		    'FrameSamplingValue': 1,
+		    'DetectLightChange': 'False',
+		    "MergeTimeThreshold":
+		    '00:00:02',
+		    'DetectionZones': [
+		      [
+		        {'x': 0, 'y': 0},
+		        {'x': 0.5, 'y': 0},
+		        {'x': 0, 'y': 1}
+		       ],
+		      [
+		        {'x': 0.3, 'y': 0.3},
+		        {'x': 0.55, 'y': 0.3},
+		        {'x': 0.8, 'y': 0.3},
+		        {'x': 0.8, 'y': 0.55},
+		        {'x': 0.8, 'y': 0.8},
+		        {'x': 0.55, 'y': 0.8},
+		        {'x': 0.3, 'y': 0.8},
+		        {'x': 0.3, 'y': 0.55}
+		      ]
+		    ]
+		  }
 		}
 
 1. Downloads the output JSON files. 
