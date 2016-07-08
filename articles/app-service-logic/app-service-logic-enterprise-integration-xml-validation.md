@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Overview of XML validation in the Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Overview of XML validation in the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how validation works in the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
