@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="05/25/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Web Apps overview
 
