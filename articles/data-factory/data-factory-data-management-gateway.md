@@ -17,31 +17,32 @@
 	ms.author="spelluru"/>
 
 # Data Management Gateway
-The Data Management Gateway is a client agent installed in your on-premises environment, which enables movement of data between [supported cloud and on-premises data stores](data-factory-data-movement-activities.md##supported-data-stores). 
+The Data Management Gateway is a client agent that you must install in your on-premises environment to enable movement of data between cloud and on-premises data stores that are [supported by the Copy Activity](data-factory-data-movement-activities.md##supported-data-stores).
 
-## What the data management gateway does
-The data gateway provides the following capabilities:
+This article complements the content in [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud) article, which has a walkthrough for creating a Data Factory pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob. This article provides detailed in-depth information about the Data Management Gateway.   
 
-1.	Model on-premises data sources and cloud data sources within the same data factory and move data.
-2.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud dashboard.
-3.	Manage access to on-premises data sources securely.
-	1. No changes required to corporate firewall. Gateway only makes outbound HTTP based connections to open internet.
-	2. Encrypt credentials for your on-premises data stores with your certificate.
-4.	Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
+## Capabilities
+Data Management Gateway provides the following capabilities:
 
-## Data flow when using gateway
+- Model on-premises data sources and cloud data sources within the same data factory and move data.
+- Have a single pane of glass for monitoring and management with visibility into gateway status from the Data Factory blade.
+- Manage access to on-premises data sources securely.
+	- No changes required to corporate firewall. Gateway only makes outbound HTTP based connections to open internet.
+	- Encrypt credentials for your on-premises data stores with your certificate.
+- Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
+
+## Data flow 
 When you use a copy activity in a data pipeline to ingest on-premises data to cloud for further processing, or export result data in the cloud back to an on-premises data store, the copy activity internally uses a gateway to transfer data from on-premises data source to cloud and vice versa.
 
 Here high level data flow for and summary of steps for copy with data gateway:
 ![Data flow using gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1.	Data developer creates a new gateway for an Azure Data Factory using either the [Azure Portal](https://portal.azure.com) or [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx). 
-2.	Data developer uses “Linked services” panel to define a new linked service for an on-premises data store with the gateway. As part of setting up the linked service data developer uses the Setting Credentials application as show in the step by step walkthrough to specify authentication types and credentials.  The Setting Credentials application dialog will communicate with the data store to test connection and the gateway to save credentials.
-3.	Gateway will encrypt the credentials with the certificate associated with the gateway (supplied by data developer), before saving the credentials in the cloud.
-4.	Data factory movement service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When copy activity job needs to be kicked off, data factory queues up the request along with credential information. Gateway kicks off the job after polling the queue.
-5.	The gateway decrypts the credentials with the same certificate and then connects to the on-premises data store with the proper authentication type.
+2.	Data developer creates a linked service for an on-premises data store by specifying the gateway. As part of setting up the linked service, data developer uses the Setting Credentials application to specify authentication types and credentials.  The Setting Credentials application dialog communicates with the data store to test connection and the gateway to save credentials.
+3. Gateway encrypts the credentials with the certificate associated with the gateway (supplied by data developer), before saving the credentials in the cloud.
+4. Data Factory service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When a copy activity job needs to be kicked off, Data Factory queues the request along with credential information. Gateway kicks off the job after polling the queue.
+5.	The gateway decrypts the credentials with the same certificate and then connects to the on-premises data store with proper authentication type and credentials.
 6.	The gateway copies data from the on-premises store to a cloud storage, or from a cloud storage to an on-premises data store depending on how the Copy Activity is configured in the data pipeline. Note: For this step the gateway directly communicates with cloud based storage service (e.g. Azure Blob, Azure SQL etc) over a secure (HTTPS) channel.
-
 
 ## Considerations for using gateway
 1.	A single instance of Data Management Gateway can be used for multiple on-premises data sources, but note that **a single gateway instance is tied to only one Azure data factory** and cannot be shared with another data factory.
@@ -51,6 +52,7 @@ Here high level data flow for and summary of steps for copy with data gateway:
 5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine.
 6.	You must **use the gateway even when you use ExpressRoute**. 
 7.	You should treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute** and **use the gateway** to establish connectivity between the service and the data source. 
+8.	You must **use the gateway** even if the data store is in the cloud on an **Azure IaaS VM**. 
 
 ## Install Data Management Gateway
 
@@ -58,16 +60,90 @@ Here high level data flow for and summary of steps for copy with data gateway:
 1.	The supported **Operating System** versions are Windows 7, Windows 8/8.1,  Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Installation of the Data Management Gateway on a domain controller is currently not supported.
 2.	The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
 3.	If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.
+4.	You must be an administrator on the machine to install and configure the Data Management Gateway successfully. You can add additional users to the **Data Management Gateway Users** local Windows group. The members of this group will be able to use the Data Management Gateway Configuration Manager tool to configure the gateway. 
 
 Due to the fact that copy activity runs happen on a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress you will observe resource usage go up during peak times. While above is the minimum configuration it is always better to have a configuration with more resources than the min configuration described above depending on your specific load for data movement.
 
 ### Installation
-Data Management Gateway can be installed by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).  The MSI can also be used to upgrade existing Data Management Gateway to the latest version, with all settings preserved. You can find the link to the MSI package from Azure Portal by following the step by step walkthrough below.
+Data Management Gateway can be installed in the following ways: 
+
+- By downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).  The MSI can also be used to upgrade existing Data Management Gateway to the latest version, with all settings preserved.
+- By clicking **Download and install data gateway** link under MANUAL SETUP or **Install directly on this computer** under EXPRESS SETUP. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on using express setup. The manual step takes you to the download center and the instructions for downloading and installing the gateway from download center are in the next section. 
 
 
 ### Installation best practices:
 1.	Configure power plan on the host machine for the gateway so that the machine does not hibernate. If the host machine hibernates, the gateway won’t be able to respond to data requests.
 2.	You should backup the certificate associated with the gateway.
+
+### Install gateway from the download center
+1. Navigate to [Microsoft Data Management Gateway download page](https://www.microsoft.com/download/details.aspx?id=39717). 
+2. Click **Download**, select the appropriate version (**32-bit** vs. **64-bit**), and click **Next**. 
+3. Run the **MSI** directly or save it to your hard disk and run.
+4. On the **Welcome** page, select a **language** click **Next**.
+5. **Accept** the End-User License Agreement and click **Next**. 
+6. Select **folder** to install the gateway and click **Next**. 
+7. On the **Ready to install** page, click **Install**. 
+8. Click **Finish** to complete installation.
+9. Get the key from the Azure Portal. See the next section for step-by-step instructions. 
+10. On the **Register gateway** page of **Data Management Gateway Configuration Manager** running on your machine, paste the key in the text, optionally, click **Show gateway key** to see the key text, and click **Register**. 
+
+### Get the key
+
+#### If you haven't already created a logical gateway in the portal
+Follow steps from walkthrough in the [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to create a new gateway in the portal and get the key from the **Configure** blade.   
+
+#### If you have already created the logical gateway in the portal
+1. In Azure Portal, navigate to the **Data Factory** blade, and click **Linked Services** tile.
+
+	![Data Factory blade](media/data-factory-data-management-gateway/data-factory-blade.png)
+2. In the **Linked Services** blade, select the logical **gateway** you created in the portal. 
+
+	![logical gateway](media/data-factory-data-management-gateway/data-factory-select-gateway.png)  
+2. In the **Data Gateway** blade, click **Download and install data gateway**.
+
+	![Download link in the portal](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)   
+3. In the **Configure** blade, click **Recreate key**. Click Yes on the warning message after reading it carefully.
+
+	![Recreate key](media/data-factory-data-management-gateway/recreate-key-button.png)
+4. Click Copy button next to the key to copy it to the clipboard.
+	
+	![Copy key](media/data-factory-data-management-gateway/copy-gateway-key.png) 
+
+## Configuration Manager 
+Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways: 
+
+- In the **Search** window, type **Data Management Gateway** to access this utility. 
+- Run the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared** 
+ 
+### Home page
+The Home page allows you do the following: 
+
+- View status of the gateway; whether the gateway is connected to the cloud service or not. 
+- **Register** using a key from the portal.
+- **Stop** and start the **Data Management Gateway Host service** on the gateway machine.
+- **Schedule updates** at a specific time of the days.
+- View the date when the gateway was **last updated**. 
+
+### Settings page
+The Settings page allows you to do the following:
+
+- View, change, and export **certificate** used by the gateway.
+- Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials. 
+- **Status** of the endpoint
+- View **SSL certificate** used to set credentials for data sources.  
+
+### Diagnostics page
+The Diagnostics page allows you do the following:
+
+- Enable verbose **logging**, view logs in event viewer, and send logs to Microsoft in case of a failure.
+- **Test connection** to a data source.  
+
+### Help page
+The Help page displays the following: 
+
+- Brief description of the gateway
+- Version number
+- Links to online help, privacy statement, and license agreement.  
 
 ## System tray icons/notifications
 The following image shows some of the tray icons that you will see. 
@@ -176,8 +252,7 @@ If you encounter errors such as the following ones, it is likely because of the 
 1.	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2.	When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
 
-## Troubleshooting gateway issues
-
+## Troubleshoot gateway issues
 
 - You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
 - If the gateway stops working after you **change the certificate**, restart (stop and start) the **Data Management Gateway Service** using the Microsoft Data Management Gateway Configuration Manager tool or Services control panel applet. If you still see an error, you may have to give explicit permissions for the Data Management Gateway service user to access the certificate in Certificates Manager (certmgr.msc).  The default user account for the service is: **NT Service\DIAHostService**. 
