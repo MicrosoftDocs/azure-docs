@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/07/2016"
+   ms.date="07/08/2016"
    ms.author="genli"/>
 
 # Transferring Ownership of an Azure subscription
@@ -29,7 +29,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 > [AZURE.NOTE] You have to be the account administrator to perform an ownership transfer. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](#faq).
 
-## How to transfer ownership an Azure subscription
+## How to transfer ownership of an Azure subscription
 
 > [AZURE.VIDEO transfer-an-azure-subscription]
 
@@ -68,7 +68,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. On the Hub menu, select **Subscription**.
     3. Select the subscription you want to check, and then select **Settings**.
-    4. Select **Properties**. The account administrator of the subscription will be displayed in the **ACCOUNT ADMIN** box.  
+    4. Select **Properties**. The account administrator of the subscription will be displayed in the **Account Admin** box.  
 
 -   **Does a subscription transfer result in any service downtime?**
 
