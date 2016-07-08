@@ -22,57 +22,52 @@ The following guidelines will help you create Resource Manager templates that ar
 
 ## Template format
 
-- It is a good practice to pass your template through a JSON linter to remove extraneous commas, parenthesis, brackets that may cause an error during deployment. Try http://jsonlint.com/ or a linter package for your favorite editing environment (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.)
+- It is a good practice to pass your template through a JSON validator to remove extraneous commas, parenthesis, brackets that may cause an error during deployment. Try [JSONlint](http://jsonlint.com/) or a linter package for your favorite editing environment (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.)
 - It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor or [format online](https://www.bing.com/search?q=json+formatter).
 
 ## Parameters
 
-- Template parameters should follow **camelCasing**.
+- Parameters should follow **camelCasing**.
 
 - Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
- + Values a user may wish to vary based on the environment (such as a sku).
- + Values that are globally unique (such as website name).  These are usually endpoints that the user may need to be aware of. However, in many cases a unique name can be generated automatically by using the [uniqueString()](resource-group-template-functions.md#uniquestring) template language function.
- + Values (such as admin user name) that a user must know to complete a workflow.
- + Secrets (such as passwords)
+ 1. Settings a user may wish to vary by environment (such as a sku or size).
+ 2. Globally-unique values that a user may wish to specify (such as website name). However, in many cases a unique name can be generated automatically by using the [uniqueString()](resource-group-template-functions.md#uniquestring) template language function.
+ 3. Values that a user must use later to complete a workflow (such as admin user name).
+ 4. Secrets (such as passwords)
  
- 
-- Define a default value for a parameter, unless the parameter is used for a password.
+- Define default values for parameters, other than passwords.
  
 - Every parameter in the template should have the **lower-case description** tag specified using the metadata property. This looks like below
 
- ```
- "parameters": {
-     "storageAccountType": {
-         "type": "string",
-         "metadata": {
-             "description": "The type of the new storage account created to store the VM disks"
-         }
-     }
- }
- ```
- 
+        "parameters": {
+            "storageAccountType": {
+                "type": "string",
+                "metadata": {
+                    "description": "The type of the new storage account created to store the VM disks"
+                }
+            }
+        }
+
 - Try to avoid using a parameter to specify the **location**. Instead, use the location property of the resource group. By using the **resourceGroup().location** expression for all your resources, the resources in the template will automatically be deployed in the same location as the resource group.
 
- ```
- "resources": [
-   {
-     "name": "[variables('storageAccountName')]",
-     "type": "Microsoft.Storage/storageAccounts",
-     "apiVersion": "2015-06-15",
-     "location": "[resourceGroup().location]",
-     "comments": "This storage account is used to store the VM disks",
-     "properties": {
-       "accountType": "Standard_GRS"
-     }
-   }
- ]
- ```
+        "resources": [
+          {
+              "name": "[variables('storageAccountName')]",
+              "type": "Microsoft.Storage/storageAccounts",
+              "apiVersion": "2015-06-15",
+              "location": "[resourceGroup().location]",
+              "comments": "This storage account is used to store the VM disks",
+              "properties": {
+                  "accountType": "Standard_GRS"
+              }
+          }
+        ]
   
-  If a resource type is supported in only a limited number of locations, consider specifying a valid location directly in the template. If you must use a location parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes users having to provide locations for every resource type.
+     If a resource type is supported in only a limited number of locations, consider specifying a valid location directly in the template. If you must use a location parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes users having to provide locations for every resource type.
 
 - Do not use a parameter for the API version for a resource type. Instead, specify the API version in the template. You can only know the available properties for a resource type by targeting a particular API version.
 
-- **Passwords** must be passed into parameters of type **securestring**. Do not specify a defaultValue for a parameter that is used for a password or an SSH key. Passwords must also be passed to **customScriptExtension** using the **commandToExecute** property in protectedSettings.
+- Use **securestring** for all passwords. Do not specify a defaultValue for a parameter that is used for a password or an SSH key. Passwords must also be passed to **customScriptExtension** using the **commandToExecute** property in protectedSettings.
 
  ```
  "properties": {
@@ -175,8 +170,7 @@ The following guidelines will help you create Resource Manager templates that ar
  "osDisk": {
    "name": "osdisk",
    "vhd": {
-     "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-'/',variables('OSDiskName'),'.vhd')]"
+     "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
    }
  }
  ```
