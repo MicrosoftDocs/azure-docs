@@ -209,9 +209,10 @@ The following steps describe how to create a cluster on Azure IaaS VMs using the
 
 7. Open a Powershell ISE window and navigate to the folder where you downloaded and unzipped the standalone installer package and saved the manifest file above. Run the following Powershell command.
 
- ```
- .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
- ```
+    ```
+    .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
+    ```
+
 8. You should see the Powershell run, connect to each machine and create a cluster. After about 1 min you can test that the cluster is operational by connecting to the Service Fabric Explorer on one of the machine IP addresses e.g. http://10.7.0.5:19080/Explorer/index.html. Because this is a standalone cluster on IaaS VMs if you want to make this secure you have to deploy certs to the VMs or set up one of the machines as a Windows Server Active Directory (AD) controller for Windows authentication just like you would do on-premise. See Next Steps below for setting up secure clusters.
 
 ## Next steps
