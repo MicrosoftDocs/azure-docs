@@ -181,6 +181,12 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 
 You can start and stop monitoring by using PowerShell.
 
+First import the Application Insights module:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Find out which apps are being monitored:
+
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
 * `-Name` (Optional) The name of a web app.
