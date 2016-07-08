@@ -20,10 +20,10 @@
 
 This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
 
-- [Scale up](https://azure.microsoft.com/en-us/blog/scaling-up-and-scaling-out-in-windows-azure-web-sites): Get more CPU, memory, disk space, and extra features
+- [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features
 like dedicated virtual machines (VMs), custom domains and certificates, staging slots, autoscaling, and more. You scale out by changing the pricing tier of the
 App Service plan that your app belongs to.
-- [Scale out](https://azure.microsoft.com/en-us/blog/scaling-up-and-scaling-out-in-windows-azure-web-sites): Increase the number of VM instances that run your app.
+- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of VM instances that run your app.
 You can scale out to as many as 20 instances, depending on your pricing tier. [App Service Environments](../app-service/app-service-app-service-environments-readme.md)
 in **Premium** tier will further increase your scale-out count to 50 instances. For more information about scaling out, see
 [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md). There you will find out how
