@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="femila"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="06/28/2016"
 	ms.author="jeedes"/>
 
 
@@ -48,6 +48,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
+
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding BetterWorks from the gallery
@@ -102,24 +103,28 @@ To configure and test Azure AD single sign-on with BetterWorks, you need to comp
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to outline how to enable users to authenticate to BetterWorks with their account in Azure AD using federation based on the SAML protocol.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your BetterWorks application.
 
-Your BetterWorks application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.
-The following screenshot shows an example for this.
+BetterWorks application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**Atrribute**" tab of the application. The following screenshot shows an example for this. 
 
 ![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_06.png)
 
 **To configure Azure AD single sign-on with BetterWorks, perform the following steps:**
 
-1. In the classic portal, on the BetterWorks application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+1. In the Azure classic portal, on the **BetterWorks** application integration page, in the menu on the top, click **Attributes**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_07.png)
 
-2. To add the required attribute mappings, perform the following steps:
+2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
     
-	![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_08.png) 
 
-	a. For each data row in the table above, click **add user attribute**.
+	| Attribute Name | Attribute Value |
+	| --- | --- |    
+    | saml_token | bd189cf6-1701-11e6-8f90-d26992eca2a5 |
+
+	a. Click **add user attribute** to open the **Add User Attribure** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_12.png)
 	
 	b. In the **Attribute Name** textbox, type the attribute name shown for that row.
 	
@@ -127,41 +132,34 @@ The following screenshot shows an example for this.
 	
 	d. Click **Complete**
 
-3. Click **Apply Changes**.
+3. In the menu on the top, click **Quick Start**.
 
-4. In your browser, click **Back** to open the Quick Start dialog again
+	![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_11.png) 
 
-5. Click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-    
-	![Configure Single Sign-On][6]
-
-6. On the **How would you like users to sign on to BetterWorks** page, select **Azure AD Single Sign-On**, and then click **Next**.
+4. On the **How would you like users to sign on to BetterWorks** page, select **Azure AD Single Sign-On**, and then click **Next**.
     
 	![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_03.png)
 
-7. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
+5. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
 
     ![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_04.png)
 
 
-    a. In the **Reply URL** textbox, type the URL in the following pattern: `https://app.betterworks.com/saml2/acs/`
+    a. In the **Reply URL** textbox, type the URL in the following pattern: **"https://app.betterworks.com/saml2/acs/"**
 
-	b. In the **Identifier** textbox, type the URL in the following pattern: `https://app.betterworks.com/saml2/metadata/`
+	b. In the **Identifier** textbox, type the URL in the following pattern: **"https://app.betterworks.com/saml2/metadata/"**
 
 	c. Click **Next**
 
-4. If you want to configure the application in **SP initiated mode**, perform the following steps:
+6. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_10.png)
 
-	a. Select **Show advanced settings (optional)**.
+	a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your BetterWorks application using the following pattern: **“https://app.betterworks.com”**.
 
-	b. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your BetterWorks application using the following pattern: `https://app.betterworks.com` 
+	b. Click **Next**
 
-	c. Click **Next**	
-
-
-5. On the **Configure single sign-on at BetterWorks** page, perform the following steps and click **Next**:
+7. On the **Configure single sign-on at BetterWorks** page, perform the following steps and click **Next**:
 
 	![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_05.png)
 
@@ -169,13 +167,13 @@ The following screenshot shows an example for this.
 
     b. Click **Next**.
 
-6. To get SSO configured for your application, contact your BetterWorks support team via <mailto:support@betterworks.com>. Attach the downloaded metadata file and share it with BetterWorks team to set up SSO on their side.
+8. To get SSO configured for your application, contact your BetterWorks support team via <mailto:support@betterworks.com>. Attach the downloaded metadata file and share it with BetterWorks team to set up SSO on their side.
 
-7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+9. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
 	![Azure AD Single Sign-On][10]
 
-8. On the **Single sign-on confirmation** page, click **Complete**.  
+10. On the **Single sign-on confirmation** page, click **Complete**.  
     
 	![Azure AD Single Sign-On][11]
 
