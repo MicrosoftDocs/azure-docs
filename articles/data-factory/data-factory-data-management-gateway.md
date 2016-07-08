@@ -19,10 +19,7 @@
 # Data Management Gateway
 The Data Management Gateway is a client agent installed in your on-premises environment, which enables movement of data between [supported cloud and on-premises data stores](data-factory-data-movement-activities.md##supported-data-stores). 
 
-## How Azure Data Factory works with the Data Management Gateway 
-What if you could move data seamlessly to and from on-premises to the cloud? Azure Data Factory - an agent you install on-premises – gives you the data gateway management capabilities you need, including an application to set gateway credentials.
-
-## What the data gateway does
+## What the data management gateway does
 The data gateway provides the following capabilities:
 
 1.	Model on-premises data sources and cloud data sources within the same data factory and move data.
@@ -32,7 +29,7 @@ The data gateway provides the following capabilities:
 	2. Encrypt credentials for your on-premises data stores with your certificate.
 4.	Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
 
-## Data flow for copy Using Data Management Gateway
+## Data flow when using gateway
 When you use a copy activity in a data pipeline to ingest on-premises data to cloud for further processing, or export result data in the cloud back to an on-premises data store, the copy activity internally uses a gateway to transfer data from on-premises data source to cloud and vice versa.
 
 Here high level data flow for and summary of steps for copy with data gateway:
@@ -46,7 +43,7 @@ Here high level data flow for and summary of steps for copy with data gateway:
 6.	The gateway copies data from the on-premises store to a cloud storage, or from a cloud storage to an on-premises data store depending on how the Copy Activity is configured in the data pipeline. Note: For this step the gateway directly communicates with cloud based storage service (e.g. Azure Blob, Azure SQL etc) over a secure (HTTPS) channel.
 
 
-## Considerations for using Data Management Gateway
+## Considerations for using gateway
 1.	A single instance of Data Management Gateway can be used for multiple on-premises data sources, but note that **a single gateway instance is tied to only one Azure data factory** and cannot be shared with another data factory.
 2.	You can have **only one instance of Data Management Gateway** installed on a single machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install gateways on two on-premises computers where each gateway tied to a separate data factory.
 3.	The **gateway does not need to be on the same machine as the data source**, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts on-premises data source so that the gateway does not compete for resources with data source.
