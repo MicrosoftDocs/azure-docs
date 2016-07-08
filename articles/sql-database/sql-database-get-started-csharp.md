@@ -46,7 +46,7 @@ To complete the steps in this article you need the following:
 To set up a SQL database with C#, get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -432,7 +432,7 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
 
 
 
-## Next Steps
+## Next steps
 Now that you've tried SQL Database and set up a database with C#, you're ready for the following articles:
 
 - [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)

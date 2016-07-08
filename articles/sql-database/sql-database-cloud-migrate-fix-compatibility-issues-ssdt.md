@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Fix SQL Server database compatibility issues before migration to SQL Database"
+   pageTitle="Fix SQL Server database compatibility issues before migration to SQL Database | Microsoft Azure"
    description="Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard, SSDT"
    services="sql-database"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Migrate a SQL Server Database to Azure SQL Database Using SQL Server Data Tools for Visual Studio 
@@ -89,12 +89,12 @@ Use SQL Server Data Tools for Visual Studio ("SSDT") to import the database sche
     
 6.	Choose a deployment methos. See [Migrate a compatible SQL Server database to SQL Database.](sql-database-cloud-migrate.md)  
 
-## Next Steps
+## Next steps
 
 - [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Learn More
+## Additional resources
 
 - [SQL Database V12](sql-database-v12-whats-new.md)
 - [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)

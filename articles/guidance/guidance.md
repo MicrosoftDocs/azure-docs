@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/03/2016"
+   ms.date="06/29/2016"
    ms.author="christb"/>
 
 # Azure Guidance
@@ -46,7 +46,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [API Implementation][APIImplementation] 
 
-    A set of recommended practices for implementing and publishing a web API .
+    A set of recommended practices for implementing and publishing a web API.
 
 - [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
 
@@ -58,7 +58,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Background Jobs guidance][BackgroundJobsGuidance] 
 
-    A description og available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
+    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
 
 - [Content Delivery Network (CDN) guidance][CDNGuidance] 
 
@@ -116,33 +116,49 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 We're creating a new set of guidance we're calling _reference architectures_. Each reference architecture offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these reference architectures, and some are available for preview. We're very intereseted in your feedback.
 
-- [Running a Single Windows VM on Azure][ref-arch-single-vm-windows]
-- [Running multiple Windows VM instances on Azure (single tier, Internet-facing)][ref-arch-multi-vm-windows]
-- [Running Windows VMs for an N-tier architecture on Azure][ref-arch-3-tier-windows]
-- [Adding reliability to an N-tier architecture on Azure (Windows VMs)][ref-arch-n-tier-windows]
-- [Running Windows VMs in multiple datacenters on Azure][ref-arch-multi-dc]
-- [Extending an on-premises network to Azure using a site-to-site virtual private network][ref-arch-hybrid-network-vpn]
-- [Implementing a highly available hybrid network architecture in Azure by using failover between ExpressRoute and VPN gateway](guidance-hybrid-network-expressroute-vpn-failover.md)
+Running virtual machines on Azure:
+
+- [Running a Windows VM on Azure][ref-arch-single-vm-windows]
+- [Running a Linux VM on Azure][ref-arch-single-vm-linux]
+- [Running multiple VMs for scalability and availability][ref-arch-multi-vm]
+- [Running VMs for an N-tier architecture][ref-arch-3-tier]
+- [Adding reliability to an N-tier architecture (Windows)][ref-arch-n-tier-windows]
+- [Adding reliability to an N-tier architecture (Linux)][ref-arch-n-tier-linux]
+- [Running VMs in multiple regions for high availability (Windows)][ref-arch-multi-dc-windows]
+- [Running VMs in multiple regions for high availability (Linux)][ref-arch-multi-dc-linux]
+
+Hybrid network architectures:
+
+- [Implementing a hybrid network architecture with Azure and on-premises VPN](guidance-hybrid-network-vpn.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
+- [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
+- [Implementing a DMZ between Azure and your on-premises datacenter](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
+
+Web applications (PaaS):
+
+- [Basic web application](guidance-web-apps-basic.md)
+- [Improving scalability in a web application](guidance-web-apps-scalability.md)
+- [Web application with high availability](guidance-web-apps-multi-region.md)
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
 [PerformanceOptimization]: https://github.com/mspnp/performance-optimization
 
-[APIDesign]: ../best-practices-api-design/
-[APIImplementation]: ../best-practices-api-implementation/
-[AutoscalingGuidance]: ../best-practices-auto-scaling/
-[BackgroundJobsGuidance]: ../best-practices-background-jobs/
-[CDNGuidance]: ../best-practices-cdn/
-[CachingGuidance]: ../best-practices-caching/
-[DataPartitioningGuidance]: ../best-practices-data-partitioning/
-[MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring/
-[RetryGeneralGuidance]: ../best-practices-retry-general/
-[RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific/
+[APIDesign]: ../best-practices-api-design.md
+[APIImplementation]: ../best-practices-api-implementation.md
+[AutoscalingGuidance]: ../best-practices-auto-scaling.md
+[BackgroundJobsGuidance]: ../best-practices-background-jobs.md
+[CDNGuidance]: ../best-practices-cdn.md
+[CachingGuidance]: ../best-practices-caching.md
+[DataPartitioningGuidance]: ../best-practices-data-partitioning.md
+[MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring.md
+[RetryGeneralGuidance]: ../best-practices-retry-general.md
+[RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific.md
 [RetryPolicies]: Retry-Policies.md
-[ScalabilityChecklist]: ../best-practices-scalability-checklist/
-[AvailabilityChecklist]: ../best-practices-availability-checklist/
-[naming-conventions]: ../guidance-naming-conventions/
+[ScalabilityChecklist]: ../best-practices-scalability-checklist.md
+[AvailabilityChecklist]: ../best-practices-availability-checklist.md
+[naming-conventions]: guidance-naming-conventions.md
 
 <!-- guidance projects -->
 [elasticsearch]: guidance-elasticsearch.md
@@ -150,8 +166,10 @@ We're creating a new set of guidance we're calling _reference architectures_. Ea
 
 <!-- reference architectures -->
 [ref-arch-single-vm-windows]: guidance-compute-single-vm.md
-[ref-arch-multi-vm-windows]: guidance-compute-multi-vm.md
-[ref-arch-3-tier-windows]: guidance-compute-3-tier-vm.md
+[ref-arch-single-vm-linux]: guidance-compute-single-vm-linux.md
+[ref-arch-multi-vm]: guidance-compute-multi-vm.md
+[ref-arch-3-tier]: guidance-compute-3-tier-vm.md
 [ref-arch-n-tier-windows]: guidance-compute-n-tier-vm.md
-[ref-arch-multi-dc]: guidance-compute-multiple-datacenters.md
-[ref-arch-hybrid-network-vpn]: guidance-hybrid-network-vpn.md
+[ref-arch-n-tier-linux]: guidance-compute-n-tier-vm-linux.md
+[ref-arch-multi-dc-windows]: guidance-compute-multiple-datacenters.md
+[ref-arch-multi-dc-linux]: guidance-compute-multiple-datacenters-linux.md

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
@@ -112,7 +112,7 @@ After connecting to the virtual machine, the next task is to install packages re
 
 4. **Install kerberos:** In your PuTTY terminal, type the following command.
 
-    sudo yum install krb5-workstation krb5-libs krb5-auth-dialog
+    sudo yum install krb5-workstation krb5-libs
 
 	![Install kerberos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-install-kerberos.png)
 

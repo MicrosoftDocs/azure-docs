@@ -3,7 +3,7 @@
  description="Overview of Azure IoT Hub device management: device twins, device queries, device jobs"
  services="iot-hub"
  documentationCenter=""
- authors="ellenfosborne"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Overview of Azure IoT Hub device management (preview)
 
@@ -24,7 +24,7 @@ There are three main concepts for device management in Azure IoT:
 
 1.  **Device twin:** the representation of the physical device in IoT Hub.
 
-2.  **Device queries**: enable you to find device twins and generate an aggregate understanding of device twins. For example, you could find all device twins with a firmware version of 1.0.
+2.  **Device queries**: enable you to find device twins and generate an aggregate understanding of multiple device twins. For example, you could run a query to find all device twins with a firmware version of 1.0.
 
 3.  **Device jobs**: an action to perform on one or more physical devices, such as firmware update, reboot, and factory reset.
 
@@ -86,7 +86,7 @@ There are six types of device jobs that are provided by Azure IoT Hub device man
 
 For details on how to use each of these jobs, please see the [API documentation for C\# and node.js][lnk-apidocs].
 
-A job can operate on multiple devices. When you start a job, an associated child job is created for each of those devices. A child job operates on a single device. Each child job has a pointer to its parent job. The parent job is only a container for the child jobs, it does not implement any logic to distinguish between types of devices (such as updating and Intel Edison versus updating a Raspberry Pi). The following diagram illustrates the relationship between a parent job, its children, and the associated physical devices.
+A job can operate on multiple devices. When you start a job, an associated child job is created for each of those devices. A child job operates on a single device. Each child job has a pointer to its parent job. The parent job is only a container for the child jobs, it does not implement any logic to distinguish between types of devices (such as updating an Intel Edison versus updating a Raspberry Pi). The following diagram illustrates the relationship between a parent job, its children, and the associated physical devices.
 
 ![][img-jobs]
 
@@ -103,17 +103,9 @@ The DM client library has two main responsibilities in device management:
 
 To learn more about these responsibilities and the implementation on the physical device in [Introducing the Azure IoT Hub device management client library for C][lnk-library-c].
 
-## Next steps
+## Next step
 
-To learn more about the Azure IoT Hub device management features you can go through the tutorials:
-
-- [Get started with Azure IoT Hub device management][lnk-get-started]
-
-- [How to use the device twin][lnk-tutorial-twin]
-
-- [How to find device twins using queries][lnk-tutorial-queries]
-
-- [How to use device jobs to update device firmware][lnk-tutorial-jobs]
+To continue learning about the Azure IoT Hub device management features, see the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial.
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -124,7 +116,5 @@ To learn more about the Azure IoT Hub device management features you can go thro
 [lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md

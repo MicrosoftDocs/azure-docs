@@ -13,19 +13,20 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="07/07/2016"
  ms.author="nberdy"/>
 
 # Introduction to operations monitoring
 
 IoT Hub operations monitoring enables users to monitor the status of operations on their IoT hub in real time. IoT Hub tracks events across several categories of operations, and users can opt into having events from one or more categories sent to an endpoint of their IoT hub for processing. Users can monitor the data for errors or set up more complex processing based on data patterns.
 
-IoT Hub monitors four categories of events:
+IoT Hub monitors five categories of events:
 
 - Device identity operations
 - Device telemetry
 - Cloud-to-device commands
 - Connections
+- File uploads
 
 ## How to enable operations monitoring
 
@@ -120,6 +121,25 @@ The connections category tracks errors when devices connect or disconnect from a
          "statusType": 4XX001,
          "statusDescription": "MessageDescription",
          "deviceId": "device-ID"
+    }
+
+### File uploads
+
+The file upload category tracks errors which occur at the IoT hub and are related to file upload functionality. This includes errors which occur with the SAS URI (such as when it expires before a device notifies the hub of a completed upload), failed uploads reported by the device, and when a file is not found in storage during IoT Hub notification message creation. Note that this category cannot catch errors which directly occur while the device is uploading a file to storage.
+
+    {
+         "authType": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+         "protocol": "HTTP",
+         "time": " UTC timestamp",
+         "operationName": "ingress",
+         "category": "fileUpload",
+         "level": "Error",
+         "statusCode": 4XX,
+         "statusType": 4XX001,
+         "statusDescription": "MessageDescription",
+         "deviceId": "device-ID",
+         "blobUri": "http//bloburi.com",
+         "durationMs": 1234
     }
 
 ## Next steps

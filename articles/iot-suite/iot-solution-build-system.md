@@ -2,16 +2,16 @@
 	pageTitle="MyDriving Azure IoT example: Build it | Microsoft Azure"
 	description="Build an app that's a comprehensive demonstration of how to architect an IoT system by using Microsoft Azure, including Stream Analytics, Machine Learning, and Event Hubs."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
+    documentationCenter=".net"
+    suite=""
 	authors="alancameronwills"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
 	ms.author="awills"/>
@@ -439,7 +439,7 @@ We assume:
 
 For more information, see:
 
--   Summary of [Azure service quotas and limits](../azure-subscription-service-limits/#iot-hub-limits)
+-   Summary of [Azure service quotas and limits](../azure-subscription-service-limits.md#iot-hub-limits)
 
 -   Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 

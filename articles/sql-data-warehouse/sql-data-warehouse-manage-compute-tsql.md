@@ -19,7 +19,7 @@
 # Manage compute power in Azure SQL Data Warehouse (T-SQL)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-compute.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -87,7 +87,7 @@ For other management tasks, see [Management overview][].
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power overview]: ./sql-data-warehouse-overview-manage-compute-power.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 

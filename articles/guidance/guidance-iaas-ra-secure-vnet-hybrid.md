@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Architecture Reference - IaaS: Implementing a secure hybrid network architecture in Azure | Microsoft Azure"
+   pageTitle="Azure Architecture Reference - IaaS: Implementing a DMZ between Azure and your on-premises datacenter | Microsoft Azure"
    description="How to implement a secure hybrid network architecture in Azure."
    services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="05/31/2016"
    ms.author="telmos"/>
 
-# Implementing a secure hybrid network architecture in Azure
+# Implementing a DMZ between Azure and your on-premises datacenter
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
@@ -215,7 +215,7 @@ azure network route-table route create -a 0.0.0.0/0 -y VirtualNetworkGateway <<r
 <# Associate the route table with the business tier subnet: #>
 azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> <<business-tier-subnet-name>>
 ```
-The sample deployment script below does not enable forced tunneling. To enable forced tunnaling, uncomment the last lines in the scripts as shown below by removing the # character at the begining of each line.
+The sample deployment script below does not enable forced tunneling. To enable forced tunneling, uncomment the last lines in the scripts as shown below by removing the # character at the begining of each line.
 
 ```bash
 ############################################################################

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/14/2016"
+	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
 # SQL Database tutorial: Create a SQL database in minutes using the Azure portal
@@ -55,7 +55,7 @@ Now that you've completed this SQL Database tutorial and created a database with
 - If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) to learn more.
 
 
-## Learn More
+## Additional resources
 
 [What is SQL Database?](sql-database-technical-overview.md)
 

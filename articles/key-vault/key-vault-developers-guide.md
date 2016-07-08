@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/25/2016"
+   ms.date="07/07/2016"
    ms.author="bruceper" />
 
 # Azure Key Vault Developer's Guide
 Using Key Vault, you will be able to securely access sensitive information from within your applications such that:
 
-- Keys and secrets will be protected, without having to write the code yourself and, you will be easily able to use them from your applications.
+- Keys and secrets will be protected without having to write the code yourself and you will be easily able to use them from your applications.
 - You'll be able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application such that the solution is suitable for an application that is geographically distributed.
 
@@ -64,9 +64,9 @@ You can, subject to successful authorization, do the following:
 
 The following SDKs are available for working with Key Vault:
 
-|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt430941.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[.NET SDK Documentation](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[.NET SDK Documentation](https://msdn.microsoft.com/library/mt430941.aspx)|[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[.NET SDK Package](https://azure.microsoft.com/documentation/api/)|[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault)|
 
 
@@ -86,6 +86,13 @@ The following articles and scenarios provide task specific guidance for working 
 - [How to integrate Key Vault with Azure Disk Encryption for Windows and Linux IaaS VMs](../azure-security-disk-encryption.md) - This disk encryption solution is integrated with Azure Key Vault to help control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
 
 For more task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones ARM template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+
+## Integrated with Key Vault
+
+These articles are about other scenarios and services that make us of or integrate with Key Vault. 
+
+- [Azure Disk Encryption](../azure-security-disk-encryption.md) leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
+
 
 ## Supporting Libraries
 

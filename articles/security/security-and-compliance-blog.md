@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="06/08/2016"
    ms.author="terrylan"/>
 
 # Azure Security and Compliance Blog
@@ -27,6 +27,14 @@ In addition to technical information, the Azure Security and Compliance team blo
 Make sure to check the Azure Security and Compliance team blog to see what’s new with all things related to Azure security.
 
 **Recent articles** (this section will be updated weekly with links to new posts):
+
+[Azure Infrastructure Security Book Coming Soon](https://blogs.msdn.microsoft.com/azuresecurity/2016/06/06/azure-infrastructure-security-book-coming-soon/) (June 6, 2016)
+
+[Insights on Container Security with Azure Container Service (ACS)](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/26/insights-on-container-security-with-azure-container-service-acs/) (May 26, 2016)
+
+[Azure Security Information Site on Azure.com](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/24/azure-security-information-site-on-azure-com/) (May 24, 2016)
+
+[Improve Security by Migrating from Azure Service Management to Azure Resource Management](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/24/improve-security-by-migrating-from-azure-service-management-to-azure-resource-management/) (May 24, 2016)
 
 [Azure Disk Encryption for Windows Virtual Machines reaches General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) (May 20, 2016)
 

@@ -47,7 +47,7 @@ Query Performance Insight is easy to use:
 
 - Review the list of top resource-consuming queries. 
 - Select an individual query to view its details.
-- Open [SQL Database Advisor](sql-database-index-advisor.md) and check if any recommendations are available.
+- Open [SQL Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
 - Zoom in for detailed information.
 
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
@@ -160,7 +160,7 @@ Query Performance Insight helps you understand the impact of your query workload
 
 ## Next steps
 
-For additional recommendations for improving the performance of your SQL database click [SQL Database Advisor](sql-database-index-advisor.md) on the **Query Performance Insight** blade.
+For additional recommendations for improving the performance of your SQL database click [SQL Database Advisor](sql-database-advisor.md) on the **Query Performance Insight** blade.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="07/06/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -63,25 +63,23 @@ For now, the services that support moving to both a new resource group and subsc
 - Redis Cache
 - Scheduler
 - Search
+- Storage
 - Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
+- Virtual Machines
 - Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
-
-## Services that partially support move
-
-The services that support moving to a new resource group but not a new subscription are:
-
 - Virtual Networks
 
 ## Services that do not support move
 
 The services that currently do not support moving a resource are:
 
+- Application Gateway
 - Application Insights
 - Express Route
-- Storage
-- Virtual Machines
+- Virtual Machines Scale Sets
 - Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+- VPN Gateway
 
 ## App Service limitations
 
@@ -139,11 +137,11 @@ When moving resources to a **new subscription**, the following restrictions appl
 
 ## Using portal to move resources
 
-You can move some resources through the portal; however, not all resource providers that support the move operation provide that functionality through the portal. 
-
 To move a resource, select the resource and then select the **Move** button.
 
 ![move resource](./media/resource-group-move-resources/move-resources.png)
+
+> [AZURE.NOTE] Not all resources currently support being moved through the portal. If you do not see the **Move** button for the resource you want to move, use PowerShell, CLI, or REST API to move the resource. 
 
 You specify the destination subscription and resource group when moving the resource. If other resources must be moved with the resource, they are listed.
 

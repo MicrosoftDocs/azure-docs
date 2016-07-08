@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # SQL Server database migration to SQL Database in the cloud
@@ -97,13 +97,13 @@ To migrate with minimal downtime, use [SQL Server transaction replication](sql-d
 
 	 ![SQL Server database migration - migrate SQL database to the cloud.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-## Next Steps
+## Next steps
 
 - [The Microsoft SQL Server 2016 Upgrade Advisor Preview](http://www.microsoft.com/download/details.aspx?id=48119)
 - [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-##Learn More
+##Additional resources
 
 - [SQL Database V12](sql-database-v12-whats-new.md)
 [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
