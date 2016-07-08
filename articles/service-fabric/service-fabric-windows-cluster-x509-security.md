@@ -170,14 +170,14 @@ For clusters that you use for test purposes, you can choose to use a self-signed
 ## Optional: Create a self-signed certificate
 One way to create a self-signed cert that can be ACLed correctly is to use the *CertSetup.ps1* script in the Service Fabric SDK folder in the directory *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Edit this file and use this to create a certificate with a suitable name.
 
-Now export the certificate to a pfx file with a protected password. First you need to get the thumbprint of the certificate. Run the certmgr.exe application  navigate to the Local Computer\Personal folder and find the certificate you just created. Double click the certificate to open it, select the Details tab and scroll down to the thumbprint field. Copy the thumbprint value into the Powershell command below, removing the spaces.  Change the *$pswd* value to a suitability secure password to protect it and run the Powershell.
+Now export the certificate to a pfx file with a protected password. First you need to get the thumbprint of the certificate. Run the certmgr.exe application. Navigate to the **Local Computer\Personal** folder and find the certificate you just created. Double click the certificate to open it, select the *Details* tab and scroll down to the *Thumbprint* field. Copy the thumbprint value into the PowerShell command below, removing the spaces.  Change the *$pswd* value to a suitability secure password to protect it and run the PowerShell:
 
 ```   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
 Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -FilePath C:\mypfx.pfx -Password $pswd
 ```
 
- To see the details of a certificate installed on the machine you can run the following Powershell command.
+ To see the details of a certificate installed on the machine you can run the following PowerShell command:
 
 ```
 $cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
@@ -189,8 +189,8 @@ Write-Host $cert.ToString($true)
 ## Install the certificates
  Once you have certificate(s), you can install them on the cluster nodes. Your nodes need to have the latest Windows PowerShell 3.x installed on them. You will need to repeat these steps on each node, for both Cluster and Server certificates and any secondary certificates.
 
-- Copy the .pfx file(s) to the node.
-- Open a PowerShell window as an administrator and enter the following commands. Replace the *$pswd* with the password that you used to create this certificate. Replace the *$PfxFilePath* with the full path of the .pfx copied to this node.
+1. Copy the .pfx file(s) to the node.
+2. Open a PowerShell window as an administrator and enter the following commands. Replace the *$pswd* with the password that you used to create this certificate. Replace the *$PfxFilePath* with the full path of the .pfx copied to this node.
 
     ```
     $pswd = "1234"
@@ -198,7 +198,7 @@ Write-Host $cert.ToString($true)
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
 
-- Next you need to set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script providing the thumbprint of the certificate and NETWORK SERVICE for the serviceAccount. You can check that the ACLs on the certificate are correct using the certmgr.exe tool and looking at the Manage Private Keys on the cert.
+3. Next you need to set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script. Provide the thumbprint of the certificate and "NETWORK SERVICE" for the service account. You can check that the ACLs on the certificate are correct using the certmgr.exe tool and looking at the Manage Private Keys on the cert.
 
     ```
     param
@@ -236,28 +236,28 @@ Write-Host $cert.ToString($true)
         get-acl $keyFullPath| fl
         ```
 
-Repeat the steps above for each server certificate. You can use these steps to also install the client certificates on the machines that you want to allow access to the cluster.
+4. Repeat the steps above for each server certificate. You can also use these steps to install the client certificates on the machines that you want to allow access to the cluster.
 
 ## Create the secure cluster
 After configuring the **security** section of the **ClusterConfig.X509.MultiMachine.json** file, you can proceed to [Create your cluster](service-fabric-cluster-creation-for-windows-server.md#createcluster) section to configure the nodes and create the standalone cluster. Remember to use the **ClusterConfig.X509.MultiMachine.json** file while creating the cluster. For example, your command might look like the following:
 
+```
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
+```
 
-	.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
-
-Once you have the secure standalone Windows cluster successfully running, and have setup the authenticated clients to connect to it, follow the section [Connect to a secure cluster using PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) to connect to it. For example
+Once you have the secure standalone Windows cluster successfully running, and have setup the authenticated clients to connect to it, follow the section [Connect to a secure cluster using PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) to connect to it. For example:
 
 ```
 Connect-ServiceFabricCluster -ConnectionEndpoint 10.7.0.4:19000 -KeepAliveIntervalInSec 10 -X509Credential -ServerCertThumbprint 057b9544a6f2733e0c8d3a60013a58948213f551 -FindType FindByThumbprint -FindValue 057b9544a6f2733e0c8d3a60013a58948213f551 -StoreLocation CurrentUser -StoreName My
 ```
 
-
-If you are logged on to one of the machines in the cluster, since this already has the certificate installed locally you can simply run the Powershell command to connect to the cluster and show a list of nodes.
+If you are logged on to one of the machines in the cluster, since this already has the certificate installed locally you can simply run the Powershell command to connect to the cluster and show a list of nodes:
 
 ```
 Connect-ServiceFabricCluster
 Get-ServiceFabricNode
 ```
-To remove the cluster call the following command
+To remove the cluster call the following command:
 
 ```
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
