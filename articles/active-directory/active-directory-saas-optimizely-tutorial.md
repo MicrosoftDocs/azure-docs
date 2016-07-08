@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="femila"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="06/25/2016"
 	ms.author="jeedes"/>
 
 
@@ -123,14 +123,12 @@ Optimizely application expects the SAML assertions to contain an attribute named
 
 	b. In the **Attribute Name** textbox, type the attribute name "email".
 
-	c. From the **Attribute Value** list, select the attribute value "userprincipalname" or any value that contains an email recognize by Azure AD and Optimizely.
+	c. From the **Attribute Value** list, select the attribute value "userprincipalname" or any value that contains an email recognized by Azure AD and Optimizely.
 
 	d. Click **Complete**.
-
 3. In the menu on the top, click **Quick Start**.
 
 	![Configure Single Sign-On][6]
-
 4. In the classic portal, on the **Optimizely** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
 	![Configure Single Sign-On][7] 
@@ -144,27 +142,24 @@ Optimizely application expects the SAML assertions to contain an attribute named
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
 
 
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://app.optimizely.net/<company name\>`
+    a. In the Sign ON URL textbox, type a URL using the following pattern: **“https://app.optimizely.net/<companyname\>”**.
 
-	b. In the **Identifier** type the URL in the following pattern: `urn:auth0:optimizely:<company name\>`
+	b. In the IDENTIFIER type the URL in the following pattern: **"urn:auth0:optimizely:<companyname\>"**
 
-	c. Click **Next**. 
+	c. Click **Next**. Please note that these are not the real values, you will have to update these values after Optimizely provides you with the real Sign On URL (SP-initiated SSO) and IDENTIFIER (Service Provider Entity ID).
 
-	> [AZURE.NOTE] Please note that these are not the real values, you will have to update these values after Optimizely provides you with the real Sign On URL (SP-initiated SSO) and Identifier (Service Provider Entity ID).
-
-7. On the **Configure single sign-on at Optimizely** page, Click **Download metadata**, and then save the file on your computer.
+7. On the **Configure single sign-on at Optimizely** page, Click **Download certificate**, and then save the file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_08.png)
 
-8. To get SSO configured for your application, contact your Optimizely Account Manager and he will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded metadata file with the Single Sign-ON Service URL. Then, they will provide the Sign On URL (SP-initiated SSO) and IDENTIFIER (Service Provider Entity ID) values.
+8. To get SSO configured for your application, contact your Optimizely Account Manager and he will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded certificate file with the Single Sign-ON Service URL. Then, they will provide the Sign On URL (SP-initiated SSO) and IDENTIFIER (Service Provider Entity ID) values.
 
 9. With the information provided by Optimizely, go back to **Configure App Settings** dialog page and update the following values:
 
-	a. The **Sign ON URL** with the SP-initiated SSO URL.
+	a. The Sign ON URL with the SP-initiated SSO URL.
 
-	b. The **Identifier** with the Service Provider Entity ID.
-
-10. Return to **Configure single sign-on at Optimizely** page. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+	b. The IDENTIFIER with the Service Provider Entity ID.
+10. Click next and go to **Configure single sign-on at Optimizely** page. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
 	![Azure AD Single Sign-On][10]
 
@@ -173,8 +168,7 @@ Optimizely application expects the SAML assertions to contain an attribute named
 	![Azure AD Single Sign-On][11]
 
 12. In a different browser window, sign-on to your Optimizely application.
-
-13. Click you account name in the tip right corner and the **Account Settings**.
+13. Click you account name in the top right corner and then **Account Settings**.
 
 	![Azure AD Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_09.png)
 
@@ -290,7 +284,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Hightail tile in the Access Panel, you should get automatically signed-on to your Hightail application.
+When you click the Optimizely tile in the Access Panel, you should get automatically signed-on to your Optimizely application.
 
 ## Additional Resources
 
