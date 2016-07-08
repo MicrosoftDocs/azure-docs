@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
-	ms.author="wesmc"/>
+	ms.date="07/08/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Authenticate with Mobile Engagement REST APIs
 
