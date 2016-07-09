@@ -30,7 +30,7 @@ RHUI is available in all regions where RHEL on-demand images are available. It c
 
 > [AZURE.NOTE] Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
-## Get updates from the other update repository (e.g. Red Hat Satellite)
+## Get updates from another update repository (e.g. Red Hat Satellite)
 
 If you need to get updates from a different update repository (instead of Azure-hosted RHUI) you will need to unregister your instances from RHUI and re-register them with the desired update infrastructure (such as Red Hat Satellite or Red Hat Customer Portal CDN). You will need appropriate Red Hat subscriptions for these services and registration for [Red Hat Cloud Access in Azure](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure).
 
