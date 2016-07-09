@@ -222,7 +222,7 @@ azure vm create \
     --admin-username ops
 ```
 
-Verify everything that was built by using the JSON parser:
+Use the JSON parser to verify that everything that was built:
 
 ```bash
 azure vm show -g TestRG -n TestVM1 --json | jq '.'
@@ -810,11 +810,11 @@ Here, we specified an interval of 15 seconds for our health checks, and we can m
 
 ### Verify the load balancer
 Now the load balancer configuration is done. Here are the steps you took:   
-1. First you created a load balancer.
-2. Then you created a front-end IP pool and assigned a public IP to it.
-3. Next you created a back-end IP pool that VMs can connect to.
-4. After that, you created NAT rules that allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app.
-5. Finally you added a health probe to periodically check the VMs. This ensures that users don't try to access a VM that is no longer functioning or serving content.
+    1. First you created a load balancer.
+    2. Then you created a front-end IP pool and assigned a public IP to it.
+    3. Next you created a back-end IP pool that VMs can connect to.
+    4. After that, you created NAT rules that allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app.
+    5. Finally you added a health probe to periodically check the VMs. This ensures that users don't try to access a VM that is no longer functioning or serving content.
 
 Let's review what your load balancer looks like now:
 
