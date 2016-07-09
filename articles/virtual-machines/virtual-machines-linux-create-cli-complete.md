@@ -809,7 +809,8 @@ info:    network lb probe create command OK
 Here, we specified an interval of 15 seconds for our health checks, and we can miss a maximum of four probes (one minute) before the load balancer considers that the host is no longer functioning.
 
 ### Verify the load balancer
-Now the load balancer configuration is done. Here are the steps you took:   
+Now the load balancer configuration is done. Here are the steps you took:
+  
     1. First you created a load balancer.
     2. Then you created a front-end IP pool and assigned a public IP to it.
     3. Next you created a back-end IP pool that VMs can connect to.
