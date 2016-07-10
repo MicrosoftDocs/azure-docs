@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="06/24/2016"
+   ms.date="07/08/2016"
    ms.author="magoedte" />
 
 # Azure Automation Integration Modules
@@ -209,4 +209,4 @@ This is similar to the "type ahead" functionality of a cmdlet's output in PowerS
 ## Next Steps
 
 - To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
-- To learn more about creating PowerShell Modules, see [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
+- To learn more about creating PowerShell Modules, see [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
