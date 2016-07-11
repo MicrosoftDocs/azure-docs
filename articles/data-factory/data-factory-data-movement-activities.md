@@ -197,5 +197,5 @@ You can also use a **custom** variable as shown below and use any [supported for
 
 ## Next Steps
 - See [Copy data from Azure Blob to Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to learn about how to use Copy Activity to move data from a source data store to a sink data store in general. 
-- See [Move data from on-premises to cloud data stores](data-factory-move-data-from-onprem-to-cloud.md) to learn about moving data from an on-premises data store to a cloud data store. 
+- See [Move data from on-premises to cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) to learn about moving data from an on-premises data store to a cloud data store. 
  
