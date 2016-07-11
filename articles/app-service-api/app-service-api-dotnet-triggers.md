@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2016" 
-	ms.author="guayan"/>
+	ms.author="rachelap"/>
 
 # Azure App Service API app triggers
 

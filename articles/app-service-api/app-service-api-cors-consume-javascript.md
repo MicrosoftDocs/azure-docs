@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="05/27/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Consume an API app from JavaScript using CORS
 
