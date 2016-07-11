@@ -45,9 +45,9 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
 
  
-## Scenario Description
+## Scenario description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of three main building blocks:
+The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Flatter Files from the gallery 
 2. Configuring and testing Azure AD single sign-on
@@ -99,7 +99,7 @@ To configure and test Azure AD single sign-on with Flatter Files, you need to co
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Azure AD single sign-on
 
 The objective of this section is to enable Azure AD single sign-on in the Azure AD classic portal and to configure single sign-on in your Flatter Files application. As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -127,7 +127,7 @@ To configure single sign-on for Flatter Files, you need a registered domain. If 
  
 4. On the **Configure single sign-on at Flatter Files** page, perform the following steps:
 
-![Configure Single Sign-On](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_04.png)  
+	![Configure Single Sign-On](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_04.png)  
 
     a. Click **Download certificate**, and then save the file on your computer.
 
@@ -263,7 +263,7 @@ The objective of this section is to create a user called Britta Simon in Flatter
 
     c. In the **Email Address** textbox, type Britta's email address in the Azure classic portal.
 
-    c. Click **Submit**.   
+    d. Click **Submit**.   
 
 
 ### Assigning the Azure AD test user
@@ -294,13 +294,13 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
 When you click the Flatter Files tile in the Access Panel, you should get automatically signed-on to your Flatter Files application.
 
 
-## Additional Resources
+## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
