@@ -1,3 +1,25 @@
+<properties
+   pageTitle="Running a Linux VM on Azure | Reference Architecture | Microsoft Azure"
+   description="How to implement a Linux VM using Azure for scalability, availability, managability, and security."
+   services=""
+   documentationCenter="na"
+   authors="mikewasson"
+   manager="christb"
+   editor=""
+   tags=""/>
+
+<tags
+   ms.service="guidance"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="07/11/2016"
+   ms.author="mikewasson"/>
+
+# Running a Linux VM on Azure
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 This article outlines a set of proven practices for running a Linux virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. Azure supports running a number of popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux].
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
@@ -8,9 +30,9 @@ We don't recommend using a single VM for production workloads, because there is 
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.  
 
-![IaaS: single VM](./media/guidance-blueprints/compute-single-vm.png)
+![[0]][0]
 
-- **Resource group.** A [_resource group_][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
+- **Resource group.** A [resource group][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
 
 - **VM**. You can provision a VM from a list of published images or from a VHD file that you upload to Azure blob storage.
 
@@ -70,7 +92,6 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
-
 ### Network recommendations
 
 - The public IP address can be dynamic or static. The default is dynamic.
@@ -127,8 +148,6 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
   To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
 
-
-
 ## Security considerations
 
 - Automate OS updates by using the [OSPatching] VM extension. Install this extension when you provision the VM. You can specify how often to install patches and whether to reboot after patching.
@@ -141,7 +160,9 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
-## Example deployment script
+## Solution componenrs
+
+<!-- TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
 
 The following Bash script executes the [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagram.
 
@@ -309,10 +330,13 @@ PATCH_CONFIG='{"rebootAfterPatch":"RebootIfNeed","startTime":"3:00","dayOfWeek":
 azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTCExtensions \
 --public-config $PATCH_CONFIG --vm-name $VM_NAME --version 2.0 $POSTFIX
 ```
+## Deployment
+
+**TBD**
 
 ## Next steps
 
-In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple VMs on Azure][multi-vm].
+You must deploy two or more instances of each VM in an *availability set* to support the [SLA for Virtual Machines][vm-sla]. Without creating at least two instances in this manner, you cannot guarantee the availability of your VMs. For more information, see [Running multiple Windows VMs on Azure][multi-vm].
 
 <!-- links -->
 
@@ -356,3 +380,4 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "General architecture of an Azure VM"
