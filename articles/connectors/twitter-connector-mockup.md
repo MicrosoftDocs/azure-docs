@@ -42,13 +42,15 @@ When you add this connector to your logic apps, you must authorize logic apps to
 
 ### Using a trigger
 
-Logic App connectors come with triggers by which you can set up your workflow to activate. Here’s an example sequence of how to setup a Twitter trigger in the logic app designer.
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers.]() Here’s an example sequence of how to setup a Twitter trigger in the logic app designer.
 
 1) After following the steps in connect to Twitter and establishing the Twitter connection, your trigger is almost set up. Next, you'll have to enter the query text for which you want to search Twitter.
 
 ![](../../includes/media/connectors-create-api-twitter/using-trigger.png)
 
 ### Using an action
+
+An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions.]()
 	
 2) Select the plus sign, and then you’ll see several choices: "Add an action", "Add a condition", or one of the "More" options.
 
@@ -72,7 +74,7 @@ Logic App connectors come with triggers by which you can set up your workflow to
 
 ### Triggers
 
-Triggers represent operations that activate the workflow in your logic app. They’re basically your “if” statement. The Twitter connector has one trigger. 
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers.]() The Twitter connector has one trigger. 
 
 |Trigger|Description|
 |---|---|
@@ -80,7 +82,7 @@ Triggers represent operations that activate the workflow in your logic app. They
 
 ### Actions
 
-Actions represent the things that occur when your trigger activates. The Twitter connector has 10 possible actions. 
+An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions.]() The Twitter connector has 10 possible actions. 
 
 |Action|Description|
 |---|---|
@@ -107,8 +109,9 @@ An * means required field.
 |---|---|---|
 |tweetText|Tweet Text|Text to be posted|
 |body|Media|Media to be posted|
-
+<br><br><br>
 **Output Details**
+
 TweetResponseModel: model representing posted tweet.
 
 |Property Name|Data Type|Description|
@@ -122,8 +125,9 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |searchQuery*|Query Text|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
-
+<br><br><br>
 **Output Details**
+
 TriggerBatchResponse[TweetModel]: 
 
 |Property Name|Data Type|Description|
@@ -137,8 +141,9 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
-
+<br><br><br>
 **Output Details**
+
 TweetModel: representation of tweet object
 
 |Property Name|Data Type|Description|
@@ -157,8 +162,9 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |userName*|User Name|Twitter handle of the user|
-
+<br><br><br>
 **Output Details**
+
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
@@ -180,8 +186,9 @@ An * means required field.
 |---|---|---|
 |userName*|User Name|Twitter handle|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
-
+<br><br><br>
 **Output Details**
+
 TweetModel: representation of tweet object
 
 |Property Name|Data Type|Description|
@@ -201,8 +208,9 @@ An * means required field.
 |---|---|---|
 |searchQuery*|Query Text|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
-
+<br><br><br>
 **Output Details**
+
 TweetModel: representation of tweet object
 
 |Property Name|Data Type|Description|
@@ -222,8 +230,9 @@ An * means required field.
 |---|---|---|
 |userName*|User Name|Twitter handle of the user|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
-
+<br><br><br>
 **Output Details**
+
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
@@ -244,8 +253,9 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
-
+<br><br><br>
 **Output Details**
+
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
@@ -267,8 +277,9 @@ An * means required field.
 |---|---|---|
 |userName*|User Name|Twitter handle of the user|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
-
+<br><br><br>
 **Output Details**
+
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
@@ -289,8 +300,9 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
-
+<br><br><br>
 **Output Details**
+
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
