@@ -376,18 +376,6 @@ The simplest way to detect that a task has already run is to create a file in th
     REM   Exit normally.
     EXIT /B 0
 
-## Install Python
-
-If you're using a role that is based on Python, you'll need to install the Python runtime on the virtual machine. This task detects if the cloud service is not running in the emulator  
-
-
-```cmd
-IF "%EMULATED%" == "true" (
-    powershell -c "(new-object System.Net.WebClient).DownloadFile('http://python.org/ftp/python/2.7.2/python-2.7.2.msi', 'python.msi')"
-    start /w msiexec /i python.msi /qn TARGETDIR="%PYTHON_PATH%"
-)
-```
-
 ## Task best practices
 Here are some best practices you should follow when configuring task for your web or worker role.
 
