@@ -33,7 +33,7 @@ Clusters running on Azure or standalone clusters running on Windows can use eith
 ### Node-to-node certificate security
 Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. A quick overview of what these certificates are and how you can acquire or create them is provided at the end of this article.
 
-Certificate security is configured while creating the cluster either through the Azure Portal, ARM templates or a stanalone JSON template. You can specify a primary certificate and an optional secondary certificate which is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](#client-to-node-security).
+Certificate security is configured while creating the cluster either through the Azure Portal, Azure Resource Manager templates or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate which is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](#client-to-node-security).
 
 For Azure read [Secure a Service Fabric cluster on Azure using certificates](service-fabric-secure-azure-cluster-with-certs.md) or [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to learn how to configure certificate security in a cluster.
 
@@ -50,7 +50,7 @@ Authenticates clients and secures communication between a client and individual 
 Clusters running on Azure or standalone clusters running on Windows can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### Client-to-node certificate security
- Client-to-node certificate security is configured while creating the cluster either through the Azure Portal, ARM templates or a stanalone JSON template by specifying an admin client certificate and/or a user client certificate.  The admin client and user client certificates you specify should be different than the primary and secondary certificates you specify for [Node-to-node security](#node-to-node-security).
+ Client-to-node certificate security is configured while creating the cluster either through the Azure Portal, Resource Manager templates or a standalone JSON template by specifying an admin client certificate and/or a user client certificate.  The admin client and user client certificates you specify should be different than the primary and secondary certificates you specify for [Node-to-node security](#node-to-node-security).
 
 Clients connecting to the cluster using the admin certificate have full access to management capabilities.  Clients connecting to the cluster using the read-only user client certificate have only read access to management capabilities. In other words these certificates are used for the role bases access control (RBAC) described below.
 
