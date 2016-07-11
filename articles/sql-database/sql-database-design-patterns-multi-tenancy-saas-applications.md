@@ -31,7 +31,8 @@ In the context of this article, a multi-tenant application is an application hos
 
 Multi-tenant applications are a prominent example of a type of application whose data and workloads can be partitioned easily. For instance, with multi-tenant applications, data and workload can typically be partitioned along tenant boundaries since most requests are within the confines of a tenant. That property is inherent to the data and the workload and it favors the applications patterns discussed throughout the remainder of the article. 
 
-We find such applications spread across the whole spectrum of cloud based applications including
+We find such applications spread across the whole spectrum of cloud based applications, including:
+
 - ISV database applications transitioning into cloud as SaaS applications
 - SaaS applications built for the cloud from ground up
 - Direct consumer/end user facing applications 
