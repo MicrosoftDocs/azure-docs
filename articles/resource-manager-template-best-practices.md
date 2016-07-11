@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/11/2016"
 	ms.author="tomfitz"/>
 
 # Best practices for creating Azure Resource Manager templates
@@ -22,22 +22,22 @@ The following guidelines will help you create Resource Manager templates that ar
 
 ## Template format
 
-- It is a good practice to pass your template through a JSON validator to remove extraneous commas, parenthesis, brackets that may cause an error during deployment. Try [JSONlint](http://jsonlint.com/) or a linter package for your favorite editing environment (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.)
-- It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor or [format online](https://www.bing.com/search?q=json+formatter).
+1. It is a good practice to pass your template through a JSON validator to remove extraneous commas, parenthesis, brackets that may cause an error during deployment. Try [JSONlint](http://jsonlint.com/) or a linter package for your favorite editing environment (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.)
+1. It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor or [format online](https://www.bing.com/search?q=json+formatter).
 
 ## Parameters
 
-- Parameters should follow **camelCasing**.
+1. Parameters should follow **camelCasing**.
 
-- Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
- 1. Settings a user may wish to vary by environment (such as a sku or size).
- 2. Globally-unique values that a user may wish to specify (such as website name). However, in many cases a unique name can be generated automatically by using the [uniqueString()](resource-group-template-functions.md#uniquestring) template language function.
- 3. Values that a user must use later to complete a workflow (such as admin user name).
- 4. Secrets (such as passwords)
+1. Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
+ - Settings a user may wish to vary by environment (such as a sku or size).
+ - Globally-unique values that a user may wish to specify (such as website name). However, in many cases a unique name can be generated automatically by using the [uniqueString()](resource-group-template-functions.md#uniquestring) template language function.
+ - Values that a user must use later to complete a workflow (such as admin user name).
+ - Secrets (such as passwords)
  
-- Define default values for parameters, other than passwords.
+1. Define default values for parameters, other than passwords.
  
-- Every parameter in the template should have the **lower-case description** tag specified using the metadata property. This looks like below
+1. Every parameter in the template should have the **lower-case description** tag specified using the metadata property. This looks like below
 
         "parameters": {
             "storageAccountType": {
@@ -48,7 +48,7 @@ The following guidelines will help you create Resource Manager templates that ar
             }
         }
 
-- Try to avoid using a parameter to specify the **location**. Instead, use the location property of the resource group. By using the **resourceGroup().location** expression for all your resources, the resources in the template will automatically be deployed in the same location as the resource group.
+1. When possible, avoid using a parameter to specify the **location**. Instead, use the location property of the resource group. By using the **resourceGroup().location** expression for all your resources, the resources in the template will automatically be deployed in the same location as the resource group.
 
         "resources": [
           {
@@ -65,43 +65,28 @@ The following guidelines will help you create Resource Manager templates that ar
   
      If a resource type is supported in only a limited number of locations, consider specifying a valid location directly in the template. If you must use a location parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes users having to provide locations for every resource type.
 
-- Do not use a parameter for the API version for a resource type. Instead, specify the API version in the template. You can only know the available properties for a resource type by targeting a particular API version.
+1. Do not use a parameter for the API version for a resource type. Instead, specify the API version in the template. You can only know the available properties for a resource type by targeting a particular API version.
 
-- Use **securestring** for all passwords. Do not specify a defaultValue for a parameter that is used for a password or an SSH key. Passwords must also be passed to **customScriptExtension** using the **commandToExecute** property in protectedSettings.
+1. Use **securestring** for all passwords. Do not specify a defaultValue for a parameter that is used for a password or an SSH key. 
 
- ```
- "properties": {
- 	"publisher": "Microsoft.OSTCExtensions",
- 	"type": "CustomScriptForLinux",
- 	"settings": {
- 		"fileUris": [
- 			"[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
- 		]
- 	},
- 	"protectedSettings": {
- 		"commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
- 	}
- }
- ```
+1. Do not create a parameter for a **storage account name**. Storage account names need to be:
 
- > [AZURE.NOTE] In order to ensure that secrets which are passed as parameters to virtualMachines/extensions are encrypted, the protectedSettings property of the relevant extensions must be used.
-
-- Do not create a parameter for a **storage account name**. Storage account names need to be lower case and can't contain hyphens (-) in addition to other domain name restrictions. A storage account has a limit of 24 characters. They also need to be globally unique. To prevent any validation issue configure a variables (using the expression **uniqueString** and a static value **storage**). Storage accounts with a common prefix (uniqueString) will not get clustered on the same racks.
+   - lower case
+   - 24 characters or less
+   - without hyphens (-)
+   - globally unique. 
+  
+  To prevent any validation issue configure a variables (using the expression **uniqueString** and a static value **storage**). Storage accounts with a common prefix (uniqueString) will not get clustered on the same racks.
 	
- ```
- "variables": {
- 	"storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
- }
- ```
- 
- Note: Templates should consider storage accounts throughput constraints and deploy across multiple storage accounts where necessary. Templates should distribute virtual machine disks across multiple storage accounts to avoid platform throttling.
-
+        "variables": {
+ 	    "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
+        }
 
 ## Variables 
 
-- Name **variables** using this scheme **templateScenarioResourceName** (e.g. simpleLinuxVMVNET, userRoutesNSG, elasticsearchPublicIP etc.) that describe the scenario rather. This ensures when a user browses all the resources in the Portal there aren't a bunch of resources with the same name (e.g. myVNET, myPublicIP, myNSG)
+1. Name **variables** using this scheme **templateScenarioResourceName** (e.g. simpleLinuxVMVNET, userRoutesNSG, elasticsearchPublicIP etc.) that describe the scenario rather. This ensures when a user browses all the resources in the Portal there aren't a bunch of resources with the same name (e.g. myVNET, myPublicIP, myNSG)
 
-- You can group variables into complex objects. You can reference a value from a complex object in the format variable.subentry (e.g. `"[variables('storage').storageAccounts.type]"`). Grouping variables helps you keep track of related variables and improves readability of the template.
+1. You can group variables into complex objects. You can reference a value from a complex object in the format variable.subentry (e.g. `"[variables('storage').storageAccounts.type]"`). Grouping variables helps you keep track of related variables and improves readability of the template.
 
  ```
  "variables": {
@@ -130,7 +115,7 @@ The following guidelines will help you create Resource Manager templates that ar
 
 ## Resources
 
-- For many resources with a resource group, a name is not often relevant and using something a hard coded string "availabilitySet" may be acceptable.  You can also use variables for the name of a resource and generate names for resources with globally unique names. Use **displayName** tags for a "friendly" name in the JSON outline view.  This should ideally match the name property value or property name.
+1. For many resources with a resource group, a name is not often relevant and using something a hard coded string "availabilitySet" may be acceptable.  You can also use variables for the name of a resource and generate names for resources with globally unique names. Use **displayName** tags for a "friendly" name in the JSON outline view.  This should ideally match the name property value or property name.
 
  ```
  "resources": [
@@ -147,7 +132,7 @@ The following guidelines will help you create Resource Manager templates that ar
  ]
  ```
 	
-- Specifying a lower-case **comments** property for each resource in the template helps other contributors to understand the purpose of the resource.
+1. Specifying a lower-case **comments** property for each resource in the template helps other contributors to understand the purpose of the resource.
 
  ```	
  "resources": [
@@ -164,7 +149,7 @@ The following guidelines will help you create Resource Manager templates that ar
  ]
  ```
 
-- If you use a **public endpoint** in your template (e.g. blob storage public endpoint), **do not hardcode** the namespace. Use the **reference** function to retrieve the namespace dynamically. This allows you to deploy the template to different public namespace environments, without the requirement to change the endpoint in the template manually. Use the following reference to specify the osDisk. Define a variable for the storageAccountName (as specified in the previous example), a variable for the vmStorageAccountContainerName and a variable for the OSDiskName. Set the apiVersion to the same version you are using for the storageAccount in your template.
+1. If you use a **public endpoint** in your template (e.g. blob storage public endpoint), **do not hardcode** the namespace. Use the **reference** function to retrieve the namespace dynamically. This allows you to deploy the template to different public namespace environments, without the requirement to change the endpoint in the template manually. Use the following reference to specify the osDisk. Define a variable for the storageAccountName (as specified in the previous example), a variable for the vmStorageAccountContainerName and a variable for the OSDiskName. Set the apiVersion to the same version you are using for the storageAccount in your template.
 
  ```
  "osDisk": {
@@ -197,9 +182,9 @@ The following guidelines will help you create Resource Manager templates that ar
  }
  ```
 
-- Using tags to add metadata to resources allows you to add additional information about your resources. A good use case for tags is adding metadata to a resource for billing detail purposes. 
+1. Using tags to add metadata to resources allows you to add additional information about your resources. A good use case for tags is adding metadata to a resource for billing detail purposes. 
 
-- The **domainNameLabel** property for publicIPAddresses must be **unique**. domainNameLabel is required to be betweeen 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
+1. The **domainNameLabel** property for publicIPAddresses must be **unique**. domainNameLabel is required to be betweeen 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
 
  ```
  "parameters": {
@@ -216,7 +201,29 @@ The following guidelines will help you create Resource Manager templates that ar
  }
  ```
 
-- publicIPAddresses assigned to a Virtual Machine instance should only be used when these are required for application purposes, for connectivity to the resources for debug, management or administrative purposes either inboundNatRules, virtualNetworkGateways or a jumpbox should be used.
+1. Passwords must also be passed to **customScriptExtension** using the **commandToExecute** property in protectedSettings.
+
+ ```
+ "properties": {
+ 	"publisher": "Microsoft.OSTCExtensions",
+ 	"type": "CustomScriptForLinux",
+ 	"settings": {
+ 		"fileUris": [
+ 			"[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
+ 		]
+ 	},
+ 	"protectedSettings": {
+ 		"commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
+ 	}
+ }
+ ```
+
+ > [AZURE.NOTE] In order to ensure that secrets which are passed as parameters to virtualMachines/extensions are encrypted, the protectedSettings property of the relevant extensions must be used.
+
+1. publicIPAddresses assigned to a Virtual Machine instance should only be used when these are required for application purposes, for connectivity to the resources for debug, management or administrative purposes either inboundNatRules, virtualNetworkGateways or a jumpbox should be used.
+
+1.  Templates should consider storage accounts throughput constraints and deploy across multiple storage accounts where necessary. Templates should distribute virtual machine disks across multiple storage accounts to avoid platform throttling.
+
 
 ## Outputs
 
