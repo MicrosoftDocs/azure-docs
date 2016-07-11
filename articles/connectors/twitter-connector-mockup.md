@@ -70,9 +70,11 @@ An action is an operation carried out by the workflow defined in a Logic app. [L
 
 ---
 
-## Technical Details
+## Technical details
 
-## Twitter Triggers
+Below are the details for the triggers and actions this connector supports.
+
+## Twitter triggers
 
 A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers.]() The Twitter connector has one trigger. 
 
@@ -80,7 +82,7 @@ A trigger is an event that can be used to start the workflow defined in a Logic 
 |---|---|
 |When a new tweet appears|Activate your logic app workflow based on when specific  text appears in tweets|
 
-## Twitter Actions
+## Twitter actions
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions.]() The Twitter connector has 10 possible actions. 
 
@@ -97,7 +99,7 @@ An action is an operation carried out by the workflow defined in a Logic app. [L
 |Get following|Retrieves users who the specified user is following|
 |Get my following|Retrieves users that I am following|
 
-### Action Details
+### Action details
 
 The Twitter connector comes with a variety of possible actions. Below, there is information on each of the actions, their required and optional input fields, and the corresponding output details associated with their usage.
 
@@ -105,9 +107,9 @@ The Twitter connector comes with a variety of possible actions. Below, there is 
 Tweet.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|tweetText|Tweet Text|Text to be posted|
+|Tweet Text|tweetText|Text to be posted|
 |body|Media|Media to be posted|
 <br>
 **Output Details**
@@ -122,9 +124,9 @@ TweetResponseModel: model representing posted tweet.
 Triggers a workflow when a new tweet is posted which matches your search query.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|searchQuery*|Query Text|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
+|Query Text*|searchQuery|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
 <br>
 **Output Details**
 
@@ -138,9 +140,9 @@ TriggerBatchResponse[TweetModel]:
 Retrieves the most recent tweets and re-tweets posted me and my followers.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|maxResults|Maximum Results|Maximum number of tweets to retrieve|
+|Maximum Results|maxResults|Maximum number of tweets to retrieve|
 <br>
 **Output Details**
 
@@ -159,9 +161,9 @@ TweetModel: representation of tweet object
 Retrieves details about the specified user (example: user name, description, followers count, etc.).  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|userName*|User Name|Twitter handle of the user|
+|User Name*|userName|Twitter handle of the user|
 <br>
 **Output Details**
 
@@ -182,10 +184,10 @@ UserDetailsModel: representation of a Twitter user's details
 Retrieves a collection of the most recent tweets posted by the specified user.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|userName*|User Name|Twitter handle|
-|maxResults|Maximum Results|Maximum number of tweets to retrieve|
+|User Name*|userName|Twitter handle|
+|Maximum Results|maxResults|Maximum number of tweets to retrieve|
 <br>
 **Output Details**
 
@@ -204,10 +206,10 @@ TweetModel: representation of tweet object
 Retrieves a collection of relevant tweets matching a specified query.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|searchQuery*|Query Text|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
-|maxResults|Maximum Results|Maximum number of tweets to retrieve|
+|Query Text*|searchQuery|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
+|Maximum Results|maxResults|Maximum number of tweets to retrieve|
 <br>
 **Output Details**
 
@@ -226,10 +228,10 @@ TweetModel: representation of tweet object
 Retrieves users following the specified user.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|userName*|User Name|Twitter handle of the user|
-|maxResults|Maximum Results|Maximum number of users to retrieve|
+|User Name*|userName|Twitter handle of the user|
+|Maximum Results|maxResults|Maximum number of users to retrieve|
 <br>
 **Output Details**
 
@@ -250,9 +252,9 @@ UserDetailsModel: representation of a Twitter user's details
 Retrieves users who are following me.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|maxResults|Maximum Results|Maximum number of users to retrieve|
+|Maximum Results|maxResults|Maximum number of users to retrieve|
 <br>
 **Output Details**
 
@@ -273,10 +275,10 @@ UserDetailsModel: representation of a Twitter user's details
 Retrieves users who the specified user is following.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|userName*|User Name|Twitter handle of the user|
-|maxResults|Maximum Results|Maximum number of users to retrieve|
+|User Name*|userName|Twitter handle of the user|
+|Maximum Results|maxResults|Maximum number of users to retrieve|
 <br>
 **Output Details**
 
@@ -297,9 +299,9 @@ UserDetailsModel: representation of a Twitter user's details
 Retrieves users that I am following.  
 An * means required field.
 
-|Property Name|Display Name|Description|
+|Display Name|Property Name|Description|
 |---|---|---|
-|maxResults|Maximum Results|Maximum number of users to retrieve|
+|Maximum Result|maxResults|Maximum number of users to retrieve|
 <br>
 **Output Details**
 
@@ -316,7 +318,7 @@ UserDetailsModel: representation of a Twitter user's details
 |StatusesCount|integer|User Status Count|
 |FriendsCount|integer|Number of Friends|
 
-## HTTP Responses
+## HTTP responses
 
 When making calls to various actions, you might get certain responses. Below is a table outlining corresponding responses and descriptions.
 
@@ -333,7 +335,9 @@ When making calls to various actions, you might get certain responses. Below is 
 
 ---
 
-## Next Steps
+## Next steps
+
+Below are details on how to move forward with logic apps and our community.
 
 ## Create a logic app
 
