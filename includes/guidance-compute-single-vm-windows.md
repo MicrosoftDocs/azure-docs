@@ -158,7 +158,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 - Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
-## Solution componenrs
+## Solution components
 
 <!-- TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
 
