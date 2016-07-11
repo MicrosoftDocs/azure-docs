@@ -68,7 +68,7 @@ After clicking on the Overview tile you can view summaries of your logs and then
 
 ## Log Analytics records
 
-The Azure Key Vault solution creates records with a type of **KeyVaults** that are the equivalent of [AuditEvent logs](..\key-vault\key-vault-logging.md). These records have the properties in the following table.  
+The Azure Key Vault solution analyzes records with a type of **KeyVaults** that are collected from [AuditEvent logs](..\key-vault\key-vault-logging.md) in Azure Diagnostics.  These records have the properties in the following table.  
 
 | Property | Description |
 |:--|:--|
