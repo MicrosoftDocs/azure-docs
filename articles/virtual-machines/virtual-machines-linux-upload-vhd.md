@@ -21,10 +21,10 @@
 
 This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
-> [AZURE.NOTE] The Azure platform SLA applies to VMs running the Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
+> [AZURE.NOTE] The [Azure platform SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) applies to VMs running Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md).
 
 ## Quick commands
-Make sure you have [the Azure CLI](../xplat-cli-install.md) logged in using resource manager mode (`azure config mode arm`).
+Make sure that you have [the Azure CLI](../xplat-cli-install.md) logged in and using the resource manager mode (`azure config mode arm`).
 
 First, create a resource group:
 
