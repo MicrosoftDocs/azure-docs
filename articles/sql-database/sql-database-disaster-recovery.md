@@ -95,7 +95,7 @@ For more information about database alert rules, see [Receive Alert Notification
 
 ### Enable Auditing
 
-If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator that auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.windows.net. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md). 
+If auditing is required to access your database, you need to enable Auditing after the database recovery. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md). Also, for "downlevel clients", see [Auditing and downlevel client support](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). 
 
 
 ## Next steps
