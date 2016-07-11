@@ -21,7 +21,7 @@ The Data Management Gateway is a client agent that you must install in your on-p
 
 This article complements the content in [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article, which has a walkthrough for creating a Data Factory pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob. This article provides detailed in-depth information about the Data Management Gateway.   
 
-## Capabilities
+## Capabilities of Data Management gateway
 Data Management Gateway provides the following capabilities:
 
 - Model on-premises data sources and cloud data sources within the same data factory and move data.
@@ -31,7 +31,7 @@ Data Management Gateway provides the following capabilities:
 	- Encrypt credentials for your on-premises data stores with your certificate.
 - Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
 
-## Data flow 
+## Data flow when using gateway
 When you use a copy activity in a data pipeline to ingest on-premises data to cloud for further processing, or export result data in the cloud back to an on-premises data store, the copy activity internally uses a gateway to transfer data from on-premises data source to cloud and vice versa.
 
 Here high level data flow for and summary of steps for copy with data gateway:
@@ -109,7 +109,7 @@ Follow steps from walkthrough in the [Move data between on-premises and cloud](d
 	
 	![Copy key](media/data-factory-data-management-gateway/copy-gateway-key.png) 
 
-## Configuration Manager 
+## Data Management Gateway Configuration Manager 
 Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways: 
 
 - In the **Search** window, type **Data Management Gateway** to access this utility. 
@@ -145,7 +145,7 @@ The Help page displays the following:
 - Version number
 - Links to online help, privacy statement, and license agreement.  
 
-## System tray icons/notifications
+## System tray icons/ notifications
 The following image shows some of the tray icons that you will see. 
 
 ![system tray icons](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
