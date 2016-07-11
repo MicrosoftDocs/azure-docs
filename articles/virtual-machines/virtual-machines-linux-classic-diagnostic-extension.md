@@ -31,13 +31,17 @@ The Linux Diagnostic Extension helps a user monitor the Linux VMs that are runni
 - Enables users to customize the data metrics that will be collected and uploaded.
 - Enables users to upload specified log files to a designated storage table.
 
-In version 2.0, the data includes:
+In the current version 2.3, the data includes:
 
 - All Linux Rsyslog logs, including system, security, and application logs.
 - All system data that's specified on [the System Center Cross Platform Solutions site](https://scx.codeplex.com/wikipage?title=xplatproviders).
 - User-specified log files.
 
 This extension works with both the classic and Resource Manager deployment models.
+
+### Current version of the extension and deprecation of old versions
+
+The latest version of the extension is **2.3**, and **any old versions (2.0, 2.1, and 2.2) will be deprecated and unpublished soon**. If you installed the Linux Diagnostic extension with automatic minor version upgrade disabled, it's strongly recommended that you uninstall the extension and reinstall it with automatic minor version upgrade enabled. On classic (ASM) VMs, you can achieve this by specifying '2.*' as the version if you are installing the extension through Azure XPLAT CLI or Powershell. On ARM VMs, you can achieve this by including '"autoUpgradeMinorVersion": true' in the VM deployment template. Also, any new installation of the extension should have the auto minor version upgrade option turned on.
 
 
 ## Enable the extension
@@ -65,7 +69,7 @@ Note that most Azure VM Linux gallery images include version 2.0.6 or later. You
 ## Use the Azure CLI command to enable the Linux Diagnostic Extension
 
 ### Scenario 1. Enable the extension with the default data set
-In version 2.0 or later, the default data that will be collected includes:
+In version 2.3 or later, the default data that will be collected includes:
 
 - All Rsyslog information (including system, security, and application logs).  
 - A core set of basis system data. Note that the full data set is described on the [System Center Cross Platform Solutions site](https://scx.codeplex.com/wikipage?title=xplatproviders).
@@ -155,4 +159,4 @@ In addition, you can use following UI tools to access the data:
 If you've enabled fileCfg or perfCfg (as described in Scenarios 2 and 3), you can use Visual Studio Server Explorer and Azure Storage Explorer to view non-default data.
 
 ## Known issues
-- In version 2.0 of the Linux Diagnostic Extension, the Rsyslog information and customer-specified log file can only be accessed via scripting.
+- In the current version (2.3) of the Linux Diagnostic Extension, the Rsyslog information and customer-specified log file can only be accessed via scripting.
