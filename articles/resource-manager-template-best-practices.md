@@ -52,7 +52,7 @@ The following guidelines will help you create Resource Manager templates that ar
             }
         }
 
-1. Use **securestring** for all passwords. 
+1. Use **securestring** for all passwords and secrets. 
 
         "parameters": {
             "secretValue": {
