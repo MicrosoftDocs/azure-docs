@@ -671,8 +671,8 @@ GOTO :eof
 [stormshield]: https://azure.microsoft.com/marketplace/partners/stormshield/stormshield-network-security-for-cloud/
 [vpn-appliance-ipsec]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters
 [expressroute]: ./guidance-hybrid-network-expressroute.md
-[0]: ../media/guidance-hybrid-network-vpn/arch-diagram.png "Structure of a hybrid network spanning the on-premises and cloud infrastructures"
-[1]: ../media/guidance-hybrid-network-vpn/partitioned-vpn.png "Partitioning a VNet to improve scalability"
-[2]: ../media/guidance-hybrid-network-vpn/audit-logs.png "Audit logs in the Azure portal"
-[3]: ../media/guidance-hybrid-network-vpn/RRAS-perf-counters.png "Performance counters for monitoring VPN network traffic"
-[4]: ../media/guidance-hybrid-network-vpn/RRAS-perf-graph.png "Example VPN network performance graph"
+[0]: ./media/guidance-hybrid-network-vpn/arch-diagram.png "Structure of a hybrid network spanning the on-premises and cloud infrastructures"
+[1]: ./media/guidance-hybrid-network-vpn/partitioned-vpn.png "Partitioning a VNet to improve scalability"
+[2]: ./media/guidance-hybrid-network-vpn/audit-logs.png "Audit logs in the Azure portal"
+[3]: ./media/guidance-hybrid-network-vpn/RRAS-perf-counters.png "Performance counters for monitoring VPN network traffic"
+[4]: ./media/guidance-hybrid-network-vpn/RRAS-perf-graph.png "Example VPN network performance graph"
