@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -140,24 +140,30 @@ BetterWorks application expects the SAML assertions in a specific format. Please
     
 	![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_03.png)
 
-5. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
+5. On the **Configure App Settings** dialog page, if you want to configure the application in **IDP initiated mode**, perform the following steps:
 
     ![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_04.png)
 
 
-    a. In the **Reply URL** textbox, type the URL in the following pattern: **"https://app.betterworks.com/saml2/acs/"**
+	a. In the **Identifier** textbox, type the URL in the following pattern: `https://app.betterworks.com/saml2/metadata/`
 
-	b. In the **Identifier** textbox, type the URL in the following pattern: **"https://app.betterworks.com/saml2/metadata/"**
+
+    b. In the **Reply URL** textbox, type the URL in the following pattern: `https://app.betterworks.com/saml2/acs/`
+
 
 	c. Click **Next**
 
-6. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
+6. On the **Configure App Settings** dialog page, if you want to configure the application in **SP initiated mode**, perform the on the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_10.png)
 
-	a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your BetterWorks application using the following pattern: **“https://app.betterworks.com”**.
+	a.	Select **Show advanced settings (optional)**.
 
-	b. Click **Next**
+
+
+	b. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your BetterWorks application using the following pattern: `https://app.betterworks.com`
+
+	b. Click **Next**.
 
 7. On the **Configure single sign-on at BetterWorks** page, perform the following steps and click **Next**:
 
@@ -182,7 +188,7 @@ BetterWorks application expects the SAML assertions in a specific format. Please
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the classic portal called Britta Simon.
 
-In the Users list, select **Britta Simon**.![Create Azure AD User][20]
+![Create Azure AD User][20]
 
 **To create a test user in Azure AD, perform the following steps:**
 
@@ -240,7 +246,9 @@ In the Users list, select **Britta Simon**.![Create Azure AD User][20]
 
 ### Creating a BetterWorks test user
 
-In this section, you create a user called Britta Simon in BetterWorks. Please work with BetterWorks support team via <mailto:support@betterworks.com> to add the users in the BetterWorks platform.
+In this section, you create a user called Britta Simon in BetterWorks. 
+
+Please work with the BetterWorks support team via <mailto:support@betterworks.com> to add the users in the BetterWorks platform.
 
 
 ### Assigning the Azure AD test user
