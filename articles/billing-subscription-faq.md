@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/11/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
