@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="07/11/2016" 
 	ms.author="spelluru"/>
 
 # Data movement and the Copy Activity: migrating data to the cloud and between cloud stores
@@ -33,9 +33,11 @@ When both the source and sink (destination) data stores reside in the cloud, the
 
 
 ## Copy data between an on-premises data store and a cloud data store
-To [securely move data between on-premises data stores behind your corporate firewall and a cloud data store](#moveonpremtocloud), you will need to install the Data Management Gateway, which is an agent that enables hybrid data movement and processing, on your on-premises machine. The Data Management Gateway can be installed on the same machine as the data store itself or on a separate machine that has access to reach the data store. In this scenario, the serialization/deserialization, compression/decompression, column mapping, and type conversion are performed by the Data Management Gateway. Data does not flow through Azure Data Factory service is such case. Data Management Gateway directly writes the data to the destination store. 
+To securely move data between on-premises data stores behind your corporate firewall and a cloud data store, you will need to install the Data Management Gateway, which is an agent that enables hybrid data movement and processing, on your on-premises machine. The Data Management Gateway can be installed on the same machine as the data store itself or on a separate machine that has access to reach the data store. In this scenario, the serialization/deserialization, compression/decompression, column mapping, and type conversion are performed by the Data Management Gateway. Data does not flow through Azure Data Factory service is such case. Data Management Gateway directly writes the data to the destination store. 
 
 ![onprem-to-cloud copy](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
+
+See [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article for an introduction and a walkthrough and [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information on Data Management Gateway.
 
 ## Copy data from/to a data store on an Azure Iaas VM 
 You can also move data from/to supported data stores hosted on Azure IaaS VMs (Infrastructure-as-a-Service virtual machines) using the Data Management Gateway. In this case, the Data Management Gateway can be installed on the same Azure VM as the data store itself or on a separate VM that has access to reach the data store. 
@@ -74,21 +76,6 @@ cloud | cloud | **The cloud service that powers the Copy Activity**. Azure Data 
 
 
 > [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity will fail instead of going through an alternative region. 
-
-
-
-### <a name="moveonpremtocloud"></a>Securely transfer data between on-premises location and cloud
-One of the challenges for modern data integration is to seamlessly transfer data to and from on-premises to cloud. Data management gateway is an agent you can install on-premises to enable hybrid data pipelines. 
-
-The data gateway provides the following capabilities: 
-
-1.	Manage access to on-premises data stores securely.
-2.	Model on-premises data stores and cloud data stores within the same data factory and move data.
-3.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud based dashboard.
-
-You should treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute** and **use the gateway** to establish connectivity between the service and the data source. 
-
-See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for more details.
 
 
 ### Reliable and cost effective data movement
@@ -208,3 +195,7 @@ You can also use a **custom** variable as shown below and use any [supported for
 
 ![Using custom variable](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
+## Next Steps
+- See [Copy data from Azure Blob to Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to learn about how to use Copy Activity to move data from a source data store to a sink data store in general. 
+- See [Move data from on-premises to cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) to learn about moving data from an on-premises data store to a cloud data store. 
+ 
