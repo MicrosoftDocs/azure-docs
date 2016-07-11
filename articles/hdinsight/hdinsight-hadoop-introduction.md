@@ -1,7 +1,7 @@
-<properties
+ <properties
 	pageTitle="What is Hadoop in the cloud? Introduction to HDInsight | Microsoft Azure"
 	description="What is Hadoop in the cloud and how is it managed in HDInsight? An introduction to Hadoop components and big data analysis."
-	keywords="big data analysis,introduction to hadoop,what is hadoop,hadoop in the cloud"
+	keywords="big data analysis,introduction to hadoop,what is hadoop,hadoop in the cloud,hadoop technology stack,hadoop ecosystem"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="07/13/2016"
    ms.author="cgronlun"/>
 
 
@@ -28,12 +28,9 @@ Azure HDInsight deploys and provisions managed Apache Hadoop clusters in the clo
 
 
 ## What is big data?
-Big data refers to data being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety of unstructured formats and variable semantic contexts.
-
-Big data describes any large body of digital information, from the text in a Twitter feed, to the sensor information from industrial equipment, to information about customer browsing and purchases on an online catalog. Big data can be historical (meaning stored data) or real-time (meaning streamed directly from the source).
+Big data describes any large body of digital information, from the text in a Twitter feed, to the sensor information from industrial equipment, to information about customer browsing and purchases on a website. Big data can be historical (meaning stored data) or real-time (meaning streamed directly from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
 
 For big data to provide actionable intelligence or insight, not only must you collect relevant data and ask the right questions, but also the data must be accessible, cleaned, analyzed, and then presented in a useful way. That's where big data analysis on Hadoop in HDInsight can help.
-
 
 ## <a name="overview"></a>Overview of the Hadoop ecosystem on HDInsight
 
