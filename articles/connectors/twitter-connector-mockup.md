@@ -109,7 +109,7 @@ An * means required field.
 |---|---|---|
 |tweetText|Tweet Text|Text to be posted|
 |body|Media|Media to be posted|
-<br><br>
+<br>
 **Output Details**
 
 TweetResponseModel: model representing posted tweet.
@@ -125,7 +125,7 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |searchQuery*|Query Text|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
-<br><br>
+<br>
 **Output Details**
 
 TriggerBatchResponse[TweetModel]: 
@@ -141,7 +141,7 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
-<br><br>
+<br>
 **Output Details**
 
 TweetModel: representation of tweet object
@@ -162,7 +162,7 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |userName*|User Name|Twitter handle of the user|
-<br><br>
+<br>
 **Output Details**
 
 UserDetailsModel: representation of a Twitter user's details
@@ -186,7 +186,7 @@ An * means required field.
 |---|---|---|
 |userName*|User Name|Twitter handle|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
-<br><br>
+<br>
 **Output Details**
 
 TweetModel: representation of tweet object
@@ -208,7 +208,7 @@ An * means required field.
 |---|---|---|
 |searchQuery*|Query Text|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
-<br><br>
+<br>
 **Output Details**
 
 TweetModel: representation of tweet object
@@ -230,7 +230,7 @@ An * means required field.
 |---|---|---|
 |userName*|User Name|Twitter handle of the user|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
-<br><br>
+<br>
 **Output Details**
 
 UserDetailsModel: representation of a Twitter user's details
@@ -253,7 +253,7 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
-<br><br>
+<br>
 **Output Details**
 
 UserDetailsModel: representation of a Twitter user's details
@@ -277,7 +277,7 @@ An * means required field.
 |---|---|---|
 |userName*|User Name|Twitter handle of the user|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
-<br><br>
+<br>
 **Output Details**
 
 UserDetailsModel: representation of a Twitter user's details
@@ -300,7 +300,7 @@ An * means required field.
 |Property Name|Display Name|Description|
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
-<br><br>
+<br>
 **Output Details**
 
 UserDetailsModel: representation of a Twitter user's details
@@ -341,4 +341,4 @@ Try out the platform and [create a logic app](../app-service-logic/app-service-l
 
 ### Engage with our community
 
-Engage with the logic app community by posting below, tweeting us, or sending our team an email. 
+Engage with the logic app community by commenting below. 
