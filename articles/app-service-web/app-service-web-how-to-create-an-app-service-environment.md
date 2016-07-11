@@ -70,11 +70,11 @@ The name that is specified for the ASE will be used for the apps created in the 
 Having the defaults is very useful for a certain number of situations but often you will need to adjust something.  The next few sections walk through each of the ASE related configuration sections.
 
 ### Virtual Network ###
-The ASE creation process supports selection of an existing VNet as well as creation of a new Classic VNet.  You can only select an existing VNet if it is large enough to support an App Service Environment deployment.  The VNet must have at least 8 addresses or more. 
+The ASE creation process supports selection of an existing Classic or Resource Manager VNet as well as creation of a new Classic VNet.    
 
-ASEs can be deployed into virtual networks that use *either* public address ranges, *or* RFC1918 address spaces (i.e. private addresses).  In order to use a virtual network with a public address range, you will need to create the subnet ahead of time, and then select the subnet in the ASE creation UX. 
+When you go to select an existing VNet you will see your Classic and Resource Manager VNets listed together.  The Classic VNets have the word Classic next to the location.  If it doesn't say that, then it's a Resource Manager VNet.  
 
-If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 8 addresses or more and cannot have any other resources already in it.  ASE creation will fail if you try to use a subnet that already has VMs allocated into it.  
+![][5]
 
 If going through the VNet creation UI you are required to provide:
 
@@ -82,9 +82,14 @@ If going through the VNet creation UI you are required to provide:
 - VNet address range in CIDR notation
 - Location
 
-The location of the VNet is the location of the ASE because the ASE is deployed into that VNET.
+The location of the VNet is the location of the ASE.  Remember that this creates a Classic VNet, not a Resource Manager VNet.  
+
+ASEs can be deployed into virtual networks that use *either* public address ranges, *or* RFC1918 address spaces (i.e. private addresses).  In order to use a virtual network with a public address range, you will need to create the subnet ahead of time, and then select the subnet in the ASE creation UX. 
+
+If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 8 addresses or more and cannot have any other resources already in it.  ASE creation will fail if you try to use a subnet that already has VMs allocated into it.  
 
 After your have your VNet specified or selected you need to create or select a subnet as appropriate.  The details you are required to provide here are the:
+
 - Subnet Name
 - Subnet range in CIDR notation
 
@@ -92,10 +97,13 @@ If you are unfamiliar with CIDR(Classless Inter-Domain Routing) notation it take
 
 Just a reminder that if you want to create a subnet in an existing VNet, the ASE will be in the same resource group as the VNet.  To keep your ASE in a separate resource group from your VNet simply make both your VNet and your subnet separately and in advance of creating your ASE.
 
-By default the VNet configuration is set with an External VIP Type and 1 IP address.  If you wish to use an ILB instead of an external VIP then go into VNet Configuration and change the VIP Type to Internal.  When you do this you will need to specify your subdomain for the ASE.  There are a few tradeoffs when using an ILB as the VIP for an ASE.  To learn more about them read [Using an Internal Load Balancer with an App Service Environment][ILBASE].
-
 ![][2]
 
+#### External or Internal VIP ####
+
+By default the VNet configuration is set with an External VIP Type and 1 IP address.  If you wish to use an ILB instead of an external VIP then go into VNet Configuration and change the VIP Type to Internal.  An External VIP is used by default.  When you change the VIP Type to Internal you will need to specify your subdomain for the ASE.  There are a few tradeoffs when using an ILB as the VIP for an ASE.  To learn more about them read [Using an Internal Load Balancer with an App Service Environment][ILBASE].
+
+![][4]
 
 ### Compute Resource Pools ###
 
@@ -169,6 +177,8 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-basecreateblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnetcreation.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-resources.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-externalvip.png
+[5]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnettype.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
