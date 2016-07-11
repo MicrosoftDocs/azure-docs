@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -34,7 +34,7 @@ The Azure Toolkit for Eclipse - June 2016 release includes the following enhance
 * **Support for the latest Java JDKs**. The latest versions of the Java JDKs are now supported by the Azure Toolkit for Eclipse.
 * **Support for Azure SDK v2.9.1**. The latest version of the Azure SDK is now the minimum pre-requisite for the Azure Toolkit for Eclipse.
 * **Integrated Samples**. The Azure Toolkit for Eclipse now features several sample applications to help developers get started.
-* **HDInsight Tool Integration**. Azure's HDInsight Tools are now bundled with the Azure Toolkit for Eclipse.
+* **HDInsight Tool Integration**. Azure's HDInsight Tools are now bundled with the Azure Toolkit for Eclipse. For more information, see [HDInsight Tools Plugin for Eclipse].
 * **Remote Debugging of Java Web Apps**. The Azure Toolkit for Eclipse now supports remote debugging of Java web apps on Azure App Service.
 * **Support for the Eclipse Luna release.** The new minimum required Eclipse IDE version is Luna.
 
@@ -346,6 +346,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
 [Endpoints properties]: http://go.microsoft.com/fwlink/?LinkID=699525#endpoints_properties
 [Environment variables properties]: http://go.microsoft.com/fwlink/?LinkID=699525#environment_variables_properties
+[HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
 [How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
