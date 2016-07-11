@@ -39,7 +39,7 @@ If you do not have NSGs enabled, Security Center will present two recommendation
 
   ![Choose Network Security Group][4]
 
-4. If you create a new NSG, follow the steps in [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to create a NSG and set security rules.
+If you create a new NSG, follow the steps in [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to create a NSG and set security rules.
 
 ## Next steps
 
