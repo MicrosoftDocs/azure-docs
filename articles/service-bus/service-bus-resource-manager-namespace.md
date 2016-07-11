@@ -149,7 +149,7 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 
   [Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
   [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-  [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
+  [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md

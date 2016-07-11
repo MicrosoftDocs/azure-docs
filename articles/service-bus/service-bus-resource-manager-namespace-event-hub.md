@@ -161,7 +161,7 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 - [Manage Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
-  [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
+  [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Service Bus Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/

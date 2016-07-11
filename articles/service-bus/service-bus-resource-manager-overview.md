@@ -251,4 +251,4 @@ You've now seen the basic workflow and commands for deploying an Azure Resource 
 
 [Azure Resource Manager overview]: ../resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../resource-group-template-deploy.md
-[Azure Quickstart Templates gallery]: https://azure.microsoft.com/en-us/documentation/templates/?term=service+bus
+[Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus
