@@ -28,9 +28,7 @@ To explore Twitter triggers and actions, see [create a logic app](../app-service
 
 ---
 
-## Getting Started
-
-### Connect to Twitter
+## Create a connection
 
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Twitter account.
 
@@ -40,7 +38,7 @@ When you add this connector to your logic apps, you must authorize logic apps to
 >[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
 
 
-### Using a trigger
+## Using a trigger
 
 A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers.]() Here’s an example sequence of how to setup a Twitter trigger in the logic app designer.
 
@@ -48,7 +46,7 @@ A trigger is an event that can be used to start the workflow defined in a Logic 
 
 ![](../../includes/media/connectors-create-api-twitter/using-trigger.png)
 
-### Using an action
+## Using an action
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions.]()
 	
