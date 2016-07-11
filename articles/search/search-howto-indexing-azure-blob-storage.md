@@ -62,7 +62,7 @@ For more on the Create Datasource API, see [Create Datasource](search-api-indexe
   		"name" : "my-target-index",
   		"fields": [
     		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    		{ "name": "content", "type": "Edm.String", "searchable": true }
+    		{ "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
   		]
 	}
 
