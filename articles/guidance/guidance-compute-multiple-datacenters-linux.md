@@ -21,13 +21,17 @@
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
+> [AZURE.SELECTOR]
+- [Running VMs in multiple datacenters (Linux)](guidance-compute-multiple-datacenters-linux.md)
+- [Running VMs in multiple datacenters (Windows)](guidance-compute-multiple-datacenters.md)
+
 In this article, we recommend a set of practices to run Linux virtual machines (VMs) in multiple Azure regions, to achieve availability and a robust disaster recovery infrastructure.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource groups] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Architecture diagram
 
-The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm.md).
+The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm-linux.md).
 
 ![IaaS: multiple datacenters](media/blueprints/compute-multi-dc-linux.png)
 
