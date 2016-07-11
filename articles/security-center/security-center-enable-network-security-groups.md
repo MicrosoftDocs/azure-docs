@@ -36,7 +36,8 @@ If you do not have NSGs enabled, Security Center will present two recommendation
 
   ![Configure NSG for VM][3]
 3. On the **Choose network security group** blade select an existing NSG or select to create a new NSG.
-![Choose Network Security Group][4]
+
+  ![Choose Network Security Group][4]
 
 4. If you create a new NSG, follow the steps in [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to create a NSG and set security rules.
 
