@@ -22,12 +22,13 @@
 
 **Q** - What are we announcing today?
 
-**A**: Based on customer feedback, Azure Machine Learning introduces a new type of web services with tiered plans on July 15th, 2016: this will let customers determine their consumption levels and drive more predictability in their activities. 
-These new web services, which apply to deployment of APIs into a production environment with more flexibility, come with pre-defined included quantities of API transactions and Production Compute hours per month. 
+**A**: Based on customer feedback, Azure Machine Learning is introducing tiered billing plans for web services on July 15th, 2016: this will let customers determine their consumption levels and drive more predictability in their activities. 
+
+These new web service plans, which apply to deployment of APIs into a production environment with more flexibility, come with pre-defined included quantities of API transactions and Production Compute hours per month. 
 
 **Q** - Can you explain more about Azure ML Web Services?
 
-**A**: With the Azure Machine Learning web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning web service call returns prediction results to an external application. To make a Machine Learning web service call, you pass an API key which is created when you deploy a prediction. The Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
+**A**: With the Azure Machine Learning web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning web service call returns prediction results to an external application. To make a Machine Learning web service call, you pass an API key which was created when you deployed the web service. The Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
 
 Azure Machine Learning has two types of services:
 
@@ -37,7 +38,7 @@ There are several ways to consume the REST API and access the web service. For e
 
 **Q** - What is different with the new Azure ML Web Services?
 
-**A**: With the introduction of the New Web Services and Management Portal, user have access to more capabilities and management flexibility: 
+**A**: With the introduction of the New Web Services and Management portal, users have access to more capabilities and management flexibility: 
 
 * **Write once, deploy everywhere**: Users can create a web service and deploy it to multiple subscriptions, regions, and resource groups. This also gives the ability to automate the Web Services creation process using APIs or through the new Web Services Management Portal UI.
 * **Improved functionality with the new Web Services Management Portal**: Users can easily access additional usage statistics (How many times the job is run, runtimes, transactions,..) and simplify the testing of Azure ML RRS functions using sample data.
@@ -45,7 +46,7 @@ There are several ways to consume the REST API and access the web service. For e
 
 **Q** - What is the new web services pricing? 
 
-**A**: The New Machine Learning Web Services introduce Billing Plans that allow for more predictability in costs. Tiered pricing is for customers that need much capacity while offering graduated rates.
+**A**: The New Machine Learning Web Services are introducing Billing Plans that allow for more predictability in costs. Tiered pricing is for customers that need increased capacity while offering preferential rates.
 
 The new Azure ML web services are subject to the following plans: 
 
@@ -76,25 +77,9 @@ Note: Included quantities are reallocated every 30 days and unused included quan
 **A**: The pricing associated with Azure Machine Learning Studio - Machine Learning Seat fees and Studio Usage Compute Hours - does not change. 
 However, customers will now have a choice in how they consume Azure ML Web Services: 
 
-* Keeping using their current Machine Learning APIs in Pay as You Go through Classic Web Services, or 
+* Keep using your current Machine Learning APIs in Pay as You Go through Classic Web Services, or 
 * Taking advantage of the New Web Services capabilities that come with a tiered pricing plan.
  
-
-**Q** - What is this announcement changing in the current Azure Machine Learning offer? 
-
-**A**: The pricing associated with Azure Machine Learning Studio - Machine Learning Seat fees and Studio Usage Compute Hours - does not change. 
-However, customers will now have a choice in how they consume Azure ML Web Services: 
-
-* Keeping using their current Machine Learning APIs in Pay as You Go through Classic Web Services, or 
-* Taking advantage of the New Web Services capabilities that come with a tiered pricing plan. 
-
-
-**Q** - What is happening for existing Enterprise Agreement (EA) customers and Online Services Agreement customers (Direct)?
-
-**A**: Customers will now have a choice in how they consume Azure ML Web Services: 
-
-* Keeping using their current Machine Learning APIs in Pay as You Go through Classic Web Services, or 
-* Taking advantage of the New Web Services capabilities that come with a tiered pricing plan.
 
 ## General Questions 
 

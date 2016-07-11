@@ -19,12 +19,12 @@
 
 # Manage a New Machine Learning Web Service
 
-[AZURE.NOTE] The procedures in this article are relevant to Azure Machine Learning new web services. For information on managing classic web services, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
+> [AZURE.NOTE] The procedures in this article are relevant to Azure Machine Learning new web services. For information on managing classic web services, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 
 Using the Microsoft Azure Machine Learning Web Services portal, you can manage your New Machine Learning web services. You can:
 
-- Monitor the web service is being usage.
-- Configure the description, updated the keys for the web service, update your storage account key, and enable or disable sample data.
+- Monitor how the web service is being usage.
+- Configure the description, update the keys for the web service, update your storage account key, and enable or disable sample data.
 - Delete the web service.
 - Create, delete, or update billing plans.
 

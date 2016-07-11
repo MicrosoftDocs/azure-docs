@@ -95,7 +95,7 @@ Run the experiment one last time (click **Run**). If you want to verify that the
 
 ## Deploy the web service
 
-You can deploy the experiment as either a classic web service or a new web service based Azure Resource Manager.
+You can deploy the experiment as either a classic web service or a new web service based on Azure Resource Manager.
 
 ### Deploy as a classic web service ###
 

@@ -107,7 +107,7 @@ Once you've deployed the web service, you can:
 - **Manage** it through Azure Machine Learning web services portal or the Azure classic portal. 
 - **Update** it if your model changes.
 
-## Access the web service
+### Access the web service
 
 Once you deploy your web service from Machine Learning Studio, you can send data to the service and receive responses programmatically.
 
@@ -115,7 +115,7 @@ The **Consume** page provides all the information you need to access your web se
 
 For more information about accessing a Machine Learning web service, see [How to consume a deployed Azure Machine Learning web service](machine-learning-consume-web-services.md).
 
-## Manage your new web service
+### Manage your new web service
 
 You can manage your classic web services Machine Learning Web Services portal. From the [main portal page](https://services.azureml-test.net/) click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
 
@@ -140,7 +140,7 @@ For more information, see [Enable logging for Machine Learning web services](mac
 
 ![Configure the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-4.png)
 
-## Access the web service
+### Access the web service
 
 Once you deploy your web service from Machine Learning Studio, you can send data to the service and receive responses programmatically.
 
@@ -148,7 +148,7 @@ The dashboard provides all the information you need to access your web service. 
 
 For more information about accessing a Machine Learning web service, see [How to consume a deployed Azure Machine Learning web service](machine-learning-consume-web-services.md).
 
-## Manage the web service in the Azure classic portal
+### Manage the web service in the Azure classic portal
 
 In the [Azure classic portal](http://manage.windowsazure.com/), you can manage your web services by clicking the **Machine Learning** service, opening your Machine Learning work space, and then opening the web service from the **WEB SERVICES** tab. From this page you can monitor the web service, update it, and delete it. You can also add a second endpoint for your web service in addition to the default endpoint that is created when you deploy it.
 
