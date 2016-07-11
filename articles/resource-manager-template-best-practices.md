@@ -3,7 +3,7 @@
 	description="Guidelines for simplifying your Azure Resource Manager templates."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="marcvaneijk"
+	authors="tfitzmac"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -65,8 +65,8 @@ The following guidelines will help you create Resource Manager templates that ar
  
 1. Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
  - Settings you wish to vary by environment (such as sku, size, or capacity).
- - Resource names you wish to specify for easy identification. For resources that require a unique name, you can more easily create a name by using the [uniqueString()](resource-group-template-functions.md#uniquestring) template language function in a variable.
- - Values you need to complete workflows (such as admin user name).
+ - Resource names you wish to specify for easy identification. For resources that require a unique name (such as storage accounts and web sites), you can more easily create a name by using the [uniqueString()](resource-group-template-functions.md#uniquestring) template language function in a variable.
+ - Values (such as admin user name) you wish to specify because you use them for completing other tasks.
  - Secrets (such as passwords)
  - The number or array of values to use when creating multiple instances of a resource type.
 
@@ -85,8 +85,6 @@ The following guidelines will help you create Resource Manager templates that ar
      If a resource type is supported in only a limited number of locations, consider specifying a valid location directly in the template. If you must use a location parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes users having to provide locations for every resource type.
 
 1. Do not use a parameter for the API version for a resource type. Instead, hard-code the API version in the template. Passing in an API version number does not work because the available properties for a resource type may vary by version number.
-
-1. Do not create a parameter for a storage account name. Instead, create a variable for the storage account name, as shown in the next section.
 
 ## Variables 
 
@@ -121,7 +119,7 @@ The following guidelines will help you create Resource Manager templates that ar
                     "name": "[variables('storage').type]"
                 },
 	        ...
- 	    }
+            }
         ]
  
      > [AZURE.NOTE] A complex object cannot contain an expression that references a value from a complex object. Define a separate variable for this purpose.
@@ -162,36 +160,31 @@ The following guidelines will help you create Resource Manager templates that ar
 
 1. If you use a **public endpoint** in your template (e.g. blob storage public endpoint), **do not hardcode** the namespace. Use the **reference** function to retrieve the namespace dynamically. This allows you to deploy the template to different public namespace environments, without the requirement to change the endpoint in the template manually. Use the following reference to specify the osDisk. Define a variable for the storageAccountName (as specified in the previous example), a variable for the vmStorageAccountContainerName and a variable for the OSDiskName. Set the apiVersion to the same version you are using for the storageAccount in your template.
 
- ```
- "osDisk": {
-   "name": "osdisk",
-   "vhd": {
-     "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-   }
- }
- ```
+        "osDisk": {
+            "name": "osdisk",
+            "vhd": {
+                "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+            }
+        }
 
- If you have other values in your template configured with a public namespace, change these to reflect the same reference function. For example the storageUri property of the virtual machine diagnosticsProfile. Set the apiVersion to the same version you are using for the corresponding resource in your template.
+     If you have other values in your template configured with a public namespace, change these to reflect the same reference function. For example the storageUri property of the virtual machine diagnosticsProfile. Set the apiVersion to the same version you are using for the corresponding resource in your template.
 
- ```
- "diagnosticsProfile": {
-   "bootDiagnostics": {
-     "enabled": "true",
-     "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob]"
-   }
- }
- ```
+        "diagnosticsProfile": {
+            "bootDiagnostics": {
+                "enabled": "true",
+                "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+            }
+        }
  
- You can also **reference** an **existing storage account** in a different resource group. Set the apiVersion to the same version you are using for the existing storageAccount.
+     You can also **reference** an **existing storage account** in a different resource group. Set the apiVersion to the same version you are using for the existing storageAccount.
 
- ```
- "osDisk": {
-   "name": "osdisk", 
-   "vhd": {
-     "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2015-06-15').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
-   }
- }
- ```
+
+        "osDisk": {
+            "name": "osdisk", 
+            "vhd": {
+                "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2015-06-15').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+            }
+        }
 
 1. Using tags to add metadata to resources allows you to add additional information about your resources. A good use case for tags is adding metadata to a resource for billing detail purposes. 
 
