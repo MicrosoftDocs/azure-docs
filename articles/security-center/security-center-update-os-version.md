@@ -25,7 +25,7 @@ For virtual machines (VMs) in cloud services, Azure Security Center will recomme
 ## Implement the recommendation
 
 1. In the **Recommendations** blade, select **Update OS version**.
-![][1]
+![Update OS version][1]
 
 2. This opens the blade **Update OS version**. Follow the steps in this blade to update the OS version.
 

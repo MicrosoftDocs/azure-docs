@@ -43,7 +43,7 @@ Current policy recommendations center around system updates, baseline rules, ant
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile on the **Security Center** blade lets you know the total number of recommendations identified by Security Center.
 
-![][2]
+![Recommendations tile][2]
 
 To see the details of each recommendation:
 
@@ -88,24 +88,24 @@ You can filter and dismiss recommendations.
 
 1. Click **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
 
-    ![][3]
+    ![Filter recommendations][3]
 
 2. If you determine that a recommendation is not applicable, you can dismiss the recommendation and then filter it out of your view. There are two ways to dismiss a recommendation. One way is to right click an item, and then select **Dismiss**. The other is to hover over an item, click the three dots that appear to the right, and then select **Dismiss**. You can view dismissed recommendations by clicking **Filter**, and then selecting **Dismissed**.
 
-    ![][4]
+    ![Dismiss recommendation][4]
 
 ### Apply recommendations
 After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 Using the **Enable Antimalware** recommendation, let’s walk through an example of how to apply a recommendation.
 
 1. In the **Recommendations** blade, select **Enable Antimalware**.
-![][5]
+![Select enable antimalware][5]
 
 2. In the **Install Antimalware** blade select from the list of virtual machine(s) without antimalware enabled and click **Install Antimalware**.
 3. The **New resource** blade opens to allow you to select the antimalware solution you want to use. Select **Microsoft Antimalware**.
 4. Additional information about the antimalware solution is displayed. Select **Create**.
 5. Enter the required configuration settings on the **Add Extension** blade, and then select **OK**.
-![][6]
+![Install antimalware][6]
 
 [Microsoft Antimalware](../security/azure-security-antimalware.md) is now active on the selected virtual machine.
 

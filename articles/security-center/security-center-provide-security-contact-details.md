@@ -25,10 +25,10 @@ Azure Security Center will recommend that you provide security contact details f
 ## Implement the recommendation
 
 1. In the **Recommendations** blade, select **Provide security contact details**.
-![][1]
+![Provide security contact][1]
 
 2. This opens the blade **Provide security contact details**. Select the Azure subscription to provide contact information on.
-![][2]
+![Provide security contact details][2]
 
 3. A second **Provide security contact details** blade opens. Enter the security contact email address or addresses separated by commas. There is not a limit to the number of email addresses that you can enter.  Enter one security contact international phone number.
 
