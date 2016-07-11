@@ -108,7 +108,7 @@ An * means required field.
 |tweetText|Tweet Text|Text to be posted|
 |body|Media|Media to be posted|
 
-##### Output Details
+**Output Details**
 TweetResponseModel: model representing posted tweet.
 
 |Property Name|Data Type|Description|
@@ -123,7 +123,7 @@ An * means required field.
 |---|---|---|
 |searchQuery*|Query Text|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
 
-##### Output Details
+**Output Details**
 TriggerBatchResponse[TweetModel]: 
 
 |Property Name|Data Type|Description|
@@ -138,7 +138,7 @@ An * means required field.
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
 
-##### Output Details
+**Output Details**
 TweetModel: representation of tweet object
 
 |Property Name|Data Type|Description|
@@ -158,7 +158,7 @@ An * means required field.
 |---|---|---|
 |userName*|User Name|Twitter handle of the user|
 
-##### Output Details
+**Output Details**
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
@@ -181,7 +181,7 @@ An * means required field.
 |userName*|User Name|Twitter handle|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
 
-##### Output Details
+**Output Details**
 TweetModel: representation of tweet object
 
 |Property Name|Data Type|Description|
@@ -202,7 +202,7 @@ An * means required field.
 |searchQuery*|Query Text|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
 |maxResults|Maximum Results|Maximum number of tweets to retrieve|
 
-##### Output Details
+**Output Details**
 TweetModel: representation of tweet object
 
 |Property Name|Data Type|Description|
@@ -223,7 +223,7 @@ An * means required field.
 |userName*|User Name|Twitter handle of the user|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
 
-##### Output Details
+**Output Details**
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
@@ -245,7 +245,7 @@ An * means required field.
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
 
-##### Output Details
+**Output Details**
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
@@ -268,7 +268,7 @@ An * means required field.
 |userName*|User Name|Twitter handle of the user|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
 
-##### Output Details
+**Output Details**
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
@@ -290,7 +290,7 @@ An * means required field.
 |---|---|---|
 |maxResults|Maximum Results|Maximum number of users to retrieve|
 
-##### Output Details
+**Output Details**
 UserDetailsModel: representation of a Twitter user's details
 
 |Property Name|Data Type|Description|
