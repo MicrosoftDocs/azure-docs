@@ -1,4 +1,4 @@
-<properties pageTitle="Azure Media Services Telemetry with .NET" 
+<properties pageTitle="Azure Media Services Telemetry with .NET | Microsoft Azure" 
 	description="This article shows you how to use the Azure Media Services telemetry." 
 	services="" 
 	documentationCenter=""
@@ -224,10 +224,13 @@ You can query for the following live channel metrics.
 	    }
 	}
 
-##Media Services learning paths
-
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+##Next step
+ 
+See Azure Media Services learning path to help you learn about great features offered by AMS.  
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
