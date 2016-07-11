@@ -29,7 +29,7 @@ There are scenarios in which you may need to customize component properties, spe
 To let the **Media Encoder Premium Workflow** knows that you are changing some properties in the workflow when creating the task or sending multiple input files, you have to use a configuration string that contains **setRuntimeProperties** and/or **transcodeSource**. This topic explains how to use them.
 
 
-##Configuration string syntax
+###Configuration string syntax
 
 The configuration string to set in the encoding task uses a XML document that looks like:
   
@@ -75,7 +75,9 @@ Example:
 
 ###Property with a XML value
 
-To set a property that expects a XML value, please encapsulate using <![CDATA[ and ]]> :
+To set a property that expects a XML value, please encapsulate using <![CDATA[ and ]]>
+
+Example:
 
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
@@ -245,8 +247,6 @@ With additional frame accurate trimming:
 
 
 ##Example
-
-###Description
 
 Consider an example in which you want to overlay a logo image on the input video while encoding. In this example, the input video is named "MyInputVideo.mp4" and the logo is named "MyLogo.png". The following steps should be performed:
 
