@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Azure Security Management and Monitoring Overview
@@ -28,7 +28,7 @@ The following chart summarizes the balance of responsibility for both Microsoft 
 
 ![Shared responsibility][1]
 
-For a deeper dive into security management, see [Security management in Azure](../azure-security-management.md).
+For a deeper dive into security management, see [Security management in Azure](azure-security-management.md).
 
 Here are the core features to be covered in this article:
 

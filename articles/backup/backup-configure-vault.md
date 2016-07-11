@@ -184,6 +184,8 @@ To complete the initial backup, you use the Microsoft Azure backup agent.
 
 The backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
 
+>[AZURE.NOTE] Network throttling is not available on Windows Server 2008 R2 SP1, Windows Server 2008 SP2, or Windows 7 (with service packs). The Azure Backup network throttling feature engages Quality of Service (QoS) on the local operating system. Though Azure Backup can protect these operating systems, the version of QoS available on these platforms doesn't work with Azure Backup network throttling. Network throttling can be used on all other [supported operating systems](backup-azure-backup-faq.md#installation-amp-configuration).
+
 **To enable network throttling**
 
 1. In the backup agent, click **Change Properties**.

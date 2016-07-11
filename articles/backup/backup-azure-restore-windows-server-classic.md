@@ -29,7 +29,7 @@ This article covers the steps required to perform two types of restore operation
 
 In both cases, the data is retrieved from the Azure Backup vault.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Recover data to the same machine
 If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.

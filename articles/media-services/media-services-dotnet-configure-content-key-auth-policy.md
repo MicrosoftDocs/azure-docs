@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/08/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -401,6 +401,7 @@ To get a test token based on the token restriction that was used for the key aut
 ##<a id="types"></a>Types used when defining ContentKeyAuthorizationPolicy
 
 ###<a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
     public enum ContentKeyRestrictionType
     {
         Open = 0,

@@ -18,9 +18,6 @@
 
 # Azure AD B2C Preview: Use the Graph API
 
-
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
-
 Azure Active Directory (Azure AD) B2C tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in Azure AD behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]

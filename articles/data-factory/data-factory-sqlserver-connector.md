@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/15/2016"
 	ms.author="spelluru"/>
 
 # Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
@@ -412,8 +412,10 @@ You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmd
 	    "properties":
 	    {
 	        "type": "OnPremisesSqlLinkedService",
-	        "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
-	        "gatewayName": "<gateway name>"
+			"typeProperties": {
+	        	"connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
+	        	"gatewayName": "<gateway name>"
+			}
 	    }
 	}
 
@@ -426,10 +428,12 @@ If username and password are specified, gateway will use them to impersonate the
 	     "Properties":
 	     {
 	         "type": "OnPremisesSqlLinkedService",
-	         "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
-	         "username": "<domain\\username>",
-	         "password": "<password>",
-	         "gatewayName": "<gateway name>"
+			 "typeProperties": {
+	         	"ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+	         	"username": "<domain\\username>",
+	         	"password": "<password>",
+	         	"gatewayName": "<gateway name>"
+			}
 	     }
 	}
 
@@ -478,8 +482,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer. (unit = Row Count) | No (Default = 10000)
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No |
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer | No (default: 10000)
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
 | sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. See repeatability section below for more details. | Column name of a column with data type of binary(32). | No |
 | sqlWriterStoredProcedureName | Name of the stored procedure that upserts (updates/inserts) data into the target table. | Name of the stored procedure. | No |

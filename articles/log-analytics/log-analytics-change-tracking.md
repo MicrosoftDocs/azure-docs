@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/26/2016"
 	ms.author="banders"/>
 
 # Change Tracking solution in Log Analytics
@@ -33,13 +33,13 @@ Use the following information to install and configure the solution.
 
 ## Change Tracking data collection details
 
-The following table shows data collection methods and other details about how data is collected for Change Tracking.
+Change Tracking collects software inventory and Windows Service metadata using the agents that you have enabled.
 
+The following table shows data collection methods and other details about how data is collected for Change Tracking.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 |---|---|---|---|---|---|---|
 |Windows|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)|![No](./media/log-analytics-change-tracking/oms-bullet-red.png)|            ![No](./media/log-analytics-change-tracking/oms-bullet-red.png)|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)| hourly|
-
 
 ## Use Change Tracking
 

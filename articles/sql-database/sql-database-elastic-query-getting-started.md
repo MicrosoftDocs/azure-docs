@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""  
 	manager="jhubbard"
-	authors="sidneyh"/>
+	authors="SilviaDoomra"/>
 
 <tags
 	ms.service="sql-database"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/23/2016"
 	ms.author="SilviaDoomra" />
 
 # Report across scaled-out cloud databases (preview)

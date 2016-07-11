@@ -210,6 +210,8 @@ You must now add code that implements the behavior defined in the model. You wil
         config.iotHubName = hubName;
         config.iotHubSuffix = hubSuffix;
         config.protocol = HTTP_Protocol;
+        config.deviceSasToken = NULL;
+        config.protocolGatewayHostName = NULL;
         iotHubClientHandle = IoTHubClient_Create(&config);
         if (iotHubClientHandle == NULL)
         {
@@ -309,6 +311,7 @@ You must now add code that implements the behavior defined in the model. You wil
     ```
     
     For reference, here is a sample **DeviceInfo** message sent to IoT Hub at start up:
+
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -327,11 +330,13 @@ You must now add code that implements the behavior defined in the model. You wil
     ```
     
     For reference, here is a sample **Telemetry** message sent to IoT Hub:
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
     For reference, here is a sample **Command** received from IoT Hub:
+    
     ```
     {
       "Name":"SetHumidity",

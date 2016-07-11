@@ -60,11 +60,11 @@ Azure SQL databases can also be configured to mask sensitive data to non-privile
 - [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
 
 
-## 4. Geo-replication
+## 4. Geo-Replication
 
-![Geo-replication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
+![Geo-Replication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The geo-replication part on the portal allows you to select the Azure region you would like the secondary database to reside in. 
+Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The Geo-Replication part on the portal allows you to select the Azure region you would like the secondary database to reside in. 
 
 - [Geo-Replication](sql-database-geo-replication-overview.md)
 

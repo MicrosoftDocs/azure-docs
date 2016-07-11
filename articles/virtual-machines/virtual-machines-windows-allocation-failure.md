@@ -13,7 +13,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="support-article"
 	ms.date="02/02/2016"
 	ms.author="cjiang"/>
 

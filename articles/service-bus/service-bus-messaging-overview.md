@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Service Bus messaging overview | Microsoft Azure"
-	description="Service Bus Messaging: Flexible Data Delivery in the Cloud"
+	description="Service Bus Messaging: flexible data delivery in the cloud"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/20/2016"
 	ms.author="sethm"/>
 
 
 # Service Bus messaging: flexible data delivery in the cloud
 
-Azure Service Bus messaging is a reliable information delivery service. The purpose of this service is to make communication easier. When two or more parties want to exchange information, they need a communication mechanism. Service Bus messaging is a brokered, or third party communication mechanism. This is similar to a postal service in the physical world. Postal services make it very easy to send different kinds of letters and packages with a variety of delivery guarantees, anywhere in the world.
+Microsoft Azure Service Bus messaging is a reliable information delivery service. The purpose of this service is to make communication easier. When two or more parties want to exchange information, they need a communication mechanism. Service Bus messaging is a brokered, or third party communication mechanism. This is similar to a postal service in the physical world. Postal services make it very easy to send different kinds of letters and packages with a variety of delivery guarantees, anywhere in the world.
 
 Similar to the postal service delivering letters, Service Bus messaging is flexible information delivery from both the sender and the recipient. The messaging service ensures that the information is delivered even if the two parties are never both online at the same time, or if they aren't available at the exact same time. In this way, messaging is similar to sending a letter, while non-brokered communication is similar to placing a phone call (or how a phone call used to be - before call waiting and caller ID, which are much more like brokered messaging).
 
@@ -39,7 +39,7 @@ Relayed messaging provides many benefits, but requires the server and client to 
 
 ## Brokered messaging
 
-In contrast to the relayed messaging scheme, [brokered messaging](service-bus-fundamentals-hybrid-solutions.md) can be thought of as asynchronous, or "temporally decoupled." Producers (senders) and consumers (receivers) do not have to be online at the same time. The messaging infrastructure reliably stores messages in a "broker" (such as a queue) until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the entire system. Furthermore, the receiving application may only have to come online during certain times of the day, such as an inventory management system that only is required to run at the end of the business day.
+In contrast to the relayed messaging scheme, [brokered messaging](service-bus-queues-topics-subscriptions.md) can be thought of as asynchronous, or "temporally decoupled." Producers (senders) and consumers (receivers) do not have to be online at the same time. The messaging infrastructure reliably stores messages in a "broker" (such as a queue) until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the entire system. Furthermore, the receiving application may only have to come online during certain times of the day, such as an inventory management system that only is required to run at the end of the business day.
 
 The core components of the Service Bus brokered messaging infrastructure are queues, topics, and subscriptions.  The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients. These components enable new asynchronous messaging scenarios, such as temporal decoupling, publish/subscribe, and load balancing. For more information about these messaging entities, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
 
@@ -49,9 +49,9 @@ As with the relayed messaging infrastructure, the brokered messaging capability 
 
 To learn more about Service Bus messaging, see the following topics.
 
-- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 - [Service Bus architecture](service-bus-architecture.md)
-- [How to use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
-- [How to use Service Bus Topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+- [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  

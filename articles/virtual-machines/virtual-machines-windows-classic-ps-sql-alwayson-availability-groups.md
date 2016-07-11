@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure Always On Availability Groups in an Azure VM | Microsoft Azure"
+	pageTitle="Configure Always On availability group in Azure VM with PowerShell"
 	description="This tutorial uses resources created with  the classic deployment model, and uses PowerShell to create an Always On Availability Group in Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,19 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Configure Always On Availability Groups in Azure VM (PowerShell)
+# Configure Always On availability group in Azure VM with PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Resource Manager: Auto](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. 
-
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Azure virtual machines (VMs) can help database administrators to implement lower the cost of a high availability SQL Server system. This tutorial shows you how to implement an availability group using SQL Server Always On end-to-end inside an Azure environment. At the end of the tutorial, your SQL Server Always On solution in Azure will consist of the following elements:
 

@@ -195,7 +195,7 @@ Before you can enable and use the Password Writeback, you must make sure you com
 
 
 ### Step 1: Download the latest version of Azure AD Connect
-Password Writeback is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number **1.0.0419.0911** or higher.  Password Writeback with automatic account unlock is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number **1.0.0485.0222** or higher. If you are running an older version, please upgrade to at least this version before proceeding. [Click here to download the latest version of Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+Password Writeback is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number **1.0.0419.0911** or higher.  Password Writeback with automatic account unlock is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number **1.0.0485.0222** or higher. If you are running an older version, please upgrade to at least this version before proceeding. [Click here to download the latest version of Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### To check the version of Azure AD Sync
 1.	Navigate to **%ProgramFiles%\Azure Active Directory Sync\**.

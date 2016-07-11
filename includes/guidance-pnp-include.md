@@ -1,3 +1,8 @@
-|<span style="background-color:darkblue"></span>|<span style="background-color:darkblue"></span>|
-|---|---:|
-|![PNP](media/guidance-pnp-include/pnp-logo.png)|**Azure Reference Architectures<br/>IaaS**|
+<table style="width:100%">
+<tr>
+<td>
+<img src="./media/guidance-pnp-include/pnp-logo.png"/>
+</td>
+<td style="text-align:right"><b>Azure Reference Architectures<br/>IaaS</b></td>
+</tr>
+</table>

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/05/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Microsoft Cortana Intelligence Competitions FAQ
@@ -56,7 +56,7 @@ No. In fact, we encourage data enthusiasts, those curious about data science, an
 
 * Data Stewards: those who have the knowledge about the data, what it means, and how it is intended to be used and for which purpose.
 
-* Students & Researchers: those who are learning and gaining data related skills via academic programs in universities or participants of Massively Open Online Courses (MOOCs)
+* Students & Researchers: those who are learning and gaining data related skills via academic programs in universities or participants of Massive Open Online Courses (MOOCs)
 
 
 **Can I enter with my colleagues as a team?**
@@ -75,7 +75,7 @@ In most competitions, you will notice that you will receive a public score for e
 
 * The entire dataset used in the competition is randomly split with stratification into training and testing (the remaining) data. The random split is stratified to ensure that the distributions of labels in both training and testing data are consistent.
  
-* The training data is uploaded and given to you as part of the Starter Experiment in the Reader module configuration.
+* The training data is uploaded and given to you as part of the Starter Experiment in the Import Data module configuration.
 
 * The testing data is further split into public and private testing data, using the same stratification.
 

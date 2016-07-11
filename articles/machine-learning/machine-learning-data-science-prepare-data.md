@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Tasks to prepare data for enhanced machine learning
 
-Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Cortana Analytics Process (CAP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the CAP process, see the steps outlined in the [Cortana Analytics Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Team Data Science Process (TDSP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the TDSP process, see the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 Pre-processing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning Studio, and with various tools and languages, such as R or Python, depending where your data is stored and how it is formatted. Since CAP is iterative in nature, these tasks can take place at various steps in the  workflow of the process.
 

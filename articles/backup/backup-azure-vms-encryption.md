@@ -4,7 +4,7 @@
    services="backup"
    documentationCenter=""
    authors="markgalioto"
-   manager="jwhit"
+   manager="cfreeman"
    editor=""/>
 <tags
    ms.service="backup"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="03/14/2016"
+   ms.date="07/01/2016"
    ms.author="markgal; jimpark"/>
 
 # Dealing with encrypted disks during VM backup

@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/25/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -39,9 +39,9 @@ Explore these resources for more information about IoT on Azure:
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-connecting]: iot-suite-connecting-devices.md
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub/
-[Azure Event Hubs]: https://azure.microsoft.com/services/event-hubs/
-[Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
-[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning/
-[Azure storage]: https://azure.microsoft.com/services/storage/
+[Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
+[Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
+[Azure Stream Analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
+[Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
