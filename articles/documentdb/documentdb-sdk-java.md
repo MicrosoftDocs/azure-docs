@@ -37,8 +37,8 @@
 ## Release Notes
 
 ### <a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
-  - Fixed a bug in PartitionKeyDefinitionMap to cache single partition collection and not making extra fetch partition key requests.
-  - Fixed a bug in incorrect partition key value scenario to not retry.
+  - Fixed a bug in PartitionKeyDefinitionMap to cache single partition collections and not make extra fetch partition key requests.
+  - Fixed a bug to not retry when an incorrect partition key value is provided.
 
 ### <a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
   - Added the support for multi-region database accounts.
