@@ -14,7 +14,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
+	ms.topic="article"
 	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
