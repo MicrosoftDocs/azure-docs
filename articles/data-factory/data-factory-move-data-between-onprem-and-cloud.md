@@ -421,4 +421,6 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 	![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## Next Steps
-See [Data Management Gateway](data-factory-data-management-gateway.md) article for all the details about the Data Management Gateway. 
+
+- See [Data Management Gateway](data-factory-data-management-gateway.md) article for all the details about the Data Management Gateway.
+- See [Copy data from Azure Blob to Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to learn about how to use Copy Activity to move data from a source data store to a sink data store in general. 
