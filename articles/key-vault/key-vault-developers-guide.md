@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Key Vault Developer's Guide | Microsoft Azure"
    description="Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment. "
    services="key-vault"
@@ -84,6 +84,7 @@ The following articles and scenarios provide task specific guidance for working 
 - [How to use Key Vault for extensible key management with SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) - The SQL Server Connector for Azure Key Vault enables SQL Server and SQL-in-a-VM to leverage the Azure Key Vault service as an Extensible Key Management (EKM) provider to protect its encryption keys for applications link; Transparent Data Encryption, Backup Encryption, and Column Level Encryption.
 - [How to deploy Certificates to VMs from Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - A cloud application running in a VM on Azure needs a certificate. How do you get this certificate into this VM today?
 - [How to integrate Key Vault with Azure Disk Encryption for Windows and Linux IaaS VMs](../azure-security-disk-encryption.md) - This disk encryption solution is integrated with Azure Key Vault to help control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
+- [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) - This walks through how to setup key rotation and auditing with Azure Key Vault.
 
 For more task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones ARM template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
