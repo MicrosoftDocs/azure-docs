@@ -29,7 +29,7 @@ ASE creation requires customers to provide the following pieces of information:
 - name of the ASE
 - subscription to be used for the ASE  
 - resource group
-- Azure Virtual Network(VNet) with 8 or more addresses and a subnet to be used by the ASE
+- Azure Virtual Network(VNet) with and an empty subnet that has 8 or more IP addresses
 - VIP Type, External or Internal 
 - ASE resource pool definition
 
