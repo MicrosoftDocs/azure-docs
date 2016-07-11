@@ -35,6 +35,8 @@ When you add this connector to your logic apps, you must authorize logic apps to
 1. Sign in to your Twitter account.
 2. Select Authorize, and allow your logic apps to connect and use your Twitter account. 
 
+## Connect to Twitter
+
 >[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
 
 
@@ -70,7 +72,7 @@ An action is an operation carried out by the workflow defined in a Logic app. [L
 
 ## Technical Details
 
-### Triggers
+## Twitter Triggers
 
 A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers.]() The Twitter connector has one trigger. 
 
@@ -78,7 +80,7 @@ A trigger is an event that can be used to start the workflow defined in a Logic 
 |---|---|
 |When a new tweet appears|Activate your logic app workflow based on when specific  text appears in tweets|
 
-### Actions
+## Twitter Actions
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions.]() The Twitter connector has 10 possible actions. 
 
@@ -314,7 +316,7 @@ UserDetailsModel: representation of a Twitter user's details
 |StatusesCount|integer|User Status Count|
 |FriendsCount|integer|Number of Friends|
 
-### HTTP Responses
+## HTTP Responses
 
 When making calls to various actions, you might get certain responses. Below is a table outlining corresponding responses and descriptions.
 
@@ -333,10 +335,10 @@ When making calls to various actions, you might get certain responses. Below is 
 
 ## Next Steps
 
-### Create a logic app
+## Create a logic app
 
 Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-### Engage with our community
+## Engage with our community
 
 Engage with the logic app community by commenting below. 
