@@ -125,6 +125,31 @@ For information about using the portal, see [Using the Azure Portal to manage yo
 
 Azure Resource Manager supports cross-origin resource sharing (CORS). With CORS, you can call the Resource Manager REST API or an Azure service REST API from a web application that resides in a different domain. Without CORS support, the web browser would prevent an app in one domain from accessing resources in another domain. Resource Manager enables CORS for all requests with valid authentication credentials.
 
+## SDKs and samples
+
+Azure SDKs are available for multiple languages and platforms.
+Each of these language implementations is available through its ecosystem package manager and GitHub.
+
+The code in each of these SDKs is generated from Azure RESTful API specifications.
+These specifications are open source and based on the Swagger 2.0 specification.
+The SDK code is generated via an open-source project called AutoRest.
+AutoRest transforms these RESTful API specifications into client libraries in multiple languages.
+If you want to improve any aspects of the generated code in the SDKs,
+the entire set of tools to create the SDKs are open, freely available, and based on a widely adopted API specification format.
+
+The Azure SDK for each language is a set of NuGet packages that helps you call most of the Azure Resource Manager APIs.
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net)
+- [Java](https://github.com/Azure/azure-sdk-for-java)
+- [Node.js](https://github.com/Azure/azure-sdk-for-node)
+- [PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Python](https://github.com/Azure/azure-sdk-for-python)
+- [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
+
+[AZURE.NOTE If the SDK doesn't provide the required functionality, you can also call to the Azure REST API directly.]
+
+Many of the SDKs also have samples for Azure Resource manager on [Azure Code Samples](https://azure.microsoft.com/en-us/documentation/samples/?service=azure-resource-manager).
+
 ## Next steps
 
 - For a simple introduction to working with templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
