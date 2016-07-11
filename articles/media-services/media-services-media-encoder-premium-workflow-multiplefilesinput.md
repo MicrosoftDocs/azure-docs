@@ -29,7 +29,7 @@ There are scenarios in which you may need to customize component properties, spe
 To let the **Media Encoder Premium Workflow** knows that you are changing some properties in the workflow when creating the task or sending multiple input files, you have to use a configuration string that contains **setRuntimeProperties** and/or **transcodeSource**. This topic explains how to use them.
 
 
-###Configuration string syntax
+##Configuration string syntax
 
 The configuration string to set in the encoding task uses a XML document that looks like:
   
@@ -122,8 +122,6 @@ To check the path and property name, use the action button immediately beside ea
 ![Propery](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
 ##Multiple input files
-
-### Details
 
 Each task that you submit to the **Media Encoder Premium Workflow** requires two Assets: 
 
