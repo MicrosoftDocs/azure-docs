@@ -119,7 +119,7 @@ Network Security Groups allow more granular control of allowed inbound and outbo
 - Click **All settings** | **Network interfaces** and select your network interface.
 - Click **All settings** | **Network security group** and select your network security group.
 - Click **All settings** | **Inbound security rules** and ensure you have a rule allowing RDP on TCP port 3389.
-	- If you do not have a rule, click **Add** to create a new rule, entering **TCP** for the protocol and then **3389** for the destination port range.
+	- If you do not have a rule, click **Add** to create a new rule. Enter **TCP** for the protocol and then **3389** for the destination port range.
 	- Make sure the action is set to **Allow** and click OK to save your new inbound rule.
 
 
