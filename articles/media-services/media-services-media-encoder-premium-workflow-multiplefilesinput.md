@@ -13,52 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016"  
+	ms.date="07/11/2016"  
 	ms.author="xpouyat"/>
 
 #Using multiple input files and component properties with Premium Encoder
 
 ##Overview 
 
-There are scenarios in which you may need to send multiple input files, customize component properties or specify Clip List XML content when submitting a task with the **Media Encoder Premium Workflow** media processor. Some examples are: 
+There are scenarios in which you may need to customize component properties, specify Clip List XML content or send multiple input files when submitting a task with the **Media Encoder Premium Workflow** media processor. Some examples are: 
 
-- overlaying a logo image on the input video while encoding,
 - overlaying text on video and setting the text value (for example, the current date) at run-time for each input video
 - customize the Clip List XML (to specify one or several source files, with or without trimming, etc)
+- overlaying a logo image on the input video while encoding
 
-To let the **Media Encoder Premium Workflow** knows that you are sending multiple input files or changing some properties in the worklow when creating the task, you have to use a configuration string that contains **setRuntimeProperties** and/or **transcodeSource**. This topic explains how to use them.
-
-##Multiple input files
- 
-Each task that you submit to the **Media Encoder Premium Workflow** requires two Assets: 
-
-- the first one is a "Workflow Asset" that contains a workflow file. You can design workflow files using the [Workflow Designer](media-services-workflow-designer.md), 
-- the second one is a "Media Asset" that contains the media file(s) that you want to encode. 
-
-When sending multiple media files to the **Media Encoder Premium Workflow** encoder, the following constraints apply:
-
-- All the media files must be in the same "Media Asset". Using multiple Media Assets is not supported.
-- You must set the primary file in this Media Asset (ideally, this is the main video file that the encoder is asked to process).
-- It is necessary to pass configuration data that includes the **setRuntimeProperties** and/or **transcodeSource** element to the processor.
-  - **setRuntimeProperties** is used to override the filename or another property in the components of the workflow
-  - **transcodeSource** is used to specify the Clip List XML content
-- Connections in the workflow
-  - if you use one or several Media File Input components and plan to use **setRuntimeProperties** to specify the file name, then do not connect the primary file component PIN to them. Please make sure there is no connection between the primary file object and the Media File Input(s).
-  - If you prefer to use Clip List XML and one Media Source component, then you can connect both together.
-
-![No connection from primary file to Media File Input](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
-
-*No connection from primary file to Media File Input component(s) if you use setRuntimeProperties to set the filename*
-
-
-![Connection from Clip List XML to Clip List Source](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
-
-*You can connect Clip List XML to Media Source and use transcodeSource*
+To let the **Media Encoder Premium Workflow** knows that you are changing some properties in the workflow when creating the task or sending multiple input files, you have to use a configuration string that contains **setRuntimeProperties** and/or **transcodeSource**. This topic explains how to use them.
 
 
 ##Configuration string syntax
 
-The configuration string to set in the encoding task use this XML schema:
+The configuration string to set in the encoding task uses a XML document that looks like:
   
     <?xml version="1.0" encoding="utf-8"?>
     <transcodeRequest>
@@ -85,8 +58,9 @@ The code in C# to read the XML configuration from a file and pass it to the task
 
 ###Property with a simple value
 In some cases, it is useful to customize a component property together with the workflow file that is going to be executed by Media Encoder Premium Workflow. Suppose you designed a workflow that overlays text on your videos and the text (for example, the current date) should be set at run-time. You can do this by sending the text to as the new value for the text property of the overlay component from the encoding task. You can use this mechanism to change other properties of a component in the workflow (such as change the position or color of the overlay, change the bitrate of the AVC encoder, etc.).
+**setRuntimeProperties** is used to override a property in the components of the workflow.
 
-Example :
+Example:
 
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
@@ -97,6 +71,7 @@ Example :
           <property propertyPath="Optional Text Overlay/Text To Image Converter/text" value="Today is Friday the 13th of May, 2016"/>
       </setRuntimeProperties>
     </transcodeRequest>
+
 
 ###Property with a XML value
 
@@ -132,8 +107,51 @@ To set a property that expects a XML value, please encapsulate using <![CDATA[ a
 >[AZURE.NOTE]Make sure to not put a carriage return just after <![CDATA[
 
 
-##Clip List XML customization
-You can specify the Clip List XML in the workflow, at runtime, by using **sourceTranscode** in the configuration string XML.
+###propertyPath value
+
+In the previous examples, the propertyPath was "/Media File Input/filename" or "/inactiveTimeout" or "clipListXml".
+This is in general the name of the component then the name of the property.
+The path could have more or less levels, like "/primarySourceFile" (because the property is at the root of the workflow), or "/Video Processing/Graphic Overlay/Opacity" (because the Overlay is in a group).    
+
+To check the path and property name, use the action button immediately beside each property. You can click this action button and select ‘Edit’. This will show you the actual name of the property, and immediately above it the namespace.
+
+![Action/Edit](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
+
+![Propery](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
+
+##Multiple input files
+
+### Details
+
+Each task that you submit to the **Media Encoder Premium Workflow** requires two Assets: 
+
+- the first one is a "Workflow Asset" that contains a workflow file. You can design workflow files using the [Workflow Designer](media-services-workflow-designer.md), 
+- the second one is a "Media Asset" that contains the media file(s) that you want to encode. 
+
+When sending multiple media files to the **Media Encoder Premium Workflow** encoder, the following constraints apply:
+
+- All the media files must be in the same "Media Asset". Using multiple Media Assets is not supported.
+- You must set the primary file in this Media Asset (ideally, this is the main video file that the encoder is asked to process).
+- It is necessary to pass configuration data that includes the **setRuntimeProperties** and/or **transcodeSource** element to the processor.
+  - **setRuntimeProperties** is used to override the filename or another property in the components of the workflow
+  - **transcodeSource** is used to specify the Clip List XML content
+
+Connections in the workflow
+  - If you use one or several Media File Input components and plan to use **setRuntimeProperties** to specify the file name, then do not connect the primary file component PIN to them. Please make sure there is no connection between the primary file object and the Media File Input(s).
+  - If you prefer to use Clip List XML and one Media Source component, then you can connect both together.
+
+![No connection from Primary Source File to Media File Input](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
+
+*No connection from primary file to Media File Input component(s) if you use setRuntimeProperties to set the filename*
+
+
+![Connection from Clip List XML to Clip List Source](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
+
+*You can connect Clip List XML to Media Source and use transcodeSource*
+
+
+###Clip List XML customization
+You can specify the Clip List XML in the workflow, at runtime, by using **sourceTranscode** in the configuration string XML. This requires the Clip List XML pin to be connected to the Media Source component in the workflow.
 
     <?xml version="1.0" encoding="utf-16"?>
       <transcodeRequest>
@@ -159,7 +177,7 @@ You can specify the Clip List XML in the workflow, at runtime, by using **source
         </setRuntimeProperties>
       </transcodeRequest>
 
-If you want to specify /primarySourceFile to use this property to name the output files, then it is recommended to pass the Clip List XML as a property, after the /primarySourceFile property, to avoid the Clip List to be modified by the /primarySourceFile setting. 
+If you want to specify /primarySourceFile to use this property to name the output files using 'Expressions', then it is recommended to pass the Clip List XML as a property, *after* the /primarySourceFile property, to avoid the Clip List being overridden by the /primarySourceFile setting. 
 
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
@@ -226,9 +244,9 @@ With additional frame accurate trimming:
       </transcodeRequest>
 
 
-##Examples
+##Example
 
-###Example 1
+###Description
 
 Consider an example in which you want to overlay a logo image on the input video while encoding. In this example, the input video is named "MyInputVideo.mp4" and the logo is named "MyLogo.png". The following steps should be performed:
 
@@ -243,27 +261,17 @@ Configuration:
         <setRuntimeProperties>
           <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
           <property propertyPath="/primarySourceFile" value="MyInputVideo.mp4" />
-          <property propertyPath="Optional Overlay/Overlay/filename" value="MyLogo.png"/>
+          <property propertyPath="Media File Input Logo/filename" value="MyLogo.png" />
         </setRuntimeProperties>
       </transcodeRequest>
 
 
-In the example above, the name of the video file is sent to the Media File Input component and the primarySourceFile property, the name of the logo file is sent to the graphic overlay component.
+In the example above, the name of the video file is sent to the Media File Input component and the primarySourceFile property, the name of the logo file is sent to another Media File Input connected to the graphic overlay component.
 
->[AZURE.NOTE]The video file name is sent to primarySourceFile property. The reason for this is to use this property in the workflow, for building the correct output file name, for example.
+>[AZURE.NOTE]The video file name is sent to primarySourceFile property. The reason for this is to use this property in the workflow, for building the correct output file name using Expressions, for example.
 
 
-###propertyPath value
-In the previous examples, the propertyPath was "/Media File Input/filename", "/Media Source/clips".
-This is in general the name of the component then the name of the property.
-The path could have more or less levels, like "/primarySourceFile" (because the property is at the root of the workflow), or "/Video Processing/Graphic Overlay/Opacity" (because the Overlay is in a group).    
-
-To check the path and property name, you can open the .workflow file in a XML editor and find the component name and properties in it.
-
-![Key frame editor](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_vscode.png)
-
-	
-###Example 2 : a step by step workflow creation that overlays a logo on top of the video     
+###Step by step workflow creation that overlays a logo on top of the video     
 
 Here are the steps to create a workflow that takes as input two files: a video and an image. It will overlay the image on top of the video.
 
@@ -347,7 +355,7 @@ You can run the workflow locally to check that it is running correctly.
 
 Once this succeeds, you can run it in Azure Media Services.
 
-First prepare an asset in Azure Media Services with two files in it: the video file and the logo. You can do it using .NET or REST API. You can also do it with the Azure Classic Portal or [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE). 
+First prepare an asset in Azure Media Services with two files in it: the video file and the logo. You can do it using .NET or REST API. You can also do it with the Azure Portal or [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE). 
 
 This tutorial shows how to manage assets with AMSE. There are two ways add files to an asset. 
 
@@ -397,7 +405,7 @@ Once the the job complete, the MP4 file in the output asset displays the overlay
 *Overlay on the video*
 
 
-You can download the sample workflow from here.
+You can download the sample workflow from [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamplesMultipleInputFiles).
 
 
 ##Also see 
