@@ -403,7 +403,7 @@ Once the the job complete, the MP4 file in the output asset displays the overlay
 *Overlay on the video*
 
 
-You can download the sample workflow from [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamplesMultipleInputFiles).
+You can download the sample workflow from [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
 
 ##Also see 
