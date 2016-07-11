@@ -28,22 +28,7 @@ Many of the tasks here use the
 
 ## Define environment variables before a role starts
 
-You can define environment variables for an entire role by adding the [Runtime] element to the definition of the role in the service definition file.
-
-```xml
-<ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-    <WebRole name="WebRole1">
-        ...
-        <Runtime>
-            <Environment>
-                <Variable name="MyEnvironmentVariable" value="MyVariableValue" />
-            </Environment>
-        </Runtime>
-    </WebRole>
-</ServiceDefinition>
-```
-
-If you need environment variables defined for a specific task, that isn't shared by other tasks, you can use the [Environment] element inside of the [Task] element.
+If you need environment variables defined for a specific task, use the [Environment] element inside of the [Task] element.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -391,6 +376,17 @@ The simplest way to detect that a task has already run is to create a file in th
     REM   Exit normally.
     EXIT /B 0
 
+## Install Python
+
+If you're using a role that is based on Python, you'll need to install the Python runtime on the virtual machine. This task detects if the cloud service is not running in the emulator  
+
+
+```cmd
+IF "%EMULATED%" == "true" (
+    powershell -c "(new-object System.Net.WebClient).DownloadFile('http://python.org/ftp/python/2.7.2/python-2.7.2.msi', 'python.msi')"
+    start /w msiexec /i python.msi /qn TARGETDIR="%PYTHON_PATH%"
+)
+```
 
 ## Task best practices
 Here are some best practices you should follow when configuring task for your web or worker role.
