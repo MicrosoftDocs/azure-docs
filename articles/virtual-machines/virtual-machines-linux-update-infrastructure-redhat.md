@@ -43,7 +43,7 @@ To unregister RHUI and reregister to your update infrastructure follow the below
 2.	Edit /etc/yum/pluginconf.d/rhnplugin.conf and change `enabled=0` to `enabled=1`.
 3.	Then register with the desired infrastructure, such as Red Hat Customer Portal. Follow Red Hat solution guide on [how to register and subscribe a system to the Red Hat Customer Portal](https://access.redhat.com/solutions/253273).
 
-> [AZURE.NOTE] Unregistering the VMs from Azure-hosted RHUI does not convert these virtual machines into Bring-Your-Own-License (BYOL) type VMs and hence you may be incurring double charges for these instances. Once for using Pay-As-You-Go on-demand RHEL image from Azure Marketplace and second time for using a Red Hat subscription which you purchase directly from Red Hat or their reseller. 
+> [AZURE.NOTE] Access to the Azure-hosted RHUI is included in the RHEL Pay-As-You-Go (PAYG) image price. Unregistering a PAYG RHEL VM from Azure-hosted RHUI does not convert the virtual machine into Bring-Your-Own-License (BYOL) type VM and hence you may be incurring double charges if you register the same VM with other source of updates. 
 > 
 > If you consistently need to use update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](virtual-machines-linux-redhat-create-upload-vhd.md) article.
 
