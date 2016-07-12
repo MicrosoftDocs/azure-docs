@@ -197,11 +197,11 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
 
->[!NOTE] It is recommended to proactively monitor these runbooks (and the virtual machine state) to verify that your virtual machines are being shutdown and started accordingly.  
+>[AZURE.NOTE] It is recommended to proactively monitor these runbooks (and the virtual machine state) to verify that your virtual machines are being shutdown and started accordingly.  
 
 You can view the details of the **Test-ResourceSchedule** runbook job in the Azure portal from the Jobs tab of that runbook. The Summary of the job will display the input parameters and the Output Stream in addition to general information about the job and any exceptions if they occurred.  The History will include messages from the Output Stream and Warning and Error Streams.  Select the Output tile to view detailed results from runbook execution.<br> ![Test-ResourceSchedule Output](./media/automation-scenario-start-stop-vm-wjson-tags/automation-testresourceschedule-output.png)  
 
-## Next Steps
+## Next steps
 
 -  To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 -  To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
