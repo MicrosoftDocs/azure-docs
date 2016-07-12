@@ -18,6 +18,8 @@
 
 # Transferring Ownership of an Azure subscription
 
+> [AZURE.NOTE]  To change your subscription to a different offer, see [Switching to a different Azure offer](billing-how-to-switch-azure-offer.md) for more information.
+
 Do you:
 
 - Need to hand over billing ownership of your Azure subscription to someone else?
