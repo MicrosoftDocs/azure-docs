@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to: Change or Reset your Azure AD Password | Microsoft Azure" 
-	description="Learn how to register for password reset, how to change your password, and how to reset your own password in case you ever forget it." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="How to: Change or Reset your Azure AD Password | Microsoft Azure"
+	description="Learn how to register for password reset, how to change your password, and how to reset your own password in case you ever forget it."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # How to update your own password
@@ -32,21 +32,21 @@ The fastest way to register for password reset is to go to http://aka.ms/ssprset
  1. Navigate to http://aka.ms/ssprsetup.
  2. Enter your username and password.
  3. Choose an option to register for by clicking **set it up now**.  In this case, I'll demonstrate registering my **authentication phone**.
- 
+
     ![][011]
-   
+
  4. Select your country code from the dropdown and enter your **full phone number + area code**.
- 
-    ![][012] 
+
+    ![][012]
     ![][013]
-   
+
  5. Select one of the **text me** or **call me** options.  In this case, I'll select **text me**, which will send a 6 digit code to my phone.  Wait for the code to arrive on your phone.
- 
+
     ![][014]
- 
+
  6. Once the code arrives, enter it into the input box, then click "verify".
  7. When you see **thanks**, that's it!  Now you can use what you registered for to reset your password at any time by going to https://passwordreset.microsoftonline.com.
- 
+
     ![][015]
 
  >[AZURE.IMPORTANT] If your admin lets you register for more than one option, we highly recommend you also register a back-up option in case you lose your phone or access to your email.
@@ -69,7 +69,7 @@ Follow the steps below to change your work or school account password from the [
  3. Click on the **change my password** tile on the right hand side of the screen.
  4. Type your old password, and then type a new password and confirm it.
  5. Click **Save**.
- 
+
  Run into a problem changing your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
 ## How to reset your password
@@ -78,16 +78,16 @@ Follow the steps below to change your work or school account password from the [
 Follow the steps below to reset your work or school account password from any work or school account sign in screen.
 
  >[AZURE.IMPORTANT] This feature is only available to you if your admin has turned it on.  If it's not turned on, you'll see a message indcating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.<br><br>If your admin has enabled you for this feature, you'll first need to sign up before you can use it.  You can do that here: http://aka.ms/ssprsetup.
- 
+
 
  1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
- 
+
     ![][001]
- 
+
  2. On the "who are you?" page, enter your work or school account id and prove you aren't a robot by passing the captcha.
- 
+
     ![][002]
- 
+
  3. Click the "next" button.
  4. Choose an option to reset your password.  Depending on how your admin has configured the system, you might see one or more of the following choices:
      * **Email my alternate email** - sends an email with a 6 digit code to either your **alternate email** or **authentication email** (you choose).
@@ -97,29 +97,29 @@ Follow the steps below to reset your work or school account password from any wo
 	 * **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
     ![][003]
-	 
+
  5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
- 
+
     ![][004]
- 
+
  6. When you recieve the text, make sure you use the verification code in the message body, not the number the code was sent from.  It might take a few minutes to get the text, so grab a coffee!
- 
+
     ![][009]
- 
+
  8. Now, enter the code you just recieved on your phone into the input box on the page.
- 
+
     ![][005]
- 
+
  9. Your admin may require a second verification step, in which case repeat step 4 with a different optionm selected.
  10. On the "choose a new password" screen, select a new password and confirm your choice, then click **Finish**.
- 
+
     ![][006]
     ![][007]
-  
+
  11. Once you see the success page, you are good to go!  You can now sign in with your new password.
- 
+
     ![][008]
- 
+
 Run into a problem resetting your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
 ## How to unlock your account
@@ -129,13 +129,13 @@ Follow the steps below to unlock your local account from any work or school acco
 
 
  1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
- 
+
     ![][001]
- 
+
  2. On the "who are you?" page, enter your work or school account id and prove you aren't a robot by passing the captcha.
- 
+
     ![][002]
- 
+
  3. Click the "next" button.
  4. Choose an option to unlock your account.  Depending on how your admin has configured the system, you might see one or more of the following choices:
      * **Email my alternate email** - sends an email with a 6 digit code to either your **alternate email** or **authentication email** (you choose).
@@ -145,27 +145,27 @@ Follow the steps below to unlock your local account from any work or school acco
 	 * **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
     ![][003]
-	 
+
  5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
- 
+
     ![][004]
- 
+
  6. When you recieve the text, make sure you use the verification code in the message body, not the number the code was sent from.  It might take a few minutes to get the text, so grab a coffee!
- 
+
     ![][009]
- 
+
  8. Now, enter the code you just recieved on your phone into the input box on the page.
- 
+
     ![][005]
- 
+
  9. Your admin may require a second verification step, in which case repeat step 4 with a different option selected.
- 
+
  11. Once you see the success page, you are good to go!  Your on-premises account has been unlocked and you can now sign in once more.
- 
+
     ![][010]
-  
+
  >[AZURE.IMPORTANT] Make sure you update all your devices to your newest password, as often times a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
- 
+
 Run into a problem unlocking your account?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
 ## Common problems and their solutions
@@ -223,10 +223,10 @@ Here are some common error cases and their solutions:
             </td>
           </tr>
         </tbody></table>
-		
+
 
 ## Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages: 
+Below are links to all of the Azure AD Password Reset documentation pages:
 
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
