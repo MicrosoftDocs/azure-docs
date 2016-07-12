@@ -27,7 +27,7 @@ This article includes frequently asked questions about Azure Site Recovery. If y
 
 ###What does Site Recovery do?
 
-Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating and automating replication from on-premises virtual machines and physical servers to Azure, or to a secondary datacenter. [Learn more](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-overview/).
+Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating and automating replication from on-premises virtual machines and physical servers to Azure, or to a secondary datacenter. [Learn more](site-recovery-overview.md).
 
 
 ### What can Site Recovery protect?
@@ -54,7 +54,7 @@ For the Hyper-V host server what you need depends on the deployment scenario. Ch
 - [Replicating Hyper-V VMs (with VMM) to Azure](site-recovery-vmm-to-azure.md#before-you-start)
 - [Replicating Hyper-V VMs to a secondary datacenter](site-recovery-vmm-to-vmm.md#before-you-start)
 
-- If you're replicating to a secondary datacenter read about [Supported guest operating systems for Hyper-V VMs](https://technet.microsoft.com/en-us/library/mt126277.aspx).
+- If you're replicating to a secondary datacenter read about [Supported guest operating systems for Hyper-V VMs](https://technet.microsoft.com/library/mt126277.aspx).
 - If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
