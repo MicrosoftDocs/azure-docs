@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE] If you receive an error after submitting your credit card information, see the article [My credit card doesn’t go through when I try to sign up for Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Verify the current payment method
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
