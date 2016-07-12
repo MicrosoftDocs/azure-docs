@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create SQL Data Warehouse using Powershell
@@ -24,7 +24,7 @@
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
 ## Prerequisites
-Before starting, be sure you have the following prerequisites.
+Before starting, be sure you have met the following prerequisites.
 
 - **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
 - **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
@@ -56,7 +56,7 @@ Before starting, be sure you have the following prerequisites.
 
 The parameters required for this cmdlet are:
 
-- **RequestedServiceObjectiveName**: The amount of [DWU][] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, and DW2000.
+- **RequestedServiceObjectiveName**: The amount of [DWU][] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 and DW6000.
 - **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
 - **ServerName**: The name of the server that you are using for creation (must be V12).
 - **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
