@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Service Fabric application scenarios
