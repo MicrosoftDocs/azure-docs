@@ -28,19 +28,19 @@ To explore Twitter triggers and actions, see [create a logic app](../app-service
 
 ---
 
-## Create a connection
+## Connect to Twitter
 
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Twitter account.
 
 1. Sign in to your Twitter account.
 2. Select Authorize, and allow your logic apps to connect and use your Twitter account. 
 
-## Connect to Twitter
+### Create a connection to Twitter
 
 >[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
 
 
-## Using a trigger
+## Use a Twitter trigger
 
 A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers.]() Here’s an example sequence of how to setup a Twitter trigger in the logic app designer.
 
@@ -48,7 +48,7 @@ A trigger is an event that can be used to start the workflow defined in a Logic 
 
 ![](../../includes/media/connectors-create-api-twitter/using-trigger.png)
 
-## Using an action
+## Use a Twitter action
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions.]()
 	
@@ -320,7 +320,8 @@ UserDetailsModel: representation of a Twitter user's details
 
 ## HTTP responses
 
-When making calls to various actions, you might get certain responses. Below is a table outlining corresponding responses and descriptions.
+When making calls to various actions, you might get certain responses. Below is a table outlining corresponding responses and descriptions. 
+
 
 |Name|Description|
 |---|---|
@@ -342,7 +343,3 @@ Below are details on how to move forward with logic apps and our community.
 ## Create a logic app
 
 Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
-
-## Engage with our community
-
-Engage with the logic app community by commenting below. 
