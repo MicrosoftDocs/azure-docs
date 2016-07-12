@@ -17,7 +17,7 @@
 
 # Streaming Azure Diagnostics data in the hot path by using Event Hubs
 
-Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can sink Diagnostics to completely custom data sources and transfer hot path data in seconds by using Azure Event Hubs.  
+Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can sink Diagnostics to completely custom data sources and transfer hot path data in seconds by using Azure Event Hubs.   
 
 Supported data types include:
 
