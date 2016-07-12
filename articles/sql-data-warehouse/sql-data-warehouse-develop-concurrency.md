@@ -26,19 +26,21 @@ SQL Data Warehouse allows up to 1,024 concurrent connections.  All 1,024 connect
 
 Concurrency limits are governed by two concepts, **concurrent queries** and **concurrency slots**.  For a query to execute, it must execute under both the concurrency limit and within the conconcurency slot allocation.
 
-- **Concurrent queries** are simply the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries** on the larger DW sizes, DW1000 and above.  However since the number of concurrent queries varies by the number of DWUs, we have provided a table below to show the limitations by DWU.
+- **Concurrent queries** are simply the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries** on the larger DW sizes, DW1000 and above.  However, since the number of concurrent queries varies by the number of DWUs, we have provided a table below to show the limitations by DWU.
 - **Concurrency slots** is a more dynamic concept.  Each concurrently executing query consumes one or more concurrency slots. The exact number of slots a query consumes depends on the size of your SQL Data Warehouse and the [resource class](#resource-classes) of the query.
 
 The below table describes the limits for both concurrent queries and concurrency slots.
 
-|  **Concurrency limits**      | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
+### Concurrency limits
+
+|                              | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
 | Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
 
 When one of these thresholds are met, new queries are queued.  Queued queries are executed in on a first in first out basis as queries complete and the number of queries and slots fall below the limits.  
 
-> [AZURE.NOTE] `SELECT` queries executing exclusively against dynamic management views (DMVs) and catalog views are **not** governed by resource classes.  This allows users to monitor the system even when all concurrency slots are in use.
+> [AZURE.NOTE]  SELECT queries exclusively executing on dynamic management views (DMVs) or catalog views are **not** governed by resource classes.  This allows users to monitor the system even when all concurrency slots are in use.
 
 ## Resource classes
 
@@ -66,7 +68,7 @@ More details and examples of creating users an assigning them to resource classe
 
 There are pros and cons to increasing a user's resource class. While increasing a resource class for a user may mean their queries have access to more memory and may execute faster, it also reduces the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query and allowing other concurrent queries to run which also need memory allocations. If one user is given more memory for a query, other users will not have memory available to them to run a query.
 
-The following table maps the memory alloocated to each distribution by DWU and resource class.  In SQL Data Warehouse there are 60 distributions per database, therefore, a query running on a DW2000 in the xlarge resource class would have access to 6,400 MB within each of the 60 databases.
+The following table maps the memory allocated to each distribution by DWU and resource class.  In SQL Data Warehouse there are 60 distributions per database, therefore, a query running on a DW2000 in the xlarge resource class would have access to 6,400 MB within each of the 60 databases.
 
 ### Memory allocations per distribution (MB)
 
@@ -93,7 +95,7 @@ Using the same example above, system wide a query running on a DW2000 in the xla
 
 As mentioned above, the higher the resource class the more memory granted.  Since memory is a fixed resource, the more memory allocated per query, the less concurrency which can be supported.  The following table reiterates the number of concurrency slots available by DWU as well as the slots consumed by each resource class.
 
-###Allocation and consumption of concurrency slots
+### Allocation and consumption of concurrency slots
 
 |                         | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :---------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
@@ -110,9 +112,11 @@ From this table you can see that a SQL Data Warehouse running as DW100 will allo
 
 ## Query importance
 
-Under the covers there are a total of eight workload groups which control the behavior of resource classes.  However, only four of the eight workload groups are utilized a any given DWU.  This makes sense since each workload group is assigned to either smallrc, mediumrc, largerc, or xlargerc.  The importance of understanding these behind the scnenes workload groups is that some of these workload groups are set to higher **IMPORTANCE**.  Importance is used for CPU scheduling.  Queries run with high importance will get 3X more CPU cycles than those with medium importance.  Therefore, concurrency slot mappings also determine CPU importance.  When a query consumes 16 or more slots, it runs as high importance.
+Under the covers there are a total of eight workload groups which control the behavior of resource classes.  However, only four of the eight workload groups are utilized at any given DWU.  This makes sense since each workload group is assigned to either smallrc, mediumrc, largerc, or xlargerc.  The importance of understanding these behind the scnenes workload groups is that some of these workload groups are set to higher **IMPORTANCE**.  Importance is used for CPU scheduling.  Queries run with high importance will get 3X more CPU cycles than those with medium importance.  Therefore, concurrency slot mappings also determine CPU importance.  When a query consumes 16 or more slots, it runs as high importance.
 
-| **Workload groups**  | Concurrency Slot Mapping | Importance Mapping |
+Below are the importance mappings for each workload group.
+
+| Workload groups      | Concurrency Slot Mapping | Importance Mapping |
 | :------------------  | :----------------------: | :----------------- |
 | SloDWGroupC00        | 1                        | Medium             |
 | SloDWGroupC01        | 2                        | Medium             |
@@ -123,11 +127,9 @@ Under the covers there are a total of eight workload groups which control the be
 | SloDWGroupC06        | 64                       | High               |
 | SloDWGroupC07        | 128                      | High               |
 
-For example, for a DW500 SQL Data Warehouse, the active workload groups would be mapped to the resource classes as follows:
+For a DW500 SQL Data Warehouse, the active workload groups would be mapped to the resource classes as follows.
 
-**DW500 example of concurrency slots and importance by resource class**
-
-| **Resource class**  | Workload Group | Concurrency Slots Used   | Importance |
+| Resource class   | Workload Group | Concurrency Slots Used   | Importance |
 | :--------------- | :------------- | :--------------------:   | :--------- |
 | smallrc          | SloDWGroupC00  | 1                        | Medium     |
 | mediumrc         | SloDWGroupC02  | 4                        | Medium     |
