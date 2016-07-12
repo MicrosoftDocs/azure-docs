@@ -146,9 +146,10 @@ The Azure SDK for each language is a set of NuGet packages that helps you call m
 - [Python](https://github.com/Azure/azure-sdk-for-python)
 - [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
 
-> [AZURE.NOTE If the SDK doesn't provide the required functionality, you can also call to the Azure REST API directly.]
+> [AZURE.NOTE] If the SDK doesn't provide the required functionality,
+> you can also call to the [Azure REST](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) API directly.
 
-Many of the SDKs also have samples for Azure Resource manager on [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager).
+There are [samples](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager) that demonstrate how to use many of the SDKs Azure Resource Manager.
 
 ## Next steps
 
