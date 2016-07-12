@@ -25,6 +25,64 @@ The following guidelines will help you create Resource Manager templates that ar
 1. It is a good practice to pass your template through a JSON validator to remove extraneous commas, parenthesis, brackets that may cause an error during deployment. Try [JSONlint](http://jsonlint.com/) or a linter package for your favorite editing environment (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.)
 1. It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor or [format online](https://www.bing.com/search?q=json+formatter).
 
+## Resource names
+
+There are generally three types of resource names you will work with:
+
+1. Resource names that must be unique.
+2. Resource names that do not need to be unique but you want to provide a name that helps identify the context.
+3. Resource names that can be generic.
+
+### Unique resource names
+
+You must provide a unique resource name for any resource type that has a data access endpoint. Some common types that require a unique name include:
+
+- Storage
+- Web app
+- SQL Server
+- Key Vault
+- Redis Cache
+- Batch
+- Traffic Manager
+- Search Service
+- HDInsight
+
+Furthermore, storage account names must be lower-case, 24 characters or less, and not include any hyphens.
+
+Rather than providing a parameter for these resource names and trying to guess a unique name during deployment, you can create a variable that uses the [uniqueString()](resource-group-template-functions.md#uniquestring) function to generate a name. Frequently, you will also want to add a prefix or postfix to the **uniqueString** result so you can more easily determine the resource type by looking at the name. For example, you can generate a unique name for a storage account with the following variable.
+
+    "variables": {
+        "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
+    }
+
+Storage accounts with a uniqueString prefix will not get clustered on the same racks.
+
+### Resource names for identification
+
+For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a parameter for the name.
+
+    "parameters": {
+        "vmName": { 
+            "type": "string",
+            "defaultValue": "demoLinuxVM",
+            "metadata": {
+                "description": "The name of the VM to create."
+            }
+        }
+    }
+
+Provide a name for the resource that identifies both its context and resource type so you can later easily scan a list of resource names.
+
+### Generic resource names
+
+For resource types that are largely accessed through another resource, you can use a generic name that is hard-coded in the template. For example, you probably do not want to provide a customizable name for firewall rules on a SQL Server.
+
+    {
+        "type": "firewallrules",
+        "name": "AllowAllWindowsAzureIps",
+        ...
+    }
+
 ## Parameters
 
 1. Parameter names should follow **camelCasing**.
@@ -65,7 +123,7 @@ The following guidelines will help you create Resource Manager templates that ar
  
 1. Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
  - Settings you wish to vary by environment (such as sku, size, or capacity).
- - Resource names you wish to specify for easy identification. For resources that require a unique name (such as storage accounts and web sites), you can more easily create a name by using the [uniqueString()](resource-group-template-functions.md#uniquestring) template language function in a variable.
+ - Resource names you wish to specify for easy identification.
  - Values (such as admin user name) you wish to specify because you use them for completing other tasks.
  - Secrets (such as passwords)
  - The number or array of values to use when creating multiple instances of a resource type.
@@ -88,18 +146,7 @@ The following guidelines will help you create Resource Manager templates that ar
 
 ## Variables 
 
-1. Passing storage account names as a parameter can cause a validation errors because the name must be:
-
-   - globally unique 
-   - lower case
-   - 24 characters or less
-   - without hyphens (-)
-
-   To prevent validation issues with storage account names, configure a variable that uses the **uniqueString** function and a static value (such as **storage**). Storage accounts with a common prefix (uniqueString) will not get clustered on the same racks.
-	
-        "variables": {
-            "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
-        }
+1. Include variables for resource names that need to be unique, as shown in [Resource names](#resource-names).
 
 1. You can group variables into complex objects. You can reference a value from a complex object in the format **variable.subentry**. Grouping variables helps you keep track of related variables and improves readability of the template.
 
