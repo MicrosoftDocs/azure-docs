@@ -37,7 +37,7 @@ Site Recovery is available in both the classic portal and the Azure portal. In t
 
 The information in this article applies to both classic and Azure portal deployments. Differences are noted where applicable.
 
-# Deployment scenarios
+## Deployment scenarios
 
 Site Recovery can be deployed to orchestrate replication in a number of scenarios:
 
