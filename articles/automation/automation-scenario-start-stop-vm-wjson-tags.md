@@ -141,7 +141,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
     
         Conn = Get-AutomationConnection -Name AzureRunAsConnection
         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-       -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
         Select-AzureRmSubscription -SubscriptionName "MySubscription"
    
 2. Define a schedule hash table. Here is an example of how it should be constructed:
@@ -174,7 +174,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
     
         Conn = Get-AutomationConnection -Name AzureRunAsConnection
         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-       -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
         Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 2. Define the parameters required by the runbook.  In the following example, we are targeting a VM:
@@ -197,9 +197,9 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
 
->[AZURE.NOTE] It is recommended to proactively monitor these runbooks (and the virtual machine state) to verify that your virtual machines are being shutdown and started accordingly.  
+>[AZURE.NOTE] It is recommended you proactively monitor these runbooks (and the virtual machine state) to verify that your virtual machines are being shutdown and started accordingly.  
 
-You can view the details of the **Test-ResourceSchedule** runbook job in the Azure portal from the Jobs tab of that runbook. The Summary of the job will display the input parameters and the Output Stream in addition to general information about the job and any exceptions if they occurred.  The History will include messages from the Output Stream and Warning and Error Streams.  Select the Output tile to view detailed results from runbook execution.<br> ![Test-ResourceSchedule Output](./media/automation-scenario-start-stop-vm-wjson-tags/automation-testresourceschedule-output.png)  
+You can view the details of the **Test-ResourceSchedule** runbook job in the Azure portal by selecting the Jobs tile of the runbook.  The Summary of the job will display the input parameters and the Output Stream in addition to general information about the job and any exceptions if they occurred.  The History will include messages from the Output Stream and Warning and Error Streams.  Select the Output tile to view detailed results from runbook execution.<br> ![Test-ResourceSchedule Output](./media/automation-scenario-start-stop-vm-wjson-tags/automation-testresourceschedule-output.png)  
 
 ## Next steps
 
