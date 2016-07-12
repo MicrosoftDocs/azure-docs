@@ -3,8 +3,8 @@
 	description="Learn how to automate the replication of Hyper-V virtual machines in VMM clouds using Site Recovery and PowerShell."
 	services="site-recovery"
 	documentationCenter=""
-	authors="csilauraa"
-	manager="jwhit"
+	authors="bsiva"
+	manager="abhiag"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="lauraa"/>
+	ms.date="07/12/2016"
+	ms.author="bsiva"/>
 
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using Powershell - Classic
 
