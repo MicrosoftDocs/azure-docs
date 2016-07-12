@@ -377,7 +377,7 @@ If the *MMA* VM agent extension is not installing or reporting you can perform t
 5. View the status of the MMA by typing the following in a powershell window with elevated permission on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 6. Review the MMA setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-For more information refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) and [troubleshooting Windows extensions](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)
+For more information refer to [troubleshooting Windows extensions](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md).
 
 ## Troubleshooting Linux Virtual Machines
 
@@ -386,6 +386,8 @@ If the *OMS Agent for Linux* VM agent extension is not installing or reporting y
 1. If the extension status is *Unknown* check if the Azure VM agent is installed and working correctly by reviewing the VM agent log in `/var/log/waagent.log`
 2. For other unhealthy statuses review the OMS Agent for Linux VM extension logs in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` and `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. If the extension status is healthy, but data is not being uploaded review the OMS Agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`
+
+For more information refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
 
 
 ## Next steps
