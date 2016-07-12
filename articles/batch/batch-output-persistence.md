@@ -49,7 +49,7 @@ The Azure portal now supports viewing a task's outputs and logs directly. To ena
 
 **File conventions helper library**
 
-The [Azure Batch File Conventions][net_fileconventions_readme] (NOT REAL URL) library assists you in storing your task output to Azure Storage using the naming conventions required by the Azure portal. It also provides helper methods for easy retrieval of task outputs.
+The [Azure Batch File Conventions][net_fileconventions_readme] (NOT REAL URL) library assists you in storing your task output to Azure Storage using the naming conventions required by the Azure portal. It also enables your client code to easily list and retrieve the outputs for a given job or task.
 
 ## Requirement: linked storage account
 
@@ -67,13 +67,13 @@ By following the conventions outlined in that document, you can name your task o
 
 ## Using the file conventions library
 
-[Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. You can obtain the library from from NuGet and install it in your Visual Studio project using the [NuGet Library Package Manager][nuget_manager].
+[Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It takes care of ensuring everything is named correctly and is uploaded to the right place when persisting output. When you retrieve outputs, you can easily locate the outputs for a given job or task by listing or retrieving the outputs by ID and purpose. For example, you can use the library to "list all intermediate files for task 7," or "get me the thumbnail preview for job *mymovie*," without needing to know the file names or location within your Storage account.
 
-This library contains new classes as well as adds extension methods to the [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] classes to make working with task output storage and retrieval easier. The library takes care of ensuring everything is named correctly and is uploaded to the right place.
+You can obtain the library from from NuGet and install it in your Visual Studio project using the [NuGet Library Package Manager][nuget_manager]. It contains new classes as well as adds extension methods to the [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] classes to make working with task output storage and retrieval easier.
 
 ## Persist output
 
-There are two parts to saving task output using the file conventions library: creating the storage container, then saving the task output to the container.
+There are two parts to saving task output using the file conventions library: creating the storage container, then saving task output to the container.
 
 ### Create storage container
 
@@ -88,13 +88,11 @@ CloudStorageAccount storageAccount = new CloudStorageAccount(storageCred, true);
 job.PrepareOutputStorageAsync(storageAccount).Wait();
 ```
 
-While not a strict rule, you'll typically do this in your Batch "client" application--the application in your Batch solution that creates the jobs and submits the tasks. Therefore, the code for this is usually located in your client project, not in the task application code (the code that is executed by the tasks on compute nodes).
-
 ### Store task outputs
 
-The code to store the task output is appropriately located in the task project--the program that executes on each compute node in a pool. Each task can save its output with the [TaskOutputStorage][net_taskoutputstorage] class in the file conventions libary.
+The code to store the task output is appropriately located in your task code--the program that executes on each compute node in a pool. Each task can save its output with the [TaskOutputStorage][net_taskoutputstorage] class found in the file conventions libary.
 
-First, your task creates a [TaskOutputStorage][net_taskoutputstorage] object, then when it has completed its work, it calls the  [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] to save the output to Azure Storage.
+In your task code, first create a [TaskOutputStorage][net_taskoutputstorage] object, then when it has completed its work, call the  [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] methond to save the output to Azure Storage.
 
 ```csharp
 TaskOutputStorage taskStorage = new TaskOutputStorage(new Uri(jobContainerUrl), taskId);
@@ -104,25 +102,27 @@ TaskOutputStorage taskStorage = new TaskOutputStorage(new Uri(jobContainerUrl), 
 taskStorage.SaveAsync(TaskOutputKind.TaskOutput, pathToOutputFile),
 ```
 
-The [TaskOutputKind][net_taskoutputkind] parameter specifies the category of output, such as the main task output shown in this code snippet. You can also specify a preview of the task output, or a log of the task.
+The [TaskOutputKind][net_taskoutputkind] parameter designates where in the Azure portal a particular output file will appear. It also allows you to specify which type of outputs to list for a given task or a job (discussed later in this article).
 
->[AZURE.IMPORTANT] The [TaskOutputKind][net_taskoutputkind] parameter designates where in the Azure portal a particular output file will appear. It also allows you to specify which outputs to list for a task or a job (discussed later in this article).
+The following table shows which TaskOutputKind causes an output file to appear in the different output blades in the portal.
 
-The following table shows which TaskOutputKind causes an output file to appear in the different output sections of the portal.
-
-| [TaskOutputKind][net_taskoutputkind] | Portal section |
+| [TaskOutputKind][net_taskoutputkind] | **Portal blade** |
 | ------------------------------------ | -------------- |
 | TaskOutput                           | image_here     |
 | TaskPreview                          | image_here     |
 | TaskLog                              | image_here     |
 | TaskIntermediate                     | image_here     |
 
-## Store task logs
+### Store task logs
 
 Words.
 
 ```csharp
-var stdout = taskStorage.SaveTrackedAsync(TaskOutputKind.TaskLog, RootDir("stdout.txt"), "stdout.txt", TimeSpan.FromSeconds(15))
+var stdout = taskStorage.SaveTrackedAsync(
+			 TaskOutputKind.TaskLog,
+			 RootDir("stdout.txt"),
+			 "stdout.txt",
+			 TimeSpan.FromSeconds(15))
 ```
 
 ## Retrieve output
