@@ -90,9 +90,7 @@ Detailed information about this structure:
 
 1. The format of this JSON structure is optimized to work around the 256 characters limitation of a single tag value in Azure
 
-2. TzId represents the Time Zone of the virtual machine.  This ID can be obtained by using the TimeZoneInfo .NET class. in a PowerShell session -
-
-    [System.TimeZoneInfo]::GetSystemTimeZones()
+2. *TzId* represents the Time Zone of the virtual machine.  This ID can be obtained by using the TimeZoneInfo .NET class. in a PowerShell session - **[System.TimeZoneInfo]::GetSystemTimeZones()**.<br>  
 
     ![GetSystemTimeZones in PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
@@ -125,8 +123,8 @@ Follow these steps to tag a virtual machine or resource group in the Portal.
         {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
    
 
-2. Select a VM or resource group to apply this schedule by selecting the Tag icon.<br> ![VM Tag Option](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)<br>  
-3. Tags are defined following a Key/Value pair.  Type **Schedule** in the **Key** field and paste the JSON string into **Value** field and then click **Save**.  Your new tag should now appear in the list of tags for your resource.<br> ![VM Schedule Tag](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)<br>
+2. Select a VM or resource group to apply this schedule by selecting the Tag icon.<br>![VM Tag Option](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)    
+3. Tags are defined following a Key/Value pair.  Type **Schedule** in the **Key** field and paste the JSON string into **Value** field and then click **Save**.  Your new tag should now appear in the list of tags for your resource.<br>![VM Schedule Tag](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 
 ## Tagging using Add-ScheduleResource or Update-ScheduleResource runbooks
@@ -137,7 +135,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
 ### Creating a schedule tag with PowerShell
 
-1. Open a PowerShell session and execute the following to authenticate and select the subscription:   
+1. Open a PowerShell session and execute the following to authenticate with your Run As account and specify a subscription:   
     
         Conn = Get-AutomationConnection -Name AzureRunAsConnection
         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
@@ -170,7 +168,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
 ### Removing a schedule tag with PowerShell
 
-1. Open a PowerShell session and execute the following to authenticate and select the subscription:
+1. Open a PowerShell session and execute the following to authenticate with your Run As account and select and specify a subscription:
     
         Conn = Get-AutomationConnection -Name AzureRunAsConnection
         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
