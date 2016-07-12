@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Detect Motions with Azure Media Analytics"
+	pageTitle="Detect Motions with Azure Media Analytics | Microsoft Azure"
 	description="The Azure Media Motion Detector media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="07/11/2016"  
 	ms.author="milanga;juliako;"/>
  
 # Detect Motions with Azure Media Analytics
@@ -43,24 +43,24 @@ You can use the following parameters:
 
 Name|Options|Description|Default
 ---|---|---|---
-SensitivityLevel|String:'low', 'medium', 'high'|Sets the sensitivity level at which motions is reported. Adjust this to adjust amount of false positives.|'medium'
-FrameSamplingValue|Positive Integer|Sets the frequency at which algorithm runs. 1 equals every frame, 2 means every 2nd frame, and so on.|1
-DetectLightChange|Boolean:'True', 'False'|Sets whether light changes are reported in the results|'False'
-MergeTimeThreshold|Xs-time: Hh:mm:ss<br/>Example: 00:00:03|Specifies the time window between motion events where 2 events will be combined and reported as 1.|00:00:00
-DetectionZones|An array of detection zones:<br/>- Detection Zone is an array of 3 or more points<br/>- Point is a x and y coordinate from 0 to 1.|Describes the list of polygonal detection zones to be used.<br/>Results will be reported with the zones as an ID, with the first one being 'id':0|Single zone which covers the entire frame.
+sensitivityLevel|String:'low', 'medium', 'high'|Sets the sensitivity level at which motions is reported. Adjust this to adjust amount of false positives.|'medium'
+frameSamplingValue|Positive integer|Sets the frequency at which algorithm runs. 1 equals every frame, 2 means every 2nd frame, and so on.|1
+detectLightChange|Boolean:'true', 'false'|Sets whether light changes are reported in the results|'False'
+mergeTimeThreshold|Xs-time: Hh:mm:ss<br/>Example: 00:00:03|Specifies the time window between motion events where 2 events will be combined and reported as 1.|00:00:00
+detectionZones|An array of detection zones:<br/>- Detection Zone is an array of 3 or more points<br/>- Point is a x and y coordinate from 0 to 1.|Describes the list of polygonal detection zones to be used.<br/>Results will be reported with the zones as an ID, with the first one being 'id':0|Single zone which covers the entire frame.
 
 ###JSON example
 
 	
 	{
-	  'Version': '1.0',
-	  'Options': {
-	    'SensitivityLevel': 'medium',
-	    'FrameSamplingValue': 1,
-	    'DetectLightChange': 'False',
-	    "MergeTimeThreshold":
+	  'version': '1.0',
+	  'options': {
+	    'sensitivityLevel': 'medium',
+	    'frameSamplingValue': 1,
+	    'detectLightChange': 'False',
+	    "mergeTimeThreshold":
 	    '00:00:02',
-	    'DetectionZones': [
+	    'detectionZones': [
 	      [
 	        {'x': 0, 'y': 0},
 	        {'x': 0.5, 'y': 0},
