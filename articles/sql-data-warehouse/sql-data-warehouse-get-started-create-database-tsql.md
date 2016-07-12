@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
@@ -27,7 +27,7 @@
 This article will show you how to create a SQL Data Warehouse database with Transact-SQL (T-SQL).
 
 ## Prerequisites
-Before starting, be sure you have the following prerequisites.
+Before starting, be sure you have met the following prerequisites.
 
 - **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
 - **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
