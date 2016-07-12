@@ -104,13 +104,13 @@ Detailed information about this structure:
 
 3. If you want to skip evaluation for a specific day of the week, don’t add the section of related day of week.  In the following example, only Monday will be evaluated and the other days of the week will be ignored.
    
-    {
-      "TzId": "Eastern Standard Time",
-         "1": {
-         "S": "11",
-         "E": "17"
-       }
-    }
+        {
+          "TzId": "Eastern Standard Time",
+           "1": {
+             "S": "11",
+             "E": "17"
+           }
+        }
 
 ## Tagging resource groups or virtual machines
 
