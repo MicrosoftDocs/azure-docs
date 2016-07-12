@@ -37,7 +37,7 @@ There are three easy ways to enable the Log Analytics virtual machine extension:
 + By using Azure PowerShell
 + By using an Azure Resource Manager template
 
-## Enable the Log Analytics VM extension using the Azure portal 
+## Enable the VM extension in the Azure portal 
 
 You can install the agent for Log Analytics and connect the Azure virtual machine that it runs on by using the [Azure portal](https://portal.azure.com).
 
@@ -57,7 +57,7 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
     ![Connected](./media/log-analytics-azure-storage/oms-connect-azure-05.png)
 
 
-## Enable the Log Analytics VM extension using PowerShell
+## Enable the VM extension using PowerShell
 
 You need to use slightly different commands for Azure classic virtual machines and Resource Manager virtual machines. Following are examples for both classic and Resource Manager virtual machines.
 
@@ -114,7 +114,7 @@ When you configure your virtual machine by using PowerShell, you need to provide
 
 ![Workspace ID and primary key](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
-## Deploy the VM extension using a Resource Manager template
+## Deploy the VM extension using a template
 
 By using Azure Resource Manager, you can create a simple template (in JSON format) that defines the deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence that your resources are being deployed in a consistent state.
 
