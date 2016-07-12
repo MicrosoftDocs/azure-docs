@@ -146,10 +146,11 @@ The additional management items are certificate management and DNS management.  
 #### DNS Configuration ####
 
 When using an External VIP the DNS is managed by Azure.  Any app created in your ASE is automatically added to Azure DNS which is a public DNS.  In an ILB ASE you have to manage your own DNS.  For a given subdomain such as contoso.corp.net you need to create DNS A records that point to your ILB address for:
-- *
-- *.scm
-- ftp
-- publish
+
+	* 
+	*.scm 
+	ftp 
+	publish 
 
 
 ## Getting started
