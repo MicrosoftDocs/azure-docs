@@ -237,39 +237,39 @@ To reiterate, the following statements do **honor** resource classes:
 ## Managing users
 
 1. **Create login:** Open a connection to the **master** database for your SQL Data Warehouse and execute the following commands.
+	
+	```sql
+	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
+	CREATE USER newperson for LOGIN newperson;
+	```
 
-```sql
-CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
-CREATE USER newperson for LOGIN newperson;
-```
-
-> [AZURE.NOTE] It is a good idea to create users for logins in the master database in both Azure SQL database and Azure SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in master in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse these roles grant rights to manage logins and to create databases. This is different to SQL Server. For more details, please refer to the [Managing Databases and Logins in Azure SQL Database][] article for more details.
+	> [AZURE.NOTE] It is a good idea to create users for logins in the master database in both Azure SQL database and Azure SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in master in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse these roles grant rights to manage logins and to create databases. This is different to SQL Server. For more details, please refer to the [Managing Databases and Logins in Azure SQL Database][] article for more details.
 
 2. **Create user account:** Open a connection to the **SQL Data Warehouse database** and execute the following command.
 
-```sql
-CREATE USER newperson FOR LOGIN newperson;
-```
+	```sql
+	CREATE USER newperson FOR LOGIN newperson;
+	```
 
 3. **Grant permissions:** The example below grants `CONTROL` on the SQL Data Warehouse database. `CONTROL` at the database level is the equivalent of db_owner in SQL Server.
 
-```sql
-GRANT CONTROL ON DATABASE::MySQLDW to newperson;
-```
+	```sql
+	GRANT CONTROL ON DATABASE::MySQLDW to newperson;
+	```
 
 4. **Increase resource class:** To add a user to an increase workload management role use the following query.
 
-```sql
-EXEC sp_addrolemember 'largerc', 'newperson'
-```
+	```sql
+	EXEC sp_addrolemember 'largerc', 'newperson'
+	```
 
 5. **Decrease resource class:** To remove a user from an workload management role use the following query.
 
-```sql
-EXEC sp_droprolemember 'largerc', 'newperson';
-```
+	```sql
+	EXEC sp_droprolemember 'largerc', 'newperson';
+	```
 
-> [AZURE.NOTE] It is not possible to remove a user from the smallrc.
+	> [AZURE.NOTE] It is not possible to remove a user from the smallrc.
 
 ## Queued query detection and other DMVs
 
