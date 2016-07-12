@@ -139,7 +139,7 @@ Get more information about creating app passwords and other [help with app passw
 
 >[AZURE.NOTE] Modern authentication for Office 2013 clients
 >
-> Office 2013 clients (including Outlook) support new authentication protocols. You can configure Office 2013 to support Multi-Factor Authentication. After you configure Office 2013, app passwords are not required for Office 2013 clients. For more information, see the [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Office 2013 clients (including Outlook) support new authentication protocols. You can configure Office 2013 to support Multi-Factor Authentication. After you configure Office 2013, app passwords are not required for Office 2013 clients. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **Q: What does a user do if the user does not receive a text message, or if the user replies to a two-way text message but the verification times out?**
 
