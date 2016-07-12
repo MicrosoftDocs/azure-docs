@@ -84,10 +84,10 @@ As mentioned above, the higher the resource class the more memory granted.  Sinc
 
 |                         | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :---------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| ** Slot Allocation**    |       |       |       |       |       |       |        |        |        |        |        |        |
+| **Slot Allocation**     |       |       |       |       |       |       |        |        |        |        |        |        |
 | Max Concurrent Queries  | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
 | Max Concurrency Slots   | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 80     | 80     |
-| ** Slot Consumption**   |       |       |       |       |       |       |        |        |        |        |        |        |
+| **Slot Consumption**    |       |       |       |       |       |       |        |        |        |        |        |        |
 | smallrc                 | 1     | 1     | 1     | 1     | 1     | 1     | 1      | 1      | 1      | 1      | 1      | 1      |
 | mediumrc                | 1     | 2     | 2     | 4     | 4     | 4     | 8      | 8      | 8      | 16     | 16     | 32     |
 | largerc                 | 2     | 4     | 4     | 8     | 8     | 8     | 16     | 16     | 16     | 32     | 32     | 64     |
