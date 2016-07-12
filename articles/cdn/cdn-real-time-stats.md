@@ -22,7 +22,15 @@
 
 ## Overview
 
-This document explains real-time stats in Microsoft Azure CDN. This functionality provides real-time data about the performance of our CDN when delivering content to your clients.
+This document explains real-time stats in Microsoft Azure CDN.  This functionality provides real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile when delivering content to your clients. This enables continuous monitoring of the health of your service at any time, including go-live events.
+
+The following graphs are available:
+
+* [Bandwidth](#bandwidth)
+* [Status Codes](#status-codes)
+* [Cache Statuses](#cache-statuses)
+* [Connections](#connections)
+
 
 ## Accessing real-time stats
 
@@ -44,13 +52,6 @@ This document explains real-time stats in Microsoft Azure CDN. This functionalit
 	
 Each of the graphs displays real-time statistics for the selected time span, starting when the page loads.  The graphs update automatically every few seconds.  The **Refresh Graph** button, if present, will clear the graph, after which it will only display the selected data.
 
-The following graphs are available:
-
-* [Bandwidth](#bandwidth)
-* [Status Codes](#status-codes)
-* [Cache Statuses](#cache-statuses)
-* [Connections](#connections)
-
 ## Bandwidth
 
 ![Bandwidth graph](./media/cdn-real-time-stats/cdn-bandwidth.png)
@@ -61,7 +62,9 @@ The **Bandwidth** graph displays the amount of bandwidth used for the current pl
 
 ![Status code graph](./media/cdn-real-time-stats/cdn-status-codes.png)
 
-The **Status Codes** graph indicates how often HTTP response codes are occurring over the selected time span.
+The **Status Codes** graph indicates how often certain HTTP response codes are occurring over the selected time span.
+
+> [AZURE.TIP]  For a description of each HTTP status code option, see [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx).
 
 A list of HTTP status codes is displayed directly above the graph. This list indicates each status code that can be included in the line graph and the current number of occurrences per second for that status code. By default, a line is displayed for each of these status codes in the graph. However, you can choose to only monitor the status codes that have special significance for your CDN configuration. To do this, check the desired status codes and clear all other options, then click **Refresh Graph**. 
 
@@ -72,6 +75,8 @@ You can temporarily hide logged data for a particular status code.  From the leg
 ![Cache Statuses graph](./media/cdn-real-time-stats/cdn-cache-status.png)
 
 The **Cache Statuses** graph indicates how often certain types of cache statuses are occurring over the selected time span. 
+
+> [AZURE.TIP]  For a description of each cache status code option, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx).
 
 A list of cache status codes is displayed directly above the graph. This list indicates each status code that can be included in the line graph and the current number of occurrences per second for that status code. By default, a line is displayed for each of these status codes in the graph. However, you can choose to only monitor the status codes that have special significance for your CDN configuration. To do this, check the desired status codes and clear all other options, then click **Refresh Graph**. 
 
