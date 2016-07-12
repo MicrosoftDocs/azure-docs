@@ -36,7 +36,7 @@ Site Recovery is available in both the classic portal and the Azure portal. In t
 
 When you're choosing a deployment model note that:
 
-- We recommend you use the [Azure portal]((https://portal.azure.com)) and the ARM model where possible.
+- We recommend you use the [Azure portal](https://portal.azure.com) and the ARM model where possible.
 - Site Recovery provides a simpler and more intuitive getting started experience in the Azure portal.
 - Using the Azure portal, you can replicate machines to both classic and ARM storage in Azure. In addition, in the Azure portal you can use LRS or GRS storage accounts.
 - The Azure portal combines the Site Recovery and Backup services into a single Recovery Services vault so that you can set up and manage BCDR services from a single location.
