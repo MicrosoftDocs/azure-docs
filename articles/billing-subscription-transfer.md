@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/08/2016"
+   ms.date="07/12/2016"
    ms.author="genli"/>
 
 # Transferring Ownership of an Azure subscription
