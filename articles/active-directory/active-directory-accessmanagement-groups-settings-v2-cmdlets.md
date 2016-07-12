@@ -17,7 +17,7 @@
 	ms.date="07/11/2016"
 	ms.author="curtand"/>
 
-# PowerShell cmdlets for group management in Azure Active Directory
+# Azure Active Directory preview cmdlets for group management
 
 The following document will provide you with examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD).  It also provides information on how to get set up with the Azure AD PowerShell preview module. First, you must [download the Azure AD PowerShell module](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
