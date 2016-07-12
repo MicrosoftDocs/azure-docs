@@ -15,6 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/12/2016"
+   ms.date="07/01/2016"
    ms.author="mikewasson"/>
 
 # Running VMs in multiple datacenters on Azure for high availability
@@ -198,4 +199,3 @@ Measure the recovery times and verify they meet your business requirements. Test
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [wsfc]: https://msdn.microsoft.com/en-us/library/hh270278.aspx
 [0]: ./media/blueprints/compute-multi-dc-linux.png "Highly available network architecture for Azure N-tier applications"
-

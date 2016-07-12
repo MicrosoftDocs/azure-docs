@@ -32,7 +32,7 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 - [Set a password to expire](#set-a-password-to-expire)
 
-- [Set a password so that it will not expire](#set-a-password-not-to-expire)
+- [Set a password so that it will not expire](#set-a-password-to-never-expire)
 
 ## How to check expiration policy for a password
 
