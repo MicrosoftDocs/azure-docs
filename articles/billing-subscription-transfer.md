@@ -29,7 +29,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 > [AZURE.NOTE]  To change your subscription to a different offer, see [Switching to a different Azure offer](billing-how-to-switch-azure-offer.md) for more information.
 
-> [AZURE.NOTE] You have to be the account administrator to perform an ownership transfer. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](#faq).
+> You have to be the account administrator to perform an ownership transfer. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](#faq).
 
 ## How to transfer ownership of an Azure subscription
 
