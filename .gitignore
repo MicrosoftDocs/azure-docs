@@ -1,8 +1,0 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vscode/settings.json
-/.vs/VSWorkspaceSettings.json
-/.vs/slnx.sqlite
-/.vs/azure-content-pr/v15/.suo
