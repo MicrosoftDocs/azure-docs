@@ -113,7 +113,15 @@ To check if the endpoint is the source of the problem, remove the current endpoi
 
 ### <a id="nsgs"></a>Source 4: Network Security Groups
 
-Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network. Check your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed.
+Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network. Check your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed:
+
+- In the Azure portal, select your VM
+- Click **All settings** | **Network interfaces** and select your network interface.
+- Click **All settings** | **Network security group** and select your network security group.
+- Click **All settings** | **Inbound security rules** and ensure you have a rule allowing RDP on TCP port 3389.
+	- If you do not have a rule, click **Add** to create a new rule. Enter **TCP** for the protocol and then **3389** for the destination port range.
+	- Make sure the action is set to **Allow** and click OK to save your new inbound rule.
+
 
 For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
