@@ -34,7 +34,7 @@ Concurrent queries are governed by two concepts, **concurrent queries** and **co
 
 1. The DWU setting for the SQL Data Warehouse (e.g. DW400)
 2. The **resource class** that the user belongs to (e.g. smallrc)
-3. Whether the query or operation is governed by the concurrency slot model (see [resource class exceptions](#exceptions))
+3. Whether the query is governed by the concurrency slot model, or is a [resource class exception](#Exceptions)
 
 This table describes the limits for both concurrent queries and concurrency slots.
 
@@ -176,7 +176,7 @@ ORDER BY
 ```
 
 
-### Exceptions
+## Exceptions
 
 Most queries honor resource classes, however, there are some exceptions.  Typically, this occurs when the resources required to fulfil the action are low.  That is, the exceptions are generally cases where a query will never utilize the higher memory allocated by higher resource classes.  In these cases the default or small resource class (smallrc) is always used regardless of the resource class assigned to the user. For example, `CREATE LOGIN` will always run in the smallrc. The resources required to fulfil this operation are very low and so it would not make sense to include the query in the concurrency slot model. It would be wasteful to pre-allocate large amounts of memory for this action. By excluding `CREATE LOGIN` from the concurrency slot model SQL Data Warehouse can be much more efficient.  
 
