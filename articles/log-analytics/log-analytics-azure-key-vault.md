@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="07/12/2016"
 	ms.author="richrund"/>
 
 # Azure Key Vault (Preview) solution in Log Analytics
@@ -75,7 +75,6 @@ The Azure Key Vault solution analyzes records with a type of **KeyVaults** that 
 | Type | *KeyVaults* |
 | SourceSystem | *AzureStorage* |
 | CallerIpAddress | IP address of the client who made the request. |
-| CallerUPN_CF | User Principal Name of the account that made the request. |
 | Category      | For Key Vault logs, AuditEvent is the single, available value.|
 | CorrelationId | An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
 | DurationMs | Time it took to service the REST API request, in milliseconds. This does not include the network latency, so the time you measure on the client side might not match this time. |
@@ -94,7 +93,7 @@ The Azure Key Vault solution analyzes records with a type of **KeyVaults** that 
 | ResourceProvider | *MICROSOFT.KEYVAULT* |
 | ResultSignature  | HTTP status.|
 | ResultType      | Result of REST API request.|
-| SubscriptionId | Azure subscription ID of the  |
+| SubscriptionId | Azure subscription ID of the subscription containing the Key Vault. |
 
 
 ## Next steps
