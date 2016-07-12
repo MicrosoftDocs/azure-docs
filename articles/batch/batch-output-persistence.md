@@ -94,7 +94,7 @@ While not a strict rule, you'll typically do this in your Batch "client" applica
 
 The code to store the task output is appropriately located in the task project--the program that executes on each compute node in a pool. Each task can save its output with the [TaskOutputStorage][net_taskoutputstorage] class in the file conventions libary.
 
-First, your task creates a [TaskOutputStorage][net_taskoutputstorage] object, then when it has completed its work, it calls the  [TaskOutputStorage].[SaveAsync][net_saveasync] to save the output to Azure Storage.
+First, your task creates a [TaskOutputStorage][net_taskoutputstorage] object, then when it has completed its work, it calls the  [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] to save the output to Azure Storage.
 
 ```csharp
 TaskOutputStorage taskStorage = new TaskOutputStorage(new Uri(jobContainerUrl), taskId);
@@ -163,6 +163,11 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [net_onid]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onid.aspx
 [net_onids]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onids.aspx
 [net_onidrange]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onidrange.aspx
+[net_prepareoutputasync]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_saveasync]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_taskoutputkind]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_taskexecutioninformation]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.aspx
 [net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
 [net_usestaskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.usestaskdependencies.aspx
