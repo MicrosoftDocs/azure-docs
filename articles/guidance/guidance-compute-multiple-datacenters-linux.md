@@ -85,7 +85,7 @@ When Traffic Manager fails over, there is a period of time when clients cannot r
 
 - DNS servers must update the cached DNS records for the IP address, which depends on the DNS time-to-live (TTL). The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
-With default settings, the maximum failover time is about 7 minutes. Make sure this meets your [RTO] and [RPO] requirements. For details, see [About Traffic Manager Monitoring][tm-monitoring].
+For details, see [About Traffic Manager Monitoring][tm-monitoring].
 
 If Traffic Manager fails over, we recommend performing a manual failback, rather than automatically failing back. Verify that all application subsystems are healthy first. Otherwise, you can create a situation where the application flips back and forth between data centers.
 
@@ -183,8 +183,6 @@ Measure the recovery times and verify they meet your business requirements. Test
 [regional-pairs]: ../best-practices-availability-paired-regions.md
 [resource groups]: ../resource-group-overview.md
 [resource-group-links]: ../resource-group-link-resources.md
-[RPO]: https://en.wikipedia.org/wiki/Recovery_point_objective
-[RTO]: https://en.wikipedia.org/wiki/Recovery_time_objective
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [ssl-client-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLClientToNode_t.html
 [ssl-node-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLNodeToNode_t.html
