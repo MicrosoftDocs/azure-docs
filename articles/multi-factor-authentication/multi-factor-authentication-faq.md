@@ -19,7 +19,7 @@
 # Azure Multi-Factor Authentication FAQ
 
 
-This FAQ answers common questions about Azure Multi-Factor Authentication and using the service, including the billing model and usability.
+This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service, including billing model and usability.
 
 ## General
 
@@ -91,7 +91,7 @@ Billing is based on the number of users configured to use Multi-Factor Authentic
 
 **Q: How does Multi-Factor Authentication billing work?**
 
-When an organization uses the per-user or per-authentication consumption billing and usage model, the organization's administrator chooses the type of usage when the administrator create a Multi-Factor Authentication provider in the Azure classic portal. It's a resource that is billed to the organization’s Azure subscription, just like virtual machines, websites, and so on. When you use the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like for Office 365 and other subscription products.
+When an organization uses the per-user or per-authentication consumption billing and usage model, the organization's administrator chooses the type of usage when the administrator creates a Multi-Factor Authentication provider in the Azure classic portal. It's a resource that is billed to the organization’s Azure subscription, just like virtual machines, websites, and so on. When you use the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like for Office 365 and other subscription products.
 
 **Q: Is there a free version of Azure Multi-Factor Authentication for administrators?**
 
@@ -103,7 +103,7 @@ A subset of Azure Multi-Factor Authentication capabilities, called Multi-Factor 
 
 **Q: Can my organization switch between per-user and per-authentication consumption billing models at any time?**
 
-Your organization chooses a billing model when it creates a resource. You cannot changed a billing model after the resource is provisioned. You can, however, create a new Multi-Factor Authentication resource to replace the original. Note that user settings and configuration options cannot be transferred to the new resource.
+Your organization chooses a billing model when it creates a resource. You cannot change a billing model after the resource is provisioned. You can, however, create a new Multi-Factor Authentication resource to replace the original. Note that user settings and configuration options cannot be transferred to the new resource.
 
 **Q: Can my organization switch between the consumption billing and license model at any time?**
 
@@ -129,7 +129,7 @@ The administrator can reset the user's account by asking them to go through the 
 
 You can delete all of the user's app passwords to prevent unauthorized access. After the user has a replacement device, the user can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
 
-**Q: What if the user can't to sign in to non-browser apps?**
+**Q: What if the user can't sign in to non-browser apps?**
 
 - A user who is configured to use Multi-Factor Authentication requires an app password to sign in to some non-browser apps.
 - A user needs to clear (delete) sign-in information, restart the app, and sign in by using their user name and app password.
@@ -181,6 +181,6 @@ The user should follow this procedure:
 
 **Q: What does a user do if the user sees a 0x800434D4L error message when the user attempts to sign in by using a non-browser application?**
 
-Currently, a user can use additional security verification only with applications and services that the user can access through the user's browser. Non-browser applications (also referred to as 'rich client applications') that are installed on a local computer, such as Windows PowerShell, will not work with accounts that require additional security verification. In this case, the user might see the application generate an 0x800434D4L error.
+Currently, a user can use additional security verification only with applications and services that the user can access through the user's browser. Non-browser applications (also referred to as *rich client applications*) that are installed on a local computer, such as Windows PowerShell, will not work with accounts that require additional security verification. In this case, the user might see the application generate an 0x800434D4L error.
 
 A workaround for this is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](http://help.outlook.com/141/gg709759.aspx?sl=1).
