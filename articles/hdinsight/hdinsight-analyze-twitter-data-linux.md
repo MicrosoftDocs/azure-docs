@@ -161,6 +161,8 @@ The following Python code will download 10,000 tweets from Twitter and save them
 
 	A progress indicator should appear, and count up to 100% as the tweets are downloaded and saved to file.
 
+    > [AZURE.NOTE] If it is taking a very long time for the progress bar to advance, you should change the filter to track trending topics; when there are a lot of tweets about the topic you are filtering on, you can very quickly get the 10000 tweets needed.
+
 ###Upload the data
 
 To upload the data to WASB (the distributed file system used by HDInsight,) use the following commands:

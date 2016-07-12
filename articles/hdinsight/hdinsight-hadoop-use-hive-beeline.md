@@ -170,7 +170,7 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
 
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
-        > [AZURE.NOTE] The `-i` parameter starts Beeline, runs the statements in the query.hql file, and remains in Beeline at the `jdbc:hive2://localhost:10001/>` prompt. You can also run a file using the `-f` parameter, which returns you to Bash after the file has been processed.
+    > [AZURE.NOTE] The `-i` parameter starts Beeline, runs the statements in the query.hql file, and remains in Beeline at the `jdbc:hive2://localhost:10001/>` prompt. You can also run a file using the `-f` parameter, which returns you to Bash after the file has been processed.
 
 5. To verify that the **errorLogs** table was created, use the following statement to return all the rows from **errorLogs**:
 

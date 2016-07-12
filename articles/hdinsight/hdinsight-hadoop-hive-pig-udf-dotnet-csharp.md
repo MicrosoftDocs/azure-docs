@@ -34,7 +34,7 @@ In this document, learn how to use C# with Hive and Pig.
 
 	* Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
-	* Visual Studio 2015 Preview
+	* Visual Studio 2015
 
 * Hadoop on HDInsight cluster - see [Provision an HDInsight cluster](hdinsight-provision-clusters.md) for steps to create a cluster
 
