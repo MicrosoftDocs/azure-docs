@@ -26,8 +26,8 @@
 
 Logic Apps provide a way to simplify and implement complex business processes. It provides a visual designer to model and automate your business process as a series of steps known as a workflow. You can design workflows so that they start from a trigger and are then execute each of your steps. Each step invokes an API, while securely taking care of authentication and best practices, such as checkpointing and durable execution.
 
-The advantages of using Logic Apps include the following:
-•	Saving time by designing complex processes using easy to understand design tools
+The advantages of using Logic Apps include the following:  
+•	Saving time by designing complex processes using easy to understand design tools 
 •	Implementing tasks easily, that would otherwise be difficult to implement in code
 •	Getting started quickly from templates
 •	Customizing your Logic App using APIs
@@ -73,7 +73,8 @@ The following are some of the key pieces that comprise the Logic Apps experience
 - **Managed Connectors** - Your logic apps need access to data and services. Managed connectors are created specifically to aid you when you are connecting to and working with your data. See the list of connectors available now in [managed connectors][managedapis].
 - **Triggers** - Some Managed Connectors can also act as a trigger. A trigger starts a new instance of a workflow based on a specific event, like the arrival of an e-mail or a change in your Azure Storage account.
 -  **Actions** - Each step after the trigger in a workflow is called an action. Each action typically maps to an operation on your managed connector or custom API apps.
-- **Enterprise Integration Pack** - For more advanced integration scenarios, Logic Apps includes capabilities from BizTalk. BizTalk is Microsoft's industry leading integration platform. The Enterprise Integration Pack connectors allow you to easily include validation, transformation, and more in to your Logic App workflows. Find out more in [overview of the Enterprise Integration Pack][biztalk].
+- **Enterprise Integration Pack** - For more advanced integration scenarios, Logic Apps includes capabilities from BizTalk. BizTalk is Microsoft's industry leading integration platform. The Enterprise Integration Pack connectors allow you to easily 
+- include validation, transformation, and more in to your Logic App workflows. Find out more in [overview of the Enterprise Integration Pack][biztalk].
 
 ## Getting Started  
 
