@@ -71,8 +71,6 @@ For all scenarios in this topic, the following tasks are required:
 
 The device OS version must be iOS 9 and above 
 
-The Azure Authenticator must be installed on the iOS devices 
-
 A federation server must be configured to perform CBA on Office mobile applications.  
 
 
@@ -99,12 +97,7 @@ For more details, see [Customizing the AD FS Sign-in Pages](https://technet.micr
 
 
 Certain Exchange ActiveSync applications on iOS 9 or later are supported. To determine if your email application does support this feature, please contact your application developer. 
-
-
-### Limitations  
-
 Federated authentication with a client certificate is not supported.  
-
 
 
 ## Getting started 
