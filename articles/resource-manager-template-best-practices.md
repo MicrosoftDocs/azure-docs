@@ -223,31 +223,31 @@ For resource types that are largely accessed through another resource, you can u
 1. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be betweeen 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
 
         "parameters": {
- 	    "dnsPrefixString": {
- 		"type": "string",
- 		"maxLength": 50,
-		"metadata": {
- 			"description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
- 		}
- 	    }
+            "dnsPrefixString": {
+                "type": "string",
+                "maxLength": 50,
+                "metadata": {
+                    "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
+                }
+            }
         },
         "variables": {
- 	    "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
+            "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
         }
 
 1. When adding a password to a **customScriptExtension**, use the **commandToExecute** property in protectedSettings.
 
         "properties": {
- 	    "publisher": "Microsoft.OSTCExtensions",
- 	    "type": "CustomScriptForLinux",
- 	    "settings": {
- 		"fileUris": [
- 			"[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
- 		]
- 	    },
- 	    "protectedSettings": {
- 		"commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
- 	    }
+            "publisher": "Microsoft.OSTCExtensions",
+            "type": "CustomScriptForLinux",
+            "settings": {
+                "fileUris": [
+                    "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
+                ]
+            },
+            "protectedSettings": {
+                "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
+            }
         }
 
      > [AZURE.NOTE] In order to ensure that secrets which are passed as parameters to virtualMachines/extensions are encrypted, the protectedSettings property of the relevant extensions must be used.
@@ -271,124 +271,17 @@ If a template creates any new **publicIPAddresses** then it should have an **out
 
 ## Single template or nested templates
 
-You can use either a single template or multiple nested templates to deploy your solution. Nested templates work well when you want to decompose your solution and re-use nested templates with different main templates. Nested templates are common for more advanced scenarios.  
+To deploy your solution, you can use either a single template or a main template with multiple nested templates. Nested templates work well when you want to decompose your solution and re-use nested templates with different main templates. Nested templates are common for more advanced scenarios.  
 
-* Create a single template for a single tier application
-* Create a nested templates deployment for a multitier application
-* Use nested templates for conditional deployment
-
-### Samples that contain extra artifacts (Custom Scripts, nested templates, etc)
-
-When samples contain scripts, templates or other artifacts that need to be made available during deployment, using the standard parameters for staging those artifacts will enable command line deployment with the scripts provided at the root of the repository.  This allows the template to be used in a variety of workflows without changing the templates or default parameters and the artifacts will be staged to a private location, rather than the public GitHub URI.
-
-First, define two standard parameters:
-
-* _artifactsLocation - this is the base URI where all artifacts for the deployment will be staged.  The default value should be the samples folder so that the sample can be easily deployed in scenarios where a private location is not required.
-* _artifactsocationSasToken - this is the sasToken required to access _artifactsLocation.  The default value should be "" for scenarios where the _artifactsLocation is not secured, for example, the raw GitHub URI.
-
-```
-  "parameters": {
-      "_artifactsLocation": {
-          "type": "string",
-          "metadata": {
-              "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
-          },
-          "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-custom-script-windows/"
-      },
-      "_artifactsLocationSasToken": {
-          "type": "securestring",
-          "metadata": {
-              "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
-          },
-          "defaultValue": ""
-      }
-  },
-
-```
-In this example, the custom script extension can be authored using a common pattern that can be applied to all resources that need staged artifacts as well as applied to all samples.
-
-```
-  "properties": {
-      "publisher": "Microsoft.Compute",
-      "type": "CustomScriptExtension",
-      "typeHandlerVersion": "1.8",
-      "autoUpgradeMinorVersion": true,
-      "settings": {
-      "fileUris": [
-          "[concat(parameters('_artifactsLocation'), '/', variables('ScriptFolder'), '/', variables('ScriptFileName'), parameters('_artifactsLocationSasToken'))]"
-        ],
-      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('ScriptFolder'), '/', variables('ScriptFileName'))]"
-        }
-  }
-``` 
-
-### Nested templates
-
-Nested templates that link to templates within the same sample can be authored using the same pattern described above for scripts.
-
-```
-  "resources": [
-    {
-      "name": "shared",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), '/', variables('nestedTemplateFolder'), '/', variables('nestedTemplateFileName'), parameters('_artifactsLocationSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        }
-      }
-    }
-  ]
-```
-
-
-When authoring a template that references another sample, define a complex object variable in the azuredeploy.json that contains the absolute URI of the repository folder. Add a relative path entry in that variable for each nested template you are using in your deployment. This gives quick overview of the nested templates referenced in your resources. Store all nested templates in the **nestedtemplates** folder. The templatelink in the resource combines the absolute URI with the relative path. When you fork a repository you only need to update the absolute URI in the azuredeploy.json file. 
-
-```
-"variables": {
-  "template": {
-    "base": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-create-availability-set",
-    "shared": "nestedtemplates/sharedresources.json"
-  }
-},
-"resources": [
-  {
-    "name": "shared",
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
-    "properties": {
-      "mode": "Incremental",
-      "templateLink": {
-        "uri": "[concat(variables('template').base, variables('template').shared)]",
-        "contentVersion": "1.0.0.0"
-      }
-    }
-  }
-]
-```
-
-
-_**Note:** Using this approach will still require pulling the dependent artifact from the raw GitHub location.  The sample scripts do not privately stage artifacts from adjacent solutions.  In practice, it is expected that this technique would be rarely used because the main template being deployed has a dependency on a shared template that may have a different lifecycle, resulting in unexpected changes in the configuration.  In a real-world scenario, all the templates that make up the deployment should be under the same span of control and could be staged together.  Simply put share the same parent.  This will work for a shared environment of the repository, but a best practice would be to refactor these samples to ensure a proper configuration is maintained._
-
-
-It is possible to deploy a nested template based on parameter input. The parameter input is used to concatenate the relative path to a nested template. Based on the user input a different template is deployed. This enables a conditional nested template deployment. The paramater is used to define the name of the template. Ensure the allowedValues of the input parameter match the names of the nested templates.
-
-### Nested templates design for more advanced scenarios
-
-When you decide to decompose your template design into multiple nested templates, the following guidelines will help to standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation.
-For this guidance a deployment of a SharePoint farm is used as an example. The SharePoint farm consists of multiple tiers. Each tier can be created with high availability. The recommended design consists of the following templates.
+When you decide to decompose your template design into multiple nested templates, the following guidelines will help standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation. The recommended design consists of the following templates.
 
 + **Main template** (azuredeploy.json). Used for the input parameters.
 + **Shared resouces template**. Deploys the shared resources that all other resources use (e.g. virtual network, availability sets). The expression dependsOn enforces that this template is deployed before the other templates.
 + **Optional resources template**. Conditionally deploys resources based on a parameter (e.g. a jumpbox)
-+ **Member resources templates**. Each within an application tier within has its own configuration. Within a tier different instance types can be defined. (e.g. first instance creates a new cluster, additional instances are added to the existing cluster). Each instance type will have its own deployment template.
++ **Member resources templates**. Each within an application tier within has its own configuration. Within a tier different instance types can be defined (such as, first instance creates a new cluster, additional instances are added to the existing cluster). Each instance type will have its own deployment template.
 + **Scripts**. Widely reusable scripts are applicable for each instance type (e.g. initialize and format additional disks). Custom scripts are created for specific customization purpose are different per instance type.
 
 ![nested template](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
- 
-The **main template** is stored in the **root** of the folder, the **other templates** are stored in the **nestedtemplates** folder. The scripts are stored in the **scripts** folder.
 
 ## Next steps
 
