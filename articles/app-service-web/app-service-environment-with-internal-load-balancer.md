@@ -101,6 +101,7 @@ After you create your ASE you will notice that the subdomain shows the subdomain
 
 If you are simply trying things out and don't know how to create a certificate, you can use the IIS MMC console application to create a self signed certificate.  Once it is created you can export it as a .pfx file and then upload it in the ILB Certificate UI. When you access a site secured with a self-signed certificate, your browser will give you a warning that the site you are accessing is not secure due to the inability to validate the certificate.  If you want to avoid that warning you need a properly signed certificate that matches your subdomain and has a chain of trust that is recognized by your browser.
 
+![][6]
 
 If you want to test both HTTP and HTTPS access to your ASE:
 
