@@ -67,4 +67,4 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 ## Next steps
 
-	* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
