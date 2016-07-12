@@ -1,25 +1,3 @@
-<properties
-   pageTitle="Running a Linux VM on Azure | Reference Architecture | Microsoft Azure"
-   description="How to implement a Linux VM using Azure for scalability, availability, managability, and security."
-   services=""
-   documentationCenter="na"
-   authors="mikewasson"
-   manager="christb"
-   editor=""
-   tags=""/>
-
-<tags
-   ms.service="guidance"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/11/2016"
-   ms.author="mikewasson"/>
-
-# Running a Linux VM on Azure
-
-[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 This article outlines a set of proven practices for running a Linux virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. Azure supports running a number of popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux].
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
@@ -336,7 +314,7 @@ azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTC
 
 ## Next steps
 
-You must deploy two or more instances of each VM in an *availability set* to support the [SLA for Virtual Machines][vm-sla]. Without creating at least two instances in this manner, you cannot guarantee the availability of your VMs. For more information, see [Running multiple Windows VMs on Azure][multi-vm].
+In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 <!-- links -->
 
