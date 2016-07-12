@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using multiple input files and component properties with Premium Encoder" 
+	pageTitle="Using multiple input files and component properties with Premium Encoder | Microsoft Azure" 
 	description="This topic explains how to use setRuntimeProperties to use multiple input files and pass custom data to the Media Encoder Premium Workflow media processor." 
 	services="media-services" 
 	documentationCenter="" 
@@ -310,6 +310,9 @@ The next step is to add a "Video Data Type Updater" to specify the color space t
 
 *Video Data Type Updater and Format Converter*
 
+![Layout type = Configurable Planar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
+
+*Layout type = Configurable Planar*
 
 Next, add a Video Overlay component and connect the (uncompressed) video pin to the (uncompressed) video pin of the media file input.
 
