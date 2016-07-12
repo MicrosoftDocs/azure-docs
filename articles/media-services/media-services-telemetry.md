@@ -231,6 +231,6 @@ You can query for the following live channel metrics.
 
 ##Next step
  
-See Azure Media Services learning path to help you learn about great features offered by AMS.  
+See Azure Media Services learning paths to help you learn about great features offered by AMS.  
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
