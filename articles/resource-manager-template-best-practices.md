@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="07/12/2016"
 	ms.author="tomfitz"/>
 
 # Best practices for creating Azure Resource Manager templates
@@ -151,22 +151,22 @@ For resource types that are largely accessed through another resource, you can u
 1. You can group variables into complex objects. You can reference a value from a complex object in the format **variable.subentry**. Grouping variables helps you keep track of related variables and improves readability of the template.
 
         "variables": {
- 	    "storage": {
+            "storage": {
                 "name": "[concat(uniqueString(resourceGroup().id),'storage')]",
                 "type": "Standard_LRS"
             }
         },
         "resources": [
-	    {
-	        "type": "Microsoft.Storage/storageAccounts",
-	        "name": "[variables('storage').name]",
-	        "apiVersion": "2016-01-01",
-	        "location": "[resourceGroup().location]",
-	        "sku": {
-                    "name": "[variables('storage').type]"
-                },
-	        ...
-            }
+          {
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storage').name]",
+              "apiVersion": "2016-01-01",
+              "location": "[resourceGroup().location]",
+              "sku": {
+                  "name": "[variables('storage').type]"
+              },
+              ...
+          }
         ]
  
      > [AZURE.NOTE] A complex object cannot contain an expression that references a value from a complex object. Define a separate variable for this purpose.
@@ -174,23 +174,6 @@ For resource types that are largely accessed through another resource, you can u
      For more advanced examples of using complex objects as variables, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
 
 ## Resources
-
-1. For many resources, a name is not often relevant and using something a hard coded string "availabilitySet" may be acceptable.  You can also use variables for the name of a resource and generate names for resources with globally unique names. Use **displayName** tags for a "friendly" name in the JSON outline view.  This should ideally match the name property value or property name.
-
- ```
- "resources": [
-   {
-     "name": "availabilitySet",
-     "type": "Microsoft.Compute/availabilitySets",
-     "apiVersion": "2015-06-15",
-     "location": "[resourceGroup().location]",
-     "tags": { "displayName": "appTierAS" },
-     "properties": {
-        ...
-     }
-   }
- ]
- ```
 
 1. Specify **comments** for each resource in the template to help other contributors understand the purpose of the resource.
 
@@ -205,7 +188,9 @@ For resource types that are largely accessed through another resource, you can u
           }
         ]
 
-1. If you use a **public endpoint** in your template (e.g. blob storage public endpoint), **do not hardcode** the namespace. Use the **reference** function to retrieve the namespace dynamically. This allows you to deploy the template to different public namespace environments, without the requirement to change the endpoint in the template manually. Use the following reference to specify the osDisk. Define a variable for the storageAccountName (as specified in the previous example), a variable for the vmStorageAccountContainerName and a variable for the OSDiskName. Set the apiVersion to the same version you are using for the storageAccount in your template.
+1. Use tags to add metadata to resources that enable you to add additional information about your resources. For example, you can add metadata to a resource for billing detail purposes. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
+
+1. If you use a **public endpoint** in your template (such as a blob storage public endpoint), **do not hardcode** the namespace. Use the **reference** function to retrieve the namespace dynamically. This allows you to deploy the template to different public namespace environments, without manually changing the endpoint in the template. Set the apiVersion to the same version you are using for the storageAccount in your template.
 
         "osDisk": {
             "name": "osdisk",
@@ -214,7 +199,7 @@ For resource types that are largely accessed through another resource, you can u
             }
         }
 
-     If you have other values in your template configured with a public namespace, change these to reflect the same reference function. For example the storageUri property of the virtual machine diagnosticsProfile. Set the apiVersion to the same version you are using for the corresponding resource in your template.
+     If you have other values in your template configured with a public namespace, change these to reflect the same reference function. For example the storageUri property of the virtual machine diagnosticsProfile.
 
         "diagnosticsProfile": {
             "bootDiagnostics": {
@@ -223,58 +208,49 @@ For resource types that are largely accessed through another resource, you can u
             }
         }
  
-     You can also **reference** an **existing storage account** in a different resource group. Set the apiVersion to the same version you are using for the existing storageAccount.
+     You can also **reference** an existing storage account in a different resource group.
 
 
         "osDisk": {
             "name": "osdisk", 
             "vhd": {
-                "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2015-06-15').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+                "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
             }
         }
 
-1. Using tags to add metadata to resources allows you to add additional information about your resources. A good use case for tags is adding metadata to a resource for billing detail purposes. 
+1. Assign publicIPAddresses to a virtual machine only when required for an application. To connect for debug, management or administrative purposes, use either inboundNatRules, virtualNetworkGateways or a jumpbox.
 
-1. The **domainNameLabel** property for publicIPAddresses must be **unique**. domainNameLabel is required to be betweeen 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
+1. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be betweeen 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
 
- ```
- "parameters": {
- 	"dnsPrefixString": {
+        "parameters": {
+ 	    "dnsPrefixString": {
  		"type": "string",
  		"maxLength": 50,
 		"metadata": {
  			"description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
  		}
- 	}
- },
- "variables": {
- 	"dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
- }
- ```
+ 	    }
+        },
+        "variables": {
+ 	    "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
+        }
 
-1. Passwords must be passed to **customScriptExtension** using the **commandToExecute** property in protectedSettings.
+1. When adding a password to a **customScriptExtension**, use the **commandToExecute** property in protectedSettings.
 
- ```
- "properties": {
- 	"publisher": "Microsoft.OSTCExtensions",
- 	"type": "CustomScriptForLinux",
- 	"settings": {
+        "properties": {
+ 	    "publisher": "Microsoft.OSTCExtensions",
+ 	    "type": "CustomScriptForLinux",
+ 	    "settings": {
  		"fileUris": [
  			"[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
  		]
- 	},
- 	"protectedSettings": {
+ 	    },
+ 	    "protectedSettings": {
  		"commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
- 	}
- }
- ```
+ 	    }
+        }
 
- > [AZURE.NOTE] In order to ensure that secrets which are passed as parameters to virtualMachines/extensions are encrypted, the protectedSettings property of the relevant extensions must be used.
-
-1. publicIPAddresses assigned to a Virtual Machine instance should only be used when these are required for application purposes, for connectivity to the resources for debug, management or administrative purposes either inboundNatRules, virtualNetworkGateways or a jumpbox should be used.
-
-1.  Templates should consider storage accounts throughput constraints and deploy across multiple storage accounts where necessary. Templates should distribute virtual machine disks across multiple storage accounts to avoid platform throttling.
-
+     > [AZURE.NOTE] In order to ensure that secrets which are passed as parameters to virtualMachines/extensions are encrypted, the protectedSettings property of the relevant extensions must be used.
 
 ## Outputs
 
