@@ -4,7 +4,7 @@
 	keywords="elastic database,sql databases"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrab"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
@@ -12,7 +12,7 @@
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="07/12/2016"
-	ms.author="carlrab"
+	ms.author="CarlRabeler"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
