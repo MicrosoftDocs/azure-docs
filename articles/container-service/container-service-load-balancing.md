@@ -41,8 +41,8 @@ To install the Marathon Load Balancer you can use either the DC/OS web UI or the
 
 ### Install Marathon-LB using DC/OS Web UI
 
-	1. Click 'Universe'
-	2. Search for 'Marathon-LB'
+  1. Click 'Universe'
+  2. Search for 'Marathon-LB'
   3. Click 'Install'
 
 ![Installing marathon-lb via the DC/OS Web Interface](./media/dcos/marathon-lb-install.png)
