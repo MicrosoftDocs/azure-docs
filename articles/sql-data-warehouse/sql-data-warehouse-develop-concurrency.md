@@ -13,243 +13,156 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Concurrency and workload management in SQL Data Warehouse
-To deliver predictable performance at scale SQL Data Warehouse implements mechanisms for managing both workload concurrency and computational resource assignment.
 
-This article introduces you to the concepts of concurrency and workload management; explaining how both features have been implemented and how you can control them in your data warehouse.
+To deliver predictable performance at scale SQL Data Warehouse allows users to control concurrency levels as well as resource allocations like memory.  This article introduces you to the concepts of concurrency and workload management, explaining how both features have been implemented and how you can control them in your data warehouse.
 
 >[AZURE.NOTE] SQL Data Warehouse supports multi-user, not multi-tenant workloads.
 
-## Concurrency
-It is important to understand that concurrency in SQL Data Warehouse is governed by two concepts; **concurrent queries** and **concurrency slots**.
+## Concurrency limits
 
-Concurrent queries equates to the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries**. Each query execution counts as a single query regardless of whether it is a serial query (single threaded) or parallel query (multi-threaded). This is a fixed cap and applies to all service levels and all queries.
+SQL Data Warehouse allows up to 1,024 concurrent connections.  All 1,024 connections can submit queries concurrently.  However, in order to optimize throughput, SQL Data Warehouse may queue some queries to ensure that each query receives a minimal memory grant.  Memory grants and concurrency go hand in hand and are controllable by assigning users to a **resource class**.  Resource classes range from smallrc to xlargerc.  Users in smallrc are given a smaller amount of memory and thus allow for higher concurrency.  In contrast, users assigned to xlargerc are given large amounts of memory and therefore less of these queries are allowed to run concurrently.
 
-Concurrency slots is a more dynamic concept and is relative to the Data Warehouse Unit (DWU) service level objective for your data warehouse. As you increase the number of DWU allocated to SQL Data Warehouse more compute resources are assigned. However, increasing DWU also increases the number of **concurrency slots** available.
+Concurrent queries are governed by two concepts, **concurrent queries** and **concurrency slots**.
 
-As a general rule, each concurrently executing query consumes one or more concurrency slots. The exact number of slots depends on three factors:
+**Concurrent queries** are simply the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries** on the larger DW sizes, DW1000 and above.  The concurrent query limit is tested first and if more concurrent queries are allowed, then the system looks to confirm that enough concurrency slots are available.
 
-1. The DWU setting for the SQL Data Warehouse
-2. The **resource class** that the user belongs to
-3. Whether the query or operation is governed by the concurrency slot model
+**Concurrency slots** is a more dynamic concept.  Each concurrently executing query consumes one or more concurrency slots. The exact number of slots depends on three factors:
 
-> [AZURE.NOTE] It is worth noting that not every query is governed by the concurrency slot query rule. However, most user queries are. Some queries and operations do not consume concurrency slots at all. These queries and operations are still limited by the concurrent query limit which is why both rules are described. Please refer to the [resource class exceptions](#exceptions) section below for more details.
+1. The DWU setting for the SQL Data Warehouse (e.g. DW400)
+2. The **resource class** that the user belongs to (e.g. smallrc)
+3. Whether the query is governed by the concurrency slot model, or is a [resource class exception](#Exceptions)
 
-The table below describes the limits for both concurrent queries and concurrency slots; assuming your query is resource governed.
+The below table describes the limits for both concurrent queries and concurrency slots.
 
-<!--
-| Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
+
+**Concurrency limits**
+
+|                              | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
+| :--------------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
 | Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
--->
 
-| Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
-| Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     |
+SQL Data Warehouse query workloads have to live within these thresholds. If there are more than 32 concurrent queries **or** you exceed the number of concurrency slots then the query will be queued until **both** thresholds can be satisfied.  There are a few types of queries which ignore these rules.  Generally speaking, these are queries which do not require any substaintial memory to execute.  You can find these execeptions later on in this article.
 
-SQL Data Warehouse query workloads have to live within these thresholds. If there are more than 32 concurrent queries or you exceed the number of concurrency slots then the query will be queued until both thresholds can be satisfied.
+> [AZURE.NOTE] `SELECT` queries executing exclusively against dynamic management views (DMVs) and catalog views are **not** governed by resource classes.  This allows users to monitor the system even when all concurrency slots are in use.
 
-## Workload management
+## Resource classes
 
-SQL Data Warehouse exposes four different resource classes in the form of **database roles** as part of its workload management implementation.  
+Resource classes are an essential part of SQL Data Warehouse workload management as they allow more memory and or CPU cycles to be allocated to queries run by a given user.  SQL Data Warehouse workload management exposes four resource classes in the form of **database roles**.  The four resource classes are  **smallrc, mediumrc, largerc and xlargerc**.  
 
-The roles are:
+By default, each user is a member of the small resource class, smallrc.  The procedure `sp_addrolemember` is used to increase the resource class and `sp_droprolemember` is used to decrease the resource class.  For example, this command would increase the resource class of the loaduser to largerc:
 
-- smallrc
-- mediumrc
-- largerc
-- xlargerc
+```sql
+EXEC sp_addrolemember 'largerc', 'loaduser'
+```
 
-Resource classes are an essential part of SQL Data Warehouse workload management. They govern the computational resources allocated to the query.
+A good practice is to create users which are permanently assigned to a resource class rather than changing the resource class of a user.  For example, loads to clustered columnstore tables create higher quality indexes when allocated more memory.  A good practice for loads to clustered columnstore tables is to create a user specifically for loading data and permanently assign this user to a higher resource class.
 
-By default each user is a member of the small resource class - smallrc. However, any user can be added to one or more of the higher resource classes. As a general rule, SQL Data Warehouse will take the highest role membership for query execution. Adding a user to a higher resource class will increase the resources for that user but it will also consume greater concurrency slots; potentially limiting your concurrency. This is due to the fact that as more resources are allocated to one query the system needs to limit resources consumed by others. There is no free lunch.
+A few more details on resource class:
 
-The most important resource governed by the higher resource class is memory. Most data warehouse tables of any meaningful size will be using clustered columnstore indexes. Whilst this typically provides the best performance for data warehouse workloads maintaining them is a memory intensive operation. It is often highly beneficial to use the higher resource classes for data management operations such as index rebuilds.
+- `ALTER ROLE` permission is required to change the resource class of a user.  
+- While a user can be added to one or more of the higher resource classes, users will take on the attributes of the highest resource class to which they are assigned.  That is, if a user is assigned to both mediumrc and largerc, the higher resource class, largerc is the resource class that will be honored.  
+- The resource class of the system administrative user cannot be changed.
+ 
+More details and examples of creating users an assigning them to resource classes can be found in the [Managing users](#Managing-users) section at the end of this article.
 
-SQL Data Warehouse has implemented resource classes through the use of database roles. To become a member of a higher resource class and increase your memory simply and priority you simply add your database user to one of the roles / resource classes mentioned above.
+## Memory allocation
 
-### Resource class membership
+There are pros and cons to increasing a user's resource class.  While increasing a resource class for a user may mean their queries execute faster, it also reduces the number of concurrent queries that can run.  This is a result of memory being divided between users.  If one user is given more memory for a query, other users will not have memory available to them to run a query.
 
-You can add and remove yourself to the workload management database role using the `sp_addrolemember` and `sp_droprolemember` procedures. Note you will require `ALTER ROLE` permission to do this. You are not able to use the ALTER ROLE DDL syntax. You must use the aforementioned stored procedures. A full example of how to create logins and users is provided in the [managing users)[#managing-users] section at the end of this article.
+The following table maps the increase in memory available to **the queries on each distribution** by DWU and resource class.  In other words, since there are 60 distributions per database, a query which would benfit from a large memory allocation would have access to about 375 GB of memory if the user was in xlargerc and running on a DW2000 (6,400 MB * 60 distributions / 1,024 to convert to GB).
 
-> [AZURE.NOTE] Rather than adding a user into and out of a workload management group it is often simpler to initiate those more intensive operations through a separate login/user that is permanently assigned to the higher resource class.
 
-### Memory allocation
+**Memory allocated per distribution (MB)**
 
-The following table details the increase in memory available to each query; subject to the resource class applied to the user executing it:
+|                | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
+| :------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
+| smallrc        |   100 |   100 |   100 |   100 |   100 |   100 |    100 |    100 |    100 |    100 |    100 |    100 |
+| mediumrc       |   100 |   200 |   200 |   400 |   400 |   400 |    800 |    800 |    800 |  1,600 |  1,600 |  3,200 |
+| largerc        |   200 |   400 |   400 |   800 |   800 |   800 |  1,600 |  1,600 |  1,600 |  3,200 |  3,200 |  6,400 |
+| xlargerc       |   400 |   800 |   800 | 1,600 | 1,600 | 1,600 |  3,200 |  3,200 |  3,200 |  6,400 |  6,400 | 12,800 |
 
-<!--
-| Memory Available (per dist) | Priority | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  | DW3000  | DW6000   |
-| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ | :------ | :------- |
-| smallrc(default) (s)        | Medium   | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100  MB | 100   MB |
-| mediumrc (m)                | Medium   | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 3200  MB |
-| largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 6400  MB |
-| xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB | 6400 MB | 12800 MB |
--->
+## Concurrency slot consumption
 
-<!--
-| Memory Available (per dist) | Priority | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  |
-| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
-| smallrc(default) (s)        | Medium   | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  |
-| mediumrc (m)                | Medium   | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB |
-| largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
-| xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
--->
+As mentioned above, the higher the resource class the more memory granted.  Since memory is a fixed resource, the more memory allocated per query, the less concurrency which can be supported.  The following table reiterates the number of concurrency slots available by DWU as well as the slots consumed by each resource class.
 
-| Memory Available (per dist) | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  |
-| :-------------------------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
-| smallrc(default) (s)        | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  |
-| mediumrc (m)                | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB |
-| largerc (l)                 | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
-| xlargerc (xl)               | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
 
-### Concurrency slot consumption
+**Allocation and consumption of concurrency slots**
 
-Furthermore, as mentioned above, the higher the resource class assigned to the user the greater the concurrency slot consumption. The following table documents the consumption of concurrency slots by queries in a given resource class.
+|                         | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
+| :---------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
+| **Allocation**          |       |       |       |       |       |       |        |        |        |        |        |        |
+| Max Concurrent Queries  | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
+| Max Concurrency Slots   | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 80     | 80     |
+| **Slot Consumption**    |       |       |       |       |       |       |        |        |        |        |        |        |
+| smallrc                 | 1     | 1     | 1     | 1     | 1     | 1     | 1      | 1      | 1      | 1      | 1      | 1      |
+| mediumrc                | 1     | 2     | 2     | 4     | 4     | 4     | 8      | 8      | 8      | 16     | 16     | 32     |
+| largerc                 | 2     | 4     | 4     | 8     | 8     | 8     | 16     | 16     | 16     | 32     | 32     | 64     |
+| xlargerc                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     | 64     | 128    |
 
-<!--
-| Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
-| Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
-| smallrc(default) (s)         | 1     | 1     | 1     | 1     | 1     | 1     | 1      | 1      | 1      | 1      | 1      | 1      |
-| mediumrc (m)                 | 1     | 2     | 2     | 4     | 4     | 4     | 8      | 8      | 8      | 16     | 16     | 32     |
-| largerc (l)                  | 2     | 4     | 4     | 8     | 8     | 8     | 16     | 16     | 16     | 32     | 32     | 64     |
-| xlargerc (xl)                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     | 64     | 128    |
--->
+## Query importance
 
-| Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
-| Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     |
-| smallrc(default) (s)         | 1     | 1     | 1     | 1     | 1     | 1     | 1      | 1      | 1      | 1      |
-| mediumrc (m)                 | 1     | 2     | 2     | 4     | 4     | 4     | 8      | 8      | 8      | 16     |
-| largerc (l)                  | 2     | 4     | 4     | 8     | 8     | 8     | 16     | 16     | 16     | 32     |
-| xlargerc (xl)                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     |
+Under the covers there are a total of eight workload groups which control the behavior of resource classes.  However, only four of the eight workload groups are used for any given DWU.  This makes sense since each workload group is assigned to either smallrc, mediumrc, largerc, or xlargerc.  What makes this aspect important to understand is that each workload group is also assigned a resource governor **IMPORTANCE**.  Importance is used for CPU scheduling.  Queries run with high importance will get 3X more CPU cycles than those with medium importance.  Therefore, concurrency slot mappings also determine CPU importance.  When a query consumes 16 or more slots, it runs as high importance.
 
-### Exceptions
 
-There are occasions where membership of a higher resource class does not alter the resources assigned to the query or operation. Typically this occurs when the resources required to fulfil the action are low. In these cases the default or small resource class (smallrc) is always used irrespective of the resource class assigned to the user. As an example, `CREATE LOGIN` will always run in the smallrc. The resources required to fulfil this operation are very low and so it would not make sense to include the query in the concurrency slot model. It would be wasteful to pre-allocate large amounts of memory for this action. By excluding `CREATE LOGIN` from the concurrency slot model SQL Data Warehouse can be much more efficient.  
+**Workload groups**
 
-Below is a list of statements and operations that **are** governed by resource classes:
+|                | Concurrency Slot Mapping | Importance Mapping |
+| :------------  | :----------------------: | :----------------- |
+| SloDWGroupC00  | 1                        | Medium             |
+| SloDWGroupC01  | 2                        | Medium             |
+| SloDWGroupC02  | 4                        | Medium             |
+| SloDWGroupC03  | 8                        | Medium             |
+| SloDWGroupC04  | 16                       | High               |
+| SloDWGroupC05  | 32                       | High               |
+| SloDWGroupC06  | 64                       | High               |
+| SloDWGroupC07  | 128                      | High               |
 
-- INSERT-SELECT
-- UPDATE
-- DELETE
-- SELECT (when querying user tables)
-- ALTER INDEX REBUILD
-- ALTER INDEX REORGANIZE
-- ALTER TABLE REBUILD
-- CREATE INDEX
-- CREATE CLUSTERED COLUMNSTORE INDEX
-- CREATE TABLE AS SELECT
-- Data loading
-- Data movement operations conducted by the Data Movement Service (DMS)
+For example, for a DW500 SQL Data Warehouse, the active workload groups would be mapped to the resource classes as follows:
 
-The following statements **do not** honor resource classes:
 
-- CREATE TABLE
-- ALTER TABLE ... SWITCH PARTITION
-- ALTER TABLE ... SPLIT PARTITION
-- ALTER TABLE ... MERGE PARTITION
-- DROP TABLE
-- ALTER INDEX DISABLE
-- DROP INDEX
-- CREATE STATISTICS
-- UPDATE STATISTICS
-- DROP STATISTICS
-- TRUNCATE TABLE
-- ALTER AUTHORIZATION
-- CREATE LOGIN
-- CREATE USER
-- ALTER USER
-- DROP USER
-- CREATE PROCEDURE
-- ALTER PROCEDURE
-- DROP PROCEDURE
-- CREATE VIEW
-- DROP VIEW
-- INSERT VALUES
-- SELECT (from system views and DMVs)
-- EXPLAIN
-- DBCC
+**DW500 example of concurrency slots and importance by resource class**
 
-<!--
-Removed as these two are not confirmed / supported under SQLDW
-- CREATE REMOTE TABLE AS SELECT
-- CREATE EXTERNAL TABLE AS SELECT
-- REDISTRIBUTE
--->
-
-> [AZURE.NOTE] It is worth highlighting that `SELECT` queries executing exclusively against dynamic management views and catalog views are **not** governed by resource classes.
-
-It is important to remember that the majority of end user queries are likely to be governed by resource classes. The general rule is that the active query workload must fit inside both the concurrent query and concurrency slot thresholds unless it has been specifically excluded by the platform. As an end user you cannot choose to exclude a query from the concurrency slot model. Once either threshold has been exceeded queries will begin to queue. Queued queries will be addressed in priority order followed by submission time.
-
-### Internals
-
-Under the covers of SQL Data Warehouse's workload management things are a little bit more complicated. The resource classes are dynamically mapped to a generic set of workload management groups within resource governor. The groups used will depend on the DWU value for the warehouse. However, there are total of eight workload groups used by SQL Data Warehouse. They are:
-
-- SloDWGroupC00
-- SloDWGroupC01
-- SloDWGroupC02
-- SloDWGroupC03
-- SloDWGroupC04
-- SloDWGroupC05
-- SloDWGroupC06
-- SloDWGroupC07
-
-These 8 groups map across to the concurrency slot consumption
-
-| Workload Group | Concurrency Slot Mapping | Priority Mapping |
-| :------------  | :----------------------- | :--------------- |
-| SloDWGroupC00  | 1                        | Medium           |
-| SloDWGroupC01  | 2                        | Medium           |
-| SloDWGroupC02  | 4                        | Medium           |
-| SloDWGroupC03  | 8                        | Medium           |
-| SloDWGroupC04  | 16                       | High             |
-| SloDWGroupC05  | 32                       | High             |
-| SloDWGroupC06  | 64                       | High             |
-| SloDWGroupC07  | 128                      | High             |
-
-So, for example, if DW500 is the current DWU setting for your SQL Data Warehouse then the active workload groups would be mapped to the resource classes as follows:
-
-| Resource Class | Workload Group | Concurrency Slots Used   | Importance |
-| :------------- | :------------- | :---------------------   | :--------- |
+|                | Workload Group | Concurrency Slots Used   | Importance |
+| :------------- | :------------- | :--------------------:   | :--------- |
 | smallrc        | SloDWGroupC00  | 1                        | Medium     |
 | mediumrc       | SloDWGroupC02  | 4                        | Medium     |
 | largerc        | SloDWGroupC03  | 8                        | Medium     |
 | xlargerc       | SloDWGroupC04  | 16                       | High       |
 
-To look at the differences in memory resource allocation in detail from the perspective of the resource governor use the following query:
+
+The following query can be used to look at the differences in memory resource allocation in detail from the perspective of the resource governor, or  to analyze active and historic usage of the workload groups when troubleshooting:
 
 ```sql
 WITH rg
 AS
-(   SELECT  pn.name									AS node_name
-	,		pn.[type]								AS node_type
-	,		pn.pdw_node_id							AS node_id
-	,		rp.name									AS pool_name
-    ,       rp.max_memory_kb*1.0/1024				AS pool_max_mem_MB
-    ,       wg.name									AS group_name
-    ,       wg.importance							AS group_importance
-    ,       wg.request_max_memory_grant_percent		AS group_request_max_memory_grant_pcnt
-    ,       wg.max_dop								AS group_max_dop
-    ,       wg.effective_max_dop					AS group_effective_max_dop
-	,		wg.total_request_count					AS group_total_request_count
-	,		wg.total_queued_request_count			AS group_total_queued_request_count
-	,		wg.active_request_count					AS group_active_request_count
-	,		wg.queued_request_count					AS group_queued_request_count
+(   SELECT  
+     pn.name						AS node_name
+    ,pn.[type]						AS node_type
+    ,pn.pdw_node_id					AS node_id
+    ,rp.name						AS pool_name
+    ,rp.max_memory_kb*1.0/1024				AS pool_max_mem_MB
+    ,wg.name						AS group_name
+    ,wg.importance					AS group_importance
+    ,wg.request_max_memory_grant_percent		AS group_request_max_memory_grant_pcnt
+    ,wg.max_dop						AS group_max_dop
+    ,wg.effective_max_dop				AS group_effective_max_dop
+    ,wg.total_request_count				AS group_total_request_count
+    ,wg.total_queued_request_count			AS group_total_queued_request_count
+    ,wg.active_request_count				AS group_active_request_count
+    ,wg.queued_request_count				AS group_queued_request_count
     FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
-    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    ON  wg.pdw_node_id  = rp.pdw_node_id
-															        AND wg.pool_id      = rp.pool_id
-	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
-	WHERE   wg.name like 'SloDWGroup%'
-	AND     rp.name = 'SloDWPool'
+    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    
+            ON  wg.pdw_node_id  = rp.pdw_node_id
+    	    AND wg.pool_id      = rp.pool_id
+    JOIN    sys.dm_pdw_nodes pn	
+            ON	wg.pdw_node_id	= pn.pdw_node_id
+    WHERE   wg.name like 'SloDWGroup%'
+        AND     rp.name = 'SloDWPool'
 )
 SELECT	pool_name
 ,		pool_max_mem_MB
@@ -270,17 +183,61 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE] The query above can also be used to analyse active and historic usage of the workload groups when troubleshooting
 
-## Workload management examples
+## Exceptions
 
-This section provides some additional examples to work through for managing users and detecting queries that are queuing.
+Most queries honor resource classes, however, there are some exceptions.  Typically, this occurs when the resources required to fulfil the action are low.  That is, the exceptions are generally cases where a query will never utilize the higher memory allocated by higher resource classes.  In these cases, the default or small resource class (smallrc) is always used regardless of the resource class assigned to the user. For example, `CREATE LOGIN` will always run in the smallrc. The resources required to fulfil this operation are very low and so it would not make sense to include the query in the concurrency slot model. It would be wasteful to pre-allocate large amounts of memory for this action. By excluding `CREATE LOGIN` from the concurrency slot model SQL Data Warehouse can be much more efficient.  
 
-### Managing users
+The following statements **do not** honor resource classes:
+
+- CREATE or DROP TABLE
+- ALTER TABLE ... SWITCH, SPLIT or MERGE PARTITION
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE, UPDATE or DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE, ALTER or DROP USER
+- CREATE, ALTER or DROP PROCEDURE
+- CREATE or DROP VIEW
+- INSERT VALUES
+- SELECT from system views and DMVs
+- EXPLAIN
+- DBCC
+
+<!--
+Removed as these two are not confirmed / supported under SQLDW
+- CREATE REMOTE TABLE AS SELECT
+- CREATE EXTERNAL TABLE AS SELECT
+- REDISTRIBUTE
+-->
+
+### Queries which honor concurrency limits
+
+It is important to remember that the majority of end user queries are likely to be governed by resource classes. The general rule is that the active query workload must fit inside both the concurrent query and concurrency slot thresholds unless it has been specifically excluded by the platform. As an end user you cannot choose to exclude a query from the concurrency slot model. Once either threshold has been exceeded queries will begin to queue. Queued queries will be addressed in priority order followed by submission time.
+
+To reiterate, the following statements do **honor** resource classes:
+
+- INSERT-SELECT
+- UPDATE
+- DELETE
+- SELECT (when querying user tables)
+- ALTER INDEX REBUILD
+- ALTER INDEX REORGANIZE
+- ALTER TABLE REBUILD
+- CREATE INDEX
+- CREATE CLUSTERED COLUMNSTORE INDEX
+- CREATE TABLE AS SELECT
+- Data loading
+- Data movement operations conducted by the Data Movement Service (DMS)
+
+
+## Managing users
 
 To grant access to a user to the SQL Data Warehouse they will first need a login.
 
-Open a connection to the master database for your SQL Data Warehouse and execute the following commands:
+Open a connection to the **master** database for your SQL Data Warehouse and execute the following commands:
 
 ```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
@@ -288,11 +245,11 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-> [AZURE.NOTE] It is a good idea to create users for logins in the master database in Azure SQL database and Azure SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in master in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse these roles grant rights to manage logins and to create databases. This is different to SQL Server. For more details please refer to the [Managing Databases and Logins in Azure SQL Database] article for more details.
+> [AZURE.NOTE] It is a good idea to create users for logins in the master database in Azure SQL database and Azure SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in master in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse these roles grant rights to manage logins and to create databases. This is different to SQL Server. For more details, please refer to the [Managing Databases and Logins in Azure SQL Database] article for more details.
 
 Once the login has been created then a user account now needs to be added.
 
-Open a connection to the SQL Data Warehouse database and execute the following command:
+Open a connection to the **SQL Data Warehouse database** and execute the following command:
 
 ```sql
 CREATE USER newperson FOR LOGIN newperson
@@ -340,7 +297,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ;
 ```
 
-### Queued query detection
+## Queued query detection
 To identify queries that are held in a concurrency queue you can always refer to the `sys.dm_pdw_exec_requests` DMV.
 
 ```sql
