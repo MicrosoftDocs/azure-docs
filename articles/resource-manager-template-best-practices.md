@@ -271,7 +271,7 @@ If a template creates any new **publicIPAddresses** then it should have an **out
 
 ## Single template or nested templates
 
-It is obvious to create a single deployment template for deploying a single resource. Nested templates are common for more advanced scenarios. The following section is by no means a hard requirement, but more of a guidance to help you decide between a single template or a decomposed nested template design. 
+You can use either a single template or multiple nested templates to deploy your solution. Nested templates work well when you want to decompose your solution and re-use nested templates with different main templates. Nested templates are common for more advanced scenarios.  
 
 * Create a single template for a single tier application
 * Create a nested templates deployment for a multitier application
@@ -389,3 +389,8 @@ For this guidance a deployment of a SharePoint farm is used as an example. The S
 ![nested template](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
  
 The **main template** is stored in the **root** of the folder, the **other templates** are stored in the **nestedtemplates** folder. The scripts are stored in the **scripts** folder.
+
+## Next steps
+
+1. For guidance on architecting your solution for virtual machines, see [Running a Windows VM on Azure](./guidance/guidance-compute-single-vm.md) and [Running a Linux VM on Azure](./guidance/guidance-compute-single-vm-linux.md).
+2. For guidance on setting up a storage account, see [Microsoft Azure Storage Performance and Scalability Checklist](./storage/storage-performance-checklist.md).
