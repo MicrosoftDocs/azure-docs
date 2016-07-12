@@ -24,7 +24,7 @@ To deliver predictable performance at scale SQL Data Warehouse allows users to c
 
 ## Concurrency limits
 
-SQL Data Warehouse allows up to 1,024 concurrent connections.  All 1,024 connections to the SQL Data Warehouse can submit queries concurrently.  However, in order to optimize throughput, SQL Data Warehouse may queue some queries to ensure that each query receives a minimal memory grant.  Memory grants and concurrency go hand in hand and are controllable by assigning users to a **resource class**.  Resource classes range from smallrc to xlargerc.  Users in smallrc are given a smaller amount of memory and thus allow for higher concurrency.  In contrast, users assigned to xlargerc are given large amounts of memory and therefore less of these queries are allowed to run concurrently.
+SQL Data Warehouse allows up to 1,024 concurrent connections.  All 1,024 connections can submit queries concurrently.  However, in order to optimize throughput, SQL Data Warehouse may queue some queries to ensure that each query receives a minimal memory grant.  Memory grants and concurrency go hand in hand and are controllable by assigning users to a **resource class**.  Resource classes range from smallrc to xlargerc.  Users in smallrc are given a smaller amount of memory and thus allow for higher concurrency.  In contrast, users assigned to xlargerc are given large amounts of memory and therefore less of these queries are allowed to run concurrently.
 
 Concurrent queries are governed by two concepts, **concurrent queries** and **concurrency slots**.
 
