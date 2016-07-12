@@ -19,9 +19,9 @@
 
 # Choose a SKU or pricing tier for Azure Search
 
-Before you can [create an Azure Search service](search-create-service-portal.md), you will need to know which tier or SKU to provision the service at: Free, Basic, or Standard, where Standard is available in multiple resource configurations and capacities.
+Before you can [create an Azure Search service](search-create-service-portal.md), you will need to know which tier or SKU to provision the service at: either Free, Basic, or Standard, where Standard is available in multiple resource configurations and capacities.
 
-We recommend that you always provision a Free service (one per subscription, with no expiration date) so that its readily available for demonstration or testing purposes, particularly for preview features that aren't recommended for services dedicated to production workloads.
+We recommend that you always provision a Free service (one per subscription, with no expiration) so that its readily available for demonstration or testing, particularly for preview features that aren't recommended for services dedicated to production workloads.
 
 In Azure Search, SKUs determine capacity, not feature availability -- the same features are available across all pricing tiers.
 
@@ -45,12 +45,12 @@ With estimates in hand, the following steps should simplify the process:
 
 ## SKU descriptions
 
-The following table is a description and simple comparison of each SKU in terms of partitions and replicas, as well as Queries Per Second (QPS), when applicable. For an introduction to replicas and partitions, see [Service Limits in Azure Search](search-limits-quotas-capacity.md).
+The following table is a description and simple comparison of each SKU in terms of partitions and replicas, as well as Queries Per Second (QPS), when applicable. For more information about replicas and partitions, see [Service Limits in Azure Search](search-limits-quotas-capacity.md).
 
 Tier|Primary scenarios
 ----|-----------------
 Free|A shared service, at no charge, used for evaluation, investigation, or small workloads. Because it's shared with other subscribers, query throughput and indexing will vary based on who else is using the service. Capacity is small (50 MB or 3 indexes with up 10,000 documents each).
-Basic|Small production workloads on dedicated hardware. Highly available. Capacity is 3 replicas and 1 partition (2 GB).
+Basic|Small production workloads on dedicated hardware. Highly available. Capacity is up to 3 replicas and 1 partition (2 GB).
 Standard 1 (S1)|Supports flexible combinations of partitions (12) and replicas (12), used for medium production workloads on dedicated hardware. You can allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units. At this level, partitions are 25 GB each and QPS is approximately 15 queries per second.
 Standard 2 (S2)|Runs larger production workloads using the same configurations as S1 but with larger partitions and replicas. At this level, Partitions are 100 GB each and QPS is about 60 queries per second.
 Standard 3 (S3) Preview|Runs proportionally larger production workloads on higher end systems, in configurations of up to 12 partitions or 12 replicas. At this level, partitions are 200 GB each and QPS is more than 60 queries per second. S3 is in preview and available at an introductory rate.
@@ -96,6 +96,7 @@ If either the price or storage requirements are out of bounds, you might want to
 ## Next step
 
 Once you know which SKU is the right fit, continue on with these steps:
+
 - [Create a search service in the portal](search-create-service-portal.md)
 - [Change the allocation of partitions and replicas to scale your service](search-capacity-planning.md)
 
