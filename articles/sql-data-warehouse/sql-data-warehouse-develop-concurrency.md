@@ -32,11 +32,12 @@ Concurrent queries are governed by two concepts, **concurrent queries** and **co
 
 **Concurrency slots** is a more dynamic concept.  Each concurrently executing query consumes one or more concurrency slots. The exact number of slots depends on three factors:
 
-	1. The DWU setting for the SQL Data Warehouse (e.g. DW400)
-	2. The **resource class** that the user belongs to (e.g. smallrc)
-	3. Whether the query or operation is governed by the concurrency slot model (see [resource class exceptions](#exceptions))
+1. The DWU setting for the SQL Data Warehouse (e.g. DW400)
+2. The **resource class** that the user belongs to (e.g. smallrc)
+3. Whether the query or operation is governed by the concurrency slot model (see [resource class exceptions](#exceptions))
 
 This table describes the limits for both concurrent queries and concurrency slots.
+
 
 **Concurrency Limits**
 
@@ -67,6 +68,7 @@ There are pros and cons to increasing a user's resource class.  While increasing
 
 The following table maps the increase in memory available to **the queries on each distribution** by DWU and resource class.  In other words, since there are 60 distributions per database, a query which would benfit from a large memory allocation would have access to about 375 GB of memory if the user was in xlargerc and running on a DW2000 (6,400 MB * 60 distributions / 1,024 to convert to GB).
 
+
 **Memory Allocated per Distribution (MB)**
 
 |                | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
@@ -79,6 +81,7 @@ The following table maps the increase in memory available to **the queries on ea
 ## Concurrency slot consumption
 
 As mentioned above, the higher the resource class the more memory granted.  Since memory is a fixed resource, the more memory allocated per query, the less concurrency which can be supported.  The following table reiterates the number of concurrency slots available by DWU as well as the slots consumed by each resource class.
+
 
 **Allocation and Consumption of Concurrency Slots**
 
@@ -93,14 +96,15 @@ As mentioned above, the higher the resource class the more memory granted.  Sinc
 | largerc                 | 2     | 4     | 4     | 8     | 8     | 8     | 16     | 16     | 16     | 32     | 32     | 64     |
 | xlargerc                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     | 64     | 128    |
 
-## Importance
+## Query importance
 
 Under the covers there are a total of eight workload groups which control the behavior of resource classes.  However, only four of the eight workload groups are used for any given DWU.  This makes sense since each workload group is assigned to either smallrc, mediumrc, largerc, or xlargerc.  What makes this aspect important to understand is that each workload group is also assigned a resource governor **IMPORTANCE**.  Importance is used for CPU scheduling.  Queries run with high importance will get 3X more CPU cycles than those with medium importance.  So concurrency slot mappings also determine CPU importance.  When a query is consumes 16 or more slots, it runs as high importance.
+
 
 **Workload Groups**
 
 |                | Concurrency Slot Mapping | Importance Mapping |
-| :------------  | -----------------------: | :----------------- |
+| :------------  | :----------------------: | :----------------- |
 | SloDWGroupC00  | 1                        | Medium             |
 | SloDWGroupC01  | 2                        | Medium             |
 | SloDWGroupC02  | 4                        | Medium             |
@@ -112,15 +116,18 @@ Under the covers there are a total of eight workload groups which control the be
 
 For example, for a DW500 SQL Data Warehouse, the active workload groups would be mapped to the resource classes as follows:
 
+
+**DW500 Concurrency Slots and Importance by Resource Class**
+
 |                | Workload Group | Concurrency Slots Used   | Importance |
-| :------------- | :------------- | ---------------------:   | :--------- |
+| :------------- | :------------- | :--------------------:   | :--------- |
 | smallrc        | SloDWGroupC00  | 1                        | Medium     |
 | mediumrc       | SloDWGroupC02  | 4                        | Medium     |
 | largerc        | SloDWGroupC03  | 8                        | Medium     |
 | xlargerc       | SloDWGroupC04  | 16                       | High       |
 
 
-To look at the differences in memory resource allocation in detail from the perspective of the resource governor use the following query:
+The following query can be used to look at the differences in memory resource allocation in detail from the perspective of the resource governor, or  to analyze active and historic usage of the workload groups when troubleshooting:
 
 ```sql
 WITH rg
@@ -168,7 +175,6 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE] The query above can also be used to analyse active and historic usage of the workload groups when troubleshooting
 
 ### Exceptions
 
