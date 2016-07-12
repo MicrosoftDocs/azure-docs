@@ -31,7 +31,8 @@ In the context of this article, a multi-tenant application is an application hos
 
 Multi-tenant applications are a prominent example of a type of application whose data and workloads can be partitioned easily. For instance, with multi-tenant applications, data and workload can typically be partitioned along tenant boundaries since most requests are within the confines of a tenant. That property is inherent to the data and the workload and it favors the applications patterns discussed throughout the remainder of the article. 
 
-We find such applications spread across the whole spectrum of cloud based applications including
+We find such applications spread across the whole spectrum of cloud based applications, including:
+
 - ISV database applications transitioning into cloud as SaaS applications
 - SaaS applications built for the cloud from ground up
 - Direct consumer/end user facing applications 
@@ -121,7 +122,7 @@ Azure SQL Database provides “elastic database pools” for better support of t
 | Ease of DevOps across databases | [Elastic Database Pools:](sql-database-elastic-pool.md) As listed above.|
 ||[Elastic Query:](sql-database-elastic-query-horizontal-partitioning.md) Provides ability to query across databases for reporting or cross-tenant analysis.|
 ||[Elastic Jobs:](sql-database-elastic-jobs-overview.md) Provides ability to package and reliably deploy database maintenance operations or database schema changes to a number of databases.|
-||[Elastic Transactions:](sql-database-elastic-scale.md) Provides ability to process changes to several databases in an atomic and isolated way. This is needed when applications need “all or nothing” guarantees over several database operations. |
+||[Elastic Transactions:](sql-database-elastic-transactions-overview.md) Provides ability to process changes to several databases in an atomic and isolated way. This is needed when applications need “all or nothing” guarantees over several database operations. |
 ||[Elastic Database Client Library:](sql-database-elastic-database-client-library.md) This feature allows managing data distributions and the mapping of tenants to databases. |
 ||||
 

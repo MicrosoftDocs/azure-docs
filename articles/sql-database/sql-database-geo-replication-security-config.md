@@ -23,7 +23,7 @@
 
 ## Overview of authentication requirements for disaster recovery
 
-This topic describes the authentication requirements to configure and control [Active Geo-Replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how enable access to the recovered database after using geo-restore. For more information on recovery options, see [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md).
+This topic describes the authentication requirements to configure and control [Active Geo-Replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md).
 
 ## Disaster recovery with contained users
 
@@ -91,15 +91,7 @@ The last step is to go to the target server, or servers, and generate the logins
 - For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](sql-database-manage-logins.md).
 - For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 - For information about using and configuring Active Geo-Replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For informatin about using Geo-Restore, see [Geo-Restore](sql-database-geo-restore.md)
+- For informatin about using Geo-Restore, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
 
 ## Additional resources
 
-- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)

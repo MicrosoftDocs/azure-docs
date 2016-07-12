@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="04/22/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Deploy an ASP.NET web app to Azure App Service, using Visual Studio
 

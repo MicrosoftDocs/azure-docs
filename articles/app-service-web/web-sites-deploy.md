@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/21/2016"
-	ms.author="cephalin;tdykstra;dariac"/>
+	ms.author="cephalin;dariac"/>
     
 # Deploy your app to Azure App Service
 

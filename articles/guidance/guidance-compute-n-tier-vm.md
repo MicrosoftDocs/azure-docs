@@ -21,6 +21,10 @@
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
+> [AZURE.SELECTOR]
+- [Adding reliability to an N-tier architecture (Linux)](guidance-compute-n-tier-vm-linux.md)
+- [Adding reliability to an N-tier architecture (Windows)](guidance-compute-n-tier-vm.md)
+
 This article outlines a set of proven practices for running a reliable N-tier architecture on Windows virtual machines (VMs) in Microsoft Azure. This article builds on [Running VMs for an N-tier architecture on Azure][blueprints-3-tier]. In this article, we include additional components that can increase the reliability of the application:
 
 - A network virtual appliance for greater network security.

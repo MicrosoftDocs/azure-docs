@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/11/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption for Data at Rest (Preview)
@@ -37,7 +37,11 @@ After you click the Encryption setting, you can enable or disable Storage Servic
 
 ##Availability
 
-For Standard Storage, this feature is currently available in Central US, East Asia, and West Europe. For Premium Storage, this feature is currently available in Central US and Japan East. We will update this document as we roll this feature out in additional regions.
+For Standard Storage, this feature is currently available in Australia Southeast, Central US, East Asia, East US 2, Southeast Asia, West Europe, and West US.
+
+For Premium Storage, this feature is currently available in Australia Southeast, Central US, East Asia, East US 2, Southeast Asia, Japan East, and West US. 
+
+We will update this document as we roll this feature out in additional regions.
 
 ##Encryption Scenarios
 

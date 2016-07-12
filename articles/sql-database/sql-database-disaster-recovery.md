@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="sqldb-bcdr" 
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -21,9 +21,9 @@
 Azure SQL Database offers the following capabilities for recovering from an outage:
 
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-geo-restore.md)
+- [Geo-Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-To learn about preparing for disaster and when to recover your database, visit our [Design for business continuity](sql-database-business-continuity-design.md) page. 
+To learn about preparing for disaster and when to recover your database, see [Business continuity](sql-database-business-continuity.md) and [Business continuity design and recovery scenarios.md](). 
 
 ## When to initiate recovery
 
@@ -95,21 +95,13 @@ For more information about database alert rules, see [Receive Alert Notification
 
 ### Enable Auditing
 
-If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator that auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.windows.net. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md). 
+If auditing is required to access your database, you need to enable Auditing after the database recovery. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md). Also, for "downlevel clients", see [Auditing and downlevel client support](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). 
 
 
 ## Next steps
 
-- For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-geo-restore.md)
-
-## Additional Resources
-
-- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

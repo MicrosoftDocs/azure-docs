@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/17/2016"
+   ms.date="06/27/2016"
    ms.author="mikewasson"/>
 
 
@@ -55,10 +55,6 @@ The architecture has the following components:
 **App Service apps**. We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans, which in turn lets you scale them independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed. (For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing])  
 
 > [AZURE.NOTE] If you intend to use the "Easy Tables" or "Easy APIs" features of App Service Mobile Apps, you should create a separate App Service app for this purpose.  These features rely on a specific application framework to enable them.
-
-If you need very high scale (more than 20 instances), consider using an [App Service Environment][app-service-environment]. App Service Environments provide a fully isolated and dedicated environment for running apps at high scale. 
-
-> [AZURE.NOTE] This article does not cover deploying or configuring an App Service Environment. 
 
 **WebJobs**. If the WebJob is resource intensive, consider deploying it to an empty App Service app within a separate App Service plan, to provide dedicated instances for the WebJob. See [Background jobs guidance][webjobs-guidance].  
 
@@ -114,12 +110,15 @@ Similarly, consider putting a WebJob into its own plan, so that background tasks
 
  App Services has built-in support for CORS, without needing to write any application code. See [Consume an API app from JavaScript using CORS][cors]. Add the website to the list of allowed origins for the API. 
 
+**SQL Database encryption**. If you need to encrypt the data in your SQL database (for example, for compliance reasons), use [Transparent Data Encryption][sql-encryption]. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files), without requiring changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database, and enable encryption only for that database.  
 
+## Next steps
+
+- For higher availability, deploy the application in more than one region and use [Azure Traffic Manager][tm] for failover. For more information, see [Azure reference architecture: Web application with high availability][web-app-multi-region].    
 
 <!-- links -->
 
 [api-guidance]: ../best-practices-api-design.md
-[app-service-environment]: ../app-service-web/app-service-app-service-environment-intro.md
 [app-service-web-app]: ../app-service-web/app-service-web-overview.md
 [app-service-api-app]: ../app-service-api/app-service-api-apps-why-best-platform.md
 [app-service-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
@@ -142,5 +141,8 @@ Similarly, consider putting a WebJob into its own plan, so that background tasks
 [resource-group]: ../resource-group-overview.md
 [sql-db]: https://azure.microsoft.com/en-us/documentation/services/sql-database/
 [sql-elastic]: ../sql-database/sql-database-elastic-scale-introduction.md
+[sql-encryption]: https://msdn.microsoft.com/en-us/library/dn948096.aspx
+[tm]: https://azure.microsoft.com/en-us/services/traffic-manager/
+[web-app-multi-region]: ./guidance-web-apps-multi-region.md
 [webjobs-guidance]: ../best-practices-background-jobs.md
 [webjobs]: ../app-service/app-service-webjobs-readme.md

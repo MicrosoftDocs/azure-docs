@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/01/2016"
 	ms.author="erikje"/>
 
 # Frequently asked questions for Azure Stack
@@ -72,6 +72,18 @@ You can use [this Datacenter key](https://technet.microsoft.com/library/mt126134
 
 This can be done during the first boot from VHD, or after installation (if you opt out during the first boot).
 
+## PaaS resource providers
+
+### Is there an offline installation method for the Web Apps resource provider?  
+
+Not at this time.
+
+## Tenant
+
+### Can I deploy my own images as a tenant?
+
+Yes, just like in Azure, a tenant can upload images in Azure Stack, in addition to using the images from the service administrator. For an overview, see the [Deploying your own images as a tenant blog post](http://www.danielstechblog.de/microsoft-azure-stack-deploying-your-own-images-as-a-tenant/). 
+
 ## Testing
 
 ### Can I test usage data at this stage with TP1?
@@ -85,7 +97,11 @@ There is a REST API that any Azure Stack subscriber can call to get their own us
 
 It is possible to deploy Microsoft Azure Stack POC TP1 leveraging Nested Virtualization and, just like some of our customers, we’ve also experimented Azure Stack deployments with it. We understand it’s also a way to work around some of the hardware requirements. Please note however that Nested Virtualization is a recently introduced feature and as is documented here is known to have potential performance and stability issues. Additionally, the networking layer in Azure Stack is more complex than a flat network and when you start introducing MAC spoofing and other layers in addition to potential performance impact at the storage layer it becomes complex. In other words, we are definitely open to hear about your feedback and experience leveraging Nested Virtualization with Azure Stack, but remember this is not one of the configurations we’ve thoroughly tested or are fully supporting with this release.
 
+## Virtual machines
 
+### Does Azure Stack support dynamic disks for virtual machines?
+
+Azure Stack does not support dynamic disks.
 
 
 
