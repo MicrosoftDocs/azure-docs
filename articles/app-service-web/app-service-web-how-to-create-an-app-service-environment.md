@@ -20,6 +20,7 @@
 
 App Service Environments (ASE) are a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service into a customer’s virtual network.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
 
+
 ### Overview ###
 
 An ASE consists of Front End and Worker compute resources.  The Front Ends act as the HTTP/HTTPS endpoints and send traffic to the Workers which are the roles that host your apps.   
@@ -29,9 +30,10 @@ ASE creation requires customers to provide the following pieces of information:
 - name of the ASE
 - subscription to be used for the ASE  
 - resource group
-- Azure Virtual Network(VNet) with and an empty subnet that has 8 or more IP addresses
+- Azure Virtual Network(VNet) with 8 or more addresses and a subnet to be used by the ASE
 - VIP Type, External or Internal 
 - ASE resource pool definition
+
 
 There are some important details to each of those items.
 
@@ -45,11 +47,13 @@ There are some important details to each of those items.
 - ASEs can now be deployed into virtual networks that use *either* public address ranges, *or*
 RFC1918 address spaces (i.e. private addresses).  In order to use a virtual network with a public address range, you will need to create the VNet and subnet ahead of time, and then select the subnet in the ASE creation UX.
 
+
 Each ASE deployment is a Hosted Service that Azure manages and maintains.  The compute resources hosting the ASE system roles are not accessible to the customer though the customer does manage the quantity of instances and their sizes. 
 
 There are two ways to access the ASE creation UI.  It can be found by searching in the Azure Marketplace for ***App Service Environment*** or by going through New -> Web + Mobile.  
 
 If you want the VNet to have a separate resource group from the ASE then you need to first create the VNet separately and then select it during ASE creation.  Also, if you want to create a subnet in an existing VNet during ASE creation, the ASE has to then be in the same resource group as the VNet.
+
 
 ### Quick create ###
 The creation experience for an ASE does have a set of defaults to enable a quick creation experience.  You can quickly create an ASE by simply entering a name for the deployment.  This will in turn create an ASE in the region closest to you with a:
@@ -69,12 +73,14 @@ The name that is specified for the ASE will be used for the apps created in the 
 
 Having the defaults is very useful for a certain number of situations but often you will need to adjust something.  The next few sections walk through each of the ASE related configuration sections.
 
+
 ### Virtual Network ###
 The ASE creation process supports selection of an existing Classic or Resource Manager VNet as well as creation of a new Classic VNet.    
 
 When you go to select an existing VNet you will see your Classic and Resource Manager VNets listed together.  The Classic VNets have the word Classic next to the location.  If it doesn't say that, then it's a Resource Manager VNet.  
 
-![][5]
+![][2]
+
 
 If going through the VNet creation UI you are required to provide:
 
@@ -97,7 +103,6 @@ If you are unfamiliar with CIDR(Classless Inter-Domain Routing) notation it take
 
 Just a reminder that if you want to create a subnet in an existing VNet, the ASE will be in the same resource group as the VNet.  To keep your ASE in a separate resource group from your VNet simply make both your VNet and your subnet separately and in advance of creating your ASE.
 
-![][2]
 
 #### External or Internal VIP ####
 
@@ -178,7 +183,6 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnetcreation.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-resources.png
 [4]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-externalvip.png
-[5]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnettype.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
