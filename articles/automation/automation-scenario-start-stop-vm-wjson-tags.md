@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2016"
+   ms.date="07/12/2016"
    ms.author="magoedte;paulomarquesc" />
 
 # Azure Automation scenario - using JSON formatted tags to create a schedule for Azure VM startup and shutdown
 
 Commonly customers want to schedule the startup and shutdown of virtual machines to help reduce subscription costs or support business and technical requirements.  
 
-The following scenario allows you to setup automated startup and shutdown of your VMs using a tag called Schedule at a resource group level or virtual machine level in Azure.  This schedule can be configured from Sunday to Saturday with a startup time and shutdown time.  While we do have some options out of the box, like using [Virtual Machine Scale Sets](../virtual-machine-scale-sets-overview.md) with Auto Scale Settings that will allow scale in or out, and [DevTest Labs](../devtest-lab/devtest-lab-overview.md) service which have the built-in capability of scheduling startup and shutdown operations, these options only support specific scenarios and cannot be applied to IaaS VMs.   
+The following scenario allows you to setup automated startup and shutdown of your VMs using a tag called Schedule at a resource group level or virtual machine level in Azure.  This schedule can be configured from Sunday to Saturday with a startup time and shutdown time.  While we do have some options out of the box, like using [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) with Auto Scale Settings that will allow scale in or out, and [DevTest Labs](../devtest-lab/devtest-lab-overview.md) service which have the built-in capability of scheduling startup and shutdown operations, these options only support specific scenarios and cannot be applied to IaaS VMs.   
 
 When the Schedule tag is applied to a resource group, it will be applied to all virtual machines inside that resource group. If a schedule is also directly applied to a VM, the last schedule will take precedence in the following order:
 
