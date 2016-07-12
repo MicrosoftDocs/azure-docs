@@ -18,7 +18,7 @@
 
 # Best practices for creating Azure Resource Manager templates
 
-The following guidelines will help you create Resource Manager templates that are reliable and easy-to-use.
+The following guidelines will help you create Resource Manager templates that are reliable and easy-to-use. These guidelines are intended only as suggestions, not absolute requirements. Your scenario may require variations from these guidelines.
 
 ## Template format
 
@@ -71,7 +71,7 @@ For resource types that you want to name but you do not have to guarantee unique
         }
     }
 
-Provide a name for the resource that identifies both its context and resource type so you can later easily scan a list of resource names.
+Provide a name for the resource that identifies both its context and resource type so you can easily determine its use from a list of resource names.
 
 ### Generic resource names
 
@@ -124,7 +124,7 @@ For resource types that are largely accessed through another resource, you can u
 1. Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
  - Settings you wish to vary by environment (such as sku, size, or capacity).
  - Resource names you wish to specify for easy identification.
- - Values (such as admin user name) you wish to specify because you use them for completing other tasks.
+ - Values you may use often to complete other tasks (such as admin user name).
  - Secrets (such as passwords)
  - The number or array of values to use when creating multiple instances of a resource type.
 
@@ -220,7 +220,7 @@ For resource types that are largely accessed through another resource, you can u
 
 1. Assign publicIPAddresses to a virtual machine only when required for an application. To connect for debug, management or administrative purposes, use either inboundNatRules, virtualNetworkGateways or a jumpbox.
 
-1. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be betweeen 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
+1. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be between 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
 
         "parameters": {
             "dnsPrefixString": {
@@ -271,17 +271,53 @@ If a template creates any new **publicIPAddresses** then it should have an **out
 
 ## Single template or nested templates
 
-To deploy your solution, you can use either a single template or a main template with multiple nested templates. Nested templates work well when you want to decompose your solution and re-use nested templates with different main templates. Nested templates are common for more advanced scenarios.  
+To deploy your solution, you can use either a single template or a main template with multiple nested templates. Nested templates are common for more advanced scenarios. Nested templates contain the following advantages:
+
+1. Can decompose solution into targeted components
+2. Can re-use nested templates with different main templates
+3. Can conditionally deploy nested templates
 
 When you decide to decompose your template design into multiple nested templates, the following guidelines will help standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation. The recommended design consists of the following templates.
 
 + **Main template** (azuredeploy.json). Used for the input parameters.
-+ **Shared resouces template**. Deploys the shared resources that all other resources use (e.g. virtual network, availability sets). The expression dependsOn enforces that this template is deployed before the other templates.
++ **Shared resources template**. Deploys the shared resources that all other resources use (e.g. virtual network, availability sets). The expression dependsOn enforces that this template is deployed before the other templates.
 + **Optional resources template**. Conditionally deploys resources based on a parameter (e.g. a jumpbox)
-+ **Member resources templates**. Each within an application tier within has its own configuration. Within a tier different instance types can be defined (such as, first instance creates a new cluster, additional instances are added to the existing cluster). Each instance type will have its own deployment template.
++ **Member resources templates**. Each instance type within an application tier has its own configuration. Within a tier, different instance types can be defined (such as, first instance creates a new cluster, additional instances are added to the existing cluster). Each instance type will have its own deployment template.
 + **Scripts**. Widely reusable scripts are applicable for each instance type (e.g. initialize and format additional disks). Custom scripts are created for specific customization purpose are different per instance type.
 
 ![nested template](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
+
+You can conditionally link to nested templates by using a parameter that becomes part of the URI for the template.
+
+    "parameters": {
+        "newOrExisting": {
+            "type": "String",
+            "allowedValues": [
+                "new",
+                "existing"
+            ]
+        }
+    },
+    "variables": {
+        "templatelink": "[concat('https://raw.githubusercontent.com/Contoso/Templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "nestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": {
+                    "uri": "[variables('templatelink')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                }
+            }
+        }
+    ]
+
 
 ## Next steps
 
