@@ -56,54 +56,49 @@ The architecture has the following components:
 
 ### App Service apps 
 
-- Create the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans, which in turn lets you scale them independently.
+We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans, which in turn lets you scale them independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed. (For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing])
 
-- If you don't require this level of scalability initially, you can deploy the apps into the same plan, and move them into separate plans later, if needed. (For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing])  
-
-- If you intend to use the *Easy Tables* or *Easy APIs* features of App Service Mobile Apps, create a separate App Service app for this purpose.  These features rely on a specific application framework to enable them.
+If you intend to use the *Easy Tables* or *Easy APIs* features of App Service Mobile Apps, create a separate App Service app for this purpose.  These features rely on a specific application framework to enable them.
 
 ### WebJobs
 
-- If the WebJob is resource intensive, consider deploying it to an empty App Service app within a separate App Service plan, to provide dedicated instances for the WebJob. See [Background jobs guidance][webjobs-guidance].  
+If the WebJob is resource intensive, consider deploying it to an empty App Service app within a separate App Service plan, to provide dedicated instances for the WebJob. See [Background jobs guidance][webjobs-guidance].  
 
 ### Cache
 
-- Use [Azure Redis Cache][azure-redis] to cache:
+You can improve performance and scalability by using [Azure Redis Cache][azure-redis] to cache some data. Consider using Redis Cache for:
 
-	- Semi-static transaction data.
+- Semi-static transaction data.
 
-	- Session state.
+- Session state.
 
-	- HTML output. This can be useful in applications that render complex HTML output. 
+- HTML output. This can be useful in applications that render complex HTML output. 
 
-	For more detailed information on designing a caching strategy, see [Caching guidance][caching-guidance].
+For more detailed guidance on designing a caching strategy, see [Caching guidance][caching-guidance].
 
 ### CDN 
 
-- Use [Azure CDN][azure-cdn] to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an *edge server* that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application.
+Use [Azure CDN][azure-cdn] to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an *edge server* that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application.
 
-- Put static content, such as images, CSS, and HTML files, into Azure Storage, and use CDN to cache these files. See [Integrate a Storage Account with CDN][cdn-storage-account] for more details.
+- If your app consists mostly of static pages, consider using CDN to cache the entire app. See [Use Azure CDN in Azure App Service][cdn=app-service].
 
-- If your app consists mostly of static pages, consider using CDN to cache the entire app. See [Use Azure CDN in Azure App Service][cdn-app-service] for further information.
+- Otherwise, put static content, such as images, CSS, and HTML files, into Azure Storage, and use CDN to cache those files. See [Integrate a Storage Account with CDN][cdn-storage-account].
 
+> [AZURE.NOTE] Azure CDN cannot serve content that requires authentication.
 
-	> [AZURE.NOTE] Azure CDN cannot serve content that requires authentication.
-
-	For more detailed information, see [Content Delivery Network (CDN) guidance][cdn-guidance]. 
+For more detailed guidance, see [Content Delivery Network (CDN) guidance][cdn-guidance]. 
 
 ### Storage
 
-- Use the following table to determine the most appropriate storage type for the data that your application uses:
+Modern applications often process large amounts of data. In order to scale for the cloud, it's important to choose the right storage type. Here are some baseline recommendations.  For more detailed guidance, see [Assessing Data Store Capabilities for Polyglot Persistence Solutions][polyglot-storage].
 
-	What you want to store | Example | Recommended storage
-	--- | --- | ---
-	Files | Images, documents, PDFs | Azure Blob Storage
-	Key/Value pairs | User profile data looked up by user ID | Azure Table Storage
-	Short messages intended to trigger further processing | Order requests | Azure Queue Storage, Service Bus Queue, or Service Bus Topic
-	Non-relational data, with a flexible schema, requiring basic querying | Product catalog | Document database, such as Azure DocumentDB, MongoDB, or Apache CouchDB
-	Relational data, requiring richer query support, strict schema, and/or strong consistency | Product inventory | Azure SQL Database 
-
-	For more detailed guidance, see [Assessing Data Store Capabilities for Polyglot Persistence Solutions][polyglot-storage].
+What you want to store | Example | Recommended storage
+--- | --- | ---
+Files | Images, documents, PDFs | Azure Blob Storage
+Key/Value pairs | User profile data looked up by user ID | Azure Table Storage
+Short messages intended to trigger further processing | Order requests | Azure Queue Storage, Service Bus Queue, or Service Bus Topic
+Non-relational data, with a flexible schema, requiring basic querying | Product catalog | Document database, such as Azure DocumentDB, MongoDB, or Apache CouchDB
+Relational data, requiring richer query support, strict schema, and/or strong consistency | Product inventory | Azure SQL Database
 
 ## Scalability considerations
 
