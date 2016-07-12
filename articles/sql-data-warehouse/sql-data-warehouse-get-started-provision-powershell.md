@@ -34,7 +34,7 @@ Before starting, be sure you have met the following prerequisites.
 
 > [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
-## Creating a SQL Data Warehouse database
+## Create a SQL Data Warehouse
 1. Open Windows PowerShell.
 2. Run this cmdlet to login to Azure Resource Manager.
 
@@ -66,6 +66,7 @@ For more details on the parameter options, see [Create Database (Azure SQL Data 
 For the command reference, see [New-AzureRmSqlDatabase][]
 
 ## Next steps
+
 After your SQL Data Warehouse has finished provisioning you may want to try [loading sample data][] or check out how to [develop][], [load][], or [migrate][].
 
 If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our article on how to use [PowerShell cmdlets and REST APIs][].
