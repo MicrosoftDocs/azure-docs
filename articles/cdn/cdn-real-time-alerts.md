@@ -2,7 +2,7 @@
 	pageTitle="Azure CDN Real-Time Alerts | Microsoft Azure"
 	description="Real-time alerts in Microsoft Azure CDN. Real-time alerts provide notifications about the performance of the endpoints in your CDN profile."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2016"
+	ms.date="07/12/2016"
 	ms.author="casoper"/>
 
 # Real-time alerts in Microsoft Azure CDN
@@ -68,7 +68,7 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
 
 8. Create an **Expression** to monitor by selecting a **Metric**, **Operator**, and **Trigger value**.
 
-	- For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of HTTP connections per second.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) and [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)
+	- For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of concurrent HTTP connections to our edge servers.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) and [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)
 	- **Operator** is the mathematical operator that establishes the relationship between the metric and the trigger value.
 	- **Trigger Value** is the threshold value that must be met before a notification will be sent out.
 
@@ -97,7 +97,7 @@ This document explains real-time alerts in Microsoft Azure CDN. This functionali
 
 	![Notify by HTTP Post form](./media/cdn-real-time-alerts/cdn-notify-http.png)
 
-	In the **Url** field, enter the URL address you where you want the HTTP message posted. In the **Headers** textbox, enter the HTTP headers to be sent in the request.  For **Body**, you may leave the default, or you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.  **Headers** and **Body** default to an XML payload similar to the below example.
+	In the **Url** field, enter the URL you where you want the HTTP message posted. In the **Headers** textbox, enter the HTTP headers to be sent in the request.  For **Body** you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.  **Headers** and **Body** default to an XML payload similar to the below example.
 
 	```
 	<string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
