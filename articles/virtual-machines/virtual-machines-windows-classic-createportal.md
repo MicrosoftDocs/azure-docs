@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Create a custom virtual machine running Windows

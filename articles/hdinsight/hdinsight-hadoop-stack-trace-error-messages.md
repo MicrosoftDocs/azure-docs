@@ -4,7 +4,7 @@
 	keywords="stack trace, error messages"
 	services="hdinsight"
 	documentationCenter="NA"
-	authors="cjgronlund"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
 	ms.date="03/21/2016"
-	ms.author="rashimg;cgronlun"/>
+	ms.author="rashimg;jgao"/>
 
 # Hadoop stack trace errors in HDInsight: Index of troubleshooting articles
 

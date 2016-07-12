@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # Your Service Fabric application and next steps
@@ -49,6 +49,10 @@ The actor project provides methods for setting and getting the value of a counte
 ### Stateless Web API
 The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md).
 
+### ASP.NET core
+
+The Service Fabric SDK provides the same set of ASP.NET Core templates that are available for standalone ASP.NET Core projects: empty, [Web API][aspnet-webapi], and [Web Application][aspnet-webapp].
+
 ## Next steps
 ### Create an Azure cluster
 The Service Fabric SDK provides a local cluster for development and testing. To create a cluster in Azure, see [Setting up a Service Fabric cluster from the Azure portal][create-cluster-in-portal].
@@ -70,7 +74,6 @@ Service Fabric enables independent versioning and upgrading of independent servi
 To learn how you can set up a continuous integration process for your Service Fabric application, see [Configure continuous integration with Visual Studio Team Services][ci-with-vso].
 
 
-
 <!-- Links -->
 [add-web-frontend]: service-fabric-add-a-web-frontend.md
 [create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
@@ -79,3 +82,5 @@ To learn how you can set up a continuous integration process for your Service Fa
 [ci-with-vso]: service-fabric-set-up-continuous-integration.md
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
+[aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
+[aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html

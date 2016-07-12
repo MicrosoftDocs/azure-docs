@@ -20,7 +20,7 @@
 
 # Use HDInsight Tools Plugin for Eclipse to create Spark applications for HDInsight Spark Linux cluster
 
-This article provides step-by-step guidance on developing Spark applications written in Scala and submitting it to an HDInsight Spark cluster using HDInsight plugin for Eclise. You can use the plugin in a few different ways:
+This article provides step-by-step guidance on developing Spark applications written in Scala and submitting it to an HDInsight Spark cluster using HDInsight plugin for Eclipse. You can use the plugin in a few different ways:
 
 * To develop and submit a Scala Spark application on an HDInsight Spark cluster
 * To access your Azure HDInsight Spark cluster resources
@@ -90,9 +90,9 @@ This article provides step-by-step guidance on developing Spark applications wri
 
 	![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-## Set up a Spark Scala application project for an HDInsight Spark cluster
+## Set up a Spark Scala project for an HDInsight Spark cluster
 
-1. From the Eclipse IDE workspace, click **File**, click **New**, and then click **Project**. 
+1. From the Eclipse IDE work space, click **File**, click **New**, and then click **Project**. 
 
 2. In the **New Project** wizard, expand **HDInsight**, select **Spark on HDInsight (Scala)**, and then click **Next**.
 
@@ -235,7 +235,7 @@ You can use the HDInsight Tools plugin for Eclipse to run Spark Scala applicatio
 
 ### Prerequisite
 
-While running the local Spark Scala application on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) that occurs due to a missing WinUtils.exe on Windows. To work around this error, you must [download the executable from here](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**. You must then add an environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
+While running the local Spark Scala application on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) that occurs due to a missing **WinUtils.exe** on Windows OS. To work around this error, you must [download the executable from here](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**. You must then add an environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
 
 ### Run a local Spark Scala application	 
 
@@ -261,7 +261,7 @@ While running the local Spark Scala application on a Windows computer, you might
 
 Currently viewing Spark outputs directly is not supported and we are working on that.
 
-If you have any suggestions or feedbacks, or if you encounter any problems when using this tool, feel free to drop us an email at hdivstool at microsoft dot com.
+If you have any suggestions or feedback, or if you encounter any problems when using this tool, feel free to drop us an email at hdivstool at microsoft dot com.
 
 ## <a name="seealso"></a>See also
 

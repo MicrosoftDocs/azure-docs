@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Getting started with Reliable Actors
@@ -33,10 +33,11 @@ To get started with Reliable Actors, you need to understand just four basic conc
 	* It resolves names. It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
 	* It handles failures. It can retry method invocations and re-determine the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
 
-The following rules that pertain to actor interface methods are worth mentioning:
+The following rules that pertain to actor interfaces are worth mentioning:
 
 - Actor interface methods cannot be overloaded.
 - Actor interface methods must not have out, ref, or optional parameters.
+- Generic interfaces are not supported.
 
 ## Create a new project in Visual Studio
 After you have installed the Service Fabric tools for Visual Studio, you can create new project types. The new project types are under the **Cloud** category of the **New Project** dialog box.

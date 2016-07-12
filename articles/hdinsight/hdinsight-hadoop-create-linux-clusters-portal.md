@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/21/2016"
+   	ms.date="07/07/2016"
    	ms.author="nitinme"/>
 
 
@@ -179,7 +179,7 @@ Now that you have successfully created an HDInsight cluster, use the following t
 ###HBase clusters
 
 * [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Storm clusters
 

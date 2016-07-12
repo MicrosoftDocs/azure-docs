@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="07/08/2016"
     ms.author="sethm" />
 
 # Best Practices for performance improvements using Service Bus brokered messaging
@@ -81,7 +81,7 @@ When creating a queue or subscription client, you can specify a receive mode: *P
 
 When setting the receive mode to [ReceiveAndDelete][], both steps are combined in a single request. This reduces the overall number of operations, and can improve the overall message throughput. This performance gain comes at the risk of losing messages.
 
-Service Bus does not support transactions for receive-and-delete operations. In addition, peek-lock semantics are required for any scenarios in which the client wants to defer or dead-letter a message.
+Service Bus does not support transactions for receive-and-delete operations. In addition, peek-lock semantics are required for any scenarios in which the client wants to defer or [dead-letter](service-bus-dead-letter-queues.md) a message.
 
 ## Client-side batching
 
@@ -116,11 +116,11 @@ Batched store access does not affect the number of billable messaging operations
 
 ## Prefetching
 
-Prefetching enables the queue or subscription client to load additional messages from the service when it performs a receive operation. The client stores these messages in a local cache. The size of the cache is determined by the [QueueClient.PrefetchCount][] and [SubscriptionClient.PrefetchCount][] properties. Each client that enables prefetching maintains its own cache. A cache is not shared across clients. If the client initiates a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256KB, whichever is smaller. If the client initiates a receive operation and the cache contains a message, the message is taken from the cache.
+Prefetching enables the queue or subscription client to load additional messages from the service when it performs a receive operation. The client stores these messages in a local cache. The size of the cache is determined by the [QueueClient.PrefetchCount][] or [SubscriptionClient.PrefetchCount][] properties. Each client that enables prefetching maintains its own cache. A cache is not shared across clients. If the client initiates a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256KB, whichever is smaller. If the client initiates a receive operation and the cache contains a message, the message is taken from the cache.
 
 When a message is prefetched, the service locks the prefetched message. By doing this, the prefetched message cannot be received by a different receiver. If the receiver cannot complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy will receive an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, the cache size should always be smaller than the number of messages that can be consumed by a client within the lock time-out interval.
 
-When using the default lock expiration of 60 seconds, a good value for [SubscriptionClient.PrefetchCount][] is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates 3 receivers, and each receiver can process up to 10 messages per second. The prefetch count should not exceed 20*3*10 = 600. By default, [QueueClient.PrefetchCount][] is set to 0, which means that no additional messages are fetched from the service.
+When using the default lock expiration of 60 seconds, a good value for [SubscriptionClient.PrefetchCount][] is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates 3 receivers, and each receiver can process up to 10 messages per second. The prefetch count should not exceed 20\*3\*10 = 600. By default, [QueueClient.PrefetchCount][] is set to 0, which means that no additional messages are fetched from the service.
 
 Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. Fetching the first message, however, will take longer (due to the increased message size). Receiving prefetched messages will be faster because these messages have already been downloaded by the client.
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/28/2016"
+   ms.date="07/08/2016"
    ms.author="alkohli"/>
 
 # StorSimple Virtual Array system requirements
@@ -92,6 +92,9 @@ The following table lists the ports that need to be opened in your firewall to a
 | TCP 3260 (iSCSI)         | In            | LAN            | No                        | This port is used to access data over iSCSI.|
 
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
+
+> [AZURE.IMPORTANT] Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+
 
 ### URL patterns for firewall rules 
 

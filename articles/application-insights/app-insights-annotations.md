@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="06/28/2016"
     ms.author="awills"/>
 
 # Release annotations in Application Insights
@@ -40,7 +40,7 @@ You need to do this for each release template that you want to create release an
 
 
 1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](app-insights-overview.md), if you haven't done so yet.)
-2. Open **Settings**, **API Access**, and take a copy of **Application Insights Id**.
+2. Open **API Access**, and take a copy of **Application Insights Id**.
 
     ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/app-insights-annotations/20.png)
 

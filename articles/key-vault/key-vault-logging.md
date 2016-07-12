@@ -269,6 +269,5 @@ For a tutorial that uses Azure Key Vault in a web application, see [Use Azure Ke
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
 
 For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx). 
- 
 
-
+For a tutorial on key rotation and log auditing with Azure Key Vault, see [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md).
