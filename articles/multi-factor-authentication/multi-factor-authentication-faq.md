@@ -19,27 +19,27 @@
 # Azure Multi-Factor Authentication FAQ
 
 
-This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service, including billing model and usability.
+This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service, including the billing model and usability.
 
 ## General
 
 **Q: How can I get help with Azure Multi-Factor Authentication?**
 
-[Search the Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)
+- [Search the Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)
 
-Search the Knowledge Base for solutions to common technical issues.
+  Search the Knowledge Base for solutions to common technical issues.
 
-[Microsoft Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+- [Microsoft Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
 
-Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+  Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
-[Password reset](mailto:phonefactorsupport@microsoft.com)
+- [Password reset](mailto:phonefactorsupport@microsoft.com)
 
-If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
+  If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
 
-[Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/oas/default.aspx?prid=14947)
-
-Use this link to contact a Microsoft support professional. They’ll ask you a few questions to help you determine your support options, which might include email, online submission, or phone support.
+- [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/oas/default.aspx?prid=14947)
+  
+  Use this link to contact a Microsoft support professional. They’ll ask you a few questions to help you determine your support options, which might include email, online submission, or phone support.
 
 
 
@@ -85,7 +85,7 @@ Per-authentication consumption (Azure monetary commitment)|$1.40 per 10 authenti
 Per-user annual license (direct)|$1.40 per month (unlimited authentications)
 Per-user annual license (volume licensing)|Contact your [Enterprise Agreement representative](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-**Q: Is the per-user billing model based on the number of users who are configured to use Multi-Factor Authentication or the number of users who perform verifications?**
+**Q: Does the per-user billing model charge based on the number of users who are configured to use Multi-Factor Authentication or the number of users who perform verifications?**
 
 Billing is based on the number of users configured to use Multi-Factor Authentication.
 
@@ -118,7 +118,7 @@ When an organization uses a consumption-based billing model, Azure Active Direct
 
 **Q: What does a user do if they don’t receive a response on their phone, or if the phone is not available to the user?**
 
-If the user had previously configured a backup phone, they should try again and choose that phone when prompted on the sign-in page. If the user doesn’t have another method configured, the user should contact the organization's administrator and ask the admin to update the number assigned to the user's primary phone, either mobile or office.
+If the user had previously configured a backup phone, they should try again and select that phone when prompted on the sign-in page. If the user doesn’t have another method configured, the user should contact the organization's administrator and ask the admin to update the number assigned to the user's primary phone, either mobile or office.
 
 
 **Q: What does the administrator do if a user contacts the administrator about an account that the user can no longer access?**
@@ -127,7 +127,7 @@ The administrator can reset the user's account by asking them to go through the 
 
 **Q: What does an administrator do if a user's phone that is using app passwords is lost or stolen?**
 
-You can delete all of the user's app passwords to prevent unauthorized access. After the user has a replacement device, the user can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
+The administrator can delete all of the user's app passwords to prevent unauthorized access. After the user has a replacement device, the user can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
 
 **Q: What if the user can't sign in to non-browser apps?**
 
@@ -149,7 +149,7 @@ Text message verifications also are more reliable in some countries or regions, 
 
 **Q: Can I use hardware tokens with Azure Multi-Factor Authentication Server?**
 
-If you are using Azure Multi-Factor Authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens and use them for Multi-Factor Authentication. We support the import of third-party OATH TOTP tokens in an older Portable Symmetric Key Container (PSKC) format that Gemalto can produce for their tokens, and we support importing tokens in CSV format. If you import tokens in CSV format, the CSV file must contain a serial number, a secret key in Base32 format, and a time interval (generally 30 seconds).
+If you are using Azure Multi-Factor Authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens, and then use them for Multi-Factor Authentication. We support the import of third-party OATH TOTP tokens in an older Portable Symmetric Key Container (PSKC) format that Gemalto can produce for their tokens, and we support importing tokens in CSV format. If you import tokens in CSV format, the CSV file must contain a serial number, a secret key in Base32 format, and a time interval (generally 30 seconds).
 
 You can use ActiveIdentity tokens that are OATH TOTP tokens if you can put the secret key file in a CSV file that you can import to Azure Multi-Factor Authentication Server. You can use OATH tokens with Active Directory Federation Services (ADFS); Remote Authentication Dial-In User Service (RADIUS), when the client system can process access challenge responses; and Internet Information Server (IIS) forms-based authentication.
 
@@ -168,13 +168,13 @@ When Multi-Factor Authentication calls are placed through the public telephone n
 
 **Q: What does a user do if the user sees an “Authentication request is not for an activated account” error message when the user authenticates by using mobile app notifications?**
 
-The user should follow this procedure:
+Follow this procedure:
 
 1. Go to [your Azure portal profile](https://account.activedirectory.windowsazure.com/profile/) and sign in with your organizational account.
-2. If needed, choose **Other verification options**, and then choose a different option to use for account verification.
-3. Choose **Additional Security Verification**.
-4. Remove the existing account from the mobile application.
-5. Click **Configure**, and then follow the instructions to reconfigure the mobile application.
+2. If needed, select **Other verification options**, and then select a different option to use for account verification.
+3. Select **Additional Security Verification**.
+4. Remove the existing account from the mobile app.
+5. Select **Configure**, and then follow the instructions to reconfigure the mobile app.
 
 
 
