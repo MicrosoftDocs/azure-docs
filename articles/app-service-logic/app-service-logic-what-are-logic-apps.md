@@ -27,13 +27,13 @@
 Logic Apps provide a way to simplify and implement complex business processes. It provides a visual designer to model and automate your business process as a series of steps known as a workflow. You can design workflows so that they start from a trigger and are then execute each of your steps. Each step invokes an API, while securely taking care of authentication and best practices, such as checkpointing and durable execution.
 
 The advantages of using Logic Apps include the following:  
-•	Saving time by designing complex processes using easy to understand design tools 
-•	Implementing tasks easily, that would otherwise be difficult to implement in code
-•	Getting started quickly from templates
-•	Customizing your Logic App using APIs
-•	Connecting disparate systems
-•	Monetizing your Logic App in the marketplace
-•	Starting easy and grow as you need
+* Saving time by designing complex processes using easy to understand design tools  
+* Implementing tasks easily, that would otherwise be difficult to implement in code  
+* Getting started quickly from templates  
+* Customizing your Logic App using APIs  
+* Connecting disparate systems  
+* Monetizing your Logic App in the marketplace  
+* Starting easy and grow as you need  
 
 Logic Apps is a fully managed iPaaS (integration Platform as a Service) allowing developers not to have to worry about doing extra work to handle hosting, scalability, availability and management. 
 
