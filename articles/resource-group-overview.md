@@ -137,19 +137,26 @@ AutoRest transforms these RESTful API specifications into client libraries in mu
 If you want to improve any aspects of the generated code in the SDKs,
 the entire set of tools to create the SDKs are open, freely available, and based on a widely adopted API specification format.
 
-The Azure SDK for each language is a set of NuGet packages that helps you call most of the Azure Resource Manager APIs.
+**Samples**: Get started quickly in the language of your choice.
+
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *coming soon*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *coming soon*
+- [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
+- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
+- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *coming soon*
+- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+
+**Open Source SDK repositories**: we welcome feedback, issues, and pull requests.
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net)
 - [Java](https://github.com/Azure/azure-sdk-for-java)
 - [Node.js](https://github.com/Azure/azure-sdk-for-node)
 - [PHP](https://github.com/Azure/azure-sdk-for-php)
 - [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
+- [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
 > [AZURE.NOTE] If the SDK doesn't provide the required functionality,
 > you can also call to the [Azure REST](https://msdn.microsoft.com/library/azure/dn790568.aspx) API directly.
-
-There are [samples](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager) that demonstrate how to use many of the SDKs Azure Resource Manager.
 
 ## Next steps
 
