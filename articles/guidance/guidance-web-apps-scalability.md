@@ -80,7 +80,7 @@ For more detailed guidance on designing a caching strategy, see [Caching guidanc
 
 Use [Azure CDN][azure-cdn] to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an *edge server* that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application.
 
-- If your app consists mostly of static pages, consider using CDN to cache the entire app. See [Use Azure CDN in Azure App Service][cdn=app-service].
+- If your app consists mostly of static pages, consider using CDN to cache the entire app. See [Use Azure CDN in Azure App Service][cdn-app-service].
 
 - Otherwise, put static content, such as images, CSS, and HTML files, into Azure Storage, and use CDN to cache those files. See [Integrate a Storage Account with CDN][cdn-storage-account].
 
