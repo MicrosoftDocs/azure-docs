@@ -156,7 +156,7 @@ the entire set of tools to create the SDKs are open, freely available, and based
 - [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
 > [AZURE.NOTE] If the SDK doesn't provide the required functionality,
-> you can also call to the [Azure REST](https://msdn.microsoft.com/library/azure/dn790568.aspx) API directly.
+> you can also call to the [Azure REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx) directly.
 
 ## Next steps
 
