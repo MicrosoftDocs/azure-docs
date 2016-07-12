@@ -3,7 +3,7 @@
 	description="This topic explains how to use setRuntimeProperties to use multiple input files and pass custom data to the Media Encoder Premium Workflow media processor." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="xpouyat, anilmur" 
+	authors="xpouyat, anilmur, juliako" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2016"  
+	ms.date="07/12/2016"  
 	ms.author="xpouyat"/>
 
 #Using multiple input files and component properties with Premium Encoder
@@ -346,6 +346,7 @@ Now add the **ISO Mpeg-4 Multiplexer** and  **File Output** components and conne
 
 
 You need to set the  name for the output file. Click on the "File Output" component and edit the expression for file:
+
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
 ![File output name](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
