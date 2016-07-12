@@ -33,6 +33,8 @@ There are generally three types of resource names you will work with:
 2. Resource names that do not need to be unique but you want to provide a name that helps identify the context.
 3. Resource names that can be generic.
 
+For help with establishing a naming convention, see [Infrastructure naming guidelines](./virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](./guidance/guidance-naming-conventions.md).
+
 ### Unique resource names
 
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common types that require a unique name include:
@@ -318,8 +320,10 @@ You can conditionally link to nested templates by using a parameter that becomes
         }
     ]
 
+For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 ## Next steps
 
 1. For guidance on architecting your solution for virtual machines, see [Running a Windows VM on Azure](./guidance/guidance-compute-single-vm.md) and [Running a Linux VM on Azure](./guidance/guidance-compute-single-vm-linux.md).
 2. For guidance on setting up a storage account, see [Microsoft Azure Storage Performance and Scalability Checklist](./storage/storage-performance-checklist.md).
+3. For help with virtual networks, see [Networking infrastructure guidelines](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md).
