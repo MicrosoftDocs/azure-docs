@@ -109,7 +109,7 @@ To further explore the capabilities of IoT Hub, see:
 - [Developer guide][lnk-devguide]
 - [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal-manage]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -141,4 +141,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-portal-manage]: iot-hub-manage-through-portal.md

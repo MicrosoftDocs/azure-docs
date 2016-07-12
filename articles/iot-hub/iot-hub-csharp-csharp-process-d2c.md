@@ -399,7 +399,7 @@ In this tutorial, you learned how to reliably process data point and interactive
 
 The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your back end.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
 
@@ -461,3 +461,4 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub Develope
 [Service Bus documentation]: https://azure.microsoft.com/documentation/services/service-bus/
 
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
