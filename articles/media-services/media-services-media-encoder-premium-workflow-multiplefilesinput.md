@@ -3,7 +3,7 @@
 	description="This topic explains how to use setRuntimeProperties to use multiple input files and pass custom data to the Media Encoder Premium Workflow media processor." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="xpouyat, anilmur, juliako" 
+	authors="xpouyat" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/12/2016"  
-	ms.author="xpouyat"/>
+	ms.author="xpouyat;anilmur;juliako"/>
 
 #Using multiple input files and component properties with Premium Encoder
 
