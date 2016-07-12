@@ -28,7 +28,7 @@ SQL Data Warehouse allows up to 1,024 concurrent connections.  All 1,024 connect
 
 Concurrent queries are governed by two concepts, **concurrent queries** and **concurrency slots**.
 
-**Concurrent queries** are simply the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries** on the larger DW sizes, DW1000 and above.  
+**Concurrent queries** are simply the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries** on the larger DW sizes, DW1000 and above.  The concurrent query limit is tested first and if more concurrent queries are allowed, then the system looks to confirm that enough concurrency slots are available.
 
 **Concurrency slots** is a more dynamic concept.  Each concurrently executing query consumes one or more concurrency slots. The exact number of slots depends on three factors:
 
@@ -52,17 +52,23 @@ SQL Data Warehouse query workloads have to live within these thresholds. If ther
 
 ## Resource classes
 
-SQL Data Warehouse workload management exposes four resource classes in the form of **database roles**;  **smallrc, mediumrc, largerc, and xlargerc**.  Resource classes are an essential part of SQL Data Warehouse workload management as they allow more memory and or CPU cycles to be allocated to queries run by a given user.
+Resource classes are an essential part of SQL Data Warehouse workload management as they allow more memory and or CPU cycles to be allocated to queries run by a given user.  SQL Data Warehouse workload management exposes four resource classes in the form of **database roles**.  The four resource classes are  **smallrc, mediumrc, largerc and xlargerc**.  
 
-By default, each user is a member of the small resource class, smallrc.  The procedure `sp_addrolemember` is used to increase the resource class and `sp_droprolemember` is used to decrease the resource class.  For example, this command would increase the resource class of the loaduser to largerc
+By default, each user is a member of the small resource class, smallrc.  The procedure `sp_addrolemember` is used to increase the resource class and `sp_droprolemember` is used to decrease the resource class.  For example, this command would increase the resource class of the loaduser to largerc:
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser'
 ```
 
-`ALTER ROLE` permission is required to change the resource class of a user.  While a user can be added to one or more of the higher resource classes.  Users will take on the attributes of the highest resource class to which they are assigned.  **The resource class of the sa user cannot be changed.**  More details for create logins and users is provided in the [Managing users)[#Managing-users] section at the end of this article.
+A good practice is to create users which are permanently assigned to a resource class rather than changing the resource class of a user.  For example, loads to clustered columnstore tables create higher quality indexes when allocated more memory.  A good practice for loads to clustered columnstore tables is to create a user specifically for loading data and permanently assign this user to a higher resource class.
 
-> [AZURE.NOTE] A good practice is to create users which are permenantly assigned to a resource class rather than changing the resource class of a user.  For example, it's often a best practice to ensure loads to clustered column store tables have more memory so that they can create higher performing indexes.  A good practice is to create a load user in a higher resource class. 
+A few more details on resource class:
+
+- `ALTER ROLE` permission is required to change the resource class of a user.  
+- While a user can be added to one or more of the higher resource classes, users will take on the attributes of the highest resource class to which they are assigned.  That is, if a user is assigned to both mediumrc and largerc, the higher resource class, largerc is the resource class that will be honored.  
+- The resource class of the system administrative user cannot be changed.
+ 
+More details and examples of creating users an assigning them to resource classes can be found in the [Managing users](#Managing-users) section at the end of this article.
 
 ## Memory allocation
 
