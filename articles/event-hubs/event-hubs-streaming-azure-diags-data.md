@@ -21,7 +21,7 @@ Azure Diagnostics provides flexible ways to collect metrics and logs from cloud 
 
 Supported data types include:
 
-- •	Event Tracing for Windows (ETW) events
+- Event Tracing for Windows (ETW) events
 - Performance counters
 - Windows event logs
 - Application logs
