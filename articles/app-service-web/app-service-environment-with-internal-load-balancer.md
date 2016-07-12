@@ -20,7 +20,9 @@
 
 The App Service Environments(ASE) feature is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service in your Azure Virtual Network(VNet).  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.  If you don't know the benefits of operating in a VNet read the [Azure Virtual Network FAQ][virtualnetwork].  
 
+
 ## Overview ##
+
 
 An ASE can be deployed with an internet accessible endpoint or with an IP address in your VNet.  In order to set the IP address to a VNet address you need to deploy your ASE with an Internal Load Balancer(ILB).  When your ASE is configured with an ILB you provide:
 
@@ -28,11 +30,13 @@ An ASE can be deployed with an internet accessible endpoint or with an IP addres
 - the certificate used for HTTPS
 - DNS management for your subdomain.  
 
+
 In return, you can do things such as:
 
 - host intranet applications, like line of business applications, securely in the cloud which you access through a Site to Site or ExpressRoute VPN
 - host apps in the cloud that are not listed in public DNS servers
 - create internet isolated backend apps which your front end apps can securely integrate with
+
 
 #### Disabled functionality ####
 
@@ -41,6 +45,7 @@ There are some things that you cannot do when using an ILB ASE.  Those things in
 - using IPSSL
 - assigning IP addresses to specific apps
 - buying and using a certificate with an app through the portal.  You can of course still obtain certificates directly with a Certificate Authority and use it with your apps, just not through the Azure portal.
+
 
 ## Creating an ILB ASE ##
 
@@ -55,13 +60,17 @@ Creating an ILB ASE is not much different from creating an ASE normally.  For a 
 7.	Provide subdomain name (this will be the subdomain used for apps created in this ASE)
 8.	Select Ok and then Create
 
+
 ![][1]
 
+
 Within the Virtual Network blade there is a VNet Configuration option.  This lets you select between an External VIP or Internal VIP.  The default is External.  If you have it set to External then your ASE will use an internet accessible VIP.  If you select Internal, your ASE will be configured with an ILB on an IP address within your VNet.  
+
 
 After selecting Internal, the ability to add more IP addresses to your ASE is removed and instead you need to provide the subdomain of the ASE.  In an ASE with an External VIP the name of the ASE is used in the subdomain for apps created in that ASE.  
 If your ASE was called ***contosotest*** and your app in that ASE was called ***mytest*** then the subdomain would be of the format ***contosotest.p.azurewebsites.net*** and the URL for that app would be ***mytest.contosotest.p.azurewebsites.net***.  
 If you set the VIP Type to Internal, your ASE name is not used in the subdomain for the ASE.  You specify the subdomain explicitly.  If your subdomain was ***contoso.corp.net*** and you made an app in that ASE named ***timereporting*** then the URL for that app would be ***timereporting.contoso.corp.net***.
+
 
 ## Apps in an ILB ASE ##
 
@@ -76,17 +85,22 @@ Creating an app in an ILB ASE is the same as creating an app in an ASE normally.
 
 ![][2]
 
+
 Under the app name the subdomain name gets updated to reflect the subdomain of your ASE.  
+
 
 ## Post ILB ASE creation validation ##
 
 An ILB ASE is slightly different than the non-ILB ASE.  As already noted you need to manage your own DNS and you also have to provide your own certificate for HTTPS connections.  
 
+
 After you create your ASE you will notice that the subdomain shows the subdomain you specified and there is a new item in the **Setting** menu called **ILB Certificate**.  Until you set a certificate for your ASE you will not be able to reach the apps in your ASE over HTTPS.  
 
 ![][3]
 
+
 If you are simply trying things out and don't know how to create a certificate, you can use the IIS MMC console application to create a self signed certificate.  Once it is created you can export it as a .pfx file and then upload it in the ILB Certificate UI. When you access a site secured with a self-signed certificate, your browser will give you a warning that the site you are accessing is not secure due to the inability to validate the certificate.  If you want to avoid that warning you need a properly signed certificate that matches your subdomain and has a chain of trust that is recognized by your browser.
+
 
 If you want to test both HTTP and HTTPS access to your ASE:
 
@@ -99,9 +113,11 @@ If you want to test both HTTP and HTTPS access to your ASE:
 7.	Use a browser on that VM and go to http://mytestapp.ilbase.com (or whatever your web app name is with your subdomain)
 8.	Use a browser on that VM and go to https://mytestapp.ilbase.com   You will have to accept the lack of security if using a self-signed certificate.  
 
+
 The IP address for your ILB is listed in your Properties as the Virtual IP Address
 
 ![][4]
+
 
 ## Using an ILB ASE ##
 
@@ -109,17 +125,22 @@ The IP address for your ILB is listed in your Properties as the Virtual IP Addre
 
 An ILB ASE enables network isolation for your apps as the apps are not accessible or even known by the internet.  This is excellent for hosting intranet sites such as line of business applications.  When you need to restrict access even further you can still use Network Security Groups(NSGs) to control access at the network level. 
 
+
 If you wish to use NSGs to further restrict access then you need to make sure you do not break the communication that the ASE needs in order to operate.  Even though the HTTP/HTTPS access is only through the ILB used by the ASE the ASE still depends on resource outside of the VNet.  To see what network access is still required look at the information in the document on [Controlling Inbound Traffic to an App Service Environment][ControlInbound] and the document on [Network Configuration Details for App Service Environments with ExpressRoute][ExpressRoute].  
+
 
 To configure your NSGs you need to know the IP address that is used by Azure to manage your ASE.  That IP address is also the outbound IP address from your ASE if it makes internet requests.  To find this IP address go to **Settings -> Properties** and find the **Outbound IP Address**.  
 
 ![][5]
 
+
 #### General ILB ASE management ####
 
 Managing an ILB ASE is largely the same as managing an ASE normally.  You need to scale up your worker pools to host more ASP instances and scale up your Front End servers to handle increased amounts of HTTP/HTTPS traffic.  For general information on managing the configuration of an ASE, read the document on [Configuring an App Service Environment][ASEConfig].  
 
+
 The additional management items are certificate management and DNS management.  You need to obtain and upload the certificate used for HTTPS after ILB ASE creation and replace it before it expires.  Because Azure owns the base domain we can provide certificates for ASEs with an External VIP.  Since the subdomain used by an ILB ASE can be anything, you need to provide your own certificate for HTTPS. 
+
 
 #### DNS Configuration ####
 
@@ -128,6 +149,7 @@ When using an External VIP the DNS is managed by Azure.  Any app created in your
 - *.scm
 - ftp
 - publish
+
 
 ## Getting started
 All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
@@ -147,6 +169,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [3]: ./media/app-service-environment-with-internal-load-balancer/ilbase-newase.png
 [4]: ./media/app-service-environment-with-internal-load-balancer/ilbase-vip.png
 [5]: ./media/app-service-environment-with-internal-load-balancer/ilbase-externalvip.png
+[6]: ./media/app-service-environment-with-internal-load-balancer/ilbase-ilbcertificate.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
