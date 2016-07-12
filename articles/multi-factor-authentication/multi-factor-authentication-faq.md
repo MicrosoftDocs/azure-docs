@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Multi-Factor Authentication FAQ"
-	description="Provides a list of frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than just a user name and password. It provides an additional layer of security to user sign-in and transactions."
+	description="Provides a list of frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions."
 	services="multi-factor-authentication"
 	documentationCenter=""
 	authors="billmath"
@@ -19,7 +19,7 @@
 # Azure Multi-Factor Authentication FAQ
 
 
-This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service, including the billing model and usability.
+This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service, including questions about the billing model and usability.
 
 ## General
 
@@ -171,10 +171,10 @@ When Multi-Factor Authentication calls are placed through the public telephone n
 Follow this procedure:
 
 1. Go to [your Azure portal profile](https://account.activedirectory.windowsazure.com/profile/) and sign in with your organizational account.
-2. If needed, select **Other verification options**, and then select a different option to use for account verification.
-3. Select **Additional Security Verification**.
+2. If needed, click **Other verification options**, and then click a different option to use for account verification.
+3. Click **Additional Security Verification**.
 4. Remove the existing account from the mobile app.
-5. Select **Configure**, and then follow the instructions to reconfigure the mobile app.
+5. Click **Configure**, and then follow the instructions to reconfigure the mobile app.
 
 
 
