@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure CDN Real-Time Alerts | Microsoft Azure"
-	description="Real-time alerts in Microsoft Azure CDN. Real-Time alerts provide real-time notifications about events in your Azure CDN endpoint when delivering content to your clients."
+	description="Real-time alerts in Microsoft Azure CDN. Real-time alerts provide notifications about the performance of the endpoints in your CDN profile."
 	services="cdn"
 	documentationCenter=".NET"
 	authors="camsoper"
@@ -23,79 +23,95 @@
 
 ## Overview
 
-This document explains real-time stats in Microsoft Azure CDN. This functionality provides real-time data about the performance of our CDN when delivering content to your clients.
+This document explains real-time alerts in Microsoft Azure CDN. This functionality provides real-time notifications about the performance of the endpoints in your CDN profile.  You can set up email or HTTP alerts based on:
 
-The following graphs are available when viewing real-time statistics for the HTTP-based platforms: 
+* Bandwidth
+* Status Codes
+* Cache Statuses
+* Connections
 
-* [Bandwidth](#bandwidth)
-* [Status Codes](#status-codes)
-* [Cache Statuses](#cache-statuses)
-* [Connections](#connections)
+## Creating a real-time alert
 
-> [AZURE.NOTE] Each of the above graphs displays real-time statistics for a given period of time. A sliding window of data is displayed once the specified time has passed. This means that old data will be removed from the graph to make room for new data. The length of time for this sliding window can be set by the Time span of graphs option.
+1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
 
-## Accessing real-time stats
+	![CDN profile blade](./media/cdn-real-time-alerts/cdn-profile-blade.png)
 
-1. From the CDN profile blade, click the **Manage** button.
+2. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-real-time-stats/cdn-manage-btn.png)
+	![CDN profile blade manage button](./media/cdn-real-time-alerts/cdn-manage-btn.png)
 
 	The CDN management portal opens.
 
-2. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **HTTP Large Platform**.
+3. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **Real-Time Alerts**.
 
-	Report options are displayed.
+	![CDN management portal](./media/cdn-real-time-alerts/cdn-premium-portal.png)
 
-## Bandwidth
+	The list of existing alert configurations (if any) is displayed.
 
-The Bandwidth graph displays the amount of bandwidth used for the current platform over a specified period of time. The shaded portion of the graph indicates bandwidth usage. The exact amount of bandwidth currently being used is displayed directly below the line graph.
+4. Click the **Add Alert** button.
 
-> [AZURE.NOTE] The units used by to report bandwidth usage are one of the following: bits per second (b/s), Kilobits per second (Kb/s), Megabits per second (Mb/s), or Gigabits per second (Gb/s).
+	![Add Alert button](./media/cdn-real-time-alerts/cdn-add-alert.png)
 
-## Status Codes
+	A form for creating a new alert is displayed.
 
-The Status Codes graph consists of color-coded lines that indicate how often HTTP response codes are occurring over a specified period of time. The left side of the graph (y-axis) indicates how often a status code is returned for requests, while the bottom of the graph (x-axis) indicates the progression of time.
+	![New Alert form](./media/cdn-real-time-alerts/cdn-new-alert.png)
 
-A list of status codes is displayed directly above the graph. This list indicates each status code that can be included in the line graph and the current number of occurrences per second for that status code. By default, a line is displayed for each of these status codes in the graph. However, you can choose to only monitor the status codes that have special significance for your CDN configuration. This can be accomplished by only marking the desired status code options and clearing all other options. After you are satisfied with the status codes that will be displayed in the graph, you should click Refresh Graph. This will prevent the cleared status codes from being included in the graph.
+5. If you want this alert to be active when you click **Save**, check the **Alert Enabled** checkbox.
 
-> [AZURE.NOTE] The **Refresh Graph** option will clear the graph. After which, it will only display the selected status codes.
+6. Enter a descriptive name for your alert in the **Name** field.
 
-Each status code option is described below.
+7. In the **Media Type** dropdown, select **HTTP Large Object**.
 
-Name | Description
------|------------
-Total Hits per second | Determines whether the total number of requests per second for the current platform will be displayed in the graph. You can use this option as a baseline indicator to see the percentage of total hits that a particular status code comprises.
-2xx per second | Determines whether the total number of 2xx status codes (e.g., 200, 201, 202, etc.) that occur per second for the current platform will be displayed in the graph. This type of status code indicates that the request was successfully delivered to the client.
-304 per second | Determines whether the total number of 304 status codes that occur per second for the current platform will be displayed in the graph. This status code indicates that the requested asset has not been modified since it was last retrieved by the HTTP client.
-3xx per second | Determines whether the total number of 3xx status codes (e.g., 300, 301, 302, etc.) that occur per second for the current platform will be displayed in the graph. This option excludes occurrences of 304 status codes. This type of status code indicates that the request resulted in a redirection.
-403 per second | Determines whether the total number of 403 status codes that occur per second for the current platform will be displayed in the graph. This status code indicates that the request was deemed unauthorized. One possible cause for this status code is when an unauthorized user requests an asset protected by Token-Based Authentication.
-404 per second | Determines whether the total number of 404 status codes that occur per second for the current platform will be displayed in the graph. This status code indicates that the requested asset could not be found.
-4xx per second | Determines whether the total number of 4xx status codes (e.g., 400, 401, 402, 405, etc.) that occur per second for the current platform will be displayed in the graph. This option excludes occurrences of 403 and 404 status codes. This status code indicates that the requested asset was not delivered to the client.
-5xx per second | Determines whether the total number of 5xx status codes (e.g., 500, 501, 502, etc.) that occur per second for the current platform will be displayed in the graph.
-Other per second | Determines whether the total occurrences for all other status codes will be reported in the graph.
+	![Media Type with HTTP Large Object selected](./media/cdn-real-time-alerts/cdn-http-large.png)
 
-You can also choose to temporarily hide logged data for a particular status code. You may do this from the area directly below the graph by clearing the desired status code option. The selected status code will be immediately hidden from the graph. Marking that status code option will cause that option to be displayed again.
+	> [AZURE.IMPORTANT] You must select **HTTP Large Object** as the **Media Type**.  The other choices are not used by **Azure CDN from Verizon**.  Failure to select **HTTP Large Object** will cause your alert to never be triggered.
 
-> [AZURE.NOTE] The color-coded options directly below the graph only affect what is displayed in the graph. It does not affect whether the graph will keep track of that status code.
+8. Create an **Expression** to monitor by selecting a **Metric**, **Operator**, and **Trigger value**.
 
-## Cache Statuses
+	- For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of HTTP connections per second.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) and [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)
+	- **Operator** is the mathematical operator that establishes the relationship between the metric and the trigger value.
+	- **Trigger Value** is the threshold value that must be met before a notification will be sent out.
 
-The Cache Statuses graph consists of color-coded lines that indicate how often certain types of cache statuses are occurring over a specified period of time. The left side of the graph (y-axis) indicates how often a cache status is returned for requests, while the bottom of the graph (x-axis) indicates the progression of time.
+	In the below example, the expression I have created indicates that I would like to be notified when the number of 404 status codes is greater than 25.
 
-A list of cache statuses is displayed directly above the graph. This list indicates each cache status that can be included in the line graph and the current number of occurrences per second for that cache status. By default, a line is displayed for each of these cache statuses in the graph. However, you can choose to only monitor the cache statuses that have special significance for your CDN configuration. This can be accomplished by only marking the desired cache status options and clearing all other options. After you are satisfied with the cache statuses that will be displayed in the graph, you should click Refresh Graph. This will prevent the cleared status codes from being included in the graph.
+	![Real-time alert sample expression](./media/cdn-real-time-alerts/cdn-expression.png)
 
-> [AZURE.NOTE] The **Refresh Graph** option will clear the graph. After which, it will only display the selected cache statuses.
+9. For **Interval**, enter how frequently you would like the expression evaluated.
 
-You can also choose to temporarily hide logged data for a particular response code. You may do this by clearing the desired response code option from the area directly below the graph. The selected response code will be immediately hidden from the graph. Marking that response code option will cause that option to be displayed again.
+10. In the **Notify on** dropdown, select when you would like to be notified when the expression is true.
+	
+	- **Condition Start** indicates that a notification will be sent when the specified condition is first detected.
+	- **Condition End** indicates that a notification will be sent when the specified condition is no longer detected. This notification can only be triggered after our network monitoring system detected that the specified condition occurred.
+	- **Continuous** indicates that a notification will be sent each time that the network monitoring system detects the specified condition. Keep in mind that the network monitoring system will only check once per interval for the specified condition.
+	- **Condition Start and End** indicates that a notification will be sent the first time that the specified condition is detected and once again when the condition is no longer detected.
 
-> [AZURE.NOTE] The color-coded options directly below the graph only affect what is displayed in the graph. It does not affect whether the graph will keep track of that status code.
+11. If you want to receive notifications by email, check the **Notify by Email** checkbox.  
 
-## Connections
+	![Notify by Email form](./media/cdn-real-time-alerts/cdn-notify-email.png)
+	
+	In the **To** field, enter the email address you where you want notifications sent. For **Subject** and **Body**, you may leave the default, or you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.
 
-This graphical representation of the average number of connections per minute allows you to view how many connections have been established to your servers. A connection consists of each request for an asset that passes through our CDN.
+	> [AZURE.NOTE] You can test the email notification by clicking the **Test Notification** button, but only after the alert configuration has been saved.
 
-## See also
-* [Azure CDN Overview](cdn-overview.md)
-* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
-* [Advanced HTTP Reports](cdn-advanced-http-reports.md)
-* [Analyze Edge Performance](cdn-edge-performance.md)
+12. If you want notifications to be posted to a web server, check the **Notify by HTTP Post** checkbox.
+
+	![Notify by HTTP Post form](./media/cdn-real-time-alerts/cdn-notify-http.png)
+
+	In the **Url** field, enter the URL address you where you want the HTTP message posted. In the **Headers** textbox, enter the HTTP headers to be sent in the request.  For **Body**, you may leave the default, or you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.  **Headers** and **Body** default to an XML payload similar to the below example.
+
+	```
+	<string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+		<![CDATA[Expression=Status Code : 404 per second > 25&Metric=Status Code : 404 per second&CurrentValue=[CurrentValue]&NotificationCondition=Condition Start]]>
+	</string>
+	```
+
+	> [AZURE.NOTE] You can test the HTTP Post notification by clicking the **Test Notification** button, but only after the alert configuration has been saved.
+
+13. Click the **Save** button to save your alert configuration.  If you checked **Alert Enabled** in step 5, your alert is now active.
+
+## Next Steps
+
+- Analyze [Real-time stats in Azure CDN](cdn-real-time-stats.md)
+- Dig deeper with [advanced HTTP reports](cdn-advanced-http-reports.md)
+- Analyze [usage patterns](cdn-analyze-usage-patterns.md)
+
