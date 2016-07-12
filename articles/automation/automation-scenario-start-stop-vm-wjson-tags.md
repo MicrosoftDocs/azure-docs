@@ -127,7 +127,7 @@ Follow these steps to tag a virtual machine or resource group in the Portal.
 3. Tags are defined following a Key/Value pair.  Type **Schedule** in the **Key** field and paste the JSON string into **Value** field and then click **Save**.  Your new tag should now appear in the list of tags for your resource.<br>![VM Schedule Tag](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 
-## Tagging using Add-ScheduleResource or Update-ScheduleResource runbooks
+## Tagging from PowerShell
 
 All imported runbooks contains help information at the beginning of the script to describe how to execute the runbooks directly from PowerShell.  The Add-ScheduleResource and Update-ScheduleResource runbooks can be called from PowerShell by passing required parameters allowing you to create or update the Schedule tag on a VM or resource group outside of the portal.  
 
