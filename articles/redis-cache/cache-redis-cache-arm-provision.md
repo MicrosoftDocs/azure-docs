@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016" 
+	ms.date="07/12/2016" 
 	ms.author="sdanie"/>
 
 # Create a Redis Cache using a template
