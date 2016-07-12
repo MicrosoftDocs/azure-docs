@@ -41,7 +41,7 @@ This tutorial requires the following:
 
 Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use these features in your app, you initialize a [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
 
-1. Install the [SQLite runtime for the Universal Windows Universal](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Install the [SQLite runtime for the Universal Windows Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
 2. In Visual Studio, open the NuGet package manager for the UWP app project that you completed in the [Create a Windows app] tutorial, then search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
 
