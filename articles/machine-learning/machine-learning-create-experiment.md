@@ -123,7 +123,7 @@ In machine learning, *features* are individual measurable properties of somethin
 
 Finding a good set of features for creating a predictive model requires experimentation and knowledge about the problem you want to solve. Some features are better for predicting the target than others. Also, some features have a strong correlation with other features (for example, city-mpg versus highway-mpg), so they will not add much new information to the model, and they can be removed.
 
-Let's build a model that uses a subset of the features in our dataset. You can come back and select different features, run the experiment again, and see if you get better results. Let's try the following features:
+Let's build a model that uses a subset of the features in our dataset. You can come back and select different features, run the experiment again, and see if you get better results. But to start, let's try the following features:
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
@@ -134,7 +134,7 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 3. Under **Begin With** click **No columns**, and then select **Include** and **column names** in the filter row. Enter our list of column names. This directs the module to pass through only columns that we specify.
 
-	> [AZURE.TIP] Because we've run the experiment, the column definitions for our data have passed from the original dataset through the [Clean Missing Data][clean-missing-data] module. When you connect [Select Columns in Dataset][select-columns] to [Clean Missing Data][clean-missing-data], the [Select Columns in Dataset][select-columns] module becomes aware of the column definitions in our data. When you click the **column names** box, a list of columns is displayed, and you can select the columns that you want to add to the list.
+	> [AZURE.TIP] By running the experiment, we've ensured that the column definitions for our data pass from the dataset through the [Clean Missing Data][clean-missing-data] module. This means other modules you connect will also have information from the data set.
 
 4. Click the check mark (OK) button.
 
@@ -150,7 +150,7 @@ Now that the data is ready, constructing a predictive model consists of training
 
 Because we want to predict price, which is a number, we'll use a regression model. For this example, we'll train a simple *linear regression* model, and in the next step, we'll test it.
 
-1. We can use our data for both training and testing by splitting it into separate training and testing sets. Select and drag the [Split Data][split] module to the experiment canvas and connect it to the output of the last [Select Columns in Dataset][select-columns] module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing.
+1. We use our data for both training and testing by splitting it into separate training and testing sets. Select and drag the [Split Data][split] module to the experiment canvas and connect it to the output of the last [Select Columns in Dataset][select-columns] module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing.
 
 	> [AZURE.TIP] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 
