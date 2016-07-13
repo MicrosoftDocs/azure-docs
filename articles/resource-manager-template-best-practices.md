@@ -13,17 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="07/13/2016"
 	ms.author="tomfitz"/>
 
 # Best practices for creating Azure Resource Manager templates
 
 The following guidelines will help you create Resource Manager templates that are reliable and easy-to-use. These guidelines are intended only as suggestions, not absolute requirements. Your scenario may require variations from these guidelines.
-
-## Template format
-
-1. It is a good practice to pass your template through a JSON validator to remove extraneous commas, parenthesis, brackets that may cause an error during deployment. Try [JSONlint](http://jsonlint.com/) or a linter package for your favorite editing environment (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.)
-1. It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor or [format online](https://www.bing.com/search?q=json+formatter).
 
 ## Resource names
 
@@ -61,7 +56,7 @@ Storage accounts with a uniqueString prefix will not get clustered on the same r
 
 ### Resource names for identification
 
-For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a parameter for the name.
+For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a name that identifies both its context and resource type. You'll want to provide a descriptive name that helps you easily determine its use from a list of resource names. If you need to vary the resource name during deployments, use a parameter for the name:
 
     "parameters": {
         "vmName": { 
@@ -73,7 +68,19 @@ For resource types that you want to name but you do not have to guarantee unique
         }
     }
 
-Provide a name for the resource that identifies both its context and resource type so you can easily determine its use from a list of resource names.
+If you do not need to pass in a name during deployment, use a variable: 
+
+    "variables": {
+        "vmName": "demoLinuxVM"
+    }
+
+Or, a hard-coded value:
+
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "demoLinuxVM",
+      ...
+    }
 
 ### Generic resource names
 
@@ -86,6 +93,13 @@ For resource types that are largely accessed through another resource, you can u
     }
 
 ## Parameters
+
+1. Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
+ - Settings you wish to vary by environment (such as sku, size, or capacity).
+ - Resource names you wish to specify for easy identification.
+ - Values you may use often to complete other tasks (such as admin user name).
+ - Secrets (such as passwords)
+ - The number or array of values to use when creating multiple instances of a resource type.
 
 1. Parameter names should follow **camelCasing**.
 
@@ -123,13 +137,6 @@ For resource types that are largely accessed through another resource, you can u
             }
         }
  
-1. Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
- - Settings you wish to vary by environment (such as sku, size, or capacity).
- - Resource names you wish to specify for easy identification.
- - Values you may use often to complete other tasks (such as admin user name).
- - Secrets (such as passwords)
- - The number or array of values to use when creating multiple instances of a resource type.
-
 1. When possible, avoid using a parameter to specify the **location**. Instead, use the location property of the resource group. By using the **resourceGroup().location** expression for all your resources, the resources in the template will be deployed in the same location as the resource group.
 
         "resources": [
@@ -144,9 +151,11 @@ For resource types that are largely accessed through another resource, you can u
   
      If a resource type is supported in only a limited number of locations, consider specifying a valid location directly in the template. If you must use a location parameter, share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes users having to provide locations for every resource type.
 
-1. Do not use a parameter for the API version for a resource type. Instead, hard-code the API version in the template. Passing in an API version number does not work because the available properties for a resource type may vary by version number.
+1. Avoid using a parameter or variable for the API version for a resource type. Resource properties and values can vary by version number. Intellisense in code editors will not be able to determine the correct schema when the API version is set to a parameter or variable. Instead, hard-code the API version in the template.
 
 ## Variables 
+
+1. Use variables for values that you need to use more than once in a template. If a value is used only once, simply hard-code the value in your template.
 
 1. Include variables for resource names that need to be unique, as shown in [Resource names](#resource-names).
 
@@ -321,6 +330,11 @@ You can conditionally link to nested templates by using a parameter that becomes
     ]
 
 For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+
+## Template format
+
+1. It is a good practice to pass your template through a JSON validator to remove extraneous commas, parenthesis, brackets that may cause an error during deployment. Try [JSONlint](http://jsonlint.com/) or a linter package for your favorite editing environment (Visual Studio Code, Atom, Sublime Text, Visual Studio, etc.)
+1. It's also a good idea to format your JSON for better readability. You can use a JSON formatter package for your local editor. In Visual Studio, format the document with **Ctrl+K, Ctrl+D**. In VS Code, use **Alt+Shift+F**. If your local editor doesn't format the document, you can use an [online formatter](https://www.bing.com/search?q=json+formatter).
 
 ## Next steps
 
