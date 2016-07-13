@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Troubleshoot Database on server is not currently available for Azure SQL Database"
-	description="Steps to identify and resolve connection errors for Azure SQL Database."
+	pageTitle="Database on server is not currently available, connect to SQL Database | Microsoft Azure"
+	description="Troubleshoot the database on server is not currently available error when an application connects to SQL Database."
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="database on server is not currently available, connect to sql database"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/06/2016"
 	ms.author="daleche"/>
 
-# Troubleshoot "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" error
+# Error "Database on server is not currently available" when connecting to sql database
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 When an application connects to an Azure SQL database, you receive the following error message:

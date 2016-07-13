@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ Integrating Hightail with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Hightail
 - You can enable your users to automatically get signed-on to Hightail (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 

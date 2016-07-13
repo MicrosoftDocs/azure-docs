@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/12/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load data into Azure SQL Data Warehouse
@@ -100,6 +100,20 @@ Summary of loading process
 3. Ship the disks to Microsoft.
 4. Microsoft loads the data into SQL Data Warehouse
 
+## Load from HDInsight
+SQL Data Warehouse supports loading data from HDInsight via PolyBase. The process is the same as 
+loading data from Azure Blob Storage - using PolyBase to connect to HDInsight to load data. 
+
+### 1. Use PolyBase and T-SQL
+
+Summary of loading process:
+
+2. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
+2. Move your data to HDInsight and store it in text files, ORC or Parquet format.
+3. Configure external objects in SQL Data Warehouse to define the location and format of the data.
+4. Run a T-SQL command to load the data in parallel into a new database table.
+
+For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][].
 
 ## Recommendations
 
