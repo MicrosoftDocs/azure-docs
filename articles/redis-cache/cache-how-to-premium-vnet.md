@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="07/12/2016" 
 	ms.author="sdanie"/>
 
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
@@ -115,10 +115,10 @@ You can deploy multiple types of resources to a classic VNet as long as you have
 
 ### Do all cache features work when hosting a cache in a VNET?
 
-When your cache is part of a VNET, only clients in the VNET can access the cache, and as a result some cache management features don't work at this time.
+When your cache is part of a VNET, only clients in the VNET can access the cache, and as a result the following cache management features don't work at this time.
 
 -	Redis Console - Because Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
--	Resource Health - At this time, Resource Health doesn't report on the health of Azure Redis Cache instances hosted in a VNET. You can still monitor the health of your cache and view cache metrics by following the instructions in [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
+
 
 ## Use ExpressRoute with Azure Redis Cache
 
