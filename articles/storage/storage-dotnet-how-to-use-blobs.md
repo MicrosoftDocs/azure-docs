@@ -395,7 +395,7 @@ to learn more.
 
 ### Blob storage samples
 
-- [Getting Started with Azure Blob Storage in .NET](../samples/storage-blob-dotnet-getting-started/)
+- [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Blob storage reference
 
