@@ -20,7 +20,7 @@
 # Create a copy of a Linux virtual machine in the Azure Resource Manager deployment model
 
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux. Specifically, it covers how to do this in the Resource Manager deployment model, by using the Azure CLI and the Azure portal. It shows you how to create a *specialized* image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for porting your Linux VM from the classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Linux VM created in the Resource Manager deployment model. You can copy over the operating system and data disks this way, and then set up the network resources to create the new virtual machine.
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. It shows you how to create a *specialized* image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for porting your Linux VM from the classic deployment model to the Resource Manager deployment model, or creating a backup copy of your VM. First you copy over the operating system and data disks to a new resource group, then set up the network resources and create the new virtual machine.
 
 If you need to create mass deployments of similar Linux VMs, you should use a *generalized* image. For that, see [How to capture a Linux virtual machine](virtual-machines-linux-capture-image.md).
 
@@ -34,7 +34,7 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 - You have the Azure CLI downloaded and installed on your machine, and you have signed in to your Azure subscription. For more information, see [How to install Azure CLI](../xplat-cli-install.md).
 
-- You have a resource group, a storage account, and a blob container created in that resource group to copy the VHDs to. For more information about creating storage accounts and blob containers, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
+- You have a resource group, a storage account, and a blob container created in that resource group to hold the new VM. For more information about creating storage accounts and blob containers, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
 > [AZURE.NOTE] Similar steps apply for a VM created by using either of the two deployment models as the source image. Where applicable, this article notes the minor differences.  
 
