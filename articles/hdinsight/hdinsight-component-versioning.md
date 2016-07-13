@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/13/2016"
 	ms.author="jgao"/>
 
 
@@ -113,6 +113,10 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 ## Hortonworks release notes associated with HDInsight versions##
 
 * HDInsight cluster version 3.4 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
+
+	Starting with the HDInsight version 3.4 release, we have changed the guest OS patching policy for Linux-based HDInsight clusters. The goal of the new policy is to significantly reduce the number of reboots due to patching. The new policy will continue to patch virtual machines (VMs) on Linux clusters every Monday or Thursday starting at 12AM UTC in a staggered fashion across nodes in any given cluster. However, any given VM will only reboot at most once every 30 days due to Guest OS patching. In addition, the first reboot for a newly created cluster will not happen sooner than 30 days from the cluster creation date.
+
+	>[AZURE.NOTE] These changes will only apply to newly created clusters equal or greater than HDInsight cluster version 3.4.
 
 * HDInsight cluster version 3.3 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
 	* Apache Storm release notes is available [here](https://storm.apache.org/2015/11/05/storm0100-released.html).
