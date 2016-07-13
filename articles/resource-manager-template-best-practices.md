@@ -155,7 +155,9 @@ For resource types that are largely accessed through another resource, you can u
 
 ## Variables 
 
-1. Use variables for values that you need to use more than once in a template. If a value is used only once, simply hard-code the value in your template.
+1. Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value will make your template more readable.
+
+1. You cannot use the [reference](resource-group-template-functions.md#reference) function in the variables section. The reference function derives its value from the resource's runtime state, but variables are resolved during the initial parsing of the template.
 
 1. Include variables for resource names that need to be unique, as shown in [Resource names](#resource-names).
 
@@ -286,7 +288,6 @@ To deploy your solution, you can use either a single template or a main template
 
 1. Can decompose solution into targeted components
 2. Can re-use nested templates with different main templates
-3. Can conditionally deploy nested templates
 
 When you decide to decompose your template design into multiple nested templates, the following guidelines will help standardize the design. These guidelines are based on the [patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) documentation. The recommended design consists of the following templates.
 
@@ -297,6 +298,10 @@ When you decide to decompose your template design into multiple nested templates
 + **Scripts**. Widely reusable scripts are applicable for each instance type (e.g. initialize and format additional disks). Custom scripts are created for specific customization purpose are different per instance type.
 
 ![nested template](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
+
+For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+
+## Conditionally link to nested template
 
 You can conditionally link to nested templates by using a parameter that becomes part of the URI for the template.
 
@@ -328,8 +333,6 @@ You can conditionally link to nested templates by using a parameter that becomes
             }
         }
     ]
-
-For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 ## Template format
 
