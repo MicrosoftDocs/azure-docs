@@ -18,6 +18,8 @@
 
 # Get started with blob storage and Visual Studio connected services (ASP.NET)
 
+[AZURE.INCLUDE [storage-tools-include](../../includes/storage-tools-include.md)]
+
 ## Overview
 
 This article describes how to get started using Azure Blob storage after you have created or referenced an Azure storage account in an ASP.NET app by using the  Visual Studio **Add Connected Services** dialog box. The article shows you how to create blob containers and perform other common tasks such as uploading, listing, downloading, and deleting blobs. The samples are written in C\# and
