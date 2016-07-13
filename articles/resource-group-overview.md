@@ -125,6 +125,39 @@ For information about using the portal, see [Using the Azure Portal to manage yo
 
 Azure Resource Manager supports cross-origin resource sharing (CORS). With CORS, you can call the Resource Manager REST API or an Azure service REST API from a web application that resides in a different domain. Without CORS support, the web browser would prevent an app in one domain from accessing resources in another domain. Resource Manager enables CORS for all requests with valid authentication credentials.
 
+## SDKs and samples
+
+Azure SDKs are available for multiple languages and platforms.
+Each of these language implementations is available through its ecosystem package manager and GitHub.
+
+The code in each of these SDKs is generated from Azure RESTful API specifications.
+These specifications are open source and based on the Swagger 2.0 specification.
+The SDK code is generated via an open-source project called AutoRest.
+AutoRest transforms these RESTful API specifications into client libraries in multiple languages.
+If you want to improve any aspects of the generated code in the SDKs,
+the entire set of tools to create the SDKs are open, freely available, and based on a widely adopted API specification format.
+
+**Samples**: Get started quickly in the language of your choice.
+
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *coming soon*
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *coming soon*
+- [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
+- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
+- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *coming soon*
+- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+
+**Open Source SDK repositories**: we welcome feedback, issues, and pull requests.
+
+- [.NET](https://github.com/Azure/azure-sdk-for-net)
+- [Java](https://github.com/Azure/azure-sdk-for-java)
+- [Node.js](https://github.com/Azure/azure-sdk-for-node)
+- [PHP](https://github.com/Azure/azure-sdk-for-php)
+- [Python](https://github.com/Azure/azure-sdk-for-python)
+- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+
+> [AZURE.NOTE] If the SDK doesn't provide the required functionality,
+> you can also call to the [Azure REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx) directly.
+
 ## Next steps
 
 - For a simple introduction to working with templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
