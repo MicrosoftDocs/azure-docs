@@ -66,7 +66,7 @@ Use the following procedure to enable Azure diagnostics in a virtual machine for
 	5. Select each diagnostics log that you want to collect.
 	7. Click **OK**.
 
-Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage. Refer to [Collect data using Azure diagnostics written to table storage or IIS Logs written to blob](log-analytics-powershell-azure-diagnostics-json.md).
+Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage. Refer to [Collect data using Azure diagnostics written to table storage or IIS Logs written to blob](log-analytics-azure-storage-json.md).
 
 
 ## Enable Azure diagnostics in a Web role for IIS log and event collection
@@ -189,6 +189,6 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 
 ## Next steps
 
-- [Use JSON files in blob storage](log-analytics-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
+- [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
 - [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
 - [Use search queries](log-analytics-log-searches.md) to analyze the data.

@@ -56,7 +56,7 @@ Refer to the following articles for more information on how to enable diagnostic
 
 Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
 
-Refer to [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-powershell-azure-diagnostics-json.md).
+Refer to [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-azure-storage-json.md).
 
 This documentation also includes details on:
 

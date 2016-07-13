@@ -63,7 +63,7 @@ This functionality is currently in private preview. To join the private preview 
 
 ## Next steps
 
-- [Use JSON files in blob storage](log-analytics-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
+- [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
 - [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 - [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
 - [Use search queries](log-analytics-log-searches.md) to analyze the data.
