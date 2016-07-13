@@ -740,14 +740,14 @@ Alias of [limit](#limit-operator)
 
 ### top operator
 
-    T | top 5 by Name desc
+    T | top 5 by Name desc nulls first
 
 Returns the first *N* records sorted by the specified columns.
 
 
 **Syntax**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
 
 **Arguments**
 
@@ -755,6 +755,7 @@ Returns the first *N* records sorted by the specified columns.
 * *Sort_expression:* An expression by which to sort the rows. It's typically just a column name. You can specify more than one sort_expression.
 * `asc` or `desc` (the default) may appear to control whether
 selection is actually from the "bottom" or "top" of the range.
+* `nulls first` or `nulls last` controls where null values appear. `First` is the default for `asc`, `last` is the default for `desc`.
 
 
 **Tips**
@@ -1928,20 +1929,26 @@ h"hello"
 Operator|Description|Case-Sensitive|True example
 ---|---|---|---
 `==`|Equals |Yes| `"aBc" == "aBc"`
-`<>`|Not equals|Yes| `"abc" <> "ABC"`
+`<>` `!=`|Not equals|Yes| `"abc" <> "ABC"`
 `=~`|Equals |No| `"abc" =~ "ABC"`
 `!~`|Not equals |No| `"aBc" !~ "xyz"`
 `has`|Right-hand-side (RHS) is a whole term in left-hand-side (LHS)|No| `"North America" has "america"`
 `!has`|RHS is not a full term in LHS|No|`"North America" !has "amer"` 
+`hasprefix`|RHS is a term prefix in LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS is not a term prefix in LHS|No|`"North America" !hasprefix "mer"`
 `contains` | RHS occurs as a subsequence of LHS|No| `"FabriKam" contains "BRik"`
 `!contains`| RHS does not occur in LHS|No| `"Fabrikam" !contains "xyz"`
 `containscs` | RHS occurs as a subsequence of LHS|Yes| `"FabriKam" contains "Kam"`
 `!containscs`| RHS does not occur in LHS|Yes| `"Fabrikam" !contains "Kam"`
 `startswith`|RHS is an initial subsequence of LHS.|No|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS is not an initial subsequence of LHS.|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS is a terminal subsequence of LHS.|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS is not a terminal subsequence of LHS.|No|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contains a match for RHS|Yes| `"Fabrikam" matches regex "b.*k"`
+`in`|Equal to any of the elements|Yes|`"abc" in ("123", "345", "abc")`
+`!in`|Not equal to any of the elements|Yes|`"bc" !in ("123", "345", "abc")`
 
-
-Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains` or `startswith`. The first of these queries runs faster:
+Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains`, `startswith` or `endswith`. The first of these queries runs faster:
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
