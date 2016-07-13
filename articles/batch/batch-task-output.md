@@ -122,7 +122,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 The "output kind" parameter categorizes the persisted files. You can specify both [JobOutputKind][net_joboutputkind] and [TaskOutputKind][net_taskoutputkind] types. For job output files, the predefined kinds are "JobOutput" and "JobPreview"; for task output files, "TaskOutput", "TaskPreview", "TaskLog", and "TaskIntermediate". You can also define custom kinds if these are useful in your workflow.
 
-The "TaskOutput" and "TaskLog" types you to specify which type of outputs to list for a given task or a job. In other words, when you list the outputs for a job or task, you can filter the list on one of the output types. The output kind also designates where in the Azure portal a particular file will appear: "Task output files" for TaskOutputKind, and "Task logs" for TaskLogKind.
+The "TaskOutput" and "TaskLog" types you to specify which type of outputs to list for a given task or a job. In other words, when you list the outputs for a job or task, you can filter the list on one of the output types. The output kind also designates where in the Azure portal a particular file will appear: TaskOutput files will appear in "Task output files", and TaskLog files will appear in "Task logs".
 
 ### Store task logs
 
