@@ -35,14 +35,14 @@ Get started by choosing from one of five common trend analyses:
 These pre-built analyses are available later from the **View common types of telemetry analysis** button in the upper-left corner of the Trends window.
 
 ## Visualize trends in your application
-Application Insights Trends creates a time series visualization from your app's telemetry. Each time series visualization displays one type of telemetry, grouped by one property of that telemetry, over some time range. For example, you might want to view server requests, grouped by the country from which they originated, over the last 24 hours. In this example, each bubble on the visualization would represent a count of the server requests for some country/region during some hour.
+Application Insights Trends creates a time series visualization from your app's telemetry. Each time series visualization displays one type of telemetry, grouped by one property of that telemetry, over some time range. For example, you might want to view server requests, grouped by the country from which they originated, over the last 24 hours. In this example, each bubble on the visualization would represent a count of the server requests for some country/region during one hour.
 
+Use the controls at the top of the window to adjust what types of telemetry you view. First, choose the telemetry types in which you're interested:
+* **Telemetry Type** - Server requests, exceptions, depdendencies, or custom events
+* **Time Range** - Anywhere from the last 30 minutes to the last 3 days
+* **Group By** - Exception type, problem ID, failed method, role instance, country or region; or application version.
 
-
-Each bubble on the visualization represents either a count or a percentage of telemetry events that occured in a given time bucket, belonging to a given group.
-
-## Explore other trends
-TBD - the dropdowns at the top
+Then, click **Analyze Telemetry** to run the query.
 
 ## Filter
 TBD - the filters at the bottom
