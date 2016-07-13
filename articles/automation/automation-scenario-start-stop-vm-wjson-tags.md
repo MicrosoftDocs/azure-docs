@@ -23,9 +23,9 @@ The following scenario allows you to setup automated startup and shutdown of you
 
 When the Schedule tag is applied to a resource group, it will be applied to all virtual machines inside that resource group. If a schedule is also directly applied to a VM, the last schedule will take precedence in the following order:
 
-- Schedule applied to a resource group
-- Schedule applied to a resource group and virtual machine in the resource group
-- Schedule applied to a virtual machine
+1.  Schedule applied to a resource group
+2.  Schedule applied to a resource group and virtual machine in the resource group
+3.  Schedule applied to a virtual machine
 
 This scenario essentially takes a JSON string with a specified format and add it as a the value for a tag called Schedule.  Then a runbook lists all resource groups and virtual machines and identifies the schedules for each VM based on the scenarios listed above, then it will loop through these VM's with schedules attached and evaluate what action it should be taken, which can be stopped, shutdown, or ignored.
 
