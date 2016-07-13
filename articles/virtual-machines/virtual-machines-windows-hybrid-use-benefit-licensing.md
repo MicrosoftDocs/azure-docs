@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/03/2016"
+   ms.date="07/13/2016"
    ms.author="georgem"/>
 
 # Azure Hybrid Use Benefit for Windows Server
@@ -40,6 +40,11 @@ Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorag
 ```
 
 You can also read more about [uploading the VHD to Azure process](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
+
+> [AZURE.NOTE] Microsoft SQL Server, SharePoint Server, and Dynamics can also utilize your Software Assurance licensing. You still need to prepare the Windows Server image by installing your application components and providing license keys accordingly, then uploading the disk image to Azure. Review the appropriate documentation for running Sysprep with your application, such as:
+- [Considerations for Installing SQL Server using Sysprep](https://msdn.microsoft.com/library/ee210754.aspx)
+- [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx)
+
 
 > [AZURE.TIP] This article focuses on deploying Windows Server VMs, however you can also deploy Windows Client VMs in the same manner. In the following examples, you replace `Server` with `Client` appropriately.
 
