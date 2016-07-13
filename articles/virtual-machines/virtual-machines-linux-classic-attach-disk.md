@@ -168,7 +168,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, please con
 
 - Use the `discard` mount option in `/etc/fstab`, for example:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults,discard   1   2
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
 
 - Alternatively, you can run the `fstrim` command manually from the command-line, or add it to your crontab to run regularly:
 
