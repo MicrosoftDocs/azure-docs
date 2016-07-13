@@ -218,6 +218,7 @@ Property scoping helps you discover data assets where the search term is matched
 
 	![Azure Data Catalog--saved searches](media/data-catalog-get-started/data-catalog-saved-search.png)
 3. Select one of the actions you can take on the saved search (**Rename**, **Delete**, **Save As Default** search).
+
 	![Azure Data Catalog--saved search options](media/data-catalog-get-started/data-catalog-saved-search-options.png)
 
 ### Boolean operators
