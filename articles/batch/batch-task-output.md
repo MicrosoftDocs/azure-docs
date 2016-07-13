@@ -18,7 +18,7 @@
 
 # Output persistence for Azure Batch tasks
 
-Your Batch tasks typically produce some form of output that must be stored as the tasks complete, and then later retrieved--by other tasks in the job, the client application that executed the job, or both. This output might be files created by a task processing its input data, or log files associated with task execution. This article details a conventions-based method and .NET class library that you can use to persist such task output to Azure Blob storage for later retrieval, even after you delete your pools, jobs, and compute nodes.
+Your Batch tasks typically produce some form of output that must be stored as the tasks complete and then later retrieved--by other tasks in the job, the client application that executed the job, or both. This output might be files created by a task processing its input data, or log files associated with task execution. This article details a conventions-based method and .NET class library that you can use to persist such task output to Azure Blob storage for later retrieval, even after you delete your pools, jobs, and compute nodes.
 
 Following the conventions in this article will also allow you to see your task output in "Saved output files" and "Saved logs" in the [Azure portal][portal].
 
@@ -81,7 +81,7 @@ You can obtain the library--which contains new classes and extends the [CloudJob
 
 There are two primary actions to perform when saving job and task output with the file conventions library: creating the storage container and saving output to the container.
 
->[AZURE.WARNING] Because all job and task outputs are stored in the same container, [storage throttling limits](../storage/storage-performance-checklist#blobs) may be enforced if a large number of tasks try to persist files at the same time.
+>[AZURE.WARNING] Because all job and task outputs are stored in the same container, [storage throttling limits](../storage/storage-performance-checklist.md#blobs) may be enforced if a large number of tasks try to persist files at the same time.
 
 ### Create storage container
 
@@ -104,28 +104,25 @@ await job.PrepareOutputStorageAsync(storageAccount);
 
 Now that you've prepared a container in blob storage, each task can save its output to it by using the [TaskOutputStorage][net_taskoutputstorage] class found in the file conventions libary.
 
-In your task code, first create a [TaskOutputStorage][net_taskoutputstorage] object, then when it has completed its work, call the  [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] methond to save the output to Azure Storage.
+In your task code, first create a [TaskOutputStorage][net_taskoutputstorage] object, then when it has completed its work, call the  [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] method to save the output to Azure Storage.
 
 ```csharp
-TaskOutputStorage taskStorage =
-	new TaskOutputStorage(new Uri(jobContainerUrl), taskId);
+CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
+string jobId = Environment.GetEnvironmentVariable("AZ_BATCH_JOB_ID");
+string taskId = Environment.GetEnvironmentVariable("AZ_BATCH_TASK_ID");
 
-// ... Code to process data and produce output file here ...
+TaskOutputStorage taskOutputStorage = new TaskOutputStorage(
+	linkedStorageAccount, jobId, taskId);
+
+/* Code to process data and produce output file(s) */
 
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg");
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-The [TaskOutputKind][net_taskoutputkind] parameter designates where in the Azure portal a particular output file will appear. It also allows you to specify which type of outputs to list for a given task or a job (discussed later in this article).
+The "output kind" parameter categorizes the persisted files. You can specify both [JobOutputKind][net_joboutputkind] and [TaskOutputKind][net_taskoutputkind] types. For job output files, the predefined kinds are "JobOutput" and "JobPreview"; for task output files, "TaskOutput", "TaskPreview", "TaskLog", and "TaskIntermediate". You can also define custom kinds if these are useful in your workflow.
 
-The following table shows which TaskOutputKind causes an output file to appear in the different output blades in the portal.
-
-| [TaskOutputKind][net_taskoutputkind] | **Portal blade** |
-| ------------------------------------ | -------------- |
-| TaskOutput                           | image_here     |
-| TaskPreview                          | image_here     |
-| TaskLog                              | image_here     |
-| TaskIntermediate                     | image_here     |
+The "TaskOutput" and "TaskLog" types you to specify which type of outputs to list for a given task or a job. In other words, when you list the outputs for a job or task, you can filter the list on one of the output types. The output kind also designates where in the Azure portal a particular file will appear: "Task output files" for TaskOutputKind, and "Task logs" for TaskLogKind.
 
 ### Store task logs
 
@@ -179,6 +176,7 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [net_onidrange]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onidrange.aspx
 [net_prepareoutputasync]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_saveasync]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_joboutputkind]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_taskoutputkind]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/mt348682.aspx
