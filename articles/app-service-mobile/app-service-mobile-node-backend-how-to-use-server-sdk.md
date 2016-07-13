@@ -858,7 +858,7 @@ Refer to the following articles to get started in troubleshooting your Node.js M
 
 - [Monitoring an Azure App Service]
 - [Enable Diagnostic Logging in Azure App Service]
-- [Toubleshoot an Azure App Service in Visual Studio]
+- [Troubleshoot an Azure App Service in Visual Studio]
 
 Node.js applications have access to a wide range of diagnostic log tools.  Internally, the Azure Mobile Apps Node.js SDK uses [Winston] for diagnostic logging.  This is automatically enabled by enabling debug mode or by setting the **MS_DebugMode** app setting to true in the [Azure Portal].  Logs generated will appear in the Diagnostic Logs on the [Azure Portal].
 
@@ -927,7 +927,7 @@ The Azure portal lets you edit your Node.js backend script files in Visual Studi
 [Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
 [Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Troubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
