@@ -110,7 +110,7 @@ Detailed information about this structure:
            }
         }
 
-## Tagging resource groups or virtual machines
+## Tagging resource groups or VMs
 
 In order to shutdown VMs, you need to tag them or the resource groups where they are located. Virtual machines that do not have a Schedule tag are not evaluated, therefore they are not started nor shutdown. There are two ways to tag resource groups or VMs with this solution, directly from the portal or using the **Add-ResourceSchedule**, **Update-ResourceSchedule**, and **Remove-ResourceSchedule** runbooks. 
 
@@ -127,7 +127,7 @@ Follow these steps to tag a virtual machine or resource group in the Portal.
 3. Tags are defined following a Key/Value pair.  Type **Schedule** in the **Key** field and paste the JSON string into **Value** field and then click **Save**.  Your new tag should now appear in the list of tags for your resource.<br>![VM Schedule Tag](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 
-## Tagging from PowerShell
+### Tagging from PowerShell
 
 All imported runbooks contains help information at the beginning of the script to describe how to execute the runbooks directly from PowerShell.  The Add-ScheduleResource and Update-ScheduleResource runbooks can be called from PowerShell by passing required parameters allowing you to create or update the Schedule tag on a VM or resource group outside of the portal.  
 
@@ -197,7 +197,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
 >[AZURE.NOTE] It is recommended you proactively monitor these runbooks (and the virtual machine state) to verify that your virtual machines are being shutdown and started accordingly.  
 
-You can view the details of the **Test-ResourceSchedule** runbook job in the Azure portal by selecting the Jobs tile of the runbook.  The Summary of the job will display the input parameters and the Output Stream in addition to general information about the job and any exceptions if they occurred.  The History will include messages from the Output Stream and Warning and Error Streams.  Select the Output tile to view detailed results from runbook execution.<br> ![Test-ResourceSchedule Output](./media/automation-scenario-start-stop-vm-wjson-tags/automation-testresourceschedule-output.png)  
+You can view the details of the **Test-ResourceSchedule** runbook job in the Azure portal by selecting the Jobs tile of the runbook.  The Summary of the job will display the input parameters and the Output Stream in addition to general information about the job and any exceptions if they occurred.  The History will include messages from the Output Stream and Warning and Error Streams.  Select the Output tile to view detailed results from runbook execution.<br> ![Test-ResourceSchedule Output](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)  
 
 ## Next steps
 
