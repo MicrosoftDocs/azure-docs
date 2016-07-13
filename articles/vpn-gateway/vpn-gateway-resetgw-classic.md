@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="07/13/2016"
    ms.author="cherylmc"/>
 
 # Reset an Azure VPN Gateway using PowerShell
