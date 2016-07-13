@@ -78,7 +78,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 7. Click **Create Catalog** to create the data catalog for your organization. You will see the home page for the data catalog after it is created.
 	![Azure Data Catalog--created](media/data-catalog-get-started/data-catalog-created.png)    
 
-### Find a data catalog in an Azure portal
+### Find a data catalog in the Azure portal
 1. On a separate tab in the web browser or in a separate web browser window, go to the [Azure portal](https://portal.azure.com) and sign in with the same account that you used to create the data catalog in the previous step.
 2. Select **Browse** and then click **Data Catalog**.
 
