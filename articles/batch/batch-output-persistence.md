@@ -26,7 +26,7 @@ The tasks you run in your Batch jobs typically produce output files that must be
 
 ## Task output challenges
 
-Saving and retrieving task output presents several challenges:
+Storing and retrieving task output presents several challenges:
 
 * **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. The outputs of the tasks that run on a node are available only while the node exists, and only within the file retention time you've set for the task. To ensure that the task output is preserved, your tasks must therefore upload their output files to a durable store, for example, Azure Storage.
 
@@ -38,13 +38,13 @@ Saving and retrieving task output presents several challenges:
 
 ## Solving task output challenges
 
-The Batch team has addressed these challenges by introducing task output viewing support in the portal, as well as by supplying a helper library to assist you with task output storage and retrieval.
+The Batch team has addressed these challenges by introducing task output support in the portal, as well as by providing a .NET class library to make task output storage and retrieval easier.
 
 **Task output in the Azure portal**
 
-The Azure portal now supports viewing a task's outputs and logs directly. To enable this support for your tasks, you must satisfy the following two requirements:
+The Azure portal now supports viewing task outputs and logs directly. To enable this support, you must satisfy the following requirements:
 
- 1. [Linked Azure Storage account](#linked-storage-account)
+ 1. [Linked Azure Storage account](#requirement-linked-storage-account)
  2. Adherence to predefined Storage container and output file [name conventions](#requirement-name-conventions)
 
 **File conventions helper library**
