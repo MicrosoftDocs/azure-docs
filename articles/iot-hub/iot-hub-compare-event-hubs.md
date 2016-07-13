@@ -51,9 +51,8 @@ To further explore the capabilities of IoT Hub, see:
 [Security section of the IoT Hub developer guide]: iot-hub-devguide.md#security
 [Event Hub - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
 [Event Hub publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
-[Azure Service Bus Quotas]: ../service-bus/service-bus-quotas.md
+[Azure Service Bus quotas]: ../service-bus/service-bus-quotas.md
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-scaling]: iot-hub-scaling.md
