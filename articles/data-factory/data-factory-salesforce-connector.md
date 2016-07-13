@@ -73,13 +73,13 @@ This example uses the **Salesforce** linked service. See [Salesforce linked serv
 **Salesforce input dataset**
 
 	{
-		"name": "SalesforceDataSet",
+		"name": "SalesforceInput",
 		"properties": {
-			"linkedServiceName": " SalesforceLinkedService ",
+			"linkedServiceName": " SalesforceLinkedService",
 			"type": "RelationalTable",
 			"typeProperties": {
 				"tableName": "AllDataType__c"  
-		}
+			},
 			"availability": {
 				"frequency": "Hour",
 				"interval": 1
