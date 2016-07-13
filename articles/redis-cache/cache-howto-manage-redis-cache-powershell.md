@@ -680,7 +680,7 @@ To see a list of available parameters and their descriptions for `Export-AzureRm
 	        Format for the blob.  Currently "rdb" is the only supported, with other formats expected in the future.
 	
 	    -PassThru
-	        By default Export-AzureRmRedisCache export does not return any value. If the PassThru parameter is provided
+	        By default Export-AzureRmRedisCache does not return any value. If the PassThru parameter is provided
 	        then Export-AzureRmRedisCache returns a boolean value indicating the success of the operation.
 	
 	    <CommonParameters>
@@ -699,7 +699,7 @@ The following command exports data from an Azure Redis Cache instance into the c
 
 ## To reboot a Redis cache
 
-You can export data from an Azure Redis Cache instance using the `Reset-AzureRmRedisCache` cmdlet.
+You can reboot your Azure Redis Cache instance using the `Reset-AzureRmRedisCache` cmdlet.
 
 >[AZURE.IMPORTANT] Reboot is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about rebooting your cache, see [Cache administration - reboot](cache-administration.md#reboot).
 
@@ -740,7 +740,7 @@ To see a list of available parameters and their descriptions for `Reset-AzureRmR
 	        When the Force parameter is provided, reset will be performed without any confirmation prompts.
 	
 	    -PassThru
-	        By default Reset-AzureRmRedisCache reset does not return any value. If the PassThru parameter is provided
+	        By default Reset-AzureRmRedisCache does not return any value. If the PassThru parameter is provided
 	        then Reset-AzureRmRedisCache returns a boolean value indicating the success of the operation.
 	
 	    <CommonParameters>
