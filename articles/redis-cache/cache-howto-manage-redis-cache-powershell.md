@@ -645,7 +645,7 @@ You can export data from an Azure Redis Cache instance using the `Export-AzureRm
 
 To see a list of available parameters and their descriptions for `Export-AzureRmRedisCache`, run the following command.
 
-	PS C:\Users\sdanie> Get-Help Export-AzureRmRedisCache -detailed
+	PS C:\> Get-Help Export-AzureRmRedisCache -detailed
 	
 	NAME
 	    Export-AzureRmRedisCache
