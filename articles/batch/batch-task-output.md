@@ -20,7 +20,7 @@
 
 Your Batch tasks typically produce some form of output that must be stored as the tasks complete, and then later retrieved--by other tasks in the job, the client application that executed the job, or both. This output might be files created by a task processing its input data, or log files associated with task execution. This article details a conventions-based method and .NET class library that you can use to persist such task output to Azure Blob storage for later retrieval, even after you delete your pools, jobs, and compute nodes.
 
-Following the conventions in this article will also allow you to see your task output in the "Saved output files" and "Saved logs" blades in the the [Azure portal][portal].
+Following the conventions in this article will also allow you to see your task output in "Saved output files" and "Saved logs" in the [Azure portal][portal].
 
 ![Saved output files and Saved logs selectors in portal][1]
 
@@ -36,13 +36,13 @@ Storing and retrieving task output presents several challenges:
 
 * **Retrieving output**: If you wish to retrieve a task's output directly from a compute node, you must first determine which node the task executed on, and then download it from that node. If, however, your task stores its output to Azure Storage, you must write the code to first determine the full path to the file in Azure Storage, then to download the file using the Azure Storage SDK. There is currently no built-in feature of the Batch SDK to determine which output files are associated with a certain task--you must determine or track this manually.
 
-* **Viewing output**: Previously, if you wanted to view an individual task's outputs in the Azure portal, you first needed to determine which node it executed on, then navigate to that compute node to view its files. Alternatively, you needed to know where in Azure Storage the output was uploaded to, then navigate to it within your Azure Storage account in the portal. Batch now supports viewing task outputs directly in the portal, and in the next section, [Solving task output challenges](#solving-task-output-challenges), we show you how your jobs can use this feature.
+* **Viewing output**: Previously, if you wanted to view an individual task's outputs in the Azure portal, you first needed to determine which node it executed on, then navigate to that compute node to view its files. Alternatively, you needed to know where in Azure Storage the output was uploaded to, then navigate to it within your Azure Storage account in the portal. Batch now supports viewing task outputs directly in the portal, and in the next section, [Solving task output challenges](#solving-task-output-challenges), we show you how to use this feature.
 
 ## Solving task output challenges
 
 The Batch team has addressed these challenges by introducing job and task output viewing in the portal, as well as by providing a .NET class library to make task output storage and retrieval easier.
 
-**Task output in the Azure portal**
+**View task output in the Azure portal**
 
 The Azure portal now supports viewing task outputs and logs directly. To enable this support, you must satisfy the following requirements:
 
@@ -55,7 +55,7 @@ The [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) .
 
 ## Requirement: linked storage account
 
-To view task outputs in the Azure portal, you must link an Azure Storage account with your Batch account. If you haven't already, link a Storage account to your Batch account by using the [Azure portal][portal]:
+To view task outputs in the Azure portal, you must link an Azure Storage account to your Batch account. If you haven't already, link a Storage account to your Batch account by using the [Azure portal][portal]:
 
 **Batch account** blade > **Settings** > **Storage Account** > **Storage Account** (None) > Select a Storage account in your subscription
 
@@ -65,13 +65,13 @@ For a more detailed walk-through on linking a Storage account, see the [Link a s
 
 In order for your task outputs to be viewed in the Azure portal, you must adhere to strict naming conventions for blob storage containers and the files your tasks upload. When you save task output to Azure Storage, the Azure portal is able to discover the files associated with your jobs and tasks only if the files have been named using the conventions described in [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL).
 
-By following the conventions outlined in that document, you can name your task output files in such a way that the portal can discover which files are associated with which tasks. The Batch team has provided a .NET class library to act as both an example of how to implement these conventions, as well as a helper library that you can use in your own Batch .NET applications.
+By following the conventions outlined in that document, you can name your task output files in such a way that the portal can discover the files associated with your tasks. The Batch team has provided a .NET class library to act as both an example of how to implement these conventions, as well as a helper library that you can use in your own Batch .NET applications.
 
 ## Using the file conventions library
 
-[Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task code and client code--in task code to persist files, and in client code to list and retrieve them. Note, however, that your tasks can also implement the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
+[Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code to persist files, and in client code to list and retrieve them. Your tasks can also implement the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
 
-The conventions library takes care of ensuring everything is named correctly and is uploaded to the right place when persisting output. When you retrieve outputs, you can easily locate the outputs for a given job or task by listing or retrieving the outputs by ID and purpose. For example, you can use the library to "list all intermediate files for task 7," or "get me the thumbnail preview for job *mymovie*," without needing to know the file names or location within your Storage account.
+The conventions library takes care of ensuring that everything is named correctly and is uploaded to the right place when persisting output. When you retrieve outputs, you can easily locate the outputs for a given job or task by listing or retrieving the outputs by ID and purpose. For example, you can use the library to "list all intermediate files for task 7," or "get me the thumbnail preview for job *mymovie*," without needing to know the file names or location within your Storage account.
 
 ### Get the library
 
@@ -81,26 +81,28 @@ You can obtain the library--which contains new classes and extends the [CloudJob
 
 There are two primary actions to perform when saving job and task output with the file conventions library: creating the storage container and saving output to the container.
 
->[AZURE.IMPORTANT] Because all job and task outputs are stored in the same container, [storage throttling limits](../storage/storage-performance-checklist#blobs) may be enforced if a large number of tasks try to persist files at the same time.
+>[AZURE.WARNING] Because all job and task outputs are stored in the same container, [storage throttling limits](../storage/storage-performance-checklist#blobs) may be enforced if a large number of tasks try to persist files at the same time.
 
 ### Create storage container
 
-First, you must create a blob storage container to which the job's tasks will upload their output. Do this by calling [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. This extension method takes a [CloudStorageAccount][net_cloudstorageaccount] object as a parameter, and will create a container named in such a way that its contents are discoverable by the Azure portal and the retrieval methods discussed later in this article.
+Before your tasks begin persisting output to storage, you must create a blob storage container to which the they'll upload their output. Do this by calling [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. This extension method takes a [CloudStorageAccount][net_cloudstorageaccount] object as a parameter, and will create a container named in such a way that its contents are discoverable by the Azure portal and the retrieval methods discussed later in this article.
+
+You'll typically place this code in your client application--the application that creates your pools, jobs, and tasks.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
-	jobId,
+	"myJob",
 	new PoolInformation { PoolId = "myPool" });
 
-CloudStorageAccount storageAccount = new CloudStorageAccount(storageCred, true);
+CloudStorageAccount storageAccount = new CloudStorageAccount(myCredentials, true);
 
 // Create the blob storage container for the outputs
-job.PrepareOutputStorageAsync(storageAccount).Wait();
+await job.PrepareOutputStorageAsync(storageAccount);
 ```
 
 ### Store task outputs
 
-The code to store the task output is appropriately located in your task code--the program that executes on each compute node in a pool. Each task can save its output with the [TaskOutputStorage][net_taskoutputstorage] class found in the file conventions libary.
+Now that you've prepared a container in blob storage, each task can save its output to it by using the [TaskOutputStorage][net_taskoutputstorage] class found in the file conventions libary.
 
 In your task code, first create a [TaskOutputStorage][net_taskoutputstorage] object, then when it has completed its work, call the  [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] methond to save the output to Azure Storage.
 
@@ -110,7 +112,8 @@ TaskOutputStorage taskStorage =
 
 // ... Code to process data and produce output file here ...
 
-taskStorage.SaveAsync(TaskOutputKind.TaskOutput, pathToOutputFile),
+await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg");
+await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
 The [TaskOutputKind][net_taskoutputkind] parameter designates where in the Azure portal a particular output file will appear. It also allows you to specify which type of outputs to list for a given task or a job (discussed later in this article).
