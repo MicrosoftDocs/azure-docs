@@ -582,7 +582,7 @@ In the following example, the cache named `myCache` is removed.
 
 You can import data into an Azure Redis Cache instance using the `Import-AzureRmRedisCache` cmdlet.
 
->[AZURE.IMPORT] Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about Import/Export, see [Import and Export data in Azure Redis Cache](cache-how-to-import-export-data.md).
+>[AZURE.IMPORTANT] Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about Import/Export, see [Import and Export data in Azure Redis Cache](cache-how-to-import-export-data.md).
 
 To see a list of available parameters and their descriptions for `Import-AzureRmRedisCache`, run the following command.
 
@@ -641,7 +641,7 @@ The following command imports data from the blob specified by the SAS uri into A
 
 You can export data from an Azure Redis Cache instance using the `Export-AzureRmRedisCache` cmdlet.
 
->[AZURE.IMPORT] Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about Import/Export, see [Import and Export data in Azure Redis Cache](cache-how-to-import-export-data.md).
+>[AZURE.IMPORTANT] Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about Import/Export, see [Import and Export data in Azure Redis Cache](cache-how-to-import-export-data.md).
 
 To see a list of available parameters and their descriptions for `Export-AzureRmRedisCache`, run the following command.
 
@@ -701,7 +701,7 @@ The following command exports data from an Azure Redis Cache instance into the c
 
 You can export data from an Azure Redis Cache instance using the `Reset-AzureRmRedisCache` cmdlet.
 
->[AZURE.IMPORT] Reboot is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about rebooting your cache, see [Cache administration - reboot](cache-administration.md#reboot).
+>[AZURE.IMPORTANT] Reboot is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about rebooting your cache, see [Cache administration - reboot](cache-administration.md#reboot).
 
 To see a list of available parameters and their descriptions for `Reset-AzureRmRedisCache`, run the following command.
 
@@ -737,10 +737,10 @@ To see a list of available parameters and their descriptions for `Reset-AzureRmR
 	        Which shard to reboot when rebooting a premium cache with clustering enabled.
 	
 	    -Force
-	        When the Force parameter is provided, export will be performed without any confirmation prompts.
+	        When the Force parameter is provided, reset will be performed without any confirmation prompts.
 	
 	    -PassThru
-	        By default Reset-AzureRmRedisCache export does not return any value. If the PassThru parameter is provided
+	        By default Reset-AzureRmRedisCache reset does not return any value. If the PassThru parameter is provided
 	        then Reset-AzureRmRedisCache returns a boolean value indicating the success of the operation.
 	
 	    <CommonParameters>
