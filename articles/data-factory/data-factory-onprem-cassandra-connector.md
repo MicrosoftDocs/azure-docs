@@ -254,7 +254,7 @@ Azure Data Factory uses a built-in ODBC driver to connect to and copy data from 
 
 Virtual tables refer to the data in the real table, enabling the driver to access the denormalized data. See Example section below for details. You can access the content of Cassandra collections by querying and joining the virtual tables.
 
-You can leverage the [Copy Wizard](data-factory-data-movement-activities.md/#data-factory-copy-wizard) to intuitively view the list of tables in Cassandra database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
+You can leverage the [Copy Wizard](data-factory-data-movement-activities.md#data-factory-copy-wizard) to intuitively view the list of tables in Cassandra database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
 
 ### Example
 For example, “ExampleTable” below is a Cassandra database table that contains an integer primary key column named “pk_int”, a text column named value, a list column, a map column, and a set column (named “StringSet”).
