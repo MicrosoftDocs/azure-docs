@@ -242,6 +242,13 @@ For resource types that are largely accessed through another resource, you can u
 
 1. Assign publicIPAddresses to a virtual machine only when required for an application. To connect for debug, management or administrative purposes, use either inboundNatRules, virtualNetworkGateways or a jumpbox.
 
+     For more information about connecting to virtual machines, see:
+     - [Running VMs for an N-tier architecture on Azure](./guidance/guidance-compute-3-tier-vm.md)
+     - [Setting up WinRM access for Virtual Machines in Azure Resource Manager](./virtual-machines/virtual-machines-windows-winrm.md)
+     - [Allow external access to your VM using the Azure Portal](./virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md)
+     - [Allow external access to your VM using PowerShell](./virtual-machines/virtual-machines-windows-nsg-quickstart-powershell.md)
+     - [Opening ports and endpoints](./virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+
 1. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be between 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function will generate a string that is 13 characters long in the example below it is presumed that the dnsPrefixString prefix string has been checked to be no more than 50 characters long and to conform to those rules.
 
         "parameters": {
