@@ -49,7 +49,7 @@ These release notes summarize changes from previous releases and known issues.
 - [July 2014 Release](#july_changes_14)
 - [May 2014 Release](#may_changes_14)
 - [April 2014 Release](#april_changes_14) 
-- [January\February 2014 Releases](#jan_feb_changes_14) 
+- [January/February 2014 Releases](#jan_feb_changes_14) 
 - [December 2013 Release](#december_changes_13)
 - [November 2013 Release](#november_changes_13)
 - [August 2013 Release](#august_changes_13)
@@ -350,7 +350,7 @@ Currently, you have the following two options to solve the problem.
 * Create a SAS url to download (or progressively play) the .mp4. For more information about how to create a SAS locator, see [Delivering Content].
 
 
-### <a id="sept_14_GA_changes"></a>New features\scenarios that are part of GA release
+### <a id="sept_14_GA_changes"></a>New features/scenarios that are part of GA release
 
 * **Indexer Media Processor**. For more information see [Indexing Media Files with Azure Media Indexer].
 
@@ -369,7 +369,7 @@ Currently, you have the following two options to solve the problem.
 
 	For more information, see the **CustomHostNames** property in the [StreamingEndpoint] topic.
 
-### <a id="sept_14_preview_changes"></a>New features\scenarios that are part of the public preview release
+### <a id="sept_14_preview_changes"></a>New features/scenarios that are part of the public preview release
 
 * Live Streaming Preview. For more information, see [Working with Azure Media Services Live Streaming].
 
@@ -435,7 +435,7 @@ For more information, see [Retry Logic in the Media Services SDK for .NET].
 * Fixed a bug related to transcoding of MP4s where the audio has been encoded with MPEG-1 Audio layer 3 (aka MP3).
 
 
-##<a id="jan_feb_changes_14"></a>January\February 2014 Releases
+##<a id="jan_feb_changes_14"></a>January/February 2014 Releases
 
 ### <a name="jan_fab_14_donnet_changes"></a>Azure Media Services .NET SDK 3.0.0.1, 3.0.0.2 and 3.0.0.3
 
