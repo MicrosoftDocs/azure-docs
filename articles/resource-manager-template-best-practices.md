@@ -56,7 +56,7 @@ Storage accounts with a uniqueString prefix will not get clustered on the same r
 
 ### Resource names for identification
 
-For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a name that identifies both its context and resource type. You'll want to provide a descriptive name that helps you easily determine its use from a list of resource names. If you need to vary the resource name during deployments, use a parameter for the name:
+For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a name that identifies both its context and resource type. You'll want to provide a descriptive name that helps you recognize it from a list of resource names. If you need to vary the resource name during deployments, use a parameter for the name:
 
     "parameters": {
         "vmName": { 
@@ -97,7 +97,7 @@ For resource types that are largely accessed through another resource, you can u
 1. Minimize parameters whenever possible. If you can use a variable or a literal, do so. Only provide parameters for:
  - Settings you wish to vary by environment (such as sku, size, or capacity).
  - Resource names you wish to specify for easy identification.
- - Values you may use often to complete other tasks (such as admin user name).
+ - Values you use often to complete other tasks (such as admin user name).
  - Secrets (such as passwords)
  - The number or array of values to use when creating multiple instances of a resource type.
 
@@ -155,9 +155,9 @@ For resource types that are largely accessed through another resource, you can u
 
 ## Variables 
 
-1. Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value will make your template more readable.
+1. Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value will make your template easier to read.
 
-1. You cannot use the [reference](resource-group-template-functions.md#reference) function in the variables section. The reference function derives its value from the resource's runtime state, but variables are resolved during the initial parsing of the template.
+1. You cannot use the [reference](resource-group-template-functions.md#reference) function in the variables section. The reference function derives its value from the resource's runtime state, but variables are resolved during the initial parsing of the template. Instead, construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
 
 1. Include variables for resource names that need to be unique, as shown in [Resource names](#resource-names).
 
