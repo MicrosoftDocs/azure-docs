@@ -19,9 +19,9 @@
 
 # Choose a SKU or pricing tier for Azure Search
 
-During [creation of an Azure Search service](search-create-service-portal.md), you will need to specify which tier or SKU to provision the service at. Choices include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple resource configurations and capacities.
+During [service provisioning](search-create-service-portal.md), you will need to specify which SKU or pricing tier to use. Choices include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple resource configurations and capacities.
 
-We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for demonstration or testing. You can use the **Free** service for testing and evaluation and a billable service for production workloads.
+We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for demonstration or testing. You can use the **Free** service for testing and evaluation, and then create a second billable service for production or larger test workloads.
 
 In Azure Search, the SKU determines capacity, not feature availability. All features are available at every pricing tier.
 
