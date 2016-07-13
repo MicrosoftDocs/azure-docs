@@ -212,7 +212,16 @@ For resource types that are largely accessed through another resource, you can u
             }
         }
 
-     If you have other values in your template configured with a public namespace, change these to reflect the same reference function. For example the storageUri property of the virtual machine diagnosticsProfile.
+     If the storage account is deployed in the same template, you do not need to specify the provider namespace when referencing the resource. The simplified syntax is:
+     
+        "osDisk": {
+            "name": "osdisk",
+            "vhd": {
+                "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+            }
+        }
+
+     If you have other values in your template configured with a public namespace, change these to reflect the same reference function. For example, the storageUri property of the virtual machine diagnosticsProfile.
 
         "diagnosticsProfile": {
             "bootDiagnostics": {
@@ -267,17 +276,17 @@ For resource types that are largely accessed through another resource, you can u
 
 ## Outputs
 
-If a template creates any new **publicIPAddresses** then it should have an **output** section that provides details of the IP address and fully qualified domain created to easily retrieve these details after deployment. 
+If a template creates any new **publicIPAddresses** then it should have an **output** section that provides details of the IP address and fully qualified domain created to easily retrieve these details after deployment. When referencing the resource, use the API version that was used to create it. 
 
 ```
 "outputs": {
     "fqdn": {
-        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).dnsSettings.fqdn]",
+        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName')), '2016-07-01').dnsSettings.fqdn]",
         "type": "string"
     },
     "ipaddress": {
-        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).ipAddress]",
- 	      "type": "string"
+        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName')), '2016-07-01').ipAddress]",
+        "type": "string"
     }
 }
 ```
