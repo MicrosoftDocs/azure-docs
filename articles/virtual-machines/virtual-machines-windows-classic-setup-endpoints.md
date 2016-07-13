@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="07/13/2016"
 	ms.author="cynthn"/>
 
 # How to set up endpoints on a classic virtual machine in Azure
