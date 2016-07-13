@@ -261,7 +261,7 @@ As you accumulate more data, you can run queries both to aggregate data and to f
 ![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
 
-## 5. Install your app on the server
+## 7. Install your app on the server
 
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
 
