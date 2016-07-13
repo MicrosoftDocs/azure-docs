@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Troubleshoot SSH connection to an Azure VM | Microsoft Azure"
+	pageTitle="SSH connection to a Linux VM is refused, fails or errors out | Microsoft Azure"
 	description="Troubleshoot and fix SSH errors like SSH connection failed or SSH connection refused for an Azure virtual machine running Linux."
-	keywords="ssh connection refused,ssh error,azure ssh,SSH connection failed"
+	keywords="ssh connection refused, ssh error, azure ssh, SSH connection failed"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,13 +14,13 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Troubleshoot SSH connection to an Azure VM
+# Troubleshoot SSH connection to a Azure Linux VM that fails, errors out or is refused
 
-There are various reasons that you might get Secure Shell (SSH) errors when you try to connect to a Linux-based Azure virtual machine (VM). This article will help you find and correct the problems.
+There are various reasons that you might get Secure Shell (SSH) errors, SSH connection fails or is refused when you try to connect to a Linux-based Azure virtual machine (VM). This article will help you find and correct the problems.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -125,7 +125,7 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 
 - Check the VM's resource health for any platform issues.<br>
 	 Select **Browse** > **Virtual Machines (classic)** > *your Linux virtual machine* > **Settings** > **Check Health**.
-	 
+
 
 ## Additional resources
 

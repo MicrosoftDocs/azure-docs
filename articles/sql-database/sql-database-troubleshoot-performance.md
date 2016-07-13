@@ -1,11 +1,12 @@
 <properties
-	pageTitle="How to evaluate and improve database performance in Azure SQL Database"
-	description="Describes how to evaluate and improve database performance"
+	pageTitle="SQL Database performance tuning tips | Microsoft Azure"
+	description="Tips for performance tuning in Azure SQL Database through evaluation and improvement."
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="sql performance tuning, database performance tuning, sql performance tuning tips, sql database performance tuning"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="07/06/2016"
 	ms.author="v-shysun"/>
 
-# How to evaluate and improve database performance in Azure SQL Database
-You can change the [service tier](sql-database-service-tiers.md) of a single database or increase the eDTUs of an elastic database pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance.
+# SQL Database performance tuning tips
+You can change the [service tier](sql-database-service-tiers.md) of a single database or increase the eDTUs of an elastic database pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance. This article provides guidance for performance tuning in SQL Database.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 

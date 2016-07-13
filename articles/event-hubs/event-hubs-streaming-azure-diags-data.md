@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Streaming Azure Diagnostics data in the hot path using Event Hubs | Microsoft Azure"
-   description="Illustrates how to configure Azure Diagnostics with Event Hubs from end to end, including guidance for common scenarios."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="tomarcher"
-   manager="douge"
-   editor="" />
+	pageTitle="Streaming Azure Diagnostics data in the hot path using Event Hubs | Microsoft Azure"
+	description="Illustrates how to configure Azure Diagnostics with Event Hubs from end to end, including guidance for common scenarios."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor="" />
 <tags
-   ms.service="event-hubs"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/12/2016"
-   ms.author="tarcher" />
+	ms.service="event-hubs"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="07/12/2016"
+	ms.author="sethm" />
 
 # Streaming Azure Diagnostics data in the hot path by using Event Hubs
 
