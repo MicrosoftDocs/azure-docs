@@ -43,7 +43,7 @@ See the Prerequisite section of [Using Azure PowerShell with Azure Resource Mana
 
 ## Create an Azure Data Lake Store account
 
-1. From your desktop, open a new Azure PowerShell window, and enter the following snippet to log in to your Azure account, set the subscription, and register the Data Lake Store provider. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:
+1. From your desktop, open a new Windows PowerShell window, and enter the following snippet to log in to your Azure account, set the subscription, and register the Data Lake Store provider. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:
 
         # Log in to your Azure account
 		Login-AzureRmAccount
