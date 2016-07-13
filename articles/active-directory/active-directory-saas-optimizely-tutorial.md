@@ -142,26 +142,47 @@ Optimizely application expects the SAML assertions to contain an attribute named
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
 
 
-    a. In the Sign ON URL textbox, type a URL using the following pattern: **“https://app.optimizely.net/<companyname\>”**.
+    a. In the **Sign On URL** textbox, type: `https://app.optimizely.net/contoso`
 
-	b. In the IDENTIFIER type the URL in the following pattern: **"urn:auth0:optimizely:<companyname\>"**
+	b. In the **Identifier** textbox, type: `urn:auth0:optimizely:contoso`
 
-	c. Click **Next**. Please note that these are not the real values, you will have to update these values after Optimizely provides you with the real Sign On URL (SP-initiated SSO) and IDENTIFIER (Service Provider Entity ID).
+	c. Click **Next**. 
 
-7. On the **Configure single sign-on at Optimizely** page, Click **Download certificate**, and then save the file on your computer.
+
+	> [AZURE.NOTE] The values for the **Sign On URL** and **Identifier** are only placeholders for the actual values. You can find instructions for aquiring the actual values from Optimizely later in this tutorial.
+
+7. On the **Configure single sign-on at Optimizely** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_08.png)
 
-8. To get SSO configured for your application, contact your Optimizely Account Manager and he will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded certificate file with the Single Sign-ON Service URL. Then, they will provide the Sign On URL (SP-initiated SSO) and IDENTIFIER (Service Provider Entity ID) values.
+    a. Click **Download certificate**, and then save the file on your computer.
 
-9. With the information provided by Optimizely, go back to **Configure App Settings** dialog page and update the following values:
+    b. Copy the **Single Sign-On Service URL**.
 
-	a. The Sign ON URL with the SP-initiated SSO URL.
+8. To get SSO configured for your application, contact your Optimizely Account Manager and provide the following information:
 
-	b. The IDENTIFIER with the Service Provider Entity ID.
-10. Click next and go to **Configure single sign-on at Optimizely** page. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    - Your downloaded certificate 
+    - The Single Sign-On Service URL
+ 
+    In response to your email, Optimizely provides you with the Sign On URL (SP-initiated SSO) and the Identifier (Service Provider Entity ID) values.
+
+9. Go back to **Configure App Settings** dialog page, and then perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
+
+	a. In the **Sign On URL** textbox, type the **SP-initiated SSO URL** provided by Optimizely.
+
+	b. In the **Identifier** textbox, type the **Service Provider Entity ID** provided by Optimizely.
+
+    c. Click **Next**.
+
+10. On the **Configure single sign-on at Optimizely** page, perform the following steps:
 	
 	![Azure AD Single Sign-On][10]
+
+    a. Select the single sign-on configuration confirmation.
+
+    b. Click **Next**.
 
 11. On the **Single sign-on confirmation** page, click **Complete**.  
   	
