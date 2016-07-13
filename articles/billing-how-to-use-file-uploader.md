@@ -30,7 +30,7 @@ Follow these guidelines when you use the File Upload utility:
 - You can’t upload more than one file.
 - Files can’t be larger than 4 MB.
 
-## Table of allowed file name extensions
+## Table of the allowed file name extensions
 
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
