@@ -448,8 +448,10 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 ### Sample linked service and dataset definitions 
 Scenario | Host in linked service definition | folderPath in dataset definition
 -------- | --------------------------------- | --------------------- |
-Local folder on Data Management Gateway machine: <br/><br/>e.g. D:\\\* or D:\folder\subfolder\\* | D:\\\\ (for gateway version 2.0 and above) <br/><br/> localhost (for gateway version below 2.0) | .\\\\ or folder\\\\subfolder (for gateway version 2.0 and above) <br/><br/>D:\\\\ or D:\\\\folder (for gateway version below 2.0)
+Local folder on Data Management Gateway machine: <br/><br/>e.g. D:\\\* or D:\folder\subfolder\\* | D:\\\\ (for gateway version 2.0 and above) <br/><br/> localhost (for gateway version below 2.0) | .\\\\ or folder\\\\subfolder (for gateway version 2.0 and above) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0)
 Remote shared folder: <br/><br/>e.g. \\\\myserver\\share\\\*  or \\\\myserver\\share\\folder\\subfolder\\* | \\\\\\\\myserver\\\\share | .\\\\ or folder\\\\subfolder
+
+You can find the **version** of the gateway installed by launching [Data Management Gateway Configuration Manager](data-factory-data-management-gateway.md#data-management-gateway-configuration-manager) on your machine and switching to the **Help** tab. 
 
 > [AZURE.NOTE] For local folder scenario, by specifying “host” property as “localhost”, your copy activity run will still work with any gateway version, but you cannot use Copy Wizard to set up the copy. You are suggested to [upgrade your gateway to version 2.0 or above](data-factory-data-management-gateway.md#update-data-management-gateway), then you can use above new configurations through both JSON and Copy Wizard to make your scenario work.
 
