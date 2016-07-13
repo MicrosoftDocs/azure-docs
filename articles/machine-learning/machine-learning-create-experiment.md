@@ -31,7 +31,7 @@ Machine Learning Studio makes it easy to set up an experiment using drag-and-dro
 
 Enter Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net), and click the **Get started** button. Choose either the Guest Access or sign in with your Microsoft account.
 
-For more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+For more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 ## Five steps to create an experiment
 
