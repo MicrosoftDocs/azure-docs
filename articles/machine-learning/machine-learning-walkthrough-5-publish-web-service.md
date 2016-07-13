@@ -99,7 +99,7 @@ You can deploy the experiment as either a classic web service or a new web servi
 
 ### Deploy as a classic web service ###
 
-To deploy a classic web service derived from our experiment, click **Deploy Web Service** below the canvas. Machine Learning Studio deploys the experiment as a web service and takes you to the dashboard for that web service. From here you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (**Test** button - see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this walkthrough).
+To deploy a classic web service derived from our experiment, click **Deploy Web Service**  below the canvas and select **Deploy Web Service [New]**. Machine Learning Studio deploys the experiment as a web service and takes you to the dashboard for that web service. From here you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (**Test** button - see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this walkthrough).
 
 ![Web service dashboard][6]
 
@@ -109,7 +109,7 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 
 ### Deploy as a new web service
 
-To deploy a new web service derived from our experiment, click **[Preview] Deploy Web Service** below the canvas. Machine Learning Studio transfers you to the Azure Machine Learning Web Services Deploy Experiment page.
+To deploy a new web service derived from our experiment, click **Deploy Web Service**  below the canvas and **Deploy Web Service [New]**. Machine Learning Studio transfers you to the Azure Machine Learning Web Services Deploy Experiment page.
 
 Enter a name for the web service and elect a pricing plan. If you have an existing pricing plan you can select it, otherwise you must create a new price plan for the service. 
 
@@ -124,7 +124,7 @@ You can configure the service by clicking the **Configure** menu option. Here yo
 To test the web service select click the **Test** menu option (see **Test the web service** below). For information on creating applications that can access the web service, click the **Consume** menu option (more on that in the next step of this walkthrough).
 
 
-> [AZURE.TIP] You can update the web service after you've deployed it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **Deploy Web Service** or **(Preview) Deploy Web Service**. When you deploy the experiment again, it will replace the web service, now using your updated model.  
+> [AZURE.TIP] You can update the web service after you've deployed it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **Deploy Web Service**. Then select **Deploy Web Service [Classic]** or **Deploy Web Service [New]**. When you deploy the experiment again, it will replace the web service, now using your updated model.  
 
 
 ## Test the web service

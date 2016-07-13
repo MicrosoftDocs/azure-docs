@@ -116,7 +116,7 @@ experiment](machine-learning-convert-training-experiment-to-scoring-experiment.m
 ### The web service
 
 Once you’re satisfied that your predictive experiment is ready, you can deploy your service as either a classic web service or a new web service based on Azure Resource Manager.
-To operationalize your model by deploying it as a *classic web service*, click **Deploy Web Service**. To deploy as *new web service*, click **[Preview] Deploy Web Service**. Users can now send data to your model using
+To operationalize your model by deploying it as a *classic web service*, click **Deploy Web Service** and select **Deploy Web Service [Classic]**. To deploy as *new web service*, click **Deploy Web Service** and select **Deploy Web Service [New]**. Users can now send data to your model using
 the web service REST API and receive back the results. For more
 information on how to do this, see [How to consume an Azure Machine
 Learning web service that has been deployed from a Machine Learning
@@ -151,7 +151,7 @@ After you’ve iterated on your experiment and are satisfied with it:
 
 2.  Click **Run**
 
-3.  Click **Deploy Web Service** or **[Preview] Deploy Web Service**
+3. Click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** depending on the environment to which you want to deploy.
 
 Your web service is now deployed, and you can access and manage it just
 like a predictive web service.
@@ -174,10 +174,10 @@ service buttons perform these functions:
 |Training experiment|**Set Up Web Service**|Gives two options|
 |&nbsp;|- **Update Predictive Experiment**|Updates the associated predictive experiment with changes you’ve made to the training experiment|
 |&nbsp;|- **Retraining Web Service**|Converts the training experiment into a retraining experiment (see the "Updating" section below)|
-|&nbsp;|-*or*- **Deploy Web Service**|If you have set up the retraining experiment for deployment, then this deploys it as a classic web service|
-|&nbsp;|-*or*- **(Preview) Deploy Web Service**|If you have set up the retraining experiment for deployment, then this deploys it as a new web service|
-|Predictive experiment|**Deploy Web Service**|Deploys the predictive experiment as a classic web service|
-|Predictive experiment|**(Preview) Deploy Web Service**|Deploys the predictive experiment as a new web service|
+|&nbsp;|-*or*- **Deploy Web Service [Classic]** |If you have set up the retraining experiment for deployment, then this deploys it as a classic web service|
+|&nbsp;|-*or*- **Deploy Web Service [New]** |If you have set up the retraining experiment for deployment, then this deploys it as a new web service|
+|Predictive experiment|**Deploy Web Service [Classic]** |Deploys the predictive experiment as a classic web service|
+|Predictive experiment|**Deploy Web Service [New]** |Deploys the predictive experiment as a new web service|
 
 **Experiment does *not* contain a predictive model**
 
@@ -187,8 +187,8 @@ web service buttons are much simpler:
 |**Type of experiment**|**Button**|**What it does**|
 | -------------------- | -------- | -------------- |
 |Experiment under development|**Set Up Web Service**|Prepares the experiment for deploying as a web service|
-|Experiment prepared for deployment|**Deploy Web Service**|Deploys the experiment as a web service, opens classic web service configuration page|
-|&nbsp;|-*or*- **(Preview) Deploy Web Service**| Deploys as a new web service|
+|Experiment prepared for deployment|***Deploy Web Service [Classic]**|Deploys the experiment as a web service, opens classic web service configuration page|
+|&nbsp;|-*or*- **Deploy Web Service [New]**| Deploys as a new web service|
 
 ## Updating your web service
 
@@ -202,7 +202,7 @@ web service manipulates data**
 
 If you’re not changing the model but are just changing how the web
 service handles data, you can edit the predictive experiment and then
-click **Deploy Web Service** or **[Preview] Deploy Web Service** again. The web service will be stopped, the
+click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** again. The web service will be stopped, the
 updated predictive experiment will be deployed, and the web service will
 start up again.
 
@@ -211,7 +211,7 @@ row of input data with the predicted result. You may decide that you
 want the web service to just return the result. So you can add a
 **Project Columns** module in the predictive experiment, right before
 the output port, to exclude columns other than the result. When you
-click **Deploy Web Service**  or **[Preview] Deploy Web Service** again, the web service is updated.
+click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** again, the web service is updated.
 
 **You want to retrain the model with new data**
 

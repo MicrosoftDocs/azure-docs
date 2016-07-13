@@ -39,7 +39,7 @@ To deploy an experiment as a new web service. Sign into the Machine Learning Stu
 
 **Note**: If you have already deployed an experiment as a classic web service you cannot deploy it as a new web service.
  
-Click **Run** at the bottom of the experiment canvas and then click **[Preview] Deploy Web Service**. The deployment page of the Machine Learning Web Service manager will open.
+Click **Run** at the bottom of the experiment canvas and then click **Deploy Web Service** and **Deploy Web Service [New]**. The deployment page of the Machine Learning Web Service manager will open.
 
 ## Machine Learning Web Service Manager Deploy Experiment Page
 On the Deploy Experiment page, enter a name for the web service.

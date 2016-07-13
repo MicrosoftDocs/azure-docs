@@ -69,7 +69,7 @@ As an example, let's assume we have an experiment with a [Export Data][writer] m
 
 6.	Click **Run**. 
 
-7.	Click **Deploy Web Service** or **[Preview] Deploy Web Service** to deploy the web service.
+7.	Click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** to deploy the web service.
 
 The user of the web service can now specify a new destination for the [Export Data][writer] module when accessing the web service.
 

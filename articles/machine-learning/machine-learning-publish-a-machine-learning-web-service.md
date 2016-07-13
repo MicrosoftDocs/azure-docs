@@ -59,7 +59,7 @@ The following steps describe deploying a predictive experiment as a [new] web we
 
 Now that the predictive experiment has been sufficiently prepared, you can deploy it as an Azure web service. Using the web service, users can send data to your model and the model will return its predictions.
 
-To deploy your predictive experiment, click **Run** at the bottom of the experiment canvas. Once the experiment has finished running, click **(Preview) Deploy Web Service**.  The deployment page of the Machine Learning Web Service portal will open. 
+To deploy your predictive experiment, click **Run** at the bottom of the experiment canvas. Once the experiment has finished running, click **Deploy Web Service** and select **Deploy Web Service [New]**.  The deployment page of the Machine Learning Web Service portal will open. 
 
 ### Machine Learning Web Service Portal Deploy Experiment Page
 On the Deploy Experiment page, enter a name for the web service.
