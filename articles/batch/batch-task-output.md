@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Persisting job and task output in Azure Batch | Microsoft Azure"
+	pageTitle="Task output persistence in Azure Batch | Microsoft Azure"
 	description="Use the "
 	services="batch"
 	documentationCenter=".net"
@@ -13,14 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/16/2016"
+	ms.date="07/18/2016"
 	ms.author="marsma" />
 
-# Store and retrieve task output
+# Output persistence for Azure Batch tasks
 
-The tasks you run in your Batch jobs typically produce output files that must be stored and then retrieved--by other tasks in the job, the application or service that executed the job, or both. This article details a conventions-based method and helper library that you can use to persist your task output to Azure Blob storage, associate that output with the job and its tasks, and then retrieve the output in a job- and task-centric manner. Following the conventions in this article will also allow you to see your task output in the "Saved output files" and "Saved logs" blades in the the [Azure portal][portal].
+Your Batch tasks typically produce some form of output that must be stored as the tasks complete, and then later retrieved--by other tasks in the job, the client application that executed the job, or both. This output might be files created by a task processing its input data, or log files associated with task execution. This article details a conventions-based method and .NET class library that you can use to persist such task output to Azure Blob storage for later retrieval, even after you delete your pools, jobs, and compute nodes.
 
-**[screenshot of portal tiles here]**
+Following the conventions in this article will also allow you to see your task output in the "Saved output files" and "Saved logs" blades in the the [Azure portal][portal].
+
+![Saved output files and Saved logs selectors in portal][1]
 
 >[AZURE.NOTE] The file storage and retrieval method discussed here provides similar functionality to the way **Batch Apps** (now deprecated) managed its task outputs.
 
@@ -185,6 +187,4 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [nuget_package]: https://www.nuget.org/packages/Azure.Batch/
 [portal]: https://portal.azure.com
 
-[1]: ./media/batch-task-dependency/01_one_to_one.png "Diagram: one-to-one dependency"
-[2]: ./media/batch-task-dependency/02_one_to_many.png "Diagram: one-to-many dependency"
-[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: task id range dependency"
+[1]: ./media/batch-task-output/task-output-01.png "Saved output files and Saved logs selectors in portal"
