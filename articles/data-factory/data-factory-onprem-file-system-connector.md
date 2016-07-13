@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/13/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from On-premises file system using Azure Data Factory
@@ -437,13 +437,21 @@ You can link an On-premises File System to an Azure Data Factory with On-Premise
 Property | Description | Required
 -------- | ----------- | --------
 type | The type property should be set to **OnPremisesFileServer** | Yes 
-host | Host name of the server. Use ‘ \ ’ as the escape character as in the following example: if your share is: \\servername, specify \\\\servername.<br/><br/>If the file system is local to the gateway machine, use Local or localhost. If the file system is on a server different from the gateway machine, use \\\\servername. | Yes
+host | Root path of the folder you want to copy. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. | Yes
 userid  | Specify the ID of the user who has access to the server | No (if you choose encryptedCredential)
 password | Specify the password for the user (userid) | No (if you choose encryptedCredential 
 encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet<br/><br/>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureRmDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService | No (if you choose to specify userid and password in plain text)
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises File System data source.
+
+### Sample linked service and dataset definitions 
+Scenario | Host in linked service definition | folderPath in dataset definition
+-------- | --------------------------------- | --------------------- |
+Local folder on Data Management Gateway machine: <br/><br/>e.g. D:\\\* or D:\folder\subfolder\\* | D:\\\\ (for gateway version 2.0 and above) <br/><br/> localhost (for gateway version below 2.0) | .\\\\ or folder\\\\subfolder (for gateway version 2.0 and above) <br/><br/>D:\\\\ or D:\\\\folder (for gateway version below 2.0)
+Remote shared folder: <br/><br/>e.g. \\\\myserver\\share\\\*  or \\\\myserver\\share\\folder\\subfolder\\* | \\\\\\\\myserver\\\\share | .\\\\ or folder\\\\subfolder
+
+> [AZURE.NOTE] For local folder scenario, by specifying “host” property as “localhost”, your copy activity run will still work with any gateway version, but you cannot use Copy Wizard to set up the copy. You are suggested to [upgrade your gateway to version 2.0 or above](data-factory-data-management-gateway.md#update-data-management-gateway), then you can use above new configurations through both JSON and Copy Wizard to make your scenario work.
 
 **Example: Using username and password in plain text**
 	
@@ -482,7 +490,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 Property | Description | Required
 -------- | ----------- | --------
-folderPath | Path to the folder. Example: myfolder<br/><br/>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\\\subfolder and for d:\samplefolder, specify d:\\\\samplefolder.<br/><br/>You can combine this with **partitionBy** to have folder paths based on slice start/end date-times. | Yes
+folderPath | Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this with **partitionBy** to have folder paths based on slice start/end date-times. | Yes
 fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
 Format | The following format types are supported: **TextFormat**, **AvroFormat**,  **JsonFormat**, and **OrcFormat**. You need to set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), and [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions. | No
