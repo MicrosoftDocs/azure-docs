@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Program won’t open, listening port blocked on VM | Microsoft Azure"
+	pageTitle="Program won’t open or listening port blocked on VM | Microsoft Azure"
 	description="If you are unable to start, or use a program that is running on an Azure VM, use these steps to isolate the source of the problem."
 	services="virtual-machines-linux"
 	documentationCenter=""

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="credit or debit card declined at sign-up | Microsoft Azure"
+	pageTitle="Credit or debit card declined at sign-up | Microsoft Azure"
 	description="Discusses common causes of Microsoft Azure sign-up issues like your credit or debit card was declined."
 	services="billing"
 	documentationCenter=""

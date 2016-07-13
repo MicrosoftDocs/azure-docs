@@ -90,13 +90,13 @@ The runbook that we just created is still in Draft mode. We need to publish it b
 7.	Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and we can see our *Hello World*.<br> ![Job Summary](media/automation-first-runbook-textual/job-pane-output.png)  
 8.	Close the Output pane.
 9.	Click **Streams** to open the Streams pane for the runbook job. We should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.<br> ![Job Summary](media/automation-first-runbook-textual/job-pane-streams.png)
-10.	Close the Streams pane and the Job pane to return to the MyFirstRunbook pane.
+10.	Close the Streams pane and the Job pane to return to the MyFirstRunbook-Workflow pane.
 11.	Click **Jobs** to open the Jobs pane for this runbook. This lists all of the jobs created by this runbook. We should only see one job listed since we only ran the job once.<br> ![Jobs](media/automation-first-runbook-textual/runbook-control-jobs.png)
 12.	You can click on this job to open the same Job pane that we viewed when we started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
 ## Step 5 - Add authentication to manage Azure resources
 
-We've tested and published our runbook, but so far it doesn't do anything useful. We want to have it manage Azure resources. It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). We do that with the **Add-AzureRMAccount** cmdlet.
+We've tested and published our runbook, but so far it doesn't do anything useful. We want to have it manage Azure resources. It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). We do that with the **Add-AzureRmAccount** cmdlet.
 
 1.	Open the textual editor by clicking **Edit** on the MyFirstRunbook-Workflow pane.<br> ![Edit runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png)
 2.	We don't need the **Write-Output** line anymore, so go ahead and delete it.
@@ -104,9 +104,8 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 4.	Type or copy and paste the following code that will handle the authentication with your Automation Run As account:
 
     ```
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```
 
 5.	Click **Test pane** so that we can test the runbook.
@@ -122,8 +121,8 @@ Now that our runbook is authenticating to our Azure subscription, we can manage 
     workflow MyFirstRunbook-Workflow
     {
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+ 
      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
     ```
@@ -145,8 +144,7 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -159,9 +157,9 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
 
 7.	When the runbook completes, check that the virtual machine was started.
 
-## Next Steps
+## Next steps
 
 -  To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
--	To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
+-  To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 -  To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
--	For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+-  For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

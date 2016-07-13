@@ -1,5 +1,5 @@
 <properties
-   pageTitle="troubleshoot common Azure deployment errors | Microsoft Azure"
+   pageTitle="Troubleshoot common Azure deployment errors | Microsoft Azure"
    description="Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter=""

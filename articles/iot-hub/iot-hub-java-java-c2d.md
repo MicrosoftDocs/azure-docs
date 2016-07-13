@@ -24,7 +24,11 @@
 
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of IoT devices and an application back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device that sends device-to-cloud messages.
 
-This tutorial builds on [Get started with IoT Hub]. It shows how to send cloud-to-device messages to a single device, request delivery acknowledgement (*feedback*) from IoT Hub, and receive it from your application cloud back end.
+This tutorial builds on [Get started with IoT Hub]. It shows you how to:
+
+- From your application cloud back end, send cloud-to-device messages to a single device through IoT Hub.
+- Receive cloud-to-device messages on a device.
+- From your application cloud back end, request delivery acknowledgement (*feedback*) for messages sent to a device from IoT Hub.
 
 You can find more information on cloud-to-device messages in the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
 
@@ -77,7 +81,7 @@ In this section, you'll modify the simulated device application you created in [
 
 ## Send a cloud-to-device message from the app back end
 
-In this section, you'll create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device Id of the device you added in the [Get started with IoT Hub] tutorial and the connection string for your IoT hub which you can find on the 
+In this section, you'll create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device Id of the device you added in the [Get started with IoT Hub] tutorial and the connection string for your IoT hub which you can find in the [Azure portal].
 
 1. Create a new Maven project called **send-c2d-messages** using the following command at your command-prompt. Note that this is a single, long command:
 
@@ -151,21 +155,38 @@ In this section, you'll create a Java console app that sends cloud-to-device mes
 
     > [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
 
+## Run the applications
+
+You are now ready to run the applications.
+
+1. At a command-prompt in the simulated-device folder, run the following command to begin sending telemetry data to your IoT hub and to listen for cloud-to-device messages sent from your IoT hub:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    ```
+
+    ![][img-simulated-device]
+
+2. At a command-prompt in the send-c2d-messages folder, run the following command to send a cloud-to-device message and wait for a feedback acknowledgment:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
+
+    ![][img-send-command]
+
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages. You can continue to explore IoT hub features and scenarios with the following tutorials:
+In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
-- [Process Device-to-Cloud messages] shows how to reliably process telemetry and interactive messages coming from devices.
-- [Uploading files from devices] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
 
-Additional information on IoT Hub:
+To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
 
-* [IoT Hub Overview]
-* [IoT Hub Developer Guide]
-* [IoT Hub Guidance]
-* [Supported device platforms and languages]
-* [Azure IoT Developer Center]
 
+<!-- Images -->
+[img-simulated-device]: media/iot-hub-java-java-c2d/receivec2d.png
+[img-send-command]:  media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
 [Get started with IoT Hub]: iot-hub-java-java-getstarted.md
@@ -180,3 +201,5 @@ Additional information on IoT Hub:
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Azure portal]: https://portal.azure.com
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
