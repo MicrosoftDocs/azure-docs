@@ -244,6 +244,16 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
+```sql
+-- Rebuild a single partition with archival compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+```
+
+```sql
+-- Rebuild a single partition with columnstore compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+```
+
 Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][] and the syntax topic [ALTER INDEX][].
  
 ### Step 3: Verify clustered columnstore segment quality has improved
