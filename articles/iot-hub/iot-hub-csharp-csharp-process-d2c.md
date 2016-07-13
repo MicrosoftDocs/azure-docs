@@ -397,15 +397,11 @@ Now you are ready to run the applications.
 
 In this tutorial, you learned how to reliably process data point and interactive device-to-cloud messages by using the [EventProcessorHost] class.
 
-The [Uploading files from devices] tutorial builds on this tutorial by using analagous message processing logic. It also describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your back end.
 
-Additional information on IoT Hub:
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
 
-* [IoT Hub Overview]
-* [IoT Hub Developer Guide]
-* [IoT Hub Guidance]
-* [Supported device platforms and languages][Supported devices]
-* [Azure IoT Developer Center]
+To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
@@ -464,3 +460,5 @@ Additional information on IoT Hub:
 [Build multi-tier applications with Service Bus]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [Service Bus documentation]: https://azure.microsoft.com/documentation/services/service-bus/
 
+[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

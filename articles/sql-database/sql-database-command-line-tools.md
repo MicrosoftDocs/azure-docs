@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Manage Azure SQL Database with PowerShell" 
-	description="Azure SQL Database Manage with PowerShell." 
+	description="Azure SQL Database management with PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -47,13 +47,13 @@ To create a new V12 server use the [New-AzureRmSqlServer](https://msdn.microsoft
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
-When you run this command a window opens asking for a **User name** and **Password**. This is  not your Azure credentials, enter the user name and password that will be the administrator credentials you want to create for the new server.
+When you run this command a window opens asking for a **User name** and **Password**. This is not your Azure credentials, enter the user name and password that will be the administrator credentials you want to create for the new server.
 
 ## Create a server firewall rule
 
 To create a firewall rule to access the server use the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) command. Run the following command replacing the start and end IP addresses with valid values for your client.
 
-If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all azure traffic access to the server.
+If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all Azure traffic access to the server.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 

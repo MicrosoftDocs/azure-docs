@@ -173,18 +173,11 @@ In this section, you will modify the **SendCloudToDevice** app to request feedba
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages. You can continue to explore IoT hub features and scenarios with the following tutorials:
+In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
-- [Process Device-to-Cloud messages] shows how to reliably process telemetry and interactive messages coming from devices.
-- [Uploading files from devices] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
 
-Additional information on IoT Hub:
-
-* [IoT Hub Overview]
-* [IoT Hub Developer Guide]
-* [IoT Hub Guidance]
-* [Supported device platforms and languages]
-* [Azure IoT Developer Center]
+To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -208,3 +201,4 @@ Additional information on IoT Hub:
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
