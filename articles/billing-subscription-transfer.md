@@ -10,10 +10,10 @@
 
 <tags
    ms.service="billing"
+   ms.workload="na"
+   ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="billing"
    ms.date="07/12/2016"
    ms.author="genli"/>
 
