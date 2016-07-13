@@ -16,7 +16,7 @@
    ms.date="07/13/2016"
    ms.author="yurid"/>
 
-# Azure Security Center Detection Capabilities
+# Azure Security Center detection capabilities
 This document discusses Azure Security Center’s advanced detection capabilities, which helps identify active threats targeting your Microsoft Azure resources and provides you with the insights needed to respond quickly.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
@@ -24,7 +24,7 @@ This document discusses Azure Security Center’s advanced detection capabilitie
 ## What is Azure Security Center?
 Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-## Responding to Today’s threats
+## Responding to today’s threats
 There have been significant changes in the threat landscape over the last 20 years. In the past, companies typically only had to worry about web site defacement by individual attackers who were mostly interested in seeing “what they could do”. Today’s attackers are much more sophisticated and organized. They often have specific financial and strategic goals. They also have more resources available to them, as they may be funded by nation states or organized crime.
 
 This has led to an unprecedented level of professionalism in the attacker ranks. No longer are they interested in web defacement. They are now interested in stealing information, financial accounts, and private data – all of which they can use to generate cash on the open market or to leverage a particular business, political or military position. Even more concerning than those with a financial objective are the attackers who breach networks in order to do harm to infrastructure and people.
