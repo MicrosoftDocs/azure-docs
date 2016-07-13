@@ -1,4 +1,4 @@
-There are various reasons that you may have issues conncting to an application running on an Azure virtual machine (VM) such as the application not running and listening on the expected ports or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem.
+There are various reasons when you cannot start or connect to an application running on an Azure virtual machine (VM) such as the application not running or listening on the expected ports, listening port blocked, or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem.
 
 If you are having issues connecting to your VM using RDP or SSH, please see one of the following articles first:
 
@@ -29,14 +29,14 @@ For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, 
 
 There are four main areas to troubleshoot the access of an application that is running on an Azure virtual machine.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
+![troubleshoot cannot start application](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
 1.	The application running on the Azure virtual machine.
 	- Is the application itself running correctly?
 2.	The Azure virtual machine.
 	- Is the VM itself running correctly and responding to requests?
 3.	Azure endpoints for the cloud service that contains the virtual machine (for virtual machines in classic deployment model), inbound NAT rules (for virtual machines in Resource Manager deployment model), and Network Security Groups.
-	- Can traffic flow from users to the the VM/application on the expected ports?
+	- Can traffic flow from users to the VM/application on the expected ports?
 4.	Your Internet edge device.
 	- Are firewall rules in place preventing traffic from flowing correctly?
 
@@ -47,7 +47,7 @@ To determine the source of the problem and its correction, follow these steps.
 
 Try to access the application with the appropriate client program from the VM on which it is running. Use the local host name, the local IP address, or the loopback address (127.0.0.1).
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
+![start application directly from the VM](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
 For example, if the application is a web server, open a browser on the VM and try to access a web page hosted on the VM.
 
@@ -58,13 +58,13 @@ If you cannot access the application, verify the following:
 - The application is running on the target virtual machine.
 - The application is listening on the expected TCP and UDP ports.
 
-On both Windows and Linux-based virtual machines, use the **netstat -a** command to show the active listening ports. Examine the output for the expected ports on which your application should be listening. Restart the application or configure it to use the expected ports as needed and try to acccess the application locally again.
+On both Windows and Linux-based virtual machines, use the **netstat -a** command to show the active listening ports. Examine the output for the expected ports on which your application should be listening. Restart the application or configure it to use the expected ports as needed and try to access the application locally again.
 
 ## <a id="step2"></a>Step 2: Can you access the application from another virtual machine in the same virtual network?
 
 Try to access the application from a different VM but in the same virtual network, using the VM's host name or its Azure-assigned public, private, or provider IP address. For virtual machines created using the classic deployment model, do not use the public IP address of the cloud service.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
+![start application from a different VM](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
 For example, if the application is a web server, try to access a web page from a browser on a different VM in the same virtual network.
 
@@ -85,7 +85,7 @@ On a Windows-based virtual machine, use Windows Firewall with Advanced Security 
 
 Try to access the application from a computer outside the virtual network as the VM on which the application is running, but is not on the same network as your original client computer.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
+![start application from a computer outside the virtual network](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 For example, if the application is a web server, try to access the web page from a browser running on a computer that is not in the virtual network.
 
@@ -95,7 +95,7 @@ If you cannot access the application, verify the following:
 	- That the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
 	- That access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.
 	- For more information, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-	
+
 - For VMs created using the Resource Manager deployment model:
 	- That the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
 	- That Network Security Groups are allowing the inbound request and outbound response traffic.
