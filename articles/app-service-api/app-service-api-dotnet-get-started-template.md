@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="04/13/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Get started with Azure App Service and ASP.NET Web API 2 using Visual Studio
 

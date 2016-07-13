@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="06/30/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # What is the Azure SDK for .NET?
 
@@ -41,7 +41,7 @@ The Azure SDK for .NET installs the following products:
 - [Microsoft ASP.NET and Web Tools for Visual Studio](#wte)
 - [Microsoft Azure Data Lake Tools for Visual Studio](#datalake)
 
-###<a id="vwd"></a>Visual Studio Express for Web
+###<a id="vwd"></a>Visual Studio Community Edition 2015
 
 If you don't have Visual Studio on your computer, the SDK will install [Visual Studio Community Edition 2015](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
@@ -51,7 +51,7 @@ The [Azure Storage Emulator](http://msdn.microsoft.com/library/hh403989.aspx) us
 
 ###<a id="stgtools"></a>Microsoft Azure Storage Tools
 
-This installs [AzCopy](http://aka.ms/AzCopy), a command line tool you can use to transfer data into and out of an Azure Storage account.
+This installs [AzCopy](http://aka.ms/AzCopy), a command-line tool you can use to transfer data into and out of an Azure Storage account.
 
 ###<a id="auth"></a>Microsoft Azure Authoring Tools
 
