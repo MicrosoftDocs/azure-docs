@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/12/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -70,10 +70,11 @@ Use the table below as a reference to help you understand the available recommen
 |-----|-----|
 |[Enable data collection for subscriptions](security-center-enable-data-collection.md)|Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions.|
 |Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
-|Apply system updates|Recommends that you deploy missing system security and critical updates to VMs.|
+|[Apply system updates](security-center-apply-system-updates.md)|Recommends that you deploy missing system security and critical updates to VMs.|
+|[Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)|Recommends that you reboot a VM to complete the process of applying system updates.|
 |[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future.|
 |[Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
-|[Enable Antimalware](security-center-enable-antimalware.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
+|[Install Endpoint Protection](security-center-install-endpoint-protection.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
 |[Enable Network Security Groups on subnets/network interfaces](security-center-enable-network-security-groups.md)|Recommends that you enable network security groups (NSGs) on subnets and network interfaces.|
 |Restrict access through public external endpoints|Recommends that you configure inbound traffic rules for NSGs.|
 |[Enable server SQL Auditing](security-center-enable-auditing-on-sql-servers.md)|Recommends that you turn on auditing for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines).|

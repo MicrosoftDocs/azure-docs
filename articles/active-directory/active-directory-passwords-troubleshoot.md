@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Troubleshooting: Azure AD Password Management | Microsoft Azure" 
-	description="Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Troubleshooting: Azure AD Password Management | Microsoft Azure"
+	description="Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # How to troubleshoot Password Management
+
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
 If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to troubleshoot your deployment:
 
 * [**Information to include when you need help**](#information-to-include-when-you-need-help)
@@ -37,7 +40,7 @@ If you cannot solve your issue with the guidance below, you can contact our supp
  - **General description of the error** – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
  - **Page** – what page were you on when you saw the error (include the URL)?
  - **Date / Time / Timezone** – what was the precise date and time you saw the error (include the timezone)?
- - **Support Code** – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results). 
+ - **Support Code** – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results).
    - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
 
     ![][001]
@@ -216,7 +219,7 @@ If you encounter an error when registering a user for password reset, you might 
             <td>
               <p>User sees an error that states:</p>
               <p>
-                
+
               </p>
               <p>Error processing request </p>
               <p>When attempting to reset a password.</p>
@@ -257,7 +260,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>Your account is not enabled for password reset</p>
               <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
-                
+
               </p>
               <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
@@ -284,7 +287,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>Your account is not enabled for password reset</p>
               <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
-                
+
               </p>
               <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
@@ -300,7 +303,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>Your account is not enabled for password reset</p>
               <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
-                
+
               </p>
               <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
@@ -362,7 +365,7 @@ If you encounter an error when resetting a password for a user, you might be abl
             <td>
               <p>User sees an error stating:</p>
               <p>
-                
+
               </p>
               <p>Please use another option.</p>
               <p>You've tried to verify your account too many times in the last 1 hour(s). For security reasons, you'll have to wait 24 hour(s) before you can try again. </p>
@@ -388,7 +391,7 @@ If you encounter an error when resetting a password for a user, you might be abl
             <td>
               <p>When attempting to verify a phone to use as an authentication method, the user sees an error stating:</p>
               <p>
-                
+
               </p>
               <p>Incorrect phone number specified.</p>
             </td>
@@ -404,7 +407,7 @@ If you encounter an error when resetting a password for a user, you might be abl
             <td>
               <p>User sees an error that states:</p>
               <p>
-                
+
               </p>
               <p>Error processing request </p>
               <p>When attempting to reset a password.</p>
@@ -444,7 +447,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
             <td>
               <p>Password reset service does not start on premises with error 6800 in the Azure AD Connect machine’s application event log.</p>
               <p>
-                
+
               </p>
               <p>After onboarding, federated or password hash synced users cannot reset their passwords.</p>
             </td>
@@ -460,7 +463,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
             <td>
               <p>At the last step of the Azure AD Connect installation process, you see an error indicating that Password Writeback could not be configured.</p>
               <p>
-                
+
               </p>
               <p>The Azure AD Connect Application event log contains error 32009 with text “Error getting auth token”.</p>
             </td>
@@ -484,17 +487,17 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
             <td>
               <p>The Azure AD Connect machine event log contains error 32002 thrown by the PasswordResetService.</p>
               <p>
-                
+
               </p>
               <p>The error reads: “Error Connecting to ServiceBus, The token provider was unable to provide a security token…”</p>
               <p>
-                
+
               </p>
             </td>
             <td>
               <p>The root cause of this error is that the password reset service running in your on-premises environment is not able to connect to the service bus endpoint in the cloud. This error is normally normally caused by a firewall rule blocking an outbound connection to a particular port or web address.</p>
               <p>
-                
+
               </p>
               <p>Make sure your firewall allows outbound connections for the following:</p>
               <ul>
@@ -506,7 +509,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
 										Outbound connections to <br\><br\></li>
               </ul>
               <p>
-                
+
               </p>
               <p>Once you have updated these rules, reboot the Azure AD Connect machine and Password Writeback should start working again.</p>
             </td>
@@ -521,7 +524,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
             <td>
               <p>In some rare cases, the Password Writeback service may fail to re-start when Azure AD Connect has re-started. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the Azure AD Connect wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
               <p>
-                
+
               </p>
               <p>If this doesn’t work, try completely uninstalling and re-installing Azure AD Connect.</p>
             </td>
@@ -533,14 +536,14 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
             <td>
               <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
-                
+
               </p>
               <p>In addition to this, during password reset operations, you may see an error regarding management agent was denied access in your on premises event logs.</p>
             </td>
             <td>
               <p>If you see these errors in your event log, confirm that the AD MA account (that was specified in the wizard at the time of configuration) has the necessary permissions for Password Writeback.</p>
               <p>
-                
+
               </p>
               <p>NOTE that once this permission is given it can take up to 1 hour for the permissions to trickle down via sdprop background task on the DC. </p>
               <p>For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset will continue to fail with access denied.</p>
@@ -576,7 +579,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
             <td>
               <p>Privileged users in Active Directory are protected using AdminSDHolder. See <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> for more details. </p>
               <p>
-                
+
               </p>
               <p>This means the security descriptors on these objects are periodically checked to match the one specified in AdminSDHolder and are reset if they are different. The additional permissions that are needed for Password Writeback therefore do not trickle to such users. This can result in Password Writeback not working for such users.As a result, we do not support managing passwords for users within these groups because it breaks the AD security model.</p>
             </td>
@@ -588,14 +591,14 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
             <td>
               <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
-                
+
               </p>
               <p>In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating an “Object could not be found” error.</p>
             </td>
             <td>
               <p>This error usually indicates that the sync engine is unable to find either the user object in the AAD connector space or the linked MV or AD connector space object. </p>
               <p>
-                
+
               </p>
               <p>To troubleshoot this, make sure that the user is indeed synced from on-prem to AAD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the AD CS object is connector to the MV object via the “Microsoft.InfromADUserAccountEnabled.xxx” rule.</p>
             </td>
@@ -607,14 +610,14 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
             <td>
               <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
-                
+
               </p>
               <p>In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating a “Multiple maches found” error.</p>
             </td>
             <td>
               <p>This indicates that the sync engine detected that the MV object is connected to more than one AD CS objects via the “Microsoft.InfromADUserAccountEnabled.xxx”. This means that the user has an enabled account in more than one forest. </p>
               <p>
-                
+
               </p>
               <p>Currently this scenario is not supported for Password Writeback.</p>
             </td>
@@ -1416,7 +1419,7 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
             </td>
           </tr>
         </tbody></table>
-		
+
 ## Troubleshoot Password Writeback connectivity
 
 If you are experiencing service interruptions with the Password Writeback component of Azure AD Connect, here are some quick steps you can take to resolve this:
@@ -1459,21 +1462,21 @@ Disabling and re-enabling the Password Writeback feature can help to resolve con
 
     ![][004]
 
-These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
+These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
 
 If disabling and re-enabling the Password Writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Connect as a next step.
 
 ### Install the latest Azure AD Connect release
-Re-installing the Azure AD Connect package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment. 
+Re-installing the Azure AD Connect package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment.
 We recommend, you perform this step only after attempting the first two steps described above.
 
  1.	Download the latest version of Azure AD Connect [here](active-directory-aadconnect.md#install-azure-ad-connect).
  2.	Since you have already installed Azure AD Connect, you will only need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
  3.	Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required unless you have customized the out of box sync rules, in which case you should **back these up before proceeding with upgrade and manually re-deploy them after you are finished**.
 
-These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
+These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
 
-If installing the latest version of the Azure AD Connect server does not resolve your issue, we recommend that you try disabling and re-enabling Password Writeback as a final step after installing the latest sync QFE. 
+If installing the latest version of the Azure AD Connect server does not resolve your issue, we recommend that you try disabling and re-enabling Password Writeback as a final step after installing the latest sync QFE.
 
 If that does not resolve your issue, then we recommend that you take a look at [Troubleshoot Password Writeback](#troubleshoot-password-writeback) and the [Azure AD password Management FAQ](active-directory-passwords-faq.md) to see if your issue may be discussed there.
 
@@ -1483,9 +1486,9 @@ If that does not resolve your issue, then we recommend that you take a look at [
 <br/>
 
 ## Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages: 
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* [**Reset your own password**](active-directory-passwords-update-your-own-password.md) - learn about how to reset or change your own password as a user of the system
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
@@ -1500,4 +1503,3 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
-
