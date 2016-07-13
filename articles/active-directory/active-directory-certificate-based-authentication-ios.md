@@ -71,8 +71,6 @@ For all scenarios in this topic, the following tasks are required:
 
 The device OS version must be iOS 9 and above 
 
-The Azure Authenticator must be installed on the iOS devices 
-
 A federation server must be configured to perform CBA on Office mobile applications.  
 
 
@@ -86,10 +84,7 @@ For Azure Active Directory to revoke a client certificate, the ADFS token must h
 
 Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation. 
 
-As a best practice, you should update the ADFS error pages with the following: 
-
-- The requirement for installing the Azure Authenticator on iOS
-- Instructions on how to get a user certificate. 
+As a best practice, you should update the ADFS error pages with instructions on how to get a user certificate. 
 
 For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).  
 
@@ -99,12 +94,7 @@ For more details, see [Customizing the AD FS Sign-in Pages](https://technet.micr
 
 
 Certain Exchange ActiveSync applications on iOS 9 or later are supported. To determine if your email application does support this feature, please contact your application developer. 
-
-
-### Limitations  
-
-Federated authentication with a client certificate is not supported.  
-
+For this scenario, federated authentication with a client certificate is not supported.  
 
 
 ## Getting started 

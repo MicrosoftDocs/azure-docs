@@ -497,7 +497,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 	![Enable remote connections](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
 	See [Configure the remote access Server Configuration Option](https://msdn.microsoft.com/library/ms191464.aspx) for detailed steps.
-2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/TP by right-clicking **TCP/IP** and clicking **Enable**.
+2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/IP by right-clicking **TCP/IP** and clicking **Enable**.
 
 	![Enable TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 
