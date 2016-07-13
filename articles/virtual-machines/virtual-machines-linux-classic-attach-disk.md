@@ -123,7 +123,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
 11. Add the new drive to /etc/fstab:
 
-	To ensure the drive is re-mounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). To find the UUID of the new drive you can use the **blkid** utility:
+	To ensure the drive is re-mounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). This avoids the incorrect disk being mounted to a given location if the OS detects a disk error during boot and any remaining data disks then being assigned those device IDs. To find the UUID of the new drive you can use the **blkid** utility:
 
 		# sudo -i blkid
 
@@ -140,7 +140,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
 		# sudo vi /etc/fstab
 
-	In this example we will use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. The UUID is used rather than the device ID in case a disk has an issue during boot that causes the OS to hang or, potentially worse, assign an adifferent data disk the device ID instead. Add the following line to the end of the **/etc/fstab** file:
+	In this example we will use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
 
 		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
