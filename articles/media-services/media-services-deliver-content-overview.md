@@ -196,7 +196,7 @@ After the July 2016 service release, the generated Smooth Streaming manifest con
 		</StreamIndex>
 	</SmoothStreamingMedia>
 
-Some of the legacy Smooth Streaming clients may not support the repeat tags and fail to load the manifest. To mitigate this issue you can use the legacy manifest format parameter "(format=fmp4-v20)" (for more information, see [this](media-services-deliver-content-overview.md#fmp4_v20) section), or update your client to the latest version which supports repeat tags.
+Some of the legacy Smooth Streaming clients may not support the repeat tags and fail to load the manifest. To mitigate this issue you can use the legacy manifest format parameter **(format=fmp4-v20)** (for more information, see [this](media-services-deliver-content-overview.md#fmp4_v20) section), or update your client to the latest version which supports repeat tags.
 
 ##Media Services learning paths
 
