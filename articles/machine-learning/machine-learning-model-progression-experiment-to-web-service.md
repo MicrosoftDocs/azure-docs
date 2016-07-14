@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
@@ -26,8 +26,8 @@ you can use to bring data into your experiment, manipulate the data,
 train a model using machine learning algorithms, score the model,
 evaluate the results, and output final values.
 
-Once you’re satisfied with your experiment, you can deploy it as an
-***Azure web service*** so that users can send it new data and receive back
+Once you’re satisfied with your experiment, you can deploy it as a
+***Classic Azure web service*** or a ***New Azure web service*** so that users can send it new data and receive back
 results.
 
 In this article we’ll give an overview of the mechanics of how your
@@ -36,7 +36,7 @@ operationalized web service.
 
 >[AZURE.NOTE] There are other ways to develop and deploy machine learning
 models, but this article is focused on how you use Machine Learning
-Studio. For a discussion of how to create a predictive web service with
+Studio. For a discussion of how to create a classic predictive web service with
 R, see the blog post [Build & Deploy Predictive Web Apps Using RStudio
 and Azure
 ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
@@ -115,9 +115,8 @@ experiment](machine-learning-convert-training-experiment-to-scoring-experiment.m
 
 ### The web service
 
-Once you’re satisfied that your predictive experiment is ready, you
-click **Deploy Web Service** to operationalize your model by deploying
-it as an ***Azure web service***. Users can now send data to your model using
+Once you’re satisfied that your predictive experiment is ready, you can deploy your service as either a classic web service or a new web service based on Azure Resource Manager.
+To operationalize your model by deploying it as a *classic web service*, click **Deploy Web Service** and select **Deploy Web Service [Classic]**. To deploy as *new web service*, click **Deploy Web Service** and select **Deploy Web Service [New]**. Users can now send data to your model using
 the web service REST API and receive back the results. For more
 information on how to do this, see [How to consume an Azure Machine
 Learning web service that has been deployed from a Machine Learning
@@ -126,12 +125,12 @@ experiment](machine-learning-consume-web-services.md).
 Once you deploy the web service, the predictive experiment and web
 service remain connected, and you can go back-and-forth between them:
 
-|***From this page…***|***click this…***|***to open this page…***|
+| ***From this page…*** | ***click this…*** | ***to open this page…*** |
 | ------------------- | --------------- | ---------------------- |
 |experiment canvas in Studio|**Go to web service**|web service configuration in Studio|
 |web service configuration in Studio|**View latest**|experiment canvas in Studio|
-|web service configuration in Studio|**Manage endpoints…**|endpoint management in Azure Classic Portal|
-|endpoint management in Azure Classic Portal|**Edit in Studio**|experiment canvas in Studio|
+|web service configuration in Studio (Classic Web Service Only)|**Manage endpoints…**|endpoint management in Azure Classic Portal|
+|endpoint management in Azure Classic Portal (Classic Web Service Only)|**Edit in Studio**|experiment canvas in Studio|
 
 ![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
 
@@ -152,15 +151,14 @@ After you’ve iterated on your experiment and are satisfied with it:
 
 2.  Click **Run**
 
-3.  Click **Deploy Web Service**
+3. Click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** depending on the environment to which you want to deploy.
 
 Your web service is now deployed, and you can access and manage it just
 like a predictive web service.
 
 ## The web service buttons
 
-In Machine Learning Studio, the web service buttons - **Set Up Web
-Service** and **Deploy Web Service** - change name and function
+In Machine Learning Studio, the web service buttons - **Set Up Web Service** and **Deploy Web Service** - change name and function
 depending on where you’re at in the development process.
 
 **Experiment contains a predictive model**
@@ -176,8 +174,10 @@ service buttons perform these functions:
 |Training experiment|**Set Up Web Service**|Gives two options|
 |&nbsp;|- **Update Predictive Experiment**|Updates the associated predictive experiment with changes you’ve made to the training experiment|
 |&nbsp;|- **Retraining Web Service**|Converts the training experiment into a retraining experiment (see the "Updating" section below)|
-|&nbsp;|-*or*- **Deploy Web Service**|If you have set up the retraining experiment for deployment, then this deploys it as a web service|
-|Predictive experiment|**Deploy Web Service**|Deploys the predictive experiment as a web service|
+|&nbsp;|-*or*- **Deploy Web Service [Classic]** |If you have set up the retraining experiment for deployment, then this deploys it as a classic web service|
+|&nbsp;|-*or*- **Deploy Web Service [New]** |If you have set up the retraining experiment for deployment, then this deploys it as a new web service|
+|Predictive experiment|**Deploy Web Service [Classic]** |Deploys the predictive experiment as a classic web service|
+|Predictive experiment|**Deploy Web Service [New]** |Deploys the predictive experiment as a new web service|
 
 **Experiment does *not* contain a predictive model**
 
@@ -187,7 +187,8 @@ web service buttons are much simpler:
 |**Type of experiment**|**Button**|**What it does**|
 | -------------------- | -------- | -------------- |
 |Experiment under development|**Set Up Web Service**|Prepares the experiment for deploying as a web service|
-|Experiment prepared for deployment|**Deploy Web Service**|Deploys the experiment as a web service, opens web service configuration page|
+|Experiment prepared for deployment|***Deploy Web Service [Classic]**|Deploys the experiment as a web service, opens classic web service configuration page|
+|&nbsp;|-*or*- **Deploy Web Service [New]**| Deploys as a new web service|
 
 ## Updating your web service
 
@@ -201,16 +202,16 @@ web service manipulates data**
 
 If you’re not changing the model but are just changing how the web
 service handles data, you can edit the predictive experiment and then
-click **Deploy Web Service** again. The web service will be stopped, the
+click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** again. The web service will be stopped, the
 updated predictive experiment will be deployed, and the web service will
 start up again.
 
 Here’s an example: Suppose your predictive experiment returns the entire
 row of input data with the predicted result. You may decide that you
 want the web service to just return the result. So you can add a
-**Select Columns in Dataset** module in the predictive experiment, right before
+**Project Columns** module in the predictive experiment, right before
 the output port, to exclude columns other than the result. When you
-click **Deploy Web Service** again, the web service is updated.
+click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** again, the web service is updated.
 
 **You want to retrain the model with new data**
 
