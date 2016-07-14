@@ -77,13 +77,13 @@ The software requirements include the information on the supported web browsers,
 | SMB 3.0     |
 | SMB 3.02    |
 
-## Software requirements for storage clients
+### Supported storage clients 
 
-The following software requirements are for the storage clients that access your StorSimple device.
+The following software requirements are for the storage clients that access your StorSimple Virtual Array.
 
 | Supported operating systems | Version required | Additional requirements/notes |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes. StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li>|
+| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes. StorSimple iSCSI volumes are supported for only: <ul><li>Simple volume on Windows basic disks</li><li>Windows NTFS for volume format</li>|
  
 ## Networking requirements 
 
