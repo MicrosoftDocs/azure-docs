@@ -101,8 +101,6 @@ For more information, see [this](https://blogs.msdn.microsoft.com/randomnumber/2
 
 Some clients can come aross a repeat tag issue in the Smooth Streaming manifest. For more information, see [this](media-services-deliver-content-overview.md#known-issues) section.
 
-To check known issues, see [this](media-services-deliver-content-overview.md#known-issues) section.
-
 ##<a id="apr_changes16"></a>April 2016 Release
 
 ### Azure Media Analytics
