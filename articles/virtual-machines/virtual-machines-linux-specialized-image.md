@@ -39,7 +39,7 @@ Ensure that you meet the following prerequisites before you start the steps:
 > [AZURE.NOTE] Similar steps apply for a VM created by using either of the two deployment models as the source image. Where applicable, this article notes the minor differences.  
 
 
-## Copy VHDs to your Resource Manager storage account
+## Stop the VM 
 
 
 1. Stop and deallocate the source VM. For VMs created in the Resource Manager deployment model, use the Azure CLI commands:
@@ -51,7 +51,9 @@ Ensure that you meet the following prerequisites before you start the steps:
 	
 	Notice that the status of the VM in the portal changes from **Running** to **Stopped (deallocated)**.
 
-2. Copy the access key source VM storage account. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+## Get the access key for the source VM storage account
+
+	Copy the access key source VM storage account. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 	- If your source VM was created by using the classic deployment model, change to classic mode by using 
 		
@@ -63,8 +65,10 @@ Ensure that you meet the following prerequisites before you start the steps:
 		```azure config mode arm```
 		```azure storage account keys list -g <yourSourceResourceGroup> <yourSourceStorageAccount>```.
 
-1. Copy the VHD files by using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md), as described in the following steps. Alternatively, if you prefer a user interface, you can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com/ ) instead.
-</br>
+## Copy the VHD files 
+
+Copy the VHD files using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md).
+
 	1. Set up the connection string for the destination storage account. This connection string will contain the access key for this storage account.
 
 			$azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
