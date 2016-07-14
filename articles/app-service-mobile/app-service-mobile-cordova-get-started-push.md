@@ -95,7 +95,6 @@ Initially, we will include some minimal code for Android. Later, we will make so
 
 1. Add a call to **registerForPushNotifications** during the callback for the login process, or at the bottom of the **onDeviceReady** method:
 
-
 		// Login to the service.
 		client.login('google')
 		    .then(function () {
@@ -120,47 +119,47 @@ Initially, we will include some minimal code for Android. Later, we will make so
 
 	  // Register for Push Notifications.
 		// Requires that phonegap-plugin-push be installed.
-	    var pushRegistration = null;
-	    function registerForPushNotifications() {
-	        pushRegistration = PushNotification.init({
-	            android: { senderID: 'Your_Project_ID' },
-	            ios: { alert: 'true', badge: 'true', sound: 'true' },
-	            wns: {}
-	        });
+	  var pushRegistration = null;
+	  function registerForPushNotifications() {
+	      pushRegistration = PushNotification.init({
+	          android: { senderID: 'Your_Project_ID' },
+	          ios: { alert: 'true', badge: 'true', sound: 'true' },
+	          wns: {}
+	      });
 
-					// Handle the registration event.
-	        pushRegistration.on('registration', function (data) {
-	            // Get the native platform of the device.
-	            var platform = device.platform;
-	            // Get the handle returned during registration.
-	            var handle = data.registrationId;
-	            // Set the device-specific message template.
-	            if (platform == 'android' || platform == 'Android') {
-	                // Register for GCM notifications.
-	                client.push.register('gcm', handle, {
-	                    mytemplate: { body: { data: { message: "{$(messageParam)}" } } }
-	                });
-	            } else if (device.platform === 'iOS') {
-	                // Register for notifications.            
-	                client.push.register('apns', handle, {
-	                    mytemplate: { body: { aps: { alert: "{$(messageParam)}" } } }
-	                });
-	            } else if (device.platform === 'windows') {
-	                // Register for WNS notifications.
-	                client.push.register('wns', handle, {
-	                    myTemplate: {
-	                        body: '<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>',
-	                        headers: { 'X-WNS-Type': 'wns/toast' } }
-	                });
-	            }
-	        });
+				// Handle the registration event.
+	      pushRegistration.on('registration', function (data) {
+	          // Get the native platform of the device.
+	          var platform = device.platform;
+	          // Get the handle returned during registration.
+	          var handle = data.registrationId;
+	          // Set the device-specific message template.
+	          if (platform == 'android' || platform == 'Android') {
+	              // Register for GCM notifications.
+	              client.push.register('gcm', handle, {
+	                  mytemplate: { body: { data: { message: "{$(messageParam)}" } } }
+	              });
+	          } else if (device.platform === 'iOS') {
+	              // Register for notifications.            
+	              client.push.register('apns', handle, {
+	                  mytemplate: { body: { aps: { alert: "{$(messageParam)}" } } }
+	              });
+	          } else if (device.platform === 'windows') {
+	              // Register for WNS notifications.
+	              client.push.register('wns', handle, {
+	                  myTemplate: {
+	                      body: '<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>',
+	                      headers: { 'X-WNS-Type': 'wns/toast' } }
+	              });
+	          }
+	      });
 
-	        pushRegistration.on('notification', function (data, d2) {
-	            alert('Push Received: ' + data.message);
-	        });
+	      pushRegistration.on('notification', function (data, d2) {
+	          alert('Push Received: ' + data.message);
+	      });
 
-	        pushRegistration.on('error', handleError);
-	    }
+	      pushRegistration.on('error', handleError);
+	  }
 
 3. (Android) In the above code, replace `Your_Project_ID` with the numeric project ID for your app from the [Google Developer Console].
 
@@ -318,7 +317,7 @@ To use the Store options in Visual Studio, select a Windows target from the Solu
 
 Open the configuration designer (right-click on config.xml and select **View Designer**), select the **Windows** tab, and choose **Windows 10** under **Windows Target Version**.
 
->Note If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
 
 To support push notifications in your default (debug) builds, open build.json file. Copy the "release" configuration to your debug configuration.
 
@@ -336,9 +335,9 @@ After the update, the preceding code should look like this.
 			"packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
 			"publisherId": "CN=yourpublisherID"
 			},
-			"debug": {
-				"packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
-				"publisherId": "CN=yourpublisherID"
+		"debug": {
+			"packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
+			"publisherId": "CN=yourpublisherID"
 			}
 		}
 
