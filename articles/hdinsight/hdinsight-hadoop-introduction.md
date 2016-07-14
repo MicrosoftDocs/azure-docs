@@ -36,20 +36,6 @@ For big data to provide actionable intelligence or insight, not only must you co
 
 HDInsight is a cloud implementation on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack that is the go-to solution for big data analysis. It includes implementations of Apache Spark, HBase, Storm, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Power BI, Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
 
-### Clusters on Linux
-
-Azure HDInsight deploys and provisions Hadoop clusters in the cloud on **Linux**. See the table below for details.
-
-Category | Hadoop on Linux
----------| -------------------
-**Cluster OS** | Ubuntu 12.04 Long Term Support (LTS)
-**Cluster Type** | Hadoop, Spark, HBase, Storm
-**Deployment** | Azure portal, Azure CLI, Azure PowerShell
-**Cluster UI** | Ambari
-**Remote Access** | Secure Shell (SSH), REST API, ODBC, JDBC
-
-
-
 ### Hadoop, HBase, Spark, Storm, and customized clusters
 
 HDInsight provides cluster configurations for Apache Hadoop, Spark, HBase, or Storm. Or, you can [customize clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md).
@@ -110,7 +96,7 @@ The following components and utilities are included on HDInsight clusters.
 
 * **[ZooKeeper](#zookeeper)**: Coordination of processes in distributed systems.
 
-> [AZURE.NOTE] For information on the specific components and version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning]
+> [AZURE.NOTE] For information on the specific components and version information, see [Hadoop components, versioning, and service offerings in HDInsight][component-versioning]
 
 ### <a name="ambari"></a>Ambari
 
@@ -211,17 +197,15 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 
 * Automatic provisioning of Hadoop clusters. HDInsight clusters are much easier to create than manually configuring Hadoop clusters. For details, see [Provision Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-* State-of-the-art Hadoop components. For details, see [What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning].
+* State-of-the-art Hadoop components. For details, see [Hadoop components, versioning, and service offerings in HDInsight][component-versioning].
 
-* High availability and reliability of clusters.  A second head node has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single head node. HDInsight removes this single point of failure with the addition of a secondary head node. The switch to a new HA cluster configuration doesn't change the price of the cluster, unless customers create clusters with an extra-large head node instead of the default large-size node.
-
-	See [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) for details.
+* High availability and reliability of clusters. See [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) for details.
 
 * Efficient and economical data storage with Azure Blob storage, a Hadoop-compatible option. See [Use Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md) for details.
 
 * Integration with other Azure services, including [Web apps](../documentation/services/app-service/web/) and [SQL Database](../documentation/services/sql-database/).
 
-* Additional VM sizes. HDInsight clusters are available on different VM types and sizes. HDInsight clusters can now utilize A2 to A7 sizes built for general purposes; D-Series nodes that feature solid-state drives (SSDs) and 60-percent faster processors; and A8 and A9 sizes that have InfiniBand support for fast networking. Apache HBase on Azure HDInsight customers can benefit from the larger memory configurations of the D-Series to increase performance. Apache Storm on Azure HDInsight customers can also benefit from additional memory for loading larger reference data sets, as well as faster CPUs for higher throughput.
+* Additional VM sizes and types for running HDInsight clusters. See [Hadoop components, versioning, and service offerings in HDInsight][component-versioning] for details.
 
 * Cluster scaling. Cluster scaling enables you to change the number of nodes of a running HDInsight cluster without having to delete or re-create it.
 
@@ -229,10 +213,7 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 
 * Low entry cost. Start a [free trial](/pricing/free-trial/), or consult [HDInsight pricing details](/pricing/details/hdinsight/).
 
-
 To read more about the advantages on Hadoop in HDInsight, see the  [Azure features page for HDInsight][marketing-page].
-
-
 
 ## <a id="resources"></a>Resources for learning more about big-data analysis, Hadoop, and HDInsight
 
@@ -241,15 +222,13 @@ Build on this introduction to Hadoop in the cloud and big data analysis with the
 
 ### Hadoop documentation for HDInsight
 
-* [HDInsight documentation](https://azure.microsoft.com/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
+* [HDInsight documentation](https://azure.microsoft.com/documentation/services/hdinsight/): The documentation page for Hadoop on Azure HDInsight with links to articles, videos, and more resources.
 
 * [Get started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md): A quick-start tutorial for provisioning HDInsight Hadoop clusters on Linux and running sample Hive queries.
 
 * [Get started with Linux-based Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md): A quick-start tutorial for provisioning a Storm on HDInsight cluster and running sample Storm topologies.
 
 * [Provision HDInsight on Linux](hdinsight-hadoop-provision-linux-clusters.md): Learn how to provision an HDInsight Hadoop cluster on Linux through the Azure Portal, Azure CLI, or Azure PowerShell.
-
-* [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md): Get some quick tips on working with Hadoop Linux clusters provisioned on Azure.
 
 * [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md): Learn how to monitor and manage your Linux-based Hadoop on HDInsight cluster by using Ambari Web, or the Ambari REST API.
 
