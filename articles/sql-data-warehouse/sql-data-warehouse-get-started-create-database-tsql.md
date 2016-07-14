@@ -68,7 +68,7 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 [load sample data]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[resource groups]: ../azure-portal/resource-group-portal.md
+[resource groups]: ../resource-group-template-deploy-portal.md
 [Installing Visual Studio and SSDT]: ./sql-data-warehouse-install-visual-studio.md
 
 
