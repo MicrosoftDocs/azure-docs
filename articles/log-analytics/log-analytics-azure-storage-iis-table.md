@@ -132,7 +132,7 @@ In the Azure portal, navigate to your Log Analytics workspace and perform the fo
 1. Click *Storage accounts logs*
 2. Click the *Add* task
 3. Select the Storage account that contains the diagnostics logs
-  - This can be either a classic storage account or an ARM storage account
+  - This can be either a classic storage account or an Azure Resource Manager storage account
 4. Select the Data Type you want to collect logs for
   - This will be one of IIS Logs; Events; Syslog (Linux); ETW Logs; Service Fabric Events
 5. The value for Source will be automatically populated based on the data type and cannot be changed
