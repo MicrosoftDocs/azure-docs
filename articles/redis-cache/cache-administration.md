@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/05/2016"
+	ms.date="07/13/2016"
 	ms.author="sdanie" />
 
 # How to administer Azure Redis Cache
@@ -80,7 +80,7 @@ If you reboot just one of the nodes, data is not typically lost, but it still ma
 
 ### Can I reboot my cache using PowerShell, CLI, or other management tools?
 
-At this time you can't, but this functionality is coming soon.
+Yes, for PowerShell instructions see [To reboot a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### What pricing tiers can use the reboot functionality?
 

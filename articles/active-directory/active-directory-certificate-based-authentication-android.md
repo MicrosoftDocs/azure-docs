@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="07/13/2016" 
     ms.author="markvi" />
 
 
@@ -84,10 +84,7 @@ For Azure Active Directory to revoke a client certificate, the ADFS token must h
 
 Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation. 
 
-As a best practice, you should update the ADFS error pages with the following: 
-
-- The requirement for installing the Azure Authenticator on iOS
-- Instructions on how to get a user certificate. 
+As a best practice, you should update the ADFS error pages with instructions on how to get a user certificate. 
 
 For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).  
 
