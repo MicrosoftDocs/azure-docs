@@ -29,7 +29,7 @@ This machine learning tutorial walks you through an easy data science experiment
 
 Machine Learning Studio makes it easy to set up an experiment using drag-and-drop modules preprogrammed with predictive modeling techniques. To run your experiment and predict an answer, you'll use Machine Learning Studio to *create a model*, *train the model*, and *score and test the model*.
 
-Enter Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net), and click the **Get started** button. Choose either the Guest Access or sign in with your Microsoft account.
+Enter Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). If you’ve signed into Machine Learning Studio before, click **Sign in here**. Otherwise, click **Sign Up** and choose between free and paid options.
 
 For more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
@@ -132,11 +132,13 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 2. Click **Launch column selector** in the **Properties** pane.
 
-3. Under **Begin With** click **No columns**, and then select **Include** and **column names** in the filter row. Enter our list of column names. This directs the module to pass through only columns that we specify.
+3. Click **With rules**.
+
+4. Under **Begin With** click **No columns**, and then select **Include** and **column names** in the filter row. Enter our list of column names. This directs the module to pass through only columns that we specify.
 
 	> [AZURE.TIP] By running the experiment, we've ensured that the column definitions for our data pass from the dataset through the [Clean Missing Data][clean-missing-data] module. This means other modules you connect will also have information from the data set.
 
-4. Click the check mark (OK) button.
+5. Click the check mark (OK) button.
 
 ![Select columns][screen6]
 
