@@ -99,7 +99,7 @@ Often, changes will need further inspection, leveraging the debugging features o
 
 	![][2]
 
-##Sumamry
+##Summary
 
 With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally,
 with the production realism of developing within a Docker container.

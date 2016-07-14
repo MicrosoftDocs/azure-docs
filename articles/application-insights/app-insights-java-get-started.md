@@ -163,6 +163,19 @@ Substitute the instrumentation key that you got from the Azure portal.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
 * Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
 
+### Alternative ways to set the instrumentation key
+
+Application Insights SDK looks for the key in this order:
+
+1. System property: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
+2. Environment variable: APPLICATION_INSIGHTS_IKEY
+3. Configuration file: ApplicationInsights.xml
+
+You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
+
 ## 4. Add an HTTP filter
 
 The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
@@ -248,16 +261,14 @@ As you accumulate more data, you can run queries both to aggregate data and to f
 ![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
 
-## 5. Install your app on the server
+## 7. Install your app on the server
 
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
 
 * Make sure your firewall allows your application to send telemetry to these ports:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * On Windows servers, install:

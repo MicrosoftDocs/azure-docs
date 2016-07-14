@@ -291,7 +291,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 ## Delete CDN profiles and endpoints
 
-The last methods we will include delete our endpoint and profile.
+The last methods will delete our endpoint and profile.
 
 ```
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
