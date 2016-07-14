@@ -97,7 +97,7 @@ Starting with the latest service release, after the completion of an encoding ta
 
 For more information, see [this](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/) blog.
 
-## Known issues
+### Known issues
 
 Some clients can come aross a repeat tag issue in the Smooth Streaming manifest. For more information, see [this](media-services-deliver-content-overview.md#known-issues) section.
 
