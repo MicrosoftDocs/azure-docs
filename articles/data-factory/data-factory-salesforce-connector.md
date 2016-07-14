@@ -75,7 +75,7 @@ This example uses the **Salesforce** linked service. See [Salesforce linked serv
 	{
 		"name": "SalesforceInput",
 		"properties": {
-			"linkedServiceName": " SalesforceLinkedService",
+			"linkedServiceName": "SalesforceLinkedService",
 			"type": "RelationalTable",
 			"typeProperties": {
 				"tableName": "AllDataType__c"  
