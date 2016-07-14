@@ -50,15 +50,13 @@ To navigate between bubbles in the visualization:
 * Ctrl-click a bubble to de-select it in the visualization.
 
 ## Filter
-Further refine your Trends visualization with the filter controls at the bottom of the window. There are two ways to filter:
-* Quick filtering
-* Re-query filtering
+Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that may be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, like Exception Type, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again.
 
-(Explain quick filtering)
+![](./media/app-insights-trends/TrendsFiltering.PNG)
 
-(Explain re-query filtering)
+What if you want to apply multiple filters? Apply the first filter. Then, click the **Apply selected filters and query again** button by the name of the dimension of your first filter. This will re-query your telemetry for only events that match the first filter. Then, you can apply a second filter. Repeat the process to find trends in specific subsets of your telemetry, like server requests named "GET Home/Index" _and_ that came from Germany _and_ that received a 500 response code. To un-apply one of these filters, click the **Remove selected filters and query again** button for the dimension.
 
-(Explain how to un-filter)
+![](./media/app-insights-trends/TrendsFiltering2.PNG)
 
 ## Find anomalies
 TBD - the View Type dropdown; especially useful when bubbles are all small
