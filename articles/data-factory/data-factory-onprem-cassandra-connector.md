@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data from Cassandra | Azure Data Factory" 
+	pageTitle="Move data from Cassandra using Data Factory | Microsoft Azure" 
 	description="Learn about how to move data from an on-premises Cassandra database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -38,11 +38,11 @@ The following example provides sample JSON definitions that you can use to creat
 ## Sample: Copy data from Cassandra to Blob
 The sample copies data from a Cassandra database to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. Data can be copied directly to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article by using the Copy Activity in Azure Data Factory. 
 
-1.	A linked service of type [OnPremisesCassandra](#onpremisescassandra-linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [CassandraTable](#cassandratable-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [CassandraSource](#cassandrasource-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+- A linked service of type [OnPremisesCassandra](#onpremisescassandra-linked-service-properties).
+- A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+- An input [dataset](data-factory-create-datasets.md) of type [CassandraTable](#cassandratable-properties).
+- An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+- A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [CassandraSource](#cassandrasource-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 **Cassandra linked service**
 
