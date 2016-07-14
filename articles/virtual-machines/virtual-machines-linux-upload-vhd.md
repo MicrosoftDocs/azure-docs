@@ -104,21 +104,26 @@ Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-g
 
 
 ## Create a resource group
+All your compute resources are logically contained within a resource group. Read more about [Azure resource groups here](../resource-group-overview.md). You can use an existing resource group and storage account, or create a new resource group:
 
 ```bash
 azure group create TestRG --location "WestUS"
 ```
 
 ## Create a storage account
+Any VMs that you create from your custom image need to be in the same storage account as that image. You will receive an error if you try to create a VM in a different storage account than your image is stored in. 
+
+Create a storage account within the resource group you just created:
 
 ```bash
 azure storage account create testuploadedstorage --resource-group TestRG \
-	--location "WestUS" --kind Storage --sku-name LRS
+	--location "WestUS" --kind Storage --sku-name PLRS
 ```
 
 ## List storage account keys
+Azure generates two 512-bit access keys for each storage account. These access keys can be used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../storage/storage-create-storage-account.md#manage-your-storage-account). You can view access keys with the `azure storage account keys list` command.
 
-List the storage keys for the storage account you just created and make a note of `key1`:
+View the access keys for the storage account you just created:
 
 ```bash
 azure storage account keys list testuploadedstorage --resource-group TestRG
@@ -134,9 +139,12 @@ data:    ----  -----------------------------------------------------------------
 data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
+
 ```
+Make a note of your `key1` as you will use to interact with your storage account in the next step.
 
 ## Create a storage container
+In the same way you create different directories to logically organize your file system, within a storage account you create containers to organize the virtual disks and disk images. A storage account can contain any number of containers. In order to create a container within your storage account you will need to specify the access key that you obtained in the previous step:
 
 ```bash
 azure storage container create --account-name testuploadedstorage \
@@ -144,6 +152,9 @@ azure storage container create --account-name testuploadedstorage \
 ```
 
 ## Upload VHD
+Now you can actually upload your custom disk image. As with all virtual disks used by VMs, you will upload and store your custom disk image as a page blob. Read more about [Azure blob storage here](../storage/storage-introduction.md#blob-storage).
+
+You will need to specify your access key again, along with the container you created in which to store your custom disk image:
 
 ```bash
 azure storage blob upload --blobtype page --account-name testuploadedstorage \
@@ -151,10 +162,36 @@ azure storage blob upload --blobtype page --account-name testuploadedstorage \
 ```
 
 ## Create VM from custom image
+Creating your VM functions in the same way as when using a regular Marketplace image. You still need to provide a VM name, select a VM size, create or select a virtual network, etc. When creating a VM using your custom disk image, you need to specify the URI to the disk image, and ensure that the destination storage account matches where your custom disk image is stored. You can create your VM using the Azure CLI or resource manager JSON template.
+
+
+### Create a VM using the Azure CLI
+You specify the `--image-urn` (or simply `-Q`) parameter use the `azure vm create` command to point to your custom disk image. Ensure that `--storage-account-name` (or `-o`) matches the storage account where your custom disk image is stored. You can choose a different container for your actually storing the VMs you create, you do not have to use the same container as the custom disk image.
 
 ```bash
 azure vm create TestVM -l "WestUS" --resource-group TestRG \
 	-Q https://testuploadedstorage.blob.core.windows.net/vm-images/yourdisk.vhd
+	-o testuploadedstorage
+```
+
+Note that you will still need all the additional parameters required by the `azure vm create` command such as virtual network, public IP address, username and SSH keys, etc. Read more about the [available CLI resource manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+
+### Create a VM using a JSON template
+Azure resource manager templates are JavaScript Object Notation (JSON) files that define the environment you wish to build. The templates are broken down in to different resource providers such as compute or network. You can use existing templates or write your own. Within the `Microsoft.Compute/virtualMachines` provider for your template, there will be a `storageProfile` node that provides the configuration details for your VM:
+
+```bash
+"storageProfile": {
+          "osDisk": {
+            "name": "TestVM')]",
+            "osType": "Linux",
+            "caching": "ReadWrite",
+            image": {
+              "uri": "https://testuploadedstorage.blob.core.windows.net/vm-images/yourdisk.vhd"
+            },
+            "vhd": {
+              "uri": "https://testuploadedstorage.blob.core.windows.net/vhds/TestVM.vhd')]"
+            }
+          }
 ```
 
 
