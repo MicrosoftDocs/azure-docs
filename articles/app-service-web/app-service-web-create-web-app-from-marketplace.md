@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/11/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -26,13 +26,13 @@ The Azure Marketplace makes available a wide range of popular web apps developed
 
 In this tutorial you'll learn how to:
 
-* Find an application template in the Azure Marketplace.
-* Create a web app in Azure App Service that is based on the template.
-* Configure Azure App Service settings for the new web app and database.
+* Find and create web app in Azure App Service that is based on an Azure Marketplace template.
+* Configure Azure App Service settings for the new web app.
+* Launch and manage your web app.
 
 For the purpose of this tutorial, you will deploy a WordPress blog site from the Azure Marketplace. When you have completed the steps in this tutorial, you'll have your own WordPress site up and running in the cloud.
 
-![Example WordPress wep app dashboard][WordPressDashboard]
+![Example WordPress wep app dashboard][WordPressDashboard1]
 
 The WordPress site that you'll deploy in this tutorial uses MySQL for the database. If you wish to instead use SQL Database for the database, see [Project Nami], which is also available through the Azure Marketplace.
 
@@ -41,7 +41,7 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 >
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service]. From there you can immediately create a short-lived starter web app in App Service — no credit card is required, and there are no commitments.
 
-## Select WordPress and configure for Azure App Service
+## Find and Create a Web App in Azure App Service
 
 1. Log in to the [Azure Portal].
 
@@ -57,7 +57,9 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 
 	![Create WordPress web app][MarketplaceCreate]
 
-1. The WordPress settings blade will be displayed, which you will use to complete the following steps:
+## Configure Azure App Service Settings for your New Web App
+
+1. After you have created a new web app, the WordPress settings blade will be displayed, which you will use to complete the following steps:
 
 	![Configure WordPress web app settings][ConfigStart]
 
@@ -73,7 +75,7 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 
 1. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources][ResourceGroups].
+	For more information about resource groups, see [Azure Resource Manager overview][ResourceGroups].
 
 	![Configure the resource group for the web app][ConfigResourceGroup]
 
@@ -131,7 +133,7 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 
 1. Your site Dashboard page will open and display the information that you provided.    
 
-	![View your WordPress dashboard][WordPressDashboard]
+	![View your WordPress dashboard][WordPressDashboard2]
 
 ## Next steps
 
@@ -151,7 +153,7 @@ For more information about developing WordPress web apps on Azure, see [Developi
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../azure-portal/resource-group-portal.md
+[ResourceGroups]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/
@@ -174,5 +176,6 @@ For more information about developing WordPress web apps on Azure, see [Developi
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png

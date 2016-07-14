@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/27/2016"
+     ms.date="07/13/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -42,6 +42,7 @@ The Azure IoT libraries have been tested on the following operating system platf
 
 |Other platforms  |   Version|
 |:---------------|:------------:|
+|Arduino | IDE 1.6.8 |
 |mbed | 2.0 |
 |TI-RTOS | 2.x |
 
@@ -53,9 +54,10 @@ The [Microsoft Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sd
 
 |OS Platform| Version|Protocols|
 |:---------|:----------:|:----------:|
+|Arduino| IDE 1.6.8 | HTTPS |
 |Debian Linux| 7.5 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |Fedora Linux| 20 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
-|mbed OS| 2.0 | HTTPS, AMQP |
+|mbed OS| 2.0 | HTTPS, AMQP, MQTT |
 |TI-RTOS| 2.x | HTTPS |
 |Ubuntu Linux| 14.04 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |Windows desktop| 10 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
@@ -67,11 +69,15 @@ The [Microsoft Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sd
 
 The [Microsoft Azure IoT device SDK for Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md) has been tested on the following configurations:
 
-
 |Runtime| Version|Protocols|
 |:---------|:----------:|:----:|
 |Node.js| 4.1.0 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 
+The Microsoft Azure IoT service SDK for Node.js has been tested on the following configurations:
+
+|Runtime| Version|
+|:---------|:----------:|
+|Node.js| 4.1.0 |
 
 
 ## Java libraries
@@ -82,6 +88,7 @@ The [Microsoft Azure IoT device SDK for Java](https://github.com/Azure/azure-iot
 |:---------|:----------:|----|
 |Java SE (Windows)| 1.8 | HTTPS, AMQP, MQTT |
 |Java SE (Linux)| 1.8 | HTTPS, AMQP, MQTT|
+|Android| API 15 | HTTPS, MQTT |
 
 The Microsoft Azure IoT service SDK for Java has been tested on the following configurations:
 
@@ -98,8 +105,25 @@ The [Microsoft Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot
 |:---------|:----------:|:----------:|
 |Windows desktop| 10 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |Windows IoT Core|10 | HTTPS |
+|PCL (Xamarin, Mono, UWP, WP8.1, Win8.1)|  | HTTPS, AMQP, MQTT, AMQP over WebSockets |
+
+The Microsoft Azure IoT service SDK for CSharp has been tested on the following configurations:
+
+|Runtime| Version|
+|:---------|:----------:|
+|.Net| 4.5 |
+|UWP|  |
 
 Managed agent code requires Microsoft .NET Framework 4.5
+
+
+## Python libraries
+
+The [Microsoft Azure IoT device SDK for Python](https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md) has been tested on the following configurations:
+
+|Runtime| Version|Protocols|
+|:---------|:----------:|:----------:|
+|Python | 2.7.x, 3.4.x, 3.5.x | HTTPS, AMQP, MQTT |
 
 
 ## Microsoft Azure Certified for IoT
@@ -271,6 +295,26 @@ Each device has been certified to work with our SDK in the OS and language chose
 
 Learn more about developing solutions using [Certified for IoT devices](http://azure.com/iotdev).
 
+To learn more about planning your IoT Hub deployment, see:
+
+- [Support additional protocols][lnk-protocols]
+- [Compare with Event Hubs][lnk-compare]
+- [Scaling, HA and DR][lnk-scaling]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md

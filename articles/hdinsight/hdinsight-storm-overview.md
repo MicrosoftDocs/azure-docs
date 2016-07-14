@@ -109,7 +109,7 @@ Storm on HDInsight comes with full enterprise-level 24/7 support. Storm on HDIns
 
 ##Common use cases for real-time analytics
 
-The following are some common scenarios for which you might use Apache storm on HDInsight. For information about real-world scenarios, read [How companies are using Storm](https://storm.incubator.apache.org/documentation/Powered-By.html).
+The following are some common scenarios for which you might use Apache storm on HDInsight. For information about real-world scenarios, read [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet of Things (IoT)
 * Fraud detection
@@ -162,7 +162,7 @@ For more information, see [Develop C# topologies for Apache Storm on HDInsight u
 
 Most Java examples you encounter will be plain Java or Trident. Trident is a high-level abstraction that makes it easier to do things such as joins, aggregations, grouping, and filtering. However, Trident acts on batches of tuples, whereas a raw Java solution processes a stream one tuple at a time.
 
-For more information about Trident, see the [Trident tutorial](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) at apache.org.
+For more information about Trident, see the [Trident tutorial](https://storm.apache.org/documentation/Trident-tutorial.html) at apache.org.
 
 For examples of Java and Trident topologies, see the [list of example Storm topologies](hdinsight-storm-example-topology.md) or the storm-starter examples on your HDInsight cluster.
 
@@ -214,7 +214,7 @@ Learn more about real-time analytics solutions with Apache Storm in HDInsight:
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md

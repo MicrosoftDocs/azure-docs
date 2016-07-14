@@ -31,7 +31,7 @@ ExpressRoute supports most Microsoft Azure services today including Office 365. 
 See this page for service location and availability: [ExpressRoute partners and locations](expressroute-locations.md).
 
 ### How can I use ExpressRoute to connect to Microsoft if I don’t have partnerships with one of the ExpressRoute-carrier partners?
-You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the provider location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your service provider is present in any of the Exchange locations. You can then order an ExpressRoute circuit through the service provider to connect to Azure.
+You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the provider location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your service provider is present in any of the exchange locations. You can then order an ExpressRoute circuit through the service provider to connect to Azure.
 
 ### How much does ExpressRoute cost?
 Check [pricing details](https://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
@@ -248,5 +248,5 @@ Refer to [ExpressRoute partners and locations](expressroute-locations.md) for mo
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
 
-### Can Dynamics AX be accessed over an ExpressRoute connection?
+### Can Dynamics AX Online be accessed over an ExpressRoute connection?
 No, it is not supported.
