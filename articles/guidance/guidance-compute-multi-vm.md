@@ -123,11 +123,7 @@ Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet cann
 
 For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP whitelisting, so if you want to whitelist certain public IP addresses, add an NSG to the subnet.
 
-## Solution components
-
-**TBD**
-
-## Deployment
+## Solution Deployment
 
 <!-- THIS SECTION TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
 
