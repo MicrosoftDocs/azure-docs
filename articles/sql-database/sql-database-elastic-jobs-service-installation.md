@@ -167,7 +167,7 @@ Once you have [created an Elastic Database pool](sql-database-elastic-pool-creat
 
 	![Create username and password][2]
 
-6. Click the OK button. The components are created for you in a few minutes in a new [Resource group](../azure-portal/resource-group-portal.md). The new resource group is pinned to the start board, as shown below. Once created, elastic database jobs (Cloud Service, SQL Database, Service Bus, and Storage) are all created in the group.
+6. Click the OK button. The components are created for you in a few minutes in a new [Resource group](../resource-group-overview.md). The new resource group is pinned to the start board, as shown below. Once created, elastic database jobs (Cloud Service, SQL Database, Service Bus, and Storage) are all created in the group.
 
 	![resource group in start board][3]
 
