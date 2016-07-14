@@ -16,6 +16,8 @@
 	ms.date="07/13/2016"
 	ms.author="v-donglo"/>
 
+# What's New in Azure Machine Learning
+
 The July 2016 Microsoft Azure Machine Learning (ML) updates provide the following features:
 
 * Web services are now managed as Azure resources managed through [Azure Resource Manager](../azure-portal/resource-group-overview.md) (ARM) interfaces, allowing for the following enhancements:
