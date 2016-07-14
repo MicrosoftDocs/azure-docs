@@ -41,6 +41,10 @@ The Machine Learning API service enables you to deploy predictive models, such a
 
 See [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md) for more information.
 
+**Where are my classic web services listed? Where are my new ARM based web services listed?**
+
+Classic web services are listed in [Machine Learning Studio](http://studio.azureml.net) on the web services tab. New ARM based web services are listed in the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal. There is no cross listing available.
+
 ## Microsoft Azure Machine Learning Web Service questions
 
 **What are Azure ML Web Services?**
