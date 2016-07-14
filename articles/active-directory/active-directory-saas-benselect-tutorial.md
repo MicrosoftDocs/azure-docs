@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -144,7 +144,7 @@ BenSelect application expects the SAML assertions in a specific format. Please c
 
 	![Configure Single Sign-On](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_04.png) 
 
-    a. In the **Reply URL** textbox, type the URL in the following pattern: **"https://www.benselect.com/enroll/<company name-pricing>"**
+    a. In the **Reply URL** textbox, type the URL using the following pattern: `https://www.benselect.com/enroll/login.aspx?Path={<tenant name>}`
 	
 	b. click **Next**
  
@@ -157,9 +157,14 @@ BenSelect application expects the SAML assertions in a specific format. Please c
     b. Click **Next**.
 
 
-7. To get SSO configured for your application, contact your BenSelect support team via <mailto:support@selerix.com> (Phone:214-856-4290) and attach the downloaded certificate file to your email. Also please do provide the SAML SSO URL, Sign Out URL and Issuer URL so that they can be configured for SSO integration.
+7. To get SSO configured for your application, contact your BenSelect support team via [support@selerix.com](mailto:support@selerix.com) and provide them with the following:
 
-> [AZURE.NOTE] Please mention to BenSelect team that this integration need SHA256 Algorithm (SHA1 will not be supported) so that they can set the SSO on the appropriate server like app2101 etc.
+	- The downloaded certificate
+	- The SAML SSO URL
+	- The Sign Out URL 
+	- The Issuer 
+
+	> [AZURE.NOTE] You need to mention that this integration requires the SHA256 algorithm (SHA1 is not supported) to set the SSO on the appropriate server like app2101 etc.
 
 8. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
