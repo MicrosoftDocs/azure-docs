@@ -1,14 +1,3 @@
-<!-- TODO: Add the necessary metadata -->
-<!-- Required stuff:
-1. ( ) Properties tag
-2. ( ) Tags tag
-3. (X) H1 heading
-4. (X) H2 headings
-5. (X) Intro paragraph
-6. (X) Conceptual info
-7. (X) Next steps
--->
-
 <properties 
 	pageTitle="Analyzing Trends in Visual Studio" 
 	description="Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio." 
