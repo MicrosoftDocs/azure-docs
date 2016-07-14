@@ -79,7 +79,7 @@ Execute the following command:
 
 2.  Click on the arrow next to the installation source.
 
-3. (Android) In **SENDER_ID**, if you already have a numeric project ID for the Google Developer Console project, you can add it here. Otherwise, enter a placeholder value, like 777777, and you can update this value in config.xml later.
+3. In **SENDER_ID**, if you already have a numeric project ID for the Google Developer Console project, you can add it here. Otherwise, enter a placeholder value, like 777777, and if you are targeting Android you can update this value in config.xml later.
 
 4. Click **Add**.
 
@@ -115,10 +115,9 @@ Initially, we will include some minimal code for Android. Later, we will make so
 
 	This example shows calling **registerForPushNotifications** after authentication succeeds, which is recommended when using both push notifications and authentication in your app.
 
-2. Add the new `registerForPushNotifications()` method as follows:
+2. Add the new **registerForPushNotifications** method as follows:
 
-	  // Register for Push Notifications.
-		// Requires that phonegap-plugin-push be installed.
+	  // Register for Push Notifications. Requires that phonegap-plugin-push be installed.
 	  var pushRegistration = null;
 	  function registerForPushNotifications() {
 	      pushRegistration = PushNotification.init({
@@ -289,7 +288,7 @@ If the App ID you created in your Apple Developer Account already matches the ID
 
 1. In Visual Studio, make sure that **iOS** is selected as the deployment target, and then choose **Device** to run on your connected iOS device.
 
-		You can run on an iOS device connected to your PC using iTunes. The iOS Simulator does not support push notifications.
+	You can run on an iOS device connected to your PC using iTunes. The iOS Simulator does not support push notifications.
 
 2. Press the **Run** button or **F5** in Visual Studio to build the project and start the app in an iOS device, then click **OK** to accept push notifications.
 
