@@ -6,8 +6,25 @@
 4. (X) H2 headings
 5. (X) Intro paragraph
 6. (X) Conceptual info
-7. ( ) Next steps
+7. (X) Next steps
 -->
+
+<properties 
+	pageTitle="Analyzing Trends in Visual Studio" 
+	description="Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio." 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="davidstephens" 
+	manager="pprovost"/>
+
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="07/14/2016" 
+	ms.author="daviste"/>
 	
 # Analyzing Trends in Visual Studio
 The Application Insights Trends tool visualizes how your application's important metrics change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
