@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create and upload a custom Linux image | Microsoft Azure"
-	description="Create and upload to Azure a virtual hard disk (VHD) with a customer Linux image using the resource manager deployment model."
+	description="Create and upload to Azure a virtual hard disk (VHD) with a custom Linux image using the resource manager deployment model."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
