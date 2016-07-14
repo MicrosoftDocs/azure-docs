@@ -13,12 +13,12 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="02/18/2016" 
+ms.date="07/14/2016" 
 ms.author="eugenesh" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](./search-api-2015-02-28-preview). This API version adds an Azure Blob Storage indexer with document extraction, plus other improvements. 
+> [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](./search-api-2015-02-28-preview). This API version adds preview versions of Azure Blob Storage indexer with document extraction and Azure Table Storage indexer, plus other improvements. The API also supports generally available (GA) indexers, including indexers for Azure SQL Database, SQL Server on Azure VMs, and Azure DocumentDB.
 
 ## Overview ##
 
@@ -36,8 +36,8 @@ A **data source** specifies what data needs to be indexed, credentials to access
 
 The following data sources are currently supported:
 
-- **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). 
-- **Azure DocumentDB**. For a targeted walk-through, see [this article](../documentdb/documentdb-search-indexer). 
+- **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). 
+- **Azure DocumentDB**. For a targeted walk-through, see [this article](../documentdb/documentdb-search-indexer.md). 
 - **Azure Blob Storage**, including the following document formats: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP, and plain text files (including JSON). For  a targeted walk-through, see [this article](search-howto-indexing-azure-blob-storage.md).
 	 
 We're considering adding support for additional data sources in the future. To help us prioritize these decisions, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
@@ -94,13 +94,12 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Create Data Source** request must include an `api-key` header set to your admin key (as opposed to a query key). 
  
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the [Azure management portal](https://portal.azure.com/). See [Create a Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the [Azure Portal](https://portal.azure.com/). See [Create a Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 <a name="CreateDataSourceRequestSyntax"></a>
 **Request Body Syntax**
 
 The body of the request contains a data source definition, which includes type of the data source, credentials to read the data, as well as an optional data change detection and data deletion detection policies that are used to efficiently identify changed or deleted data in the data source when used with a periodically scheduled indexer. 
-
 
 The syntax for structuring the request payload is as follows. A sample request is provided further on in this topic.
 
