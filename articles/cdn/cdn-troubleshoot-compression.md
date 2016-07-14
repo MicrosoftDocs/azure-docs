@@ -2,7 +2,7 @@
 	pageTitle="CDN - Troubleshooting file compression"
 	description="Troubleshoot issues with CDN file compression."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
     
 # Troubleshooting CDN file compression
