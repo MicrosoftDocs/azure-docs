@@ -159,8 +159,8 @@ See [RelationalSource type properties](#cassandrasource-type-properties) for the
 				"typeProperties": {
 					"source": {
 						"type": "CassandraSource",
-						"query": "select id, firstname, lastname from mykeyspace.mytable",				
-						"consistencyLevel": "TWO" 										
+						"query": "select id, firstname, lastname from mykeyspace.mytable"
+		
 					},
 					"sink": {
 						"type": "BlobSink"
