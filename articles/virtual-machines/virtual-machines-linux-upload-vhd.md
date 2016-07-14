@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create and upload a Linux VHD | Microsoft Azure"
-	description="Create and upload to Azure a virtual hard disk (VHD) using the resource manager deployment model."
+	pageTitle="Create and upload a custom Linux image | Microsoft Azure"
+	description="Create and upload to Azure a virtual hard disk (VHD) with a custom Linux image using the resource manager deployment model."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -17,9 +17,9 @@
 	ms.date="07/07/2016"
 	ms.author="iainfou"/>
 
-# Uploading a virtual hard disk
+# Upload and create a VM from custom disk image
 
-This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
+This article shows you how to upload a virtual hard disk (VHD) using the Resource Manager deployment model and create VMs from this custom image. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
 ## Quick commands
 Make sure that you have [the Azure CLI](../xplat-cli-install.md) logged in and using the resource manager mode (`azure config mode arm`).
