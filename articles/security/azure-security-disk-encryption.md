@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="06/14/2016"
    ms.author="devtiw"/>
 
 
@@ -27,7 +27,7 @@ Microsoft Azure is strongly committed to ensuring your data privacy, data sovere
 
 Azure Disk Encryption is a new capability that lets you encrypt your Windows and Linux IaaS virtual machine disks. Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key](https://azure.microsoft.com/documentation/services/key-vault/) Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
 
-Azure disk encryption for Windows IaaS VMs is now in [General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/15/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) in Australia region. The general availability for Windows IaaS VMs for other regions will be coming soon.
+> [AZURE.NOTE] Azure disk encryption for Windows IaaS VMs is now in [General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/).
 
 ### Encryption Scenarios
 
@@ -610,7 +610,7 @@ To disable using the PS cmdlet, [Disable-AzureRmVMDiskEncryption](https://msdn.
 
 ### Connect to your subscription
 
-Make sure to review the perquisites section in this document before proceed. After ensuring that all prerequisites were fulfilled, follow the steps below to connect to your subscription:
+Make sure to review the *Prerequisites* section in this document before proceeding. After ensuring that all prerequisites were fulfilled, follow the steps below to connect to your subscription:
 
 1.Start an Azure PowerShell session and sign in to your Azure account with the following command:
 

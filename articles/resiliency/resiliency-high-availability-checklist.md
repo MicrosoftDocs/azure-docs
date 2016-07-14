@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2016"
+   ms.date="06/15/2016"
    ms.author="aglick"/>
 
 #High availability checklist
@@ -29,7 +29,7 @@ __What happens if you don't use Traffic Manager?__ If you aren't using Traffic M
 ###Have you avoided using a single virtual machine for any role?
 Good design avoids any single point of failure. This is important in all service design (on-premises or in the cloud) but is especially useful in the cloud as you can increase scalability and resiliency though scaling out (adding virtual machines) instead of scaling up (using a more powerful virtual machine). If you would like to find out more information on scalable application design, read [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-__What happens if you have a single virtual machine for a role?__ A single machine is a single point of failure. In the best cases, your application will run just fine but this is not a resilient design and any single point of failure increases the chance of downtime if something fails.
+__What happens if you have a single virtual machine for a role?__ A single machine is a single point of failure and is not available for the [Azure Virtual Machine Service Level Agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/). In the best cases, your application will run just fine but this is not a resilient design, is not covered by the Azure Virtual Machine SLA, and any single point of failure increases the chance of downtime if something fails.
 
 ###Are you using a load balancer in front of your application's internet-facing VMs?
 Load balancers allow you to spread the incoming traffic to your application across an arbitrary number of machines. You can add/remove machines from your load balancer at any time, which works well with Virtual Machines (and also with auto-scaling with Virtual Machine Scale Sets) to allow you to easily handle increases in traffic or VM failures. If you want to know more about load balancers, please read the [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md) and [Running multiple VMs on Azure for scalability and availability](../guidance/guidance-compute-multi-vm.md).
@@ -37,7 +37,7 @@ Load balancers allow you to spread the incoming traffic to your application acro
 __What happens if you are not using a load balancer in front of your internet-facing VMs?__ Without a load balancer you will not be able to scale out (add more virtual machines) and your only option will be to scale up (increase the size of your web-facing virtual machine). You will also face a single point of failure with that virtual machine. You will also need to write DNS code to notice if you have lost an internet-facing machine and re-map your DNS entry to the new machine you start to take its place.
 
 ###Are you using availability sets for your stateless application and web servers?
-Putting your machines in the same application tier in an availability set makes your VMs eligible for the Azure VM SLA. Being part of an availability set also ensures that your machines are put into different fault domains and update domains (i.e. different host machines that are patched at different times) and fault domains (i.e. host machines that share a common power source and network switch). Without being in an availability set, your VMs could be located on the same host machine and thus there might be a single point of failure that is not visible to you. If you would like to find out more information about increasing the availability of your VMs using availability sets, please read [Manage the availability of virtual machines](../virtual-machines/virtual-machines-windows-manage-availability.md).
+Putting your machines in the same application tier in an availability set makes your VMs eligible for the Azure VM SLA. Being part of an availability set also ensures that your machines are put into different update domains (i.e. different host machines that are patched at different times) and fault domains (i.e. host machines that share a common power source and network switch). Without being in an availability set, your VMs could be located on the same host machine and thus there might be a single point of failure that is not visible to you. If you would like to find out more information about increasing the availability of your VMs using availability sets, please read [Manage the availability of virtual machines](../virtual-machines/virtual-machines-windows-manage-availability.md).
 
 __What happens if you don't use an availability set with your stateless applications and web servers?__ Not using an availability set means that you aren't able to take advantage of the Azure VM SLA. It also means that machines in that layer of your application could all go offline if there is an update on the host machine (the machine that hosts the VMs you are using), or a common hardware failure.
 
@@ -77,4 +77,4 @@ Using a CDN helps you take load off your servers by caching your content in the 
 __What happens if you don't use a CDN?__ If you aren't using a CDN then all of your customer traffic comes directly to your resources. This means that you will see higher loads on your servers which decreases their scalability. Additionally, your customers may experience higher latencies as CDNs offer locations around the world that are likely closer to your customers.
 
 ##Next steps:
-Is you would like to read more about how to design your applications for high availability, please read [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
+If you would like to read more about how to design your applications for high availability, please read [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Detect Motions with Azure Media Analytics"
+	pageTitle="Detect Motions with Azure Media Analytics | Microsoft Azure"
 	description="The Azure Media Motion Detector media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="07/11/2016"  
 	ms.author="milanga;juliako;"/>
  
 # Detect Motions with Azure Media Analytics
@@ -28,29 +28,74 @@ The **Azure Media Motion Detector** MP is currently in Preview.
 
 This topic gives details about  **Azure Media Motion Detector** and shows how to use it with Media Services SDK for .NET
 
+
 ##Motion Detector input files
 
 Video files. Currently, the following formats are supported: MP4, MOV, and WMV.
+
+##Task configuration (preset)
+
+When creating a task with **Azure Media Motion Detector**, you must specify a configuration preset. 
+
+###Parameters
+
+You can use the following parameters:
+
+Name|Options|Description|Default
+---|---|---|---
+sensitivityLevel|String:'low', 'medium', 'high'|Sets the sensitivity level at which motions is reported. Adjust this to adjust amount of false positives.|'medium'
+frameSamplingValue|Positive integer|Sets the frequency at which algorithm runs. 1 equals every frame, 2 means every 2nd frame, and so on.|1
+detectLightChange|Boolean:'true', 'false'|Sets whether light changes are reported in the results|'False'
+mergeTimeThreshold|Xs-time: Hh:mm:ss<br/>Example: 00:00:03|Specifies the time window between motion events where 2 events will be combined and reported as 1.|00:00:00
+detectionZones|An array of detection zones:<br/>- Detection Zone is an array of 3 or more points<br/>- Point is a x and y coordinate from 0 to 1.|Describes the list of polygonal detection zones to be used.<br/>Results will be reported with the zones as an ID, with the first one being 'id':0|Single zone which covers the entire frame.
+
+###JSON example
+
+	
+	{
+	  'version': '1.0',
+	  'options': {
+	    'sensitivityLevel': 'medium',
+	    'frameSamplingValue': 1,
+	    'detectLightChange': 'False',
+	    "mergeTimeThreshold":
+	    '00:00:02',
+	    'detectionZones': [
+	      [
+	        {'x': 0, 'y': 0},
+	        {'x': 0.5, 'y': 0},
+	        {'x': 0, 'y': 1}
+	       ],
+	      [
+	        {'x': 0.3, 'y': 0.3},
+	        {'x': 0.55, 'y': 0.3},
+	        {'x': 0.8, 'y': 0.3},
+	        {'x': 0.8, 'y': 0.55},
+	        {'x': 0.8, 'y': 0.8},
+	        {'x': 0.55, 'y': 0.8},
+	        {'x': 0.3, 'y': 0.8},
+	        {'x': 0.3, 'y': 0.55}
+	      ]
+	    ]
+	  }
+	}
+
 
 ##Motion Detector output files
 
 A motion detection job will return a JSON file in the output asset which describes the motion alerts, and their categories, within the video. The file will contain information about the time and duration of motion detected in the video.
 
-Currently, motion detection supports only the generic motion category, which is referred to as ***type 2*** in the output.
-
-X and Y coordinates and sizes will be listed using a normalized float between 0.0 and 1.0. Multiply this by the video height and width resolution to get the bounding box for the region of detected motion.
-
-Each output is split into fragments and subdivided into intervals to define the data within the video. Fragment lengths do not need to be equal, and may span long lengths when there is no motion at all detected.
-
 The Motion Detector API provides indicators once there are objects in motion in a fixed background video (e.g. a surveillance video). The Motion Detector is trained to reduce false alarms, such as lighting and shadow changes. Current limitations of the algorithms include night vision videos, semi-transparent objects, and small objects.
 
 ###<a id="output_elements"></a>Elements of the output JSON file
+
+>[AZURE.NOTE]In the latest release, the Output JSON format has changed and may represent a breaking change for some customers.
 
 The following table describes elements of the output JSON file.
 
 Element|Description
 ---|---
-Version|This refers to the version of the Video API.
+Version|This refers to the version of the Video API. The current version is 2.
 Timescale|"Ticks" per second of the video.
 Offset|The time offset for timestamps in "ticks". In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change.
 Framerate|Frames per second of the video.
@@ -61,98 +106,56 @@ Interval|The interval of each entry in the event, in "ticks".
 Events|Each event fragment contains the motion detected within that time duration.
 Type|In the current version, this is always ‘2’ for generic motion. This label gives Video APIs the flexibility to categorize motion in future versions.
 RegionID|As explained above, this will always be 0 in this version. This label gives Video API the flexibility to find motion in various regions in future versions.
-Regions|Refers to the area in your video where you care about motion. In the current version of Video APIs, you cannot specify a region, instead the whole surface of the video will be the area of motion that will be detected.<br/>-ID represents the region area – in this version there is only one, ID 0. <br/>-Rectangle represents the shape of the region you care about for motion. In this version, it is always a rectangle. <br/>-The region has dimensions in X, Y, Width, and Height. The X and Y coordinates represent the upper left hand XY coordinates of the region in a normalized scale of 0.0 to 1.0. The width and height represent the size of the region in a normalized scale of 0.0 to 1.0. In the current version, X, Y, Width, and Height are always fixed at 0, 0 and 1, 1.<br/>-Fragments The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). A fragment with no events means that no motion was detected during that start time and duration.
+Regions|Refers to the area in your video where you care about motion. <br/><br/>-"id" represents the region area – in this version there is only one, ID 0. <br/>-"type" represents the shape of the region you care about for motion. Currently, "rectangle" and "polygon" are supported.<br/> If you specified "rectangle", the region has dimensions in X, Y, Width, and Height. The X and Y coordinates represent the upper left hand XY coordinates of the region in a normalized scale of 0.0 to 1.0. The width and height represent the size of the region in a normalized scale of 0.0 to 1.0. In the current version, X, Y, Width, and Height are always fixed at 0, 0 and 1, 1. <br/>If you specified "polygon", the region has dimensions in points. <br/>
+Fragments|The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). A fragment with no events means that no motion was detected during that start time and duration.
 Brackets []|Each bracket represents one interval in the event. Empty brackets for that interval means that no motion was detected.
- 
+locations|This new entry under events lists the location where the motion occurred. This is more specific than the detection zones.
 
-##Task configuration (preset)
-
-When creating a task with **Azure Media Motion Detector**, you must specify a configuration preset. Currently, you cannot set any options in the Azure Media Motion Detector configuration preset. The following is the minimum configuration preset that you must provide. 
-
-	{"version":"1.0"}
-
-##Sample videos and Motion Detector outputs
-
-###Example with actual motion
-
-[Example with actual motion](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fd54876c6-89a5-41de-b1f4-f45b6e10a94f%2FGarage.ism%2Fmanifest)
-
-###JSON output
-
-	 {
-	 "version": "1.0",
-	 "timescale": 60000,
-	 "offset": 0,
-	 "framerate": 30,
-	 "width": 1920,
-	 "height": 1080,
-	 "regions": [
-	   {
-	     "id": 0,
-	     "type": "rectangle",
-	     "x": 0,
-	     "y": 0,
-	     "width": 1,
-	     "height": 1
-	   }
-	 ],
-	 "fragments": [
-	   {
-	     "start": 0,
-	     "duration": 68510
-	   },
-	   {
-	     "start": 68510,
-	     "duration": 969999,
-	     "interval": 969999,
-	     "events": [
-	       [
-	         {
-	           "type": 2,
-	           "regionId": 0
-	         }
-	       ]
-	     ]
-	   },
-	   {
-	     "start": 1038509,
-	     "duration": 41489
-	   }
-	 ]
-	}
-
-###Example with false positives
-
-[Example with false positives (light changes):](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Ffdc6656b-1c10-4f3f-aa7c-07ba073c1615%2FLivingRoomLight.ism%2Fmanifest&tech=flash)
-
-###JSON output
+The following is a JSON output example
 
 	{
-	    "version": "1.0",
-	    "timescale": 30000,
-	    "offset": 0,
-	    "framerate": 29.97,
-	    "width": 1920,
-	    "height": 1080,
-	    "regions": [
+	  "version": 2,
+	  "timescale": 23976,
+	  "offset": 0,
+	  "framerate": 24,
+	  "width": 1280,
+	  "height": 720,
+	  "regions": [
 	    {
-	        "id": 0,
-	        "type": "rectangle",
-	        "x": 0,
-	        "y": 0,
-	        "width": 1,
-	        "height": 1
+	      "id": 0,
+	      "type": "polygon",
+	      "points": [{'x': 0, 'y': 0},
+	        {'x': 0.5, 'y': 0},
+	        {'x': 0, 'y': 1}]
 	    }
-	    ],
-	    "fragments": [
+	  ],
+	  "fragments": [
 	    {
-	        "start": 0,
-	        "duration": 320320
-	    }
-	    ]
-	}
-
-
+	      "start": 0,
+	      "duration": 226765
+	    },
+	    {
+	      "start": 226765,
+	      "duration": 47952,
+	      "interval": 999,
+	      "events": [
+	        [
+	          {
+	            "type": 2,
+	            "typeName": "motion",
+	            "locations": [
+	              {
+	                "x": 0.004184,
+	                "y": 0.007463,
+	                "width": 0.991667,
+	                "height": 0.985185
+	              }
+	            ],
+	            "regionId": 0
+	          }
+	        ],
+	
+	…
 ##Limitations
 
 - The supported input video formats include MP4, MOV, and WMV.
@@ -168,7 +171,31 @@ The following program shows how to:
 1. Creates a job with a video motion detection task based on a configuration file that contains the following json preset. 
 					
 		{
-		    "version": "1.0"
+		  'Version': '1.0',
+		  'Options': {
+		    'SensitivityLevel': 'medium',
+		    'FrameSamplingValue': 1,
+		    'DetectLightChange': 'False',
+		    "MergeTimeThreshold":
+		    '00:00:02',
+		    'DetectionZones': [
+		      [
+		        {'x': 0, 'y': 0},
+		        {'x': 0.5, 'y': 0},
+		        {'x': 0, 'y': 1}
+		       ],
+		      [
+		        {'x': 0.3, 'y': 0.3},
+		        {'x': 0.55, 'y': 0.3},
+		        {'x': 0.8, 'y': 0.3},
+		        {'x': 0.8, 'y': 0.55},
+		        {'x': 0.8, 'y': 0.8},
+		        {'x': 0.55, 'y': 0.8},
+		        {'x': 0.3, 'y': 0.8},
+		        {'x': 0.3, 'y': 0.55}
+		      ]
+		    ]
+		  }
 		}
 
 1. Downloads the output JSON files. 
@@ -346,6 +373,7 @@ The following program shows how to:
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Related links
+[Azure Media Services Motion Detector blog](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 

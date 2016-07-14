@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Manage Azure SQL Database with PowerShell" 
-	description="Azure SQL Database Manage with PowerShell." 
+	description="Azure SQL Database management with PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/07/2016" 
 	ms.author="sstein"/>
 
 # Manage Azure SQL Database with PowerShell
@@ -47,13 +47,13 @@ To create a new V12 server use the [New-AzureRmSqlServer](https://msdn.microsoft
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
-When you run this command a window opens asking for a **User name** and **Password**. This is  not your Azure credentials, enter the user name and password that will be the administrator credentials you want to create for the new server.
+When you run this command a window opens asking for a **User name** and **Password**. This is not your Azure credentials, enter the user name and password that will be the administrator credentials you want to create for the new server.
 
 ## Create a server firewall rule
 
 To create a firewall rule to access the server use the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) command. Run the following command replacing the start and end IP addresses with valid values for your client.
 
-If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all azure traffic access to the server.
+If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all Azure traffic access to the server.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -83,14 +83,14 @@ You can delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.
 
 You can also delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) command. The following example deletes a server named server12.
 
+
+>[AZURE.NOTE]  The delete operation is async and may take some time, so verify the operation is finished before performing any additional operations that depend on the server being completely deleted - for example, creating a new server with the same name.
+
+
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
-If you will be creating these Azure SQL resources again or a similar ones, you can: 
-
-- Save this as a PowerShell script file (*.ps1)
-- Save this as an Azure automation runbook in the Automation section of the Azure Classic Portal 
 
 ## Next steps
 

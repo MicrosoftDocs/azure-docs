@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="SQL Database disaster recovery" 
+   pageTitle="SQL Database disaster recovery | Microsoft Azure" 
    description="Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database Active Geo-Replication, and Geo-Restore capabilities." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -12,18 +12,18 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.workload="sqldb-bcdr" 
+   ms.date="06/16/2016"
+   ms.author="carlrab"/>
 
 # Restore an Azure SQL Database or failover to a secondary
 
 Azure SQL Database offers the following capabilities for recovering from an outage:
 
 - [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- [Geo-Restore](sql-database-geo-restore.md)
+- [Geo-Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-To learn about preparing for disaster and when to recover your database, visit our [Design for business continuity](sql-database-business-continuity-design.md) page. 
+To learn about preparing for disaster and when to recover your database, see [Business continuity](sql-database-business-continuity.md) and [Business continuity design and recovery scenarios.md](). 
 
 ## When to initiate recovery
 
@@ -34,6 +34,8 @@ The recovery operation impacts the application. It requires changing the SQL con
 3.	The Azure SQL Database Server is marked as degraded. 
 
 Depending on your application tolerance to downtime and possible business liability you can consider the following recovery options.
+
+Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
 
 ## Wait for service recovery
 
@@ -66,24 +68,24 @@ Use one of the following guides to geo-restore a database into a new region:
 
 ## Configure your database after recovery
 
-If you are using geo-replication failover of geo-restore options to recover your application from an outage you must make sure that the connectivity to the new databases is properly configured so that the normal application function can be resumed. This is a checklist of tasks to get your recovered database production ready.
+If you are using either geo-replication failover or geo-restore to recover from an outage, you must make sure that the connectivity to the new databases is properly configured so that the normal application function can be resumed. This is a checklist of tasks to get your recovered database production ready.
 
 ### Update Connection Strings
 
-Because your recovered database will reside in a different server you need to update your application’s connection string to point to that server.
+Because your recovered database will reside in a different server, you need to update your application’s connection string to point to that server.
 
-For more information about changing connection strings, see [Connections to Azure SQL Database: Central Recommendations](sql-database-connect-central-recommendations.md).
+For more information about changing connection strings, see the appropriate development language for your [connection library](sql-database-libraries.md).
 
 ### Configure Firewall Rules
 
-You need to make sure that  the firewall rules configured on server and on the database match those that were configured on the primary server and primary database. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+You need to make sure that the firewall rules configured on server and on the database match those that were configured on the primary server and primary database. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 
 ### Configure Logins and Database Users
 
-You need to make sure that all the logins used by your application exist on the server which is hosting your recovered database. For more information, see  How to manage security during disaster recovery. For more information, see [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
+You need to make sure that all the logins used by your application exist on the server which is hosting your recovered database. For more information, see [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md).
 
->[AZURE.NOTE] If you are using the geo-restore option to recover from outage you should configure your server firewall rules and logins during the DR drill to make sure the primary server is still available to retrieve its configuration. Because geo-restore uses the database backups the server level configuration may not be available during the outage. After the drill you can remove the restored databases but keep the server and its configuration ready for the recovery process. For more information about DR drills, see [Performing Disaster Recovery Drills](sql-database-disaster-recovery-drills.md).
+>[AZURE.NOTE] You should configure and test your server firewall rules and logins (and their permissions) during a disaster recovery drill. These server-level objects and their configuration may not be available during the outage. For more information, see [Performing Disaster Recovery Drills](sql-database-disaster-recovery-drills.md).
 
 ### Setup Telemetry Alerts
 
@@ -93,19 +95,13 @@ For more information about database alert rules, see [Receive Alert Notification
 
 ### Enable Auditing
 
-If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator that auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.windows.net. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md). 
+If auditing is required to access your database, you need to enable Auditing after the database recovery. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md). Also, for "downlevel clients", see [Auditing and downlevel client support](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). 
 
 
+## Next steps
 
-
-## Additional Resources
-
-
-- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

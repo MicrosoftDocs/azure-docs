@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
@@ -25,7 +25,7 @@ You can use these APIs to detect sentiment, key phrases, topics and language fro
 
 Please refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
-This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](../machine-learning-apps-text-analytics/).
+This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](../machine-learning/machine-learning-apps-text-analytics.md).
 
 By the end of this tutorial, you will be able to programatically detect:
 
@@ -37,7 +37,9 @@ By the end of this tutorial, you will be able to programatically detect:
 
 - **Languages** - What language is text written in?
 
-Note that this API charges 1 transaction per text record submitted. 
+Note that this API charges 1 transaction per document submitted. As an example, if you request sentiment for 1000 documents in a single call, 1000 transactions will be deducted.
+
+
 
 <a name="Overview"></a>
 ## General overview ##
@@ -67,22 +69,32 @@ It's easy to detect sentiment, key phrases and languages in your text. You will 
 
 >[AZURE.TIP] For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
 
+Note that the supported languages are as follows:
+
+| Feature | Supported language codes |
+|:-----|:----|
+| Sentiment | `en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
+| Key phrases | `en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
+
+
 1. You will need to set the headers to the following. Note that JSON is currently the only accepted input format for the APIs. XML is not supported.
 
 		Ocp-Apim-Subscription-Key: <your API key>
 		Content-Type: application/json
 		Accept: application/json
 
-1. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Note that each ID should be unique and will be the ID returned by the system. The maximum size of a single document that can be submitted is 10KB, and the total maximum size of submitted input is 1MB. No more than 1,000 documents may be submitted in one call. An example of input is shown below:
+1. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Note that each ID should be unique and will be the ID returned by the system. The maximum size of a single document that can be submitted is 10KB, and the total maximum size of submitted input is 1MB. No more than 1,000 documents may be submitted in one call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
 
 		{
 			"documents": [
 				{
+					"language": "en",
 					"id": "1",
 					"text": "First document"
 				},
                 ...
                 {
+					"language": "en",
 					"id": "100",
 					"text": "Final document"
 				}
@@ -154,7 +166,6 @@ It's easy to detect sentiment, key phrases and languages in your text. You will 
 			]
 		}
 
-        
 
 ## Task 3 - Detect topics in a corpus of text ####
 
@@ -207,7 +218,7 @@ Follow these steps to detect topics in your text.
 
 		{
 			"status": "succeeded",
-			"processingResult": {
+			"operationProcessingResult": {
 			  	"topics": [
                     {
 					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
@@ -284,3 +295,5 @@ Explanations for each part of this response are as follows:
 ## Next steps ##
 
 Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data, as well as automating your insights to give you a real-time view of your text data.
+
+To see how Text Analytics capabilities, such as sentiment, can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.

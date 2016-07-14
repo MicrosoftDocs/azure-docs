@@ -27,7 +27,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - Customers can manage database permissions using external (AAD) groups.
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
-- Azure Active Directory supports token-based authentication for applications token-based authentication for applications connecting to SQL Database.
+- Azure Active Directory supports token-based authentication for applications connecting to SQL Database.
 - Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
 
 > [AZURE.IMPORTANT] Azure Active Directory authentication is a preview feature and is subject to the preview terms in the license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -97,7 +97,6 @@ Create an Azure Active directory and populate it with users and groups. This inc
 
 - Create the initial domain Azure AD managed domain.
 - Federate an on-premises Active Directory Domain Services with Azure Active Directory.
-- Using the **AD FS** tool, in the **Service**, **Endpoints** section, enable **WS-Trust 1.3** for the URL path **/adfs/services/trust/13/windowstransport**.
 
 For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Move data to/from on-premises Oracle using Azure Data Factory 
@@ -432,8 +432,8 @@ oracleReaderQuery | Use the custom query to read data. | SQL query string. For e
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | (Unit = timespan) Example: 00:30:00 (30 minutes). | No
-writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.	Integer. | (unit = Row Count) | No (Default = 10000)  
+writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: 00:30:00 (30 minutes). | No
+writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.	| Integer (number of rows)| No (default: 10000)  
 sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. | A query statement. | No
 sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. | Column name of a column with data type of binary(32). | No
 

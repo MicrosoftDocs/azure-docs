@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.workload="sqldb-bcdr"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
@@ -120,8 +120,18 @@ The key **advantage** of this option is that you can upgrade both the applicatio
 
 The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines the end-user experience during upgrades. So the best way you can improve it is by focusing your efforts on making the upgrade script as efficient as possible.  
 
-## Additional resources
- The following pages will help you learn about the specific operations required to implement the upgrade workflow:
+
+## Next steps
+
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+
+## Additionale Resources
+
+The following pages will help you learn about the specific operations required to implement the upgrade workflow:
 
 - [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -130,3 +140,4 @@ The two upgrade methods described in the article differ in complexity and the do
 - [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Set database to read-only or read-write mode](https://msdn.microsoft.com/library/bb522682.aspx)
+

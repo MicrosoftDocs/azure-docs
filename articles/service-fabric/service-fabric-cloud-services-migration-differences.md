@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Learn about the differences between Cloud Services and Service Fabric before migrating applications.
@@ -51,7 +51,12 @@ Service Fabric applications can also choose to use the same external services in
 
 ![Service Fabric architecture after simple migration][10]
 
-At this stage, the system should continue to work the same as before. Taking advantage of Service Fabric's stateful features, external state stores can be internalized as stateful services where applicable. This is more involved than a simple migration of Web and Worker Roles to Service Fabric stateless services, as it requires writing custom services that provide equivalent functionality to your application as the external services did before. The benefits of doing so include removing external dependencies and unifying the deployment, management, and upgrade models. An example resulting architecture of internalizing these services could look like this:
+At this stage, the system should continue to work the same as before. Taking advantage of Service Fabric's stateful features, external state stores can be internalized as stateful services where applicable. This is more involved than a simple migration of Web and Worker Roles to Service Fabric stateless services, as it requires writing custom services that provide equivalent functionality to your application as the external services did before. The benefits of doing so include: 
+
+ - Removing external dependencies 
+ - Unifying the deployment, management, and upgrade models. 
+ 
+An example resulting architecture of internalizing these services could look like this:
 
 ![Service Fabric architecture after full migration][11]
 

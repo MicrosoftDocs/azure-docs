@@ -9,6 +9,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Category | Quality review item |
 |----------|---------------------|
 |Prerequisites|	The "ready-to-merge" and the "validation succeeded" labels are assigned to the PR.|
+|Prerequisites| The pull request cannot be blocked by a merge conflict.|
 |Repo integrity|	Pull request contains no obvious content regressions.|
 |Repo integrity|	Pull request does not include an embedded repo or any unusual, extraneous files.|
 |Repo integrity	|Pull request contains fewer than 100 changed files unless the PR intentionally is updating a release branch from master. (Really, a PR should contain far fewer than that, but after 100 changed files, GitHub doesn’t display the diffs).|

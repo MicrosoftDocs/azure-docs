@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create an Azure SQL Data Warehouse
@@ -48,7 +48,7 @@ In this tutorial you will use the Azure Portal to create a SQL Data Warehouse th
 
     - **Subscription**: Select the subscription that this SQL Data Warehouse will bill to.
 
-    - **Resource group**: Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-portal/resource-group-portal.md).
+    - **Resource group**: Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../resource-group-overview.md).
 
     - **Select source**: Click **Select source** > **Sample**. Since there is only one sample database available at this time, when you select Sample Azure automatically populates the **Select sample** option with AdventureWorksDW.
 
@@ -62,7 +62,7 @@ In this tutorial you will use the Azure Portal to create a SQL Data Warehouse th
 
 ## Next steps
 
-Now that you have created a SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-get-started-connect.md) and begin querying.
+Now that you have created a SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-connect-overview.md) and begin querying.
 
 To load data into SQL Data Warehouse, see the [loading overview](./sql-data-warehouse-overview-load.md).
 

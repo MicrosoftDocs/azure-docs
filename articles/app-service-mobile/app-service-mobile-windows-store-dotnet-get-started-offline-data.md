@@ -41,11 +41,11 @@ This tutorial requires the following:
 
 Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use these features in your app, you initialize a [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
 
-1. Install the [SQLite runtime for the Windows Universal Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Install the [SQLite runtime for the Universal Windows Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
 2. In Visual Studio, open the NuGet package manager for the UWP app project that you completed in the [Create a Windows app] tutorial, then search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
 
-4. In Solution Explorer, right click **References** > **Universal Windows** > **Extensions**, then enable both **SQLite for Universal Windows Platform** and **Visual C++ 2015 Runtime for Universal Windows Platform apps**.
+4. In Solution Explorer, right click **References** > **Add Reference...** > **Universal Windows** > **Extensions**, then enable both **SQLite for Universal Windows Platform** and **Visual C++ 2015 Runtime for Universal Windows Platform apps**.
 
     ![Add SQLite UWP reference][1]
 
@@ -147,7 +147,7 @@ In this section, you break the connection to your Mobile App backend to simulate
 
 In this section you reconnect the app to the mobile app backend. This simulates the app moving from an offline state to an online state with the mobile app backend. When you first run the application, the `OnNavigatedTo` event handler will call `InitLocalStoreAsync`. This will in turn call `SyncAsync` to sync your local store with the backend database. So the app will attempt to sync on start up.
 
-1. Open App.xaml.cs in the shared project. Uncomment your previous initialization of `MobileServiceClient` to use the correct Mobile App URL and gateway URL.
+1. Open App.xaml.cs in the shared project, and uncomment your previous initialization of `MobileServiceClient` to use the correct the mobile app URL.
 
 2. Press the **F5** key to rebuild and run the app. The app syncs your local changes with the Azure Mobile App backend using push and pull operations as soon as the `OnNavigatedTo` event handler executes.
 

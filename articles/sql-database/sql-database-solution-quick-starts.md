@@ -13,12 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/01/2016"
+   ms.date="06/22/2016"
    ms.author="carlrab"/>
 
 # Explore Azure SQL Database Solution Quick Starts
 
 This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts demonstrate the use of SQL Database in complete solution based on real world scenarios. For simple step-by-step tutorials demonstrating the use of a particular Azure SQL Database feature, see [Explore Azure SQL Database Tutorials](sql-database-explore-tutorials.md).
+
+## WingTipTickets Demo and Hands-On Lab
+
+[Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) demo and hands on lab These files comprise a hands-on-lab that demostrates an Azure SQL Database and Azure Search based sample application used to selling concert tickets
 
 ## Collect and monitor resource usage data across multiple pools
 
@@ -30,7 +34,7 @@ This Solution Quick Start provides a solution for collecting and monitoring Azur
 
 This Solution Quick Start provides a solution for a Softwware-as-a-Solution (SaaS) scenario that leverages Elastic Pools to provide a cost-effective, scalable database back-end of a SaaS application. In this solution, you will walk-though the implementation of a web app that lets you visualize the load created on an Elastic Pool by a load generator using a custom dashboard that supplements the Azure Portal.
 
-[Saas-scenario-with-elastic-pools](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation on what it does and how to use it.
+[Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation on what it does and how to use it.
 
 ## Creating an Azure SQL Database using the Entity Framework and COde First Development
 

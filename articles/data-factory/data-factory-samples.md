@@ -42,7 +42,7 @@ The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafac
 ## Samples in Azure Portal
 You can use the **Sample pipelines** tile on the home page of your data factory to deploy sample pipelines and their associated entities (datasets and linked services) into your data factory. 
 
-1. Create a new data factory or open an existing data factory. See [Getting started with Azure Data Factory](data-factory-get-started.md#CreateDataFactory) for steps to create a data factory.
+1. Create a new data factory or open an existing data factory. See [Getting started with Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#CreateDataFactory) for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.
 
 	![Sample pipelines tile](./media/data-factory-samples/SamplePipelinesTile.png)

@@ -12,36 +12,34 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-    ms.workload="data-management"
-    ms.date="04/27/2016"
+   ms.workload="sqldb-bcdr"
+    ms.date="06/14/2016"
     ms.author="carlrab"/>
 
 # Configure Geo-Replication for Azure SQL Database with Transact-SQL
 
-
-
 > [AZURE.SELECTOR]
+- [Overview](sql-database-geo-replication-overview.md)
 - [Azure Portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
+This article shows you how to configure Active Geo-Replication for an Azure SQL Database with Transact-SQL.
 
-This article shows you how to configure Geo-Replication for an Azure SQL Database using Transact-SQL.
-
-To initiate failover, see [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-transact-sql.md).
+To initiate failover using Transact-SQL, see [Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 >[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 
-You can configure up to 4 readable secondary databases in the same or different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
+To configure Active Geo-Replication using Transact-SQL, you need the following:
 
-
-To configure Geo-Replication, you need the following:
-
-- An Azure subscription - If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
-- A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate to a different geographical region.
+- An Azure subscription.
+- A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate.
 - One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases.
 - A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure Geo-Replication.
-- Newest version of SQL Server Management Studio - To obtain the newest version of SQL Server Management Studio (SSMS), go to [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx). For information on using SQL Server Management Studio to manage an Azure SQL Database logical servers and databases, see [Managing Azure SQL Database using SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 ## Add secondary database
 
@@ -170,16 +168,5 @@ Use the following steps to monitor a Geo-Replication partnership.
 
 ## Next steps
 
-- [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-transact-sql.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
-
-
-## Additional resources
-
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
+- To learn more about Active Geo-Replication, see - [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)

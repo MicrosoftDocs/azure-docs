@@ -15,103 +15,126 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="07/11/2016"
    ms.author="rogardle"/>
 
 # Load balance an Azure Container Service cluster
 
-In this article, we will set up a web front end which can be scaled up to deliver services behind the Azure LB.
-
+In this article, we'll set up a web front end on a DC/OS managed Azure Container Service. We'll also configure a Marathon-LB to enable you to scale up the application.
 
 ## Prerequisites
 
-[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DCOS, [ensure your client can connect to your cluster](container-service-connect.md), and [AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)].
-
+[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DC/OS and [ensure that your client can connect to your cluster](container-service-connect.md). 
 
 ## Load balancing
 
-There are two load-balacing layers in a Container Service cluster: Azure LB for the public entry points (the ones end users will hit), and the underlying marathon-lb that routes inbound requests to container instances servicing requests. As we scale the containers providing the service, the marathon-lb will dynamically adapt.
+There are two load-balancing layers in the Container Service cluster we will build: 
 
-## Marathon LB 
+  1. Azure Load Balancer provides public entry points (the ones that end users will hit). This is provided automatically by Azure Container Service and is, by default, configured to expose port 80, 443 and 8080.
+  2. The Marathon Load Balancer (marathon-lb) routes inbound requests to container instances that service those requests. As we scale the containers providing our web service, marathon-lb dynamically adapts. This load balancer is not provided by default in your Container Service, but it is very easy to install.
 
-The Marathon LB solution will dynamically reconfigure itself based on the containers you have deployed. It's also resilient to the loss of a container or an agent; if this occurs, Mesos will simply restart the container elsewhere and reconfigure the Marathon LB. 
+## Marathon Load Balancer
 
-To install the Marathon LB, run the following command from your client machine:
+Marathon Load Balancer dynamically reconfigures itself based on the containers that you've deployed. It's also resilient to the loss of a container or an agent - if this occurs, Apache Mesos will simply restart the container elsewhere and marathon-lb will adapt.
+
+To install the Marathon Load Balancer you can use either the DC/OS web UI or the command line.
+
+### Install Marathon-LB using DC/OS Web UI
+
+  1. Click 'Universe'
+  2. Search for 'Marathon-LB'
+  3. Click 'Install'
+
+![Installing marathon-lb via the DC/OS Web Interface](./media/dcos/marathon-lb-install.png)
+
+### Install Marathon-LB using the DC/OS CLI
+
+After installing the DC/OS CLI and ensuring you can connect to your cluster, run the following command from your client machine:
 
 ```bash
-dcos package install marathon-lb 
-``` 
+dcos package install marathon-lb
+```
 
-Now that we have the marathon-lb package, we can deploy a simple web server using the following configuration:
+## Deploy A Load Balanced Web Application
 
+Now that we have the marathon-lb package, we can deploy a simple web server by using the following configuration:
 
 ```json
-{ 
-  "id": "web", 
-  "container": { 
-    "type": "DOCKER", 
-    "docker": { 
-      "image": "tutum/hello-world", 
-      "network": "BRIDGE", 
-      "portMappings": [ 
-        { "hostPort": 0, "containerPort": 80, "servicePort": 10000 } 
-      ], 
-      "forcePullImage":true 
-    } 
-  }, 
-  "instances": 3, 
-  "cpus": 0.1, 
-  "mem": 65, 
-  "healthChecks": [{ 
-      "protocol": "HTTP", 
-      "path": "/", 
-      "portIndex": 0, 
-      "timeoutSeconds": 10, 
-      "gracePeriodSeconds": 10, 
-      "intervalSeconds": 2, 
-      "maxConsecutiveFailures": 10 
-  }], 
-  "labels":{ 
+{
+  "id": "web",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "yeasy/simple-web",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "hostPort": 0, "containerPort": 80, "servicePort": 10000 }
+      ],
+      "forcePullImage":true
+    }
+  },
+  "instances": 3,
+  "cpus": 0.1,
+  "mem": 65,
+  "healthChecks": [{
+      "protocol": "HTTP",
+      "path": "/",
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 2,
+      "maxConsecutiveFailures": 10
+  }],
+  "labels":{
     "HAPROXY_GROUP":"external",
     "HAPROXY_0_VHOST":"YOUR FQDN",
-    "HAPROXY_0_MODE":"http" 
-  } 
+    "HAPROXY_0_MODE":"http"
+  }
 }
 
 ```
 
-The key parts of this are: 
-  * Set the value of HAProxy_0_VHOST to the FQDN of the load balancer for your agents. This is of the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if I created a Container Service cluster with name `myacs` in region `West US`, the FQDN would be: `myacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when looking through the resources in the resource group you created for your container service in the [Azure Portal](https://portal.azure.com).
-  * Set the servicePort to a port >= 10,000. Doing so identifies the service being run in this container; marathon-lb uses this to identify services it should balance across.
-  * Set the HAPROXY_GROUP label to "external".
-  * Set hostPort to 0. Doing so means that marathon will arbitrarily allocate an available port.
+  * Set the value of `HAProxy_0_VHOST` to the FQDN of the load balancer for your agents. This is in the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if you create a Container Service cluster with name `myacs` in region `West US`, the FQDN would be `myacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when you're looking through the resources in the resource group that you created for Container Service in the [Azure portal](https://portal.azure.com).
+  * Set the servicePort to a port >= 10,000. This identifies the service that is being run in this container--marathon-lb uses this to identify services that it should balance across.
+  * Set the `HAPROXY_GROUP` label to "external".
+  * Set `hostPort` to 0. This means that Marathon will arbitrarily allocate an available port.
+  * Set `instances` to the number of instances you want to create. You can always scale these up and down later.
 
-Copy this JSON into a file called `hello-web.json` and use it to deploy a container: 
+### Deploy using the DC/OS Web UI
+
+  1. Visit the Marathon page at http://localhost/marathon (after setting up your [SSH tunnel](container-service-connect.md) and click `Create Appliction`
+  2. In the `New Application` dialog click `JSON Mode` in the upper right corner
+  3. Paste the above JSON into the editor
+  4. Click `Create Appliction`
+
+### Deploy using the DC/OS CLI
+
+To deploy this application with the DC/OS CLI simply copy the above JSON into a file called `hello-web.json`, and run:
 
 ```bash
-dcos marathon app add hello-web.json 
-``` 
+dcos marathon app add hello-web.json
+```
 
-## Azure LB 
+## Azure Load Balancer
 
-By default the Azure LB exposes ports 80, 8080 and 443. If you are using one of these three ports (as we do in the above example), then there is nothing you need to do: you should be able to hit your agent LB's FQDN, and each time you refresh you will hit one of your three web servers in a round-robin fashion. If, however, you use a different port, you need to add a round-robin rule and a probe on the Azure LB for the port you used. This can be done from the [Azure XPLAT CLI](../xplat-cli-azure-resource-manager.md) with the commands `azure lb rule create` and `azure lb probe create`.
+By default, Azure Load Balancer exposes ports 80, 8080, and 443. If you're using one of these three ports (as we do in the above example), then there is nothing you need to do. You should be able to hit your agent load balancer's FQDN--and each time you refresh, you'll hit one of your three web servers in a round-robin fashion. However, if you use a different port, you need to add a round-robin rule and a probe on the load balancer for the port that you used. You can do this from the [Azure CLI](../xplat-cli-azure-resource-manager.md), with the commands `azure lb rule create` and `azure lb probe create`. You can also do this using the Azure Portal.
 
 
 ## Additional scenarios
 
-You could have a scenario where you use different domains to expose different services. For example: 
+You could have a scenario where you use different domains to expose different services. For example:
 
 mydomain1.com -> Azure LB:80 -> marathon-lb:10001 -> mycontainer1:33292  
-mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321 
+mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321
 
-To achieve this, check out [Virtual Hosts](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/), which provide a way to associate domains to specific marathon-lb paths.
+To achieve this, check out [virtual hosts](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/), which provide a way to associate domains to specific marathon-lb paths.
 
-Alternatively, you could expose different ports and remap them to the correct service behind marathon lb. For example:
+Alternatively, you could expose different ports and remap them to the correct service behind marathon-lb. For example:
 
 Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423  
-Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432 
- 
+Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
+
 
 ## Next steps
 
-Check out [this blog post](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/) for more information about Marathon LB.
+See the DC/OS documentation for more on [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).

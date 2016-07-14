@@ -36,16 +36,23 @@ The figure below shows an example of user defined routes and IP forwarding to fo
 
 ![System routes in Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT] User defined routes are only applied to traffic leaving a subnet. you cannot create routes to specify how traffic comes into a subnet from the Internet, for instance.Also, the appliance you are forwarding traffic to cannot be in the same subnet where the traffic originates. Always create a separate subnet for your appliances. 
+>[AZURE.IMPORTANT] User defined routes are only applied to traffic leaving a subnet. you cannot create routes to specify how traffic comes into a subnet from the Internet, for instance. Also, the appliance you are forwarding traffic to cannot be in the same subnet where the traffic originates. Always create a separate subnet for your appliances. 
 
 ## Route resource
 Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network. A route table is a collection of individual routes used to decide where to forward packets based on the destination IP address. A route consists of the following:
 
 |Property|Description|Constraints|Considerations|
 |---|---|---|---|
-| Address Prefix | The destination CIDR to which the route applies, such as 10.1.0.0/16.|Must be a valid CIDR range representing addresses on the public Internet, Azure virtual network, or on-premises datacenter.|Make sure the **Address prefix** does not contain the address for the **Nexthop value**, otherwise your packets will enter in a loop going from the source to the next hop without ever reaching the destination. |
-| Next hop type | The type of Azure hop the packet should be sent to. | Must be one of the following values: <br/> **Local**. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of *Local*. <br/> **VPN Gateway**. Represents an Azure S2S VPN Gateway. <br/> **Internet**. Represents the default Internet gateway provided by the Azure Infrastructure. <br/> **Virtual Appliance**. Represents a virtual appliance you added to your Azure virtual network. <br/> **NULL**. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.| Consider using a **NULL** type to stop packages from flowing to a given destination. | 
-| Nexthop Value | The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.| Must be a reachable IP address. | If the IP address represents a VM, make sure you enable [IP forwarding](#IP-forwarding) in Azure for the VM. |
+| Address Prefix | The destination CIDR to which the route applies, such as 10.1.0.0/16.|Must be a valid CIDR range representing addresses on the public Internet, Azure virtual network, or on-premises datacenter.|Make sure the **Address prefix** does not contain the address for the **Next hop address**, otherwise your packets will enter in a loop going from the source to the next hop without ever reaching the destination. |
+| Next hop type | The type of Azure hop the packet should be sent to. | Must be one of the following values: <br/> **Virtual Network**. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of *Virtual Network*. <br/> **Virtual Network Gateway**. Represents an Azure S2S VPN Gateway. <br/> **Internet**. Represents the default Internet gateway provided by the Azure Infrastructure. <br/> **Virtual Appliance**. Represents a virtual appliance you added to your Azure virtual network. <br/> **None**. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.| Consider using a **None** type to stop packets from flowing to a given destination. | 
+| Next hop address | The next hop address contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.| Must be a reachable IP address. | If the IP address represents a VM, make sure you enable [IP forwarding](#IP-forwarding) in Azure for the VM. |
+
+In Azure PowerShell some of the "NextHopType" values have different names:
+- Virtual Network is VnetLocal
+- Virtual Network Gateway is VirtualNetworkGateway
+- Virtual Appliance is VirtualAppliance
+- Internet is Internet
+- None is None
 
 ### System Routes
 Every subnet created in a virtual network is automatically associated with a route table that contains the following system route rules:
@@ -68,9 +75,9 @@ Subnets rely on system routes until a route table is associated to the subnet. O
 1. BGP route (when ExpressRoute is used)
 1. System route
 
-To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
+To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-network-create-udr-arm-template.md).
 
->[AZURE.IMPORTANT] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
+>[AZURE.IMPORTANT] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway, or ExpressRoute circuit, straight to the Azure environment, bypassing the virtual appliance.
 
 ### BGP Routes
 If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure. These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](../expressroute/expressroute-introduction.md).
