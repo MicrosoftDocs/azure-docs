@@ -42,7 +42,7 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
 
    ![Baseline rules mismatch][2]
 
-3. Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the baseline rule mismatch and the impact of the mismatch.
+Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the baseline rule mismatch and the impact of the mismatch. Review the details and consider how operating system configurations will be applied.
 
   ![Description for the baseline rule mismatch][3]
 
@@ -59,7 +59,6 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
   - ACTUAL VALUE -- Value returned after analysis of your VM OS configuration against the baseline rule
   - EVALUATION RESULT –- Result of analysis: Pass, Fail
 
-4. Review the details and consider how operating system configurations will be applied.
 
 ## Next steps
 
