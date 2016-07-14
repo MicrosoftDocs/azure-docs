@@ -3,8 +3,8 @@
 	description="Describes how to set up continuous integration in Visual Studio Team Services by using Azure Resource Group deployment projects in Visual Studio."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="04/19/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Continuous integration in Visual Studio Team Services using Azure Resource Group deployment projects
 

@@ -194,7 +194,9 @@ We strongly recommend to use a custom metastore if you want to keep your Hive ta
 
 The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. Using the metastore helps you to retain your Hive and Oozie metadata, so that you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, you have a cluster created with a Hive metastore. You created some Hive tables. After you delete the cluster, and recreate the cluster using the same Hive metastore, you will be able to see the Hive tables you created in the original cluster.
 
-> [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
+Metastore configuration is not available for HBase cluster types.
+
+> [AZURE.IMPORTANT] When creating a custom metastore, do not use a database name that contains dashes or hyphens, as this can cause the cluster creation process to fail.
 
 ## Use Azure virtual networks
 
