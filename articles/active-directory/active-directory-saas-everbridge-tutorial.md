@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -119,9 +119,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_04.png)
 
-    a. In the **Identifier URL** textbox, type the URL in the following pattern: **"https://sso.everbridge.net/companyname"**
+    a. In the **Identifier URL** textbox, type the URL using the following pattern: `https://sso.everbridge.net/{<company name>}`
 
-	b. In the **Reply URL** textbox, type the URL in the following pattern: **"https://manager.everbridge.net/saml/SSO/companyname/alias/defaultAlias"**
+	b. In the **Reply URL** textbox, type the URL using the following pattern: `https://manager.everbridge.net/saml/SSO/{<company name>}/alias/defaultAlias`
 
 	c. Click **Next**
 
@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. In the **API Name** textbox, type the name of API.
 
-	C. Click **Choose File** button to upload the metadata file which you downloaded in Step 5.
+	C. Click **Choose File** button to upload the metadata file which you downloaded in **Step 4**.
 
 	d. As **SAML Identity Location**, select "Identity is in the NameIdentifier element of the Subject statement".
 
@@ -168,7 +168,7 @@ The objective of this section is to create a test user in the classic portal cal
 
 In the Users list, select **Britta Simon**.
 	
-	![Create Azure AD User][20]
+![Create Azure AD User][20]
 
 **To create a test user in Azure AD, perform the following steps:**
 
@@ -233,7 +233,7 @@ In this section, you create a user called Britta Simon in Everbridge. Please wor
 
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Everbridge.
 	
-	![Assign User][200]
+![Assign User][200]
 
 **To assign Britta Simon to Everbridge, perform the following steps:**
 
