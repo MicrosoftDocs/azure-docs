@@ -365,6 +365,9 @@ For detailed information on pricing for Premium Storage,  DS-series VMs, DSv2-se
 - [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/)
 - [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
+## Backup
+Virtual machines using premium storage can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
+
 ## Quick Start
 
 ## Create and use a Premium Storage account for a virtual machine data disk
