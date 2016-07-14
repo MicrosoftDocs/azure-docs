@@ -170,7 +170,7 @@ CreatePowerBIClient()
             BaseUri = new Uri(apiUrl)
         };
 
-                    return client;
+        return client;
     }
 
 ActionResult Reports()
@@ -205,7 +205,7 @@ Task<ActionResult> Report(string reportId)
             {
                 Report = report,
                 AccessToken = embedToken.Generate(this.accessKey)
-        };
+            };
 
             return View(viewModel);
         }
