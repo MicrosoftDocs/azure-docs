@@ -374,7 +374,7 @@ Define a column on the table class for the `version` system property to enable o
         [JsonProperty(PropertyName = "complete")]
         public bool Complete { get; set; }
 
-	// *** Enable Optimistic Concurrency *** //
+        // *** Enable Optimistic Concurrency *** //
         [JsonProperty(PropertyName = "version")]
         public string Version { set; get; }
     }
