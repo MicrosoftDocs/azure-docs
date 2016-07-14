@@ -145,7 +145,7 @@ the entire set of tools to create the SDKs are open, freely available, and based
 
 **Samples**: Get started quickly in the language of your choice.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *coming soon*
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
 - [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *coming soon*
 - [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
 - [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
