@@ -185,6 +185,8 @@ requests | count
 
 `evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
 
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+
 #### evaluate autocluster
 
      T | evaluate autocluster()
@@ -327,7 +329,7 @@ Note that the patterns are not distinct: they may be overlapping, and usually do
 
     Tells the algorithm to only look for patterns which have higher percentage in the target data set, the target must be one of the two values of the split column.
 
-    requests | evaluate diffpatterns("split=success", "target=false")
+    `requests | evaluate diffpatterns("split=success", "target=false")`
 
 * `threshold=` *0.015<double<1* (default: 0.05) 
 
@@ -364,14 +366,14 @@ Extractcolumns is used to enrich a table with multiple simple columns that are d
 
     The number of new added columns is dynamic and it can be very big (actually it’s the number of distinct keys in all json records) so we must limit it. The new columns are sorted in descending order based on their frequency and up to max_columns are added to the table.
 
-    Example: `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
+    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
 
 
 * `min_percent=` *double* (default: 10.0) 
 
     Another way to limit new columns by ignoring columns whose frequency is lower than min_percent.
 
-    Example: `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
+    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
 
 
 * `add_prefix=` *bool* (default: true) 
@@ -383,7 +385,8 @@ Extractcolumns is used to enrich a table with multiple simple columns that are d
 
     If add_prefix=true this parameter defines the delimiter that will be used to concatenate the names of the new columns.
 
-    Example: T | evaluate extractcolumns("json_column_name=json", "add_prefix=true", “prefix_delimiter=@”)
+    `T | evaluate extractcolumns("json_column_name=json",` <br/>
+    `"add_prefix=true", "prefix_delimiter=@")`
 
 
 * `keep_original=` *bool* (default: false) 
