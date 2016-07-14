@@ -78,7 +78,7 @@ entails configuring each Elasticsearch node with a public IP address. If this is
 Elasticsearch configuration, then consider implementing the JMeter VMs in the same VNet as the 
 Elasticsearch cluster by using the same resource group, in which case you can omit this first procedure.
 
-First, [create a resource group](../articles/resource-group-portal/#create-resource-group-and-resources). 
+First, [create a resource group](../resource-group-template-deploy-portal.md). 
 This document assumes that your resource group is named *JMeterPerformanceTest*. If you wish to run the 
 JMeter VMs in the same VNet as the Elasticsearch cluster, use the same resource group as that cluster 
 instead of creating a new one.
@@ -97,7 +97,7 @@ We recommend that you disable the diagnostics. When creating the VM in the porta
 default values.
 
 Verify that the VM and all the associated resources have been created successfully by 
-[examining the resource group](../articles/resource-group-portal/#browse-resource-groups) in the portal. 
+[examining the resource group](../azure-portal/resource-group-portal.md#manage-resource-groups) in the portal. 
 The resources listed should consist of a VM, a network security group, and a public IP address all with 
 the same name, and network interface and storage account with names based on that of the VM.
 
