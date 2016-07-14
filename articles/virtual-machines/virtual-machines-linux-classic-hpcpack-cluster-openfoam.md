@@ -18,7 +18,7 @@
 
 # Run OpenFoam with Microsoft HPC Pack on a Linux RDMA cluster in Azure
 
-This article shows you one way to run OpenFoam in Azure virtual machines. You'll deploy a Microsoft HPC Pack cluster on Azure and run an [OpenFoam](http://openfoam.com/) job with Intel MPI on multiple Linux compute nodes that connect across the Azure remote direct memory access (RDMA) network. Other options to run OpenFoam in Azure include fully configured commercial images available in the Marketplace. 
+This article shows you one way to run OpenFoam in Azure virtual machines. You'll deploy a Microsoft HPC Pack cluster on Azure and run an [OpenFoam](http://openfoam.com/) job with Intel MPI on multiple Linux compute nodes that connect across the Azure remote direct memory access (RDMA) network. Other options to run OpenFoam in Azure include fully configured commercial images available in the Marketplace, such as UberCloud's [OpenFoam 2.3 on CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/). 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -152,10 +152,10 @@ Save the downloaded installation package for Intel MPI (l_mpi_p_5.1.3.223.tgz in
 
 For testing, you should add the following lines to the /etc/security/limits.conf on each of the Linux nodes:
 
-```
-*               hard    memlock         unlimited
-*               soft    memlock         unlimited
-```
+
+    clusrun /nodegroup:LinuxNodes echo "*               hard    memlock         unlimited" `>`> /etc/security/limits.conf
+    clusrun /nodegroup:LinuxNodes echo "*               soft    memlock         unlimited" `>`> /etc/security/limits.conf
+
 
 Restart the Linux nodes after you update the limits.conf file. For example, use the following **clusrun** command.
 
@@ -167,7 +167,7 @@ After restarting, ensure that the shared folder is mounted as /openfoam.
 
 ### Compile and install OpenFOAM
 
-Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-2.3.1.tgz in this example) to C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to compile OpenFOAM on all of the Linux nodes.
+Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-4.x-version-4.0.tar.gz in this example) to C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to compile OpenFOAM on all of the Linux nodes.
 
 
 1.  Create a folder /opt/OpenFOAM on each Linux node, copy the source package to this folder, and extract it there.
@@ -175,9 +175,9 @@ Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
 
-    clusrun /nodegroup:LinuxNodes cp /openfoam/OpenFOAM-2.3.1.tgz /opt/OpenFOAM/
+    clusrun /nodegroup:LinuxNodes cp /openfoam/OpenFOAM-4.0.tar.gz /opt/OpenFOAM/
 
-    clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
+    clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-4.0.tar.gz -C /opt/OpenFOAM
     ```
 
 2.  To compile OpenFOAM with the Intel MPI Library, first set up some environment variables for both Intel MPI and OpenFOAM. Use a bash script called settings.sh to do this. You can find an example in the sample files at the end of this article. Place this file (saved with Linux line endings) in the shared folder /openfoam. This file also contains settings for the MPI and OpenFOAM runtimes that you use later to run an OpenFOAM job.
@@ -195,7 +195,7 @@ Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-
 4.  Run the following command to compile OpenFOAM. The compilation process will take some time to complete and will generate a large amount of log information to standard output, so use the **/interleaved** option to display the output interleaved.
 
     ```
-    clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
+    clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-4.x-version-4.0/Allwmake
     ```
     
     >[AZURE.NOTE]The “\`” symbol in the command is an escape symbol for PowerShell. “\`&” means the “&” is a part of the command.
@@ -513,25 +513,25 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 # lspat       - the license server address pattern (0123@hostname)
 # snpat       - the serial number pattern (ABCD-01234567)
 
-# accept EULA, valid values are: {accept, decline}
+# Accept EULA, valid values are: {accept, decline}
 ACCEPT_EULA=accept
 
-# optional error behavior, valid values are: {yes, no}
+# Optional error behavior, valid values are: {yes, no}
 CONTINUE_WITH_OPTIONAL_ERROR=yes
 
-# install location, valid values are: {/opt/intel, filepat}
+# Install location, valid values are: {/opt/intel, filepat}
 PSET_INSTALL_DIR=/opt/intel
 
-# continue with overwrite of existing installation directory, valid values are: {yes, no}
+# Continue with overwrite of existing installation directory, valid values are: {yes, no}
 CONTINUE_WITH_INSTALLDIR_OVERWRITE=yes
 
-# list of components to install, valid values are: {ALL, DEFAULTS, anythingpat}
-COMPONENTS=DEFAULTS
+# List of components to install, valid values are: {ALL, anythingpat}
+COMPONENTS=ALL
 
-# installation mode, valid values are: {install, modify, repair, uninstall}
+# Installation mode, valid values are: {install, modify, repair, uninstall}
 PSET_MODE=install
 
-# directory for non-RPM database, valid values are: {filepat}
+# Directory for non-RPM database, valid values are: {filepat}
 #NONRPM_DB_DIR=filepat
 
 # Serial number, valid values are: {snpat}
@@ -552,11 +552,8 @@ PHONEHOME_SEND_USAGE_DATA=no
 # Perform validation of digital signatures of RPM files, valid values are: {yes, no}
 SIGNING_ENABLED=yes
 
-# Select yes to enable mpi-selector integration, valid values are: {yes, no}
-ENVIRONMENT_REG_MPI_ENV=no
-
-# Select yes to update ld.so.conf, valid values are: {yes, no}
-ENVIRONMENT_LD_SO_CONF=no
+# Select target architecture of your applications, valid values are: {IA32, INTEL64, ALL}
+ARCH_SELECTED=INTEL64
 
 ```
 
@@ -566,7 +563,7 @@ ENVIRONMENT_LD_SO_CONF=no
 #!/bin/bash
 
 # impi
-source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
+source /opt/intel/impi/5.1.3.223/bin64/mpivars.sh
 export MPI_ROOT=$I_MPI_ROOT
 export I_MPI_FABRICS=shm:dapl
 export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
@@ -574,7 +571,7 @@ export I_MPI_DYNAMIC_CONNECTION=0
 
 # openfoam
 export FOAM_INST_DIR=/opt/OpenFOAM
-source /opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
+source /opt/OpenFOAM/OpenFOAM-4.x-version-4.0/etc/bashrc
 export WM_MPLIB=INTELMPI
 ```
 
@@ -588,7 +585,7 @@ export WM_MPLIB=INTELMPI
 SCRIPT_PATH="$( dirname "${BASH_SOURCE[0]}" )"
 
 # Set mpirun runtime evironment
-source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
+source /opt/intel/impi/5.1.3.223/bin64/mpivars.sh
 export MPI_ROOT=$I_MPI_ROOT
 export I_MPI_FABRICS=shm:dapl
 export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
