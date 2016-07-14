@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # StorSimple Virtual Array system requirements
@@ -76,6 +76,11 @@ The software requirements include the information on the supported web browsers,
 | SMB 2.x     |
 | SMB 3.0     |
 | SMB 3.02    |
+
+### Supported iSCSI initiators
+
+StorSimple iSCSI volumes are supported only on basic disks.
+ 
 
 ## Networking requirements 
 
