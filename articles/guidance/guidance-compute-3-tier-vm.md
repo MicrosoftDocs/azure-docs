@@ -135,11 +135,7 @@ The load balancers distribute network traffic to the web and business tiers. Sca
 
 Simplify management of the entire system by using centralized administration tools such as [Azure Automation][azure-administration], [Microsoft Operations Management Suite][operations-management-suite], [Chef][chef], or [Puppet][puppet]. These tools can consolidate diagnostic and health information captured from multiple VMs to provide an overall view of the system.
 
-## Solution components
-
-**TBD**
-
-## Deployment
+## Solution Deployment
 
 <!-- This needs to be revisited when the ARM templates are available -->
 An example deployment script for this architecture is available on GitHub.
