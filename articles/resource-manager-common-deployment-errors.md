@@ -42,21 +42,22 @@ When you receive this type of error, carefully review the expression syntax. Con
 Another invalid template error occurs when the resource name is not in the correct format.
 
     Code=InvalidTemplate
-    Message=Deployment template validation failed: 'The template resource {resource-name}' for type {resource-type} has incorrect segment lengths.
+    Message=Deployment template validation failed: 'The template resource {resource-name}' 
+    for type {resource-type} has incorrect segment lengths.
 
-A root level resource must one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has 2 segments and the name has 1 segment, so it is a valid name.
+A root level resource must one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has 2 segments and the name has 1 segment, so it is a **valid name**.
 
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "myHostingPlanName",
 
-But the next example is not valid because it has the same number of segments in the name and type.
+But the next example is **not a valid name** because it has the same number of segments as the type.
 
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "appPlan/myHostingPlanName",
 
-For child resources, the type and name must have the same number of segments. 
+For child resources, the type and name must have the same number of segments. This makes sense because the full name and type for the child includes the parent name and type, so the full name still has one less segment than the full type. 
 
     "resources": [
         {
@@ -67,6 +68,12 @@ For child resources, the type and name must have the same number of segments.
                 {
                     "type": "secrets",
                     "name": "appPassword",
+
+Getting the segments right can be particularly tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with 4 segments. Therefore, the name is 3 segments:
+
+    {
+        "type": "Microsoft.Web/sites/providers/locks",
+        "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
 
 ## Resource name already taken or is already used by another resource
 
