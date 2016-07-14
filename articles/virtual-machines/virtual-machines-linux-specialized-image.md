@@ -44,7 +44,10 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 1. Free up the VHDs used by the source VM, by doing either of the following:
 
-	- If you want to copy your source virtual machine, stop and deallocate it. In the portal, click **Browse** > **Virtual machines** or **Virtual machines (classic)** > *your VM* > **Stop**.	For VMs created in the Resource Manager deployment model, you can also use the Azure CLI command `azure vm stop <yourResourceGroup> <yourVmName>`, followed by `azure vm deallocate <yourResourceGroup> <yourVmName>`. Notice that the status of the VM in the portal changes from **Running** to **Stopped (deallocated)**.
+	- If you want to copy your source virtual machine, stop and deallocate it. In the portal, click **Browse** > **Virtual machines** or **Virtual machines (classic)** > *your VM* > **Stop**.	For VMs created in the Resource Manager deployment model, you can also use the Azure CLI command:
+	```azure vm stop <yourResourceGroup> <yourVmName>```
+	```azure vm deallocate <yourResourceGroup> <yourVmName>```
+	Notice that the status of the VM in the portal changes from **Running** to **Stopped (deallocated)**.
 
 	- If you want to migrate your source virtual machine, delete that VM and use the VHD left behind. Browse to your virtual machine in the [portal](https://portal.azure.com), and click **Delete**.
 
