@@ -55,7 +55,7 @@ Transient fault errors typically manifest as one of the following error messages
 
 For code examples of retry logic, see:
 
-- [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
+- [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) 
 - [Actions to fix connection errors and transient errors in SQL Database](sql-database-connectivity-issues.md)
 
 A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
