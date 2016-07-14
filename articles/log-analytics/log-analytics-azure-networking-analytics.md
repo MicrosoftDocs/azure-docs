@@ -22,16 +22,16 @@
 
 You can use the Azure Networking Analytics solution in Log Analytics to review Azure Application Gateway logs and Azure Network Security Group logs.
 
-You can enable logging for Azure Application Gateway logs and Azure Network Security Groups. These logs are written to blob storage and can then be indexed by Log Analytics for searching and analysis. 
+You can enable logging for Azure Application Gateway logs and Azure Network Security Groups. These logs are written to blob storage and can then be indexed by Log Analytics for searching and analysis.
 
 The following logs are supported for Application Gateways
 
-+ ApplicationGatewayAccessLog 
++ ApplicationGatewayAccessLog
 + ApplicationGatewayPerformanceLog
 
 The following logs are supported for Network Security Groups
 
-+ NetworkSecurityGroupEvent 
++ NetworkSecurityGroupEvent
 + NetworkSecurityGroupRuleCounter
 
 ## Installing and configuring the solution
@@ -41,7 +41,7 @@ Use the following instructions to install and configure the Azure Networking Ana
 1.	Enable diagnostics logging for the resources you want to monitor:
   + [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
   + [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
-2.	Configure Log Analytics to read the logs from blob storage using the process described in [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-powershell-azure-diagnostics-json.md).
+2.	Configure Log Analytics to read the logs from blob storage using the process described in [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-azure-storage-json.md).
 3.	Enable the Azure Networking Analytics solution using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
 
 If you do not enable diagnostic logging for a particular resource type the dashboard blades for that resource will be blank.
@@ -98,4 +98,3 @@ After clicking on the Overview tile you can view summaries of your logs and then
 ## Next steps
 
 - Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Azure Networking Analytics data.
-

@@ -29,7 +29,7 @@ You can enable logging of Audit Events for Azure Key Vault and these logs are wr
 Use the following instructions to install and configure the Azure Key Vault solution:
 
 1.	Enable [diagnostics logging for the Key Vault](../key-vault/key-vault-logging.md) resources you want to monitor
-2.	Configure log analytics to read the logs from blob storage using the process described in [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-powershell-azure-diagnostics-json.md).
+2.	Configure log analytics to read the logs from blob storage using the process described in [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-azure-storage-json.md).
 3.	Enable the Azure Key Vault solution using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
 
 ## Azure Key Vault data collection details
