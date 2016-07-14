@@ -132,7 +132,7 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 	![New vault](./media/site-recovery-hyper-v-site-to-azure/new-vault3.png)
 
 3. In **Name** specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a new resource group](../resource-group-portal.md#create-resource-group) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 4. If you want to quickly access the vault from the Dashboard click **Pin to dashboard** and then click **Create vault**.
 
 	![New vault](./media/site-recovery-hyper-v-site-to-azure/new-vault-settings.png)
