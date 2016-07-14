@@ -37,7 +37,7 @@ There are three easy ways to enable the Log Analytics virtual machine extension:
 + By using Azure PowerShell
 + By using an Azure Resource Manager template
 
-## Enable the VM extension in the Azure portal 
+## Enable the VM extension in the Azure portal
 
 You can install the agent for Log Analytics and connect the Azure virtual machine that it runs on by using the [Azure portal](https://portal.azure.com).
 
@@ -46,15 +46,15 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
 1.	Sign into the [Azure portal](http://portal.azure.com).
 2.	Select **Browse** on the left side of the portal, and then go to **Log Analytics (OMS)** and select it.
 3.	In your list of Log Analytics workspaces, select the one that you want to use with the Azure VM.  
-    ![OMS workspaces](./media/log-analytics-azure-storage/oms-connect-azure-01.png)
+    ![OMS workspaces](./media/log-analytics-azure-vm-extension/oms-connect-azure-01.png)
 4.	Under **Log analytics management**, select **Virtual machines**.  
-    ![Virtual machines](./media/log-analytics-azure-storage/oms-connect-azure-02.png)
+    ![Virtual machines](./media/log-analytics-azure-vm-extension/oms-connect-azure-02.png)
 5.	In the list of **Virtual machines**, select the virtual machine on which you want to install the agent. The **OMS connection status** for the VM will indicate that it is **Not connected**.  
-    ![VM not connected](./media/log-analytics-azure-storage/oms-connect-azure-03.png)
-6.	In the details for your virtual machine, select **Connect**. The agent is automatically installed and configured for your Log Analytics workspace. This process will take a few minutes, during which time the OMS Connection status will be *Connecting...*
-    ![Connect VM](./media/log-analytics-azure-storage/oms-connect-azure-04.png)
+    ![VM not connected](./media/log-analytics-azure-vm-extension/oms-connect-azure-03.png)
+6.	In the details for your virtual machine, select **Connect**. The agent is automatically installed and configured for your Log Analytics workspace. This process will take a few minutes, during which time the OMS Connection status will be *Connecting...*  
+    ![Connect VM](./media/log-analytics-azure-vm-extension/oms-connect-azure-04.png)
 7.	After you install and connect the agent, the **OMS connection** status will be updated to show **This workspace**.  
-    ![Connected](./media/log-analytics-azure-storage/oms-connect-azure-05.png)
+    ![Connected](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 
 ## Enable the VM extension using PowerShell
@@ -112,7 +112,7 @@ $location = $vm.Location
 ```
 When you configure your virtual machine by using PowerShell, you need to provide the **Workspace ID** and **Primary Key**. You can find these on the **Settings** page of the OMS portal, or by using PowerShell as shown in the preceding example.
 
-![Workspace ID and primary key](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
+![Workspace ID and primary key](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
 
 ## Deploy the VM extension using a template
 
