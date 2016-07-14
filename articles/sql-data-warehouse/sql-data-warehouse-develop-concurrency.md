@@ -24,7 +24,7 @@ To deliver predictable performance at scale SQL Data Warehouse allows users to c
 
 SQL Data Warehouse allows up to 1,024 concurrent connections.  All 1,024 connections can submit queries concurrently.  However, in order to optimize throughput, SQL Data Warehouse may queue some queries to ensure that each query receives a minimal memory grant.  Queuing occurs at query execution time.  By queuing queries when concurrency limits are reached, SQL Data Warehouse is able to increase total throughput by ensuring that active queries get access to critically needed memory resources.  
 
-Concurrency limits are governed by two concepts, **concurrent queries** and **concurrency slots**.  For a query to execute, it must execute under both the query concurrency limit and within the conconcurency slot allocation.
+Concurrency limits are governed by two concepts, **concurrent queries** and **concurrency slots**.  For a query to execute, it must execute under both the query concurrency limit and within the concurrency slot allocation.
 
 - **Concurrent queries** are simply the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries** on the larger DW sizes, DW1000 and above.  However, since the number of concurrent queries varies by the number of DWUs, we have provided a table below to show the limitations by DWU.
 - **Concurrency slots** is a more dynamic concept.  Each query can consume one or more concurrency slots. The exact number of slots a query consumes depends on the size of your SQL Data Warehouse and the [resource class](#resource-classes) of the query.
@@ -66,7 +66,7 @@ More details and examples of creating users an assigning them to resource classe
 
 ## Memory allocation
 
-There are pros and cons to increasing a user's resource class. While increasing a resource class for a user may mean their queries have access to more memory and may execute faster, higher resource classess also reduces the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query and allowing other queries to run concurrently, which also need memory allocations. If one user is given high allocations of memory for a query, other users will not have access to that same memory in order to run a query.
+There are pros and cons to increasing a user's resource class. While increasing a resource class for a user may mean their queries have access to more memory and may execute faster, higher resource classes also reduces the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query and allowing other queries to run concurrently, which also need memory allocations. If one user is given high allocations of memory for a query, other users will not have access to that same memory in order to run a query.
 
 The following table maps the memory allocated to each distribution by DWU and resource class.  In SQL Data Warehouse there are 60 distributions per database.  For example, a query running on a DW2000 in the xlarge resource class would have access to 6,400 MB within each of the 60 distributed databases.
 
@@ -80,7 +80,7 @@ The following table maps the memory allocated to each distribution by DWU and re
 | xlargerc       |   400 |   800 |   800 | 1,600 | 1,600 | 1,600 |  3,200 |  3,200 |  3,200 |  6,400 |  6,400 | 12,800 |
 
 
-Using the same example above, system wide a query running on a DW2000 in the xlarge resource class is allocated a totoal of 375 GB of memory (6,400 MB * 60 distributions / 1,024 to convert to GB).
+Using the same example above, system wide a query running on a DW2000 in the xlarge resource class is allocated a total of 375 GB of memory (6,400 MB * 60 distributions / 1,024 to convert to GB).
 
 ### Memory allocations system wide (GB)
 
@@ -108,11 +108,11 @@ As mentioned above, the higher the resource class the more memory granted.  Sinc
 | largerc                 | 2     | 4     | 4     | 8     | 8     | 8     | 16     | 16     | 16     | 32     | 32     | 64     |
 | xlargerc                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     | 64     | 128    |
 
-From this table you can see that a SQL Data Warehouse running as DW1000 offers a total of 40 concurrency slots up to a max of 32 concurrent queries.  If all users are running in the small resource class, 32 concurrent queries would be allowed as each of the queries would consume 1 concurrecy slot.  If all users were running in medium resource class, each user would be allocated 800 MB per distributions for a total memory allocation of 47 GB and concurrency for all of these medium resource class users would be limited to 8 users.
+From this table you can see that a SQL Data Warehouse running as DW1000 offers a total of 40 concurrency slots up to a max of 32 concurrent queries.  If all users are running in the small resource class, 32 concurrent queries would be allowed as each of the queries would consume 1 concurrency slot.  If all users were running in medium resource class, each user would be allocated 800 MB per distributions for a total memory allocation of 47 GB and concurrency for all of these medium resource class users would be limited to 8 users.
 
 ## Query importance
 
-Under the covers there are a total of eight workload groups which control the behavior of the resource classes.  However, only four of the eight workload groups are utilized at any given DWU.  This makes sense since each workload group is assigned to either smallrc, mediumrc, largerc, or xlargerc.  The importance of understanding these behind the scnenes workload groups is that some of these workload groups are set to higher **IMPORTANCE**.  Importance is used for CPU scheduling.  Queries run with high importance will get 3X more CPU cycles than those with medium importance.  Therefore, concurrency slot mappings also determine CPU importance.  When a query consumes 16 or more slots, it runs as high importance.
+Under the covers there are a total of eight workload groups which control the behavior of the resource classes.  However, only four of the eight workload groups are utilized at any given DWU.  This makes sense since each workload group is assigned to either smallrc, mediumrc, largerc, or xlargerc.  The importance of understanding these behind the scenes workload groups is that some of these workload groups are set to higher **IMPORTANCE**.  Importance is used for CPU scheduling.  Queries run with high importance will get 3X more CPU cycles than those with medium importance.  Therefore, concurrency slot mappings also determine CPU importance.  When a query consumes 16 or more slots, it runs as high importance.
 
 Below are the importance mappings for each workload group.
 
