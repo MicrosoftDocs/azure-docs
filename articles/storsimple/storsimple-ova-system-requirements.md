@@ -83,7 +83,7 @@ The following software requirements are for the storage clients that access your
 
 | Supported operating systems | Version required | Additional requirements/notes |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>|
+| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes. StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li>|
  
 ## Networking requirements 
 
