@@ -20,6 +20,16 @@
 
 The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update or delete all of the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment. 
 
+## Terminology
+
+If you are new to Azure Resource Manager, there are some terms you might not be familiar with.
+
+- **resource** - An item that is part of your Azure solution. Some common resources are a virtual machine, storage account, web app, database, and virtual network.
+- **resource group** - A container that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that you group together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
+- **resource provider** - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute which supplies the virtual machine resource, Microsoft.Storage which supplies the storage account resource, and Microsoft.Web which supplies resources related to web apps. See [Resource providers](#resource-providers).
+- **Resource Manager template** - A JSON file that defines one or more resources and that defines dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment](#template-deployment).
+- **declarative syntax** - The Resource Manager template is an example of declarative syntax. In the file, you define the resources and their properties to deploy to Azure, but you do not write the programming commands to create that solution. You simply declare what you intend to create. 
+
 ## The benefits of using Resource Manager
 
 Resource Manager provides several benefits:
@@ -42,15 +52,6 @@ The following suggestions will help you take full advantage of Resource Manager 
 2. Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
 3. Run imperative commands to manage your resources, such as to start or stop an app or machine.
 4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
-
-## Terminology
-
-If you are new to Azure Resource Manager, there are some terms you might not be familiar with.
-
-- **resource** - An item that is part of your Azure solution. Each Azure service enables you to deploy different types of resources. Some common resources are a virtual machine, storage account, web app, database, and virtual network.
-- **resource group** - A container that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that are logically grouped together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
-- **template** - A JSON file that defines one or more resources and that defines dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment](#template-deployment).
-- **resource provider** - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute which supplies the virtual machine resource, Microsoft.Storage which supplies the storage account resource, and Microsoft.Web which supplies resources related to web apps. See [Resource providers](#resource-providers).
 
 ## Resource groups
 
