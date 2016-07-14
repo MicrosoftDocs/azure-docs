@@ -136,9 +136,9 @@ public partial class Startup
         app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
         // Configure OpenID Connect middleware for each policy
-        app.UseOpenIdConnectAuthentication(CreateOptionsFromPolicy(SignInPolicyId));
         app.UseOpenIdConnectAuthentication(CreateOptionsFromPolicy(SignUpPolicyId));
         app.UseOpenIdConnectAuthentication(CreateOptionsFromPolicy(ProfilePolicyId));
+        app.UseOpenIdConnectAuthentication(CreateOptionsFromPolicy(SignInPolicyId));
     }
 
     // Used for avoiding yellow-screen-of-death
@@ -226,7 +226,7 @@ public void Profile()
 }
 ```
 
-You can also use an `[Authorize]` tag in your controllers that requires the execution of a certain policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[Authorize]` tag to the claims controller.  OWIN will select the first policy configured to execute when the Authorize tag is invoked.
+You can also use an `[Authorize]` tag in your controllers that requires the execution of a certain policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[Authorize]` tag to the claims controller.  OWIN will select the last policy configured to execute when the Authorize tag is invoked.
 
 ```C#
 // Controllers\HomeController.cs
