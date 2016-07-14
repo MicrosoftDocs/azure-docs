@@ -77,11 +77,14 @@ The software requirements include the information on the supported web browsers,
 | SMB 3.0     |
 | SMB 3.02    |
 
-### Supported iSCSI initiators
+## Software requirements for storage clients
 
-StorSimple iSCSI volumes are supported only on basic disks.
+The following software requirements are for the storage clients that access your StorSimple device.
+
+| Supported operating systems | Version required | Additional requirements/notes |
+| --------------------------- | ---------------- | ------------- |
+| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>|
  
-
 ## Networking requirements 
 
 The following table lists the ports that need to be opened in your firewall to allow for iSCSI, SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
