@@ -110,7 +110,8 @@ The following errors are caused by excessive use of resources while working with
 - An application is consuming too much memory.
 - An application is consuming too much `TempDb` space.
 
-**Tip:** There is more detailed information about most errors in this section here: [Azure SQL Database resource limits](sql-database-resource-limits.md)
+Related topics:
+* More detailed information is available here: [Azure SQL Database resource limits](sql-database-resource-limits.md)
 
 |Error code|Severity|Description|
 |---:|---:|:---|
