@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ Integrating CloudPassage with Azure AD provides you with the following benefits:
 - You can control in Azure AD who has access to CloudPassage 
 - You can enable your users to automatically get signed-on to CloudPassage (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure Active Directory 
-- 
+
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -162,9 +162,9 @@ The following screenshot shows an example for this.
           
     >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-    d. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **x 509 certificate** textbox.
+    e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **x 509 certificate** textbox.
 
-    e. Click **Save**.
+    f. Click **Save**.
 
 
 9. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
@@ -265,7 +265,7 @@ The objective of this section is to create a test user in the Azure classic port
   
 	a. Write down the value of the **New Password**.
   
-	a. Click **Complete**.   
+	b. Click **Complete**.   
 
 
   
