@@ -40,7 +40,7 @@ Application Insights Trends creates a time series visualization from your app's 
 Use the controls at the top of the window to adjust what types of telemetry you view. First, choose the telemetry types in which you're interested:
 * **Telemetry Type** - Server requests, exceptions, depdendencies, or custom events
 * **Time Range** - Anywhere from the last 30 minutes to the last 3 days
-* **Group By** - Exception type, problem ID, failed method, role instance, country or region; or application version.
+* **Group By** - Exception type, problem ID, country/region, and more.
 
 Then, click **Analyze Telemetry** to run the query.
 
@@ -59,7 +59,11 @@ What if you want to apply multiple filters? Apply the first filter. Then, click 
 ![](./media/app-insights-trends/TrendsFiltering2.PNG)
 
 ## Find anomalies
-TBD - the View Type dropdown; especially useful when bubbles are all small
+The Trends tool can highlight bubbles of events that are anomalous compared to other bubbles in the same time series. In the View Type dropdown, choose **Counts in time bucket (highlight anomalies)** or **Percentages in time bucket (highlight anomalies)**. Red bubbles are anomalous. Anomalies are defined as bubbles with counts/percentages exceeding 2.1 times the standard deviation of the counts/percentages that occured in the past two time periods (48 hours if you're viewing the last 24 hours, etc.).
+
+![](./media/app-insights-trends/TrendsAnomalies.PNG)
+
+> [Azure.TIP] Highlighting anomalies is especially helpful for finding outliers in time series of small bubbles that may otherwise look similarly sized.  
 
 ## <a name="next"></a>Next steps
 TBD
