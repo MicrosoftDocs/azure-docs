@@ -44,11 +44,24 @@ Use the controls at the top of the window to adjust what types of telemetry you 
 
 Then, click **Analyze Telemetry** to run the query.
 
+To navigate between bubbles in the visualization:
+* Click to select a bubble, which updates the filters at the bottom of the window, summarizing just the events that occurred during a specific time period
+* Double-click a bubble to navigate to the Search tool and see all of the individual telemetry events that occured during that time period
+* Ctrl-click a bubble to de-select it in the visualization.
+
 ## Filter
-TBD - the filters at the bottom
+Further refine your Trends visualization with the filter controls at the bottom of the window. There are two ways to filter:
+* Quick filtering
+* Re-query filtering
+
+(Explain quick filtering)
+
+(Explain re-query filtering)
+
+(Explain how to un-filter)
 
 ## Find anomalies
-TBD - the View Type dropdown
+TBD - the View Type dropdown; especially useful when bubbles are all small
 
 ## <a name="next"></a>Next steps
 TBD
