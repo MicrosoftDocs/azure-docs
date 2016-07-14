@@ -8,12 +8,12 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="06/05/2016"
+	ms.date="07/14/2016"
 	ms.author="tarcher" />
 
 # Manage Azure Blob Storage resources with Storage Explorer (Preview)
