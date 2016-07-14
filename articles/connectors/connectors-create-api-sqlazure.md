@@ -117,7 +117,7 @@ An asterisk (*) means the property is required.
 |procedure * | Procedure name | The name of the stored procedure you want to execute |
 |parameters * | Input parameters | The parameters are dynamic and based on the stored procedure you choose. <br/><br/> For example, if you're using the Adventure Works sample database, you can choose the *ufnGetCustomerInformation* stored procedure. The **Customer ID** input parameter is displayed. Enter "6" or one of the other customer IDs. |
 
-**Output Details** 
+**Output Details**  
 ProcedureResult: Carries result of stored procedure execution
 
 | Property Name | Data Type | Description |
@@ -136,7 +136,7 @@ An asterisk (*) means the property is required.
 |table * | Table name |Name of SQL table|
 |id * | Row id |Unique identifier of the row to retrieve|
 
-**Output Details** 
+**Output Details**  
 Item
 
 | Property Name | Data Type |
@@ -157,10 +157,10 @@ An asterisk (*) means the property is required.
 |$filter| Filter Query|An ODATA filter query to restrict the number of entries|
 |$orderby|Order By |An ODATA orderBy query for specifying the order of entries|
 
-**Output Details**
+**Output Details**  
 ItemsList
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
@@ -175,7 +175,7 @@ An asterisk (*) means the property is required.
 |table * | Table name |Name of SQL table|
 |item *|Row|Row to insert into the specified table in SQL|
 
-**Output Details**
+**Output Details**  
 Item
 
 | Property Name | Data Type |
@@ -193,19 +193,18 @@ An asterisk (*) means the property is required.
 |table * |Table name |Name of SQL table|
 |id * |Row id |Unique identifier of the row to delete|
 
-**Output Details** 
+**Output Details**  
 None.
 
 #### Get tables 
 Retrieves tables from a SQL database.  
-An asterisk (*) means the property is required.
 
 There are no parameters for this call. 
 
-**Output Details** 
+**Output Details**  
 TablesList
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
@@ -220,7 +219,7 @@ An asterisk (*) means the property is required.
 |id * |Row id |Unique identifier of the row to delete|
 |item * |Row|item to be updated|
 
-**Output Details**
+**Output Details**  
 Item
 
 | Property Name | Data Type |
