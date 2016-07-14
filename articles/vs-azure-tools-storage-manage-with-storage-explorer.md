@@ -8,7 +8,7 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
