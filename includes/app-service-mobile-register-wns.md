@@ -7,7 +7,7 @@
 
 3. After the app registration is successfully created, select the new app name, click **Next**, and then click **Associate**. This adds the required Windows Store registration information to the application manifest.
 
-7. If you have a Windows Phone Store app project, repeat steps 1 and 3 using the same registration you previously created for the Windows Store app.  
+7. Repeat steps 1 and 3 for the Windows Phone Store app project using the same registration you previously created for the Windows Store app.  
 
 7. Navigate to the [Windows Dev Center](https://dev.windows.com/en-us/overview), sign-in with your Microsoft account, click the new app registration in **My apps**, then expand **Services** > **Push notifications**.
 

@@ -304,7 +304,7 @@ This section is for running the Apache Cordova app project on Windows 10 devices
 
 ####Register your Windows app for push notifications with WNS
 
-To use the Store options in Visual Studio, select a Windows target from the Solution Platforms list, like **Windows-x64** or **Windows-x86** (avoid Windows-AnyCPU for push notifications).
+To use the Store options in Visual Studio, select a Windows target from the Solution Platforms list, like **Windows-x64** or **Windows-x86** (avoid **Windows-AnyCPU** for push notifications).
 
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
