@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/13/2016"
+	ms.date="07/14/2016"
 	ms.author="garye"/>
 
 # Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -435,7 +435,7 @@ Included quantities are included on a prorated basis and may take 24 hours to be
 The instance is removed from your subscription and you are billed for a prorated usage. 
 
 
-## Signing up for New Web Services plans
+### Signing up for New Web Services plans
 
 **How do I sign up for a plan?**
 
