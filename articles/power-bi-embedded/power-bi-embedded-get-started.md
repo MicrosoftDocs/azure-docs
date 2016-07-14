@@ -54,7 +54,7 @@ The **Creation Blade** contains the information you need to call the APIs that c
 <a name="view-access-keys"/>
 ## View Power BI API Access Keys
 
-One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [How does app token flow work](power-bi-embedded-app-token-flow.md).
+One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -98,7 +98,5 @@ In the previous steps, you created a workspace collection and your first report 
 
 ## See Also
 - [Get started with sample](power-bi-embedded-get-started-sample.md)
-- [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527)
