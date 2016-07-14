@@ -68,10 +68,6 @@ Azure AD Connect Health for AD DS provides monitoring for Domain Controllers ins
 - Performance data graphs, useful for troubleshooting and monitoring AD DS.
 - Email notifications for critical alerts.
 
-The following video will provide an overview of Azure AD Connect Health for AD DS
-
-...need link to video here....
-
 ## Get started with Azure AD Connect Health
 It is very easy to get started with Azure AD Connect Health. Follow the steps below:
 
