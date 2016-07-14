@@ -3,7 +3,7 @@
 	description="Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio." 
 	services="application-insights" 
     documentationCenter=".net"
-	authors="davidstephens" 
+	authors="numberbycolors" 
 	manager="pprovost"/>
 
 <tags 
