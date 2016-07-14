@@ -159,7 +159,7 @@ Your notification hub is now configured to work with Firebase Cloud Messagin, an
 		public class NotificationSettings {
 		    public static String SenderId = "<Your project number>";
 		    public static String HubName = "<Your HubName>";
-		    public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignatire connection string>";
+		    public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
 		}
 
 2. Using the steps above, add another new class named `MyInstanceIDService`. This will be our Instance ID listener service implementation.
