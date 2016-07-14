@@ -53,7 +53,7 @@ The scenario outlined in this tutorial consists of the following building blocks
   
 The objective of this section is to outline how to enable the application integration for Workday.
 
-###To enable the application integration for Workday, perform the following steps:
+### Steps:
 
 1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
@@ -84,6 +84,9 @@ The objective of this section is to outline how to enable the application integr
 
 ## Creating an integration system user
 
+### Steps:
+
+
 1. In the **Workday Workbench**, enter create user in the search box, and then click **Create Integration System User**. 
 
 	![Create user](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
@@ -102,6 +105,7 @@ The objective of this section is to outline how to enable the application integr
 
 For the scenario outlined in this tutorial, you need to create an unconstrained integration system security group and assign the user to it.
 
+### Steps:
 
 1. Enter create security group in the search box, and then click **Create Security Group**. 
 
@@ -116,6 +120,9 @@ For the scenario outlined in this tutorial, you need to create an unconstrained 
 
 
 ## Assigning the integration system user to the security group
+
+### Steps:
+
 
 1. Enter edit security group in the search box, and then click **Edit Security Group**. 
 
@@ -149,8 +156,9 @@ In this step, you grant to the new security group permissions for **Get** and **
 - Worker Data: Current Staffing Information
 
 - Worker Data: Business Title on Worker Profile
+
  
-   
+### Steps:
 
 1. Enter domain security policies in the search box, and then click on the link, Domain Security Policies for Functional Area.  
 
@@ -199,6 +207,7 @@ In this step, you grant to the new security group permissions for **Get** and **
 
 ## Activating security policy changes
 
+### Steps:
 
 1. Enter activate in the search box, and then click on the link,Activate Pending Security Policy Changes. 
 
@@ -223,21 +232,21 @@ In this step, you grant to the new security group permissions for **Get** and **
 The objective of this section is to outline how to configure Azure AD to import people from Workday.
 
 
-### To configure user import in Azure AD, perform the following steps:
+### Steps:
 
 
 1. On the **Workday** application integration page, click **Configure user import** to open the **Configure Provisioning** dialog.
 
 
-2.On the **Settings and admin credentials** page, perform the following steps, and then click **Next**: 
+2. On the **Settings and admin credentials** page, perform the following steps, and then click **Next**: 
 
 	![Settings and admin credentials](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Settings and admin credentials")  
  
-     a. In the Workday admin user name textbox, type the name of the user you have created in the Creating an integration system user section.
+	a. In the Workday admin user name textbox, type the name of the user you have created in the Creating an integration system user section.
 
-     b. In the Workday admin password textbox, type the password of the user you have created in the Creating an integration system user section.
+    b. In the Workday admin password textbox, type the password of the user you have created in the Creating an integration system user section.
 
-     c. In the Workday tenant URL textbox, type the URL or your Workday tenant.
+    c. In the Workday tenant URL textbox, type the URL or your Workday tenant.
 
 
 3. On the **Test connection** page, click **Start test** to confirm connectivity, and then click **Next**. 
