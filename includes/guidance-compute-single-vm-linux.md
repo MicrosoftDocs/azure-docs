@@ -308,9 +308,6 @@ PATCH_CONFIG='{"rebootAfterPatch":"RebootIfNeed","startTime":"3:00","dayOfWeek":
 azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTCExtensions \
 --public-config $PATCH_CONFIG --vm-name $VM_NAME --version 2.0 $POSTFIX
 ```
-## Deployment
-
-**TBD**
 
 ## Next steps
 
