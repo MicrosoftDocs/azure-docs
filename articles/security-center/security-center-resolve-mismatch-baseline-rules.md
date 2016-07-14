@@ -32,18 +32,19 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
  - **FAILED RULES** -- The number of baseline rules that the VM's OS configuration failed.
  - **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
  - **STATE** -- The current state of the mismatch:
-    - Open: The mismatch has not been addressed yet
-    - In Progress: The mismatch is currently being applied, no action is required by you
-    - Resolved: The mismatch was already addressed (when the issue has been resolved, the entry is grayed out)
+
+      - Open: The mismatch has not been addressed yet
+      - In Progress: The mismatch is currently being applied, no action is required by you
+      - Resolved: The mismatch was already addressed (when the issue has been resolved, the entry is grayed out)
  - **SEVERITY** -- All baseline rules mismatch are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
 
- Select a VM. This opens the baseline rules mismatch blade for that VM and displays the rules that have failed.
+   Select a VM. This opens the baseline rules mismatch blade for that VM and displays the rules that have failed.
 
- ![Baseline rules mismatch][2]
+   ![Baseline rules mismatch][2]
 
 3. Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the baseline rule mismatch and the impact of the mismatch.
 
- ![Description for the baseline rule mismatch][3]
+  ![Description for the baseline rule mismatch][3]
 
   Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers for configuration rules. The following information is provided on this blade:
 
