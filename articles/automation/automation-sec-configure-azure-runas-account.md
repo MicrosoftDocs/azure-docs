@@ -18,13 +18,13 @@
 
 # Authenticate Runbooks with Azure Run As account
 
-This topic will show you how to configure an Automation account from the Azure portal using the  Run As account feature (also referred to as a service principal), to authenticate runbooks managing resources in either Azure Resource Manager or Azure Service Management.  When you create a new Automation account in the Azure portal, it automatically creates a new service principal in both deployment models, and assigns the Contributor role-based access control (RBAC) to the Azure Resource Manager subscription.  
+This topic will show you how to configure an Automation account from the Azure portal using the  Run As account feature (also referred to as a service principal), to authenticate runbooks managing resources in either Azure Resource Manager or Azure Service Management.  When you create a new Automation account in the Azure portal, it automatically creates a new service principal in both deployment models, and assigns the Contributor role-based access control (RBAC) in the Azure Resource Manager subscription.  
 
 This simplifies the process for you and helps you quickly start building and deploying runbooks to support your automation needs.      
 
 Using a service principal, you can:
 
-* Provide a standardized way to authenticate with Azure when managing Azure Resource Manager  or Azure Service Management resources using runbooks in the Azure portal
+* Provide a standardized way to authenticate with Azure when managing Azure Resource Manager  or Azure Service Management resources from runbooks in the Azure portal
 * Provide a standardized way to authenticate with Azure when managing Azure Service Management resources using runbooks in the classic portal
 * Automate the use of global runbooks configured in Azure Alerts
 
