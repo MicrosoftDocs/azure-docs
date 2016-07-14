@@ -32,7 +32,6 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 This article lists SQL error codes for SQL Database client applications, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, elastic pool, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
-
 ## Database connection errors, transient errors, and other temporary errors
 
 The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database.
@@ -74,9 +73,7 @@ The following errors are transient, and should be retried in application logic
 |49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
 |49920|16|Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
 
-
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
-
 ## Database copy errors
 
 The following errors can be encountered while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
@@ -98,9 +95,7 @@ The following errors can be encountered while copying a database in Azure SQL Da
 |40570|16|Database copy failed due to an internal error. Please drop target database and try again later.|
 |40571|16|Database copy failed due to an internal error. Please drop target database and try again later.|
 
-
 <a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
-
 ## Resource governance errors
 
 The following errors are caused by excessive use of resources while working with Azure SQL Database. For example:
@@ -124,9 +119,7 @@ Related topics:
 |40552|16|The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.<br/><br/>*Tip:* If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. If you are rebuilding an index with the `ALTER INDEX` statement, try using the `REBUILD WITH ONLINE = ON` option.|
 |40553|16|The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>*Tip:* Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code reduces the memory requirements of your query.|
 
-
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
-
 ## Elastic pool errors
 
 The following errors are related to creating and using Elastics Pools.
@@ -231,7 +224,6 @@ The following errors do not fall into any previous categories.
 |40852|16|Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net.|
 |45168|16|The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later.|
 |45169|16|The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later.|
-
 
 ## Related links
 
