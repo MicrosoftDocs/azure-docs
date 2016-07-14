@@ -27,15 +27,13 @@ This sample shows how to copy data from an Redshift database to an Azure Blob St
  
 The sample has the following data factory entities:
 
-1.	A linked service of type [AmazonRedshift](#linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+- A linked service of type [AmazonRedshift](#linked-service-properties).
+- A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+- An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#dataset-type-properties).
+- An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+- A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data from a query result in Amazon Redshift to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
-
-As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
 
 **Amazon Redshift linked service**
 
@@ -214,7 +212,7 @@ The following table provides description for JSON elements specific to Amazon Re
 | username | Name of user who has access to the database.| Yes |
 | password | Password for the user account.| Yes |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises Amazon Redshift data source.
+See [Setting Credentials and Security](data-factory-data-management-gateway.md#set-credentials-and-security) for details about setting credentials for an on-premises Amazon Redshift data source.
 
 ## Dataset type properties
 
