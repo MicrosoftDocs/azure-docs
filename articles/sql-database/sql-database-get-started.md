@@ -54,6 +54,8 @@ Now that you've completed this SQL Database tutorial and created a database with
 
 - If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) to learn more.
 
+- If you want to load some data into a new table from a CSV file using BCP, see [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md).
+
 
 ## Additional resources
 

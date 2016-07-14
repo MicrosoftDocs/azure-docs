@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/08/2016"
+   ms.date="07/12/2016"
    ms.author="genli"/>
 
 # Transferring Ownership of an Azure subscription
@@ -27,7 +27,9 @@ Do you:
 
 You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own, no matter which country you operate in. We now support the transfer of Azure Marketplace Purchases for these subscription types as well.
 
-> [AZURE.NOTE] You have to be the account administrator to perform an ownership transfer. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](#faq).
+> [AZURE.NOTE]  To change your subscription to a different offer, see [Switching to a different Azure offer](billing-how-to-switch-azure-offer.md) for more information.
+
+> You have to be the account administrator to perform an ownership transfer. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](#faq).
 
 ## How to transfer ownership of an Azure subscription
 
