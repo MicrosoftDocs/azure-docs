@@ -97,7 +97,7 @@ This alert gives information that enables you to identify the attacked resource,
 
 Network devices can be discovered and profiled in much the same way as other types of systems. Attackers usually start with port scanning / port sweeping. In the example below you have a suspicious SSH traffic from a VM that can be performing a SSH brute force or port sweeping attack against an external resource. 
 
-![Suspicious outgoing traffic alert](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig10.png)
+![Suspicious outgoing traffic alert](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig-10.png)
 
 This alert gives information that enables you to identify the resource that was used to initiate this attack, the compromised machine, the detection time, the protocol and port that was used. This blade also gives you a list of remediation steps that can be used to mitigate this issue.
 
@@ -105,7 +105,7 @@ This alert gives information that enables you to identify the resource that was 
  
 By leveraging Microsoft threat intelligence feeds, Azure Security Center can detect compromised machines that are communicating with malicious IP addresses, in many cases a command and control center. In this case Azure Security Center detected that the communication was done using Pony Loader malware (also known as [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
 
-![Network communication with a malicious machine alert](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig11.png)
+![Network communication with a malicious machine alert](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig-11.png)
 
 This alert gives information that enables you to identify the resource that was used to initiate this attack, the attacked resource, the victim IP, the attacker IP and the detection time.
 
