@@ -75,7 +75,7 @@ The following software requirements are for the iSCSI initiators that access you
 
 | Supported operating systems | Version required | Additional requirements/notes |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes. StorSimple iSCSI volumes are supported for only: <ul><li>Simple volume on Windows basic disks</li><li>Windows NTFS for formatting a volume</li>|
+| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes. StorSimple iSCSI volumes are supported for only: <ul><li>Simple volumes on Windows basic disks.</li><li>Windows NTFS for formatting a volume.</li>|
 
 The following software requirements are for the SMB clients that access your StorSimple Virtual Array (configured as a file server).
 
