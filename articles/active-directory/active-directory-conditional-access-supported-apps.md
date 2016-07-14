@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 
@@ -60,7 +60,8 @@ On Exchange, there are two main categories of protocol review and select the rig
 
 ### Example AD FS Rules
 The following rules can be used to block legacy protocol access at AD FS, in two common configurations.
-Option 1: Allow Exchange ActiveSync and only allow legacy apps on the intranet.
+
+### Option 1: Allow Exchange ActiveSync and only allow legacy apps on the intranet
 
 By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from the extranet. 
 
