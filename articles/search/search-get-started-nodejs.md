@@ -59,7 +59,6 @@ Use either one of the following approaches to download the sample.
 
 All subsequent file modifications and run statements will be made against files in this folder.
 
-Alternatively, if you have GIT in your path statement, you can open a PowerShell window and type `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
 ## Update the config.js. with your Search service URL and api-key
 
