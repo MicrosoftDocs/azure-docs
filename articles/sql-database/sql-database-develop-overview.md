@@ -18,7 +18,7 @@
 	ms.author="annemill"/>
 
 # SQL Database Development Overview
-This article walks through the basic considerations that a developer should consider when writing code to connect to Azure SQL Database.
+This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
 
 ## Language and platform
 There are code samples available for a variety of programming languages and platforms. You can find links to the code samples at: 
