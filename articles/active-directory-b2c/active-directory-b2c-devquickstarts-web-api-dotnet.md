@@ -32,7 +32,6 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 
 - Include a **web app/web API** in the application.
 - Enter `https://localhost:44316/` as a **Reply URL**. It is the default URL for this code sample.
-- Create an **Application secret** for your application and copy it. You will need it later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 - Copy the **Application ID** that is assigned to your app. You will also need this later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -74,7 +73,6 @@ To get `TaskWebApp` to communicate with Azure AD B2C, you need to provide a few 
     ...
     
     <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
-    <add key="ida:ClientSecret" value="E:i~5GHYRF$Y7BcM" />
     <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
     <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
