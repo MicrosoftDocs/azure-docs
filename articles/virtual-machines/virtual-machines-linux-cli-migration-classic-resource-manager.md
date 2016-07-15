@@ -3,8 +3,8 @@
 	description="This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="mahthi"
-	manager="drewm"
+	authors="cynthn"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
-	ms.author="mahthi"/>
+	ms.date="07/15/2016"
+	ms.author="cynthn"/>
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
 
@@ -34,7 +34,7 @@ For migration scenarios, you need to set up your environment for both classic an
 
 Select the Azure subscription by using the following command.
 
-	azure account set "azure-subscription-name"
+	azure account set "<azure-subscription-name>"
 
 >[AZURE.NOTE] Registration is a one time step but it needs to be done once before attempting migration. Without registering you'll see the following error message 
 
@@ -64,29 +64,29 @@ Get the list of cloud services by using the following command, and then pick the
 
 Run the following command to get the deployment name for the cloud service from the verbose output. In most cases, the deployment name is the same as the cloud service name.
 
-	azure service show servicename -vv
+	azure service show <serviceName> -vv
 
 Prepare the virtual machines in the cloud service for migration. You have two options to choose from.
 
 If you want to migrate the VMs to a platform-created virtual network, use the following command.
 
-	azure service deployment prepare-migration servicename deploymentname new "" "" ""
+	azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
 
 If you want to migrate to an existing virtual network in the Resource Manager deployment model, use the following command.
 
-	azure service deployment prepare-migration serviceName deploymentName existing destinationVNETResourceGroupName subnetName vnetName
+	azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
 
 After the prepare operation is successful, you can look through the verbose output to get the migration state of the VMs and ensure that they are in the `Prepared` state.
 
-	azure vm show vmName -vv
+	azure vm show <vmName> -vv
 
 Check the configuration for the prepared resources by using either CLI or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
 
-	azure service deployment abort-migration serviceName deploymentName
+	azure service deployment abort-migration <serviceName> <deploymentName>
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
 
-	azure service deployment commit-migration serviceName deploymentName
+	azure service deployment commit-migration <serviceName> <deploymentName>
 
 ### Migrate virtual machines in a virtual network
 
@@ -98,15 +98,15 @@ Get all the virtual networks in the subscription by using the following command.
 
 Prepare the virtual network of your choice for migration by using the following command.
 
-	azure network vnet prepare-migration virtualnetworkname
+	azure network vnet prepare-migration <virtualNetworkName>
 
 Check the configuration for the prepared virtual machines by using either CLI or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
 
-	azure network vnet abort-migration virtualnetworkname
+	azure network vnet abort-migration <virtualNetworkName>
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
 
-	azure network vnet commit-migration virtualnetworkname
+	azure network vnet commit-migration <virtualNetworkName>
 
 ### Migrate a storage account
 
@@ -114,15 +114,15 @@ Once you're done migrating the virtual machines, we recommend you migrate the st
 
 Prepare the storage account for migration by using the following command
 
-	azure storage account prepare-migration storageaccountname
+	azure storage account prepare-migration <storageAccountName>
 
 Check the configuration for the prepared storage account by using either CLI or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
 
-	azure storage account abort-migration storageaccountname
+	azure storage account abort-migration <storageAccountName>
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
 
-	azure storage account commit-migration storageaccountname
+	azure storage account commit-migration <storageAccountName>
 
 ## Next steps
 
