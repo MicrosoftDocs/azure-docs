@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
+    ms.date="07/15/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
@@ -220,34 +220,33 @@ Next we will perform a small test to confirm you are able to successfully authen
 
 You can use the updated sample code below, taken from the **AzureAutomationTutorial** example runbook, to authenticate using the Run As account to manage Resource Manager resources with your runbooks. 
 
-   ```
-   $connectionName = "AzureRunAsConnection"
-   $SubId = Get-AutomationVariable -Name 'SubscriptionId'
-   try
-   {
-      # Get the connection "AzureRunAsConnection "
-      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-
-      "Logging in to Azure..."
-      Add-AzureRmAccount `
+    $connectionName = "AzureRunAsConnection"
+    $SubId = Get-AutomationVariable -Name 'SubscriptionId'
+    try
+    {
+       # Get the connection "AzureRunAsConnection "
+       $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+       
+       "Logging in to Azure..."
+       Add-AzureRmAccount `
          -ServicePrincipal `
          -TenantId $servicePrincipalConnection.TenantId `
          -ApplicationId $servicePrincipalConnection.ApplicationId `
          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-	  "Setting context to a specific subscription"	 
-	  Set-AzureRmContext -SubscriptionId $SubId	 		 
-   }
-   catch {
-       if (!$servicePrincipalConnection)
-       {
+	   "Setting context to a specific subscription"	 
+	   Set-AzureRmContext -SubscriptionId $SubId	 		 
+    }
+    catch {
+        if (!$servicePrincipalConnection)
+        {
            $ErrorMessage = "Connection $connectionName not found."
            throw $ErrorMessage
-       } else{
-           Write-Error -Message $_.Exception
-           throw $_.Exception
-       }
-   } 
-   ```
+         } else{
+            Write-Error -Message $_.Exception
+            throw $_.Exception
+         }
+    } 
+   
 
 The script includes two additional lines of code to support referencing a subscription context so you can easily work between multiple subscriptions. A variable asset named SubscriptionId contains the ID of the subscription, and after the Add-AzureRmAccount cmdlet statement, the [Set-AzureRmContext cmdlet](https://msdn.microsoft.com/library/mt619263.aspx) is stated with the parameter set *-SubscriptionId*. If the variable name is too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easier to identify for your purposes. Alternatively, you can use the parameter set -SubscriptionName instead of -SubscriptionId with a corresponding variable asset.  
 
@@ -255,13 +254,12 @@ The script includes two additional lines of code to support referencing a subscr
 ## Sample code to authenticate with Service Management resources
 
 You can use the updated sample code below, taken from the **AzureClassicAutomationTutorialScript** example runbook, to authenticate using the Run As account to manage Resource Manager resources with your runbooks. 
-
-    ```
+    
     $ConnectionAssetName = "AzureClassicRunAsConnection"
-
+    
     # Get the connection
     $connection = Get-AutomationConnection -Name $connectionAssetName        
-
+    
     # Authenticate to Azure with certificate
     Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
@@ -269,7 +267,7 @@ You can use the updated sample code below, taken from the **AzureClassicAutomati
     {
        throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
     }
-
+      
     $CertificateAssetName = $Conn.CertificateAssetName
     Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
     $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
@@ -277,11 +275,11 @@ You can use the updated sample code below, taken from the **AzureClassicAutomati
     {
        throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
     }
-
+      
     Write-Verbose "Authenticating to Azure with certificate." -Verbose
     Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert 
     Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
-    ```
+
 
 ## Next steps
 
