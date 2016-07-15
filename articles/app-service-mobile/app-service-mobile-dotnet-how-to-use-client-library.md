@@ -357,7 +357,7 @@ transaction is rolled back.
 
 Mobile Apps supports optimistic concurrency control by tracking changes to each item using the `version` system property column that is defined for each table
 in your Mobile App backend. Each time a record is updated, Mobile Apps sets the `version` property for that record to a new value. During each update request,
-the `\version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the
+the `version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the
 request does not match the backend, then the client library raises a `MobileServicePreconditionFailedException<T>` exception. The type included with the exception
 is the record from the backend containing the servers version of the record. The application can then use this information to decide whether to execute the update
 request again with the correct `version` value from the backend to commit changes.
@@ -374,9 +374,9 @@ Define a column on the table class for the `version` system property to enable o
         [JsonProperty(PropertyName = "complete")]
         public bool Complete { get; set; }
 
-		// *** Enable Optimistic Concurrency *** //
+        // *** Enable Optimistic Concurrency *** //
         [JsonProperty(PropertyName = "version")]
-        public byte[] Version { set; get; }
+        public string Version { set; get; }
     }
 
 
