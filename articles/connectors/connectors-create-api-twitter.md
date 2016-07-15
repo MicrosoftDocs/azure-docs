@@ -104,13 +104,13 @@ The Twitter connector has the following actions:
 |[Get my following](connectors-create-api-twitter.md#get-my-following)|This operation gets the list of users that I am following.|
 |[Get user](connectors-create-api-twitter.md#get-user)|This operation gets the profile details for a given user, such as user name, description, followers count, and more.|
 |[Post a tweet](connectors-create-api-twitter.md#post-a-tweet)|This operation posts a new tweet.|
-### Action details
+## Action details
 
 Here are the details for the actions and triggers for this connector, along with their responses:
 
 
 
-## Get user timeline
+### Get user timeline
 This operation gets a list of the most recent tweets posted by a given user. 
 
 
@@ -123,7 +123,7 @@ An * indicates that a property is required
 
 
 
-##### Output Details
+#### Output Details
 
 TweetModel: Representation of Tweet Object
 
@@ -146,7 +146,7 @@ TweetModel: Representation of Tweet Object
 
 
 
-## Get home timeline
+### Get home timeline
 This operation gets the most recent tweets and re-tweets posted by me and my followers. 
 
 
@@ -158,7 +158,7 @@ An * indicates that a property is required
 
 
 
-##### Output Details
+#### Output Details
 
 TweetModel: Representation of Tweet Object
 
@@ -181,7 +181,7 @@ TweetModel: Representation of Tweet Object
 
 
 
-## Search tweets
+### Search tweets
 This operation gets a list of relevant tweets matching the search query. 
 
 
@@ -194,7 +194,7 @@ An * indicates that a property is required
 
 
 
-##### Output Details
+#### Output Details
 
 TweetModel: Representation of Tweet Object
 
@@ -217,7 +217,7 @@ TweetModel: Representation of Tweet Object
 
 
 
-## Get followers
+### Get followers
 This operation gets the list of users that follow a given user. 
 
 
@@ -230,7 +230,7 @@ An * indicates that a property is required
 
 
 
-##### Output Details
+#### Output Details
 
 UserDetailsModel: Twitter user details
 
@@ -251,7 +251,7 @@ UserDetailsModel: Twitter user details
 
 
 
-## Get my followers
+### Get my followers
 This operation gets the list of users who are following me. 
 
 
@@ -263,7 +263,7 @@ An * indicates that a property is required
 
 
 
-##### Output Details
+#### Output Details
 
 UserDetailsModel: Twitter user details
 
@@ -284,7 +284,7 @@ UserDetailsModel: Twitter user details
 
 
 
-## Get following
+### Get following
 The operation gets the list of people the given user follows. 
 
 
@@ -297,7 +297,7 @@ An * indicates that a property is required
 
 
 
-##### Output Details
+#### Output Details
 
 UserDetailsModel: Twitter user details
 
@@ -318,7 +318,7 @@ UserDetailsModel: Twitter user details
 
 
 
-## Get my following
+### Get my following
 This operation gets the list of users that I am following. 
 
 
@@ -330,7 +330,7 @@ An * indicates that a property is required
 
 
 
-##### Output Details
+#### Output Details
 
 UserDetailsModel: Twitter user details
 
@@ -351,7 +351,7 @@ UserDetailsModel: Twitter user details
 
 
 
-## Get user
+### Get user
 This operation gets the profile details for a given user, such as user name, description, followers count, and more. 
 
 
@@ -361,7 +361,7 @@ This operation gets the profile details for a given user, such as user name, des
 
 An * indicates that a property is required
 
-##### Output Details
+#### Output Details
 
 UserDetailsModel: Twitter user details
 
@@ -382,7 +382,7 @@ UserDetailsModel: Twitter user details
 
 
 
-## Post a tweet
+### Post a tweet
 This operation posts a new tweet. 
 
 
@@ -393,7 +393,7 @@ This operation posts a new tweet.
 
 An * indicates that a property is required
 
-##### Output Details
+#### Output Details
 
 TweetResponseModel: Model representing Posted Tweet
 
@@ -405,7 +405,7 @@ TweetResponseModel: Model representing Posted Tweet
 
 
 
-## When a new tweet is posted
+### When a new tweet is posted
 This operation triggers a flow when a new tweet that matches a given search query is posted. 
 
 
@@ -415,7 +415,7 @@ This operation triggers a flow when a new tweet that matches a given search quer
 
 An * indicates that a property is required
 
-##### Output Details
+#### Output Details
 
 TriggerBatchResponse[TweetModel]: undefined
 
