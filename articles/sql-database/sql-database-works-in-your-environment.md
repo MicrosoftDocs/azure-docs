@@ -21,7 +21,7 @@
 
 ## Connect with what you already know
 
-The last thing you wants to do is learn something new just to connect with a database. Azure SQL Database makes it easy with a variety of languages and platforms you’re used to working with.
+The last thing you want to do is learn something new just to connect with a database. Azure SQL Database makes it easy with a variety of languages and platforms you’re used to working with.
 
 ![works-in-your-environment](./media/sql-database-works-in-your-environment/sql-database-works-in-your-environment.png)
 
