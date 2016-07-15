@@ -150,12 +150,12 @@ Now that you have the `oidlib-sample` running successfully, let's edit some endp
 	```xml
 	    <string-array name="oidc_scopes">
 	        <item>openid</item>
-	        <item>User.ReadBasic.All</item>
+	        <item>https://graph.microsoft.com/User.Read</item>
 	        <item>offline_access</item>
 	    </string-array>
 	```
 
-The `User.ReadBasic.All` value in `oidc_scopes` allows you to read the basic profile of all the users in your directory.
+The `User.Read` value in `oidc_scopes` allows you to read the basic profile the signed in user.
 You can learn more about all the available scopes at [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
 If you'd like explanations about `openid` or `offline_access` as scopes in OpenID Connect, see [2.0 Protocols - OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md).
