@@ -33,6 +33,21 @@ The following sections will walk you through using PowerShell to:
 
 Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. You can use the  `Set-AzureRmDiagnosticSetting` cmdlet to enable logging.
 
+Refer to the following articles for more information on how to enable diagnostic logging:
+
++ [Key Vault](../key-vault/key-vault-logging.md)
++ [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
++ [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
+
+This documentation also includes details on:
+
++ Troubleshooting data collection
++ Stopping data collection
+
+## Configure Log Analytics to collect Azure Diagnostics written to blob in JSON format
+
+Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
+
 The example below will enable logging on all supported resources
 
 ```
@@ -50,23 +65,6 @@ foreach ($resource in $resources) {
 }
 ```
 
-Refer to the following articles for more information on how to enable diagnostic logging:
-
-+ [Key Vault](../key-vault/key-vault-logging.md)
-+ [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
-+ [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
-
-
-## Configure Log Analytics to collect Azure Diagnostics written to blob in JSON format
-
-Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
-
-Refer to [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-azure-storage-json.md).
-
-This documentation also includes details on:
-
-+ Troubleshooting data collection
-+ Stopping data collection
 
 It is not currently possible to perform the above configuration from the portal.
 
