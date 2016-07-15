@@ -185,4 +185,4 @@ An example deployment script for this architecture is available on GitHub.
 [deployment-script-linux]: https://github.com/mspnp/blueprints/blob/master/3tier-linux/3TierCLIScript.sh
 [deployment-script-windows]: https://github.com/mspnp/blueprints/blob/master/3tier-windows/3TierCLIScript.cmd
 
-[0]: ./media/blueprints/compute-n-tier.png "N-tier architecture using Windows Azure"
+[0]: ./media/blueprints/compute-n-tier.png "N-tier architecture using Microsoft Azure"
