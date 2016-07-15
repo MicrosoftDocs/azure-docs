@@ -447,8 +447,6 @@ If traffic is unable to traverse the VPN connection, check the following:
 
 ## Solution components
 
-**TBD**
-
 <!-- The following content should be replaced with a description of the ARM templates -->
 
 The script in this section uses [Azure CLI][azure-cli] commands to connect an on-premises network to an Azure VNet by using an Azure VPN Gateway. Requests are routed to VMs in the VNet through an internal load balancer. Running these commands results in the structure shown in the previous diagrams.
@@ -608,10 +606,6 @@ GOTO Loop
 ECHO %CLICommand%
 GOTO :eof
 ```
-
-## Deployment
-
-**TBD**
 
 ## Next steps
 
