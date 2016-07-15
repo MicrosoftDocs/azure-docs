@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="07/15/2016"
    ms.author="yurid"/>
 
 # Azure Security Center planning and operations guide
@@ -47,7 +47,7 @@ Security Center enables these individuals to meet these various responsibilities
 **Jeff (Cloud Workload Owner)**
 
 - Views and Completes Security Center Recommendations in the Azure Portal
-- May Also Use a Ticketing System to Track Changes (populates recommendations using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Also Use a Ticketing System to Track Changes (populates recommendations using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 
 **Rex (CISO/CIO)**
 
@@ -61,12 +61,12 @@ Security Center enables these individuals to meet these various responsibilities
 **Sam (Security Operations)**
 
 - Views and Triages Security Center Alerts in the Azure Portal
-- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 
 **Sherlock (Security Analyst)**
 
 - Views Security Center Alerts in the Azure Portal
-- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 - Analyzes Alert Trends in Power BI
 - Reviews Event Logs from Storage
 
