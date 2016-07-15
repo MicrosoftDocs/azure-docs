@@ -228,7 +228,7 @@ To find the name of the solution to enable for each resource type, use the follo
 ### Verify that Log Analytics is configured to read from storage
 
 If you add additional Azure Resources, you need to enable Diagnostics logging for them, as well as configure Log Analytics for them.
-To check which resources and storage accounts Log Analytics is configured you collect logs for, use the following PowerShell:
+To check which resources and storage accounts Log Analytics is configured to collect logs for, use the following PowerShell:
 
 ```
 # Find the Workspace ResourceGroup and Name
