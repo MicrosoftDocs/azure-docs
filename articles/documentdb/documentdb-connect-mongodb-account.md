@@ -19,7 +19,7 @@
 
 # How to connect to a DocumentDB account with protocol support for MongoDB
 
-Learn how to connect to a DocumentDB account with protocol support for MongoDB using the standard MongoDB connection string URI format.  
+Learn how to connect to an Azure DocumentDB account with protocol support for MongoDB using the standard MongoDB connection string URI format.  
 
 ## Get the account's connection string information
 

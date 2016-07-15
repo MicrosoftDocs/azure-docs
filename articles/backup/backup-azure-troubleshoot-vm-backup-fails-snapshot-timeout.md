@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2016"
+    ms.date="07/14/2016"
     ms.author="jimpark; markgal;genli"/>
 
 # Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
@@ -105,7 +105,11 @@ For Windows guests:
 1. Verify that the iaasvmprovider service is enabled and has a startup type of automatic.
 2. If this is not the configuration, enable the service to determine whether the next backup succeeds.
 
-If the backup extension still fails to update or load, you can force the VMSnapshot extension to be reloaded by installing the extension. The next backup attempt will reload the extension.
+For Linux guests:
+
+The latest version of VMSnapshot Linux (extension used by backup) is 1.0.91.0
+
+If the backup extension still fails to update or load, you can force the VMSnapshot extension to be reloaded by uninstalling the extension. The next backup attempt will reload the extension.
 
 ### To uninstall the extension
 

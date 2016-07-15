@@ -161,6 +161,28 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
 >[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.
 
+### TRIM/UNMAP support for Linux in Azure
+Some Linux kernels will support TRIM/UNMAP operations to discard unused blocks on the disk. This is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. This can save cost if you create large files and then delete them.
+
+There are two ways to enable TRIM support in your Linux VM. As usual, please consult your distribution for the recommended approach:
+
+- Use the `discard` mount option in `/etc/fstab`, for example:
+
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+- Alternatively, you can run the `fstrim` command manually from the command-line, or add it to your crontab to run regularly:
+
+	**Ubuntu**
+
+		# sudo apt-get install util-linux
+		# sudo fstrim /datadrive
+
+	**RHEL/CentOS**
+
+		# sudo yum install util-linux
+		# sudo fstrim /datadrive
+
+
 ## Next Steps
 You can read more about using your Linux VM in the following articles:
 
