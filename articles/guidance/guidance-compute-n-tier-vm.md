@@ -118,12 +118,7 @@ Test your deployment by [forcing a manual failover][sql-always-on-force-failover
 
 If you need higher availability than the [Azure SLAs for VMs][VM-SLAs] provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Running VMs in multiple datacenters on Azure for high availability][multi-dc].   
 
-## Solution components
-
-**TBD**
-
-
-## Deployment
+## Solution Deployment
 
 <!--JS - MAY NEED TO REVISIT THIS SECTION ONCE THE NEW ARM TEMPLATES FOR THIS BLUEPRINT ARE AVAILABLE-->
 
