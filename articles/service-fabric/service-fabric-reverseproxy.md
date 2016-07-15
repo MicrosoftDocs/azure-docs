@@ -3,9 +3,9 @@
    description="Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster"
    services="service-fabric"
    documentationCenter=".net"
-   authors="vturecek,BharatNarasimman"
+   authors="BharatNarasimman,vturecek"
    manager="timlt"
-   editor="BharatNarasimman"/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -37,7 +37,7 @@ Service Fabric reverse proxy runs on all the nodes in the cluster. It performs t
 ![Internal communication][1]
 
 ## Reaching Microservices from outside the cluster
-The default external communication model for microservices is **opt-in**  where each service by default cannot be accessed directly from external clients. The [Azure Load Balancer](https://azure.microsoft.com/documentation/articles/load-balancer-overview/) is a network boundary between microservices and external clients, that performs network address translation and forwards external requests to internal **IP:port** endpoints. In order to make a microservice's endpoint directly accessible to external clients, the Azure Load Balancer must first be configured to forward traffic to each port used by the service in the cluster. Furthermore, most microservices(esp. stateful microservices) dont live on all the nodes of the cluster and they can move between nodes on failover, so in such cases, the Azure Load Balancer cannot effectively determine the target node of the replicas are located to forward the traffic to.
+The default external communication model for microservices is **opt-in**  where each service by default cannot be accessed directly from external clients. The [Azure Load Balancer](../load-balancer/load-balancer-overview.md) is a network boundary between microservices and external clients, that performs network address translation and forwards external requests to internal **IP:port** endpoints. In order to make a microservice's endpoint directly accessible to external clients, the Azure Load Balancer must first be configured to forward traffic to each port used by the service in the cluster. Furthermore, most microservices(esp. stateful microservices) dont live on all the nodes of the cluster and they can move between nodes on failover, so in such cases, the Azure Load Balancer cannot effectively determine the target node of the replicas are located to forward the traffic to.
 
 ### Reaching Microservices via the SF reverse proxy from outside the cluster
 
@@ -131,7 +131,7 @@ The service fabric Reverse proxy can be enabled for the cluster via the [Azure R
 
 Once you have the template for the cluster that you want to deploy(either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
 
-1. Define a port for the reverse proxy in the [Parameters section](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) of the template.
+1. Define a port for the reverse proxy in the [Parameters section](../resource-group-authoring-templates.md) of the template.
 
 ```json
 "SFReverseProxyPort": {
@@ -142,7 +142,7 @@ Once you have the template for the cluster that you want to deploy(either from t
   }
 },
 ```
-2. Specify that port in the **Cluster** [Resource type section](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/)
+2. Specify that port in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
 
 ```json
 {
@@ -201,7 +201,7 @@ Once you have the template for the cluster that you want to deploy(either from t
   ]
 }
 ```
-4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section]((https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/))
+4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
 
 ```json
 
