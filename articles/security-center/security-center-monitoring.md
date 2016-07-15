@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"virtual
+   ms.date="07/15/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -59,6 +59,8 @@ This section shows the total number of VMs that were initialized for data collec
 This section has a set of recommendations for each VM monitored by Azure Security Center. The first column lists the recommendation, the second column the total number of VMs that are affected by that recommendation and the third column shows the severity of the issue as illustrated below.
 
 ![VM Recommendations](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
+
+> [AZURE.NOTE] Only VMs with at least one public endpoint are shown in the Networking Health blade in the Network topology list.
 
 Each recommendation has a set of actions that can be performed once you click on it. For example, if you click **Missing system updates**, the **Missing system updates** blade will open. It lists the VMs that are missing patches and the severity of the missing update as shown below.
 

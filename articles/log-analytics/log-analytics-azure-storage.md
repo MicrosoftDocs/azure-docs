@@ -52,14 +52,20 @@ Log Analytics can collect data for the following Azure resources:
 
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
->[AZURE.NOTE]
-- See [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that write diagnostics to blob storage in JSON format.
-- See [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to learn more about how Log Analytics can read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
+
+- See [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that write diagnostics to blob storage in JSON format, including:
+  - Azure Key Vault
+  - Azure Automation
+  - Application Gateway
+  - Network security groups
+- See [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to learn more about how Log Analytics can read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage, including:
+  - Service Fabric
+  - Web Roles
+  - Worker Roles
+  - Virtual Machines
 
 
-## Application Insights (Preview)
-
-This functionality is currently in private preview. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
+Application Insights is in private preview and it uses continuous export to blob storage. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
 ## Next steps
 
