@@ -25,7 +25,7 @@ Service fabric lets you specify two certificates, a primary and a secondary, whe
 ## Add a secondary certificate
 To add another certificate as a secondary, you must upload the certificate to an Azure key vault and then deploy it to the VMs in the cluster.  For additional information, see [Deploy certificates to VMs from a customer-managed key vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
-1. [Upload a X.509 certificate to the key vault](service-fabric-cluster-azure-secure-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
+1. [Upload a X.509 certificate to the key vault](service-fabric-secure-azure-cluster-with-certs.md#step-2-upload-the-x509-certificate-to-the-key-vault)
 2. Sign in to the [Azure portal](https://portal.azure.com/) and browse to the cluster resource that you want add this certificate to.
 3. Under **Settings**, click the certificate setting and enter the secondary certificate thumbprint.
 4. Click **Save**. A deployment will be started, and on successful completion of that deployment, you will be able to use either the primary or the secondary certificate to perform management operations on the cluster.
