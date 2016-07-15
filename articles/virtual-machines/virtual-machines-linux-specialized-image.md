@@ -19,6 +19,12 @@
 # Create a copy of a Linux virtual machine in the Azure Resource Manager deployment model
 
 
+
+>> ASM to ARM should be done through migration. This should be RM only. Let's try that and see what happens.
+
+
+** How do we get a storage account and blob name?
+
 This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. It shows you how to create a *specialized* image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for porting your Linux VM from the classic deployment model to the Resource Manager deployment model, or creating a backup copy of your VM. First you copy over the operating system and data disks to a new resource group, then set up the network resources and create the new virtual machine.
 
 If you need to create mass deployments of similar Linux VMs, you should use a *generalized* image. For that, see [How to capture a Linux virtual machine](virtual-machines-linux-capture-image.md).
@@ -68,20 +74,109 @@ Copy the access key source VM storage account. For more information about access
 
 ## Copy the VHD files 
 
-Copy the VHD files using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md).
 
-1. Set up the connection string for the destination storage account. This connection string will contain the access key for destination storage account.
 
-			$azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
-			$export AZURE_STORAGE_CONNECTION_STRING=<the_connectionstring_output_from_above_command>
 
-2. Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command.
 
-			$azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
+Get the source connection string: 
+	azure storage account connectionstring show <source_storage_account>
+
+Output: 	
+	info:    Executing command storage account connectionstring show
+	+ Getting storage account keys
+	data:    connectionstring: DefaultEndpointsProtocol=https;AccountName=suseclassicrg5769;AccountKey=Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw==
+	info:    storage account connectionstring show command OK
+
+
+Set the connection string 
+
+DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
+
+AZURE_STORAGE_CONNECTION_STRING=<the_connectionstring_output_from_above_command>
+
+>> AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=suseclassicrg5769;AccountKey=Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw==
+
+Set the destination storage account parameter:
+
+	set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+
+Get the container name:
+	azure storage container list -a <sourcestorageaccountname> 
+
+	Most likely the container is named **vhds**
+
+## Copy the VHD files using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md).
+
+Set up the connection string for the destination storage account. This connection string will contain the access key for destination storage account.
+
+			azure config mode arm
+			
+			azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
+			
+			>> azure storage account connectionstring show -g LinuxCopyRG copylinuxstorage
+			
+			set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+				
+			>>  set AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg==
+			
+			
+## Create a shared access signature for the source storage account
+
+Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command.
+
+switch to asm: azure config mode asm
+get the connection string: azure storage account connectionstring show <source_storage_account>
+set the connection string: set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+container: azure storage container list
+blob\vhd file name: azure storage blob list --container <container_name>
+
+			azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
+			
+			>> azure storage blob sas create  --account-name suseclassicrg5769 --account-key Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw== --container vhds --blob SUSEClassic-os-5299.vhd  --permissions "r" --expiry 01/01/2020
+			
+			Output:
+			>> https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D
 
 3. Copy the VHD from the source storage to the destination by using the following command.
 
-			$azure storage blob copy start <SharedAccessURL_ofTheSourceVHD> <DestinationContainerName>
+			azure storage blob copy start <SharedAccessURL_ofTheSourceVHD> <DestinationContainerName>
+			
+			>> azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D copylinuxcontainer  << failed
+			
+			
+			I suspect I need to be in arm mode and have a destination container URL or something more specific. Need to figure out what parameters the storage blob copy supports.
+			
+			================================================================================================================
+			
+			Getting the connection thing as the "dest" portion of the copy blob command:
+			
+			>> azure storage account connectionstring show copylinuxstorage
+			
+			asks for RG name. RG is -g. Trying this:
+			
+			>> azure storage account connectionstring show copylinuxstorage -g LinuxCopyRG
+			
+			That worked. So, the command for getting the RM connection string is:
+			
+			azure storage account connectionstring show <destStorageAccount> -g <destResourceGroup>
+			
+			>> My connection string: connectionstring: DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg==
+			
+			
+			Soooo.... this should be the RM way to copy from asm to arm
+			
+			azure storage blob copy start <SharedAccessURL_ofTheSourceVHD> --dest-connection-string <destConnectionString> 
+			
+			But it might need the container. Let's try first....
+			
+			>> azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D --dest-connection-string DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg==
+			
+			Yep, needs --dest-container <destContainer>
+			
+			>> azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D --dest-container copylinuxcontainer --dest-connection-string DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg== 
+			
+			
+			
 
 4. The VHD file is copied asynchronously. Check the progress by using the following command.
 
