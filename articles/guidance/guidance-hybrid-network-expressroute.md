@@ -254,11 +254,7 @@ If a previously functioning ExpressRoute circuit now fails to connect, in the ab
 	```
 - If your provider had already provisioned the circuit, and the `ProvisioningState` is set to `Failed`, or the `CircuitProvisioningState` is not `Enabled`, contact your provider for further assistance.
 
-## Solution components
-
-**TBD**
-
-## Deployment
+## Solution Deployment
 
 <!-- This section must be updated to reference the new ARM templates -->
 
