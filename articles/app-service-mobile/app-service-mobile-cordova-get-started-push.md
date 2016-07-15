@@ -117,48 +117,48 @@ Initially, we will include some minimal code for Android. Later, we will make so
 
 2. Add the new **registerForPushNotifications** method as follows:
 
-	  // Register for Push Notifications. Requires that phonegap-plugin-push be installed.
-	  var pushRegistration = null;
-	  function registerForPushNotifications() {
-	      pushRegistration = PushNotification.init({
-	          android: { senderID: 'Your_Project_ID' },
-	          ios: { alert: 'true', badge: 'true', sound: 'true' },
-	          wns: {}
-	      });
-
-				// Handle the registration event.
-	      pushRegistration.on('registration', function (data) {
-	          // Get the native platform of the device.
-	          var platform = device.platform;
-	          // Get the handle returned during registration.
-	          var handle = data.registrationId;
-	          // Set the device-specific message template.
-	          if (platform == 'android' || platform == 'Android') {
-	              // Register for GCM notifications.
-	              client.push.register('gcm', handle, {
-	                  mytemplate: { body: { data: { message: "{$(messageParam)}" } } }
-	              });
-	          } else if (device.platform === 'iOS') {
-	              // Register for notifications.            
-	              client.push.register('apns', handle, {
-	                  mytemplate: { body: { aps: { alert: "{$(messageParam)}" } } }
-	              });
-	          } else if (device.platform === 'windows') {
-	              // Register for WNS notifications.
-	              client.push.register('wns', handle, {
-	                  myTemplate: {
-	                      body: '<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>',
-	                      headers: { 'X-WNS-Type': 'wns/toast' } }
-	              });
-	          }
-	      });
-
-	      pushRegistration.on('notification', function (data, d2) {
-	          alert('Push Received: ' + data.message);
-	      });
-
-	      pushRegistration.on('error', handleError);
-	  }
+		// Register for Push Notifications. Requires that phonegap-plugin-push be installed.
+		var pushRegistration = null;
+		function registerForPushNotifications() {
+		  pushRegistration = PushNotification.init({
+		      android: { senderID: 'Your_Project_ID' },
+		      ios: { alert: 'true', badge: 'true', sound: 'true' },
+		      wns: {}
+		  });
+		
+		// Handle the registration event.
+		pushRegistration.on('registration', function (data) {
+		  // Get the native platform of the device.
+		  var platform = device.platform;
+		  // Get the handle returned during registration.
+		  var handle = data.registrationId;
+		  // Set the device-specific message template.
+		  if (platform == 'android' || platform == 'Android') {
+		      // Register for GCM notifications.
+		      client.push.register('gcm', handle, {
+		          mytemplate: { body: { data: { message: "{$(messageParam)}" } } }
+		      });
+		  } else if (device.platform === 'iOS') {
+		      // Register for notifications.            
+		      client.push.register('apns', handle, {
+		          mytemplate: { body: { aps: { alert: "{$(messageParam)}" } } }
+		      });
+		  } else if (device.platform === 'windows') {
+		      // Register for WNS notifications.
+		      client.push.register('wns', handle, {
+		          myTemplate: {
+		              body: '<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>',
+		              headers: { 'X-WNS-Type': 'wns/toast' } }
+		      });
+		  }
+		});
+		
+		pushRegistration.on('notification', function (data, d2) {
+		  alert('Push Received: ' + data.message);
+		});
+		
+		pushRegistration.on('error', handleError);
+		}
 
 3. (Android) In the above code, replace `Your_Project_ID` with the numeric project ID for your app from the [Google Developer Console].
 
