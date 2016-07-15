@@ -47,20 +47,22 @@ Ensure that you meet the following prerequisites before you start the steps:
 	```azure vm stop <yourResourceGroup> <yourVmName>```
 	```azure vm deallocate <yourResourceGroup> <yourVmName>```
 	
-	If your source VM was created in the classic deployment model, you need to stop is using the [portal](http://portal.azure.com). Click **Browse** > **Virtual machines (classic)** > *your VM* > **Stop**.
+	If your source VM was created in the classic deployment model, you need to stop it using the [portal](http://portal.azure.com). 
+	
+	Click **Browse** > **Virtual machines (classic)** > *your VM* > **Stop**.
 	
 	Notice that the status of the VM in the portal changes from **Running** to **Stopped (deallocated)**.
 
 ## Get the access key for the source VM storage account
 
-	Copy the access key source VM storage account. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+Copy the access key source VM storage account. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-	- If your source VM was created by using the classic deployment model, change to classic mode by using 
+- If your source VM was created by using the classic deployment model, change to classic mode by using 
 		
 		```azure config mode asm```
 		```azure storage account keys list <yourSourceStorageAccountName>```
 
-	- If your source VM was created by using the Resource Manager deployment model, make sure you are in Resource Manager mode by using 
+- If your source VM was created by using the Resource Manager deployment model, make sure you are in Resource Manager mode by using 
 		
 		```azure config mode arm```
 		```azure storage account keys list -g <yourSourceResourceGroup> <yourSourceStorageAccount>```.
@@ -69,20 +71,20 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 Copy the VHD files using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md).
 
-	1. Set up the connection string for the destination storage account. This connection string will contain the access key for this storage account.
+1. Set up the connection string for the destination storage account. This connection string will contain the access key for destination storage account.
 
 			$azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
 			$export AZURE_STORAGE_CONNECTION_STRING=<the_connectionstring_output_from_above_command>
 
-	2. Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command.
+2. Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command.
 
 			$azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
 
-	3. Copy the VHD from the source storage to the destination by using the following command.
+3. Copy the VHD from the source storage to the destination by using the following command.
 
 			$azure storage blob copy start <SharedAccessURL_ofTheSourceVHD> <DestinationContainerName>
 
-	4. The VHD file is copied asynchronously. Check the progress by using the following command.
+4. The VHD file is copied asynchronously. Check the progress by using the following command.
 
 			$azure storage blob copy show <DestinationContainerName> <FileNameOfTheVHDtoCopy>
 
