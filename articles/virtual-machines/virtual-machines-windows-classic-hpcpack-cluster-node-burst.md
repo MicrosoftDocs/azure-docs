@@ -28,10 +28,6 @@ existing HPC Pack head node in Azure. This lets you scale up the compute capacit
 
 ![Burst nodes][burst]
 
->[AZURE.TIP] If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
-you can include Azure burst nodes in your automated
-deployment. See the examples in that article.
-
 The steps in this article will help you add Azure nodes quickly to a
 cloud-based HPC Pack head node VM for a test or proof of concept deployment. The procedure is essentially the
 same as the one to “burst to Azure” to add cloud compute capacity to an
@@ -47,6 +43,10 @@ For considerations to use the A8 or A9 compute intensive instance size for the b
 
 * **HPC Pack head node deployed in an Azure VM** - You can use a stand-alone head node VM or one that is part of a larger cluster. To create a stand-alone head node, see [Deploy an HPC
 Pack Head Node in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+
+    >[AZURE.TIP] If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
+you can include Azure burst nodes in your automated
+deployment. See the examples in that article.
 
 * **Azure subscription** - To add Azure nodes, you can choose the same
 subscription used to deploy the head node VM, or a different
