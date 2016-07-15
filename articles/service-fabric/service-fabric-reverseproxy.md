@@ -127,7 +127,7 @@ The gateway thus needs a way to distinguish between these two cases. In order to
 This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and the gateway will not attempt to re-resolve the service address.
 
 ## Setup and configuration
-The service fabric Reverse proxy can be enabled for the cluster via the [Azure Resource Manager template](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-creation-via-arm/).
+The service fabric Reverse proxy can be enabled for the cluster via the [Azure Resource Manager template](./service-fabric-cluster-creation-via-arm.md).
 
 Once you have the template for the cluster that you want to deploy(either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
 
