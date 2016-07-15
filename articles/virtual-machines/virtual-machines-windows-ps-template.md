@@ -216,7 +216,7 @@ To specify values for the resource parameters that were defined in the template,
           }
         }
 
-4. Save the parameters file.
+2. Save the parameters file.
 
 ## Step 3: Install Azure PowerShell
 
@@ -247,7 +247,7 @@ All resources must be deployed in a resource group. See [Azure Resource Manager 
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### Step 7: Create the resources with the template and parameters
+### Step 5: Create the resources with the template and parameters
 
 1. Replace the value of **$deployName** with the name of the deployment. Replace the value of **$templatePath** with the path and name of the template file. Replace the value of **$parameterFile** with the path and name of the parameters file. Create the variables. 
 
@@ -255,7 +255,7 @@ All resources must be deployed in a resource group. See [Azure Resource Manager 
         $templatePath = "template path"
         $parameterFile = "parameter file"
 
-4. Deploy the template. 
+2. Deploy the template. 
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName "davidmurg6" -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 
