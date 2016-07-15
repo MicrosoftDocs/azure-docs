@@ -39,7 +39,7 @@ No agent is required for data collection.
 
 The following table shows data collection methods and other details about how data is collected for Azure Key Vault.
 
-| Platform | Direct agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | Collection frequency |
+| Platform | Direct agent | Systems Center Operations Manager (SCOM) agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | Collection frequency |
 |---|---|---|---|---|---|---|
 |Azure|![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png)|![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png)|![Yes](./media/log-analytics-azure-keyvault/oms-bullet-green.png)|            ![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png)|![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png)| 10 minutes|
 
@@ -63,7 +63,7 @@ After you click the **Overview** tile, you can view summaries of your logs and t
 ### To view details for any operation
 
 1. On the **Overview** page, click the **Azure Key Vault** tile.
-2. On the **Azure Key Vault** dashboard, review the summary information in one of the blades, and then click one to view detailed information about it in the **log search** page.
+2. On the **Azure Key Vault** dashboard, review the summary information in one of the blades, and then click one to view detailed information about it in the log search page.
 
 	On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
 
