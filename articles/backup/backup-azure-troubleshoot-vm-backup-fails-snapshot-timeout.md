@@ -106,6 +106,7 @@ For Windows guests:
 2. If this is not the configuration, enable the service to determine whether the next backup succeeds.
 
 For Linux guests:
+
 The latest version of VMSnapshot Linux (extension used by backup) is 1.0.91.0
 
 If the backup extension still fails to update or load, you can force the VMSnapshot extension to be reloaded by uninstalling the extension. The next backup attempt will reload the extension.
