@@ -20,7 +20,7 @@
 
 # Get started with the Twitter connector
 
-With the Twitter connector you can:
+With the Twitter connector you can:  
 - Post tweets and get tweets
 - Access timelines, friends and followers
 - Perform any of the other actions and triggers described below  
