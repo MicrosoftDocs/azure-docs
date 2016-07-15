@@ -5,7 +5,6 @@
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
-	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
@@ -44,8 +43,8 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 1. Stop and deallocate the source VM. For VMs created in the Resource Manager deployment model, use the Azure CLI commands:
 	
-	```azure vm stop <yourResourceGroup> <yourVmName>```
-	```azure vm deallocate <yourResourceGroup> <yourVmName>```
+		azure vm stop <yourResourceGroup> <yourVmName>
+		azure vm deallocate <yourResourceGroup> <yourVmName>
 	
 	If your source VM was created in the classic deployment model, you need to stop it using the [portal](http://portal.azure.com). 
 	
@@ -59,13 +58,13 @@ Copy the access key source VM storage account. For more information about access
 
 - If your source VM was created by using the classic deployment model, change to classic mode by using 
 		
-		```azure config mode asm```
-		```azure storage account keys list <yourSourceStorageAccountName>```
+		azure config mode asm
+		azure storage account keys list <yourSourceStorageAccountName>
 
 - If your source VM was created by using the Resource Manager deployment model, make sure you are in Resource Manager mode by using 
 		
-		```azure config mode arm```
-		```azure storage account keys list -g <yourSourceResourceGroup> <yourSourceStorageAccount>```.
+		azure config mode arm
+		azure storage account keys list -g <yourSourceResourceGroup> <yourSourceStorageAccount>
 
 ## Copy the VHD files 
 
