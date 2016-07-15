@@ -19,86 +19,411 @@
 
 
 # Get started with the Twitter connector
-Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter connector can be used from:
 
-- Logic apps 
-- PowerApps
+Twitter Connection Provider lets you post tweets and get tweets, timeline, friends and followers from your Twitter account.You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/connectors-create-api-twitter.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
+## Connect to Twitter
 
-&nbsp; 
+Before your Logic app can access any service, you first need to create a *connection* to the service. A connection provides connectivity between a Logic app and another service. For example, in order to connect to Dropbox, you first need a Dropbox *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the Dropbox example, you would need the credentials to your Dropbox account in order to create the connection to Dropbox. [Learn more about connections]()
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+### Create a connection to Twitter
 
-With Twitter, you can:
+>[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-Twitter.md)]
 
-- Build your business flow based on the data you get from Twitter. 
-- Use triggers for when there is a new tweet.
-- Use actions to post a tweet, search tweets, and more. These actions get a response, and then make the output available for other actions. For example, when a new tweet appears, you can post this tweet on Facebook.
-- Add the Twitter connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
+## Use an Twitter trigger
 
-For information on how to add connector in PowerApps Enterprise, go to [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers]().
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+In this example, I will show you how to use the **When a new tweet is posted**  trigger to search for #Seattle and, if #Seattle is found, update a file in Dropbox with the text from the tweet. In an enterprise example, you could search for the name of your company and update a SQL database with the text from the tweet.
 
+1. Enter *twitter* in the search box on the Logic apps designer then select the **Twitter - When a new tweet is posted**  trigger   
+![](./media/connectors-create-api-twitter/trigger-1.png)  
+- Enter *#Seattle* in the **Search Text** control  
+![](./media/connectors-create-api-twitter/trigger-2.png) 
 
-## Triggers and actions
-Twitter includes the following trigger and actions.
+At this point, your Logic app has been configured with a trigger that will begin an run of the other triggers and actions in the workflow. 
 
-Trigger | Actions
---- | ---
-<ul><li>When a new tweet appears</li></ul>| <ul><li>Post a new tweet</li><li>When a new tweet appears</li><li>Get home timeline</li><li>Get user</li><li>Get user timeline</li><li>Search tweet</li><li>Get followers</li><li>Get my followers</li><li>Get following</li><li>Get my following</li></ul>
-
-All connectors support data in JSON and XML formats.
+>[AZURE.NOTE]For a Logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
 
-## Create the connection to Twitter
+## Use a Twitter action
 
-When you add this connector to your logic apps, you must authorize logic apps to connect to your Twitter account.
+An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions]().  
 
-1. Sign in to your Twitter account.
-2. Select **Authorize**, and allow your logic apps to connect and use your Twitter account. 
+Now that you have added a trigger, follow these steps to add an action.  
 
->[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
+1. Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
+![](./media/connectors-create-api-twitter/trigger-3.png)  
+- Select **Add an action** link. This opens the search box where you can search for any action you would like to take.  
+![](./media/connectors-create-api-twitter/trigger-4.png)  
+- Enter *dropbox* to search for action related to Dropbox.
+- Select **Dropbox - Update file**  as the action to take when #Seattle is found in a new tweet. The update file control opens. **Note**: you will be prompted to authorize your Logic app to access your Twitter account if you have not done so previously.    
+![](./media/connectors-create-api-twitter/trigger-5.png)  
+- Select **...** and find the file you would like to update.  
+- Select the file you would like to update    
+![](./media/connectors-create-api-twitter/trigger-6.png)   
+- Select the **File content control**. Here, you can use any of the various pieces of data that are associated with the tweet found with the #Seattle value.  
+- Select the **Tweet text** option. This will insert the tweet text into the **File content** control.  
+![](./media/connectors-create-api-twitter/trigger-7.png)  
+-  The control is updated, indicating that the tweet text will be used to update the file in Dropbox.    
+![](./media/connectors-create-api-twitter/trigger-8.png)  
+- Save your work and send a tweet with the #Seattle hashtag to activate your workflow.  
 
->[AZURE.TIP] You can use this same Twitter connection in other logic apps.
+## Technical Details
+
+Here are the details about the triggers, actions and responses that this connection supports:
+
+## Twitter triggers
+
+Twitter has the following trigger(s):  
+
+|Trigger | Description|
+|--- | ---|
+|[When a new tweet is posted](connectors-create-api-twitter.md#when-a-new-tweet-is-posted)|This operation triggers a flow when a new tweet that matches a given search query is posted.|
 
 
-## Swagger REST API reference
-Applies to version: 1.0.
+## Twitter  actions
 
-### Post a new tweet 
-Tweet.  
-```POST: /posttweet``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|tweetText|string|no|query|none|Text to be posted|
-|body| string (binary) |no|body|none|Media to be posted|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+Twitter has the following actions:
 
 
-### When a new tweet appears 
-Triggers a workflow when a new tweet is posted which matches your search query.  
-```GET: /onnewtweet``` 
+|Action|Description|
+|--- | ---|
+|[Get user timeline](connectors-create-api-twitter.md#get-user-timeline)|This operation gets a list of the most recent tweets posted by a given user.|
+|[Get home timeline](connectors-create-api-twitter.md#get-home-timeline)|This operation gets the most recent tweets and re-tweets posted by me and my followers.|
+|[Search tweets](connectors-create-api-twitter.md#search-tweets)|This operation gets a list of relevant tweets matching the search query.|
+|[Get followers](connectors-create-api-twitter.md#get-followers)|This operation gets the list of users that follow a given user.|
+|[Get my followers](connectors-create-api-twitter.md#get-my-followers)|This operation gets the list of users who are following me.|
+|[Get following](connectors-create-api-twitter.md#get-following)|The operation gets the list of people the given user follows.|
+|[Get my following](connectors-create-api-twitter.md#get-my-following)|This operation gets the list of users that I am following.|
+|[Get user](connectors-create-api-twitter.md#get-user)|This operation gets the profile details for a given user, such as user name, description, followers count, and more.|
+|[Post a tweet](connectors-create-api-twitter.md#post-a-tweet)|This operation posts a new tweet.|
+### Action details
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|searchQuery|string|yes|query|none|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
+Here are the details for the actions and triggers for this connector, along with their responses:
 
-#### Response
+
+
+## Get user timeline
+This operation gets a list of the most recent tweets posted by a given user. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|userName*|User name|Twitter handle for the user|
+|maxResults|Maximum results|Maximum number of tweets to return|
+
+An * indicates that a property is required
+
+
+
+##### Output Details
+
+TweetModel: Representation of Tweet Object
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|TweetText|string|Text content of the tweet|
+|TweetId|string|Id of the tweet|
+|CreatedAt|string|Time at which the tweet was posted|
+|RetweetCount|integer|Total number of re-tweets for the tweet|
+|TweetedBy|string|Name of the user who has posted the tweet|
+|MediaUrls|array|Url of the media posted along with the tweet|
+|TweetLanguageCode|string|Language code of the tweet|
+|TweetInReplyToUserId|string|User Id of the author of the tweet that the current tweet is a reply to|
+|Favorited|boolean|Indicates whether the tweet is marked as favorited or not|
+|UserMentions|array|List of users mentioned in the tweet|
+|OriginalTweet|not defined|Original tweet from which the current tweet is re-tweeted|
+|UserDetails|not defined|Details of the user who tweeted|
+
+
+
+
+## Get home timeline
+This operation gets the most recent tweets and re-tweets posted by me and my followers. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|maxResults|Maximum results|Maximum number of tweets to return|
+
+An * indicates that a property is required
+
+
+
+##### Output Details
+
+TweetModel: Representation of Tweet Object
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|TweetText|string|Text content of the tweet|
+|TweetId|string|Id of the tweet|
+|CreatedAt|string|Time at which the tweet was posted|
+|RetweetCount|integer|Total number of re-tweets for the tweet|
+|TweetedBy|string|Name of the user who has posted the tweet|
+|MediaUrls|array|Url of the media posted along with the tweet|
+|TweetLanguageCode|string|Language code of the tweet|
+|TweetInReplyToUserId|string|User Id of the author of the tweet that the current tweet is a reply to|
+|Favorited|boolean|Indicates whether the tweet is marked as favorited or not|
+|UserMentions|array|List of users mentioned in the tweet|
+|OriginalTweet|not defined|Original tweet from which the current tweet is re-tweeted|
+|UserDetails|not defined|Details of the user who tweeted|
+
+
+
+
+## Search tweets
+This operation gets a list of relevant tweets matching the search query. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|searchQuery*|Search text|Search term like "happy hour", #haiku, love OR hate|
+|maxResults|Maximum results|Maximum number of tweets to return|
+
+An * indicates that a property is required
+
+
+
+##### Output Details
+
+TweetModel: Representation of Tweet Object
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|TweetText|string|Text content of the tweet|
+|TweetId|string|Id of the tweet|
+|CreatedAt|string|Time at which the tweet was posted|
+|RetweetCount|integer|Total number of re-tweets for the tweet|
+|TweetedBy|string|Name of the user who has posted the tweet|
+|MediaUrls|array|Url of the media posted along with the tweet|
+|TweetLanguageCode|string|Language code of the tweet|
+|TweetInReplyToUserId|string|User Id of the author of the tweet that the current tweet is a reply to|
+|Favorited|boolean|Indicates whether the tweet is marked as favorited or not|
+|UserMentions|array|List of users mentioned in the tweet|
+|OriginalTweet|not defined|Original tweet from which the current tweet is re-tweeted|
+|UserDetails|not defined|Details of the user who tweeted|
+
+
+
+
+## Get followers
+This operation gets the list of users that follow a given user. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|userName*|User name|Twitter handle for the user|
+|maxResults|Maximum results|Maximum number of users to return|
+
+An * indicates that a property is required
+
+
+
+##### Output Details
+
+UserDetailsModel: Twitter user details
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|FullName|string|Name of the user|
+|Location|string|Location of the user|
+|Id|integer|Twitter Id of the user|
+|UserName|string|Screen name of the user|
+|FollowersCount|integer|Number of followers|
+|Description|string|User description|
+|StatusesCount|integer|User status count|
+|FriendsCount|integer|Number of friends|
+|FavouritesCount|integer|Number of tweets that the user has favorited|
+|ProfileImageUrl|string|Url of the profile image|
+
+
+
+
+## Get my followers
+This operation gets the list of users who are following me. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|maxResults|Maximum results|Maximum number of users to get|
+
+An * indicates that a property is required
+
+
+
+##### Output Details
+
+UserDetailsModel: Twitter user details
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|FullName|string|Name of the user|
+|Location|string|Location of the user|
+|Id|integer|Twitter Id of the user|
+|UserName|string|Screen name of the user|
+|FollowersCount|integer|Number of followers|
+|Description|string|User description|
+|StatusesCount|integer|User status count|
+|FriendsCount|integer|Number of friends|
+|FavouritesCount|integer|Number of tweets that the user has favorited|
+|ProfileImageUrl|string|Url of the profile image|
+
+
+
+
+## Get following
+The operation gets the list of people the given user follows. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|userName*|User name|Twitter handle for the user|
+|maxResults|Maximum results|Maximum number of users to return|
+
+An * indicates that a property is required
+
+
+
+##### Output Details
+
+UserDetailsModel: Twitter user details
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|FullName|string|Name of the user|
+|Location|string|Location of the user|
+|Id|integer|Twitter Id of the user|
+|UserName|string|Screen name of the user|
+|FollowersCount|integer|Number of followers|
+|Description|string|User description|
+|StatusesCount|integer|User status count|
+|FriendsCount|integer|Number of friends|
+|FavouritesCount|integer|Number of tweets that the user has favorited|
+|ProfileImageUrl|string|Url of the profile image|
+
+
+
+
+## Get my following
+This operation gets the list of users that I am following. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|maxResults|Maximum results|Maximum number of users to return|
+
+An * indicates that a property is required
+
+
+
+##### Output Details
+
+UserDetailsModel: Twitter user details
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|FullName|string|Name of the user|
+|Location|string|Location of the user|
+|Id|integer|Twitter Id of the user|
+|UserName|string|Screen name of the user|
+|FollowersCount|integer|Number of followers|
+|Description|string|User description|
+|StatusesCount|integer|User status count|
+|FriendsCount|integer|Number of friends|
+|FavouritesCount|integer|Number of tweets that the user has favorited|
+|ProfileImageUrl|string|Url of the profile image|
+
+
+
+
+## Get user
+This operation gets the profile details for a given user, such as user name, description, followers count, and more. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|userName*|User name|Twitter handle for the user|
+
+An * indicates that a property is required
+
+##### Output Details
+
+UserDetailsModel: Twitter user details
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|FullName|string|Name of the user|
+|Location|string|Location of the user|
+|Id|integer|Twitter Id of the user|
+|UserName|string|Screen name of the user|
+|FollowersCount|integer|Number of followers|
+|Description|string|User description|
+|StatusesCount|integer|User status count|
+|FriendsCount|integer|Number of friends|
+|FavouritesCount|integer|Number of tweets that the user has favorited|
+|ProfileImageUrl|string|Url of the profile image|
+
+
+
+
+## Post a tweet
+This operation posts a new tweet. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|tweetText|Tweet text|Text to be posted|
+|body|Media|Media to be posted|
+
+An * indicates that a property is required
+
+##### Output Details
+
+TweetResponseModel: Model representing Posted Tweet
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|TweetId|string|ID of the retrieved tweet|
+
+
+
+
+## When a new tweet is posted
+This operation triggers a flow when a new tweet that matches a given search query is posted. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|searchQuery*|Search text|Search term like "happy hour", #haiku, love OR hate|
+
+An * indicates that a property is required
+
+##### Output Details
+
+TriggerBatchResponse[TweetModel]: undefined
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|value|array|undefined|
+
+
+
+## HTTP responses
+
+The actions and triggers above can return one or more of the following HTTP status codes: 
+
 |Name|Description|
 |---|---|
 |200|OK|
@@ -107,220 +432,16 @@ Triggers a workflow when a new tweet is posted which matches your search query.
 |401|Unauthorized|
 |403|Forbidden|
 |404|Not Found|
-|500|Internal Server Error. Unknown error occured|
+|500|Internal Server Error. Unknown error occurred|
 |default|Operation Failed.|
 
 
-### Get home timeline 
-Retrieves the most recent tweets and re-tweets posted me and my followers.  
-```GET: /hometimeline``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|maxResults|integer|no|query|20|Maximum number of tweets to retrieve|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
 
 
-### Get user 
-Retrieves details about the specified user (example: user name, description, followers count, etc.).  
-```GET: /user``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|userName|string|yes|query|none|Twitter handle of the user|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
 
 
-### Get user timeline 
-Retrieves a collection of the most recent tweets posted by the specified user.  
-```GET: /usertimeline``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|userName|string|yes|query|none|Twitter handle|
-|maxResults|integer|no|query|20|Maximum number of tweets to retrieve|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
 
 
-### Search tweet 
-Retrieves a collection of relevant tweets matching a specified query.  
-```GET: /searchtweets``` 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|searchQuery|string|yes|query|none|Query text (you may use any Twitter supported query operators: http://www.twitter.com/search)|
-|maxResults|integer|no|query|20|Maximum number of tweets to retrieve|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
-
-
-### Get followers 
-Retrieves users following the specified user.  
-```GET: /followers``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|userName|string|yes|query|none|Twitter handle of the user|
-|maxResults|integer|no|query|20|Maximum number of users to retrieve|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
-
-
-### Get my followers 
-Retrieves users who are following me.  
-```GET: /myfollowers``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|maxResults|integer|no|query|20|Maximum number of users to retrieve|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
-
-
-### Get following 
-Retrieves users who the specified user is following.  
-```GET: /friends``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|userName|string|yes|query|none|Twitter handle of the user|
-|maxResults|integer|no|query|20|Maximum number of users to retrieve|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
-
-
-### Get my following 
-Retrieves users that I am following.  
-```GET: /myfriends``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|maxResults|integer|no|query|20|Maximum number of users to retrieve|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
-
-
-## Object definitions
-
-### TweetModel: representation of tweet object
-
-| Property Name | Data Type | Required |
-|---|---| --- | 
-|TweetText|string|yes|
-|TweetId|string|no|
-|CreatedAt|string|no|
-|RetweetCount|integer|yes|
-|TweetedBy|string|yes|
-|MediaUrls|array|no|
-
-### UserDetailsModel: representation of a Twitter user's details
-
-|Property Name | Data Type | Required |
-|---|---|---|
-|FullName|string|yes|
-|Location|string|yes|
-|Id|integer|no|
-|UserName|string|yes|
-|FollowersCount|integer|no|
-|Description|string|yes|
-|StatusesCount|integer|no|
-|FriendsCount|integer|no|
-
-### TweetResponseModel: model representing posted tweet
-
-| Name | Data Type | Required |
-|---|---|---|
-|TweetId|string|yes|
-
-### TriggerBatchResponse[TweetModel]
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|value|array|no|
-
-
-## Next steps
-
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-Go back to the [APIs list](apis-list.md).
-
-<!--References-->
-
-[6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
-[7]: ./media/connectors-create-api-twitter/twitter-app-create.png
+## Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
