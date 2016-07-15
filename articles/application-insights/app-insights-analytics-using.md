@@ -105,7 +105,7 @@ There's a limit of about 10k rows on the results returned from the portal. A war
 
 It's good practice to avoid hitting the limit. Use operators such as:
 
-* [where timestamp < ago(3d)](app-insights-analytics-reference.md#where-operator)
+* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
 * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
 * [take 100](app-insights-analytics-reference.md#take-operator)
 * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
@@ -118,9 +118,7 @@ Select the type of diagram you'd like:
 
 ![](./media/app-insights-analytics-using/230.png)
 
-If you have several columns of the right types, you can choose the x and y axes, and a column of dimensions to split the results by:
-
-![](./media/app-insights-analytics-using/100.png)
+If you have several columns of the right types, you can choose the x and y axes, and a column of dimensions to split the results by.
 
 By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-reference.md#render-directive) at the end of a query to select a diagram.
 
