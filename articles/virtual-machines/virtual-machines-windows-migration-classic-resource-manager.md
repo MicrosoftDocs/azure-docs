@@ -47,6 +47,7 @@ There are three migration scopes that primarily target compute, network and stor
 ### Migration of virtual machines (not in a virtual network)
 
 In the Resource Manager deployment model, we enforce security of your applications by default. All VMs need to be in a virtual network in the Resource Manager model. Therefore, we will be restarting (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks:
+
 - You can request the platform to create a new virtual network and migrate the virtual machine into the new virtual network.
 - You can migrate the virtual machine into an existing virtual network in Resource Manager.
 
