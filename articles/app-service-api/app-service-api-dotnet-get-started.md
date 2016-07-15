@@ -233,13 +233,13 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	If you enter a name that someone else has already used, you see a red exclamation mark to the right.
 
-	The URL of the API app will be `{APi app name}.azurewebsites.net`.
+	The URL of the API app will be `{API app name}.azurewebsites.net`.
 
 6. In the **Resource Group** drop-down, click **New**, and then enter "ToDoListGroup" or another name if you prefer. 
 
 	A resource group is a collection of Azure resources such as API apps, databases, VMs, and so forth.	For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
 
-	This box lets you select an existing [resource group](../azure-portal/resource-group-portal.md) or create a new one by typing in a name that is different from any existing resource group in your subscription.
+	This box lets you select an existing [resource group](../resource-group-overview.md) or create a new one by typing in a name that is different from any existing resource group in your subscription.
 
 4. Click the **New** button next to the **App Service Plan** drop-down.
 
@@ -391,7 +391,7 @@ The ToDoListAPI project already has the generated client code, but in the follow
 
 	The constructor parameter gets the endpoint URL from  the `toDoListDataAPIURL` app setting. In the Web.config file, that value is set to the local IIS Express URL of the API project so that you can run the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
 
-6. Your client class will be generated with a different name based on your API app name; change the code in *Controllers\ToDoListController.cs* so that the type name matches what was generated in your project. For example, if you named your API App ToDoListDataAPI0121, you would change this code:
+6. Your client class will be generated with a different name based on your API app name; change the code in *Controllers\ToDoListController.cs* so that the type name matches what was generated in your project. For example, if you named your API App ToDoListDataAPI071316, you would change this code:
 
 		private static ToDoListDataAPI NewDataAPIClient()
 		{
@@ -399,9 +399,9 @@ The ToDoListAPI project already has the generated client code, but in the follow
 
 to this:
 
-		private static ToDoListDataAPI0121 NewDataAPIClient()
+		private static ToDoListDataAPI071316 NewDataAPIClient()
 		{
-		    var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+		    var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## Create an API app to host the middle tier
@@ -445,7 +445,7 @@ If you called the middle tier API app now, it would try to call the data tier us
 	| **Key** | toDoListDataAPIURL |
 	|---|---|
 	| **Value** | https://{your data tier API app name}.azurewebsites.net |
-	| **Example** | https://todolistdataapi0121.azurewebsites.net |
+	| **Example** | https://todolistdataapi.azurewebsites.net |
 
 4. Click **Save**.
 

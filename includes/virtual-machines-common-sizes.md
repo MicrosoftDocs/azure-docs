@@ -122,12 +122,12 @@ For information and considerations about using these sizes, see [About the A8, A
 |Standard_D2_v2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
 |Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
 |Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D5_v2 |16|56 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
+|Standard_D5_v2 |16|56 GB|8|Temporary (SSD) =800 GB |32|32x500| extremely high |
 |Standard_D11_v2 |2|14 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
 |Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
 |Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
-|Standard_D15_v2 |20|140 GB|10|Temporary (SSD) =1 TB |40|40x500| very high |
+|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| extremely high |
+|Standard_D15_v2 |20|140 GB|10|Temporary (SSD) =1 TB |40|40x500| extremely high |
 
 
 ## DS-series*
@@ -154,12 +154,12 @@ For information and considerations about using these sizes, see [About the A8, A
 |Standard_DS2_v2 |2|7|2|Local SSD disk = 14 GB |4|86| 6,400  96 MB per second | high |
 |Standard_DS3_v2 |4|14|4|Local SSD disk = 28 GB |8|172| 12,800  192 MB per second | high |
 |Standard_DS4_v2 |8|28|8|Local SSD disk = 56 GB |16|344| 25,600  384 MB per second | high |
-|Standard_DS5_v2 |16|56|8|Local SSD disk = 112 GB |32|688| 51,200  768 MB per second | high |
+|Standard_DS5_v2 |16|56|8|Local SSD disk = 112 GB |32|688| 51,200  768 MB per second | extremely high |
 |Standard_DS11_v2 |2|14|2|Local SSD disk = 28 GB |4|72| 6,400  96 MB per second | high |
 |Standard_DS12_v2 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  192 MB per second | high |
 |Standard_DS13_v2 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  384 MB per second | high |
-|Standard_DS14_v2 |16|112|8|Local SSD disk = 224 GB |32|576| 51,200  768 MB per second | very high |
-|Standard_DS15_v2 |20|140 GB|10|Local SSD disk = 280 GB |40| 720|64,000 960 MB per second | very high |
+|Standard_DS14_v2 |16|112|8|Local SSD disk = 224 GB |32|576| 51,200  768 MB per second | extremely high |
+|Standard_DS15_v2 |20|140 GB|10|Local SSD disk = 280 GB |40| 720|64,000 960 MB per second | extremely high |
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
@@ -174,7 +174,7 @@ For information and considerations about using these sizes, see [About the A8, A
 | Standard_F2  | 2         | 4 GB   | 2          | Temporary (SSD) =32 GB  | 4                        | 4x500                    | high        |
 | Standard_F4  | 4         | 8 GB   | 4          | Temporary (SSD) =64 GB  | 8                        | 8x500                    | high        |
 | Standard_F8  | 8         | 16 GB  | 8          | Temporary (SSD) =128 GB | 16                       | 16x500                   | high        |
-| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                       | 32x500                   | very high   |
+| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                       | 32x500                   | extremely high   |
 
 
 
@@ -186,7 +186,7 @@ For information and considerations about using these sizes, see [About the A8, A
 | Standard_F2s  | 2         | 4      | 2          | Local SSD disk = 8 GB  | 4         | 24        | 6,400 96 MB per second     | high       |
 | Standard_F4s  | 4         | 8      | 4          | Local SSD disk = 16 GB | 8         | 48        | 12,800 192 MB per second   | high       |
 | Standard_F8s  | 8         | 16     | 8          | Local SSD disk = 32 GB | 16        | 96        | 25,600 384 MB per second   | high       |
-| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32        | 192       | 51,200 768 MB per second   | very high  |
+| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32        | 192       | 51,200 768 MB per second   | extremely high  |
 
 
 
@@ -222,10 +222,10 @@ For information and considerations about using these sizes, see [About the A8, A
 
 
 
-## Notes: Standard A0 - A4 using CLI and Powershell 
+## Notes: Standard A0 - A4 using CLI and PowerShell 
 
 
-In the classic deployment model, some VM size names are slightly different in CLI and Powershell:
+In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
 
 * Standard_A0 is ExtraSmall 
 * Standard_A1 is Small

@@ -10,7 +10,7 @@
 <tags
      ms.service="iot-hub"
      ms.devlang="cpp"
-     ms.topic="article"
+     ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="04/20/2016"

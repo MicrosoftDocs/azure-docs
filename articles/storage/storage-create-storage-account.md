@@ -79,7 +79,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 7. Select the subscription in which you want to create the new storage account.
 
-8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
+8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
 9. Select the geographic location for your storage account. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
 

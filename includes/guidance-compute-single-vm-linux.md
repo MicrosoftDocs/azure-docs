@@ -8,9 +8,9 @@ We don't recommend using a single VM for production workloads, because there is 
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.  
 
-![IaaS: single VM](./media/guidance-blueprints/compute-single-vm.png)
+![[0]][0]
 
-- **Resource group.** A [_resource group_][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
+- **Resource group.** A [resource group][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
 
 - **VM**. You can provision a VM from a list of published images or from a VHD file that you upload to Azure blob storage.
 
@@ -70,7 +70,6 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
-
 ### Network recommendations
 
 - The public IP address can be dynamic or static. The default is dynamic.
@@ -127,8 +126,6 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
   To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
 
-
-
 ## Security considerations
 
 - Automate OS updates by using the [OSPatching] VM extension. Install this extension when you provision the VM. You can specify how often to install patches and whether to reboot after patching.
@@ -141,7 +138,9 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
-## Example deployment script
+## Solution components
+
+<!-- TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
 
 The following Bash script executes the [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagram.
 
@@ -356,3 +355,4 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "General architecture of an Azure VM"

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Create a simple experiment in Machine Learning Studio | Microsoft Azure"
-	description="A first machine learning tutorial for creating a simple experiment to train and test a linear regression model in Azure Machine Learning Studio."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+	pageTitle="A simple experiment in Machine Learning Studio | Microsoft Azure"
+	description="This machine learning tutorial walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm."
+	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,23 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/09/2016"
+	ms.date="07/14/2016"
 	ms.author="garye"/>
 
-# Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio
+# Machine learning tutorial: Create your first data science experiment in Azure Machine Learning Studio
 
-In this first machine learning tutorial, we'll create a linear regression model that predicts the price of an automobile based on different variables such as make and technical specifications. To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment.
+This machine learning tutorial walks you through an easy data science experiment. We'll create a linear regression model that predicts the price of an automobile based on different variables such as make and technical specifications. To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment.
+
+*Predictive analytics* is a kind of data science that uses current data to predict future outcomes. For a very simple example of predictive analytics, watch Data Science for Beginners video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (runtime: 7:42).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-A Machine Learning Studio experiment consists of dragging components to a canvas, and connecting them in order to *create a model*, *train the model*, and *score and test the model*. The experiment uses predictive modeling techniques in the form of Machine Learning Studio modules that ingest data, train a model against it, and apply the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
+## How does Machine Learning Studio help?
 
-Enter Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net), and click the **Get started** button. You can choose either the Guest Access or sign in with your Microsoft account.
+Machine Learning Studio makes it easy to set up an experiment using drag-and-drop modules preprogrammed with predictive modeling techniques. To run your experiment and predict an answer, you'll use Machine Learning Studio to *create a model*, *train the model*, and *score and test the model*.
 
-For more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+Enter Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). If you’ve signed into Machine Learning Studio before, click **Sign in here**. Otherwise, click **Sign Up** and choose between free and paid options.
 
->[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
-
+For more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 ## Five steps to create an experiment
 
@@ -67,7 +68,11 @@ This dataset includes entries for a number of individual automobiles, including 
 
 	![Dataset][screen1]
 
-To see what this data looks like, click the output port at the bottom of the automobile dataset, and then select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The far-right column (column 26 and titled "price") is the target variable we're going to try to predict.
+To see what this data looks like, click the output port at the bottom of the automobile dataset, and then select **Visualize**.
+
+![Module output port][screen1c]
+
+The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The far-right column (column 26 and titled "price") is the target variable we're going to try to predict.
 
 ![Dataset visualization][screen1b]
 
@@ -85,8 +90,9 @@ First we'll remove the **normalized-losses** column, and then we'll remove any r
 
 2. Select the [Select Columns in Dataset][select-columns] module and click **Launch column selector** in the **Properties** pane.
 
-	- Make sure **All columns** is selected in the filter drop-down list, **Begin With**. This directs [Select Columns in Dataset][select-columns] to pass through all the columns (except those we're about to exclude).
-	- In the next row, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it will be added to the text box.
+	- On the left, click **With rules**
+	- Under **Begin With**, click **All columns**. This directs [Select Columns in Dataset][select-columns] to pass through all the columns (except those we're about to exclude).
+	- From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it will be added to the text box.
 	- Click the check mark (OK) button to close the column selector.
 
     ![Select columns][screen3]
@@ -113,21 +119,26 @@ Now that the data is clean, we're ready to specify what features we're going to 
 
 ## Step 3: Define features
 
-In machine learning, *features* are individual measurable properties of something you’re interested in. In our dataset, each row represents one automobile, and each column is a feature of that automobile. Finding a good set of features for creating a predictive model requires experimentation and knowledge about the problem you want to solve. Some features are better for predicting the target than others. Also, some features have a strong correlation with other features (for example, city-mpg versus highway-mpg), so they will not add much new information to the model, and they can be removed.
+In machine learning, *features* are individual measurable properties of something you’re interested in. In our dataset, each row represents one automobile, and each column is a feature of that automobile.
 
-Let's build a model that uses a subset of the features in our dataset. You can come back and select different features, run the experiment again, and see if you get better results. As a first guess, we'll select the following features (columns) with the [Select Columns in Dataset][select-columns] module. Note that for training the model, we need to include the *price* value that we're going to predict.
+Finding a good set of features for creating a predictive model requires experimentation and knowledge about the problem you want to solve. Some features are better for predicting the target than others. Also, some features have a strong correlation with other features (for example, city-mpg versus highway-mpg), so they will not add much new information to the model, and they can be removed.
+
+Let's build a model that uses a subset of the features in our dataset. You can come back and select different features, run the experiment again, and see if you get better results. But to start, let's try the following features:
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+
 
 1. Drag another [Select Columns in Dataset][select-columns] module to the experiment canvas and connect it to the left output port of the [Clean Missing Data][clean-missing-data] module. Double-click the module and type "Select features for prediction."
 
 2. Click **Launch column selector** in the **Properties** pane.
 
-3. In the column selector, select **No columns** for **Begin With**, and then select **Include** and **column names** in the filter row. Enter our list of column names. This directs the module to pass through only columns that we specify.
+3. Click **With rules**.
 
-	> [AZURE.TIP] Because we've run the experiment, the column definitions for our data have passed from the original dataset through the [Clean Missing Data][clean-missing-data] module. When you connect [Select Columns in Dataset][select-columns] to [Clean Missing Data][clean-missing-data], the [Select Columns in Dataset][select-columns] module becomes aware of the column definitions in our data. When you click the **column names** box, a list of columns is displayed, and you can select the columns that you want to add to the list.
+4. Under **Begin With** click **No columns**, and then select **Include** and **column names** in the filter row. Enter our list of column names. This directs the module to pass through only columns that we specify.
 
-4. Click the check mark (OK) button.
+	> [AZURE.TIP] By running the experiment, we've ensured that the column definitions for our data pass from the dataset through the [Clean Missing Data][clean-missing-data] module. This means other modules you connect will also have information from the data set.
+
+5. Click the check mark (OK) button.
 
 ![Select columns][screen6]
 
@@ -135,13 +146,13 @@ This produces the dataset that will be used in the learning algorithm in the nex
 
 ## Step 4: Choose and apply a learning algorithm
 
-Now that the data is ready, constructing a predictive model consists of training and testing. We'll use our data to train the model and then test the model to see how close it's able to predict prices.
+Now that the data is ready, constructing a predictive model consists of training and testing. We'll use our data to train the model and then test the model to see how close it's able to predict prices. For now, don't worry about why we need to train and then test a model.
 
-*Classification* and *regression* are two types of supervised machine learning techniques. Classification is used to make a prediction from a defined set of values, such as a color (red, blue, or green). Regression is used to make a prediction from a continuous set of values, such as a person's age.
+*Classification* and *regression* are two types of supervised machine learning techniques. Classification predicts an answer from a defined set of categories, such as a color (red, blue, or green). Regression is used to predict a number.
 
-We want to predict the price of an automobile, which can be any value, so we'll use a regression model. For this example, we'll train a simple *linear regression* model, and in the next step, we'll test it.
+Because we want to predict price, which is a number, we'll use a regression model. For this example, we'll train a simple *linear regression* model, and in the next step, we'll test it.
 
-1. We can use our data for both training and testing by splitting it into separate training and testing sets. Select and drag the [Split Data][split] module to the experiment canvas and connect it to the output of the last [Select Columns in Dataset][select-columns] module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing.
+1. We use our data for both training and testing by splitting it into separate training and testing sets. Select and drag the [Split Data][split] module to the experiment canvas and connect it to the output of the last [Select Columns in Dataset][select-columns] module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing.
 
 	> [AZURE.TIP] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 
@@ -213,6 +224,7 @@ For a more extensive and detailed walkthrough of predictive modeling techniques 
 [screen1]:./media/machine-learning-create-experiment/screen1.png
 [screen1a]:./media/machine-learning-create-experiment/screen1a.png
 [screen1b]:./media/machine-learning-create-experiment/screen1b.png
+[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
 [screen2]:./media/machine-learning-create-experiment/screen2.png
 [screen3]:./media/machine-learning-create-experiment/screen3.png
 [screen4]:./media/machine-learning-create-experiment/screen4.png
