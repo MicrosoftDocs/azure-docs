@@ -37,7 +37,7 @@ In this example, I will show you how to use the **When a new tweet is posted**  
 
 1. Enter the *twitter* in the search box on the Logic apps designer then select **Twitter - When a new tweet is posted**  trigger   
 ![](./media/connectors-create-api-twitter/trigger-1.png)  
-- Enter *#Seattle* in the **Search Text** control 
+- Enter *#Seattle* in the **Search Text** control  
 ![](./media/connectors-create-api-twitter/trigger-2.png)  
 - Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
 ![](./media/connectors-create-api-twitter/trigger-3.png)  
@@ -46,15 +46,15 @@ In this example, I will show you how to use the **When a new tweet is posted**  
 - Enter *dropbox* to search for action related to Dropbox.
 - Select **Dropbox - Update file**  as the action to take when #Seattle is found in a new tweet. The update file control opens. **Note**: you will be prompted to authorize your Logic app to access your Twitter account if you have not done so previously.    
 ![](./media/connectors-create-api-twitter/trigger-5.png)  
-- Select **...** and find the file you would like to update. 
+- Select **...** and find the file you would like to update.  
 - Select the file you would like to update    
-![](./media/connectors-create-api-twitter/trigger-6.png)  
-- Select the **File content control**. Here, you can use any of the various pieces of data that are associated with the tweet found with the #Seattle value.
+![](./media/connectors-create-api-twitter/trigger-6.png)   
+- Select the **File content control**. Here, you can use any of the various pieces of data that are associated with the tweet found with the #Seattle value.  
 - Select the **Tweet text** option. This will insert the tweet text into the **File content** control.  
 ![](./media/connectors-create-api-twitter/trigger-7.png)  
 -  The control is updated, indicating that the tweet text will be used to update the file in Dropbox.    
 ![](./media/connectors-create-api-twitter/trigger-8.png)  
-- Save your work and send a tweet with the #Seattle hashtag to activate your workflow. 
+- Save your work and send a tweet with the #Seattle hashtag to activate your workflow.  
 
 
 ## Use an Twitter action
