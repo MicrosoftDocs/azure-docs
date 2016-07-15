@@ -28,7 +28,7 @@ Before your Logic app can access any service, you first need to create a *connec
 
 ### Create a connection to Twitter
 
->[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-Twitter.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
 
 ## Use an Twitter trigger
 
