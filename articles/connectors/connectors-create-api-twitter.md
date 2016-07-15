@@ -20,7 +20,12 @@
 
 # Get started with the Twitter connector
 
-Twitter Connection Provider lets you post tweets and get tweets, timeline, friends and followers from your Twitter account. You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+With the Twitter connector you can:
+- Post tweets and get tweets
+- Access timelines, friends and followers
+- Perform any of the other actions and triggers described below  
+
+To use [any connector](./apis-list.md), you first need to create a Logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).  
 
 ## Connect to Twitter
 
@@ -50,22 +55,22 @@ At this point, your Logic app has been configured with a trigger that will begin
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-Now that you have added a trigger, follow these steps to add an action.  
+Now that you have added a trigger, follow these steps to add an action that will write the contents of the tweets found by the trigger into a file stored in Dropbox.  
 
 1. Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
 ![](./media/connectors-create-api-twitter/trigger-3.png)  
 - Select **Add an action** link. This opens the search box where you can search for any action you would like to take.  
 ![](./media/connectors-create-api-twitter/trigger-4.png)  
-- Enter *dropbox* to search for action related to Dropbox.
-- Select **Dropbox - Update file**  as the action to take when #Seattle is found in a new tweet. The update file control opens. **Note**: you will be prompted to authorize your Logic app to access your Twitter account if you have not done so previously.    
+- Enter *drop* to search for action related to Dropbox.
+- Select **Dropbox - Update file**  as the action to take when #Seattle is found in a new tweet. The update file control opens. **Note**: you will be prompted to authorize your Logic app to access your Dropbox account if you have not done so previously.    
 ![](./media/connectors-create-api-twitter/trigger-5.png)  
-- Select **...** and find the file you would like to update.  
+- Select **...** (located at the right side of the **File** control) and browse to the file you would like to update.  
 - Select the file you would like to update    
 ![](./media/connectors-create-api-twitter/trigger-6.png)   
-- Select the **File content control**. Here, you can use any of the various pieces of data that are associated with the tweet found with the #Seattle value.  
+- Select the **File content control**. Here, you can use any of the various pieces of data that are associated with in tweets found with the #Seattle value.  
 - Select the **Tweet text** option. This will insert the tweet text into the **File content** control.  
 ![](./media/connectors-create-api-twitter/trigger-7.png)  
--  The control is updated, indicating that the tweet text will be used to update the file in Dropbox.    
+-  The control is updated, indicating that the *tweet text* will be used to update content of the file in Dropbox.    
 ![](./media/connectors-create-api-twitter/trigger-8.png)  
 - Save your work and send a tweet with the #Seattle hashtag to activate your workflow.  
 
@@ -75,7 +80,7 @@ Here are the details about the triggers, actions and responses that this connect
 
 ## Twitter triggers
 
-Twitter has the following trigger(s):  
+The Twitter connector has the following trigger(s):  
 
 |Trigger | Description|
 |--- | ---|
@@ -84,7 +89,7 @@ Twitter has the following trigger(s):
 
 ## Twitter  actions
 
-Twitter has the following actions:
+The Twitter connector has the following actions:
 
 
 |Action|Description|
