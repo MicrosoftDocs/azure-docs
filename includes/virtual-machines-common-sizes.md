@@ -222,10 +222,10 @@ For information and considerations about using these sizes, see [About the A8, A
 
 
 
-## Notes: Standard A0 - A4 using CLI and Powershell 
+## Notes: Standard A0 - A4 using CLI and PowerShell 
 
 
-In the classic deployment model, some VM size names are slightly different in CLI and Powershell:
+In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
 
 * Standard_A0 is ExtraSmall 
 * Standard_A1 is Small

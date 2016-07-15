@@ -239,7 +239,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	A resource group is a collection of Azure resources such as API apps, databases, VMs, and so forth.	For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
 
-	This box lets you select an existing [resource group](../azure-portal/resource-group-portal.md) or create a new one by typing in a name that is different from any existing resource group in your subscription.
+	This box lets you select an existing [resource group](../resource-group-overview.md) or create a new one by typing in a name that is different from any existing resource group in your subscription.
 
 4. Click the **New** button next to the **App Service Plan** drop-down.
 

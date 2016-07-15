@@ -14,7 +14,7 @@ The dashboard in the remote monitoring solution enables you to view the telemetr
 
 ## Send a command to your device
 
-The dashboard in the remote monitoring solution enables you to request IoT Hub to send commands to your devices. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
+The dashboard in the remote monitoring solution enables you to send commands to your devices through IoT Hub. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
 
 1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
 
@@ -41,4 +41,4 @@ The article [Customizing preconfigured solutions][lnk-customize] describes some 
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
+
