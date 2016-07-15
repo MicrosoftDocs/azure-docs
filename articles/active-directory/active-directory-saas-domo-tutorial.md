@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/15/2016"
 	ms.author="jeedes"/>
 
 
@@ -103,19 +103,44 @@ To configure and test Azure AD single sign-on with Domo, you need to complete th
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Domo application.
 
+Domo application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
 
+![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_06.png) 
 
 **To configure Azure AD single sign-on with Domo, perform the following steps:**
 
-1. In the Azure classic portal, on the **Domo** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+1. In the Azure classic portal, on the **Domo** application integration page, in the menu on the top, click **Attributes**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_general_80.png) 
+
+
+1. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
+
+	| Attribute Name | Attribute Value |
+	| --- | --- |    
+	| name	| user.displayname |
+	| email | user.mail |
+
+	a. Click **add user attribute** to open the **Add User Attribure** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_general_81.png) 
+
+	b. In the **Attrubute Name** textbox, type the attribute name shown for that row.
+
+    c. From the **Attribute Value** list, selsect the attribute value shown for that row.
+
+    d. Click **Complete**.	
+
+2. In the Azure classic portal, on the **Domo** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
 	![Configure Single Sign-On][6] 
 
-2. On the **How would you like users to sign on to Domo** page, select **Azure AD Single Sign-On**, and then click **Next**.
+3. On the **How would you like users to sign on to Domo** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_03.png) 
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+4. On the **Configure App Settings** dialog page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_04.png) 
 
@@ -124,7 +149,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     b. Click **Next**.
 
-4. On the **Configure single sign-on at Domo** page, perform the following steps:
+5. On the **Configure single sign-on at Domo** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_05.png) 
 
@@ -133,14 +158,14 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Domo support team at [support@domo.com](mailto: support@domo.com), attach the downloaded certificate and provide them with the **Issuer URL**, the **SAML SSO URL** and the **Sign Out URL**.
+6. To get SSO configured for your application, contact your Domo support team at [support@domo.com](mailto: support@domo.com), attach the downloaded certificate and provide them with the **Issuer URL**, the **SAML SSO URL** and the **Sign Out URL**.
 
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+7. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
 	![Azure AD Single Sign-On][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+8. On the **Single sign-on confirmation** page, click **Complete**.  
 
 	![Azure AD Single Sign-On][11]
 
