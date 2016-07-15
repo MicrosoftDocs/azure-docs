@@ -52,7 +52,7 @@ Log Analytics can collect data for the following Azure resources:
 
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
->[AZURE.NOTE]
+
 - See [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that write diagnostics to blob storage in JSON format, including:
   - Azure Key Vault
   - Azure Automation
