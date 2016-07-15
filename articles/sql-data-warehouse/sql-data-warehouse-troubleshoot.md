@@ -71,6 +71,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | MERGE statement is not supported   | See [MERGE workarounds][].|
 | Stored procedure limitations       | See [Stored procedure limitations][] to understand some of the limitations of stored procedures.|
 | UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION][] for the syntax we support.   |
+'<--LocComment: Page not found "Stored procedure limitations" is broken. I've tried fixing the link in Article References -->'
 
 ## Next steps
 
@@ -113,7 +114,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Stored procedure limitations]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Stored procedure limitations]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 [Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 

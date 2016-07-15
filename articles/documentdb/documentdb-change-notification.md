@@ -19,7 +19,7 @@
 
 # Notifications for new or changed DocumentDB resources using Logic Apps
 
-This article came about from a question I saw posted one of the DocumentDB community forums. The question was **Does DocumentDB support notifications for modified resources**?
+This article came about from a question I saw posted one of the Azure DocumentDB community forums. The question was **Does DocumentDB support notifications for modified resources**?
 
 I have worked with BizTalk Server for many years, and this is a very common scenario when using the [WCF LOB Adapter](https://msdn.microsoft.com/library/bb798128.aspx). So I decided to see if I could duplicate this functionality in DocumentDB for new and/or modified documents.
 
