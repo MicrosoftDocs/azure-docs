@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/18/2016"
+	ms.date="07/20/2016"
 	ms.author="marsma" />
 
 # Output persistence for Azure Batch tasks
 
-Your Batch tasks typically produce some form of output that must be stored as the tasks complete and then later retrieved--by other tasks in the job, the client application that executed the job, or both. This output might be files created by a task processing its input data, or log files associated with task execution. This article details a conventions-based method and .NET class library that you can use to persist such task output to Azure Blob storage for later retrieval, even after you delete your pools, jobs, and compute nodes.
+Your Batch tasks typically produce some form of output that must be stored when the tasks complete and then later retrieved--by other tasks in the job, the client application that executed the job, or both. This output might be files created by a task processing its input data, or log files associated with task execution. This article details a conventions-based method and .NET class library that you can use to persist such task output to Azure Blob storage for later retrieval, even after you delete your pools, jobs, and compute nodes.
 
 Following the conventions in this article will also allow you to see your task output in "Saved output files" and "Saved logs" in the [Azure portal][portal].
 
@@ -34,9 +34,9 @@ Storing and retrieving task output presents several challenges:
 
 * **Storing output**: To preserve task output data, you typically need to use the Azure Storage SDK in your task application to upload its output data to a Blob storage container. In most situations, you must design and implement a strict naming convention so that other tasks in the job (such as a merge task) or your client application can determine the path of, and then download, this output.
 
-* **Retrieving output**: If you wish to retrieve a task's output directly from a compute node, you must first determine which node the task executed on, and then download it from that node. If, however, your task stores its output to Azure Storage, you must write the code to first determine the full path to the file in Azure Storage, then to download the file using the Azure Storage SDK. There is currently no built-in feature of the Batch SDK to determine which output files are associated with a certain task--you must determine or track this manually.
+* **Retrieving output**: If you wish to retrieve a task's output directly from a compute node, you must know the file name and its output location on the node. If, however, your task stores its output to Azure Storage, you must write the code to first determine the full path to the file in Azure Storage, then to download the file using the Azure Storage SDK. There is currently no built-in feature of the Batch SDK to determine which output files are associated with a certain task--you must determine or track this manually.
 
-* **Viewing output**: Previously, if you wanted to view an individual task's outputs in the Azure portal, you first needed to determine which node it executed on, then navigate to that compute node to view its files. Alternatively, you needed to know where in Azure Storage the output was uploaded to, then navigate to it within your Azure Storage account in the portal. Batch now supports viewing task outputs directly in the portal, and in the next section, [Solving task output challenges](#solving-task-output-challenges), we show you how to use this feature.
+* **Viewing output**: Previously, if you wanted to view an individual task's outputs in the Azure portal, you had to navigate to the task and then view the *Files on node*. This presents *all* of the files associated with the task--not just the output file(s) you're interested in. Alternatively, you needed to know where in Azure Storage the output was uploaded to, then navigate to it within your Azure Storage account in the portal. Batch now supports viewing task outputs directly in the portal, and in the next section, [Solving task output challenges](#solving-task-output-challenges), we show you how to use this feature.
 
 ## Solving task output challenges
 
@@ -122,29 +122,55 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 The "output kind" parameter categorizes the persisted files. You can specify both [JobOutputKind][net_joboutputkind] and [TaskOutputKind][net_taskoutputkind] types. For job output files, the predefined kinds are "JobOutput" and "JobPreview"; for task output files, "TaskOutput", "TaskPreview", "TaskLog", and "TaskIntermediate". You can also define custom kinds if these are useful in your workflow.
 
-The "TaskOutput" and "TaskLog" types you to specify which type of outputs to list for a given task or a job. In other words, when you list the outputs for a job or task, you can filter the list on one of the output types. The output kind also designates where in the Azure portal a particular file will appear: TaskOutput files will appear in "Task output files", and TaskLog files will appear in "Task logs".
+The "TaskOutput" and "TaskLog" types allow you to specify which type of outputs to list for a given task or a job. In other words, when you list the outputs for a job or task, you can filter the list on one of the output types. The output kind also designates where in the Azure portal a particular file will appear: TaskOutput files will appear in "Task output files", and TaskLog files will appear in "Task logs".
 
 ### Store task logs
 
-Words.
+In addition to persisting a file to durable storage when a task completes, you might find it necessary to persist files that are updated during the execution of a task--log files or `stdout.txt` and `stderr.txt`, for example. For this purpose, the Azure Batch File Conventions library provides the [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync] method. With [SaveTrackedAsync][net_savetrackedasync], you can track updates to a file on the node (at an interval that you specify) and persist those updates to Azure Storage.
+
+In the following code snippet, we use [SaveTrackedAsync][net_savetrackedasync] to update `stdout.txt` in Azure Storage every 15 seconds during the execution of the task:
 
 ```csharp
-var stdout = taskStorage.SaveTrackedAsync(
-			 TaskOutputKind.TaskLog,
-			 RootDir("stdout.txt"),
-			 "stdout.txt",
-			 TimeSpan.FromSeconds(15))
+string logFilePath = Path.Combine(
+	Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
+
+using (ITrackedSaveOperation stdout =
+		taskStorage.SaveTrackedAsync(
+		TaskOutputKind.TaskLog,
+		logFilePath,
+		"stdout.txt",
+		TimeSpan.FromSeconds(15)))
+{
+	/* Code to process data and produce output file(s) */
+}
 ```
+
+>[AZURE.NOTE] When you enable file tracking with SaveTrackedAsync, only *appends* to the tracked file are persisted to Azure Storage. You should use this method only for tracking non-rotating log files or other files that are appended to, that is, data is only added to the end of the file when it's updated.
 
 ## Retrieve output
 
-Words...don't need to know the layout in storage, don't need storage logic, you can just say "get me the files for this task."
+When you retrieve your persisted output using the Azure Batch File Conventions library, you do so in a task- and job-centric manner. You can request the output for given task or job without needing to know its path in blob Storage, or even its file name. You can simply say, "Give me the output files for task *109*."
+
+The code snippet below first lists all of the job's tasks, then iterates through the collection, prints some information about the output files for the task, and then downloads the file from Storage.
+
+```csharp
+foreach (CloudTask task in myJob.ListTasks().ToList())
+{
+    foreach (TaskOutputStorage output in
+		task.OutputStorage(storageAccount).ListOutputs(TaskOutputKind.TaskOutput))
+    {
+        Console.WriteLine($"output file: {output.FilePath}");
+        output.DownloadToFileAsync($"{jobId}-{output.FilePath}",
+								   System.IO.FileMode.Create).Wait();
+    }
+}
+```
 
 ## View output in the Azure portal
 
 By following the guidance in this article, you will be able to view the output of your tasks and jobs in the Azure portal.
 
-**[screenshot_here]**
+**[screenshots here]**
 
 ## Code sample
 
@@ -180,6 +206,7 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [net_taskoutputkind]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_savetrackedasync]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_taskexecutioninformation]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.aspx
 [net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
 [net_usestaskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.usestaskdependencies.aspx
