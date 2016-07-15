@@ -34,7 +34,7 @@ Use this tutorial to help you get started with Azure Key Vault logging, to creat
 >
 >Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions.
 
-The logs that you collect can be visualized in Log analytics from the Operations Management Suite. For more information, see [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics-azure-key-vault.md).
+The logs that you collect can be visualized in Log analytics from the Operations Management Suite. For more information, see [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
 
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
