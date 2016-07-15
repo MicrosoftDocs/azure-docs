@@ -32,7 +32,7 @@ Before your Logic app can access any service, you first need to create a *connec
 
 ## Use a Twitter trigger
 
-A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](./app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 In this example, I will show you how to use the **When a new tweet is posted**  trigger to search for #Seattle and, if #Seattle is found, update a file in Dropbox with the text from the tweet. In an enterprise example, you could search for the name of your company and update a SQL database with the text from the tweet.
 
@@ -48,7 +48,7 @@ At this point, your Logic app has been configured with a trigger that will begin
 
 ## Use a Twitter action
 
-An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](./app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
 Now that you have added a trigger, follow these steps to add an action.  
 
