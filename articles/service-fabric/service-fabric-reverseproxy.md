@@ -37,7 +37,7 @@ Service Fabric reverse proxy runs on all the nodes in the cluster. It performs t
 ![Internal communication][1]
 
 ## Reaching Microservices from outside the cluster
-The default external communication model for microservices is **opt-in**  where each service by default cannot be accessed directly from external clients. The [Azure Load Balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-overview/) is a network boundary between microservices and external clients, that performs network address translation and forwards external requests to internal **IP:port** endpoints. In order to make a microservice's endpoint directly accessible to external clients, the Azure Load Balancer must first be configured to forward traffic to each port used by the service in the cluster. Furthermore, most microservices(esp. stateful microservices) dont live on all the nodes of the cluster and they can move between nodes on failover, so in such cases, the Azure Load Balancer cannot effectively determine the target node of the replicas are located to forward the traffic to.
+The default external communication model for microservices is **opt-in**  where each service by default cannot be accessed directly from external clients. The [Azure Load Balancer](https://azure.microsoft.com/documentation/articles/load-balancer-overview/) is a network boundary between microservices and external clients, that performs network address translation and forwards external requests to internal **IP:port** endpoints. In order to make a microservice's endpoint directly accessible to external clients, the Azure Load Balancer must first be configured to forward traffic to each port used by the service in the cluster. Furthermore, most microservices(esp. stateful microservices) dont live on all the nodes of the cluster and they can move between nodes on failover, so in such cases, the Azure Load Balancer cannot effectively determine the target node of the replicas are located to forward the traffic to.
 
 ### Reaching Microservices via the SF reverse proxy from outside the cluster
 
@@ -63,7 +63,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
  - **Suffix path:** This is the actual URL path for the service that you want to connect to. For example, *myapi/values/add/3*
  - **PartitionKey:** For a partitioned service, this is the computed partition key of the partition you want to reach. Note that this is *not* the partition ID GUID. This parameter is not required for services using the singleton partition scheme.
  - **PartitionKind:** The service partition scheme. This can be 'Int64Range' or 'Named'. This parameter is not required for services using the singleton partition scheme.
- - **Timeout:**  This specifies the timeout for the http request created by the reverse proxy to the service on behalf of the client request. The default value for this is 60 seconds. This is an optional parameter. 
+ - **Timeout:**  This specifies the timeout for the http request created by the reverse proxy to the service on behalf of the client request. The default value for this is 60 seconds. This is an optional parameter.
 
 ### Example usage
 
@@ -106,8 +106,8 @@ Generally when a service cannot be reached it means the service instance or repl
 
 However, replicas or service instances can share a host process and may also share a port when hosted by an http.sys-based web server, including:
 
- - [System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener%28v=vs.110%29.aspx)
- - [ASP.NET Core WebListener](https://docs.asp.net/en/latest/fundamentals/servers.html#weblistener)
+ - [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
+ - [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
  - [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
 In this situation it is likely that the web server is available in the host process and responding to requests but the resolved service instance or replica is no longer available on the host. In this case, the gateway will receive an HTTP 404 response from the web server. As a result, an HTTP 404 has two distinct meanings:
@@ -127,11 +127,11 @@ The gateway thus needs a way to distinguish between these two cases. In order to
 This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and the gateway will not attempt to re-resolve the service address.
 
 ## Setup and configuration
-The service fabric Reverse proxy can be enabled for the cluster via the [Azure Resource Manager template](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-creation-via-arm/).
+The service fabric Reverse proxy can be enabled for the cluster via the [Azure Resource Manager template](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-creation-via-arm/).
 
 Once you have the template for the cluster that you want to deploy(either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
 
-1. Define a port for the reverse proxy in the [Parameters section](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) of the template.
+1. Define a port for the reverse proxy in the [Parameters section](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) of the template.
 
 ```json
 "SFReverseProxyPort": {
@@ -142,7 +142,7 @@ Once you have the template for the cluster that you want to deploy(either from t
   }
 },
 ```
-2. Specify that port in the **Cluster** [Resource type section](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)
+2. Specify that port in the **Cluster** [Resource type section](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/)
 
 ```json
 {
@@ -201,7 +201,7 @@ Once you have the template for the cluster that you want to deploy(either from t
   ]
 }
 ```
-4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section]((https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/))
+4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section]((https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/))
 
 ```json
 
