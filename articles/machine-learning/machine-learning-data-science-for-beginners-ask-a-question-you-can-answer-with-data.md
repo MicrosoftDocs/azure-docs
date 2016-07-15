@@ -31,7 +31,6 @@ To get the most out of the series, watch them in order. [Go to the list of video
 
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
-
   * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
   * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
   * Video 3: Ask a question you can answer with data
