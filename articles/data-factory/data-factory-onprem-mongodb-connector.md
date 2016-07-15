@@ -18,21 +18,20 @@
 
 # Move data From MongoDB using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from an on-premises MongoDB database to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from an on-premises MongoDB database to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and the source/sink data store combinations that the copy activity supports.
 
-Data Factory service supports connecting to on-premises MongoDB sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
+Data Factory service supports connecting to on-premises MongoDB sources using the Data Management Gateway. See [Data Management Gateway](data-factory-data-management-gateway.md) article to learn about Data Management Gateway and [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data. 
 
 **Note:** You need to leverage the gateway to connect to MongoDB even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MongoDB hosted in cloud, you can also install the gateway instance in the IaaS VM.
 
-Data factory currently supports only moving data from MongoDB to other data stores, but not for moving data from other data stores to MongoDB.
+Data Factory currently supports only moving data from MongoDB to other data stores, but not for moving data from other data stores to MongoDB.
 
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises MongoDB database , you must install the following: 
 
 - Data Management Gateway 2.0 or above on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway.
   
-	When you install the gateway, it automatically installs a Microsoft MongoDB ODBC driver used to connect to Cassandra database. 
-
+	When you install the gateway, it automatically installs a Microsoft MongoDB ODBC driver used to connect to MongoDB. 
 
 ## Sample: Copy data from MongoDB to Azure Blob
 This sample shows how to copy data from an on-premises MongoDB database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
@@ -47,7 +46,7 @@ The sample has the following data factory entities:
 
 The sample copies data from a query result in MongoDB database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
-As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
+As a first step, please setup the data management gateway as per the instructions in the [Data Management Gateway](data-factory-data-management-gateway.md) article. 
 
 **MongoDB linked service**
 
@@ -72,8 +71,6 @@ As a first step, please setup the data management gateway as per the instruction
 	} 
 
 
-
-
 **Azure Storage linked service**
 
 	{
@@ -87,7 +84,7 @@ As a first step, please setup the data management gateway as per the instruction
 	}
 
 **MongoDB input dataset**
-Setting “external”: ”true” informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 	
 	{
 	     "name":  "MongoDbInputDataset",
@@ -216,7 +213,6 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	}
 
 
-
 ## Linked service properties
 
 The following table provides description for JSON elements specific to **OnPremisesMongoDB** linked service.
@@ -224,15 +220,26 @@ The following table provides description for JSON elements specific to **OnPremi
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **OnPremisesMongoDb** | Yes |
-| server | The IP address or host name of the MongoDB server. | Yes | 
-| port | The number of the TCP port that the Cassandra server uses to listen for client connections. | Optional, default value: 27017 |
+| server | IP address or host name of the MongoDB server. | Yes | 
+| port | TCP port that the MongoDB server uses to listen for client connections. | Optional, default value: 27017 |
 | authenticationType | Basic, or Anonymous. | Yes | 
-| username | Username | Yes if Basic authentication |
-| password | Password |	Yes if Basic authentication | 
-| authSource | The name of the MongoDB database that you want to use to check your credentials for authentication. | Optional if Basic authentication, default: admin or database specified to access. |  
-| databaseName | The name of the MongoDB database that you want to access. | Yes |
-| gatewayName | The name of the gateway that accesses the data store. | Yes | 
+| username | User account to access MongoDB. | Yes (if basic authentication is used).|
+| password | Password for the user. |	Yes (if basic authentication is used). | 
+| authSource | Name of the MongoDB database that you want to use to check your credentials for authentication. | Optional (if basic authentication is used). default: uses the admin account and the database specified using databaseName property. |  
+| databaseName | Name of the MongoDB database that you want to access. | Yes |
+| gatewayName | Name of the gateway that accesses the data store. | Yes | 
 | encryptedCredential | Credential encrypted by gateway. | Optional |
+
+### Authentication methods
+The authenticationType property can be set to basic of anonymous as mentioned in the section above. 
+
+Here is a sample connection string that uses the anonymous authentication:
+
+	Driver= Microsoft MongoDB ODBC Driver;Server=[ServerInfo];Port=[PortNumber];Database=[MongoDBDatabase];
+
+Here is a sample connection string that uses the basic authentication:
+
+	Driver= Microsoft MongoDB ODBC Driver;Server=[ServerInfo];Port=[PortNumber];authSource=[AuthenticationDatabase];Database=[MongoDBDatabase];authMechanism=SCRAM-SHA-1;UID=[YourUserName];PWD=[YourPassword];
 
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises MongoDB data source.
@@ -251,7 +258,7 @@ The **typeProperties** section is different for each type of dataset and provide
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
 In case of Copy Activity when source is of type **MongoDbSource** the following properties are available in typeProperties section:
 
@@ -282,6 +289,8 @@ When moving data to MongoDB the following mappings will be used from MongoDB typ
 | String | String |
 | UUID | Guid | 
 | Object | Renormalized into flatten columns |
+
+The following MongoDB data types are not supported at this time:DBPointer, JavaScript, Max/Min key, Regular Expression, Symbol, Timestamp, Undefined, Array
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
