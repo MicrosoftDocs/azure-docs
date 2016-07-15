@@ -17,7 +17,7 @@
 	
 # Analyzing Trends in Visual Studio
 
-The Application Insights Trends tool visualizes how your application's important metrics change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
+The Application Insights Trends tool visualizes how your application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
 
 ![Example Trends window](./media/app-insights-trends/app-insights-trends-hero.png)
 
@@ -28,6 +28,7 @@ The Application Insights Trends tool visualizes how your application's important
 To open the Application Insights Trends window:
 
 * From the Application Insights toolbar button, choose **Explore Telemetry Trends**, or
+* From the project context menu, choose **Application Insights > Explore Telemetry Trends**, or
 * From the Visual Studio menu bar, choose **View > Other Windows > Application Insights Trends**.
 
 You may see a prompt to select a resource. Click **Select a resource**, sign in with an Azure subscription, then choose an Application Insights resource from the list for which you'd like to analyze telemetry trends.
@@ -36,13 +37,13 @@ You may see a prompt to select a resource. Click **Select a resource**, sign in 
 
 ![Menu of common types of trend analysis](./media/app-insights-trends/app-insights-trends-1.png)
 
-Get started by choosing from one of five common trend analyses:
+Get started by choosing from one of five common trend analyses, each analyzing data from the last 24 hours:
 
-* **Investigate performance issues with your server requests** - Requests made to your service in the last 24 hours, grouped by response times
-* **Analyze errors in your server requests** - Requests made to your service in the last 24 hours, grouped by HTTP response code
-* **Examine the exceptions in your application** - Exceptions from your service in the last 24 hours, grouped by exception type
-* **Check the performance of your application's dependencies** - Services called by your service in the last 24 hours, grouped by response times
-* **Inspect your custom events** - Custom events you've set up for your service that have been sent in the last 24 hours, grouped by event type.
+* **Investigate performance issues with your server requests** - Requests made to your service, grouped by response times
+* **Analyze errors in your server requests** - Requests made to your service, grouped by HTTP response code
+* **Examine the exceptions in your application** - Exceptions from your service, grouped by exception type
+* **Check the performance of your application's dependencies** - Services called by your service, grouped by response times
+* **Inspect your custom events** - Custom events you've set up for your service, grouped by event type.
 
 These pre-built analyses are available later from the **View common types of telemetry analysis** button in the upper-left corner of the Trends window.
 
@@ -64,13 +65,22 @@ To navigate between bubbles in the visualization:
 * Double-click a bubble to navigate to the Search tool and see all of the individual telemetry events that occured during that time period
 * Ctrl-click a bubble to de-select it in the visualization.
 
+> [Azure.TIP] The Trends and Search tools work together to help you pinpoint the causes of issues in your service among thousands of telemetry events. For example, if one afternoon your customers notice your app is being less responsive, start with Trends. Analyze requests made to your service over the past several hours, grouped by response time. See if there's an unusually large cluster of slow requests. Then double click that bubble to go to the Search tool, filtered to those request events. From Search, you can explore the contents of those requests and navigate to the code involved to resolve the issue.
+
 ## Filter
 
-Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that may be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, like Exception Type, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again.
+Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that may be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, like Exception Type, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again. Ctrl-click to select multiple filters in the same dimension.
 
 ![Trend filters](./media/app-insights-trends/TrendsFiltering.PNG)
 
-What if you want to apply multiple filters? Apply the first filter. Then, click the **Apply selected filters and query again** button by the name of the dimension of your first filter. This will re-query your telemetry for only events that match the first filter. Then, you can apply a second filter. Repeat the process to find trends in specific subsets of your telemetry, like server requests named "GET Home/Index" _and_ that came from Germany _and_ that received a 500 response code. To un-apply one of these filters, click the **Remove selected filters and query again** button for the dimension.
+What if you want to apply multiple filters? 
+
+1. Apply the first filter. 
+2. Click the **Apply selected filters and query again** button by the name of the dimension of your first filter. This will re-query your telemetry for only events that match the first filter. 
+3. Apply a second filter. 
+4. Repeat the process to find trends in specific subsets of your telemetry. For example, server requests named "GET Home/Index" _and_ that came from Germany _and_ that received a 500 response code. 
+
+To un-apply one of these filters, click the **Remove selected filters and query again** button for the dimension.
 
 ![Multiple filters](./media/app-insights-trends/TrendsFiltering2.PNG)
 
