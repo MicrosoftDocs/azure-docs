@@ -130,11 +130,7 @@ For Site-to-Site VPN recommendations, see the appropriate section of the [Implem
 
 For general Azure security recommendations, see [Microsoft cloud services and network security][best-practices-security].
 
-## Solution components
-
-**TBD**
-
-## Deployment
+## Solution Deployment
 
 <!-- This section to be updated when the new ARM templates are available -->
 
