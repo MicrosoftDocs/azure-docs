@@ -150,10 +150,7 @@ The sign-in function of an application is typically used to implement single-sig
 The process of unauthenticating an end-user, detaching the user state associated with the [client application](#client-application) session during [sign-in](#sign-in)
 
 ### tenant
-STUART - Should say exoses pr4otocol endpoints for auth protocols, ie:OAuth SaML
-Add common endpoint
-
-An instance of an Azure AD directory is referred to as an Azure AD tenant. It provides a variety of features, including a registry service for integrated applications, authentication of user accounts and registered applications, and the [OAuth 2.0 authorization server](#authorization server) that brokers the interactions between the [OAuth2 Authorization Framework roles][OAuth2-Role-Def]. Azure AD also happens to function as a [protected resource server](#resource-server), providing the Azure AD Graph API to enable querying/updating of it's directory data.
+An instance of an Azure AD directory is referred to as an Azure AD tenant. It provides a variety of features, including a registry service for integrated applications, authentication of user accounts and registered applications, and the REST endpoints required to support various protocols including OAuth2 and SAML. Endpoints include the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application)
 
 ### token endpoint
 One of the endpoints implemented by the [authorization server](#authorization-server) to support OAuth2 [authorization grants](#authorization-grant). 
@@ -161,14 +158,10 @@ One of the endpoints implemented by the [authorization server](#authorization-se
 In the case of the [authorization code grant](#authorization-grant), it's used to provide an [access token](#access-token) (and potentially a "refresh" token) in exchange for an [authorization code](#authorization-code). The [client application](#client-application) obtains the authorization code earlier in the flow, from the [authorization endpoint](#authorization-endpoint). It can also provide an [ID token](#ID-token) when the authorization code grant is used in conjunction with the [OpenID Connect][OpenIDConnect] protocol.
 
 ### user principal
-STUART Change to Microsoft Graph
-
 Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Azure AD Graph [User entity][AAD-Graph-User-Entity] defines the schema for a user principal object. The User entity consists of user-related properties such as first and last name, user principal name, membership in directory roles, etc. providing the necessary user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user when recording [consent](#consent) actions, making access control decisions, etc.
 
 ### Web client
 A type of [client application](#client-application) that runs as a Web application on a Web server. This type of client executes all code on the server, projecting it's user interface through a client-installed browser, and is therefore considered a "confidential" client due to it's ability to store credentials privately/confidentially on the server. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
-
-Sometimes referred to as a "passive client", which is a client that has a user interface that is projected to a Web browser from a Web application. A browser is a passive client in the sense that it has little control over content; it typically just renders what the Web application tells it to render. Compared to an "active client" which has which has a user interface that is rendered by a [native application](#native-application), or where there is no user interface at all. 
 
 ## Next steps
 The [Azure AD Developer's Guide][AAD-Dev-Guide] is the portal to use for all Azure AD development related topics, including an overview of [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
