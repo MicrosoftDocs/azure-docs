@@ -20,7 +20,7 @@
 
 # Get started with the Twitter connector
 
-Twitter Connection Provider lets you post tweets and get tweets, timeline, friends and followers from your Twitter account.You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Twitter Connection Provider lets you post tweets and get tweets, timeline, friends and followers from your Twitter account. You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to Twitter
 
@@ -30,9 +30,9 @@ Before your Logic app can access any service, you first need to create a *connec
 
 >[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
 
-## Use an Twitter trigger
+## Use a Twitter trigger
 
-A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers]().
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](./app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 In this example, I will show you how to use the **When a new tweet is posted**  trigger to search for #Seattle and, if #Seattle is found, update a file in Dropbox with the text from the tweet. In an enterprise example, you could search for the name of your company and update a SQL database with the text from the tweet.
 
@@ -41,14 +41,14 @@ In this example, I will show you how to use the **When a new tweet is posted**  
 - Enter *#Seattle* in the **Search Text** control  
 ![](./media/connectors-create-api-twitter/trigger-2.png) 
 
-At this point, your Logic app has been configured with a trigger that will begin an run of the other triggers and actions in the workflow. 
+At this point, your Logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow. 
 
 >[AZURE.NOTE]For a Logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
 
 ## Use a Twitter action
 
-An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions]().  
+An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](./app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
 Now that you have added a trigger, follow these steps to add an action.  
 
