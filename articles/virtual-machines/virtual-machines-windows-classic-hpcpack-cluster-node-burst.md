@@ -13,10 +13,10 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="07/15/2016"
  ms.author="danlep"/>
 
-# Add on-demand "burst" nodes (worker role instances) as compute resources to an HPC Pack cluster in Azure
+# Add on-demand "burst" nodes to an HPC Pack cluster in Azure
 
 
 
@@ -40,14 +40,13 @@ detailed guidance and considerations for production deployments, see
 [Burst to Azure with Microsoft HPC
 Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-If you want to use the A8 or A9 compute intensive instance size, see
+For considerations to use the A8 or A9 compute intensive instance size for the burst nodes, see
 [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Prerequisites
 
-* **HPC Pack head node deployed in an Azure VM** - See [Deploy an HPC
-Pack Head Node in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md) for
-steps to create a cluster head node in the classic deployment model.
+* **HPC Pack head node deployed in an Azure VM** - You can use a stand-alone head node VM or one that is part of a larger cluster. To create a stand-alone head node, see [Deploy an HPC
+Pack Head Node in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
 
 * **Azure subscription** - To add Azure nodes, you can choose the same
 subscription used to deploy the head node VM, or a different
@@ -85,7 +84,7 @@ Certificate** that HPC Pack installs and configures automatically on the
 head node. This certificate is useful for testing purposes and
 proof-of-concept deployments. To use this certificate, simply upload the
 file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer from the head node VM to the
-subscription.
+subscription. You can do this in the [Azure classic portal](https://manage.windowsazure.com). Click **Settings** > **Management Certificates**.
 
 For additional options to configure the management certificate, see
 [Scenarios to Configure the Azure Management Certificate for Azure Burst
