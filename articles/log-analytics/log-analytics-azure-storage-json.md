@@ -26,6 +26,11 @@ Log Analytics can read the logs for the following services that write diagnostic
 + Application Gateway (Preview)
 + Network Security Group (Preview)
 
+The following sections will walk you through using PowerShell to:
+
++ Configure Log Analytics to collect the logs from storage for each resource  
++ Enable the Log Analytics solution for the Azure service
+
 Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. You can use the  `Set-AzureRmDiagnosticSetting` cmdlet to enable logging.
 
 The example below will enable logging on all supported resources
@@ -64,20 +69,6 @@ This documentation also includes details on:
 + Stopping data collection
 
 It is not currently possible to perform the above configuration from the portal.
-
-## JSON logs in Azure blob storage (Preview)
-
-Log Analytics can read the JSON logs written to blob storage for the following services:
-
-+ Automation (Preview)
-+ Key Vault (Preview)
-+ Application Gateway (Preview)
-+ Network Security Group (Preview)
-
-The following sections will walk you through using PowerShell to:
-
-+ Configure Log Analytics to collect the logs from storage for each resource  
-+ Enable the Log Analytics solution for the Azure service
 
 ## Configure Log Analytics to collect JSON logs from Azure blob storage
 
