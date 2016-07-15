@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/13/2016" 
     ms.author="jeedes" />
 
 
@@ -46,7 +46,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for Box, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-box-tutorial/IC700993.png "Active Directory")
 
@@ -76,12 +76,12 @@ The objective of this section is to outline how to enable the application integr
 
 ##Configuring single sign-on
   
-The objective of this section is to outline how to enable users to authenticate to Box with their account in Azure AD using federation based on the SAML protocol. <br>
+The objective of this section is to outline how to enable users to authenticate to Box with their account in Azure AD using federation based on the SAML protocol. 
 As part of this procedure, you are required to upload metadata to Box.com.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Box** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **Box** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769538.png "Configure single sign-on")
 
@@ -108,20 +108,30 @@ The objective of this section is to outline how to enable provisioning of Active
 
 ###To configure single sign-on, perform the following steps:
 
-1. In the Azure Management Portal, on the **Box** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog. <br> <br> ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769541.png "Enable automatic user provisioning")
+1. In the Azure classic portal, on the **Box** application integration page, click **Configure user provisioning** to open the **Configure User Provisioning** dialog. 
 
-2. On the **Enable user provisioning to Box** dialog page, click **Enable user provisioning**. <br><br>  ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769544.png "Enable automatic user provisioning")
+	![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769541.png "Enable automatic user provisioning")
 
-3. On the **Log in to grant access to Box** page, provide the required credentials, and then click **Authorize**. <br><br> ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769546.png "Enable automatic user provisioning")
+2. On the **Enable user provisioning to Box** dialog page, click **Enable user provisioning**. 
+
+	![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769544.png "Enable automatic user provisioning")
+
+3. On the **Log in to grant access to Box** page, provide the required credentials, and then click **Authorize**. 
+
+	![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769546.png "Enable automatic user provisioning")
 
 
-4. Click **Grant access to Box** to authorize this operation and to return to the Azure Management Portal. <br><br> ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769549.png "Enable automatic user provisioning")
+4. Click **Grant access to Box** to authorize this operation and to return to the Azure classic portal. 
+
+	![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769549.png "Enable automatic user provisioning")
 
 
 5. On the **Provisioning Options** page, the **Object types to provision** checkboxes allow you to select whether or not group objects are provisioned to Box in addition to user objects.  See "Assigning users and groups section" below for more information.
 
 
-6. To finish the configuration, click the Complete button. <br><br> ![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769551.png "Enable automatic user provisioning")
+6. To finish the configuration, click the Complete button. 
+
+	![Enable automatic user provisioning](./media/active-directory-saas-box-tutorial/IC769551.png "Enable automatic user provisioning")
 
 
 
@@ -131,26 +141,30 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to Box, perform the following steps:
 
-1. In the Azure AD portal, create a test account.
+1. In the Azure classic portal, create a test account.
 
-2. On the **Box **application integration page, click **Assign users**. <br><br> ![Assign users](./media/active-directory-saas-box-tutorial/IC769552.png "Assign users")
+2. On the **Box **application integration page, click **Assign users**. 
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment. <br><br> ![Yes](./media/active-directory-saas-box-tutorial/IC767830.png "Yes")
+	![Assign users](./media/active-directory-saas-box-tutorial/IC769552.png "Assign users")
+
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment. 
+
+	![Yes](./media/active-directory-saas-box-tutorial/IC767830.png "Yes")
   
 You should now wait for 10 minutes and verify that the account has been synchronized to Box.
 
-As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the Box application integration page on the Azure Management Portal.
+As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the Box application integration page on the Azure classic portal.
 
-<br><br> ![Dashboard](./media/active-directory-saas-box-tutorial/IC769553.png "Dashboard")
+![Dashboard](./media/active-directory-saas-box-tutorial/IC769553.png "Dashboard")
 
 A successfully completed user provisioning cycle is indicated by a related status:
 
-<br><br> ![Integration status](./media/active-directory-saas-box-tutorial/IC769555.png "Integration status")
+![Integration status](./media/active-directory-saas-box-tutorial/IC769555.png "Integration status")
 
 
 In your Box tenant, synchronized users are listed under **Managed Users** in the **Admin Console**.
 
-<br><br> ![Integration status](./media/active-directory-saas-box-tutorial/IC769556.png "Integration status")
+![Integration status](./media/active-directory-saas-box-tutorial/IC769556.png "Integration status")
 
 
 ##Assigning users and groups

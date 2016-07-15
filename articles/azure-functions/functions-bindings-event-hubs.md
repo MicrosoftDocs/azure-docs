@@ -75,7 +75,7 @@ Using the example function.json above, the body of the event message will be log
 
 ## Azure Event Hub output binding
 
-An Azure Event output binding is used to write events to an event hub event stream. You must have send permission to an event hub to write events to it. 
+An Azure Event Hub output binding is used to write events to an event hub event stream. You must have send permission to an event hub to write events to it. 
 
 #### function.json for Event Hub output binding
 

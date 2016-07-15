@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/26/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
@@ -131,11 +131,11 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
-1.  Review the **Summary** and then click **Finish** to create the virtual machine.
+1.  Review the **Summary** and then click **Finish** to create the virtual machine. But don't jump ahead yet - you still need to add some CPU cores and a second drive. 
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 
-1.  To meet the minimum requirements, you will need 4 cores. To add 4 virtual processors, with your host system selected in the **Hyper-V Manager** window, in the right-pane under the list of **Virtual Machines**, locate the virtual machine you just created. Select and right-click the machine name and select **Settings**.
+1.  To meet the minimum requirements, you will need 4 cores. To add virtual processors, with your host system selected in the **Hyper-V Manager** window, in the right-pane under the list of **Virtual Machines**, locate the virtual machine you just created. Select and right-click the machine name and select **Settings**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image10.png)
 
@@ -156,7 +156,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 1.  On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
 
-1.  On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**. This screen will not be presented if running Windows Server 2008 R2.
+1.  On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**. You won't see this screen if you're running Windows Server 2012 R2 or Windows Server 2008 R2.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="07/13/2016" 
 	ms.author="sdanie"/>
 
 # Import and Export data in Azure Redis Cache
@@ -137,7 +137,9 @@ Import/ Export allows you to bring data into or export from Azure Redis Cache. I
 
 ### Can I automate Import/Export using PowerShell, CLI, or other management clients?
 
-This functionality is not available during the preview, but it is coming soon.
+Yes, for PowerShell instructions see [To import a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache) and [To export a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache).
+
+
 
 ### I received a timeout error during my Import/Export operation. What does it mean?
 

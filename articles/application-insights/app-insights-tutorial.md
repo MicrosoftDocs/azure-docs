@@ -12,19 +12,19 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="07/11/2016" 
 	ms.author="awills"/>
  
 # Application Insights - tutorial
 
-Visual Studio Application Insights is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
+[Visual Studio Application Insights](app-insights-get-started.md) is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
 
-You can get started either by adding the SDK to your code during development, or you can instrument your app at runtime. 
+You can get started either by [adding the SDK to your code during development](app-insights-asp-net.md), or you can [instrument your app at runtime](app-insights-monitor-performance-live-website-now.md). 
 
-Telemetry data collected from your application is stored and analysed in the Azure Portal, where there are intuitive views and powerful tools for fast diagnosis and analysis.
+Telemetry data collected from your application is stored and analysed in the [Azure Portal](https://portal.azure.com/), where there are intuitive views and powerful tools for fast diagnosis and analysis.
 
 
 [Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
@@ -37,8 +37,15 @@ You install a small instrumentation package in your application, and set up an A
 ![The Application Insights instrumentation in your app sends telemetry to your Application Insights resource in the Azure portal.](./media/app-insights-overview/01-scheme.png)
 
 
-Application Insights has several instrumentation modules that collect telemetry, for example to count users, sessions, and performance. If you instrument your code at development time, you can also write your own custom code to send telemetry data to the portal. Custom telemetry is particularly useful to trace user stories: you can count events such as button clicks, achievement of particular goals, or user mistakes.
+Application Insights has several [standard instrumentation modules](app-insights-configuration-with-applicationinsights-config.md) that collect different types of telemetry. For example, there's a module to monitor your web app's response to HTTP requests; another to monitor monitor exceptions; and others for dependencies, performance counters, and so on. 
 
+If you instrument your code at development time, you can also [write your own custom code](app-insights-api-custom-events-metrics.md) to send telemetry data to the portal. Custom telemetry is particularly useful to trace user stories: you can count events such as enquiries, sales or achievement of particular goals.
+
+### Client-side monitoring
+
+In addition, there is [client-side instrumentation](app-insights-javascript.md) that takes the form of a small script inserted into each web page. Telemetry is sent directly from the end-user's browser to the Azure portal.  It monitors page load times, AJAX calls, and script exceptions. You can also write custom code to trace user actions such as button clicks or other events. 
+
+Client-side monitoring can be used either in addition to or independently of server-side monitoring.
 
 
 ### What's the overhead?
@@ -57,7 +64,7 @@ There are two main ways to get started monitoring your web app. Begin with which
 |When|How|What you get
 |---|---|---
 | Development |Add SDK to code (server and/or client)| Monitor app response times and failure rates, and diagnose issues during dev, test and production.<br/>Write code to add custom tracing and diagnostics. 
-|Runtime |Run agent on host (on-premises or in Azure, J2EE or ASP.NET) | Monitor response times and failure rates, and diagnose issues at runtime. <br/>Access to the code is not required.
+|Runtime |Run agent on host (on-premises or in Azure; J2EE or ASP.NET) | Monitor response times and failure rates, and diagnose issues at runtime. <br/>Access to the code is not required.
 
 The two approaches are complementary: use both of them for the fullest telemetry.
 
@@ -72,7 +79,7 @@ This option is great for:
 
 **What server does your app run on?**
 
-* **IIS on-premises or on a VM**: [Install Status Monitor](app-insights-monitor-performance-live-website-now.md) on your server. You'll need administrative access.
+* **IIS on-premises or on a VM**: [Install Application Insights Status Monitor](app-insights-monitor-performance-live-website-now.md) on your server. You'll need administrative access.
 * **Azure web app or VM**: [Select Application Insights performance monitoring](app-insights-monitor-performance-live-website-now.md#if-your-app-runs-as-an-azure-web-app) on the app contol panel.
 * **Java**: [Install the Java agent](app-insights-java-live.md) on your server.
 
@@ -148,7 +155,7 @@ Try editing one of these charts. For example, if your web app runs on a collecti
 
 ## Search instance data
 
-To investigate a problem, it's useful to inspect specific instances.
+To investigate a problem, it's useful to inspect specific event instances.
 
 Click through a metric chart to search through instance data with relevant filters and time range. For example, click through server request counts to see individual request reports. 
 
@@ -354,8 +361,18 @@ There are limits on your usage of Application Insights, which depend to some ext
 
 [Sampling](app-insights-sampling.md) is a mechanism for reducing cost and avoiding throttling. It discards a proportion of your telemetry, keeping a representative sample. Associated items (such as exceptions and the requests that caused them) are either retained or discarded together. For ASP.NET applications, sampling is automatic and is applied in the app; otherwise, you can set it to be applied on ingestion to the portal.
 
+## Next steps
 
+Get started at runtime with:
 
+* [IIS server](app-insights-monitor-performance-live-website-now.md)
+* [J2EE server](app-insights-java-live.md)
+
+Get started at development time with:
+
+* [ASP.NET](app-insights-asp-net.md)
+* [Java](app-insights-java-get-started.md)
+* [Node.js](app-insights-nodejs.md)
 
 ## Support and feedback
 

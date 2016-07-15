@@ -46,7 +46,7 @@ There are two primary benefits when using **DirectQuery**:
 <a name="measures"/>
 ## DirectQuery and measures
 
-To ensure queries sent to the underlying data source have acceptable performance, limitations are imposed on measures. When using **Power BI Desktop**, advanced users can choose to bypass this limitation by choosing **File > Options and settings > Options**. In the **Options** dialog, choose **DirectQuery**, and select the option **Allow unrestricted measures in DirectQuery mode**. When that option is selected, any DAX expression that is valid for a measure can be used. Users must be aware; however, that some expressions that perform very well when the data is imported may result in very slow queries to the backend source when in **DirectQuery** mode. To learn more about how to use **Power BI Desktop**, see [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/).
+To ensure queries sent to the underlying data source have acceptable performance, limitations are imposed on measures. When using **Power BI Desktop**, advanced users can choose to bypass this limitation by choosing **File > Options and settings > Options**. In the **Options** dialog, choose **DirectQuery**, and select the option **Allow unrestricted measures in DirectQuery mode**. When that option is selected, any DAX expression that is valid for a measure can be used. Users must be aware; however, that some expressions that perform very well when the data is imported may result in very slow queries to the backend source when in **DirectQuery** mode. 
 
 ## See Also
 - [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
