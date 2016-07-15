@@ -18,7 +18,7 @@
 
 # Move data From Amazon Redshift using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Redshift to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Redshift to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and provides a list of data stores that can be used as sources or sinks with the copy activity.  
 
 Data factory currently supports only moving data from Amazon Redshift to other data stores, but not for moving data from other data stores to Amazon Redshift.
 
@@ -68,7 +68,7 @@ The sample copies data from a query result in Amazon Redshift to a blob every ho
 
 **Amazon Redshift input dataset**
 
-Setting “external”: ”true informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
+Setting **"external": true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory. You must set this property to true on an input dataset that is not produced by an activity in the pipeline.
 
 	{
 	    "name": "AmazonRedshiftInputDataset",
@@ -85,8 +85,6 @@ Setting “external”: ”true informs the Data Factory service that the table 
 			"external": true
 	    }
 	}
-
-
 
 
 **Azure Blob output dataset**
@@ -228,7 +226,7 @@ The **typeProperties** section is different for each type of dataset and provide
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
 In case of Copy Activity when source is of type **RelationalSource** (which includes Amazon Redshift) the following properties are available in typeProperties section:
 
