@@ -34,7 +34,7 @@ Create a storage account to hold your virtual disks:
 
 ```bash
 azure storage account create testuploadedstorage --resource-group TestRG \
-	--location "WestUS" --kind Storage --sku-name LRS
+	--location "WestUS" --kind Storage --sku-name PLRS
 ```
 
 List the storage keys for the storage account you just created and make a note of `key1`:
@@ -181,7 +181,7 @@ Note that you will still need to specify, or answer prompts for, all the additio
 ### Create a VM using a JSON template
 Azure resource manager templates are JavaScript Object Notation (JSON) files that define the environment you wish to build. The templates are broken down in to different resource providers such as compute or network. You can use existing templates or write your own. 
 
-Within the `Microsoft.Compute/virtualMachines` provider for your template, there will be a `storageProfile` node that provides the configuration details for your VM. Along with the name of your disk and OS type, the two primary parameters to change at the `image` and `vhd` URIs that point to your custom disk image and then your VM's new virtual disk, such as:
+Within the `Microsoft.Compute/virtualMachines` provider for your template, there will be a `storageProfile` node that provides the configuration details for your VM. Along with the name of your disk and OS type, the two primary parameters to change are the `image` and `vhd` URIs that point to your custom disk image and then your VM's new virtual disk. Below is an example of the JSON for using your custom disk image:
 
 ```bash
 "storageProfile": {
@@ -189,11 +189,12 @@ Within the `Microsoft.Compute/virtualMachines` provider for your template, there
             "name": "TestVM",
             "osType": "Linux",
             "caching": "ReadWrite",
-            image": {
+			"createOption": "FromImage",
+            "image": {
               "uri": "https://testuploadedstorage.blob.core.windows.net/vm-images/yourdisk.vhd"
             },
             "vhd": {
-              "uri": "https://testuploadedstorage.blob.core.windows.net/vhds/TestVM.vhd')]"
+              "uri": "https://testuploadedstorage.blob.core.windows.net/vhds/TestVM.vhd"
             }
           }
 ```
