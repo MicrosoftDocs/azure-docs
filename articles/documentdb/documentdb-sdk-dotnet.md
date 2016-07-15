@@ -36,7 +36,7 @@
 
 ## Release Notes
 
-There is a known issue when attempting to extract partition routing information when the query spans multiple partitions in a 32 bit process for .NET SDK version 1.9.0. If you see the following exception: System.BadImageFormatException: Could not load file or assembly Microsoft.Azure.Documents.ServiceInterop.dll or one of its dependencies. The module was expected to contain an assembly manifest, set the platform to x64 and rebuild your application to resolve this issue.
+There is a known issue when attempting to extract partition routing information when the query spans multiple partitions in a 32 bit process for .NET SDK version 1.9.0. This issue results in the following exception: System.BadImageFormatException: Could not load file or assembly Microsoft.Azure.Documents.ServiceInterop.dll or one of its dependencies. The module was expected to contain an assembly manifest, set the platform to x64 and rebuild your application to resolve this issue.
 
 ### <a name="1.9.0"/>[1.9.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.0)
   - Changed the default connection mode for the .NET client to ConnectionMode.Direct to improve performance by using Direct connectivity with TCP. Deprecated the ConnectionPolicy.ConnectionProtocol property and added a DirectHttps value to the ConnectionMode enumeration.
