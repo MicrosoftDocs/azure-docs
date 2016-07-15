@@ -19,7 +19,7 @@
 # Get started with Azure Data Catalog
 Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md).
 
-This tutorial helps you get started with Azure Data Catalog. You will perform the following procedure in this tutorial:
+This tutorial helps you get started with Azure Data Catalog. You will perform the following procedures in this tutorial:
 
 | Procedure | Description |
 | :--- | :---------- |
@@ -181,7 +181,7 @@ Following are a few examples for discovering data assets in the catalog.
 Basic search helps you search a catalog by using one or more search terms. Results are any assets that match on any property with one or more of the terms specified.
 
 1. Click **Home** in the Azure Data Catalog portal. If you have closed the web browser, go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com).
-2. In the search box, enter **cycles** and click **ENTER**.
+2. In the search box, enter **cycles** and press **ENTER**.
 
 	![Azure Data Catalog--basic text search](media/data-catalog-get-started/data-catalog-basic-text-search.png)
 3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results. You can switch between **grid view** and **list view** by clicking buttons on the toolbar as shown in the following image. Notice that the search keyword is highlighted in the search results because the **Highlight** option is **ON**. You can also specify the number of **results per page** in search results.
@@ -205,7 +205,7 @@ Basic search helps you search a catalog by using one or more search terms. Resul
 Property scoping helps you discover data assets where the search term is matched with the specified property.
 
 1. Clear the **Table** filter under **Object Type** in **Filters**.  
-2. In the search box, enter **tags:cycles** and click **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching the data catalog.
+2. In the search box, enter **tags:cycles** and press **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching the data catalog.
 3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results.  
 
 	![Data Catalog--property scoping search results](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
@@ -224,7 +224,7 @@ Property scoping helps you discover data assets where the search term is matched
 ### Boolean operators
 You can broaden or narrow your search with Boolean operators.
 
-1. In the search box, enter **tags:cycles AND objectType:table**, and click **ENTER**.
+1. In the search box, enter **tags:cycles AND objectType:table**, and press **ENTER**.
 2. Confirm that you see only tables (not the database) in the results.  
 
 	![Azure Data Catalog--Boolean operator in search](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
@@ -232,7 +232,7 @@ You can broaden or narrow your search with Boolean operators.
 ### Grouping with parentheses
 By grouping with parentheses, you can group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators.
 
-1. In the search box, enter **name:product AND (tags:cycles AND objectType:table)** and click **ENTER**.
+1. In the search box, enter **name:product AND (tags:cycles AND objectType:table)** and press **ENTER**.
 2. Confirm that you see only the **Product** table in the search results.
 
 	![Azure Data Catalog--grouping search](media/data-catalog-get-started/data-catalog-grouping-search.png)   
@@ -242,7 +242,7 @@ With comparison operators, you can use comparisons other than equality for prope
 
 1. In the search box, enter **lastRegisteredTime:>"06/09/2016"**.
 2. Clear the **Table** filter under **Object Type**.
-3. Click **ENTER**.
+3. Press **ENTER**.
 4. Confirm that you see the **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto** tables and the AdventureWorks2014 database you registered in search results.
 
 	![Azure Data Catalog--comparison search results](media/data-catalog-get-started/data-catalog-comparison-operator-results.png)
@@ -328,12 +328,12 @@ In Azure Data Catalog, you can take ownership of data assets, add co-owners to d
 
 ### Take ownership of data assets and restrict visibility
 
-1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com). In the **Search** text box, enter **tags:cycles** and click **ENTER**.
+1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com). In the **Search** text box, enter **tags:cycles** and press **ENTER**.
 2. Click an item in the result list and click **Take Ownership** on the toolbar.
 3. In the **Management** section of the **Properties** panel, click **Take Ownership**.
 
 	![Azure Data Catalog--take ownership](media/data-catalog-get-started/data-catalog-take-ownership.png)
-4. To restrict visibility, choose **Owners & These Users** in the **Visibility** section and click **Add**. Enter user email addresses in the text box and click **ENTER**.
+4. To restrict visibility, choose **Owners & These Users** in the **Visibility** section and click **Add**. Enter user email addresses in the text box and press **ENTER**.
 
     ![Azure Data Catalog--restrict access](media/data-catalog-get-started/data-catalog-ownership.png)
 
