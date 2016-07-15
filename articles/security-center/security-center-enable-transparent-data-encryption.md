@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Enable Transparent Data Encryption in Azure Security Center
@@ -27,16 +27,16 @@ This recommendation applies to the Azure SQL service only; doesn't include SQL r
 ## Implement the recommendation
 
 1. In the **Recommendations** blade, select **Enable Transparent Data Encryption**.
-![][1]
+![Enable Transparent Data Encryption][1]
 
 2. This opens the **Enable Transparent Data Encryption on SQL databases** blade. Select a SQL database to enable TDE on.
-![][2]
+![Select SQL DB to enable TDE on][2]
 3. On the **Transparent data encryption** blade, select **ON** under Data encryption and select **Save** in the top ribbon of the blade.
-![][3]
+![Turn on TDE][3]
 
   Once TDE is enabled on the selected SQL database, the **Encryption status** will change to **Encrypted**.    
 
-  ![][4]
+  ![Encryption status][4]
 
 ## Next steps
 

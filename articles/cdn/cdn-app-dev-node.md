@@ -2,7 +2,7 @@
 	pageTitle="Get started with the Azure CDN SDK for Node.js | Microsoft Azure"
 	description="Learn how to write Node.js applications to manage Azure CDN."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter="nodejs"
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
 
 # Get started with Azure CDN development

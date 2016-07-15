@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/15/2016" 
     ms.author="markvi" />
 
 
@@ -99,7 +99,7 @@ For more details, see [Customizing the AD FS Sign-in Pages](https://technet.micr
 
 
 Certain Exchange ActiveSync applications on iOS 9 or later are supported. To determine if your email application does support this feature, please contact your application developer. 
-For this scenario, federated authentication with a client certificate is not supported.  
+
 
 
 ## Getting started 
