@@ -26,7 +26,7 @@
 - [Python Examples](documentdb-python-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
-Sample solutions that perform CRUD operations and other common operations on DocumentDB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub repository. This article provides:
+Sample solutions that perform CRUD operations and other common operations on Azure DocumentDB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub repository. This article provides:
 
 - Links to the tasks in each of the Python example project files. 
 - Links to the related API reference content.

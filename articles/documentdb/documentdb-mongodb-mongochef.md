@@ -19,7 +19,7 @@
 
 # Use MongoChef with a DocumentDB account with protocol support for MongoDB
 
-To connect to a DocumentDB account with protocol support for MongoDB using MongoChef, you must:
+To connect to an Azure DocumentDB account with protocol support for MongoDB using MongoChef, you must:
 
 - Download and install [MongoChef](http://3t.io/mongochef)
 - Have your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information

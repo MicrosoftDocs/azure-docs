@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="07/15/2016"
 	ms.author="banders"/>
 
 # Connect Linux computers to Log Analytics
@@ -22,7 +22,7 @@ Using Log Analytics, you can collect and act on data generated from Linux comput
 
 You can view and manage data from all of those sources with Log Analytics in OMS with a single management portal. This reduces the need to monitor it using many different systems, makes it easy to consume, and you can export any data you like to whatever business analytics solution or system that you already have.
 
-This article is a quick start guide that will help you collect and manage data for your Linux computers using the OMS Agent for Linux. For more technical details, you’ll find that information at [OMS Agent for Linux overview](https://github.com/Microsoft/OMS-Agent-for-Linux) and [OMS Agent for Linux full documentation](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) on Github.
+This article is a quick start guide that will help you collect and manage data for your Linux computers using the OMS Agent for Linux. For more technical details such as proxy server configuration, information about CollectD metrics, and custom JSON data sources, you’ll find that information at [OMS Agent for Linux overview](https://github.com/Microsoft/OMS-Agent-for-Linux) and [OMS Agent for Linux full documentation](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) on Github.
 
 
 Currently, you can collect the following types of data from Linux computers:
@@ -37,9 +37,9 @@ Currently, you can collect the following types of data from Linux computers:
 Both x86 and x64 versions are officially supported on a variety of Linux distributions. However, the OMS Agent for Linux might also run on other distributions not listed.
 
 - Amazon Linux 2012.09 through 2015.09
-- CentOS Linux 5,6, and 7
-- Oracle Linux 5,6, and 7
-- Red Hat Enterprise Linux Server 5,6 and 7
+- CentOS Linux 5, 6, and 7
+- Oracle Linux 5, 6, and 7
+- Red Hat Enterprise Linux Server 5, 6 and 7
 - Debian GNU/Linux 6, 7, and 8
 - Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10
 - SUSE Linux Enterprise Server 11 and 12
@@ -82,7 +82,7 @@ The following table shows data collection methods and other details about how da
 |--------------------- | --------------------- | -------------------|
 |Glibc |	GNU C library	| 2.5-12|
 |Openssl	| OpenSSL libraries | 0.9.8e or 1.0|
-Curl | cURL web client | 7.15.5
+|Curl | cURL web client | 7.15.5
 |Python-ctypes |function libraries | n/a|
 |PAM | Pluggable authentication Modules	 |n/a |
 
@@ -102,6 +102,7 @@ sudo sh ./omsagent-1.1.0-28.universal.x64.sh --upgrade -w <YOUR OMS WORKSPACE ID
 
 There are a variety of other methods to install the agent and upgrade it. You can read more about them at [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux).
 
+You can also view the [Azure video walkthrough](https://www.youtube.com/watch?v=mF1wtHPEzT0).
 
 ## Choose your Linux data collection method
 
@@ -558,7 +559,7 @@ Review the following sections to learn about current limitations of the OMS Agen
 
 For Linux virtual machines running in Azure, additional steps may be required to allow data collection by Azure Diagnostics and Operations Management Suite. **Version 2.2** of the Diagnostics Extension for Linux is required for compatibility with the OMS Agent for Linux.
 
-For more information on installing and configuring the Diagnostic Extension for Linux, see [Use the Azure CLI command to enable Linux Diagnostic Extension](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension/#use-the-azure-cli-command-to-enable-linux-diagnostic-extension).
+For more information on installing and configuring the Diagnostic Extension for Linux, see [Use the Azure CLI command to enable Linux Diagnostic Extension](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
 
 **Upgrading the Linux Diagnostics Extension from 2.0 to 2.2 Azure CLI ASM:**
 

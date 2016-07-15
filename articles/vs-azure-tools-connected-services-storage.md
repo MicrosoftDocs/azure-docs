@@ -7,11 +7,11 @@
    manager="douge"
    editor="" />
 <tags 
-   ms.service="visual-studio-online"
+   ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="mobile"
+   ms.workload="na"
    ms.date="06/01/2016"
    ms.author="tarcher" />
 
