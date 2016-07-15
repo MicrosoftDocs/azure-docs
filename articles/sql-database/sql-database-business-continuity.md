@@ -108,7 +108,7 @@ You should use the built-in protection if your application meets the following c
 
 You should use Active Geo-Replication if your application meets the following criteria:
 
-1. It is mission critical. It has a binding SLA with aggressive RPO and RTO. Loss of data and availability will result in financial liability. 
+1. It is mission critical. Loss of data and availability will result in financial liability. 
 2. The rate of data change is high (e.g. transactions per minute or seconds). The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.
 3. The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.
 

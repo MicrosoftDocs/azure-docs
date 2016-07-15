@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Enable auditing on SQL servers in Azure Security Center
@@ -29,12 +29,12 @@ This recommendation applies to the Azure SQL service only; it doesn’t include 
 ## Implement the recommendation
 
 1. In the **Recommendations** blade, select **Enable Auditing on SQL servers**.  This opens the **Enable Auditing on SQL servers** blade.
-![][1]
+![Enable auditing on SQL servers][1]
 
 2. Select a SQL server to enable auditing on. This opens the **Auditing Settings** blade.
-![][2]
+![Auditing settings][2]
 3. On the **Auditing Settings** blade, select **ON** under **Auditing**.
-![][3]
+![Turn on auditing settings][3]
 
 4. Follow the steps in [Get started with SQL database auditing](../sql-database/sql-database-auditing-get-started.md) to configure storage where your audit logs will be stored. The subscription's storage account for data collection is the default storage account.
 
