@@ -1217,11 +1217,12 @@ There are several points you should understand about the publish/subscribe mecha
   each message is independent and the order is unimportant, you can enable concurrent processing by the Redis system, which can help to
   improve responsiveness. You can achieve this in a StackExchange client by setting the PreserveAsyncOrder of the connection used by
   the subscriber to false:
-  ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  redisHostConnection.PreserveAsyncOrder = false;
-  ISubscriber subscriber = redisHostConnection.GetSubscriber();
-  ```
+
+```csharp
+ConnectionMultiplexer redisHostConnection = ...;
+redisHostConnection.PreserveAsyncOrder = false;
+ISubscriber subscriber = redisHostConnection.GetSubscriber();
+```
 
 ## Related patterns and guidance
 
