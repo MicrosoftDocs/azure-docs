@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/25/2016"
+   ms.date="07/15/2016"
    ms.author="vturecek"/>
 
 # Service Fabric Reverse Proxy
