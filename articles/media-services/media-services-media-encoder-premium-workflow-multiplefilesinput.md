@@ -31,7 +31,7 @@ To let the **Media Encoder Premium Workflow** know that you are changing some pr
 
 ## Configuration string syntax
 
-The configuration string to set in the encoding task uses a XML document that looks like:
+The configuration string to set in the encoding task uses an XML document that looks like:
 
     <?xml version="1.0" encoding="utf-8"?>
     <transcodeRequest>
@@ -252,7 +252,7 @@ Consider an example in which you want to overlay a logo image on the input video
 
 - Create a Workflow Asset with the workflow file (example below).
 - Create a Media Asset, which contains two files: MyInputVideo.mp4 as the primary file and MyLogo.png.
-- Send a Task to the Media Encoder Premium Workflow media processor with the above input assets and specify the following configuration string.
+- Send a task to the Media Encoder Premium Workflow media processor with the above input assets and specify the following configuration string.
 
 Configuration:
 
@@ -266,16 +266,16 @@ Configuration:
       </transcodeRequest>
 
 
-In the example above, the name of the video file is sent to the Media File Input component and the primarySourceFile property, the name of the logo file is sent to another Media File Input connected to the graphic overlay component.
+In the example above, the name of the video file is sent to the Media File Input component and the primarySourceFile property. The name of the logo file is sent to another Media File Input connected to the graphic overlay component.
 
->[AZURE.NOTE]The video file name is sent to primarySourceFile property. The reason for this is to use this property in the workflow, for building the correct output file name using Expressions, for example.
+>[AZURE.NOTE]The video file name is sent to primarySourceFile property. The reason for this is to use this property in the workflow for building the correct output file name using Expressions, for example.
 
 
 ### Step-by-step workflow creation that overlays a logo on top of the video     
 
-Here are the steps to create a workflow that takes as input two files: a video and an image. It will overlay the image on top of the video.
+Here are the steps to create a workflow that takes two files as input: a video and an image. It will overlay the image on top of the video.
 
-Open **Workflow Designer** and select **File**-> **New Workspace** -> **Transcode Blueprint**
+Open **Workflow Designer** and select **File** > **New Workspace** > **Transcode Blueprint**.
 
 The new workflow shows three elements:
 
@@ -306,7 +306,7 @@ Next, specify the video file in the Media File Input component.
 
 As soon as this is done, the Media File Input component will inspect the file and populate its output pins to reflect the file it inspected.
 
-The next step is to add a "Video Data Type Updater" to specify the color space to Rec.709. Add a "Video Format Converter" set to Data Layout/Layout type = Configurable Planar. This will convert the video stream to a format that can be taken as a source of the overlay component.
+The next step is to add a "Video Data Type Updater" to specify the color space to Rec.709. Add a "Video Format Converter" that is set to Data Layout/Layout type = Configurable Planar. This will convert the video stream to a format that can be taken as a source of the overlay component.
 
 ![video Data Type Updater and Format Converter](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
@@ -318,14 +318,14 @@ The next step is to add a "Video Data Type Updater" to specify the color space t
 
 Next, add a Video Overlay component and connect the (uncompressed) video pin to the (uncompressed) video pin of the media file input.
 
-Add another Media File Input (to load the logo file), click on this component and rename it to "Media File Input Logo", select a image (png file for example) in the file property. Connect the Uncompressed image pin to the Uncompressed image pin of the overlay.
+Add another Media File Input (to load the logo file), click on this component and rename it to "Media File Input Logo", and select an image (a .png file for example) in the file property. Connect the Uncompressed image pin to the Uncompressed image pin of the overlay.
 
 ![Overlay component and image file source](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture13_overlay.png)
 
 *Overlay component and image file source*
 
 
-If you wish to modify the position of the logo on the video (for example, you may want to position it at 10% off of the top left corner of the video), uncheck "Manual Input". You can uncheck this option because you are using a Media File Input to provide the logo file to the overlay component.
+If you want to modify the position of the logo on the video (for example, you may want to position it at 10% off of the top left corner of the video), clear the "Manual Input" check box. You can do this because you are using a Media File Input to provide the logo file to the overlay component.
 
 ![Overlay position](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture14_overlay_position.png)
 
@@ -333,7 +333,7 @@ If you wish to modify the position of the logo on the video (for example, you ma
 
 
 To encode the video stream to H.264, add the AVC Video Encoder and AAC encoder components to the designer surface. Connect the pins.
-Setup the AAC encoder and select: Audio Format Conversion/Preset : 2.0 (L, R)
+Set up the AAC encoder and select Audio Format Conversion/Preset : 2.0 (L, R)
 
 ![Audio and Video Encoders](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -347,7 +347,7 @@ Now add the **ISO Mpeg-4 Multiplexer** and  **File Output** components and conne
 *MP4 multiplexer and file output*
 
 
-You need to set the  name for the output file. Click on the "File Output" component and edit the expression for file:
+You need to set the name for the output file. Click the "File Output" component and edit the expression for the file:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
@@ -355,17 +355,16 @@ You need to set the  name for the output file. Click on the "File Output" compon
 
 *File output name*
 
-
 You can run the workflow locally to check that it is running correctly.
 
-Once this succeeds, you can run it in Azure Media Services.
+After it finishes, you can run it in Azure Media Services.
 
-First prepare an asset in Azure Media Services with two files in it: the video file and the logo. You can do it using .NET or REST API. You can also do it with the Azure Portal or [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
+First, prepare an asset in Azure Media Services with two files in it: the video file and the logo. You can do it bye using the .NET or REST API. You can also do it by using the Azure portal or [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
 
 This tutorial shows how to manage assets with AMSE. There are two ways add files to an asset.
 
-- Create a local folder, copy the two files in it and drag and drop the folder to the Asset tab
-- Upload the video file as an asset, then display the asset information, go to the files tab and upload an additional file (logo).
+- Create a local folder, copy the two files in it, and drag and drop the folder to the **Asset** tab.
+- Upload the video file as an asset, display the asset information, go to the files tab, and upload an additional file (logo).
 
 >[AZURE.NOTE]Make sure to set a primary file in the asset (the main video file).
 
@@ -376,7 +375,7 @@ This tutorial shows how to manage assets with AMSE. There are two ways add files
 
 Select the asset and choose to encode it with Premium Encoder. Upload the workflow and select it.
 
-Click on the button to pass data to the processor, and add the following XML to set the runtime properties:
+Click the button to pass data to the processor, and add the following XML to set the runtime properties:
 
 ![Premium Encoder in AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture19_amsepremium.png)
 
@@ -417,11 +416,11 @@ You can download the sample workflow from [here](https://github.com/Azure/azure-
 
 - [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-- [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+- [How to use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
-- [Encoding On-Demand Content with Azure Media Service](media-services-encode-asset.md#media_encoder_premium_workflow)
+- [Encoding on-demand content with Azure Media Services](media-services-encode-asset.md#media_encoder_premium_workflow)
 
-- [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
+- [Media Encoder Premium Workflow formats and codecs](media-services-premium-workflow-encoder-formats.md)
 
 - [Sample workflow files](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
 
