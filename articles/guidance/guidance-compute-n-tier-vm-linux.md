@@ -101,14 +101,6 @@ We recommend [DataStax Enterprise][datastax] for production use. For more inform
 
 - Use [network security groups][nsg] (NSGs) to isolate subnets. For example, in the previous diagram, the NSG for service A allows network traffic only from the NVA and the management subnet. Of course, the details will depend on your application.
 
-## Solution Components
-
-**TBD**
-
-## Deployment
-
-**TBD**
-
 ## Next steps
 
 - If you need higher availability than the SLAs provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Running VMs in multiple datacenters on Azure for high availability][multi-dc].    
