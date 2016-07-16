@@ -252,7 +252,7 @@ To test the connection:
 
 1. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
 
-        sqlmd -S <listenerName> -E
+        sqlcmd -S <listenerName> -E
 
 The SQLCMD connection automatically connect to whichever instance of SQL Server hosts the primary replica. 
 
