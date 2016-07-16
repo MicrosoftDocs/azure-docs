@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="07/15/2016"
 	ms.author="tomfitz"/>
 
 # Best practices for creating Azure Resource Manager templates
@@ -34,15 +34,15 @@ For help with establishing a naming convention, see [Infrastructure naming guide
 
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common types that require a unique name include:
 
-- Storage
-- Web app
-- SQL Server
-- Key Vault
-- Redis Cache
-- Batch
-- Traffic Manager
-- Search Service
-- HDInsight
+- Storage account
+- Web site
+- SQL server
+- Key vault
+- Redis cache
+- Batch account
+- Traffic manager
+- Search service
+- HDInsight cluster
 
 Furthermore, storage account names must be lower-case, 24 characters or less, and not include any hyphens.
 
