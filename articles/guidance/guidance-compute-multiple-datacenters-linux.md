@@ -15,7 +15,6 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/12/2016"
-   ms.date="07/01/2016"
    ms.author="mikewasson"/>
 
 # Running VMs in multiple datacenters on Azure for high availability
@@ -37,7 +36,7 @@ There are several general approaches to achieving high availability across data 
 
 - Active/passive with cold standby. The same, but VMs in the secondary datacenter are not allocated until needed for failover. This approach costs less to run, but will generally have longer down time during a failure.
 
-- Active/active. Both datacenters are active, and requests are load balanced between them. If one data center becomes unavailable, it is taken out of rotation. 
+- Active/active. Both datacenters are active, and requests are load balanced between them. If one data center becomes unavailable, it is taken out of rotation.
 
 This architecture focuses on active/passive with hot standby, using Traffic Manager for failover. Note that you could deploy a small number of VMs for hot standby and then scale out as needed.
 
@@ -55,7 +54,7 @@ The following diagram builds on the architecture shown in [Adding reliability to
 
 - **VNets**. Create a separate VNet for each datacenter. Make sure the address spaces do not overlap.
 
-- **Apache Cassandra** deployed in data centers across Azure regions. Cassandra data centers are deployed in different Azure regions for high availability. Within each region, nodes are configured in rack-aware mode with fault and upgrade domains, for resiliency inside the region. 
+- **Apache Cassandra** deployed in data centers across Azure regions. Cassandra data centers are deployed in different Azure regions for high availability. Within each region, nodes are configured in rack-aware mode with fault and upgrade domains, for resiliency inside the region.
 
 ## Recommendations
 
@@ -113,17 +112,17 @@ Depending on the cause of a failover, you might need to redploy the resources wi
 
 - Functional testing. (For example, the database tier is reachable from the web tier.)
 
-### Cassandra deployment across multiple regions 
+### Cassandra deployment across multiple regions
 
 Cassandra data centers are divisions of workloads: A group of related nodes that are configured together within a cluster for replication and workload segregation.
 
 We recommend [DataStax Enterprise][datastax] for production use. For more information on running DataStax in Azure, see [DataStax Enterprise Deployment Guide for Azure][cassandra-in-azure]. The following general recommendations apply to any Cassandra edition.
 
-- Assign a public IP address to each node. This enables the clusters to communicate across regions using the Azure backbone infrastructure, providing high throughput at low cost. 
+- Assign a public IP address to each node. This enables the clusters to communicate across regions using the Azure backbone infrastructure, providing high throughput at low cost.
 
 - Secure nodes using the appropriate firewall and NSG configurations, allowing traffic only to and from known hosts, including clients and other cluster nodes. Note that Cassandra uses different ports for communication, OpsCenter, Spark, and so forth. For port usage in Cassandra, see [Configuring firewall port access][cassandra-ports].
 
-- Use SSL encryption for all [client-to-node][ssl-client-node] and [node-to-node][ssl-node-node] communications. 
+- Use SSL encryption for all [client-to-node][ssl-client-node] and [node-to-node][ssl-node-node] communications.
 
 - Within a region, follow the guidelines in [Cassandra recommendations](guidance-compute-n-tier-vm-linux.md#cassandra-recommendations).
 
