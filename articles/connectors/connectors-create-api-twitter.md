@@ -449,5 +449,5 @@ The actions and triggers above can return one or more of the following HTTP stat
 
 
 
-## Next Steps
+## Next steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
