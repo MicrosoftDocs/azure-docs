@@ -157,14 +157,6 @@ Test the resiliency of the system to failures. Here are some common failure scen
 
 Measure the recovery times and verify they meet your business requirements. Test combinations of failure modes, as well.
 
-## Solution Components
-
-**TBD**
-
-## Deployment
-
-**TBD**
-
 ## Next steps
 
 - This series has focused on pure cloud deployments. Enterprise scenarios often require a hybrid network, connecting an on-premises network with an Azure virtual network. To learn how to build such a hybrid network, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-vpn].
