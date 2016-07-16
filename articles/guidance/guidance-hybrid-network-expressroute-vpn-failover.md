@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. The traffic flows between the on-premises network and an Azure virtual network (VNet) through an ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel. 
+This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. The traffic flows between the on-premises network and an Azure virtual network (VNet) through an ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
@@ -45,11 +45,11 @@ The following diagram highlights the important components in this architecture:
 
 ![[0]][0]
 
-- **Azure Virtual Networks (VNets).** Each VNet resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each VNet  and/or network security groups (NSGs). 
+- **Azure Virtual Networks (VNets).** Each VNet resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each VNet  and/or network security groups (NSGs).
 
 - **On-premises corporate network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **VPN appliance.** This is a device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. 
+- **VPN appliance.** This is a device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012.
 
     > [AZURE.NOTE] For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to an Azure VPN Gateway, see the instructions for the appropriate device in the [list of VPN devices supported by Azure][vpn-appliance].
 
@@ -65,7 +65,7 @@ The following diagram highlights the important components in this architecture:
 
 - **ExpressRoute circuit.** This is a layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
-- **Azure ExpressRoute gateway.** The ExpressRoute gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network. 
+- **Azure ExpressRoute gateway.** The ExpressRoute gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
 
 - **N-tier cloud application.** This is the application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs). For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].
 
@@ -78,7 +78,7 @@ The following diagram highlights the important components in this architecture:
 - If the VNet already includes a subnet named **GatewaySubnet**, ensure that it has a /27 or larger address space. If the existing subnet is too small, then remove it as follows and create a new one as shown in the next bullet:
 
 	```powershell
-	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
+	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
 	Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 	```
 
@@ -138,7 +138,7 @@ The Azure PowerShell commands in this section show how to connect an on-premises
 
 To use the script below, execute the following steps:
 
-1. Copy the [sample script][script] and paste it into a new file.
+1. Copy the sample script and paste it into a new file.
 2. Save the file as a .ps1 file.
 3. Open a PowerShell command shell.
 4. Run the script with the necessary parameters to create a VNet in Azure, as shown below.
@@ -192,7 +192,7 @@ param(
 
     [Parameter(Mandatory=$true, ParameterSetName="CreateVNet")]
     [switch]$CreateVNet,
-    
+
     [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
     [string]$VnetAddressPrefix = "10.20.0.0/16",
 
