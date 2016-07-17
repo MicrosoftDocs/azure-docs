@@ -27,4 +27,3 @@ To configure the this action, you will need to provide the following information
 - Select the **File content** control and enter the content that will be written to the file that will be created. For the file content, notice that you can use any of the properties from the trigger you created previously. Simply select the properties from the list presented. Alternatively, you can enter the **File content** text directly into the control. In this example, I selected some properties and added spaces and a hyphen between each property.        
 ![](./media/connectors-create-api-sharepointonline/action-8.png)  
 - Save the changes to your workflow  
-![](./media/connectors-create-api-sharepointonline/action-9.png)  
