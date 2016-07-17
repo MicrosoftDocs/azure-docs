@@ -29,7 +29,7 @@ Before your Logic app can access any service, you first need to create a *connec
 
 ### Create a connection to Salesforce Connector
 
->[AZURE.INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforceconnector.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
 
 ## Use a Salesforce Connector trigger
 
