@@ -1,6 +1,6 @@
 <properties
-pageTitle="SharePoint | Microsoft Azure"
-description="Create Logic apps with Azure App service. The SharePoint Connection Provider provides an API to work with Lists on SharePoint."
+pageTitle="SharePoint Online connector | Microsoft Azure"
+description="Create Logic apps with the SharePoint Online connector to mange lists on SharePoint."
 services="app-servicelogic"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -53,10 +53,10 @@ SharePoint has the following trigger(s):
 
 |Trigger | Description|
 |--- | ---|
-|[When a file is created](connectors-create-api-sharepoint.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a SharePoint folder.|
-|[When a file is modified](connectors-create-api-sharepoint.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a SharePoint folder.|
-|[When a new item is created](connectors-create-api-sharepoint.md#when-a-new-item-is-created)|This operation triggers a flow when a new item is created in a SharePoint list.|
-|[When an existing item is modified](connectors-create-api-sharepoint.md#when-an-existing-item-is-modified)|This operation triggers a flow when an existing item is modified in a SharePoint list.|
+|[When a file is created](connectors-create-api-sharepointonline.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a SharePoint folder.|
+|[When a file is modified](connectors-create-api-sharepointonline.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a SharePoint folder.|
+|[When a new item is created](connectors-create-api-sharepointonline.md#when-a-new-item-is-created)|This operation triggers a flow when a new item is created in a SharePoint list.|
+|[When an existing item is modified](connectors-create-api-sharepointonline.md#when-an-existing-item-is-modified)|This operation triggers a flow when an existing item is modified in a SharePoint list.|
 
 
 ## SharePoint Online actions
@@ -66,24 +66,24 @@ SharePoint has the following actions:
 
 |Action|Description|
 |--- | ---|
-|[Get file metadata](connectors-create-api-sharepoint.md#get-file-metadata)|This operation gets file metadata using the file id.|
-|[Update file](connectors-create-api-sharepoint.md#update-file)|This operation updates file content.|
-|[Delete file](connectors-create-api-sharepoint.md#delete-file)|This operation deletes a file.|
-|[Get file metadata using path](connectors-create-api-sharepoint.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
-|[Get file content using path](connectors-create-api-sharepoint.md#get-file-content-using-path)|This operation gets file contents using the file path.|
-|[Get file content](connectors-create-api-sharepoint.md#get-file-content)|This operation gets file content using the file id.|
-|[Create file](connectors-create-api-sharepoint.md#create-file)|This operation uploads a file to a SharePoint site.|
-|[Copy file](connectors-create-api-sharepoint.md#copy-file)|This operation copies a file to a SharePoint site.|
-|[List folder](connectors-create-api-sharepoint.md#list-folder)|This operation gets files contained in a SharePoint folder.|
-|[List root folder](connectors-create-api-sharepoint.md#list-root-folder)|This operaiton gets the files in the root SharePoint folder.|
-|[Extract folder](connectors-create-api-sharepoint.md#extract-folder)|This operation extracts an archive file into a SharePoint folder (example: .zip).|
-|[Get items](connectors-create-api-sharepoint.md#get-items)|This operation gets items from a SharePoint list.|
-|[Create item](connectors-create-api-sharepoint.md#create-item)|This operation creates a new item in a SharePoint list.|
-|[Get item](connectors-create-api-sharepoint.md#get-item)|This operation gets a single item by its id from a SharePoint list.|
-|[Delete item](connectors-create-api-sharepoint.md#delete-item)|This operation deletes an item from a SharePoint list.|
-|[Update item](connectors-create-api-sharepoint.md#update-item)|This operation updates an item in a SharePoint list.|
-|[Get entity values](connectors-create-api-sharepoint.md#get-entity-values)|This operation gets possible values for a SharePoint entity.|
-|[Get lists](connectors-create-api-sharepoint.md#get-lists)|This operation gets SharePoint lists from a site.|
+|[Get file metadata](connectors-create-api-sharepointonline.md#get-file-metadata)|This operation gets file metadata using the file id.|
+|[Update file](connectors-create-api-sharepointonline.md#update-file)|This operation updates file content.|
+|[Delete file](connectors-create-api-sharepointonline.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-sharepointonline.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
+|[Get file content using path](connectors-create-api-sharepointonline.md#get-file-content-using-path)|This operation gets file contents using the file path.|
+|[Get file content](connectors-create-api-sharepointonline.md#get-file-content)|This operation gets file content using the file id.|
+|[Create file](connectors-create-api-sharepointonline.md#create-file)|This operation uploads a file to a SharePoint site.|
+|[Copy file](connectors-create-api-sharepointonline.md#copy-file)|This operation copies a file to a SharePoint site.|
+|[List folder](connectors-create-api-sharepointonline.md#list-folder)|This operation gets files contained in a SharePoint folder.|
+|[List root folder](connectors-create-api-sharepointonline.md#list-root-folder)|This operaiton gets the files in the root SharePoint folder.|
+|[Extract folder](connectors-create-api-sharepointonline.md#extract-folder)|This operation extracts an archive file into a SharePoint folder (example: .zip).|
+|[Get items](connectors-create-api-sharepointonline.md#get-items)|This operation gets items from a SharePoint list.|
+|[Create item](connectors-create-api-sharepointonline.md#create-item)|This operation creates a new item in a SharePoint list.|
+|[Get item](connectors-create-api-sharepointonline.md#get-item)|This operation gets a single item by its id from a SharePoint list.|
+|[Delete item](connectors-create-api-sharepointonline.md#delete-item)|This operation deletes an item from a SharePoint list.|
+|[Update item](connectors-create-api-sharepointonline.md#update-item)|This operation updates an item in a SharePoint list.|
+|[Get entity values](connectors-create-api-sharepointonline.md#get-entity-values)|This operation gets possible values for a SharePoint entity.|
+|[Get lists](connectors-create-api-sharepointonline.md#get-lists)|This operation gets SharePoint lists from a site.|
 ### Action details
 
 Here are the details for the actions and triggers for this connector, along with their responses:
@@ -103,21 +103,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -136,21 +136,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -182,21 +182,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -244,21 +244,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -278,21 +278,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -340,21 +340,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -373,21 +373,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -409,21 +409,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -445,7 +445,7 @@ An * indicates that a property is required
 
 #### Output Details
 
-ItemsList: undefined
+ItemsList
 
 
 | Property Name | Data Type | Description |
@@ -472,7 +472,7 @@ An * indicates that a property is required
 
 #### Output Details
 
-ItemsList: undefined
+ItemsList
 
 
 | Property Name | Data Type | Description |
@@ -499,7 +499,7 @@ An * indicates that a property is required
 
 #### Output Details
 
-ItemsList: undefined
+ItemsList
 
 
 | Property Name | Data Type | Description |
@@ -523,7 +523,7 @@ An * indicates that a property is required
 
 #### Output Details
 
-Item: undefined
+Item
 
 
 | Property Name | Data Type | Description |
@@ -547,7 +547,7 @@ An * indicates that a property is required
 
 #### Output Details
 
-Item: undefined
+Item
 
 
 | Property Name | Data Type | Description |
@@ -587,7 +587,7 @@ An * indicates that a property is required
 
 #### Output Details
 
-Item: undefined
+Item
 
 
 | Property Name | Data Type | Description |
@@ -627,7 +627,7 @@ An * indicates that a property is required
 
 #### Output Details
 
-TablesList: undefined
+TablesList
 
 
 | Property Name | Data Type | Description |
@@ -648,7 +648,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 |401|Unauthorized|
 |403|Forbidden|
 |404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
 

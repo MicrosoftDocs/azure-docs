@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="07/18/2016"
 ms.author="deonhe"/>
 
 # Get started with the SharePoint Online Connector 
