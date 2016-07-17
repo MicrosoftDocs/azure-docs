@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="07/11/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -105,7 +105,7 @@ The Microsoft Security Response Center (MSRC) performs select security monitorin
 Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard.
 
 ### How are permissions handled in Azure Security Center?
-Azure Security Center supports role based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
+Azure Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 When a user opens Azure Security Center, only recommendations and alerts that are related to resources the user has access to will be seen.  This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to.
 
@@ -131,5 +131,3 @@ Supported Linux VMs:
 - SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*
 
 VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
-
-Security Center recommendation [apply system updates](security-center-recommendations.md) recommends that you deploy missing system security and critical updates to VMs. For VMs in cloud services, the recommendation **update OS version** recommends that the OS be updated to the latest version.

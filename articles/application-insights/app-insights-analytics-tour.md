@@ -459,7 +459,7 @@ In the same clauses, we rename the timestamp column.
 
 ## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
 
-Use [let](./app-insights-analytics-syntax.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
+Use [let](./app-insights-analytics-reference.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
 
 ```AIQL
 

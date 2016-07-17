@@ -42,12 +42,20 @@ Access to other management endpoints in an IoT hub is also controlled through a 
 
 ## Next steps
 
-This article contains specific information for IT Pros and developers configuring their development and test environments. Follow these links to learn more about the Azure IoT Hub service:
+This article contains specific information for IT Pros and developers configuring their development and test environments. The [security section in the Azure IoT Hub developer guide][lnk-devguide] provides additional information about the tokens and permission system in IoT Hub.
 
-- [What is Azure IoT Hub?][lnk-iothub]
-- The [security section in the Azure IoT Hub developer guide][lnk-devguide] provides additional information about the tokens and permission system in IoT Hub.
-- [Manage IoT Hub through the Azure portal][lnk-manage-portal] describes how to use the Azure portal to manage your IoT hub.
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

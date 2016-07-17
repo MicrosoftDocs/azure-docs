@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create SQL Data Warehouse using Powershell
@@ -24,7 +24,7 @@
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
 ## Prerequisites
-Before starting, be sure you have the following prerequisites.
+Before starting, be sure you have met the following prerequisites.
 
 - **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
 - **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
@@ -34,7 +34,7 @@ Before starting, be sure you have the following prerequisites.
 
 > [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
-## Creating a SQL Data Warehouse database
+## Create a SQL Data Warehouse
 1. Open Windows PowerShell.
 2. Run this cmdlet to login to Azure Resource Manager.
 
@@ -56,7 +56,7 @@ Before starting, be sure you have the following prerequisites.
 
 The parameters required for this cmdlet are:
 
-- **RequestedServiceObjectiveName**: The amount of [DWU][] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, and DW2000.
+- **RequestedServiceObjectiveName**: The amount of [DWU][] you are requesting.  Supported values are: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 and DW6000.
 - **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
 - **ServerName**: The name of the server that you are using for creation (must be V12).
 - **ResourceGroupName**: Resource group you are using.  To find available resource groups in your subscription use Get-AzureResource.
@@ -66,6 +66,7 @@ For more details on the parameter options, see [Create Database (Azure SQL Data 
 For the command reference, see [New-AzureRmSqlDatabase][]
 
 ## Next steps
+
 After your SQL Data Warehouse has finished provisioning you may want to try [loading sample data][] or check out how to [develop][], [load][], or [migrate][].
 
 If you're interested in more on how to manage SQL Data Warehouse programmatically, check out our article on how to use [PowerShell cmdlets and REST APIs][].
@@ -85,7 +86,7 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[resource groups]: ../azure-portal/resource-group-portal.md
+[resource groups]: ../resource-group-template-deploy-portal.md
 
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx

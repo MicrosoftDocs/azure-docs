@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/27/2016"
+     ms.date="07/16/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -42,6 +42,7 @@ The Azure IoT libraries have been tested on the following operating system platf
 
 |Other platforms  |   Version|
 |:---------------|:------------:|
+|Arduino | IDE 1.6.8 |
 |mbed | 2.0 |
 |TI-RTOS | 2.x |
 
@@ -53,9 +54,10 @@ The [Microsoft Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sd
 
 |OS Platform| Version|Protocols|
 |:---------|:----------:|:----------:|
+|Arduino| IDE 1.6.8 | HTTPS |
 |Debian Linux| 7.5 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |Fedora Linux| 20 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
-|mbed OS| 2.0 | HTTPS, AMQP |
+|mbed OS| 2.0 | HTTPS, AMQP, MQTT |
 |TI-RTOS| 2.x | HTTPS |
 |Ubuntu Linux| 14.04 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |Windows desktop| 10 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
@@ -67,11 +69,15 @@ The [Microsoft Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sd
 
 The [Microsoft Azure IoT device SDK for Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md) has been tested on the following configurations:
 
-
 |Runtime| Version|Protocols|
 |:---------|:----------:|:----:|
 |Node.js| 4.1.0 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 
+The Microsoft Azure IoT service SDK for Node.js has been tested on the following configurations:
+
+|Runtime| Version|
+|:---------|:----------:|
+|Node.js| 4.1.0 |
 
 
 ## Java libraries
@@ -82,6 +88,7 @@ The [Microsoft Azure IoT device SDK for Java](https://github.com/Azure/azure-iot
 |:---------|:----------:|----|
 |Java SE (Windows)| 1.8 | HTTPS, AMQP, MQTT |
 |Java SE (Linux)| 1.8 | HTTPS, AMQP, MQTT|
+|Android| API 15 | HTTPS, MQTT |
 
 The Microsoft Azure IoT service SDK for Java has been tested on the following configurations:
 
@@ -98,8 +105,25 @@ The [Microsoft Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot
 |:---------|:----------:|:----------:|
 |Windows desktop| 10 | HTTPS, AMQP, MQTT, AMQP over WebSockets |
 |Windows IoT Core|10 | HTTPS |
+|PCL (Xamarin, Mono, UWP, WP8.1, Win8.1)|  | HTTPS, AMQP, MQTT, AMQP over WebSockets |
+
+The Microsoft Azure IoT service SDK for CSharp has been tested on the following configurations:
+
+|Runtime| Version|
+|:---------|:----------:|
+|.Net| 4.5 |
+|UWP|  |
 
 Managed agent code requires Microsoft .NET Framework 4.5
+
+
+## Python libraries
+
+The [Microsoft Azure IoT device SDK for Python](https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md) has been tested on the following configurations:
+
+|Runtime| Version|Protocols|
+|:---------|:----------:|:----------:|
+|Python | 2.7.x, 3.4.x, 3.5.x | HTTPS, AMQP, MQTT |
 
 
 ## Microsoft Azure Certified for IoT
@@ -155,6 +179,7 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Atmark Armadillo-IoT Gateway G3](http://armadillo.atmark-techno.com/armadillo-iot-g3) |Debian | Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gw-g3-java.md)|
 |[Atmark Armadillo-IoT Gateway G3L](http://armadillo.atmark-techno.com/armadillo-iot-g3l) |Debian | Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gw-g3l-java.md)|
 |[Atmark Armadillo-IoT Gateway G3L](http://armadillo.atmark-techno.com/armadillo-iot-g3l) |Debian | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-armadillo-iot-gateway-g3l-c.md)|
+|[Avalue EPC-BTCR](http://www.avalue.com.tw/Product/Embedded-Computing/Fanless-Industrial-System/Embedded-Computing-System/EPC-BTCR_2323) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/Windows10-epc-btcr-csharp.md)|
 |[Avalue RIPAC-10P1]( http://www.avalue.com.tw/product/Intelligent-Systems/POS-Terminal/POS-hardware-systems/RiPac-10P1_2399) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ripac-10p1-csharp.md)|
 |[Avalue RITAB-10T1](http://www.avalue.com.tw/product/Intelligent-Systems/Mobile-Solution/Mobile-Solution/RiTab-10T1_2384) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-ritab-10t1-csharp.md)|
 |[Axiomtek ICO300](http://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=1151) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-axiomtek-ico300-csharp.md)|
@@ -229,10 +254,15 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[PFU AR2100-model-120K](http://www.pfu.fujitsu.com/prodes/product/ar/ar2100_120k.html) |Windows 10 |C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-AR2100-model-120K-c.md)|
 |[PFU AR2200-model-120K](http://www.pfu.fujitsu.com/prodes/product/ar/ar2200_120k.html) |Windows 10 |C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-AR2200-model-120K-c.md)|
 |[Plat'Home OpenBlocks IoT BX1G](https://www.plathome.com/en/bx1g/bx1/) |Debian | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-openblocks-iot-bx1g-c.md)|
+|[Protech SE-8124](http://www.protech-usa.net/new_web/Products/product_en.asp?P_id=546&P_typeNo=4&P_subtypeNo=2#tab-1) | Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/Windows10-epc-btcr-csharp.md)|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-raspberrypi2-c.md)|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample.md)|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | Javascript|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample.md)|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Windows 10 IoT Core| C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iotcore-csharp.md)|
+|[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Raspbian | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-raspberrypi2-c.md)|
+|[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Raspbian | Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample.md)|
+|[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Raspbian | Javascript|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample.md)|
+|[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) | Windows 10 IoT Core| C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iotcore-csharp.md)|
 |[RICOH IT9](http://industry.ricoh.com/fbx_board/it9/index.html) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-IT9-csharp.md)|
 |[Samsung ARTIK](http://developer.samsung.com/artik) |Fedora | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/fedora-samsung-artik-c.md)|
 |[SADE IoT Cloud Gateway](http://sade.io/sade-iot-cloud-family) |mbed 2.0 | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-sade-iot-cloud-gateway-c.md)|
@@ -271,6 +301,26 @@ Each device has been certified to work with our SDK in the OS and language chose
 
 Learn more about developing solutions using [Certified for IoT devices](http://azure.com/iotdev).
 
+To learn more about planning your IoT Hub deployment, see:
+
+- [Support additional protocols][lnk-protocols]
+- [Compare with Event Hubs][lnk-compare]
+- [Scaling, HA and DR][lnk-scaling]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md

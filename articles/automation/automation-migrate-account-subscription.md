@@ -1,6 +1,6 @@
 <properties
    pageTitle="Migrate Automation Account and Resources | Microsoft Azure"
-   description="This article describes how to move an Automation Account in Azure Automation and associated resources from one subscription to another. "
+   description="This article describes how to move an Automation Account in Azure Automation and associated resources from one subscription to another."
    services="automation"
    documentationCenter=""
    authors="MGoedtel"
@@ -28,9 +28,9 @@ For Automation accounts and its associated resources (i.e. assets, runbooks, mod
 
 ## To move the Automation Account using the portal
 
-1. From your Automation account, click **Move** at the top of the window.<br> ![Move option](media/automation-migrate-account-subscription/automation-menu-move.png)<br> 
-2. On the **Move resources** blade, note that it presents resouces related to both your Automation account and in your resource group(s).  Select the **subscription** and **resource group** from the drop-down lists, or select the option **create a new resource group** and enter a new resource group name in the field provided.  
-3. Review and select the checkbox to acknowledge you *understand tools and scripts will need to be updated to use new resource ids after resources have been moved* and then click **OK**.<br> ![Move Resources Blade](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
+1. From your Automation account, click **Move** at the top of the blade.<br> ![Move option](media/automation-migrate-account-subscription/automation-menu-move.png)<br> 
+2. On the **Move resources** blade, note that it presents resources related to both your Automation account and your resource group(s).  Select the **subscription** and **resource group** from the drop-down lists, or select the option **create a new resource group** and enter a new resource group name in the field provided.  
+3. Review and select the checkbox to acknowledge you *understand tools and scripts will need to be updated to use new resource IDs after resources have been moved* and then click **OK**.<br> ![Move Resources Blade](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
 
 This action will take several minutes to complete.  In **Notifications**, you will be presented with a status of each action that takes place - validation, migration, and then finally when it is completed.     
 

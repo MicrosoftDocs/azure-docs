@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/04/2016"
+	ms.date="07/12/2016"
 	ms.author="ccompy"/>
 
 # Create a web app in an App Service Environment
@@ -44,7 +44,7 @@ This tutorial assumes you have created an App Service Environment. If you haven'
 
 4. Select or create an App Service plan.
 
-	*App Service plans* are managed sets of web apps.  When you select pricing, the price charged is applied to the App Service plan rather than to the individual apps. To scale up the number of instances of a web app you scale up the instances of your App Service plan and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  For more information, see [Azure App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
+	*App Service plans* are managed sets of web apps.  Normally when you select pricing, the price charged is applied to the App Service plan rather than to the individual apps. In an ASE you pay for the compute instances allocated to the ASE rather than what you have listed with your ASP.  To scale up the number of instances of a web app you scale up the instances of your App Service plan and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  For more information, see [Azure App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 	You can identify the App Service plans in your ASE by looking at the location that is noted under the plan name.  
 
@@ -54,15 +54,14 @@ This tutorial assumes you have created an App Service Environment. If you haven'
 
 5. Enter the name for your web app, and then click **Create**. 
 
-	Your web app name needs to be unique in Azure App Service.  This means if you want to create a web app named "thisismywebapp" then there currently cannot be any other web app named "thisismywebapp" in Azure App Service.  
-
-	The URL of a web app in an ASE is:
-
+	If your ASE uses an External VIP the URL of an app in an ASE is:
 	[*sitename*].[*name of your App Service Environment*].p.azurewebsites.net
-
 	instead of
-
 	[*sitename*].azurewebsites.net
+	
+	If your ASE uses an Internal VIP then the URL of an app in that ASE is:
+	[*sitename*].[*subdomain specified during ASE creation*]   
+	After you select your ASP during ASE creation you will see the subdomain update below **Name**
 
 ## <a name="createplan"></a> Create an App Service plan
 

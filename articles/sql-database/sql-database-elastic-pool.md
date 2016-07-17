@@ -4,15 +4,15 @@
 	keywords="elastic database,sql databases"
 	services="sql-database"
 	documentationCenter=""
-	authors="srinia"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/27/2016"
-	ms.author="srinia"
+	ms.date="07/12/2016"
+	ms.author="CarlRabeler"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -52,6 +52,8 @@ Databases that are great candidates for elastic database pools typically have pe
 ## eDTU and storage limits for elastic pools and elastic databases
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
+If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL DB service provides resource sharing fairness between databases by ensuring equal slices of compute time.  The application of this resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 ## Elastic database pool properties
 

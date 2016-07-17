@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
@@ -25,7 +25,7 @@ The below tables contains the maximum values allowed for various components of A
 
 | Category            | Description                                  | Maximum            |
 | :------------------ | :------------------------------------------- | :----------------- |
-| [Data Warehouse Units (DWU)][]| Compute, Memory, and IO Resources      | 2000               |
+| [Data Warehouse Units (DWU)][]| Compute, Memory, and IO Resources      | 6000               |
 | Database connection | Concurrent open sessions                     | 1024<br/><br/>We support a maximum of 1024 active connections, each of which can submit requests to a SQL Data Warehouse database at the same time. Note, that there are limits on the number of queries that can actually execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed.|
 | Database connection | Maximum memory for prepared statements       | 20 MB              |
 | [Workload management][] | Maximum concurrent queries                   | 32<br/><br/> By default, SQL Data Warehouse will execute a maximum of 32 concurrent queries and queue remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class. Some queries, like DMV queries, are always allowed to run.|

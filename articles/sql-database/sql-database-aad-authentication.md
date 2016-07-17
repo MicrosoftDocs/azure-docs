@@ -97,7 +97,6 @@ Create an Azure Active directory and populate it with users and groups. This inc
 
 - Create the initial domain Azure AD managed domain.
 - Federate an on-premises Active Directory Domain Services with Azure Active Directory.
-- Using the **AD FS** tool, in the **Service**, **Endpoints** section, enable **WS-Trust 1.3** for the URL path **/adfs/services/trust/13/windowstransport**.
 
 For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 

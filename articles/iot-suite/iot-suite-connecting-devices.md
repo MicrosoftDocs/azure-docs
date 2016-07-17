@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Create a C sample solution on Windows
 
-The following steps show you how to create a simple client application that communicates with the Remote Monitoring preconfigured solution using a C program in Visual Studio.
+The following steps show you how to use Visual Studio to create a simple client application written in C that communicates with the Remote Monitoring preconfigured solution.
 
 Create a starter project in Visual Studio 2015 and add the IoT Hub device client NuGet packages:
 
@@ -42,7 +42,7 @@ Create a starter project in Visual Studio 2015 and add the IoT Hub device client
     - Microsoft.Azure.IoTHub.IoTHubClient
     - Microsoft.Azure.IoTHub.HttpTransport
 
-## Add code to specify the behavior of the simple IoT Hub device
+## Specify the behavior of the IoT Hub device
 
 The IoT Hub client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands from IoT Hub that the device responds to.
 
@@ -56,7 +56,7 @@ The IoT Hub client libraries use a model to specify the format of messages the d
     #include "schemaserializer.h"
     ```
 
-2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with contoso:
+2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -104,11 +104,11 @@ The IoT Hub client libraries use a model to specify the format of messages the d
     END_NAMESPACE(Contoso);
     ```
 
-## Add code to implement the behavior of the device
+## Implement the behavior of the device
 
-You must now add code that implements the behavior defined in the model. You will add functions to execute when the device receives a command from the hub, and code to send simulated telemetry to the hub.
+You must now add code that implements the behavior defined in the model.
 
-1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands defined in the model:
+1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands from IoT Hub:
 
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -191,7 +191,7 @@ You must now add code that implements the behavior defined in the model. You wil
     }
     ```
 
-4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub as soon as it connects; this enables the solution to update the status of the device to **Running** on the dashboard:
+4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub as soon as it connects - this enables the solution to update the status of the device to **Running** on the dashboard:
 
     ```
     void remote_monitoring_run(void)
@@ -356,10 +356,8 @@ You must now add code that implements the behavior defined in the model. You wil
     }
     ```
 
-6. Click **Build**, then **Build Solution** to build the device application.
+6. Click **Build** and then **Build Solution** to build the device application.
 
-7. In **Solution Explorer**, right-click the **RMDevice** project, click **Debug**, and then click **Start new instance** to build and run the sample. The console displays messages as the application sends sample telemetry to IoT Hub.
+7. In **Solution Explorer**, right-click the **RMDevice** project, click **Debug**, and then click **Start new instance** to run the sample. The console displays messages as the application sends sample telemetry to IoT Hub and receives commands.
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
-[lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows

@@ -179,18 +179,11 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages. You can continue to explore IoT hub features and scenarios with the following tutorials:
+In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
-- [Process Device-to-Cloud messages] shows how to reliably process telemetry and interactive messages coming from devices.
-- [Uploading files from devices] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
 
-Additional information on IoT Hub:
-
-* [IoT Hub Overview]
-* [IoT Hub Developer Guide]
-* [IoT Hub Guidance]
-* [Supported device platforms and languages]
-* [Azure IoT Developer Center]
+To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-node-node-c2d/receivec2d.png
@@ -211,3 +204,4 @@ Additional information on IoT Hub:
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

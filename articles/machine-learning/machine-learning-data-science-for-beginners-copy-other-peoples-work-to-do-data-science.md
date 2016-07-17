@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Copy other people's work to do data science - Data Science for Beginners | Microsoft Azure"
+   pageTitle="Copy others' work to do data science - experiment example | Microsoft Azure"
    description="Trade secret of data science: Get others to do your work for you. See examples in Cortana Analytics Gallery such as a clustering algorithm example."
    keywords="data science examples,algorithm example,experiment example,machine learning example,clustering algorithm"
    services="machine-learning"
@@ -39,7 +39,7 @@ Microsoft has a cloud-based service called [Azure Machine Learning]( https://azu
 
 Part of this service is something called the **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. It contains a variety of resources, one of which is a collection of Azure Machine Learning experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions.
 
-You can find the gallery at [aka.ms/CortanaIntelligenceGallery]( http://aka.ms/CortanaIntelligenceGallery). Everyone is welcome to browse through it. 
+You can find the gallery at [aka.ms/CortanaIntelligenceGallery]( http://aka.ms/CortanaIntelligenceGallery). Everyone is welcome to browse through it.
 
 ![Cortana Intelligence Gallery](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
 
@@ -47,19 +47,19 @@ If you click **Experiments** at the top, you'll see a number of the most recent 
 
 ## Find and use a clustering example
 
-So, for instance, let's say you want to see an example of how clustering works, so you search for **"clustering"** experiments. 
+So, for instance, let's say you want to see an example of how clustering works, so you search for **"clustering"** experiments.
 
 ![Search for clustering experiments](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 
-Here's an interesting one that someone contributed to the gallery. 
+Here's an interesting one that someone contributed to the gallery.
 
 ![Clustering experiment](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment.png)
 
-Click on that experiment and you get a web page that describes the work that this contributor did, along with some of their results. 
+Click on that experiment and you get a web page that describes the work that this contributor did, along with some of their results.
 
 ![Clustering experiment description page](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Notice the link that says **Open in Studio**. 
+Notice the link that says **Open in Studio**.
 
 ![Open in Studio button](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
@@ -71,11 +71,11 @@ And now I have a starting point. I can swap out their data for my own and do my 
 
 ## Find experiments that demonstrate machine learning techniques
 
-There are other experiments in the [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) that were contributed specifically to provide how-to examples for people new to data science. For instance, there's an experiment in the gallery that demonstrates how to handle missing values ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). It walks you through 15 different ways of substituting empty values, and talks about the benefits of each method and when to use it. 
+There are other experiments in the [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) that were contributed specifically to provide how-to examples for people new to data science. For instance, there's an experiment in the gallery that demonstrates how to handle missing values ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). It walks you through 15 different ways of substituting empty values, and talks about the benefits of each method and when to use it.
 
 ![Gallery experiment open in Machine Learning Studio](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) is a place to find working experiments that you can use as a starting point for your own solutions. 
+[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) is a place to find working experiments that you can use as a starting point for your own solutions.
 
 Be sure to check out the other videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
 
@@ -84,10 +84,10 @@ Be sure to check out the other videos in “Data Science for Beginners” from M
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
 
   * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) 
+  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
   * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
   * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Video 5: Copy other people's work to do data science 
+  * Video 5: Copy other people's work to do data science
 
 ## Next steps
 
