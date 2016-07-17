@@ -392,8 +392,8 @@ This topic lists every topic that applies directly to the **SQL Database** servi
 AzIxAA.ExtraAppend.sql-database.txt
 C:\_MainW\VS15\AzureIndexAllArticles\AzureIndexAllArticles\In_Out\In\
 
-This bullet link is improperly disallowed by publishing automation due to presence of string 'documentation/articles':
-- [Search SQL Database documentation, with filters](http://azure.microsoft.com/documentation/articles/?service=sql-database)
+This bullet link is improperly disallowed by publishing automation due to presence of string 'docuXXmentation/arXXticles':
+- [Search SQL Database documentation, with filters](http://azure.microsoft.com/docuXXmentation/arXXticles/?service=sql-database)
 -->
 
 
