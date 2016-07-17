@@ -367,19 +367,13 @@ This topic lists every topic that applies directly to the **SQL Database** servi
 
 ### Related articles from other Azure services
 
-- [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service](app-service-web.md)
-
-- [Build a service using an existing SQL database with the Mobile Services .NET backend](mobile-services-dotnet-backend-use-existing-sql-database.md)
-
-- [Scale mobile services backed by Azure SQL Database](mobile-services-sql-scale-guidance.md)
+- [Back up your Azure App Services app in Azure](../app-service-web/web-sites-backup.md)
 
 <a name="extra_documentation_tools"></a>
 
 ### Documentation tools
 
 - [Updates announced for Azure SQL Database](http://azure.microsoft.com/updates/?service=sql-database)
-
-- [Search SQL Database documentation, with filters](http://azure.microsoft.com/documentation/articles/?service=sql-database)
 
 - [Search all the documentation types of Microsoft Azure, with filters](http://azure.microsoft.com/search/documentation/)
 
@@ -397,6 +391,9 @@ This topic lists every topic that applies directly to the **SQL Database** servi
 <!--
 AzIxAA.ExtraAppend.sql-database.txt
 C:\_MainW\VS15\AzureIndexAllArticles\AzureIndexAllArticles\In_Out\In\
+
+This bullet link is improperly disallowed by publishing automation due to presence of string 'documentation/articles':
+- [Search SQL Database documentation, with filters](http://azure.microsoft.com/documentation/articles/?service=sql-database)
 -->
 
 
