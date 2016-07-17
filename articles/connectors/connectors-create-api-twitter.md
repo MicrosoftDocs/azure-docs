@@ -30,7 +30,7 @@ To use [any connector](./apis-list.md), you first need to create a Logic app. Yo
 
 ## Connect to Twitter
 
-Before your Logic app can access any service, you first need to create a *connection* to the service. A connection provides connectivity between a Logic app and another service. For example, in order to connect to Dropbox, you first need a Dropbox *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the Dropbox example, you would need the credentials to your Dropbox account in order to create the connection to Dropbox. [Learn more about connections](./connectors-overview.md)
+Before your Logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a Logic app and another service.  
 
 ### Create a connection to Twitter
 

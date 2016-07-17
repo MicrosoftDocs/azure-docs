@@ -25,7 +25,7 @@ To use [any connector](./apis-list.md), you first need to create a Logic app. Yo
 
 ## Connect to FTP
 
-Before your Logic app can access any service, you first need to create a *connection* to the service. [Learn more about connections](./connectors-overview.md)  
+Before your Logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a Logic app and another service.  
 
 ### Create a connection to FTP
 
