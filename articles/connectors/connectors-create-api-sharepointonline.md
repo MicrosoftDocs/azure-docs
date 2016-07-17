@@ -29,7 +29,7 @@ Before your Logic app can access any service, you first need to create a *connec
 
 ### Create a connection to SharePoint Online
 
->[AZURE.INCLUDE [Steps to create a connection to SharePoint](../../includes/connectors-create-api-sharepointonline-trigger.md)]
+>[AZURE.INCLUDE [Steps to create a connection to SharePoint](../../includes/connectors-create-api-sharepointonline.md)]
 
 ## Use a SharePoint Online trigger
 
