@@ -131,21 +131,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -163,21 +163,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -207,21 +207,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -266,21 +266,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -299,21 +299,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -345,21 +345,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -372,21 +372,21 @@ There are no parameters for this call
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -407,21 +407,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
