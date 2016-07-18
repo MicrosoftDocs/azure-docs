@@ -162,7 +162,7 @@ Azure Disk Encryption is supported on the following Windows client SKU’s - Win
 
 - To prepare a pre-encrypted Windows VHD, see section **Preparing a pre-encrypted Windows VHD** in the Appendix of this article.
 
-- To prepare a pre-encrypted  Linux VHD, see section **Preparing a pre-encrypted Linux VHD** in the Appendix of this article.
+- To prepare a pre-encrypted Linux VHD, see section **Preparing a pre-encrypted Linux VHD** in the Appendix of this article.
 
 - Azure platform needs access to the encryption keys or secrets in customer Azure Key Vault in order to make them available to the VM to boot and decrypt the virtual machine OS volume. To grant permissions to Azure platform to access the Key Vault, **enabledForDiskEncryption** property must be set on the Key Vault for this requirement. Refer to section **Setting and Configuring Azure Key Vault for Azure disk encryption usage** in the Appendix of this article for more details.
 
