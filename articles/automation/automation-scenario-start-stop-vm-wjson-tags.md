@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="07/18/2016"
    ms.author="magoedte;paulomarquesc" />
 
 # Azure Automation scenario - using JSON formatted tags to create a schedule for Azure VM startup and shutdown
@@ -29,6 +29,7 @@ When the Schedule tag is applied to a resource group, it will be applied to all 
 
 This scenario essentially takes a JSON string with a specified format and add it as a the value for a tag called Schedule.  Then a runbook lists all resource groups and virtual machines and identifies the schedules for each VM based on the scenarios listed above, then it will loop through these VM's with schedules attached and evaluate what action it should be taken, which can be stopped, shutdown, or ignored.
 
+These runbooks authenticate using the [Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md).
 
 ## Getting the scenario
 
