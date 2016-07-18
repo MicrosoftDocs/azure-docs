@@ -39,12 +39,27 @@ The performance bottlenecks in the machine that running the Backup agent.
 
 Network speed between the server and Azure storage affect overall backup time. The following table details optimal data transfer time that's based on the network speed and 10% overhead. However, Azure backup won't consume 100% of the network bandwidth. Therefore, it takes longer data transfer time than the following details.
 
-Table...........
+| Data Size | 1000base-T (1 Gbs) | 100base-T (100 Mbs) | DS3, T3 (45 Mbs) | 10base-T (10 Mbs) | 512 Kbs  |
+|-----------|--------------------|---------------------|------------------|-------------------|----------|
+| 1 GB      | < 1 minute         | < 2 minutes         | < 5 minutes      | < 15 minutes      | 5 hrs    |
+| 50 GB     | < 10 minutes       | 1.5 hours           | 3 hours          | < 13 hours        | 10 days  |
+| 200 GB    | < 35 minutes       | 5 hours             | 11 hours         | 2 days 1 hour     | 40 days  |
+| 500 GB    | 1.5 hours          | 12 hours            | 27 hours         | 5 days 2 hours    | 99 days  |
+| 1TB       | 2.5 hours          | 24 hours            | 2 days 6 hours   | 10 days 4 hours   | 198 days |
 
 As with any other system process, maybe there's a bottleneck causing delays. These delays could affect the computer's ability to read or write to disk, even the ability to send data over the network. These bottlenecks can most frequently be diagnosed with many tools, but Windows has one built-in tool that calls Perfmon. See how to set up Perfmon and determine whether there are any bottlenecks that can be investigated.
 Here are some performance counters and ranges that can be helpful in diagnosing bottlenecks.
 
-Table..........
+| Counter  | Status  |
+|---|---|
+|Logical Disk(Physical Disk)--%idle   | • 100% idle to 50% idle = Healthy</br>• 49% idle to 20% idle = Warning or Monitor</br>• 19% idle to 0% idle = Critical or Out of Spec|
+|  Logical Disk(Physical Disk)--%Avg. Disk Sec Read or Write |  • 0.001ms to 0.015ms  = Healthy</br>• 0.015ms to 0.025 = Warning or Monitor</br>• 0.026ms or longer = Critical or Out of Spec|
+|  Logical Disk(Physical Disk)--Current Disk Queue Length (for all instances) | 80 requests for more than 6 minutes |
+| Memory--Pool Non Paged Bytes|• Less than 60% of pool consumed=Healthy<br>• 61% - 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec|
+| Memory--Pool Paged Bytes |• Less than 60% of pool consumed=Healthy</br>• 61% - 80% of pool consumed = Warning or Monitor.</br>• Greater than 80% pool consumed = Critical or Out of Spec.|
+| Memory--Available Megabytes| • 50% of free memory available or more =Healthy</br>• 25% of free memory available = Monitor.</br>• 10% of free memory available = Warning.</br>• Less than 100MB or 5% of free memory available = Critical or Out of Spec.|
+|Processor--\%Processor Time (all instances)|• Less than 60% consumed = Healthy</br>• 61% - 90% consumed = Monitor or Caution</br>• 91% - 100% consumed = Critical|
+
 
 Note If the infrastructure is a possible culprit, it's frequently to make sure that any drives being protected are defragged on a semiregular basis.
 
@@ -98,6 +113,7 @@ This allows us to take a deeper look into the logs for the backup job.  In order
 
   NOTE: I have removed the time/date and some other info to focus on these lines.
 
+  ```
   06/07	01:23:25.640	71	backupasync.cpp(1279)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Prebackup started.
 
   06/07	01:23:42.623	71	backupasync.cpp(1281)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Prebackup finished.
@@ -127,17 +143,17 @@ This allows us to take a deeper look into the logs for the backup job.  In order
   06/07	14:56:52.053	71	backupasync.cpp(1345)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: UnInitialize Storage started.
 
   06/07	14:59:26.969	71	backupasync.cpp(1347)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: UnInitialize Storage finsihed.
-
+  ```
 4.	From here, we know the taskID of the job was F3E32129-DC79-4A28-9ACC-3F30CB5810B6.  This tells us that all parts of this job will have that task ID in them.  We can then do another search at the command prompt to pull out all of the data for this job by searching on just the first string in that taskID:
 
     **find /i “F3E32129” *.errlog > F3E32129.txt**
 
       This creates a file with the job pulled out in its entirety.  For this job, there were two datasources (or volumes) being backed up to Azure.  So, I will look for the job to finish with the data transfer which is shown with FileProvider::EndData.  Look for this entry after the data transfer started phase to see when the data move finished.  If it is long before the data transfer finished phase, then you can look to see if it is still creating and uploading the catalog.
-
+      ```
       06/07	07:27:46.139	32	fileprovider.cpp(1479)	[000000001A1DACF0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	==>FileProvider::EndData
 
       06/07	07:27:53.767	32	fileprovider.cpp(1479)	[000000001A1DACF0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	<--FileProvider::EndData
-
+      ```
       Above, you can see we call and return the EndData at 07:27, yet we can see that the data transfer doesn’t finish until 10:28.  So, searching the time in-between, we can see there are many instances of the catalog uploading 500 entries at a time.  These then continue until finished at which time the data transfer phase is completed.
 
       06/07	10:27:40.993	70	itemcatalogupdater.cpp(652)		F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Uploading 500 RO entries
@@ -147,9 +163,13 @@ One other entry to look at in the errlog files is the Last completed state for D
 
     Here are the states which may be the most visible.  
 
-    State	Stage	Details
+|  State |Stage   |Details   |
+|---|---|---|
+| 2  |SNAPSHOT_VOLUMES   | OS has completed the snapshot of the volumes.  |
+| 5  | TRANSFERRING_DATA  |  In the process of transferring data (can include catalog process) |
+| 6  | TRANSFERRING_DATA_DONE  |  Data transfer has completed |
+| 7  | VERIFYING_BACKUP  |  Backup has been verified |  |
 
-    Table....
 
 
 ## TERMINOLOGY
