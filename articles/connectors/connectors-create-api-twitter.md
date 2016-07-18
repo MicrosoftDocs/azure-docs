@@ -59,8 +59,8 @@ An action is an operation carried out by the workflow defined in a Logic app. [L
 Now that you have added a trigger, follow these steps to add an action that will post a new tweet with the contents of the tweets found by the trigger. For the purposes of this walk-through only tweets from users with more than 50 followers we be posted.   
 
 1. Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
-![](./media/connectors-create-api-twitter/trigger-3.png)  
-- Select **Add an action** link. This opens the search box where you can search for any action you would like to take.  
+![](../../includes/media/connectors-create-api-twitter/action-1.png)  
+- Select the **Add a condition** link. This opens the search box where you can search for any action you would like to take.  
 ![](../../includes/media/connectors-create-api-twitter/condition-1.png)   
 - ddfd  
 ![](../../includes/media/connectors-create-api-twitter/condition-2.png)   
