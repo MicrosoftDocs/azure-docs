@@ -19,7 +19,7 @@
 
 # DocumentDB SQL cheat sheet PDF
 
-The **DocumentDB SQL Query Cheat Sheet** helps you quickly write queries for DocumentDB data by displaying common queries, keywords, built-in functions, and operators in an easy to print PDF reference sheet. 
+The **DocumentDB SQL Query Cheat Sheet** helps you quickly write queries for DocumentDB data by displaying common  database queries, keywords, built-in functions, and operators in an easy to print PDF reference sheet. 
 
 DocumentDB supports relational, hierarchical,  and spatial querying of JSON documents using [SQL](documentdb-sql-query.md) without specifying a schema or secondary indexes. In addition to the standard ANSI-SQL keywords and operators, DocumentDB supports JavaScript user defined functions (UDFs), JavaScript operators, and a multitude of built-in functions.
 
