@@ -36,9 +36,9 @@ Site Recovery contributes to your business continuity and disaster recovery (BCD
 - **Physical servers**: Site Recovery can protect physical servers running Windows or Linux.
 - **VMware virtual machines**: Site Recovery can protect any workload running in a VMware VM.
 
-### Does Site Recovery support the Azure Resource Manager (ARM) model? 
+### Does Site Recovery support the Azure Resource Manager model? 
 
-In addition to Site Recovery in the Azure classic portal, Site Recovery is available in the Azure portal with support for ARM. For most deployment scenarios Site Recovery in the Azure portal provides a streamlined deployment experience and you can replicate VMs and physical servers into classic storage or ARM storage. Here are the supported deployments: 
+In addition to Site Recovery in the Azure classic portal, Site Recovery is available in the Azure portal with support for Resource Manager. For most deployment scenarios Site Recovery in the Azure portal provides a streamlined deployment experience and you can replicate VMs and physical servers into classic storage or Resource Manager storage. Here are the supported deployments: 
 
 - [Replicate VMware VMs or physical servers to Azure in the Azure portal](site-recovery-vmware-to-azure.md) 
 - [Replicate Hyper-V VMs in VMM clouds to Azure in the Azure portal](site-recovery-vmm-to-azure.md) 
@@ -130,9 +130,9 @@ During regular replication data is replicated to geo-redundant Azure storage and
 Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Currently supported scenarios for deploying Site Recovery using PowerShell:
 
 - [Replicate Hyper-V VMs in VMMs clouds to Azure PowerShell classic](site-recovery-deploy-with-powershell.md)
-- [Replicate Hyper-V VMs in VMMs clouds to Azure PowerShell ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Replicate Hyper-V VMs in VMMs clouds to Azure PowerShell Resource MAnager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [Replicate Hyper-V VMs without VMM to Azure PowerShell classic](site-recovery-hyper-v-site-to-azure-classic.md) 
-- - [Replicate Hyper-V VMs without VMM to Azure PowerShell ARM](site-recovery-deploy-with-powershell-resource-manager.md) 
+- [Replicate Hyper-V VMs without VMM to Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md) 
 
 
 ### If I replicate to Azure what kind of storage account do I need?
