@@ -118,14 +118,10 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 	Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include:  
    
-    •	The performance of distributed R Server analyses on Spark is proportional to the number of worker nodes when the data is large.  
-    •	The performance of R Server analyses is linear in the size of data being analyzed. For example:  
-<ul>
-<li>For small to modest data, performance will be best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best see  Compute context options for R Server on HDInsight.<br>
-</li>
-<li>If you log into the edge node and run your R script there then all but the ScaleR rx-functions will execute <strong>locally</strong> on the edge node so the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.</li>
-</ul>
-
+    - The performance of distributed R Server analyses on Spark is proportional to the number of worker nodes when the data is large.  
+    - The performance of R Server analyses is linear in the size of data being analyzed. For example:  
+        - For small to modest data, performance will be best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best see  Compute context options for R Server on HDInsight.<br>
+        - If you log into the edge node and run your R script there then all but the ScaleR rx-functions will execute <strong>locally</strong> on the edge node so the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.
     
     ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
