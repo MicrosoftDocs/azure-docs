@@ -133,7 +133,7 @@ To use the HPC Pack client tools to submit jobs to the head node VM, you'll also
 
 
 
->[AZURE.SECURITY] You might see a security warning, because the certification authority on the head node will not be recognized by the client computer. For testing purposes you can ignore this warning and complete the certificate import.
+>[AZURE.TIP] You might see a security warning, because the certification authority on the head node will not be recognized by the client computer. For testing purposes you can ignore this warning and complete the certificate import.
 
 ## Step 3: Run test jobs on the cluster
 
