@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
 # Always Encrypted - Protect sensitive data in SQL Database with data encryption and store your encryption keys in the Azure Key Vault
@@ -39,8 +39,6 @@ Follow the steps in this article and learn how to setup Always Encrypted for an 
     - Create a [Column Encryption Key (CEK)](https://msdn.microsoft.com/library/mt146372.aspx).
 - Create a database table and encrypt some columns.
 - Create an application that inserts, selects, and displays data from the encrypted columns.
-
-> [AZURE.NOTE] Always Encrypted for Azure SQL Database is currently in preview.
 
 
 ## Prerequisites
