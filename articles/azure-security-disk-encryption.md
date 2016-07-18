@@ -427,7 +427,7 @@ You can see the ARM template parameters details for new VM from Azure gallery sc
 
 ### Enable encryption on new IaaS VM’s created from Customer Encrypted VHD and encryption keys
 
-In this scenario you can enable encrypting by using the ARM template, PowerShell cmdletsor CLI commands. The sections below will explain in more details the ARM template and CLI commands.
+In this scenario you can enable encrypting by using the ARM template, PowerShell cmdlets or CLI commands. The sections below will explain in more details the ARM template and CLI commands.
 
 #### Using ARM Template
 
