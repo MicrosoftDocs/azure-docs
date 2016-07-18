@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 8000 Series Update 2.1 release notes | Microsoft Azure"
-   description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2.1."
+   pageTitle="StorSimple 8000 Series Update 2.2 release notes | Microsoft Azure"
+   description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2.2."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,35 +12,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/19/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
-# StorSimple 8000 Series Update 2.1 release notes  
+# StorSimple 8000 Series Update 2.2 release notes  
 
 ## Overview
 
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.1. They also contain a list of the StorSimple software updates included in this release. 
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.2. They also contain a list of the StorSimple software updates included in this release. 
 
-Update 2.1 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2. The device version associated with Update 2.1 is 6.3.9600.17705.
+Update 2.2 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2.1. The device version associated with Update 2.2 is 6.3.9600.17708.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 >[AZURE.IMPORTANT]
 > 
-> - Update 2.1 has software only updates. It takes approximately 1.5-2 hours to install this update. 
+> - Update 2.2 has software only updates. It takes approximately 1.5-2 hours to install this update. If you are running Update 2.1, you must apply this update at the earliest.
 
 > - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 
-## What's new in Update 2.1
+## What's new in Update 2.2
 
-The following key improvements have been made in Update 2.1.
+The following key improvements have been made in Update 2.2.
 
  
 - **Automated space reclamation optimization** – When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
 
 
-- **Snapshot performance enhancements** – Update 2.1 has improved the time to process a cloud snapshot in certain scenarios where large volumes are being used and there is minimal to no data churn. A scenario that would benefit from this enhancement would be the archive volumes.
+- **Snapshot performance enhancements** – Update 2.2 has improved the time to process a cloud snapshot in certain scenarios where large volumes are being used and there is minimal to no data churn. A scenario that would benefit from this enhancement would be the archive volumes.
 
 
 - **Hardening of Support package gathering** – There have been improvements in the way the Support package is gathered and uploaded in this release. 
@@ -51,9 +51,9 @@ The following key improvements have been made in Update 2.1.
   
  
 
-## Issues fixed in Update 2.1
+## Issues fixed in Update 2.2
 
-The following tables provides a summary of issues that were fixed in Updates 2.1.    
+The following tables provides a summary of issues that were fixed in Updates 2.2 and 2.1.    
 
 | No | Feature                                    | Issue                                                                                                                                                                                                                                                                                        | Applies to physical device | Applies to virtual device |
 |----|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------------------------|
@@ -68,7 +68,7 @@ The following tables provides a summary of issues that were fixed in Updates 2.1
 | 9  | Support package                            | In this release, there have been improvements to the way the Support package is gathered and uploaded.                                                                                                                                                                                                      | Yes                        | Yes                                    |
 
 
-## Known issues in Update 2.1
+## Known issues in Update 2.2
 
 The following table provides a summary of known issues in this release.
 
@@ -96,17 +96,17 @@ The following table provides a summary of known issues in this release.
 | 20 |Locally pinned volumes | If you try to convert a tiered volume (created and cloned with Update 1.2 or earlier) to a locally pinned volume and your device is running out of space or there is a cloud outage, then the clone(s) can be corrupted.| This problem occurs only with volumes that were created and cloned with pre-Update 2.1 software. This should be an infrequent scenario.|
 | 21 | Volume conversion | Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. | If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. |
 
-## Controller and firmware updates in Update 2.1
+## Controller and firmware updates in Update 2.2
 
 This release has software-only updates. However, if you are updating from a version prior to Update 2, you will need to install driver, Storport, Spaceport, and (in some cases) disk firmware updates on your device.
  
-For more information on how to install the driver, Storport, Spaceport, and disk firmware updates, see [install Update 2.1](storsimple-install-update-21.md) on your StorSimple device.
+For more information on how to install the driver, Storport, Spaceport, and disk firmware updates, see [install Update 2.2](storsimple-install-update-21.md) on your StorSimple device.
 
  
-## Virtual device updates in Update 2.1
+## Virtual device updates in Update 2.2
 
 This update cannot be applied to the virtual device. New virtual devices will need to be created. 
 
 ## Next step
 
-Learn how to [install Update 2.1](storsimple-install-update-21.md) on your StorSimple device.
+Learn how to [install Update 2.2](storsimple-install-update-21.md) on your StorSimple device.
