@@ -83,19 +83,19 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 	-    Generate a public/private key pair from the command prompt on your laptop:
 	  
 		    ssh-keygen -t rsa -b 2048 –f <private-key-filename>
-
-    -    This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:  
     
-	![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
+    -    This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:
+    
+	![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)
     
 	-    Change permissions on the private keyfile on your laptop
     
 			chmod 600 <private-key-filename>
-
+    
 	-    Use the private key file with SSH for remote login, e.g.
 	
 			ssh –i <private-key-filename> remoteuser@<hostname public ip>
-
+    
 	  or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).)
 
 7. Select **Data Source** to select a data source for the cluster. Either select an existing storage account by selecting __Select storage account__ and then selecting the account, or create a new account using the __New__ link in the __Select storage account__ section.
