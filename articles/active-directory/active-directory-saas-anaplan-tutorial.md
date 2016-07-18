@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="07/18/2016"
 	ms.author="jeedes"/>
 
 
@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	b. Click **Next**
 
 
-> [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. To get these values, contact Anaplan.
+> [AZURE.NOTE] The Sign On URL value in this tutorial is just a placeholder. To get the actual value for your environment, contact Anaplan.
 
 
 4. On the **Configure single sign-on at Anaplan** page, perform the following steps and click **Next**:
