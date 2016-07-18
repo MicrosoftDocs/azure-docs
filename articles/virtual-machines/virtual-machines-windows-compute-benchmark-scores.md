@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="07/08/2016"
+ ms.date="07/18/2016"
  ms.author="danlep"/>
 
 # Compute benchmark scores for Windows VMs

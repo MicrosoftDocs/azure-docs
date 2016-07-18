@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="07/08/2016"
+ ms.date="07/18/2016"
  ms.author="danlep"/>
 
 # Compute benchmark scores for Linux VMs
