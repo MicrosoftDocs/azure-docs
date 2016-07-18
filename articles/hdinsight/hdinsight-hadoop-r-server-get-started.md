@@ -82,7 +82,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 	- Generate a public/private key pair from the command prompt on your laptop:
 	  
-		ssh-keygen -t rsa -b 2048 –f <private-key-filename>
+		    ssh-keygen -t rsa -b 2048 –f <private-key-filename>
 
     - This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:
     
