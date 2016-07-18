@@ -202,7 +202,7 @@ Refer to [Using storage cmdlets to check a container for recent data](../storage
 
 ### Verify the Log Analytics solution for the service is enabled
 
-If you use `Add-AzureDiagnostiToLogAnalyticsUI` the correct Log Analytics solution is automatically enabled for you.
+If you use `Add-AzureDiagnosticsToLogAnalyticsUI` the correct Log Analytics solution is automatically enabled for you.
 
 To check if a solution is enabled, run the following PowerShell:
 
