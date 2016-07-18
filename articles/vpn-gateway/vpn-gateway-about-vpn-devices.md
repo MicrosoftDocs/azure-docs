@@ -97,7 +97,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 
 ## IPsec Parameters
 
->[AZURE.NOTE] Although the values listed below are supported by the Azure VPN Gateway, currently there is no way for you to specify or select a specific combination from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device.
+>[AZURE.NOTE] Although the values listed below are supported by the Azure VPN Gateway, currently there is no way for you to specify or select a specific combination from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device. In addition, you must clamp MSS at 1350.
 
 ### IKE Phase 1 setup
 
