@@ -32,7 +32,7 @@ Storing and retrieving task output presents several challenges:
 
 * **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. The outputs of the tasks that run on a node are available only while the node exists, and only within the file retention time you've set for the task. To ensure that the task output is preserved, your tasks must therefore upload their output files to a durable store, for example, Azure Storage.
 
-* **Storing output**: To preserve task output data, you typically need to use the Azure Storage SDK in your task application to upload its output data to a Blob storage container. In most situations, you must design and implement a strict naming convention so that other tasks in the job (such as a merge task) or your client application can determine the path of, and then download, this output.
+* **Storing output**: To preserve task output data to durable storage, you typically need to use the Azure Storage SDK in your task application to upload its output data to a Blob storage container. In most situations, you must design and implement a strict naming convention so that other tasks in the job (such as a merge task) or your client application can determine the path of, and then download, this output.
 
 * **Retrieving output**: If you wish to retrieve a task's output directly from a compute node, you must know the file name and its output location on the node. If, however, your task stores its output to Azure Storage, you must write the code to first determine the full path to the file in Azure Storage, then to download the file using the Azure Storage SDK. There is currently no built-in feature of the Batch SDK to determine which output files are associated with a certain task--you must determine or track this manually.
 
@@ -40,22 +40,15 @@ Storing and retrieving task output presents several challenges:
 
 ## Solving task output challenges
 
-The Batch team has addressed these challenges by introducing job and task output viewing in the portal, as well as by providing a .NET class library to make task output storage and retrieval easier.
-
-**View task output in the Azure portal**
-
-The Azure portal now supports viewing task outputs and logs directly. To enable this support, you must satisfy the following requirements:
-
- 1. [Linked Azure Storage account](#requirement-linked-storage-account)
- 2. Adherence to predefined Storage container and output file [name conventions](#requirement-name-conventions)
+To address these challenges, the Batch team has defined and implemented a set of naming conventions for persisting Batch job and task data to Azure Storage. We've implemented these conventions in a .NET class library to greatly simplify persisting this data to Azure Storage. In addition, the Azure portal is aware of the conventions so that you can view the job and task output you've stored this way.
 
 **File conventions .NET class library**
 
-The [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) .NET class library assists you in storing your task output to Azure Storage using the naming conventions required by the Azure portal. It also enables your client code to easily list and retrieve the outputs for a given job or task.
+The [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) .NET class library assists you in storing task output to Azure Storage using these naming conventions. It enables you to easily list and retrieve the outputs for a given job or task in your client code. The library provides a level of abstraction over managing storage locations and file naming directly.
 
 ## Requirement: linked storage account
 
-To view task outputs in the Azure portal, you must link an Azure Storage account to your Batch account. If you haven't already, link a Storage account to your Batch account by using the [Azure portal][portal]:
+To store outputs to durable storage using the file conventions library and view them in the Azure portal, you must link an Azure Storage account to your Batch account. If you haven't already, link a Storage account to your Batch account by using the [Azure portal][portal]:
 
 **Batch account** blade > **Settings** > **Storage Account** > **Storage Account** (None) > Select a Storage account in your subscription
 
@@ -168,7 +161,12 @@ foreach (CloudTask task in myJob.ListTasks().ToList())
 
 ## View output in the Azure portal
 
-By following the guidance in this article, you will be able to view the output of your tasks and jobs in the Azure portal.
+The Azure portal supports viewing task outputs and logs that have been persisted to Azure Storage using the conventions described in this article.
+
+To enable this support, you must satisfy the following requirements:
+
+ 1. [Linked Azure Storage account](#requirement-linked-storage-account)
+ 2. Adherence to predefined Storage container and output file [name conventions](#requirement-name-conventions)
 
 **[screenshots here]**
 
