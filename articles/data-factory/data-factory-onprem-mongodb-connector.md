@@ -62,7 +62,7 @@ As a first step, please setup the data management gateway as per the instruction
 				"port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>", 
 	            "username": "<username>", 
 	            "password": "<password>",
-	           "authSource": "< The database that you want to use to check your credentials for authentication. >”
+	           "authSource": "< The database that you want to use to check your credentials for authentication. >"
 	            "databaseName": "<database name>"
 	            "gatewayName": "<mygateway>"
 	            "encryptedCredential": " Credential encrypted by gateway.  "
@@ -229,17 +229,6 @@ The following table provides description for JSON elements specific to **OnPremi
 | databaseName | Name of the MongoDB database that you want to access. | Yes |
 | gatewayName | Name of the gateway that accesses the data store. | Yes | 
 | encryptedCredential | Credential encrypted by gateway. | Optional |
-
-### Authentication methods
-The authenticationType property can be set to basic of anonymous as mentioned in the section above. 
-
-Here is a sample connection string that uses the anonymous authentication:
-
-	Driver= Microsoft MongoDB ODBC Driver;Server=[ServerInfo];Port=[PortNumber];Database=[MongoDBDatabase];
-
-Here is a sample connection string that uses the basic authentication:
-
-	Driver= Microsoft MongoDB ODBC Driver;Server=[ServerInfo];Port=[PortNumber];authSource=[AuthenticationDatabase];Database=[MongoDBDatabase];authMechanism=SCRAM-SHA-1;UID=[YourUserName];PWD=[YourPassword];
 
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises MongoDB data source.
