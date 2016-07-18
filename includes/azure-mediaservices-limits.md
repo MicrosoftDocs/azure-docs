@@ -14,6 +14,7 @@ Streaming endpoints in running state per AMS account</p></td>|2</p></td>|N/A<sup
 Streaming units per streaming endpoint </p></td>|10 </p></td>|N/A<sup>1</sup>
 Encoding units per AMS account </p></td>|25</p></td>|N/A<sup>1</sup>
 Storage accounts | |1,000<sup>5</sup>
+Policies || 1,000,000<sup>6</sup>
 
 <sup>1</sup> You can request to update the limits for this quota by opening a support ticket. Do not create more AMS accounts to increase limits, instead submit a support ticket.
 
@@ -24,3 +25,5 @@ Storage accounts | |1,000<sup>5</sup>
 <sup>4</sup> Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 
 <sup>5</sup> The storage accounts must be from the same Azure subscription.
+
+<sup>6</sup> There is a limit of 1,000,000 policies for a number of different things like the policies for asset locators or ContentKeyAuthorizationPolicy. You should use the same policy ID if you are always using the same days / access permissions / etc.

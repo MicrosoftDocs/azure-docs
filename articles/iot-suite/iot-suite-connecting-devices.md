@@ -42,6 +42,12 @@ Create a starter project in Visual Studio 2015 and add the IoT Hub device client
     - Microsoft.Azure.IoTHub.IoTHubClient
     - Microsoft.Azure.IoTHub.HttpTransport
 
+6. In **Solution Explorer**, right-click on the **RMDevice** project and then click **Properties** to open the project's **Property Pages** dialog box. For details,see [Setting Visual C++ Project Properties][lnk-c-project-properties]. 
+
+7. Click the **Linker** folder, then click the **Input** property page.
+
+8. Add **crypt32.lib** to the **Additional Dependencies** property. Click **OK** and then **OK** again to save the project property values.
+
 ## Specify the behavior of the IoT Hub device
 
 The IoT Hub client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands from IoT Hub that the device responds to.
@@ -54,6 +60,8 @@ The IoT Hub client libraries use a model to specify the format of messages the d
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
+    #include "azure_c_shared_utility/threadapi.h"
+    #include "azure_c_shared_utility/platform.h"
     ```
 
 2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
@@ -361,3 +369,6 @@ You must now add code that implements the behavior defined in the model.
 7. In **Solution Explorer**, right-click the **RMDevice** project, click **Debug**, and then click **Start new instance** to run the sample. The console displays messages as the application sends sample telemetry to IoT Hub and receives commands.
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
+
+
+[lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx

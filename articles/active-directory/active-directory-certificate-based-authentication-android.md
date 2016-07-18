@@ -96,11 +96,6 @@ For more details, see [Customizing the AD FS Sign-in Pages](https://technet.micr
 Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are supported. To determine if your email application does support this feature, please contact your application developer. 
 
 
-### Limitations  
-
-Federated authentication with a client certificate is not supported.  
-
-
 
 ## Getting started 
 
