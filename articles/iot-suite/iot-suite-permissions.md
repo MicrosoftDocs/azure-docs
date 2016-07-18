@@ -129,6 +129,8 @@ Take a look at the diagram below:
 
 ![][img-flowchart]
 
+> [AZURE.NOTE] If you continue to see the error after validating you are a global administrator on the AAD tenant and a co-administrator on the subscription, have your account administrator remove the user and re-assign necessary permissions in this order: add the user as a global administrator and add user as a co-administrator on the Azure subscription. If issues persist, please contact [Help & Support][lnk-help-support].
+
 **Why am I seeing this error when I have an Azure subscription?** *An Azure subscription is required to create pre-configured solutions. You can create a free trial account in just a couple of minutes.*
 
 If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and ensure the correct tenant is selected in the dropdown. If you’ve validated the desired tenant is correct, follow the diagram above and validate the mapping of your subscription and this AAD tenant.
@@ -144,4 +146,4 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-
+[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
