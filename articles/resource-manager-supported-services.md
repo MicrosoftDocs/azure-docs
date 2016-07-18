@@ -127,8 +127,8 @@ Cloud Services (classic) can be used with other classic resources; however, clas
 
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| BizTalk Services | Yes |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
-| Recovery Service | Yes | [Site Recovery REST](https://msdn.microsoft.com/library/azure/mt750497.aspx) | [2016-06-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-01/Microsoft.RecoveryServices.json) |  |
+| BizTalk Services | Yes |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |  |
+| Recovery Service | Yes | [Site Recovery REST](https://msdn.microsoft.com/library/azure/mt750497.aspx) | [2016-06-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-01/Microsoft.RecoveryServices.json) | [Microsoft.RecoveryServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.RecoveryServices%22&type=Code) |
 | Service Bus | Yes |  |        | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
 
 ## Identity & Access Management 
@@ -178,13 +178,6 @@ The following example shows how to get all of the available resource providers.
 
     Get-AzureRmResourceProvider -ListAvailable
     
-The output will be similar to:
-
-    ProviderNamespace               RegistrationState ResourceTypes
-    -----------------               ----------------- -------------
-    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
-    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
-    ...
 
 The next example shows how to get the resource types for a particular resource provider.
 
@@ -192,10 +185,10 @@ The next example shows how to get the resource types for a particular resource p
     
 The output will be similar to:
 
-    ResourceTypeName                Locations                                         ApiVersions
-    ----------------                ---------                                         ------
-    sites/extensions                {Brazil South, East Asia, East US, Japan East...} {20...
-    sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
+    ResourceTypeName                Locations                                         
+    ----------------                ---------                                         
+    sites/extensions                {Brazil South, East Asia, East US, Japan East...} 
+    sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} .
     ...
     
 To register a resource provider provide the namespace:
