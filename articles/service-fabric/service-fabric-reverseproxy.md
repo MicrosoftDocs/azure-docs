@@ -133,97 +133,96 @@ Once you have the template for the cluster that you want to deploy(either from t
 
 1. Define a port for the reverse proxy in the [Parameters section](../resource-group-authoring-templates.md) of the template.
 
-```json
-"SFReverseProxyPort": {
-  "type": "int",
-  "defaultValue": 19008,
-  "metadata": {
-    "description": "Endpoint for Service Fabric Reverse proxy"
-  }
-},
-```
+    ```json
+    "SFReverseProxyPort": {
+        "type": "int",
+        "defaultValue": 19008,
+        "metadata": {
+            "description": "Endpoint for Service Fabric Reverse proxy"
+        }
+    },
+    ```
 2. Specify that port in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
 
-```json
-{
-  "apiVersion": "2016-03-01",
-  "type": "Microsoft.ServiceFabric/clusters",
-  "name": "[parameters('clusterName')]",
-  "location": "[parameters('clusterLocation')]",
-...
-...
-"httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
-...
-...
-}
-```
+    ```json
+    {
+        "apiVersion": "2016-03-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        ...
+        ...
+        "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
+        ...
+        ...
+    }
+    ```
 3. To address the reverse proxy from outside the azure cluster, setup the **azure load balancer rules** for the port specified in step 1.
 
-```json
-{
-  "apiVersion": "[variables('lbApiVersion')]",
-  "type": "Microsoft.Network/loadBalancers",
-  ...
-  ...
-  "loadBalancingRules": [
-      ...
-      {
-          "name": "LBSFReverseProxyRule",
-          "properties": {
-              "backendAddressPool": {
-                  "id": "[variables('lbPoolID0')]"
-              },
-              "backendPort": "[parameters('SFReverseProxyPort')]",
-              "enableFloatingIP": "false",
-              "frontendIPConfiguration": {
-                  "id": "[variables('lbIPConfig0')]"
-              },
-              "frontendPort": "[parameters('SFReverseProxyPort')]",
-              "idleTimeoutInMinutes": "5",
-              "probe": {
-                  "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-              },
-              "protocol": "tcp"
-          }
-      }
-  ],
-  "probes": [
-      ...
-      {
-          "name": "SFReverseProxyProbe",
-          "properties": {
-              "intervalInSeconds": 5,
-              "numberOfProbes": 2,
-              "port": "[parameters('SFReverseProxyPort')]",
-              "protocol": "tcp"
-          }
-      }  
-  ]
-}
-```
+    ```json
+    {
+        "apiVersion": "[variables('lbApiVersion')]",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        ...
+        "loadBalancingRules": [
+            ...
+            {
+                "name": "LBSFReverseProxyRule",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID0')]"
+                    },
+                    "backendPort": "[parameters('SFReverseProxyPort')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig0')]"
+                    },
+                    "frontendPort": "[parameters('SFReverseProxyPort')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                    },
+                    "protocol": "tcp"
+                }
+            }
+        ],
+        "probes": [
+            ...
+            {
+                "name": "SFReverseProxyProbe",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port":     "[parameters('SFReverseProxyPort')]",
+                    "protocol": "tcp"
+                }
+            }  
+        ]
+    }
+    ```
 4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
 
-```json
-
-{
-  "apiVersion": "2016-03-01",
-  "type": "Microsoft.ServiceFabric/clusters",
-  "name": "[parameters('clusterName')]",
-  "location": "[parameters('clusterLocation')]",
-  "dependsOn": [
-    "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-  ],
-  "properties": {
-...
-    "httpApplicationGatewayCertificate": {
-        "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-        "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-    },
-...
-    "clusterState": "Default",
+    ```json
+    {
+        "apiVersion": "2016-03-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+        ],
+        "properties": {
+            ...
+            "httpApplicationGatewayCertificate": {
+                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
+            },
+            ...
+            "clusterState": "Default",
+        }
     }
-}
-```
+    ```
 
 ## Next steps
  - See an example of HTTP communication between services in a [sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
