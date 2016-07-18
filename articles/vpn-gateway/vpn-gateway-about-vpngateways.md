@@ -20,11 +20,6 @@
 
 VPN Gateway is used to send network traffic between virtual networks and on-premises locations. It is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). For connection diagrams, see [VPN Gateway connection topologies](vpn-gateway-topology.md). The sections below discuss the items that relate to VPN Gateway.
 
-The instructions that you use to create your VPN gateway will depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you'll use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway. You can't create a Resource Manager VPN gateway for a classic deployment model virtual network. 
-
-See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information about deployment models.
-
-
 ## <a name="gwsub"></a>Gateway subnet
 
 To configure a VPN gateway, you first need to create a gateway subnet for your VNet. The gateway subnet must be named *GatewaySubnet* to work properly. This name allows Azure to know that this subnet should be used for the gateway.<BR>If you are using the classic portal, the gateway subnet is automatically named *Gateway* in the portal interface. This is specific to viewing the gateway subnet in the classic portal only. In this case, the subnet is actually created in Azure as *GatewaySubnet* and can be viewed this way in the Azure portal and in PowerShell.
