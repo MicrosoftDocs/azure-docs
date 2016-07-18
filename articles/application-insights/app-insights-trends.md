@@ -19,7 +19,7 @@
 
 The Application Insights Trends tool visualizes how your application's important telemetry events change over time, helping you quickly identify problems and anomalies. By linking you to more detailed diagnostic information, Trends can help you improve your app's performance, track down the causes of exceptions, and uncover insights from your custom events.
 
-![Example Trends window](./media/app-insights-trends/app-insights-trends-hero.png)
+![Example Trends window](./media/app-insights-trends/app-insights-trends-hero-750.png)
 
 > [AZURE.NOTE] Application Insights Trends is available in Visual Studio 2015 Update 3 and later, or with the [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) version 5.209 and later.
 
@@ -71,7 +71,7 @@ To navigate between bubbles in the visualization:
 
 Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that may be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, like Exception Type, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again. Ctrl-click to select multiple filters in the same dimension.
 
-![Trend filters](./media/app-insights-trends/TrendsFiltering.PNG)
+![Trend filters](./media/app-insights-trends/TrendsFiltering-750.png)
 
 What if you want to apply multiple filters? 
 
@@ -82,13 +82,13 @@ What if you want to apply multiple filters?
 
 To un-apply one of these filters, click the **Remove selected filters and query again** button for the dimension.
 
-![Multiple filters](./media/app-insights-trends/TrendsFiltering2.PNG)
+![Multiple filters](./media/app-insights-trends/TrendsFiltering2-750.png)
 
 ## Find anomalies
 
 The Trends tool can highlight bubbles of events that are anomalous compared to other bubbles in the same time series. In the View Type dropdown, choose **Counts in time bucket (highlight anomalies)** or **Percentages in time bucket (highlight anomalies)**. Red bubbles are anomalous. Anomalies are defined as bubbles with counts/percentages exceeding 2.1 times the standard deviation of the counts/percentages that occured in the past two time periods (48 hours if you're viewing the last 24 hours, etc.).
 
-![Colored dots indicate anomalies](./media/app-insights-trends/TrendsAnomalies.PNG)
+![Colored dots indicate anomalies](./media/app-insights-trends/TrendsAnomalies-750.png)
 
 > [Azure.TIP] Highlighting anomalies is especially helpful for finding outliers in time series of small bubbles that may otherwise look similarly sized.  
 
