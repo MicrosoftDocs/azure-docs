@@ -54,8 +54,8 @@ You can query for the following StreamingEndPoint metrics.
 - **ResultCode** gets the result code.
 - **RequestCount** gets the request count.
 - **BytesSent** gets the bytes sent.
-- **BytesSent** gets the server latency.
-- **BytesSent** gets the end to end request time.
+- **ServerLatency** gets the server latency.
+- **EndToEndLatency** gets the end to end request time.
 
 ###Streaming Endpoint query result example
 
