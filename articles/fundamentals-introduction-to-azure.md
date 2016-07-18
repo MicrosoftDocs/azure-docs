@@ -437,7 +437,7 @@ No matter what it's doing, code frequently needs to interact with other code.  I
 
 Queuing is a simple idea: One application places a message in a queue, and that message is eventually read by another application. If your application needs just this straightforward service, Azure Queues might be the best choice.
 
-Because of the way the Azure grew over time, Azure Storage Queues and Service Bus Queues provide similar queuing services. The reasons why you would want to use one over the other are covered in the fairly technical paper [<LINK>](http://msdn.microsoft.com/library/azure/hh767287.aspx "Azure Queues and Service Bus Queues - Compared and Contrasted").  In many scenarios, either will work.
+Because of the way the Azure grew over time, Azure Storage Queues and Service Bus Queues provide similar queuing services. The reasons why you would want to use one over the other are covered in the fairly technical paper [Azure Queues and Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/azure/hh767287.aspx). In many scenarios, either will work.
 
 **Queue Scenarios**
 
