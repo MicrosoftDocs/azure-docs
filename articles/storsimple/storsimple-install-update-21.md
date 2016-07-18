@@ -82,14 +82,14 @@ The hotfix method involves the following three steps:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1.      | KB3179904 (2.1) or KB3179954 (2.2) | Software update &#42;          |  Regular     | ~ 45 mins |
+| 1.      | KB3179954 | Software update &#42;  |  Regular     | ~ 45 mins |
 | 2.      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
 | 3.      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
 
 
- &#42;  *Note, software update consists of two binary files: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` and `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. The device software update `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` must be installed before the Cis and Mds agent `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. You must also restart the active controller via the `Restart-HcsController` cmdlet after you apply the Cis and MDS agent update (and before applying the remaining updates).* 
+ &#42;  *Note, software update consists of two binary files: device software update prefaced with `all-hcsmdssoftwareupdate` and the Cis and Mds agent prefaced with `all-cismdsagentupdatebundle`. The device software update must be installed before the Cis and Mds agent. You must also restart the active controller via the `Restart-HcsController` cmdlet after you apply the Cis and MDS agent update (and before applying the remaining updates).* 
 
-**If your device is running Update 2.1**, you must download and install only the KB3179904 Software update. Only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update. Failure to do so will result in an error. 
+**If your device is running Update 2.1**, you must download and install the KB3179904 Software update instead of KB179954. Only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update. Failure to do so will result in an error. 
 
 
 #### Download updates for a device running pre-Update 2 software
