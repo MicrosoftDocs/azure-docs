@@ -87,7 +87,7 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 - PolyBase cannot authenticate by using Azure Active Directory authentication.
 - SQL Server Management Studio is not supported for SQL Data Warehouse. Use SQL Server Data Tools.
 - Some tools like BI and Excel are not supported.
-- Multi-factor (MFA) including Two-factor Authentication, or other forms of interactive authentication are not supported.
+- Multi-factor Authenticaion (MFA/2FA) or other forms of interactive authentication are not supported.
 - Azure Active Directory authentication is supported for SQL Database by the Azure Portal **Import Database** and **Export Database** blades. Import and export using Azure Active Directory authentication is also supported from the PowerShell command.
 
 
