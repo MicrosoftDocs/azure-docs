@@ -31,7 +31,8 @@ In this article, we recommend a set of practices to run Linux virtual machines (
 
 A multi-datacenter architecture can provide higher availability than deploying to a single datacenter. If a regional outage affects the primary datacenter, you can use [Traffic Manager][traffic-manager] to fail over to the secondary datacenter. This architecture can also help if an individual subsystem of the application fails.
 
-There are several general approaches to achieving high availability across data centers:     
+There are several general approaches to achieving high availability across data centers:   
+  
 - Active/passive with hot standby. Traffic goes to one datacenter, while the other waits on standby. VMs in the secondary datacenter are allocated and running at all times.
 
 - Active/passive with cold standby. The same, but VMs in the secondary datacenter are not allocated until needed for failover. This approach costs less to run, but will generally have longer down time during a failure.
