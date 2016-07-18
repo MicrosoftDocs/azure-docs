@@ -52,7 +52,7 @@ Whenever you sign in as a service principal, you need to provide the tenant id o
 
         $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 
-Now, proceed to a section below for either [password](#create-service-principal-with-password) or [certificate](create-service-principal-with-certificate) authentication.
+Now, proceed to a section below for either [password](#create-service-principal-with-password) or [certificate](#create-service-principal-with-certificate) authentication.
 
 ## Create service principal with password
 
@@ -187,11 +187,11 @@ You are now authenticated as the service principal for the Active Directory appl
 
 If you need to retrieve the application id later, use:
 
-        (Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example").ApplicationId
+    (Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example").ApplicationId
         
 If you need to retrieve the certificate thumbprint later, use:
 
-        (Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp).Thumbprint
+    (Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp).Thumbprint
 
 If you need to retrieve the tenant id later, see [Get tenant ID](#get-tenant-id).
 
