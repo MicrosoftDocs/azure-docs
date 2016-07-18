@@ -63,6 +63,7 @@ To configure the integration of YouEarnedIt into Azure AD, you need to add YouEa
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
 	![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
@@ -80,8 +81,10 @@ To configure the integration of YouEarnedIt into Azure AD, you need to add YouEa
 6. In the search box, type **YouEarnedIt**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_01.png)
+
 7. In the results pane, select **YouEarnedIt**, and then click **Complete** to add the application.
 
+	![Creating an Azure AD test user](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_06.png)
 
 
 ##  Configuring and testing Azure AD single sign-on
@@ -118,7 +121,10 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your YouEarnedIt application using the following pattern: For sandbox environment the URL pattern will be **https://\<company name\>.sandbox.youearnedit.com/users/sign_in** and for production environment the URL pattern will be **https://\<company name\>.youearnedit.com/users/sign_in**
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your YouEarnedIt application using the following pattern: 
+
+	- Sandbox environment: `https://<company name>.sandbox.youearnedit.com/users/sign_in`
+	- Production environment: `https://<company name>.youearnedit.com/users/sign_in`
 	
 	b. click **Next**
  
