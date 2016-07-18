@@ -88,13 +88,17 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 The following operating systems are supported:
 
-- Windows 7 (64-bit version only)
+- Windows 7 (32-bit and 64-bit)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (64-bit only)
 
-- Windows 8 (64-bit version only)
+- Windows 8 (32-bit and 64-bit)
 
-- Windows Server 2012
+- Windows 8.1 (32-bit and 64-bit)
+
+- Windows Server 2012 (64-bit only)
+
+- Windows Server 2012 R2 (64-bit only)
 
 - Windows 10
 
