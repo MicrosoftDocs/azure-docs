@@ -56,23 +56,34 @@ At this point, your Logic app has been configured with a trigger that will begin
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-Now that you have added a trigger, follow these steps to add an action that will write the contents of the tweets found by the trigger into a file stored in Dropbox.  
+Now that you have added a trigger, follow these steps to add an action that will post a new tweet with the contents of the tweets found by the trigger. For the purposes of this walk-through only tweets from users with more than 50 followers we be posted.   
 
 1. Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
 ![](./media/connectors-create-api-twitter/trigger-3.png)  
 - Select **Add an action** link. This opens the search box where you can search for any action you would like to take.  
-![](./media/connectors-create-api-twitter/trigger-4.png)  
-- Enter *drop* to search for action related to Dropbox.
-- Select **Dropbox - Update file**  as the action to take when #Seattle is found in a new tweet. The update file control opens. **Note**: you will be prompted to authorize your Logic app to access your Dropbox account if you have not done so previously.    
-![](./media/connectors-create-api-twitter/trigger-5.png)  
-- Select **...** (located at the right side of the **File** control) and browse to the file you would like to update.  
-- Select the file you would like to update    
-![](./media/connectors-create-api-twitter/trigger-6.png)   
-- Select the **File content control**. Here, you can use any of the various pieces of data that are associated with in tweets found with the #Seattle value.  
-- Select the **Tweet text** option. This will insert the tweet text into the **File content** control.  
-![](./media/connectors-create-api-twitter/trigger-7.png)  
--  The control is updated, indicating that the *tweet text* will be used to update content of the file in Dropbox.    
-![](./media/connectors-create-api-twitter/trigger-8.png)  
+![](../../includes/media/connectors-create-api-twitter/condition-1.png)   
+- ddfd  
+![](../../includes/media/connectors-create-api-twitter/condition-2.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/condition-3.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/condition-4.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/condition-5.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/condition-6.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/condition-7.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/condition-9.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/action-2.png)   
+- dfdf  
+![](../../includes/media/connectors-create-api-twitter/action-3.png)   
 - Save your work and send a tweet with the #Seattle hashtag to activate your workflow.  
 
 ## Technical Details
@@ -88,7 +99,7 @@ The Twitter connector has the following trigger(s):
 |[When a new tweet is posted](connectors-create-api-twitter.md#when-a-new-tweet-is-posted)|This operation triggers a flow when a new tweet that matches a given search query is posted.|
 
 
-## Twitter  actions
+## Twitter actions
 
 The Twitter connector has the following actions:
 
