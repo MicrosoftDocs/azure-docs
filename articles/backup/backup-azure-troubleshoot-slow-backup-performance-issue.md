@@ -31,9 +31,9 @@ It is also strongly recommended that you review the Azure Backup service- FAQ to
 
 ## Troubleshooting steps
 
-### Cause 1 The performance bottlenecks in the machine that running the Backup agent
+## Cause 1 The performance bottlenecks in the machine that running the Backup agent
 
-## How to determine and the resolution
+### How to determine and the resolution
 
 Network speed between the server and Azure storage affect overall backup time. The following table details optimal data transfer time that's based on the network speed and 10% overhead. However, Azure backup won't consume 100% of the network bandwidth. Therefore, it takes longer data transfer time than the following details.
 
@@ -104,38 +104,38 @@ This allows us to take a deeper look into the logs for the backup job.  In order
 
 3.	This will create a progress.txt file in that same directory.  This can be opened up to view the backup jobs as they have been run.  You can tell a backup job start with “Prebackup started” and a finish with “UnInitialize Storage finished”.  In between, you should see either a line with “Succeeded” or “Failed: Hr: =”.  Since we are focusing on slow backups, this assumes they are working and thus we see it succeeded and you would see something similar to this:
 
-  NOTE: I have removed the time/date and some other info to focus on these lines.
+    NOTE: I have removed the time/date and some other info to focus on these lines.
 
-  ```
-  06/07	01:23:25.640	71	backupasync.cpp(1279)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Prebackup started.
+    ```
+    06/07	01:23:25.640	71	backupasync.cpp(1279)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Prebackup started.
 
-  06/07	01:23:42.623	71	backupasync.cpp(1281)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Prebackup finished.
+    06/07	01:23:42.623	71	backupasync.cpp(1281)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Prebackup finished.
 
-  06/07	01:23:42.623	71	backupasync.cpp(1284)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Start: Adjusting Job start time from snapshot time
+    06/07	01:23:42.623	71	backupasync.cpp(1284)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Start: Adjusting Job start time from snapshot time
 
-  06/07	01:23:42.623	71	backupasync.cpp(1287)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: End: Adjusting Job start time from snapshot time
+    06/07	01:23:42.623	71	backupasync.cpp(1287)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: End: Adjusting Job start time from snapshot time
 
-  06/07	01:23:42.623	71	backupasync.cpp(1292)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Initialize Storage started.
+    06/07	01:23:42.623	71	backupasync.cpp(1292)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Initialize Storage started.
 
-  06/07	01:25:28.345	71	backupasync.cpp(1295)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Initialize Storage finished.
+    06/07	01:25:28.345	71	backupasync.cpp(1295)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Initialize Storage finished.
 
-  06/07	01:25:28.345	71	backupasync.cpp(1299)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Data transfer started.
+    06/07	01:25:28.345	71	backupasync.cpp(1299)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Data transfer started.
 
-  06/07	10:28:42.779	71	backupasync.cpp(1302)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Data transfer finished
+    06/07	10:28:42.779	71	backupasync.cpp(1302)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Data transfer finished
 
-  06/07	10:28:42.779	71	backupasync.cpp(1326)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Integrity Check Storage Initialize started.
+    06/07	10:28:42.779	71	backupasync.cpp(1326)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Integrity Check Storage Initialize started.
 
-  06/07	10:28:42.779	71	backupasync.cpp(1329)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Integrity Check Storage Initialize finished.
+    06/07	10:28:42.779	71	backupasync.cpp(1329)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Integrity Check Storage Initialize finished.
 
-  06/07	10:28:42.779	71	backupasync.cpp(1332)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Integrity Check started.
+    06/07	10:28:42.779	71	backupasync.cpp(1332)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Integrity Check started.
 
-  06/07	14:56:52.053	71	backupasync.cpp(1334)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Integrity Check finsihed.
+    06/07	14:56:52.053	71	backupasync.cpp(1334)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Integrity Check finsihed.
 
-  06/07	14:56:52.053	71	backupasync.cpp(1338)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Succeeded
+    06/07	14:56:52.053	71	backupasync.cpp(1338)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: Succeeded
 
-  06/07	14:56:52.053	71	backupasync.cpp(1345)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: UnInitialize Storage started.
+    06/07	14:56:52.053	71	backupasync.cpp(1345)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: UnInitialize Storage started.
 
-  06/07	14:59:26.969	71	backupasync.cpp(1347)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: UnInitialize Storage finsihed.
+    06/07	14:59:26.969	71	backupasync.cpp(1347)	[000000001A12E3F0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Backup Progress: UnInitialize Storage finsihed.
   ```
 4.	From here, we know the taskID of the job was F3E32129-DC79-4A28-9ACC-3F30CB5810B6.  This tells us that all parts of this job will have that task ID in them.  We can then do another search at the command prompt to pull out all of the data for this job by searching on just the first string in that taskID:
 
