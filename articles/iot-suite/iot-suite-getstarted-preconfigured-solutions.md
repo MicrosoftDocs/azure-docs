@@ -191,6 +191,16 @@ There are no rules for the new device you just added. In this section you'll add
 
 > [AZURE.NOTE] It is possible to define actions that can send an email message or SMS in response to a rule or integrate with a line-of-business system through a [Logic App][lnk-logic-apps]. For more information, see the [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapptutorial].
 
+## Other features
+
+Using the solution portal you can search for devices with specific characteristics such as a model number:
+
+![Search for a device][img-search]
+
+You can disable a device, and after it is disabled you can remove it:
+
+![Disable and remove a device][img-disable]
+
 ## Behind the scenes
 
 When you deploy a preconfigured solution, the deployment process creates multiple resources in the Azure subscription you selected. You can view these resources in the Azure [portal][lnk-portal]. The deployment process creates a **resource group** with a name based on the name you chose for your preconfigured solution:
@@ -237,6 +247,8 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
 [img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
 [img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
+[img-search]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_07.png
+[img-disable]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_08.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
