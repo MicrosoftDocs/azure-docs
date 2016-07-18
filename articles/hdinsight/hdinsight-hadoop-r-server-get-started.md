@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/18/2016"
    ms.author="jeffstok"
 />
 
@@ -82,21 +82,21 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 	- Generate a public/private key pair from the command prompt on your laptop:
 	  
-			````ssh-keygen -t rsa -b 2048 –f <private-key-filename>````
+		ssh-keygen -t rsa -b 2048 –f <private-key-filename>
 
     - This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:
     
-	![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)
-
+	![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
+  
 	- Change permissions on the private keyfile on your laptop
     
-			````chmod 600 <private-key-filename>````
+			chmod 600 <private-key-filename>
 
 	- Use the private key file with SSH for remote login, e.g.
 	
-			````ssh –i <private-key-filename> remoteuser@<hostname public ip>````
+			ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-	  Or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the Creating a Compute Context for Spark section of the online RevoScaleR Hadoop Spark Getting Started guide.)
+	  or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/en-us/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/en-us/microsoft-r/scaler-spark-getting-started).)
 
 7. Select **Data Source** to select a data source for the cluster. Either select an existing storage account by selecting __Select storage account__ and then selecting the account, or create a new account using the __New__ link in the __Select storage account__ section.
 
@@ -119,10 +119,13 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 	Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include: 
 
 	•	The performance of distributed R Server analyses on Spark is proportional to the number of worker nodes when the data is large.  
-	•	The performance of R Server analyses is linear in the size of data being analyzed.
-	•	For small to modest data, performance will be best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best see  Compute context options for R Server on HDInsight
-	•	If you log into the edge node and run your R script there then all but the ScaleR rx-functions will execute **locally** on the edge node so the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.  
 
+    •	The performance of R Server analyses is linear in the size of data being analyzed. For example:
+  
+        •	For small to modest data, performance will be best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best see  Compute context options for R Server on HDInsight.  
+
+	    •	If you log into the edge node and run your R script there then all but the ScaleR rx-functions will execute **locally** on the edge node so the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.      
+    
     ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
     Use the **Select** button to save the node pricing configuration.
@@ -200,27 +203,31 @@ Once connected, you will arrive at a prompt similar to the following.
 
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
 
-Per the section above regarding use of public/private key pairs to access the cluster, it is possible to setup access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the Creating a Compute Context for Spark section of the online RevoScaleR Hadoop Spark Getting Started guide.)  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
+Per the section above regarding use of public/private key pairs to access the cluster, it is possible to setup access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/en-us/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/en-us/microsoft-r/scaler-spark-getting-started)).  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
 
     
-        mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
-        mySshUsername  <- 'remoteuser'# HDI SSH username
-        mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
-    
-        myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-        myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
-    
-        mySparkCluster <- RxSpark(
-          hdfsShareDir = myhdfsShareDir,
-          shareDir = myShareDir,
-          sshUsername  = mySshUsername,
-          sshHostname  = mySshHostname,
-          sshSwitches  = mySshSwitches,
-          sshProfileScript = '/etc/profile',
-          nameNode = myNameNode,
-          port = myPort,
-          consoleOutput= TRUE
-        )
+    myNameNode <- "default"
+    myPort <- 0 
+ 
+    mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshUsername  <- 'remoteuser'# HDI SSH username
+    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+ 
+    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+ 
+    mySparkCluster <- RxSpark(
+      hdfsShareDir = myhdfsShareDir,
+      shareDir     = myShareDir,
+      sshUsername  = mySshUsername,
+      sshHostname  = mySshHostname,
+      sshSwitches  = mySshSwitches,
+      sshProfileScript = '/etc/profile',
+      nameNode     = myNameNode,
+      port         = myPort,
+      consoleOutput= TRUE
+    )
+
     
  
 ## Use a compute context
