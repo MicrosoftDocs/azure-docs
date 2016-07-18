@@ -206,3 +206,4 @@ You can view the details of the **Test-ResourceSchedule** runbook job in the Azu
 -  To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
 -  For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 -  To learn more about runbook logging and output, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+-  To learn more about an Azure Run As account and how you authenticate your runbooks using it, see [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
