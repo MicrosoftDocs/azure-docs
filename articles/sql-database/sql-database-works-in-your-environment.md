@@ -27,7 +27,7 @@ The last thing you want to do is learn something new just to connect with a data
 
 When choosing a database, you shouldn't have to move to a new platform, or learn a new language. SQL Database has code samples to help you get started, wherever you are.  
 
-[Learn more about SQL Database Development](sql-database-develop-overview.md)
+[Learn more about SQL Database Development](sql-database-develop-overview.md) 
 
 ## The right tools for the job
 
