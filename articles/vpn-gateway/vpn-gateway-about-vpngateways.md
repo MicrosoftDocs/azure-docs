@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="07/18/2016"
    ms.author="cherylmc" />
 
 # About VPN Gateway
 
-VPN Gateway is used to send network traffic between virtual networks and on-premises locations. It is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). The sections below discuss the items that relate to VPN Gateway.
+VPN Gateway is used to send network traffic between virtual networks and on-premises locations. It is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). For connection diagrams, see [VPN Gateway connection topologies](vpn-gateway-topology.md). The sections below discuss the items that relate to VPN Gateway.
 
 The instructions that you use to create your VPN gateway will depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you'll use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway. You can't create a Resource Manager VPN gateway for a classic deployment model virtual network. 
 
