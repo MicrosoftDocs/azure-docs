@@ -20,12 +20,7 @@
 
 This topic discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a periodic basis and, in an emergency, could be rolled over immediately. All applications that use Azure AD should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, how to assess the impact of the rollover to your application and how to update your application to handle key rollover if necessary.
 
-> [AZURE.IMPORTANT] The next signing key rollover is scheduled for August 15th, 2016 and will **not** affect:
-> - Applications added from the Azure AD Application Gallery (including Custom)
-> - On-premises applications published via application proxy
-> - Applications in Azure AD B2C tenants
-> - Applications integrating with ACS
-> - Applications integrating with ADFS 
+> [AZURE.IMPORTANT] The next signing key rollover is scheduled for August 15th, 2016 and will **not** affect applications added from the Azure AD Application Gallery (including Custom), on-premises applications published via application proxy, applications in Azure AD B2C tenants, applications integrating with ACS or ADFS.
 
 ## Overview of signing keys in Azure AD
 
@@ -64,7 +59,7 @@ Applications that are only accessing resources (i.e Microsoft Graph, KeyVault, O
 
 Web applications and web APIs that are using the app-only flow (client credentials / client certificate), fall into this category and are thus not impacted by the rollover.
 
-### <a name="appservices"></a>Web applications / APIs protecting resources using Azure App Services' Easy Aut
+### <a name="appservices"></a>Web applications / APIs protecting resources using Azure App Services' Easy Auth
 
 Azure App Services' EasyAuth functionality already has the necessary logic to handle key rollover automatically.
 
