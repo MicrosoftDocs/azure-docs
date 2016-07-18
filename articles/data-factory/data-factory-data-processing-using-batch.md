@@ -1,5 +1,5 @@
 <properties
-    pageTitle="HPC and data orchestration using Azure Batch and Data Factory"
+    pageTitle="Large-scale data processing using Data Factory and Batch | Microsoft Azure"
     description="Describes how to process huge amounts of data in an Azure Data Factory pipeline by using parallel processing capability of Azure Batch."
     services="data-factory"
     documentationCenter=""
@@ -13,17 +13,33 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/17/2016"
+    ms.date="07/18/2016"
     ms.author="spelluru"/>
-# HPC and data orchestration using Azure Batch and Data Factory
 
-This is an example solution that moves and processes large-scale datasets automatically. The solution is end-to-end and includes the architecture and code. It is based on two Azure services. Azure Batch provides HPC as a service to configure as many computers as you need, and to schedule and coordinate the work. Azure Data Factory complements Batch by simplifying the orchestration of data movement. You can specify regular movements of data for ETL, process the data, and then move the results to permanent storage.
+# Automate processing of large-scale datasets using Data Factory and Batch
+This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution using Azure Data Factory and Azure Batch. This article is longer than our typical article because it contains walkthrough of an entire sample solution. 
 
+## Why Azure Batch?
+Azure Batch provides high performance computing (HPC) as a service to configure as many computers as you need, and to schedule and coordinate the work. When processing large datasets, you can either configure the number of virtual machines (VM) you want to use for processing the data (or) configure the Batch pool to automatically scale out or scale in by adding or removing VMs to/from the pool based on the workload. See the following articles if you are not familiar with Azure Batch. 
+
+- [Basics of Azure Batch](batch-technical-overview.md)
+- [Batch feature overview](batch-api-basics.md)
+
+To learn more about Azure Batch, see the [Learning path for Azure Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+
+## Why Azure Data Factory
+Azure Data Factory provides data integration as a service in the cloud. You can create data-driven workflows to move and process data and schedule the workflows to run periodically (hourly, daily, weekly etc...). See the following articles if you are not familiar with the Data Factory service. 
+
+- [Introduction of Azure Data Factory](data-factory-introduction.md)
+- [Build your first data pipeline](data-factory-build-your-first-pipeline.md)   
+
+To learn more about Azure Data Factory, see the [Learning path for Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+
+## Data Factory and Batch together
+Data Factory includes built-in activities such as Copy Activity to copy/move data from a source data store to a destination data store and Hive Activity to process data using Hadoop clusters (HDInsight) on Azure. It also allows you to create custom .NET activities to move or process data in your own manner and then run these activities on a HDInsight cluster or on Azure Bach pool of VMs. When you use Azure Batch, you can configure the pool to auto-scale (add or remove VMs based on the workload) based on a formula you provide.     
+
+## Architecture of sample solution
 The architecture is relevant to many scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis. 
-
-See the [Azure Batch](../batch/batch-api-basics.md) and [Data Factory](data-factory-introduction.md) documentation if you are not familiar with these services before following the example solution.
-
-## Architecture diagram
 
 The diagram illustrates 1) how Data Factory orchestrates data movement and processing and 2) how Azure Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 in. or A3 size): [HPC and data orchestration using Azure Batch and Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
 
@@ -45,11 +61,10 @@ These are the basic steps of the process. The solution includes code and explana
 
 7.  After all results are obtained, Data Factory moves the results to a third location, either for distribution via an app, or for further processing by other tools.
 
-## Architecture solution
+## Implementation of sample solution
+The sample solution is intentionally simple and is to show you how to use Data Factory and Batch together to process a dataset. The solution simply counts the number of occurrences of a search term (“Microsoft”) in input files organized in a time series. It outputs the count to output files.
 
-The solution counts the number of occurrences of a search term (“Microsoft”) in input files organized in a time series. It outputs the count to output files.
-
-**Time**: If you are familiar with Azure, Data Factory, and Batch, and have completed the prerequisites, we estimate this solution will take 1-2 hours to complete.
+**Time**: If you are familiar with basics of Azure, Data Factory, and Batch, and have completed the prerequisites listed below, we estimate this solution will take 1-2 hours to complete.
 
 ## Prerequisites
 
