@@ -76,6 +76,11 @@ The hotfix method involves the following three steps:
 - Install and verify the regular mode hotfixes.
 - Install and verify the maintenance mode hotfix (only when updating from pre-Update 2 software).
 
+#### Download updates for a device running Update 2.1 software
+
+**If your device is running Update 2.1**, you must download only the device software update KB3179904. Only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with `all-cismdsagentupdatebundle`. Failure to do so will result in an error. 
+
+
 #### Download updates for a device running Update 2 or 2.1 software
 
 **If your device is running Update 2**, you must download and install the following hotfixes in the prescribed order:
@@ -88,9 +93,6 @@ The hotfix method involves the following three steps:
 
 
  &#42;  *Note, software update consists of two binary files: device software update prefaced with `all-hcsmdssoftwareupdate` and the Cis and Mds agent prefaced with `all-cismdsagentupdatebundle`. The device software update must be installed before the Cis and Mds agent. You must also restart the active controller via the `Restart-HcsController` cmdlet after you apply the Cis and MDS agent update (and before applying the remaining updates).* 
-
-**If your device is running Update 2.1**, you must download and install the KB3179904 Software update instead of KB179954. Only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update. Failure to do so will result in an error. 
-
 
 #### Download updates for a device running pre-Update 2 software
 
