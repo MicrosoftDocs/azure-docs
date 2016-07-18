@@ -87,7 +87,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
     -    This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:  
     
 	![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
-  
+    
 	-    Change permissions on the private keyfile on your laptop
     
 			chmod 600 <private-key-filename>
