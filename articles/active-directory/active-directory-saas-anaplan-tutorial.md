@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	b. Click **Next**
 
 
-> [AZURE.NOTE] The Sign On URL value in this tutorial is just a placeholder. To get the actual value for your environment, contact Anaplan.
+> [AZURE.NOTE] The Sign On URL value in this tutorial is just a placeholder. To get the actual value for your environment, contact Anaplan support.
 
 
 4. On the **Configure single sign-on at Anaplan** page, perform the following steps and click **Next**:
