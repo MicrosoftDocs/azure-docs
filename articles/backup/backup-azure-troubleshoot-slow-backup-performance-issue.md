@@ -142,6 +142,7 @@ This allows us to take a deeper look into the logs for the backup job.  In order
       **find /i “F3E32129” *.errlog > F3E32129.txt**
 
       This creates a file with the job pulled out in its entirety.  For this job, there were two datasources (or volumes) being backed up to Azure.  So, I will look for the job to finish with the data transfer which is shown with FileProvider::EndData.  Look for this entry after the data transfer started phase to see when the data move finished.  If it is long before the data transfer finished phase, then you can look to see if it is still creating and uploading the catalog.
+
       ```
       06/07	07:27:46.139	32	fileprovider.cpp(1479)	[000000001A1DACF0]	F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	==>FileProvider::EndData
 
@@ -149,7 +150,9 @@ This allows us to take a deeper look into the logs for the backup job.  In order
       ```
       Above, you can see we call and return the EndData at 07:27, yet we can see that the data transfer doesn’t finish until 10:28.  So, searching the time in-between, we can see there are many instances of the catalog uploading 500 entries at a time.  These then continue until finished at which time the data transfer phase is completed.
 
-      06/07	10:27:40.993	70	itemcatalogupdater.cpp(652)		F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Uploading 500 RO entries
+      ```
+        06/07	10:27:40.993	70	itemcatalogupdater.cpp(652)		F3E32129-DC79-4A28-9ACC-3F30CB5810B6	NORMAL	Uploading 500 RO entries
+     ```  
 
 5.	With this, even if a job looks to be “hung”, you can look at the logs and if you see that it is still doing catalog tasks, then likely you will see these jobs continuing after the data transfer is done.  
 One other entry to look at in the errlog files is the Last completed state for Ds Id.  This will give you an indicator of the last state which completed for each datasource.  While it is listed as a WARNING, it is actually more informational and should only be used as such.
