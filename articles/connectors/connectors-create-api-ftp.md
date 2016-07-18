@@ -59,7 +59,7 @@ At this point, your Logic app has been configured with a trigger that will begin
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-Now that you have added a trigger, follow these steps to add an action that will write the contents of the tweets found by the trigger into a file stored in Dropbox.  
+Now that you have added a trigger, follow these steps to add an action that will get the contents of the new or modified file found by the trigger.    
 
 1. Select **+ New step** to add the the action to get the contents of the file on the FTP server  
 - Select the **Add an action** link.  
@@ -69,10 +69,10 @@ Now that you have added a trigger, follow these steps to add an action that will
 ![](./media/connectors-create-api-ftp/ftp-action-2.png)  
 The **Get file content** control opens. **Note**: you will be prompted to authorize your Logic app to access your FTP server account if you have not done so previously.  
 ![](./media/connectors-create-api-ftp/ftp-action-3.png)   
-- Select the **File** control (the white space located below **FILE***). Here, you can use any of the various pieces of data that are associated with in file found on the FTP server.  
+- Select the **File** control (the white space located below **FILE***). Here, you can use any of the various properties from the new or modified file found on the FTP server.  
 - Select the **File content** option.  
 ![](./media/connectors-create-api-ftp/ftp-action-4.png)   
--  The control is updated, indicating that the *file content* of the file on the FTP server is the content the server will be obtained by the **FTP - Get file content** action.    
+-  The control is updated, indicating that the **FTP - Get file content** action will get the *file content* of the new or modified file on the FTP server.      
 ![](./media/connectors-create-api-ftp/ftp-action-5.png)     
 - Save your work then add a file to the FTP folder to test your workflow.    
 
@@ -437,7 +437,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 |401|Unauthorized|
 |403|Forbidden|
 |404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
 
