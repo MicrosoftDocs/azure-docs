@@ -60,25 +60,29 @@ Now that you have added a trigger, follow these steps to add an action that will
 
 1. Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
 ![](../../includes/media/connectors-create-api-twitter/action-1.png)  
-- Select the **Add a condition** link. This opens the search box where you can search for any action you would like to take.  
+- Select the **Add a condition** link. This opens the **Condition** control where you can you can use check conditions such as *is equal to*, *is less than*, *is greater than*, *contains*, etc.  
 ![](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-- ddfd  
+- Select the **Choose a value** control.  
+In this control, you can select one or more of the properties from any previous actions or triggers as the value whose condition will be evaluated to true or false.
+- Select the **...** to expand the list of properties  
 ![](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-- dfdf  
+- Select the **Followers count** property.    
 ![](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-- dfdf  
+- Notice the Followers count property is now in the value control.      
 ![](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-- dfdf  
+- Select **is greater than** from the operators list.    
 ![](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-- dfdf  
+- Enter 50 as the operand for the *is greater than* operator. The condition is now added. Save your work using the **Save** link on the menu above. In the next step, you will add a Twitter  action that will post a tweet  using some of the properties of any tweet that has been posted by a user who has more than 50 followers.       
 ![](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-- dfdf  
+- Select **Add an action**. This opens the search control where you can search for other actions and triggers.     
 ![](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-- dfdf  
+- Enter *twitter* into the search box then select  the **Twitter - Post a tweet** action. This opens the **Post a tweet** control where you will enter all details for the tweet being posted.      
 ![](../../includes/media/connectors-create-api-twitter/condition-8.png)   
-- dfdf  
+- Select the **Tweet text** control. All outputs from previous actions and triggers in the logic app are now visible. You can select any of these and use them as part of the tweet text of the new tweet.     
 ![](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-- dfdf  
+- Select **User name**  
+- Enter *says:* in the tweet text control. Do this just after User name.  
+- Select *Tweet text*.      
 ![](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
 - dfdf  
 ![](../../includes/media/connectors-create-api-twitter/action-2.png)   
