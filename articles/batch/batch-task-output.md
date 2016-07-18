@@ -42,24 +42,6 @@ Storing and retrieving task output presents several challenges:
 
 To address these challenges, the Batch team has defined and implemented a set of naming conventions for persisting Batch job and task data to Azure Storage. We've implemented these conventions in a .NET class library to greatly simplify persisting this data to Azure Storage. In addition, the Azure portal is aware of the conventions so that you can view the job and task output you've stored this way.
 
-**File conventions .NET class library**
-
-The [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) .NET class library assists you in storing task output to Azure Storage using these naming conventions. It enables you to easily list and retrieve the outputs for a given job or task in your client code. The library provides a level of abstraction over managing storage locations and file naming directly.
-
-## Requirement: linked storage account
-
-To store outputs to durable storage using the file conventions library and view them in the Azure portal, you must link an Azure Storage account to your Batch account. If you haven't already, link a Storage account to your Batch account by using the [Azure portal][portal]:
-
-**Batch account** blade > **Settings** > **Storage Account** > **Storage Account** (None) > Select a Storage account in your subscription
-
-For a more detailed walk-through on linking a Storage account, see the [Link a storage account](batch-application-packages.md#link-a-storage-account) section of [Application deployment with Azure Batch application packages](batch-application-packages.md).
-
-## Requirement: name conventions
-
-In order for your task outputs to be viewed in the Azure portal, you must adhere to strict naming conventions for blob storage containers and the files your tasks upload. When you save task output to Azure Storage, the Azure portal is able to discover the files associated with your jobs and tasks only if the files have been named using the conventions described in [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL).
-
-By following the conventions outlined in that document, you can name your task output files in such a way that the portal can discover the files associated with your tasks. The Batch team has provided a .NET class library to act as both an example of how to implement these conventions, as well as a helper library that you can use in your own Batch .NET applications.
-
 ## Using the file conventions library
 
 [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code to persist files, and in client code to list and retrieve them. Your tasks can also implement the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
@@ -69,6 +51,14 @@ The conventions library takes care of ensuring that everything is named correctl
 ### Get the library
 
 You can obtain the library--which contains new classes and extends the [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] classes with new methods--from [NuGet][nuget_package] (NOT FINAL URL). You can add it to your Visual Studio project using the [NuGet Library Package Manager][nuget_manager].
+
+## Requirement: linked storage account
+
+To store outputs to durable storage using the file conventions library and view them in the Azure portal, you must link an Azure Storage account to your Batch account. If you haven't already, link a Storage account to your Batch account by using the [Azure portal][portal]:
+
+**Batch account** blade > **Settings** > **Storage Account** > **Storage Account** (None) > Select a Storage account in your subscription
+
+For a more detailed walk-through on linking a Storage account, see the [Link a storage account](batch-application-packages.md#link-a-storage-account) section of [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
 ## Persist output
 
@@ -87,10 +77,10 @@ CloudJob job = batchClient.JobOperations.CreateJob(
 	"myJob",
 	new PoolInformation { PoolId = "myPool" });
 
-CloudStorageAccount storageAccount = new CloudStorageAccount(myCredentials, true);
+CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials, true);
 
 // Create the blob storage container for the outputs
-await job.PrepareOutputStorageAsync(storageAccount);
+await job.PrepareOutputStorageAsync(linkedStorageAccount);
 ```
 
 ### Store task outputs
@@ -116,6 +106,20 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 The "output kind" parameter categorizes the persisted files. You can specify both [JobOutputKind][net_joboutputkind] and [TaskOutputKind][net_taskoutputkind] types. For job output files, the predefined kinds are "JobOutput" and "JobPreview"; for task output files, "TaskOutput", "TaskPreview", "TaskLog", and "TaskIntermediate". You can also define custom kinds if these are useful in your workflow.
 
 The "TaskOutput" and "TaskLog" types allow you to specify which type of outputs to list for a given task or a job. In other words, when you list the outputs for a job or task, you can filter the list on one of the output types. The output kind also designates where in the Azure portal a particular file will appear: TaskOutput files will appear in "Task output files", and TaskLog files will appear in "Task logs".
+
+### Store job outputs
+
+In addition to storing task outputs, you can store outputs associated with an entire job as opposed to its individual tasks. For example, in the merge task of a movie rendering job, you could persist the fully rendered movie as a job output. When your job completes, your client application can then list and retrieve the outputs for the job, and does not need to know about its tasks.
+
+Store job output by calling the JobOutputStorage.SaveAsync method and specifying the output kind and filename. As with TaskOutputKind, the JobOutputKind also includes both output and preview types, and supports creating custom types.
+
+```
+CloudJob job = await batchClient.JobOperations.GetJobAsync(jobId);
+JobOutputStorage jobOutputStorage = job.OutputStorage(linkedStorageAccount);
+
+jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
+jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
+```
 
 ### Store task logs
 
