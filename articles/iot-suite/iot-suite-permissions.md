@@ -129,7 +129,7 @@ Take a look at the diagram below:
 
 ![][img-flowchart]
 
-> [AZURE.NOTE] If you continue to see the error after validating you are a global administrator on the AAD tenant and a co-administrator on the subscription, have your account administrator remove the user and re-assign necessary permissions in this order: add the user as a global administrator and add user as a co-administrator on the Azure subscription. If issues persist, please contact [Help & Support][lnk-help-support].
+> [AZURE.NOTE] If you continue to see the error after validating you are a global administrator on the AAD tenant and a co-administrator on the subscription, have your account administrator remove the user and re-assign necessary permissions in this order: add the user as a global administrator and then add user as a co-administrator on the Azure subscription. If issues persist, please contact [Help & Support][lnk-help-support].
 
 **Why am I seeing this error when I have an Azure subscription?** *An Azure subscription is required to create pre-configured solutions. You can create a free trial account in just a couple of minutes.*
 
