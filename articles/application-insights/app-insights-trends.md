@@ -35,7 +35,7 @@ You may see a prompt to select a resource. Click **Select a resource**, sign in 
 
 ## Choose a trend analysis
 
-![Menu of common types of trend analysis](./media/app-insights-trends/app-insights-trends-1.png)
+![Menu of common types of trend analysis](./media/app-insights-trends/app-insights-trends-1-750.png)
 
 Get started by choosing from one of five common trend analyses, each analyzing data from the last 24 hours:
 
