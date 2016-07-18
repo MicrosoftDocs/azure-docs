@@ -31,9 +31,9 @@ Site Recovery is an Azure service that contributes to your BCDR strategy by orch
 
 ## Site Recovery in the Azure portal
 
-Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: the Azure Resource Manager (ARM) model and the classic services management model. Azure also has two portals – the [Azure classic portal](https://manage.windowsazure.com/) that supports the classic deployment model, and the [Azure portal](https://portal.azure.com) with support for both deployment models.
+Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: the Azure Resource Manager model and the classic services management model. Azure also has two portals – the [Azure classic portal](https://manage.windowsazure.com/) that supports the classic deployment model, and the [Azure portal](https://portal.azure.com) with support for both deployment models.
 
-Site Recovery is available in both the classic portal and the Azure portal. In the Azure classic portal you can support Site Recovery with the classic services management model. In the Azure portal you can support the classic model or ARM deployments. [Read more](site-recovery-overview.md#site-recovery-in-the-azure-portal) about deploying with the Azure portal.
+Site Recovery is available in both the classic portal and the Azure portal. In the Azure classic portal you can support Site Recovery with the classic services management model. In the Azure portal you can support the classic model or Resource Model deployments. [Read more](site-recovery-overview.md#site-recovery-in-the-azure-portal) about deploying with the Azure portal.
 
 The information in this article applies to both classic and Azure portal deployments. Differences are noted where applicable.
 
@@ -54,14 +54,14 @@ Site Recovery can replicate most apps running on these VMs and physical servers.
 
 There are couple of ways to replicate VMware VMs with Site Recovery.
 
-- **Using the Azure portal**-When you deploy Site Recovery in the Azure portal you can fail over VMs to classic service manager storage or to ARM. Replicating VMware VMs in the Azure portal brings a number of advantages, including the ability to replicate to classic or ARM storage in Azure. [Learn more](site-recovery-vmware-to-azure.md).
-- **Using the classic portal**-You can deploy Site Recovery in the classic portal using an enhanced experience. This should be used for all new deployments in the classic portal. In this deployment you can only fail over VMs to classic storage in Azure and not to ARM storage. [Learn more](site-recovery-vmware-to-azure-classic.md). There is also a [legacy experience](site-recovery-vmware-to-azure-classic-legacy.md) for setting up VMware replication in the classic portal. This shouldn't be used for new deployments.  If you've already deployed using the legacy experience [learn about migrating](site-recovery-vmware-to-azure-classic-legacy.md#migrate-to-the-enhanced-deployment) to the enhanced deployment.
+- **Using the Azure portal**-When you deploy Site Recovery in the Azure portal you can fail over VMs to classic service manager storage or to Resource Manager. Replicating VMware VMs in the Azure portal brings a number of advantages, including the ability to replicate to classic or Resource Manager storage in Azure. [Learn more](site-recovery-vmware-to-azure.md).
+- **Using the classic portal**-You can deploy Site Recovery in the classic portal using an enhanced experience. This should be used for all new deployments in the classic portal. In this deployment you can only fail over VMs to classic storage in Azure and not to Resource Manager storage. [Learn more](site-recovery-vmware-to-azure-classic.md). There is also a [legacy experience](site-recovery-vmware-to-azure-classic-legacy.md) for setting up VMware replication in the classic portal. This shouldn't be used for new deployments.  If you've already deployed using the legacy experience [learn about migrating](site-recovery-vmware-to-azure-classic-legacy.md#migrate-to-the-enhanced-deployment) to the enhanced deployment.
 
 
 
 The architectural requirements for deploying Site Recovery to replicate VMware VMs/physical servers in the Azure portal or the Azure classic portal (enhanced) are similar, with a couple of differences:
 
-- If you deploy in the Azure portal you can replicate to ARM-based storage and use ARM-based networks for connecting the Azure VMs after failover.
+- If you deploy in the Azure portal you can replicate to Resource Manager-based storage and use Resource Manager networks for connecting the Azure VMs after failover.
 - When you deploy in the Azure portal both LRS and GRS storage is supported. In the classic portal GRS is required.
 - The deployment process is simplified and more user-friendly in the Azure portal.
 
@@ -69,8 +69,8 @@ The architectural requirements for deploying Site Recovery to replicate VMware V
 Here's what you'll need:
 
 - **Azure account**: You'll need a Microsoft Azure account.
-- **Azure storage**: You'll need an Azure storage account to store replicated data. You can use a classic account or an ARM storage account. The account can be LRS or GRS when you deploy in the Azure portal. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. 
-- **Azure network**: You'll need an Azure virtual network that Azure VMs will connect to when they're created at failover. In the Azure portal they can be networks created in the classic service manager model or in the ARM model.
+- **Azure storage**: You'll need an Azure storage account to store replicated data. You can use a classic account or a Resource Manager storage account. The account can be LRS or GRS when you deploy in the Azure portal. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. 
+- **Azure network**: You'll need an Azure virtual network that Azure VMs will connect to when they're created at failover. In the Azure portal they can be networks created in the classic service manager model or in the Resource Manager model.
 - **On-premises configuration server**: You'll need an on-premises Windows Server 2012 R2 machine that runs the configuration server and other Site Recovery components. If you're replicating VMware VMs this should be a highly available VMware VM. If you want to replicate physical servers the machine can be physical. These Site Recovery components will be installed on the machine:
 	- **Configuration server**: Coordinates communication between your on-premises environment and Azure, and manages data replication and recovery.
 	- **Process server**: Acts as a replication gateway. It receives replication data from protected source machines, optimizes it with caching, compression, and encryption, and sends the data to Azure storage. It also handles push installation of the Mobility service to protected machines, and performs automatic discovery of VMware VMs. As your deployment grows you can add additional separate dedicated process servers to handle increasing volumes of replication traffic.
@@ -105,18 +105,18 @@ Here's what you'll need:
 
 You can replicate Hyper-V VMs that aren't managed by System Center VMM to Azure with Site Recovery as follows:
 
-- **Using the Azure portal**-When you deploy Site Recovery in the Azure portal you can fail over VMs to classic storage or to ARM. [Learn more](site-recovery-hyper-v-site-to-azure.md).
-- **Using the classic portal**-You can deploy Site Recovery in the classic portal. In this deployment you can only fail over VMs to classic storage in Azure and not to ARM storage. [Learn more](site-recovery-hyper-v-site-to-azure-classic.md).
+- **Using the Azure portal**-When you deploy Site Recovery in the Azure portal you can fail over VMs to classic storage or to Resource Manager. [Learn more](site-recovery-hyper-v-site-to-azure.md).
+- **Using the classic portal**-You can deploy Site Recovery in the classic portal. In this deployment you can only fail over VMs to classic storage in Azure and not to Resource Manager storage. [Learn more](site-recovery-hyper-v-site-to-azure-classic.md).
 
 The architecture for both deployments is similar, except that:
 
-- If you deploy in the Azure portal you can replicate to ARM-based storage and use ARM-based networks for connecting the Azure VMs after failover.
+- If you deploy in the Azure portal you can replicate to Resource Manager storage and use Resource Manager networks for connecting the Azure VMs after failover.
 - The deployment process is simplified and more user-friendly in the Azure portal.
 
 Here's what you'll need:
 
 - **Azure account**: You'll need a Microsoft Azure account.
-- **Azure storage**: You'll need an Azure storage account to store replicated data. In the Azure portal you can use a classic account or an ARM storage account. In the classic portal you can use a classic account only. Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.
+- **Azure storage**: You'll need an Azure storage account to store replicated data. In the Azure portal you can use a classic account or a Resource Manager storage account. In the classic portal you can use a classic account only. Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.
 - **Azure network**: You'll need an Azure network that Azure VMs will connect to when they're created after failover. 
 - **Hyper-v host**: You'll need one or more Windows Server 2012 R2 Hyper-V host server. During Site Recovery deployment you'll install the 
 - **Hyper-V VMs**: You'll need one or more VMs on the Hyper-V host server. Azure Site Recovery Provider and the Azure Recovery Services agent on the Hyper-V host during Site Recovery deployment. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. The agent handles data replication data over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
@@ -135,19 +135,19 @@ Here's what you'll need:
 
 You can replicate Hyper-V VMs in VMM clouds to Azure with Site Recovery as follows:
 
-- **Using the Azure portal**-When you deploy Site Recovery in the Azure portal you can fail over VMs to classic storage or to ARM. [Learn more](site-recovery-vmm-to-azure.md).
-- **Using the classic portal**-You can deploy Site Recovery in the classic portal. In this deployment you can only fail over VMs to classic storage in Azure and not to ARM storage. [Learn more](site-recovery-vmm-to-azure-classic.md).
+- **Using the Azure portal**-When you deploy Site Recovery in the Azure portal you can fail over VMs to classic storage or to Resource Manager. [Learn more](site-recovery-vmm-to-azure.md).
+- **Using the classic portal**-You can deploy Site Recovery in the classic portal. In this deployment you can only fail over VMs to classic storage in Azure and not to Resource Manager storage. [Learn more](site-recovery-vmm-to-azure-classic.md).
 
 The architecture for both deployments is similar, except that:
 
-- If you deploy in the Azure portal you can replicate to ARM-based storage and use ARM-based networks for connecting the Azure VMs after failover.
+- If you deploy in the Azure portal you can replicate to Resource Manager-based storage and use Resource Manager networks for connecting the Azure VMs after failover.
 - The deployment process is simplified and more user-friendly in the Azure portal.
 
 
 Here's what you'll need:
 
 - **Azure account**: You'll need a Microsoft Azure account.
-- **Azure storage**: You'll need an Azure storage account to store replicated data. In the Azure portal you can use a classic account or an ARM storage account. In the classic portal you can use a classic account only. Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.
+- **Azure storage**: You'll need an Azure storage account to store replicated data. In the Azure portal you can use a classic account or a Resource Manager storage account. In the classic portal you can use a classic account only. Replicated data is stored in Azure storage and Azure VMs are created when failover occurs.
 - **Azure network**: You'll need to set up network mapping so that Azure VMs are connected to appropriate networks when they're created after failover. 
 - **VMM server**: You'll need one or more on-premises VMM servers running on System Center 2012 R2 and set up with one or more private clouds. If you're deploying in the Azure portal you'll need logical and VM networks set up so you can configure network mapping. In the classic portal this is optional.  A VM network should be linked to a logical network that's associated with the cloud.
 - **Hyper-v host**: You'll need one or more Windows Server 2012 R2 Hyper-V host servers in the VMM cloud.
