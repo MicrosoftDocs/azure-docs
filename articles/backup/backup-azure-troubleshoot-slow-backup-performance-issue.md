@@ -31,11 +31,9 @@ It is also strongly recommended that you review the Azure Backup service- FAQ to
 
 ## Troubleshooting steps
 
-### Cause 1
+### Cause 1 The performance bottlenecks in the machine that running the Backup agent
 
-The performance bottlenecks in the machine that running the Backup agent.
-
-### How to determine and the resolution
+## How to determine and the resolution
 
 Network speed between the server and Azure storage affect overall backup time. The following table details optimal data transfer time that's based on the network speed and 10% overhead. However, Azure backup won't consume 100% of the network bandwidth. Therefore, it takes longer data transfer time than the following details.
 
@@ -63,11 +61,9 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 Note If the infrastructure is a possible culprit, it's frequently to make sure that any drives being protected are defragged on a semiregular basis.
 
-## Cause 2
+## Cause 2 Other Process is interfering with the Azure Backup process
 
-Other Process is interfering with the Azure Backup process.
-
-## How to determine and the resolution
+### How to determine and the resolution
 
 We have seen several instances where other processes within the Windows system that can have negative effects on the performance of Azure Backup Agent process.  We have seen where people are using both Azure Backup agent as well as another software to back up some data.  While it doesn’t always happen, we have seen where the multiple locks on files cause contention which either causes the backup to fail or makes the job take longer than expected.
 
@@ -80,20 +76,17 @@ For antivirus, we recommend to exclude following files/locations:
 - Exclude C:\Program Files\Microsoft Azure Recovery Services Agent\ folders.
 - Exclude Scratch location (if not using standard location above).
 
-## Cause 3
+## Cause 3 The Backup agent is running in a Virtual Machine (VM)
 
-The Backup agent is running in a Virtual Machine (VM)
-
-## How to determine and the resolution
+### How to determine and the resolution
 
 If you are running the Backup Agent in a VM, the performance will be slower than running the Backup agent in a physical machine. This is expected.  
 
 In some scenarios, the performance will get better by switching the data drives being backed up to premium storage.  However, the ideal solution is to migrate backup workload to our VM backup solution.  We are working on a feature to enable item level recovery from VM backup so you can restore individual files/folders like Azure Backup agent but with much better backup performance.  I will update this article when it is available.
 
-## Cause 4
-Backing up a Large number of files
+## Cause 4 Backing up a Large number of files
 
-## How to determine and the resolution
+### How to determine and the resolution
 
 This is one of the common scenarios.  A larger amount of data being moved anywhere will take a longer time.  What may not be so obvious is that backup time is not just related to the size of data but also large number of files or folders cause may cause longer backup time.
 
@@ -107,7 +100,7 @@ This allows us to take a deeper look into the logs for the backup job.  In order
     C:\Program Files\Microsoft Azure Recovery Services Agent\Temp
 2. From here, you should see the errlog files created during different actions of MAB Agent.  At the command prompt, type:
 
-  **find /i “backup progress” *.errlog > progress.txt**
+    **find /i “backup progress” *.errlog > progress.txt**
 
 3.	This will create a progress.txt file in that same directory.  This can be opened up to view the backup jobs as they have been run.  You can tell a backup job start with “Prebackup started” and a finish with “UnInitialize Storage finished”.  In between, you should see either a line with “Succeeded” or “Failed: Hr: =”.  Since we are focusing on slow backups, this assumes they are working and thus we see it succeeded and you would see something similar to this:
 
@@ -146,7 +139,7 @@ This allows us to take a deeper look into the logs for the backup job.  In order
   ```
 4.	From here, we know the taskID of the job was F3E32129-DC79-4A28-9ACC-3F30CB5810B6.  This tells us that all parts of this job will have that task ID in them.  We can then do another search at the command prompt to pull out all of the data for this job by searching on just the first string in that taskID:
 
-    **find /i “F3E32129” *.errlog > F3E32129.txt**
+      **find /i “F3E32129” *.errlog > F3E32129.txt**
 
       This creates a file with the job pulled out in its entirety.  For this job, there were two datasources (or volumes) being backed up to Azure.  So, I will look for the job to finish with the data transfer which is shown with FileProvider::EndData.  Look for this entry after the data transfer started phase to see when the data move finished.  If it is long before the data transfer finished phase, then you can look to see if it is still creating and uploading the catalog.
       ```
