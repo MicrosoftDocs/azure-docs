@@ -47,7 +47,7 @@ Here's what Site Recovery can do for your business:
 
 ## What can I replicate?
 
-Here's a summary of what Site Recovery can replicate.
+Here's a summary of what you can replicate using Site Recovery.
 
 ![On-premises to on-premises](./media/site-recovery-overview/asr-overview-graphic.png)
 
