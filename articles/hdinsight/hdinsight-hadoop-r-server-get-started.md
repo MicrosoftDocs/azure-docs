@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="07/19/2016"
    ms.author="jeffstok"
 />
 
@@ -80,19 +80,19 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 	To create and use a public/private key pair select ‘PUBLIC KEY’ and proceed as follows.  These instructions assume that you have Cygwin with ssh-keygen or equivalent installed.
 
-	- Generate a public/private key pair from the command prompt on your laptop:
+	-    Generate a public/private key pair from the command prompt on your laptop:
 	  
 		    ssh-keygen -t rsa -b 2048 –f <private-key-filename>
 
-    - This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:
+    -    This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:
     
 	![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
   
-	- Change permissions on the private keyfile on your laptop
+	-    Change permissions on the private keyfile on your laptop
     
 			chmod 600 <private-key-filename>
 
-	- Use the private key file with SSH for remote login, e.g.
+	-    Use the private key file with SSH for remote login, e.g.
 	
 			ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
