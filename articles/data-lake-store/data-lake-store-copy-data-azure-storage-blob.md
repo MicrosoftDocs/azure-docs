@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/19/2016"
+   ms.date="07/19/2016"
    ms.author="nitinme"/>
 
 # Copy data from Azure Storage Blobs to Data Lake Store
