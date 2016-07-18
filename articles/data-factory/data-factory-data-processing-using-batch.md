@@ -22,8 +22,8 @@ This article describes an architecture of a sample solution that moves and proce
 ## Why Azure Batch?
 Azure Batch provides high performance computing (HPC) as a service to configure as many computers as you need, and to schedule and coordinate the work. When processing large datasets, you can either configure the number of virtual machines (VM) you want to use for processing the data (or) configure the Batch pool to automatically scale out or scale in by adding or removing VMs to/from the pool based on the workload. See the following articles if you are not familiar with Azure Batch. 
 
-- [Basics of Azure Batch](batch-technical-overview.md)
-- [Batch feature overview](batch-api-basics.md)
+- [Basics of Azure Batch](../batch/batch-technical-overview.md)
+- [Batch feature overview](../batch/batch-api-basics.md)
 
 To learn more about Azure Batch, see the [Learning path for Azure Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
 
