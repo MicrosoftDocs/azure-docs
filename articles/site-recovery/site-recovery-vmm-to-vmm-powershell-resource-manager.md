@@ -3,9 +3,9 @@
 	description="Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds to a secondary VMM site using PowerShell (Resource Manager)"
 	services="site-recovery"
 	documentationCenter=""
-	authors="sutalasi"
+	authors="sujaytalasila"
 	manager="rochakm"
-	editor=""/>
+	editor="raynew"/>
 
 <tags
 	ms.service="site-recovery"
