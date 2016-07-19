@@ -18,7 +18,7 @@
 
 # About VPN Gateway
 
-VPN Gateway is used to send network traffic between virtual networks and on-premises locations. It is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). For connection diagrams, see [VPN Gateway connection topologies](vpn-gateway-topology.md). The sections below discuss the items that relate to VPN Gateway.
+VPN Gateway is used to send network traffic between virtual networks and on-premises locations. It is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). The sections below discuss the items that relate to VPN Gateway. For connection diagrams, see [VPN Gateway connection topologies](vpn-gateway-topology.md). 
 
 ## <a name="gwsub"></a>Gateway subnet
 
