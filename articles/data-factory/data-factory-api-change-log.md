@@ -36,7 +36,7 @@ _Release date: 2016.06.10_
 
 ### Bug fix
 
-- Introduce an overload of [ActivityWindowOperationExtensions.List](https://msdn.microsoft.com/library/mt767915.aspx) method which takes an [ActivityWindowsByActivityListParameters](https://msdn.microsoft.com/en-us/library/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters.aspx) instance.
+- Introduce an overload of [ActivityWindowOperationExtensions.List](https://msdn.microsoft.com/library/mt767915.aspx) method which takes an [ActivityWindowsByActivityListParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters.aspx) instance.
 - Mark [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) and [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx) as optional in CopySink.
 
 ## Version 4.8.0
