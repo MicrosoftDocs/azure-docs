@@ -31,7 +31,7 @@ To get started using the request and response actions in a logic app, see [creat
 
 ## Use the HTTP Request trigger
 
-A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers.](connectors-overview.md). 
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](connectors-overview.md). 
 
 Here’s an example sequence of how to setup an HTTP request in the logic app designer.
 
