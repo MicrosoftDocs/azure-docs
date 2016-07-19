@@ -97,7 +97,7 @@ To enable individual features, you must call extension methods on the **MobileAp
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Note that `MapApiControllers` only maps controllers with the attribute `[MobileAppController]`.
+Note that `MapApiControllers` only maps controllers with the attribute `[MobileAppController]`. To map other controllers, use the [MapHttpAttributeRoutes] method. 
 
 Many of the feature extension methods are available via additional NuGet packages you can include, which are described in the section below.
 
@@ -488,3 +488,4 @@ Your locally-running server is now equipped to validate tokens which the client 
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx

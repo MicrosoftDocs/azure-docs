@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/03/2016"
+   ms.date="07/19/2016"
    ms.author="larryfr"/>
 
 #Use Hive with Hadoop in HDInsight with SSH

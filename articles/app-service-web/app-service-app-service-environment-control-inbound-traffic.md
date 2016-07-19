@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="07/19/2016" 
 	ms.author="stefsch"/>	
 
 # How To Control Inbound Traffic to an App Service Environment
@@ -34,8 +34,8 @@ Before locking down inbound network traffic with a network security group, it is
 
 The following is a list of ports used by an App Service Environment:
 
-- 454:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
-- 455:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
+- 454:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via SSL.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
+- 455:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via SSL.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
 - 80:  Default port for inbound HTTP traffic to apps running in App Service Plans in an App Service Environment.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
 - 443: Default port for inbound SSL traffic to apps running in App Service Plans in an App Service Environment.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
 - 21:  Control channel for FTP.  This port can be safely blocked if FTP is not being used.  On an ILB-enabled ASE, this port can be bound to the ILB address for an ASE.
