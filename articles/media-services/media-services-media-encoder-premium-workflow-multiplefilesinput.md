@@ -20,7 +20,7 @@
 
 ## Overview
 
-There are scenarios in which you might need to customize component properties, specify Clip List XML content, or send multiple input files when submitting a task with the **Media Encoder Premium Workflow** media processor. Some examples are:
+There are scenarios in which you might need to customize component properties, specify Clip List XML content, or send multiple input files when you submit a task with the **Media Encoder Premium Workflow** media processor. Some examples are:
 
 - Overlaying text on video and setting the text value (for example, the current date) at runtime for each input video.
 - Customizing the Clip List XML (to specify one or several source files, with or without trimming, etc.).
@@ -31,7 +31,7 @@ To let the **Media Encoder Premium Workflow** know that you are changing some pr
 
 ## Configuration string syntax
 
-The configuration string to set in the encoding task uses an XML document that looks like:
+The configuration string to set in the encoding task uses an XML document that looks like this:
 
     <?xml version="1.0" encoding="utf-8"?>
     <transcodeRequest>
@@ -43,7 +43,7 @@ The configuration string to set in the encoding task uses an XML document that l
     </transcodeRequest>
 
 
-The code in C# that reads the XML configuration from a file and passes it to the task in a job is:
+The following is the code in C# that reads the XML configuration from a file and passes it to the task in a job:
 
     XDocument configurationXml = XDocument.Load(xmlFileName);
     IJob job = _context.Jobs.CreateWithSingleTask(
@@ -59,7 +59,7 @@ The code in C# that reads the XML configuration from a file and passes it to the
 ### Property with a simple value
 In some cases, it is useful to customize a component property together with the workflow file that is going to be executed by Media Encoder Premium Workflow.
 
-Suppose you designed a workflow that overlays text on your videos, and the text (for example, the current date) is supposed to be set at runtime. You can do this by sending the text to as the new value for the text property of the overlay component from the encoding task. You can use this mechanism to change other properties of a component in the workflow (such as the position or color of the overlay, the bitrate of the AVC encoder, etc.).
+Suppose you designed a workflow that overlays text on your videos, and the text (for example, the current date) is supposed to be set at runtime. You can do this by sending the text to be set as the new value for the text property of the overlay component from the encoding task. You can use this mechanism to change other properties of a component in the workflow (such as the position or color of the overlay, the bitrate of the AVC encoder, etc.).
 
 **setRuntimeProperties** is used to override a property in the components of the workflow.
 
@@ -127,7 +127,7 @@ To check the path and property name, use the action button that is immediately b
 
 Each task that you submit to the **Media Encoder Premium Workflow** requires two assets:
 
-- The first one is a *Workflow Asset* that contains a workflow file. You can design workflow files using the [Workflow Designer](media-services-workflow-designer.md).
+- The first one is a *Workflow Asset* that contains a workflow file. You can design workflow files by using the [Workflow Designer](media-services-workflow-designer.md).
 - The second one is a *Media Asset* that contains the media file(s) that you want to encode.
 
 When you're sending multiple media files to the **Media Encoder Premium Workflow** encoder, the following constraints apply:
@@ -179,7 +179,7 @@ You can specify the Clip List XML in the workflow at runtime by using **sourceTr
         </setRuntimeProperties>
       </transcodeRequest>
 
-If you want to specify /primarySourceFile to use this property to name the output files using 'Expressions', then we recommend passing the Clip List XML as a property *after* the /primarySourceFile property, to avoid having the Clip List be overridden by the /primarySourceFile setting.
+If you want to specify /primarySourceFile to use this property to name the output files by using 'Expressions', then we recommend passing the Clip List XML as a property *after* the /primarySourceFile property, to avoid having the Clip List be overridden by the /primarySourceFile setting.
 
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
@@ -340,7 +340,7 @@ Set up the AAC encoder and select Audio Format Conversion/Preset : 2.0 (L, R)
 *Audio and Video Encoders*
 
 
-Now add the **ISO Mpeg-4 Multiplexer** and  **File Output** components and connect the pins as shown.
+Now add the **ISO Mpeg-4 Multiplexer** and **File Output** components and connect the pins as shown.
 
 ![MP4 multiplexer and file output](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
 
@@ -359,7 +359,7 @@ You can run the workflow locally to check that it is running correctly.
 
 After it finishes, you can run it in Azure Media Services.
 
-First, prepare an asset in Azure Media Services with two files in it: the video file and the logo. You can do it bye using the .NET or REST API. You can also do it by using the Azure portal or [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
+First, prepare an asset in Azure Media Services with two files in it: the video file and the logo. You can do it by using the .NET or REST API. You can also do it by using the Azure portal or [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
 
 This tutorial shows how to manage assets with AMSE. There are two ways add files to an asset.
 
@@ -409,7 +409,7 @@ After the job is complete, the MP4 file in the output asset displays the overlay
 *Overlay on the video*
 
 
-You can download the sample workflow from [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
+You can download the sample workflow from [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
 
 ## See also
