@@ -44,6 +44,7 @@ The following tutorials show how to add offline sync to your mobile clients usin
 * [iOS: Enable offline sync]
 * [Xamarin iOS: Enable offline sync]
 * [Xamarin Android: Enable offline sync]
+* [Xamarin.Forms: Enable offline sync](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 * [Windows 8.1: Enable offline sync]
 
 ## What is a sync table?

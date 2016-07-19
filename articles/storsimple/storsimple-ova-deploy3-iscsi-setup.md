@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/20/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
 
@@ -87,16 +87,13 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     3. Specify if you want this device to be domain-joined. If your device is an iSCSI server, then joining the domain is optional. If you decide to not join your iSCSI server to a domain, click **Apply**, wait for the settings to be applied and then skip to the next step.
 
-        If you want to join the device to a domain. Enter a **Domain name** (shown below).
+        If you want to join the device to a domain. Enter a **Domain name**, and then click **Apply**.
 
-    4. Click **Apply**.
+        > [AZURE.NOTE] If joining your iSCSI server to a domain, ensure that your virtual  array is in its own organizational unit (OU) for Microsoft Azure Active Directory and no group policy objects (GPO) are applied to it.
 
     5. A dialog box will appear. Enter your domain credentials in the specified format. Click the check icon ![check icon](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). The domain credentials will be verified. You will see an error message if the credentials are incorrect.
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
-        
-	   	> [AZURE.NOTE] If joining your iSCSI server to a domain, ensure that your virtual  array is in its own organizational unit (OU) for Microsoft Azure Active Directory and no group policy objects (GPO) are applied to it.
-	   
 
     6. Click **Apply**. This will apply and validate the device settings.
  

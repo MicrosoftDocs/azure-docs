@@ -20,6 +20,8 @@
 # Move data to and from Azure Blob using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure Blob by sourcing blob data from another data store. This article builds on the data movement activities article which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
+> [AZURE.NOTE] This Azure Blob connector currently only supports copying from/to block blobs. And it supports both general purpose Azure Storage and Hot/Cool Blob Storage.
+
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure Blob Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
