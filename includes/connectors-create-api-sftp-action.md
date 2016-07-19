@@ -9,21 +9,20 @@ To configure the this action, you will need to provide the following information
 |File name|This is the name of the file being created.|
 |File content|The content that will be written to the file.|
 
-1. Select **+ New step** to add the action.  
-![](./media/connectors-create-api-sharepointonline/action-1.png)  
-- Select **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, SharePoint actions are of interest.    
-![](./media/connectors-create-api-sharepointonline/action-2.png)    
-- Enter *sharepoint* to search for actions related to SharePoint.
-- Select **SharePoint Online - Create file** as the action to take.   **Note**: you will be prompted to authorize your Logic app to access your SharePoint account if you have not done so previously.    
-![](./media/connectors-create-api-sharepointonline/action-3.png)    
-- The **Create file** control opens.   
-![](./media/connectors-create-api-sharepointonline/action-4.png)     
-- Select **Site URL** and browse to find the site where you would like to create the file.     
-![](./media/connectors-create-api-sharepointonline/action-5.png)  
-- Select **Folder path** and browse to find the folder where the new file will be placed.  
-![](./media/connectors-create-api-sharepointonline/action-6.png)  
-- Select the **File name** control and enter the name of the file you want to create. For the file name, notice that you can use any of the properties from the trigger you created previously by simply selecting it from the list presented.     
-![](./media/connectors-create-api-sharepointonline/action-7.png)  
-- Select the **File content** control and enter the content that will be written to the file that will be created. For the file content, notice that you can use any of the properties from the trigger you created previously. Simply select the properties from the list presented. Alternatively, you can enter the **File content** text directly into the control. In this example, I selected some properties and added spaces and a hyphen between each property.        
-![](./media/connectors-create-api-sharepointonline/action-8.png)  
+
+1. Select **Add an action**.        
+![](./media/connectors-create-api-sftp/condition-6.png)   
+- Select **SFTP - Extract folder**      
+![](./media/connectors-create-api-sftp/condition-7.png)   
+- Select **Source archive file path**              
+![](./media/connectors-create-api-sftp/condition-9.png)   
+- Select **File path**           
+![](./media/connectors-create-api-sftp/condition-10.png)   
+- Select **Destination folder path**           
+![](./media/connectors-create-api-sftp/condition-11.png)   
+- Select the **File path** property. 
+- Enter *\ExtractedFile* in the **Destination folder path** control       
+![](./media/connectors-create-api-sftp/condition-12.png)   
+- Enter *True* in the **Overwrite?* control      
+![](./media/connectors-create-api-sftp/condition-13.png)   
 - Save the changes to your workflow  
