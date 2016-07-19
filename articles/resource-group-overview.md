@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -52,6 +52,8 @@ The following suggestions will help you take full advantage of Resource Manager 
 2. Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
 3. Run imperative commands to manage your resources, such as to start or stop an app or machine.
 4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
+
+For more recommendations, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 
 ## Resource groups
 
