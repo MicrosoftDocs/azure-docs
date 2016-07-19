@@ -94,4 +94,4 @@ The following example shows a success response to a request for an access token 
 
 ## See also
 
-* [OAuth 2.0 in Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-protocols-oauth-code/)
+* [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
