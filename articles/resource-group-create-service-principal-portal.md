@@ -140,6 +140,8 @@ If users from other Azure Active Directories can consent to the application and 
 
 If your application is running under its own credentials, you must assign the application to a role. You must decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). 
 
+To assign a role, you must have `Microsoft.Authorization/*/Write` access which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role.
+
 You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains).
 
 1. To assign the application to a role, switch from the classic portal to the [Azure portal](https://portal.azure.com).
