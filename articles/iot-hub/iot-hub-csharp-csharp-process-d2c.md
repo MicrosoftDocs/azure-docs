@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/29/2016"
+     ms.date="07/19/2016"
      ms.author="dobett"/>
 
 # Tutorial: How to process IoT Hub device-to-cloud messages

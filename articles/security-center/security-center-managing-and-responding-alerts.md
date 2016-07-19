@@ -13,16 +13,13 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
 This document helps you use Azure Security Center capabilities to manage and respond to security alerts.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
-
-## What is Azure Security Center?
-Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ## What are security alerts?
 Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
@@ -54,7 +51,7 @@ In the bottom part of this blade are the details for each alert. To sort, click 
 - **Count**: A list of all alerts of this specific type that were detected on a specific day.
 - **Detected by**: The service that was responsible for triggering the alert.
 - **Date**: The date that the event occurred.
-- **State**: The current state for that alert. There are three types of states:
+- **State**: The current state for that alert. There are two types of states:
     - **Active**: The security alert has been detected.
     - **Dismissed**: The security alert has been dismissed by the user. This status is typically used for alerts that have been investigated but either mitigated or found not to be an actual attack.
 
@@ -112,7 +109,8 @@ This alert gives information that enables you to identify the resource that was 
 > [AZURE.NOTE] Live IP addresses were removed from this screenshot for privacy purpose.
 
 
-## Next steps
+## See also
+
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
 - [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)

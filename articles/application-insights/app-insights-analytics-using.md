@@ -4,7 +4,7 @@
 	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="danhadari" 
 	manager="douge"/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/15/2016" 
-	ms.author="awills"/>
+	ms.author="danha"/>
 
 
 # Using Analytics in Application Insights
@@ -41,7 +41,7 @@ There's a [more extensive tour here](app-insights-analytics-tour.md).
 
 ![](./media/app-insights-analytics-using/150.png)
 
-Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). Intellisense will prompt you with the operators and some of the expression elements that you can use.
+Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). IntelliSense will prompt you with the operators and some of the expression elements that you can use.
 
 See the [Analytics language overview](app-insights-analytics-tour.md) and [language reference](app-insights-analytics-reference.md).
 
@@ -86,6 +86,8 @@ Pick the columns you'd like to see, drag column headers to rearrange them, and r
 ### Sort and filter items
 
 Sort your results by clicking the head of a column. Click again to sort the other way, and click a third time to revert to the original ordering returned by your query.
+
+Use the filter icon to narrow your search.
 
 ![Sort and filter columns](./media/app-insights-analytics-using/040.png)
 

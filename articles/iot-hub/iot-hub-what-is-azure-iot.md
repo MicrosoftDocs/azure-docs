@@ -13,14 +13,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Next steps
 
-Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your application back end and millions of devices. It allows the application back end to receive telemetry at scale from your devices, route that data to a stream event processor, and also to send cloud-to-device commands to specific devices. You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes a device identity registry used to provision devices, their security credentials, and their rights to connect to the hub. To learn more about IoT Hub, see [What is IoT Hub?][lnk-iot-hub].
+Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your application back end and millions of devices. It allows the application back end to receive telemetry at scale from your devices, route that data to a stream event processor, receive file uploads from devices, and also to send cloud-to-device commands to specific devices. You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes a device identity registry used to provision devices, their security credentials, and their rights to connect to the hub. To learn more about IoT Hub, see [What is IoT Hub?][lnk-iot-hub].
 
 To learn how Azure IoT Hub enables standards-based IoT device management for you to remotely manage, configure, and update your devices, see [Overview of Azure IoT Hub device management][lnk-device-management].
 

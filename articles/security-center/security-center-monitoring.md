@@ -13,16 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
 This document helps you use monitoring capabilities in Azure Security Center to monitor compliance with policies.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
-
-## What is Azure Security Center?
-Security Center helps you prevent, detect, and respond to threats with increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions
 
 ##What is security health monitoring?
 We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices.
@@ -201,7 +198,7 @@ The **Unsecured Web Applications** blade will have a list of all VMs that contai
 
 ![Add WAF](./media/security-center-monitoring/security-center-monitoring-fig20-new.png)
 
-## Next steps
+## See also
 In this document, you learned how to use monitoring capabilities in Azure Security Center. To learn more about Azure Security Center, see the following:
 
 - [Setting security policies in Azure Security Center](security-center-policies.md)

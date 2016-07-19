@@ -13,19 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Azure Security Center Troubleshooting Guide
-This guide is for information technology (IT) professionals, IT architects, information security analysts and cloud administrators whose organizations are using Azure Security Center.
+This guide is for information technology (IT) professionals, information security analysts and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
-## What is Azure Security Center?
-Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
-
 ## Troubleshooting guide
-This guide explains how to troubleshoot Azure Security Center related issues. Most of the troubleshooting done in Azure Security Center will take place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
+This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center will take place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
 
 - Which operations were taken place
 - Who initiated the operation
@@ -74,7 +71,7 @@ Some issues can be identified using the guidelines provided in this article, oth
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
-## Next steps
+## See also
 
 In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
 
