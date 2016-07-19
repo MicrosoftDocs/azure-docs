@@ -19,20 +19,6 @@
 
 # Tutorial: Get started with the preconfigured solutions
 
-<!--
-To Do
-
-x Extend intro to include picture of dashboard
-x Update level 2 headings to be more useful in relation to what happens in the intro
-x Tidy the two notes in the intro (some redundant links?)
-x Add more context about what a simulated device is (where it runs etc.)
-x Add more context about what happens when you edit the device metadata (synching etc)
-x Add link to Logic App tutorial in Rules section
-x Delete from not on?
-- Overall review of next steps in all Suite articles
-
--->
-
 ## Introduction
 
 Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *remote monitoring* preconfigured solution connects to and monitors your devices. This enables you to analyze the stream of data from your devices and to improve business outcomes by making processes respond automatically to that stream of data.
