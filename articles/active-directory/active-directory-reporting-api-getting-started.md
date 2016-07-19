@@ -108,7 +108,7 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/reports/auditEvents?api-version=beta&$filter=eventTime gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{

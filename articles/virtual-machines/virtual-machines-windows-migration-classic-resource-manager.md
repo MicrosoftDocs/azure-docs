@@ -209,7 +209,7 @@ Azure Site Recovery and Backup support for VMs under Resource Manager was added 
 
 **Can I validate my subscription or resources to see if they're capable of migration?**
 
-At this time, the prepare operation does an implicit validation for the resources that are being prepared for migration. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. If the validation fails, the resources will not be touched at all.
+Yes. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. In case the validate operation fails, you will receive all messages for all the reasons the migration cannot be completed.
 
 **What happens if I run into a quota error while preparing the IaaS resources for migration?**
 
@@ -223,6 +223,9 @@ Please post your issues and questions about migration to our [VM forum](https://
 
 All the resources that you explicitly provide names for in the classic deployment model will be retained during migration. In some cases, new resources will be created. For example: a network interface will be created for every VM. At this moment, we don't support the ability to control the names of these new resources created during migration. Please log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
 
+**I got a message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Please ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension  whose Status is not being reported from the VM. Hence, this VM cannot be migrated."***
+
+This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every 5 minutes. 
 
 ## Next steps
 Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
