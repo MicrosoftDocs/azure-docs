@@ -15,35 +15,15 @@
 	ms.date="07/18/2016" 
 	ms.author="awills"/>
  
-# Application Insights - overview
+# Application Insights - introduction
 
 [Visual Studio Application Insights](app-insights-get-started.md) is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
-
 [Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
-
-Application Insights is aimed at the development team. With it, you can:
-
-* [Analyze usage patterns][knowUsers] to understand your users better and continuously improve your app. 
- * Page view counts, new and returning users, geolocation, platforms, and other core usage statistics
- * Trace usage paths to assess the success of each feature.
-* [Detect, triage and diagnose][detect] performance issues and fix them before most of your users are aware.
- *  Alerts on performance changes or crashes.
- *  Metrics to help diagnose performance issues, such as response times, CPU usage, dependency tracking.
- *  Availability tests for web apps.
- *  Exception reports and alerts.
- *  Powerful diagnostic log search (including log traces from your favorite logging frameworks).
-
-The SDK for each platform includes a range of modules that monitor the app straight out of the box. In addition, you can code your own telemetry for more detailed and tailored analytics.
-
-Telemetry data collected from your application is stored and analysed in the Azure Portal, where there are intuitive views and powerful tools for fast diagnosis and analysis.
-
-
-
-## How it works
+## How does it work?
 
 You install a small instrumentation package in your application, and set up an Application Insights resource in the Microsoft Azure portal. The instrumentation monitors your app and sends telemetry data to the portal. The portal shows you statistical charts and provides powerful search tools to help you diagnose any problems.
 
@@ -57,11 +37,36 @@ Application Insights has several [standard instrumentation modules](app-insights
 
 The impact on your app's performance is very small. Tracking calls are non-blocking, and are batched and sent in a separate thread. 
 
-## Get an Azure subscription
+## What does it do?
+
+Application Insights is aimed at the development team, to help you understand how your app is performing and how it's being used. It provides:
+
+Telemetry types:
+
+* HTTP request rates, response times, success rates.
+* Dependency (HTTP & SQL) call rates, response times, success rates.
+* Exception traces from both server and client.
+* Diagnostic log traces.
+* Page view counts, user and session counts, browser load times, exceptions.
+* AJAX call rates, response times and success rates.
+* Server performance counters.
+* Custom client and server telemetry.
+* Segmentation by client location, browser version, OS version, server instance, custom dimensions, and more.
+* Availability tests
+
+Diagnostic and analytic tools:
+
+* Smart and manual alerts on failure rates and other metrics, and on availability.
+* Charts over time of aggregated metrics.
+* Diagnostic search on instances of requests, exceptions, custom events, log traces, page views, dependency and AJAX calls. 
+* Analytics - a powerful query language over your telemetry
+* Dashboards - compose the charts you need to monitor all your app components.
+
+
+## Get started
 
 Application Insights is one of the many services hosted within Microsoft Azure, and telemetry is sent there for analysis and presentation. So before you do anything else, you'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and you can choose the free [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights. If your organization already has a subscription, they could add your Microsoft account to it. 
 
-## Get started
 
 There are several ways to get started. Begin with whichever works best for you. You can add the others later.
 
