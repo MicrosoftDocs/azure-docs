@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/24/2016"
+   ms.date="07/19/2016"
    ms.author="mbaldwin"/>
 
 # Azure AD token reference
@@ -26,7 +26,7 @@ Azure AD supports the [OAuth 2.0 authorization protocol](active-directory-protoc
 
 A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [calebb.net](http://jwt.calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [jwt.calebb.net](http://jwt.calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## Id_tokens
 
@@ -233,7 +233,7 @@ This is a sample of a typical SAML token.
 
 ### JWT Token - User Impersonation
 
-This is a sample of a typical JSON web token (JWT) used in a user impersonation web flow.
+This is a sample of a typical JSON web token (JWT) used in an authorization code grant flow.
 In addition to claims, the token includes a version number in **ver** and **appidacr**, the authentication context class reference, which indicates how the client was authenticated. For a public client, the value is 0. If a client ID or client secret was used, the value is 1.
 
     {
