@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Switching to a different Azure offer | Microsoft Azure"
+	pageTitle="Switch the Azure subscription to another offer | Microsoft Azure"
 	description="Describes how an Azure subscriber can switch to a different Azure offer"
 	services=""
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/15/2016"
 	ms.author="genli"/>
 
-# Switching to a different Azure offer
+# Switch the Azure subscription to another offer
 
 You can switch your existing subscription to a more favorable offer without any service downtime. You might consider switching your offer for one of these reasons:
 

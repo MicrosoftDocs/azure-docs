@@ -26,7 +26,27 @@ Log Analytics can read the logs for the following services that write diagnostic
 + Application Gateway (Preview)
 + Network Security Group (Preview)
 
+The following sections will walk you through using PowerShell to:
+
++ Configure Log Analytics to collect the logs from storage for each resource  
++ Enable the Log Analytics solution for the Azure service
+
 Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. You can use the  `Set-AzureRmDiagnosticSetting` cmdlet to enable logging.
+
+Refer to the following articles for more information on how to enable diagnostic logging:
+
++ [Key Vault](../key-vault/key-vault-logging.md)
++ [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
++ [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
+
+This documentation also includes details on:
+
++ Troubleshooting data collection
++ Stopping data collection
+
+## Configure Log Analytics to collect Azure Diagnostics written to blob in JSON format
+
+Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
 
 The example below will enable logging on all supported resources
 
@@ -45,39 +65,8 @@ foreach ($resource in $resources) {
 }
 ```
 
-Refer to the following articles for more information on how to enable diagnostic logging:
-
-+ [Key Vault](../key-vault/key-vault-logging.md)
-+ [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
-+ [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
-
-
-## Configure Log Analytics to collect Azure Diagnostics written to blob in JSON format
-
-Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
-
-Refer to [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-azure-storage-json.md).
-
-This documentation also includes details on:
-
-+ Troubleshooting data collection
-+ Stopping data collection
 
 It is not currently possible to perform the above configuration from the portal.
-
-## JSON logs in Azure blob storage (Preview)
-
-Log Analytics can read the JSON logs written to blob storage for the following services:
-
-+ Automation (Preview)
-+ Key Vault (Preview)
-+ Application Gateway (Preview)
-+ Network Security Group (Preview)
-
-The following sections will walk you through using PowerShell to:
-
-+ Configure Log Analytics to collect the logs from storage for each resource  
-+ Enable the Log Analytics solution for the Azure service
 
 ## Configure Log Analytics to collect JSON logs from Azure blob storage
 
@@ -211,7 +200,7 @@ Refer to [Using storage cmdlets to check a container for recent data](../storage
 
 ### Verify the Log Analytics solution for the service is enabled
 
-If you use `Add-AzureDiagnostiToLogAnalyticsUI` the correct Log Analytics solution is automatically enabled for you.
+If you use `Add-AzureDiagnosticsToLogAnalyticsUI` the correct Log Analytics solution is automatically enabled for you.
 
 To check if a solution is enabled, run the following PowerShell:
 
@@ -228,7 +217,7 @@ To find the name of the solution to enable for each resource type, use the follo
 ### Verify that Log Analytics is configured to read from storage
 
 If you add additional Azure Resources, you need to enable Diagnostics logging for them, as well as configure Log Analytics for them.
-To check which resources and storage accounts Log Analytics is configured you collect logs for, use the following PowerShell:
+To check which resources and storage accounts Log Analytics is configured to collect logs for, use the following PowerShell:
 
 ```
 # Find the Workspace ResourceGroup and Name

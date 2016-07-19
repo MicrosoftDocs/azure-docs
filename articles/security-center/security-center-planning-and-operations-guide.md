@@ -13,16 +13,13 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Azure Security Center planning and operations guide
 This guide is for information technology (IT) professionals, IT architects, information security analysts and cloud administrators whose organizations are planning to use Azure Security Center.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
-
-## Azure Security Center overview
-Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 Read [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md) for a list of common questions that can also be useful during the designing and planning phase.
 
@@ -47,7 +44,7 @@ Security Center enables these individuals to meet these various responsibilities
 **Jeff (Cloud Workload Owner)**
 
 - Views and Completes Security Center Recommendations in the Azure Portal
-- May Also Use a Ticketing System to Track Changes (populates recommendations using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Also Use a Ticketing System to Track Changes (populates recommendations using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 
 **Rex (CISO/CIO)**
 
@@ -61,12 +58,12 @@ Security Center enables these individuals to meet these various responsibilities
 **Sam (Security Operations)**
 
 - Views and Triages Security Center Alerts in the Azure Portal
-- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 
 **Sherlock (Security Analyst)**
 
 - Views Security Center Alerts in the Azure Portal
-- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 - Analyzes Alert Trends in Power BI
 - Reviews Event Logs from Storage
 
@@ -234,7 +231,7 @@ The example below shows a suspicious RDP activity taking place:
 As you can see, this blade shows details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) for more information about this type of behavior.
 
 
-## Next steps
+## See also
 In this document, you learned how to plan for Security Center adoption. To learn more about Security Center, see the following:
 
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)

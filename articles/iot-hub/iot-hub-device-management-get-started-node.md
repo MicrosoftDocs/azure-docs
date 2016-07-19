@@ -10,7 +10,7 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="dotnet"
- ms.topic="hero-article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"

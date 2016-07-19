@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/15/2016"
 	ms.author="ashwink"/>
 
 # Best practices for Azure Insights autoscaling
@@ -76,7 +76,7 @@ Let's review how this example works. Assume there are 2 instances to start with.
 - Increase instances by 1 count when Storage Queue message count >= 50
 - Decrease instances by 1 count when Storage Queue message count <= 10
 
-Assume there are 2 instances to start with. Next, assume that messages keep coming and when you review the storage queue, the total count reads 50. You might assume that autoscale should start a scale out action. However, note that it is still 50/2 = 25 messages per instance. So, scale out does not occur. For the first scale out to happen, the total message count in the storage queue should be 100. Next, assume that the total message count reaches 100. A 3rd instance is added due to a scale out action. The next scale out action will not happen until the total message count in the queue reaches 300. Let's look at the scale in action. Assume that the number of instances is 3. The first scale in action happens when the total messages in the queue reaches 30, making it 30/3 = 10 messages per instance, which is the scale in threshold.
+Assume there are 2 instances to start with. Next, assume that messages keep coming and when you review the storage queue, the total count reads 50. You might assume that autoscale should start a scale out action. However, note that it is still 50/2 = 25 messages per instance. So, scale out does not occur. For the first scale out to happen, the total message count in the storage queue should be 100. Next, assume that the total message count reaches 100. A 3rd instance is added due to a scale out action. The next scale out action will not happen until the total message count in the queue reaches 150. Let's look at the scale in action. Assume that the number of instances is 3. The first scale in action happens when the total messages in the queue reaches 30, making it 30/3 = 10 messages per instance, which is the scale in threshold.
 
 ### Considerations for scaling when multiple profiles are configured in an autoscale setting
 
