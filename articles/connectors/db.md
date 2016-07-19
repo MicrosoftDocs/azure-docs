@@ -37,13 +37,11 @@ A trigger is an event that can be used to start the workflow defined in a Logic 
 
 In this example, we will use the **When a file is created** trigger. When this trigger occurs, we will call the **Get file content using path** Dropbox action. 
 
-1) Enter *dropbox* in the search box on the Logic Apps designer, then select the **Dropbox - When a file is created** trigger
-
-![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
-
-2) Select the folder in which you want to track file creation. Click on .. (identified in the red box) and browse to the folder you wish to select for the trigger's input.
-
-![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
+1. Enter *dropbox* in the search box on the Logic Apps designer, then select the **Dropbox - When a file is created** trigger.    
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
+  
+2. Select the folder in which you want to track file creation. Click on .. (identified in the red box) and browse to the folder you wish to select for the trigger's input.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## Use a Dropbox action
 
@@ -51,25 +49,21 @@ An action is an operation carried out by the workflow defined in a Logic App. [L
 
 Now that the trigger has been added, follow these steps to add an action that will get the new file's content.
 
-1) Select **+ New Step** to add the action you would like to take when a new file is created
+1. Select **+ New Step** to add the action you would like to take when a new file is created.
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
 
-![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
+2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
-2) Select **Add an action**. This opens the search box where you can search for any action you would like to take.
+3. Enter dropbox to search for actions related to Dropbox.
 
-![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
+4. Select **Dropbox - Get file content using path** as the action to take when a new file is created in the selected Dropbox folder. The action control block opens. **Note**: you will be prompted to authorize your Logic App to access your Dropbox account if you have not done so previously.
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)
 
-3) Enter dropbox to search for actions related to Dropbox.
+5. Select ... (located at the right side of the **File Path** control) and browse to the file path you would like to use. Or, use the **file path** token to speed up your Logic App creation.
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)
 
-4) Select **Dropbox - Get file content using path** as the action to take when a new file is created in the selected Dropbox folder. The action control block opens. **Note**: you will be prompted to authorize your Logic App to access your Dropbox account if you have not done so previously.
-
-![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)
-
-5) Select ... (located at the right side of the **File Path** control) and browse to the file path you would like to use. Or, use the **file path** token to speed up your Logic App creation.
-
-![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)
-
-6) Save your work and create a new file in Dropbox to activate your workflow.
+6. Save your work and create a new file in Dropbox to activate your workflow.
 
 ## Technical Details
 
@@ -438,7 +432,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 |401|Unauthorized|
 |403|Forbidden|
 |404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
 
