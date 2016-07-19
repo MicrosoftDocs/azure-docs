@@ -29,7 +29,7 @@ Azure SQL Database always restores to a new database when performing point-in-ti
 
 In the event of a user error or unintended data modification, point-in-time restore can be used to restore your database to any point in time within your databases retention period. 
 
-Basic databases have 7 days of retention, Standard databases have 14 days of retention, and Premium databases have 35 days of retention. To learn more about database backup retention, please see [automated backups](sql-database-automated-backups.md).
+Basic databases have 7 days of retention, Standard databases have 35 days of retention, and Premium databases have 35 days of retention. To learn more about database backup retention, please see [automated backups](sql-database-automated-backups.md).
 
 To perform a point-in-time restore see:
 

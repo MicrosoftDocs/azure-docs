@@ -206,7 +206,7 @@ For other queries, see the examples in [sys.dm_db_resource_stats](https://msdn.m
 
 ### Using sys.resource_stats
 
-The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database provides additional information for monitoring the performance use of your SQL database within its specific service tier and performance level. The data is collected every five minutes and maintained for approximately 14 days. This view is more useful for longer-term historical analysis of your SQL database resource utilization.
+The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database provides additional information for monitoring the performance use of your SQL database within its specific service tier and performance level. The data is collected every five minutes and maintained for approximately 35 days. This view is more useful for longer-term historical analysis of your SQL database resource utilization.
 
 The following graph shows the CPU resource utilization for Premium database with P2 performance level for each hour in a week. This particular graph starts on a Monday, showing 5 work days and then a weekend where much less happens on the application.
 

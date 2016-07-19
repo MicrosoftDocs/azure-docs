@@ -32,7 +32,11 @@ This article shows you how to initiate failover to a secondary SQL Database usin
 To initiate failover, you need the following:
 
 - A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure Geo-Replication.
-- Newest version of SQL Server Management Studio - To obtain the newest version of SQL Server Management Studio (SSMS), go to [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx). For information on using SQL Server Management Studio to manage an Azure SQL Database logical servers and databases, see [Managing Azure SQL Database using SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 
 

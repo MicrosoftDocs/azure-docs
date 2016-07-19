@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
@@ -75,9 +75,12 @@ Scenario components:
 - **Azure**: You don't need to create any Azure VMs to handle replication and failover. The Site Recovery service handles data management, and data replicates directly to Azure storage. Replicated Azure VMs are spun up automatically only when failover to Azure occurs. However, if you want to fail back from Azure to the on-premises site you will need to set up an Azure VM to act as a process server.
 
 
-The diagram shows how these components interact.
+The graphic shows how these components interact.
 
-![architecture](./media/site-recovery-vmware-to-azure-classic/architecture.png)
+![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
+
+**Figure 1: VMware/physical to Azure** (created by Henry Robalino)
+
 
 ## Capacity planning
 

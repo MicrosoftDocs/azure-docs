@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
@@ -25,9 +25,11 @@
 
 ##Introduction
 
-The Azure Linux Agent (/usr/sbin/waagent) manages interaction between a virtual machine and the Azure Fabric Controller. It does the following:
+The Azure Linux Agent (/usr/sbin/waagent) manages interaction between a virtual machine and the Azure Fabric Controller. Please also see [How to update the Azure Linux Agent](virtual-machines-linux-update-agent.md) for information about installing and updating the agent on a running VM.
 
-> [AZURE.NOTE] Please see the Azure Linux agent [README](https://github.com/Azure/WALinuxAgent/blob/2.0/README) for the latest version of this guide.
+The Azure Linux Agent is responsible for the following:
+
+> [AZURE.NOTE] Please see the Azure Linux agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for the latest version of this guide.
 
 * **Image Provisioning**
   - Create a user account

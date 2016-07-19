@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/16/2016" 
+	ms.date="07/13/2016"
 	ms.author="MarkVi"/>
 
 # Add company branding to your sign-in and Access Panel pages
@@ -105,7 +105,7 @@ You can also localize all elements on this page. Once you’ve configured a “d
 
 ## Access panel page customization
 
-The Access Panel page is essentially a portal page for quick access to the cloud apps you have been granted access to by your administrator. On this page, your apps appear as clickable application tiles. 
+The Access Panel page is essentially a portal page for quick access to the cloud apps you have been granted access to by your administrator. On this page, your apps appear as clickable application tiles.
 
 
 The following screenshot shows an example of an access panel page after customization.
@@ -116,14 +116,14 @@ The following screenshot shows an example of an access panel page after customiz
 
 You can configure one default set of customizable elements per directory in the Azure classic portal. After the defaults have been saved, an administrator can add localized versions of each element, for different languages / locales. All customizable elements are optional.
 
-For example, if you configure a default Banner Logo but no Large Illustration, the sign-in page displays your logo in the upper-right corner. However the default illustration of the site is displayed. 
+For example, if you configure a default Banner Logo but no Large Illustration, the sign-in page displays your logo in the upper-right corner. However the default illustration of the site is displayed.
 
 Imagine the following configuration:
 
-- A default Banner Logo and Sign-In Page Text in English 
-- A language-specific sign in Page Text for German 
+- A default Banner Logo and Sign-In Page Text in English
+- A language-specific sign in Page Text for German
 
-If your language preference is German, you get the default Banner Logo but the German text. 
+If your language preference is German, you get the default Banner Logo but the German text.
 
 While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
 
@@ -178,8 +178,8 @@ We recommend that you experiment with a test tenant before making changes in you
 
 **To verify whether your branding has been applied:**
 
-1. Open an InPrivate or Incognito browser session. 
-2. Visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized. 
+1. Open an InPrivate or Incognito browser session.
+2. Visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized.
 
 This also works with domains that look like contoso.onmicrosoft.com.
 

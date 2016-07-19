@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/15/2016"
 	ms.author="spelluru"/>
 
 # Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
@@ -483,7 +483,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer | No (default: 10000)
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer (number of rows) | No (default: 10000)
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
 | sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. See repeatability section below for more details. | Column name of a column with data type of binary(32). | No |
 | sqlWriterStoredProcedureName | Name of the stored procedure that upserts (updates/inserts) data into the target table. | Name of the stored procedure. | No |
@@ -497,7 +497,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 	![Enable remote connections](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
 	See [Configure the remote access Server Configuration Option](https://msdn.microsoft.com/library/ms191464.aspx) for detailed steps.
-2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/TP by right-clicking **TCP/IP** and clicking **Enable**.
+2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/IP by right-clicking **TCP/IP** and clicking **Enable**.
 
 	![Enable TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 

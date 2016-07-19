@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/15/2016" 
 	ms.author="stefsch"/>
 
 # App Service Environment Documentation
@@ -35,6 +35,7 @@ Apps frequently need to access corporate resources such as internal databases an
 * [What is an App Service Environment?](../app-service-web/app-service-app-service-environment-intro.md)
 * [Creating an App Service Environment](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Creating Apps in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Creating and Using an Internal Load Balancer with App Service Environments](../app-service-web/app-service-environment-with-internal-load-balancer.md)
 * [Configuring an App Service Environment](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
 * [Scaling Apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 * [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)

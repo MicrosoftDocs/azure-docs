@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -43,7 +43,7 @@ Current policy recommendations center around system updates, baseline rules, ant
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile on the **Security Center** blade lets you know the total number of recommendations identified by Security Center.
 
-![][2]
+![Recommendations tile][2]
 
 To see the details of each recommendation:
 
@@ -69,42 +69,45 @@ Use the table below as a reference to help you understand the available recommen
 |Recommendation|Description|
 |-----|-----|
 |[Enable data collection for subscriptions](security-center-enable-data-collection.md)|Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions.|
-|Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
-|Apply system updates|Recommends that you deploy missing system security and critical updates to VMs.|
+|[Resolve mismatch baseline rules](security-center-resolve-mismatch-baseline-rules.md)|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
+|[Apply system updates](security-center-apply-system-updates.md)|Recommends that you deploy missing system security and critical updates to VMs.|
+|[Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)|Recommends that you reboot a VM to complete the process of applying system updates.|
 |[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future.|
-|Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
-|[Enable Antimalware](security-center-enable-antimalware.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
-|Enable Network Security Groups on subnets/network interfaces|Recommends that you enable network security groups (NSGs) on subnets and network interfaces.|
+|[Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
+|[Add a Next Generation Firewall](security-center-add-next-generation-firewall.md)|Recommends that you add a next generation firewall from a Microsoft partner in order to increase your security protections.|
+|[Install Endpoint Protection](security-center-install-endpoint-protection.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
+|[Enable Network Security Groups on subnets/network interfaces](security-center-enable-network-security-groups.md)|Recommends that you enable network security groups (NSGs) on subnets and network interfaces.|
 |Restrict access through public external endpoints|Recommends that you configure inbound traffic rules for NSGs.|
 |[Enable server SQL Auditing](security-center-enable-auditing-on-sql-servers.md)|Recommends that you turn on auditing for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines).|
 |[Enable database SQL Auditing](security-center-enable-auditing-on-sql-databases.md)|Recommends that you turn on auditing for Azure SQL databases (Azure SQL service only; doesn't include SQL running on your virtual machines).|
 |[Enable Transparent Data Encryption on SQL databases](security-center-enable-transparent-data-encryption.md)|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
 |Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
 | [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM.|
-|Provide security contact details | Recommends that you  provide security contact information for each of your subscriptions. Contact information is an email address and phone number. The information will be used to contact you if our security team finds that your resources are compromised. |
+|[Provide security contact details](security-center-provide-security-contact-details.md) | Recommends that you provide security contact information for each of your subscriptions. Contact information is an email address and phone number. The information will be used to contact you if our security team finds that your resources are compromised. |
+| [Update OS version](security-center-update-os-version.md) | Recommends that you update the operating system (OS) version for your Cloud Service to the most recent version available for your OS family.  To learn more about Cloud Services, see the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md). |
 
 You can filter and dismiss recommendations.
 
 1. Click **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
 
-    ![][3]
+    ![Filter recommendations][3]
 
 2. If you determine that a recommendation is not applicable, you can dismiss the recommendation and then filter it out of your view. There are two ways to dismiss a recommendation. One way is to right click an item, and then select **Dismiss**. The other is to hover over an item, click the three dots that appear to the right, and then select **Dismiss**. You can view dismissed recommendations by clicking **Filter**, and then selecting **Dismissed**.
 
-    ![][4]
+    ![Dismiss recommendation][4]
 
 ### Apply recommendations
 After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 Using the **Enable Antimalware** recommendation, let’s walk through an example of how to apply a recommendation.
 
 1. In the **Recommendations** blade, select **Enable Antimalware**.
-![][5]
+![Select enable antimalware][5]
 
 2. In the **Install Antimalware** blade select from the list of virtual machine(s) without antimalware enabled and click **Install Antimalware**.
 3. The **New resource** blade opens to allow you to select the antimalware solution you want to use. Select **Microsoft Antimalware**.
 4. Additional information about the antimalware solution is displayed. Select **Create**.
 5. Enter the required configuration settings on the **Add Extension** blade, and then select **OK**.
-![][6]
+![Install antimalware][6]
 
 [Microsoft Antimalware](../security/azure-security-antimalware.md) is now active on the selected virtual machine.
 

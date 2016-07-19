@@ -53,12 +53,12 @@ In order to deploy an application to Service Fabric, the application needs to fo
 
 ```
 |-- ApplicationPackage
-	|-- code
-		|-- existingapp.exe
-	|-- config
-		|-- Settings.xml
-  |-- data    
-  |-- ServiceManifest.xml
+    |-- code
+        |-- existingapp.exe
+    |-- config
+        |-- Settings.xml
+    |-- data
+    |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -162,7 +162,8 @@ The `Name` element is used to specify the name of the directory in the applicati
 ```
 The SetupEntrypoint element is used to specify any executable or batch file that should be executed before the service's code is launched. It is an optional element, so it does not need to be included if there is no initialization/setup required. The SetupEntryPoint is executed every time the service is restarted.
 
-There is only one SetupEntrypoint, so setup/config scripts need to be bundled in a single batch file if the application's setup/config requires multiple scripts. Like the SetupEntryPoint element, SetupEntrypoint can execute any type of file--executable files, batch files, and PowerShell cmdlets. In the example above, the SetupEntrypoint is based on a batch file LaunchConfig.cmd that is located in the `scripts` subdirectory of the code directory (assuming the WorkingFolder element is set to code).
+There is only one SetupEntrypoint, so setup/config scripts need to be bundled in a single batch file if the application's setup/config requires multiple scripts. SetupEntrypoint can execute any type of file--executable files, batch files, and PowerShell cmdlets.
+In the example above, the SetupEntrypoint is based on a batch file LaunchConfig.cmd that is located in the `scripts` subdirectory of the code directory (assuming the WorkingFolder element is set to code).
 
 ### Entrypoint
 

@@ -43,11 +43,11 @@ The recommendation build has two capabilities that make it attractive:
  If you want to use cold item placement you need to provide features information for each of your items in the catalog,
  this is what the first few lines of your catalog may look like (note the key=value format for the features):
 
-> 6CX-00001,Surface Pro2, Surface, Type=Hardware,  Storage=128GB,  Memory=4G, Manufacturer=Microsoft
+> 6CX-00001,Surface Pro2, Surface,, Type=Hardware,  Storage=128GB,  Memory=4G, Manufacturer=Microsoft
 
-> 73H-00013,Wake Xbox 360,Gaming, Type=Software, Language=English, Rating=Mature
+> 73H-00013,Wake Xbox 360,Gaming,, Type=Software, Language=English, Rating=Mature
 
-> WAH-0F05,Minecraft Xbox 360,Gaming, * Type=Software, Language=Spanish, Rating=Youth
+> WAH-0F05,Minecraft Xbox 360,Gaming,, * Type=Software, Language=Spanish, Rating=Youth
 
 > ...
 
@@ -66,6 +66,26 @@ The recommendation build has two capabilities that make it attractive:
  One classic example where you may want to apply user recommendations is when the user first logs into your store/site, on the welcome page. There you can promote content that applies to the specific user. 
  
  You may also want to apply a Recommendations build type when the user is about to check-out. At that point you have the list of items the customer is about to purchase, and this is your chance to provide recommendations based on the current market basket.
+ 
+#### Recommendations build parameters 
+ 
+| Name  | 	Description |	 Type, <br>  Valid Values <br> (Default Value)
+|-------|-------------------|------------------
+| NumberOfModelIterations |	The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the better accuracy you will get, but the compute time will take longer.  |	 Integer, <br> 	10 to 50 <br>Default: 40 
+| NumberOfModelDimensions |	The number of dimensions relates to the number of 'features' the model will try to find within your data. Increasing the number of dimensions will allow better fine-tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. |	Integer, <br> 10 to 40 <br> Default: 20 |
+| ItemCutOffLowerBound |	Defines the minimum number of usage points an item should be in for it to be considred in the model. |		Integer, <br> 2 or More. <br> Default: 2 |
+| ItemCutOffUpperBound | 	Defines the maximum number of usage points an item should be in for it to be considered in the model. |  Integer, <br>2 or More.<br> Default: 2147483647 |
+|UserCutOffLowerBound |	Defines the minimum number of transactions a user must have performed to be considered in the model. |	Integer, <br> 2 or More. <br> Default: 2 
+| ItemCutOffUpperBound |	Defines the maximum number of transactions a user must have performed to be considered in the model. |	Integer , <br>2 or More. <br> Default: 2147483647|
+| UseFeaturesInModel |	Indicates if features can be used in order to enhance the recommendation model. | 	 Boolean<br> Default: True 
+|ModelingFeatureList |	Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. 	(Depends on the features that are important) |	String, up to 512 chars
+| AllowColdItemPlacement |	Indicates if the recommendation should also push cold items via feature similarity.	| Boolean <br> Default: False	
+| EnableFeatureCorrelation	| Indicates if features can be used in reasoning. |	Boolean <br> Default: False
+| ReasoningFeatureList |	Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).	(Depends on the features that are important to customers) | String, up to 512 chars
+| EnableU2I |	Enable personalized recommendation a.k.a. U2I (user to item recommendations). | Boolean <br>Default: True
+|EnableModelingInsights |	Defines whether offline evaluation should be performed in order to gather modeling insights (i.e. precision and diversity metrics). If set to true, a subset of the data will not be used for training as it will need to be reserved for testing of the model. Read more about [offline evaluations](#OfflineEvaluation) | Boolean <br> Default: False
+| SplitterStrategy | If enable modeling insights is set to true, the way in which data should be split for evaluation purposes  | String, *RandomSplitter* or *LastEventSplitter* <br>Default:  RandomSplitter 
+
 
 <a name="FBTBuild"></a>
 ### FBT build type ###
@@ -79,6 +99,16 @@ In our Lumia 650 phone example, a phone X will be returned if and only if phone 
 Currently, two items are assumed to be purchased in the same session if they occur in a transaction with the same user id and timestamp.
 
 FBT builds do not support cold items today, as they by definition expect two items to be actually purchased in the same transaction.   While FBT builds can return sets of items (triplets), they do not support personalized recommendations since they accept a single seed item as the input.
+
+
+#### FBT build parameters 
+ 
+| Name  | 	Description |		Type,  <br> Valid Values <br> (Default Value)
+|-------|---------------|-----------------------
+| FbtSupportThreshold | How conservative the model is. Number of co-occurrences of items to be considered for modeling. |  Integer, <br> 3-50 <br> Default: 6 
+| FbtMaxItemSetSize | Bounds the number of items in a frequent set.| Integer	<br> 2-3 <br> Default: 2
+| FbtMinimalScore | Minimal score that a frequent set should have in order to be included in the returned results. The higher the better. | Double <br> 0 and above <br> Default: 0
+| FbtSimilarityFunction | Defines the similarity function to be used by the build. Lift favors serendipity, Co-occurrence favors predictability, and Jaccard is a nice compromise between the two. | String,  <br>  <i>cooccurrence, lift, jaccard</i><br> Default: <i>jaccard</i> 
 
 <a name="SelectBuild"></a>
 ## How do I select the exact build to use? ##
@@ -167,7 +197,7 @@ At build time, as part of the respective FBT or Recommendation build parameters:
 
 This will trigger a build that uses only a subset of the data for training, and the rest of the
  data is used to compute evaluation metrics.  After the build is completed, to get the output of the evaluation,
- you just need to call the [Get build metrics API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console),
+ you just need to call the [Get build metrics API] (https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f),
  passing the respective *modelId* and *buildId*.
 
  Below is the JSON output for the sample evaluation we performed:

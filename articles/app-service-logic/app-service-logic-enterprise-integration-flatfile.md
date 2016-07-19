@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
-	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
+	pageTitle="Learn to encode or decode flat files using the Enterprise Integration Pack and Logic apps| Microsoft Azure App Service | Microsoft Azure" 
+	description="Use the features of Enterprise Integration Pack and Logic apps to encode or decode flat files" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Enterprise integration with flat files
@@ -44,10 +44,33 @@ Follow these steps to create a Logic app and add a flat file encoding connector 
 9. Save your work   
 ![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)  
 
-At this point, you are finished setting up your flat file encoding connector. In a real world application, you may want to store the encoded data in an LOB application such as SalesForce. You can easily add an action to send the output of the encoding action to Salesforce. 
+At this point, you are finished setting up your flat file encoding connector. In a real world application, you may want to store the encoded data in an LOB application such as SalesForce or send that encoded data to a trading partner. You can easily add an action to send the output of the encoding action to Salesforce or to your trading partner using any one of the other connectors provided. 
 
 You can now test your connector by making a request to the HTTP endpoint and including the XML content in the body of the request.  
 
+## How to create the flat file decoding connector
+
+### Prerequisite
+You need to have a schema file already uploaded into you integration account in order to complete these steps.
+
+1. Add a **Request - When an HTTP request is received** trigger to your Logic app  
+![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
+2. Add the flat file encoding action by:  
+-  Select the **plus** sign  
+-  Select the **Add an action** link that is presented after you have selected the plus sign  
+-  Enter *Flat* in the search box in order to filter all the actions to the one that you want to use   
+-  Select the **Flat File Decoding** action from the list   
+![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)   
+- Select the **CONTENT** control. This will produce a list of the content from earlier steps that you can use as the content to decode. You will notice the *Body* from the incoming HTTP request is available to be used as the content to decode. Note that you can also enter the content to decode directly into the **CONTENT** control. In this example, I selected *Body* to use the body of the incoming HTTP request from step 1 of the decoding steps.    
+- Select the *Body* tag. Notice the body tag is now in the CONTENT control.
+- Select the name of the Schema that you want to use to decode the content. In this example, I select *OrderFile*. Note that OrderFile is the name of the schema that I uploaded into my integration account at some point before.
+![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-decode-1.png)    
+- Select the **Save** link from the menu to save your work  
+![](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)    
+
+At this point, you are finished setting up your flat file decoding connector. In a real world application, you may want to store the decoded data in an LOB application such as SalesForce. You can easily add an action to send the output of the decoding action to Salesforce. 
+
+You can now test your connector by making a request to the HTTP endpoint and including the XML content you want to decode in the body of the request.  
 
 ## Learn more
-- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

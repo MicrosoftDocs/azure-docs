@@ -148,7 +148,7 @@ Although each deployment shows only the changes that you have made to your resou
 
       ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
 
-     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You will learn how to handle those issues in the [Fixing export issues](#fixing-export-issues) section.
+     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You will learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
 
       
 

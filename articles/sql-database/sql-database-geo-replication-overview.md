@@ -40,7 +40,7 @@ You can failover to a secondary using the [Azure portal](sql-database-geo-replic
 - [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
-The Active Geo-Replication feature implements a mechanism to provide database redundancy within the same Microsoft Azure region or in different regions (geo-redundancy). Active Geo-Replication asynchronously replicates committed transactions from a database to up to four copies of the database on different servers. When Active Geo-Replication is configured a secondary database is created on the specified server. The original database becomes the primary database. The primary database asynchronously replicates committed transactions to each of the secondary databases. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to always be transactionally consistent with changes committed to the primary database.
+The Active Geo-Replication feature implements a mechanism to provide database redundancy within the same Microsoft Azure region or in different regions (geo-redundancy). Active Geo-Replication asynchronously replicates committed transactions from a database to up to four copies of the database on different servers, using read committed snapshot isolation (RCSI) for isolation. When Active Geo-Replication is configured a secondary database is created on the specified server. The original database becomes the primary database. The primary database asynchronously replicates committed transactions to each of the secondary databases. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to always be transactionally consistent with changes committed to the primary database.
 
 One of the primary benefits of Active Geo-Replication is that it provides a database-level disaster recovery solution with very low recovery time. When you place the secondary database on a server in a different region you add maximum resilience to your application. The cross-region redundancy enables applications to recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The following figure shows an example of Active Geo-Replication configured on a Premium database with a primary in the North Central US region and secondary in the South Central US region.
 
@@ -92,9 +92,9 @@ As discussed above, in addiition to the Azure portal, Active Geo-Replication can
 
 |Command|Description|
 |-------|-----------|
-|[ALTER DATABASE (Azure SQL Database)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication|
-|[ALTER DATABASE (Azure SQL Database)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary in order to initiate failover
-|[ALTER DATABASE (Azure SQL Database)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database.|
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication|
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary in order to initiate failover
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database.|
 |[sys.geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx)|Returns information about all exiting replication links for each database on the Azure SQL Database logical server.|
 |[sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx)|Gets the last replication time, last replication lag and other information about the replication link for a given SQL database.|
 |[sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx)|Shows the status for all database operations including the status of the replication links.|
@@ -116,7 +116,7 @@ As discussed above, in addiition to the Azure portal, Active Geo-Replication can
 
 |API|Description|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates, updates, or restores a primary or a secondary database.|
+|[Create or Update Database (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates, updates, or restores a primary or a secondary database.|
 |[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Returns the status during a create operation.|
 |[Set Secondary Database as Primary (Planned Failover)r](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promote a secondary database in a Geo-Replication partnership to become the new primary database.|
 |[Set Secondary Database as Primary (Unplanned Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|To force a failover to the secondary database and set the secondary as the primary.|
@@ -128,8 +128,8 @@ As discussed above, in addiition to the Azure portal, Active Geo-Replication can
 
 ## Next steps
 
-- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md).
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md).
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md).

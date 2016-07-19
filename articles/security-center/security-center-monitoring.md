@@ -13,16 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
 This document helps you use monitoring capabilities in Azure Security Center to monitor compliance with policies.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
-
-## What is Azure Security Center?
-Security Center helps you prevent, detect, and respond to threats with increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions
 
 ##What is security health monitoring?
 We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices.
@@ -59,6 +56,8 @@ This section shows the total number of VMs that were initialized for data collec
 This section has a set of recommendations for each VM monitored by Azure Security Center. The first column lists the recommendation, the second column the total number of VMs that are affected by that recommendation and the third column shows the severity of the issue as illustrated below.
 
 ![VM Recommendations](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
+
+> [AZURE.NOTE] Only VMs with at least one public endpoint are shown in the Networking Health blade in the Network topology list.
 
 Each recommendation has a set of actions that can be performed once you click on it. For example, if you click **Missing system updates**, the **Missing system updates** blade will open. It lists the VMs that are missing patches and the severity of the missing update as shown below.
 
@@ -97,7 +96,20 @@ In the example above, one VM has a critical recommendation regarding antimalware
 
 This blade has the security details for the VM. At the bottom of this blade you can see the recommended action and the severity of each issue.
 
-###Monitor virtual networks
+#### Cloud services (Preview) section
+Health status for cloud services is included in the virtual machines security health tile. A recommendation is created when the OS version is out of date as shown below: 
+
+![Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+
+You will have to follow the steps in the recommendation to update the OS version. For example, if you click in the red alert in one of the Web role (runs Windows Server with your web app automatically deployed to IIS) or Worker role (runs Windows Server with your web app automatically deployed to IIS) a new blade will open up with more details about this recommendation as shown below:
+
+![Cloud Service Details](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png) 
+
+To see the a more prescriptive explanation regarding this recommendation, click Update **OS version** under **DESCRIPTION **column. The **Update OS version (Preview)** blade will open with more details.
+
+![Cloud Services Recommendations](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
+
+### Monitor virtual networks
 When you click on **Networking** in the **Resources security health** tile, the **Networking** blade will open with more details as shown below:
 
 ![Networking](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
@@ -186,7 +198,7 @@ The **Unsecured Web Applications** blade will have a list of all VMs that contai
 
 ![Add WAF](./media/security-center-monitoring/security-center-monitoring-fig20-new.png)
 
-## Next steps
+## See also
 In this document, you learned how to use monitoring capabilities in Azure Security Center. To learn more about Azure Security Center, see the following:
 
 - [Setting security policies in Azure Security Center](security-center-policies.md)

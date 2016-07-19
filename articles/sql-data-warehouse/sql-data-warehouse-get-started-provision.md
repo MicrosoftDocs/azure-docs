@@ -48,7 +48,7 @@ In this tutorial you will use the Azure Portal to create a SQL Data Warehouse th
 
     - **Subscription**: Select the subscription that this SQL Data Warehouse will bill to.
 
-    - **Resource group**: Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-portal/resource-group-portal.md).
+    - **Resource group**: Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../resource-group-overview.md).
 
     - **Select source**: Click **Select source** > **Sample**. Since there is only one sample database available at this time, when you select Sample Azure automatically populates the **Select sample** option with AdventureWorksDW.
 

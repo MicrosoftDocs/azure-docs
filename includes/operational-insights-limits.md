@@ -26,4 +26,4 @@ The following limits apply to Operational Insights subscriptions.
 |Data storage limit|500 MB * 7 days = 3.5 GB|unlimited|unlimited|
 
 
-<sup>1</sup>When customers reach their 500MB daily data transfer limit, data analyzation stops and resumes at the start of the next day. A day is based on UTC.
+<sup>1</sup>When customers reach their 500MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC.

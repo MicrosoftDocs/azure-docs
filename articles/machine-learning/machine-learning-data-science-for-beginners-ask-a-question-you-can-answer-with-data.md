@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Ask a question you can answer with data - Data Science for Beginners | Microsoft Azure"
+   pageTitle="Ask a question you can answer with data - formulate questions | Microsoft Azure"
    description="Learn how to formulate a data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions."
    keywords="choose a question,data science questions,formulate question,formulate questions,regression questions,classification questions,sharp question"
    services="machine-learning"
@@ -14,18 +14,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/28/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Data Science for Beginners video 3: Ask a question you can answer with data 
+# Ask a question you can answer with data
+
+## Video 3: Data Science for Beginners series
 
 Learn how to formulate a data science question in Data Science for Beginners video 3. This video includes a comparison of questions for classification and regression algorithms.
 
+To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+
 > [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
+
+## Other videos in this series
+
+*Data Science for Beginners* is a quick introduction to data science in five short videos.
+
+  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+  * Video 3: Ask a question you can answer with data
+  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## Transcript: Ask a question you can answer with data
 
-Welcome to the third video in the series “Data Science for Beginners”.  
+Welcome to the third video in the series "Data Science for Beginners".  
 
 In this one, you’ll get some tips for formulating a question you can answer with data.
 
@@ -81,16 +95,6 @@ We’ve talked about some basic principles for asking a question you can answer 
 
 Be sure to check out the other videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
 
-## Other videos in the series
-
-*Data Science for Beginners* is a quick introduction to data science in five short videos.
-
-
-  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) 
-  * Video 3: Ask a question you can answer with data
-  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Next steps
 

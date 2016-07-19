@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="bwren" />
 
 # Azure Automation scenario - starting and stopping virtual machines
@@ -189,7 +189,7 @@ The variable asset with the subscription ID is then retrieved with **Get-Automat
 The next lines step through each virtual machine.  First the **PowerState** of the virtual machine is checked to see if it is already running or stopped, depending on the runbook.  If it is already in the target state, then a message is sent to output, and the runbook ends.  If not, then **Start-AzureVM** or **Stop-AzureVM** is used to attempt to start or stop the virtual machine with the result of the request stored to a variable.  A message is then sent to output specifying whether the request to start or stop was submitted successfully.
 
 
-## Next Steps
+## Next steps
 
-- [Child runbooks in Azure Automation](automation-child-runbooks.md) 
-- [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+- To learn more about working with child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+- To learn more about output messages during runbook execution and logging to help troubleshoot, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)

@@ -62,7 +62,7 @@ The following table lists the SQL Database business continuity features and show
 
 | Capability | Basic tier | Standard tier |Premium tier
 | --- |--- | --- | ---
-| Point In Time Restore | Any restore point within 7 days | Any restore point within 14 days | Any restore point within 35 days
+| Point In Time Restore | Any restore point within 7 days | Any restore point within 35 days | Any restore point within 35 days
 | Geo-Restore | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
 | Active Geo-Replication | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 
@@ -73,7 +73,7 @@ These features are provided to address the scenarios listed earlier.
 
 ###Point-in-time restore
 
-[Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 14 days with Standard, and 35 days with Premium. 
+[Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 35 days with Standard, and 35 days with Premium. 
 
 ### Geo-Restore
 
@@ -108,7 +108,7 @@ You should use the built-in protection if your application meets the following c
 
 You should use Active Geo-Replication if your application meets the following criteria:
 
-1. It is mission critical. It has a binding SLA with aggressive RPO and RTO. Loss of data and availability will result in financial liability. 
+1. It is mission critical. Loss of data and availability will result in financial liability. 
 2. The rate of data change is high (e.g. transactions per minute or seconds). The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.
 3. The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.
 
