@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/19/2016"
 ms.author="larryfr"/>
 
 #Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -22,7 +22,7 @@ While Windows-based HDInsight provides an easy way to use Hadoop in the cloud, y
 
 This document provides details on the differences between HDInsight on Windows and Linux, and guidance on how to migrate existing workloads to a Linux-based cluster.
 
-> [AZURE.NOTE] Ubuntu 12.04.05 LTS is the Linux distribution used for Linux-based HDInsight clusters.
+> [AZURE.NOTE] HDInsight clusters use Ubuntu long term support (LTS) as the operating system for the nodes in the cluster. HDInsight 3.3 and 3.4 clusters use Ubuntu 14.0.4 LTS; earlier versions of HDInsight used Ubuntu 12.04.05 LTS.
 
 ## Migration tasks
 

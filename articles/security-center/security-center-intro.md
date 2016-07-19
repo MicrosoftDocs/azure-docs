@@ -4,16 +4,16 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="07/19/2016"
    ms.author="terrylan"/>
 
 # Introduction to Azure Security Center
@@ -71,7 +71,7 @@ On the **Security policy** blade select a subscription to view the policy detail
 
 > [AZURE.NOTE] Data collection and choosing a storage account per region is configured at the subscription level.
 
-**Show recommendations for** (see above) lets you choose the security controls that you want to monitor and recommend based on the security needs of the resources within the subscription.
+Select **Prevention policy** (see above) to open the **Prevention policy** blade. **Show recommendations for** lets you choose the security controls that you want to monitor and recommend based on the security needs of the resources within the subscription.
 
 Next, select a resource group to view policy details.
 
@@ -138,7 +138,7 @@ To get started with  Security Center, you need a subscription to Microsoft Azure
 
 [Getting started with Azure Security Center](security-center-get-started.md) quickly guides you through the security-monitoring and policy-management components of Security Center.
 
-## Next steps
+## See also
 In this document, you were introduced to Security Center, its key capabilities, and how to get started. To learn more, see the following:
 
 - [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
