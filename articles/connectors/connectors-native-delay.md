@@ -30,7 +30,7 @@ To get started using the delay action in a logic app, see [create a logic app](.
 
 ## Use the delay actions
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md). 
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](connectors-overview.md). 
 
 Here’s an example sequence of how to use a delay step in a logic app:
 
