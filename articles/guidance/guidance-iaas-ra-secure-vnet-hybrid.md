@@ -246,7 +246,7 @@ Don't force DevOps requests through the NVA; the UDR that intercepts application
 
 ## Solution components
 
-The solution provided for this architecture utilizes the following ARM templates:
+The solution provided for this architecture utilizes the following resource manager templates:
 
 - [azuredeploy.json][azuredeploy]. This template is specific to this architecture. It creates a resource group containing the VNet network, subnets, NSGs, and UDRs for these subnets.
 
@@ -282,7 +282,7 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement
 
 1. The template configures IP forwarding for the NICs attached to the inbound and outbound NVA subnets by passing the following parameters to the [bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe] template:
 
-	```arm-template
+	```template
     "parameters": {
       ...
       "nic1IpForwarding": { "value": true },
@@ -293,7 +293,7 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement
 
 	The [bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe] template passes these parameters to a further template, [bb-vm-3nics-lbbe.json][bb-vm-3nics-lbbe], which configures the NICs for a single VM:
 
-	```arm-template
+	```template
     {
       ...
       "type": "Microsoft.Network/networkInterfaces",
@@ -334,7 +334,7 @@ It is important that both of these tasks complete successfully, otherwise traffi
 
 The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template creates an availability set for the VMs, and implements an internal load balancer which distributes HTTP requests sent to ports 80 and 443 across this availability set. The load balancer has a static IP address. The JSON snippet below shows how the template configures the load balancer. Note that in this snippet, the *ilbIpAddress* parameter contains the internal IP address of the load balancer, and the *feSubnetId* parameter is a reference to the inbound (front-end) NVA subnet. The variable *ilbBEName* refers to the pool containing the NVA VMs.
 
-```arm-template
+```template
 {
   "type": "Microsoft.Network/loadBalancers",
   ...
@@ -384,7 +384,7 @@ The UDR for the gateway subnet implements two routes, as follows:
 
 - **toMgmt**. This route matches traffic intended for the management subnet and allows it to pass through, bypassing the NVA load balancer:
 
-```arm-template
+```template
 {
   "type": "Microsoft.Network/routeTables",
   ...
@@ -414,7 +414,7 @@ The UDR for the gateway subnet implements two routes, as follows:
 
 The [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template takes this UDR as an input parameter and applies the UDR to the Gateway subnet created for the connection to the on-premises network.
 
-```arm-template
+```template
 "parameters": {
   ...
   "udrName": {
@@ -439,7 +439,7 @@ The [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template creates
 
 This template invokes further templates, [bb-gatewaysubnet.json][bb-gatewaysubnet] and [bb-gatewaysubnet-udr.json][bb-gatewaysubnet-udr], to actually create the subnet and associate it with the UDR. The parameters shown below are passed to these templates:
 
-```arm-template
+```template
 "parameters": {
   "vnetName": { "value": "[parameters('vnetName')]" },
   "gatewaySubnetAddressPrefix": { "value": "[parameters('gatewaySubnetAddressPrefix')]" },
@@ -455,7 +455,7 @@ The local network gateway and VPN connection don't require any special configura
 
 The virtual network gateway requires a public, dynamic IP address, as shown by the following snippet:
 
-```arm-template
+```template
 {
   ...
   "type": "Microsoft.Network/publicIPAddresses",
@@ -466,7 +466,7 @@ The virtual network gateway requires a public, dynamic IP address, as shown by t
 
 The virtual network gateway uses the following configuration:
 
-```arm-template
+```template
 {
   ...
   "type": "Microsoft.Network/virtualNetworkGateways",
@@ -509,7 +509,7 @@ In this snippet, you should pay specific attention to the following properties:
 
 The [azuredeploy.sh][azuredeploy-script] script uses the [bb-ntwk-forced-tunneling.json][bb-ntwk-forced-tunneling] template to implement forced tunneling for the web, business, and data access tiers. The template creates separate route tables for each tier; this allows you to customize the table and add further routes for each tier individually. The route table contains the following route that directs all Internet-bound traffic back through the virtual network gateway, which in turn send the traffic on to the default site (through the local network gateway connection):
 
-```arm-template
+```template
 {
   "type": "Microsoft.Network/routeTables",
   ...
@@ -541,7 +541,7 @@ The purpose of the jump box is to provide administrative access to DevOps staff 
 
 It is imperative to protect direct access to the jump box from access by unauthorized staff. The [azuredeploy.json][azuredeploy] template creates NSG rules named *on-prem-rdp-allow*, *on-prem-ssh-allow*, *gateway-allow*, *self-allow*, and *vnet-deny* for the management subnet:
 
-```arm-template
+```template
 {
   "type": "Microsoft.Resources/deployments",
   ...
@@ -796,6 +796,11 @@ If each tier in the system is protected by using NSG rules, it may also be neces
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
 > [AZURE.NOTE] You can find additional information specifically aimed at monitoring and managing VPN and ExpressRoute connections in the articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
+
+## Next steps
+
+- Learn how to implement a [DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md).
+- Learn how to implement a [highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md).
 
 <!-- links -->
 
