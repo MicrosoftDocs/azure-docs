@@ -78,20 +78,20 @@ The sample solution is intentionally simple and is to show you how to use Data F
 
 **Time**: If you are familiar with basics of Azure, Data Factory, and Batch, and have completed the prerequisites listed below, we estimate this solution will take 1-2 hours to complete.
 
-## Prerequisites
+### Prerequisites
 
-### Azure subscription
+#### Azure subscription
 If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-### Azure storage account
+#### Azure storage account
 You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
 
-### Azure Batch account
+#### Azure Batch account
 Create an Azure Batch account using the [Azure Portal](http://manage.windowsazure.com/). See [Create and manage an Azure Batch account](../batch/batch-account-create-portal.md). Note the Azure Batch account name and account key. You can also use [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet to create an Azure Batch account. See [Get started with Azure Batch PowerShell cmdlets](../batch/batch-powershell-cmdlets-get-started.md) for detailed instructions on using this cmdlet.
 
 The sample solution uses Azure Batch (indirectly via an Azure Data Factory pipeline) to process data in a parallel manner on a pool of compute nodes, which is a managed collection of virtual machines.
 
-### Azure Batch pool of virtual machines (VMs)
+#### Azure Batch pool of virtual machines (VMs)
 Create an **Azure Batch pool** with at least 2 compute nodes.
 1.  In the [Azure Portal](https://portal.azure.com), click **Browse** in the left menu, and click **Batch Accounts**. 
 2. Select your Azure Batch account to open the **Batch Account** blade. 
@@ -104,7 +104,7 @@ Create an **Azure Batch pool** with at least 2 compute nodes.
 	5. Enter **2** as value for the **Max tasks per node** setting.
 	6. Click **OK** to create the pool. 
  	
-### Azure Storage Explorer   
+#### Azure Storage Explorer   
 [Azure Storage Explorer 6 (tool)](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software). These are GUI tools for inspecting and altering the data in your Azure Storage projects including the logs of your cloud-hosted applications.
 
 1.  Create a container named **mycontainer** with private access (no anonymous access)
@@ -127,17 +127,17 @@ Create an **Azure Batch pool** with at least 2 compute nodes.
 
 3.  Create another container named: **customactivitycontainer**. You will upload the custom activity zip file to this container.
 
-### Visual Studio
+#### Visual Studio
 Install Microsoft Visual Studio 2012 or later to create the custom Batch activity to be used in the Data Factory solution.
 
-## High-level steps to create the solution
+### High-level steps to create the solution
 
 1.  Create a custom activity that contains the data processing logic.
 2.  Create an Azure data factory that uses the custom activity:
 
 Detailed steps are in the following sections. 
 
-## Create the custom activity
+### Create the custom activity
 
 The Data Factory custom activity is the heart of this sample solution. The sample solution uses Azure Batch to run the custom activity. See [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md) for the basic information to develop custom activities and use them in Azure Data Factory pipelines.
 
@@ -163,7 +163,7 @@ The method has a few key components that you need to understand.
 
 -   The method returns a dictionary that can be used to chain custom activities together in the future. This feature is not implemented yet, so just return an empty dictionary from the method. 
 
-### Procedure: Create the custom activity
+#### Procedure: Create the custom activity
 
 1.  Create a .NET Class Library project in Visual Studio.
 
@@ -386,7 +386,7 @@ The method has a few key components that you need to understand.
 
 13.  Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactivitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container **customactivitycontainer** if it does not already exist.
 
-### Execute method
+#### Execute method
 
 This section provides more details and notes about the code in the Execute method.
 
@@ -451,7 +451,7 @@ This section provides more details and notes about the code in the Execute metho
 		outputBlob.UploadText(output);
 
 
-## Create the data factory
+### Create the data factory
 
 In the [Create the custom activity](#create-the-custom-activity) section, you created a custom activity and uploaded the zip file with binaries and the PDB file to an Azure blob container. In this section, you will create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
 
@@ -489,7 +489,7 @@ A task is created for each activity run. In this sample, there is only one activ
 
 The following walkthrough provides additional details.
 
-### Step 1: Create the data factory
+#### Step 1: Create the data factory
 
 1.  After logging into the [Azure Portal](https://portal.azure.com/), do the following:
 
@@ -513,7 +513,7 @@ The following walkthrough provides additional details.
 
  ![](./media/data-factory-data-processing-using-batch/image6.png)
 
-### Step 2: Create linked services
+#### Step 2: Create linked services
 
 Linked services link data stores or compute services to an Azure data factory. In this step, you will link your **Azure Storage** account and **Azure Batch** account to your data factory.
 
@@ -559,7 +559,7 @@ In this step, you will create a linked service for your **Azure Batch** account 
 
 3.  Click **Deploy** on the command bar to deploy the linked service.
 
-### Step 3: Create datasets
+#### Step 3: Create datasets
 
 In this step, you will create datasets to represent input and output data.
 
@@ -700,7 +700,7 @@ In this step, you will create another dataset of type AzureBlob to represent the
 
 3.  Click **Deploy** on the toolbar to create and deploy the **OutputDataset**.
 
-### Step 4: Create and run the pipeline with custom activity
+#### Step 4: Create and run the pipeline with custom activity
 
 In this step, you will create a pipeline with one activity, the custom activity you created earlier.
 
@@ -779,7 +779,7 @@ In this step, you will create a pipeline with one activity, the custom activity 
 
 3.  Click **Deploy** on the command bar to deploy the pipeline.
 
-### Step 5: Test the pipeline
+#### Step 5: Test the pipeline
 
 In this step, you will test the pipeline by dropping files into the input folders. Let’s start with testing the pipeline with one file per one input folder.
 
@@ -834,7 +834,7 @@ In this step, you will test the pipeline by dropping files into the input folder
 
     **Note:** If you hadn’t deleted the output file 2015-11-16-01.txt before trying with 5 input files, you will see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to output file if it already exists.
 
-### Data Factory and Batch integration
+#### Data Factory and Batch integration
 The Data Factory service creates a job in Azure Batch with the name: **adf-poolname:job-xxx**. 
 
 ![Azure Data Factory - Batch jobs](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
@@ -847,7 +847,7 @@ Use the portal to view the Batch job and its tasks that are associated with the 
 
 ![Azure Data Factory - Batch job tasks](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
 
-## Debug the pipeline
+### Debug the pipeline
 
 Debugging consists of a few basic techniques:
 
@@ -894,7 +894,7 @@ Debugging consists of a few basic techniques:
 
 	There is an easier workaround (but not a best practice): you can create a new **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
 
-### Extend the sample
+#### Extend the sample
 
 You can extend this sample to learn more about Azure Data Factory and Azure Batch features. For example, to process slices in a different time range, do the following:
 
@@ -925,7 +925,7 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
  
 
 
-## Next steps: Consume the data
+### Next steps: Consume the data
 
 After you process data you can consume it with online tools like **Microsoft Power BI**. Here are links to help you understand Power BI and how to use it in Azure:
 
