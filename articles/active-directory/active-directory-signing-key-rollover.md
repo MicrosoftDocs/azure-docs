@@ -349,4 +349,4 @@ You’ve just created the X509 certificate that is used as the public key for Az
 
 ## How to test your application to determine if it will be affected
 
-You can validate whether your application supports automatic key rollover by downloading the scripts and following the instructions in [this Github repository.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
+You can validate whether your application supports automatic key rollover by downloading the scripts and following the instructions in [this GitHub repository.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
