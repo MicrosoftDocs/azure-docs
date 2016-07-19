@@ -64,6 +64,8 @@ The following table provides a quick overview of the differences between the sto
 | Data can be read from the secondary location as well as from the primary location. | No  | No  | No  | Yes    |
 | Number of copies of data maintained on separate nodes.                             | 3   | 3   | 6   | 6      |
 
+You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md).
+
 ### Storage costs
 Prices vary depending on the storage type and availability that you select. 
 
@@ -75,7 +77,9 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 
 
 ## Azure Images
-In Azure, VMs are created from an image. Typically this will be an image created from the [Azure Marketplace](https://azure.microsoft.com/marketplace/) where partners provide pre-configured complete OS or application images. Azure Resource Manager templates are declarative JavaScript Object Notation (JSON) files that can be used to create complex application environments comprising VMs, storage, virtual networking, etc. You can read more about using [Azure Resource Manager templates](../articles/resource-group-overview.md).
+In Azure, VMs are created from an image. Typically this will be an image created from the [Azure Marketplace](https://azure.microsoft.com/marketplace/) where partners can provide pre-configured complete OS or application images.
+
+When you create a VM from an image in the Azure Marketplace, you are actually working with templates. Azure Resource Manager templates are declarative JavaScript Object Notation (JSON) files that can be used to create complex application environments comprising VMs, storage, virtual networking, etc. You can read more about using [Azure Resource Manager templates](../articles/resource-group-overview.md), including how to [build your own templates](../articles/virtual-machines/resource-group-authoring-templates.md).
 
 You can also create your own custom images and upload them using [Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md) or [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md) to quickly create custom VMs to your specific build requirements. When using custom images, VMs need to be stored in the same storage account as the image itself. You cannot upload an image to a single region and then create VMs from it across other Azure regions.
 
@@ -84,6 +88,8 @@ You can also create your own custom images and upload them using [Azure CLI](../
 An availability set is a logical grouping of VMs that allows Azure to understand how your application is built in order to provide for redundancy and availability. It is recommended that two or more VMs are created within an availability set in order to provide for a highly-available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). The availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains and update domains.
 
 ![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
+
+You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/virtual-machines-linux-manage-availability.md) or [Windows VMs](../articles/virtual-machines/virtual-machines-linux-manage-availability.md).
 
 ### Fault domains
 A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains to limit the impact of potential physical hardware failures, network outages, or power interruptions.
