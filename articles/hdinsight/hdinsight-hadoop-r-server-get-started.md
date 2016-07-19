@@ -409,4 +409,4 @@ If you're interested in automating the creation of R Server on HDInsight using A
 
 Both templates create a new HDInsight cluster and associated storage account, and can be used from the Azure CLI, Azure PowerShell, or the Azure Portal.
 
-For generic information on using ARM templates, see [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+For generic information on using Azure Resource Manager templates, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
