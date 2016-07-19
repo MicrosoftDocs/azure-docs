@@ -21,10 +21,12 @@
 
 
 ## Overview of the Steps
-1. Create a Hybrid Connection by entering the host name or IP address of the on-premises resource in your private network.
+1. Create a Hybrid Connection by entering the **host name** (computer name or internal FQDN) of the on-premises resource in your private network.
 2. Link your Azure web apps or Azure mobile apps to the Hybrid Connection.
 3. Install the Hybrid Connection Manager on your on-premises resource and connect to the specific Hybrid Connection. The Azure portal provides a single-click experience to install and connect.
 4. Manage Hybrid Connections and their connection keys.
+
+[AZURE.NOTE] Using the IP address of your on-premises resource instead of host name or FQDN is not supported and will result in communication failure.
 
 This topic lists these steps. 
 
@@ -49,7 +51,7 @@ A Hybrid Connection can be created in the Azure portal using Web Apps **or** usi
 	Property | Description
 --- | ---
 Name | The Hybrid Connection name must be unique and cannot be the same name as the BizTalk Service. You can enter any name but be specific with its purpose. Examples include:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
-Host Name | Enter the fully qualified host name, only the host name, or the IPv4 address of the on-premises resource. Examples include:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+Host Name | Enter the fully qualified host name or only the host name (computer name) of the on-premises resource. Examples include:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com
 Port | Enter the port number of the on-premises resource. For example, if you're using Web Apps, enter port 80 or port 443. If you're using SQL Server, enter port 1433.
 
 5. Select the check mark to complete the setup. 
