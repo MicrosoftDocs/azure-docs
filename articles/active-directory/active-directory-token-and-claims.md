@@ -88,9 +88,9 @@ When you redeem a refresh token for a new access token, you will receive a new r
 
 ## Validating tokens
 
-At this point in time, the only token validation your apps should need to perform is validating id_tokens.  In order to validate an id_token, your app should validate both the id_token's signature and the claims in the id_token.
+At this point in time, the only token validation your client app should need to perform is validating id_tokens.  In order to validate an id_token, your app should validate both the id_token's signature and the claims in the id_token.
 
-We provide libraries & code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several 3rd party open source libraries available for JWT validation - there is at least one option for almost every platform & language out there.
+We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
 #### Validating the signature
 
