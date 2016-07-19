@@ -1,6 +1,6 @@
 <properties
 pageTitle="SharePoint Online connector | Microsoft Azure"
-description="Create Logic apps with the SharePoint Online connector to mange lists on SharePoint."
+description="Create logic apps with the SharePoint Online connector to mange lists on SharePoint."
 services="app-servicelogic"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -21,11 +21,11 @@ ms.author="deonhe"/>
 
 Use the SharePoint Online connector to manage SharePoint lists.  
 
-To use [any connector](./apis-list.md), you first need to create a Logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to SharePoint Online
 
-Before your Logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a Logic app and another service.  
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
 ### Create a connection to SharePoint Online
 
@@ -33,13 +33,13 @@ Before your Logic app can access any service, you first need to create a *connec
 
 ## Use a SharePoint Online trigger
 
-A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
 >[AZURE.INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
 ## Use a SharePoint Online action
 
-An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
 >[AZURE.INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 

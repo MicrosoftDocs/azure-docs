@@ -14,7 +14,7 @@ To configure the this action, you will need to provide the following information
 - Select the **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, SharePoint actions are of interest.    
 ![](./media/connectors-create-api-sharepointonline/action-2.png)    
 - Enter *sharepoint* to search for actions related to SharePoint.
-- Select **SharePoint Online - Create file** as the action to take.   **Note**: you will be prompted to authorize your Logic app to access your SharePoint account if you have not created a connection to SharePoint Online previously.    
+- Select **SharePoint Online - Create file** as the action to take.   **Note**: you will be prompted to authorize your logic app to access your SharePoint account if you have not created a connection to SharePoint Online previously.    
 ![](./media/connectors-create-api-sharepointonline/action-3.png)    
 - The **Create file** control opens.   
 ![](./media/connectors-create-api-sharepointonline/action-4.png)     
@@ -27,4 +27,4 @@ To configure the this action, you will need to provide the following information
 - Select the **File content** control and enter the content that will be written to the file that will be created. For the file content, notice that you can use any of the properties from the trigger you created previously. Simply select the properties from the list presented. Alternatively, you can enter the **File content** text directly into the control. In this example, I selected some properties and added spaces and a hyphen between each property.        
 ![](./media/connectors-create-api-sharepointonline/action-8.png)  
 - Save the changes to your workflow  
-- Congratulations, you now have a fully functional Logic app that is triggered when a new item is added to a SharePoint Online list. The app will then create a file, using some of the properties from the new list item.  You can now test it by creating a new item in the SharePoint list. 
+- Congratulations, you now have a fully functional logic app that is triggered when a new item is added to a SharePoint Online list. The app will then create a file, using some of the properties from the new list item.  You can now test it by creating a new item in the SharePoint list. 
