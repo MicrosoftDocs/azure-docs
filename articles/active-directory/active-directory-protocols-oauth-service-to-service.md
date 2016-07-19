@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/19/2016"
 	ms.author="priyamo"/>
 
 # Service to service calls using client credentials
@@ -22,7 +22,7 @@ The OAuth 2.0 Client Credentials Grant Flow permits a web service (a *confidenti
 
 ## Client credentials grant flow diagram
 
-The following diagram explains how the client credentials grant flow works in Azure AD.
+The following diagram explains how the client credentials grant flow works in Azure Active Directory (Azure AD).
 
 ![OAuth2.0 Client Credentials Grant Flow](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
 
@@ -47,8 +47,8 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 
 A service-to-service access token request contains the following parameters.
 
-| Parameter |  | Description |
-|-----------|--|------------|
+| Parameter | | Description |
+|-----------|------|------------|
 | response_type | required | Specifies the requested response type. In a Client Credentials Grant flow, the value must be **client_credentials**.|
 | client_id | required | Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the Azure Management Portal, click **Active Directory**, click the directory, click the application, and then click **Configure**.|
 | client_secret | required |  Enter a key registered for the calling web service in Azure AD. To create a key, in the Azure Management Portal, click **Active Directory**, click the directory, click the application, and then click **Configure**. |
