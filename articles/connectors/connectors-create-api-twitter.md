@@ -81,7 +81,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 Now that you have added a trigger, follow these steps to add an action that will post a new tweet with the contents of the tweets found by the trigger. For the purposes of this walk-through only tweets from users with more than 50 followers will be posted.  
 
-In the next step, you will add a Twitter action that will post a tweet sing some of the properties of any tweet that has been posted by a user who has more than 50 followers.  
+In the next step, you will add a Twitter action that will post a tweet using some of the properties of each tweet that has been posted by a user who has more than 50 followers.  
 
 1. Select **Add an action**. This opens the search control where you can search for other actions and triggers.  
 ![](../../includes/media/connectors-create-api-twitter/condition-9.png)   
