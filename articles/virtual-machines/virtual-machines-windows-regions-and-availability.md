@@ -17,5 +17,3 @@
    ms.author="iainfou"/>
 
 [AZURE.INCLUDE [virtual-machines-common-regions-and-availability](../../includes/virtual-machines-common-regions-and-availability.md)]
-
-## Next steps
