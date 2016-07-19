@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Task output persistence in Azure Batch | Microsoft Azure"
+	pageTitle="Job and task output persistence in Azure Batch | Microsoft Azure"
 	description="Use the "
 	services="batch"
 	documentationCenter=".net"
@@ -16,7 +16,7 @@
 	ms.date="07/24/2016"
 	ms.author="marsma" />
 
-# Output persistence for Azure Batch tasks
+# Persist Azure Batch job and task output
 
 Your Batch tasks typically produce some form of output that must be stored when the tasks complete and then later retrieved--by other tasks in the job, the client application that executed the job, or both. This output might be files created by a task processing input data, or log files associated with task execution. This article details a conventions-based method and .NET class library that you can use to persist such task output to Azure Blob storage for later retrieval, even after you delete your pools, jobs, and compute nodes.
 
