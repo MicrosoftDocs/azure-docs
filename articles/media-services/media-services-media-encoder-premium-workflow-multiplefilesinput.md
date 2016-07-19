@@ -43,7 +43,7 @@ The configuration string to set in the encoding task uses an XML document that l
     </transcodeRequest>
 
 
-The following is the code in C# that reads the XML configuration from a file and passes it to the task in a job:
+The following is the C# code that reads the XML configuration from a file and passes it to the task in a job:
 
     XDocument configurationXml = XDocument.Load(xmlFileName);
     IJob job = _context.Jobs.CreateWithSingleTask(
@@ -78,7 +78,7 @@ Example:
 
 ### Property with an XML value
 
-To set a property that expects a XML value, encapsulate by using `<![CDATA[ and ]]>`.
+To set a property that expects an XML value, encapsulate by using `<![CDATA[ and ]]>`.
 
 Example:
 
@@ -135,7 +135,7 @@ When you're sending multiple media files to the **Media Encoder Premium Workflow
 - All the media files must be in the same *Media Asset*. Using multiple Media Assets is not supported.
 - You must set the primary file in this Media Asset (ideally, this is the main video file that the encoder is asked to process).
 - It is necessary to pass configuration data that includes the **setRuntimeProperties** and/or **transcodeSource** element to the processor.
-  - **setRuntimeProperties** is used to override the filename or another property in the components of the workflow.
+  - **setRuntimeProperties** is used to override the filename property or another property in the components of the workflow.
   - **transcodeSource** is used to specify the Clip List XML content.
 
 Connections in the workflow:
@@ -145,7 +145,7 @@ Connections in the workflow:
 
 ![No connection from Primary Source File to Media File Input](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
 
-*There is no connection from primary file to Media File Input component(s) if you use setRuntimeProperties to set the filename property.*
+*There is no connection from the primary file to Media File Input component(s) if you use setRuntimeProperties to set the filename property.*
 
 ![Connection from Clip List XML to Clip List Source](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
@@ -208,7 +208,7 @@ If you want to specify /primarySourceFile to use this property to name the outpu
         </setRuntimeProperties>
       </transcodeRequest>
 
-With additional frame accurate trimming:
+With additional frame-accurate trimming:
 
     <?xml version="1.0" encoding="utf-8"?>
       <transcodeRequest>
@@ -248,9 +248,9 @@ With additional frame accurate trimming:
 
 ## Example
 
-Consider an example in which you want to overlay a logo image on the input video while encoding. In this example, the input video is named "MyInputVideo.mp4" and the logo is named "MyLogo.png". The following steps should be performed:
+Consider an example in which you want to overlay a logo image on the input video while encoding. In this example, the input video is named "MyInputVideo.mp4" and the logo is named "MyLogo.png". You should perform the following steps:
 
-- Create a Workflow Asset with the workflow file (example below).
+- Create a Workflow Asset with the workflow file (see the following example).
 - Create a Media Asset, which contains two files: MyInputVideo.mp4 as the primary file and MyLogo.png.
 - Send a task to the Media Encoder Premium Workflow media processor with the above input assets and specify the following configuration string.
 
@@ -266,9 +266,9 @@ Configuration:
       </transcodeRequest>
 
 
-In the example above, the name of the video file is sent to the Media File Input component and the primarySourceFile property. The name of the logo file is sent to another Media File Input connected to the graphic overlay component.
+In the example above, the name of the video file is sent to the Media File Input component and the primarySourceFile property. The name of the logo file is sent to another Media File Input that is connected to the graphic overlay component.
 
->[AZURE.NOTE]The video file name is sent to primarySourceFile property. The reason for this is to use this property in the workflow for building the correct output file name using Expressions, for example.
+>[AZURE.NOTE]The video file name is sent to the primarySourceFile property. The reason for this is to use this property in the workflow for building the correct output file name using Expressions, for example.
 
 
 ### Step-by-step workflow creation that overlays a logo on top of the video     
@@ -304,7 +304,7 @@ Next, specify the video file in the Media File Input component.
 *Media File Input Source*
 
 
-As soon as this is done, the Media File Input component will inspect the file and populate its output pins to reflect the file it inspected.
+As soon as this is done, the Media File Input component will inspect the file and populate its output pins to reflect the file that it inspected.
 
 The next step is to add a "Video Data Type Updater" to specify the color space to Rec.709. Add a "Video Format Converter" that is set to Data Layout/Layout type = Configurable Planar. This will convert the video stream to a format that can be taken as a source of the overlay component.
 
@@ -314,7 +314,7 @@ The next step is to add a "Video Data Type Updater" to specify the color space t
 
 ![Layout type = Configurable Planar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
-*Layout type = Configurable Planar*
+*Layout type is Configurable Planar*
 
 Next, add a Video Overlay component and connect the (uncompressed) video pin to the (uncompressed) video pin of the media file input.
 
@@ -325,7 +325,7 @@ Add another Media File Input (to load the logo file), click on this component an
 *Overlay component and image file source*
 
 
-If you want to modify the position of the logo on the video (for example, you may want to position it at 10% off of the top left corner of the video), clear the "Manual Input" check box. You can do this because you are using a Media File Input to provide the logo file to the overlay component.
+If you want to modify the position of the logo on the video (for example, you might want to position it at 10 percent off of the top left corner of the video), clear the "Manual Input" check box. You can do this because you are using a Media File Input to provide the logo file to the overlay component.
 
 ![Overlay position](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture14_overlay_position.png)
 
@@ -333,7 +333,7 @@ If you want to modify the position of the logo on the video (for example, you ma
 
 
 To encode the video stream to H.264, add the AVC Video Encoder and AAC encoder components to the designer surface. Connect the pins.
-Set up the AAC encoder and select Audio Format Conversion/Preset : 2.0 (L, R)
+Set up the AAC encoder and select Audio Format Conversion/Preset : 2.0 (L, R).
 
 ![Audio and Video Encoders](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -347,7 +347,7 @@ Now add the **ISO Mpeg-4 Multiplexer** and **File Output** components and connec
 *MP4 multiplexer and file output*
 
 
-You need to set the name for the output file. Click the "File Output" component and edit the expression for the file:
+You need to set the name for the output file. Click the **File Output** component and edit the expression for the file:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
@@ -359,9 +359,9 @@ You can run the workflow locally to check that it is running correctly.
 
 After it finishes, you can run it in Azure Media Services.
 
-First, prepare an asset in Azure Media Services with two files in it: the video file and the logo. You can do it by using the .NET or REST API. You can also do it by using the Azure portal or [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
+First, prepare an asset in Azure Media Services with two files in it: the video file and the logo. You can do this by using the .NET or REST API. You can also do this by using the Azure portal or [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
 
-This tutorial shows how to manage assets with AMSE. There are two ways add files to an asset.
+This tutorial shows you how to manage assets with AMSE. There are two ways to add files to an asset:
 
 - Create a local folder, copy the two files in it, and drag and drop the folder to the **Asset** tab.
 - Upload the video file as an asset, display the asset information, go to the files tab, and upload an additional file (logo).
