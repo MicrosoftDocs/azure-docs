@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/18/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	b. Click **Next**
 
 
-> [AZURE.NOTE] The Sign On URL value in this tutorial is just a placeholder. To get the actual value for your environment, contact Anaplan support.
+	> [AZURE.NOTE] The Sign On URL value in this tutorial is just a placeholder. To get the actual value for your environment, contact Anaplan support.
 
 
 4. On the **Configure single sign-on at Anaplan** page, perform the following steps and click **Next**:
@@ -137,18 +137,20 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Anaplan support team via [support@anaplan.com](mailto:support@anaplan.com) and provide them with the following: 
-
-    - The downloaded metadata file 
-  
-
-    - The **Entity ID** 
-    
-
-    - The **SAML SSO URL** 
 
 
-    - The **Single Sign-Out Service URL**
+5. To get SSO configured for your application, contact your Anaplan support team via [support@anaplan.com](mailto:support@anaplan.com) and provide them with the following:
+
+    - The downloaded metadata file
+
+    - The **Entity ID**
+
+    - The **SAML SSO URL** 
+
+    - The **Single Sign Out Service URL**
+
+
+
 
 
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
