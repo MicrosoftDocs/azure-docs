@@ -36,7 +36,7 @@ Once you have created an IoT hub in an Azure region, the hub will keep the same 
 
 ## IoT Hub and security
 
-Only devices registered with an IoT hub are allowed to communicate with that IoT hub. A registered device must be granted the *DeviceConnect* permission. A device identifies itself by including a token that encapsulates the devices unique ID in each request it makes, and the hub checks the validity of the token and that the device is not blacklisted (*DeviceConnect* permission revoked).
+Only devices registered with an IoT hub are allowed to communicate with that IoT hub. A registered device must be granted the *DeviceConnect* permission. A device identifies itself by including a token that encapsulates the devices unique ID in each request it makes, and the hub checks the validity of the token and that the device is not blacklisted (*DeviceConnect* permission revoked). For information about the tokens supported by IoT Hub, see [Use IoT Hub security tokens and X.509 certificates][lnk-tokens]
 
 Access to other management endpoints in an IoT hub is also controlled through a set of permissions: *iothubowner*, *service*, *registryRead*, and *registryReadWrite*. Any client management application that connects to an IoT hub must include a token with the appropriate permissions.
 
@@ -51,11 +51,10 @@ To further explore the capabilities of IoT Hub, see:
 - [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
 
-[lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
-[lnk-manage-portal]: iot-hub-manage-through-portal.md
 
 [lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-tokens]: iot-hub-sas-tokens.md
