@@ -28,7 +28,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 - Read through the [list of unsupported configurations or features](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 -	If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
-## Step 2: Set your subscription and sign up for migration
+## Step 2: Set your subscription and register the provider
 
 For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../xplat-cli-install.md) and [select your subscription](../xplat-cli-connect.md).
 
@@ -52,9 +52,11 @@ Now switch CLI to the `asm` mode.
 
 	azure config mode asm
 
-## Step 3: Run commands to migrate your IaaS resources
+## Step 3: IaaS resources
 
 >[AZURE.NOTE] All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.
+
+[Migrate virtual machines in a cloud service]()
 
 ### Migrate virtual machines in a cloud service (not in a virtual network)
 
@@ -100,14 +102,9 @@ Get all the virtual networks in the subscription by using the following command.
 	
 The output will look something like this:
 
-	info:    Executing command network vnet list
-	+ Looking up the virtual network sites
-	data:    Name                                   Location  Affinity group  State    Address space  Subnets count  VPN Gateway address
-	data:    -------------------------------------  --------  --------------  -------  -------------  -------------  -------------------
-	data:    Group SUSEClassicRG SUSEClassicRG      East US                   Created  10.3.0.0/16    1
-	info:    network vnet list command OK
+![Screenshot of the command line with the entire virtual network name highlighted.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-In the above case, the virtualNetworkName is "Group SUSEClassicRG SUSEClassicRG"
+In the above example, the virtualNetworkName is the entire name **"Group classicubuntu16 classicubuntu16"**.
 
 Prepare the virtual network of your choice for migration by using the following command.
 
