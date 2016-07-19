@@ -88,6 +88,8 @@ If the prepared configuration looks good, you can move forward and commit the re
 
 	azure service deployment commit-migration <serviceName> <deploymentName>
 
+
+	
 ### Migrate virtual machines in a virtual network
 
 Pick the virtual network that you want to migrate. Note that if the virtual network contains web/worker roles or VMs with unsupported configurations, you will get a validation error message.
@@ -95,6 +97,17 @@ Pick the virtual network that you want to migrate. Note that if the virtual netw
 Get all the virtual networks in the subscription by using the following command.
 
 	azure network vnet list
+	
+The output will look something like this:
+
+	info:    Executing command network vnet list
+	+ Looking up the virtual network sites
+	data:    Name                                   Location  Affinity group  State    Address space  Subnets count  VPN Gateway address
+	data:    -------------------------------------  --------  --------------  -------  -------------  -------------  -------------------
+	data:    Group SUSEClassicRG SUSEClassicRG      East US                   Created  10.3.0.0/16    1
+	info:    network vnet list command OK
+
+In the above case, the virtualNetworkName is "Group SUSEClassicRG SUSEClassicRG"
 
 Prepare the virtual network of your choice for migration by using the following command.
 
