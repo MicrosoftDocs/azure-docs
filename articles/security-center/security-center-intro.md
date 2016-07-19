@@ -138,7 +138,7 @@ To get started with  Security Center, you need a subscription to Microsoft Azure
 
 [Getting started with Azure Security Center](security-center-get-started.md) quickly guides you through the security-monitoring and policy-management components of Security Center.
 
-## Next steps
+## See also
 In this document, you were introduced to Security Center, its key capabilities, and how to get started. To learn more, see the following:
 
 - [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.

@@ -97,7 +97,7 @@ View the health of your **Partner solutions**:
 3. Select a partner solution. In this example, lets select the **F5-WAF2** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
 ![Partner solution detail][10]
 
-## Next steps
+## See also
 In this document, you were introduced to the security monitoring and policy management components in Security Center. To learn more, see the following:
 
 - [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
