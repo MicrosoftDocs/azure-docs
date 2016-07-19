@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/18/2016"
+   ms.date="07/19/2016"
    ms.author="telmos"/>
 
 # Extending Active Directory to Azure
@@ -471,10 +471,6 @@ Perform the following steps to build the sample solution:
 32. At the prompt in the bash shell window, press a key. At the next prompt, *Press any key to apply the gateway UDR to the gateway subnet (it might have been removed)*, press a key and allow the script to refresh the gateway UDR.
 
 33. Verify that the script completes successfully.
-
-## Next steps
-
-The document [Implementing a secure hybrid network architecture with federated identities in Azure][implementing-adfs] describes how to use AD in the cloud with Active Directory Federation Services to provide federated authentication and authorization for applications running in Azure.
 
 <!-- links -->
 
