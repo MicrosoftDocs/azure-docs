@@ -63,7 +63,7 @@ In this section, you will perform the steps to create a service principal with a
     The new service principal is returned. The Object Id is needed when granting permissions. The service principal name is needed when logging in.
     
         info:    Executing command ad sp create
-        + Creating application julyexamplecli
+        + Creating application exampleapp
         / Creating service principal for application 7132aca4-1bdb-4238-ad81-996ff91d8db+
         data:    Object Id:               ff863613-e5e2-4a6b-af07-fff6f2de3f4e
         data:    Display Name:            exampleapp
