@@ -54,12 +54,12 @@ Here's an example of using the HTTP + Swagger operation as an action in a workfl
 
 You may wish to reference a swagger document which is either not hosted, or does not meet the security and cross-origin requirements needed to use in the designer.  As a workaround, you can store the swagger document in Azure storage and enable CORS to reference the document.  Here are the steps to create, configure, and store swagger in Azure storage:
 
-1. [Create an Azure storage account with blob storage](../storage/storage-create-storage-account) -- set permissions to "Public Access"
+1. [Create an Azure storage account with blob storage](../storage/storage-create-storage-account.md) -- set permissions to "Public Access"
 1. Enable CORS on the Blob 
 	- You can use [this PowerShell script](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) to configure that setting automatically.
 1. Upload the swagger file into the Azure Blob
 	- You can do this from the [Azure Portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/)
-1. Reference an HTTPS link to the document in Azure Blob (follows the format https://*storageAccountName*.blob.core.windows.net/*container*/*filename*)
+1. Reference an HTTPS link to the document in Azure Blob (follows the format `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`)
 
 ---
 
@@ -73,7 +73,7 @@ A trigger is an event that can be used to start the workflow defined in a Logic 
 
 |Trigger|Description|
 |---|---|
-|HTTP|Make an HTTP call and return the response content|
+|HTTP + Swagger|Make an HTTP call and return the response content|
 
 ## HTTP + Swagger actions
 
@@ -81,14 +81,15 @@ An action is an operation carried out by the workflow defined in a Logic app. [L
 
 |Action|Description|
 |---|---|
-|HTTP|Make an HTTP call and return the response content|
+|HTTP + Swagger|Make an HTTP call and return the response content|
 
 ### Action details
 
 The HTTP + Swagger connector comes with 1 possible action. Below, there is information on each of the actions, their required and optional input fields, and the corresponding output details associated with their usage.
 
 #### HTTP + Swagger
-Make an HTTP outbound request.
+
+Make an HTTP outbound request with assistance of swagger metadata.
 An * means required field.
 
 |Display Name|Property Name|Description|
