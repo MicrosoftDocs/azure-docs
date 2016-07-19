@@ -56,7 +56,7 @@ Now, proceed to a section below for either [password](#create-service-principal-
 
 In this section, you will perform the steps to create a service principal with a password, and assign it to a role.
 
-1. Create a service principal for your application. Provide a display name for your application, the URI to a page that describes your application (the link is not verified), the URIs that identify your application, and the password for your application identity. This command create both the AD application and the service principal.
+1. Create a service principal for your application. Provide a display name for your application, the URI to a page that describes your application (the link is not verified), the URIs that identify your application, and the password for your application identity. This command creates both the AD application and the service principal.
 
         azure ad sp create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
         
@@ -66,10 +66,10 @@ In this section, you will perform the steps to create a service principal with a
         + Creating application julyexamplecli
         / Creating service principal for application 7132aca4-1bdb-4238-ad81-996ff91d8db+
         data:    Object Id:               ff863613-e5e2-4a6b-af07-fff6f2de3f4e
-        data:    Display Name:            julyexamplecli
+        data:    Display Name:            exampleapp
         data:    Service Principal Names:
         data:                             7132aca4-1bdb-4238-ad81-996ff91d8db4
-        data:                             https://www.contoso.org/julyexamplecli
+        data:                             https://www.contoso.org/example
         info:    ad sp create command OK
 
 2. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For more information on role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
@@ -98,7 +98,7 @@ You are now authenticated as the service principal for the service principal tha
 ## Create service principal with certificate
 
 In this section, you will perform the steps to create a service principal for a service principal that uses a certificate for authentication. 
-To complete these steps you must have [OpenSSL](http://www.openssl.org/) installed.
+To complete these steps, you must have [OpenSSL](http://www.openssl.org/) installed.
 
 1. Create a self-signed certificate.
 
