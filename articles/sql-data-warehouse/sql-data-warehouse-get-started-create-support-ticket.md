@@ -48,17 +48,15 @@ If you having any issues with your SQL Data Warehouse, please create a support t
 
     ![Resource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
-7. Select your **Support plan**.
+7. Select your [Azure support plan][].
 
-    - **Billing and subscription management-related** support is available at all support levels.
-    - **Break-fix** support is provided through Developer, Standard, Pro Direct, or Premier support. **Break-fix** issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
-    - **Developer mentoring** and **advisory services** are available at the Professional Direct and Premier support levels.
+    - **Billing, quota and subscription management** support is available at all support levels.
+    - **Break-fix** support is provided through [Developer][], [Standard][], [Professional Direct][] or [Premier][] support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
+    - **Developer mentoring** and **advisory services** are available at the [Professional Direct][] and [Premier][] support levels. 
     
-    See [Azure support plans][] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][].
+    If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][].  See [Azure support plans][Azure support plan] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][].  
 
     ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-
-    If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][].
 
 8. Select the **Problem Type** and **Category**.
 
@@ -85,11 +83,22 @@ After you have submitted the support request, the Azure support team will contac
 
 Additionally, you can connect with the SQL Data Warehouse community on [Stack Overflow][] or on the [Azure SQL Data Warehouse MSDN forum][].
 
-<!-- External links -->
+<!--Image references--> 
+
+<!--Article references--> 
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+
+<!--MSDN references--> 
+
+<!--Other web references--> 
 [Azure portal]: https://portal.azure.com/
-[Azure support plans]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Developer]: https://azure.microsoft.com/support/plans/developer/  
+[Standard]: https://azure.microsoft.com/support/plans/standard/  
+[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
+[Premier]: https://azure.microsoft.com/support/plans/premier/  
 [Azure support FAQs]: https://azure.microsoft.com/support/faq/
 [Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+
