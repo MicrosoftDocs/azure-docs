@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2016"
+	ms.date="07/19/2016"
 	ms.author="ashwink"/>
 
 # Use autoscale actions to send email and webhook alert notifications in Azure Insights
@@ -35,8 +35,8 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 ![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
 ## Virtual Machine scale sets
-For newer ARM based Virtual Machines (Virtual Machine scale sets), you can configure this using REST API, ARM templates, PowerShell, and CLI. A portal interface is not yet available.
-When using the REST API or ARM template, include the notifications element with the following options.
+For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
+When using the REST API or Resource Manager template, include the notifications element with the following options.
 
 ```
 "notifications": [
