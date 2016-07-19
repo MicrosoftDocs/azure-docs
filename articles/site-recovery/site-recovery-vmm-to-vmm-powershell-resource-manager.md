@@ -34,7 +34,8 @@ The article includes prerequisites for the scenario, and shows you
 - Register the server in the vault
 - Configure replicaiton policy for the VMM Cloud. The replication settings in the policy will be applied to all protected virtual machines 
 - Enable protection for the virtual machines. 
-- Test the fail-over to make sure everything's working as expected.
+- Test the fail-over of VMs and recovery plans to make sure everything's working as expected.
+- Perform a planned or an unplanned fail-over of VMs and recovery plans to make sure everything's working as expected.
 
 If you run into problems setting up this scenario, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
