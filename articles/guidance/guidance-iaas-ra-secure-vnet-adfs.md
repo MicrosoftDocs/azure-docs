@@ -55,7 +55,7 @@ The following diagram highlights the important components in this architecture (
 
 	For more information about configuring UDRs and the NVAs, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
 
-- **AD FS servers.** The AD FS servers handle federated authorization. They perform the following tasks:
+- **AD FS servers.** The AD FS servers provide federated authorization. They perform the following tasks:
 
 	1. They handle authorization requests from the application running in the cloud for resources managed by partner organizations. The AD FS server passes access requests (which have been authenticated by using the AD DS servers) to the resource partner which authorizes or denies access. The AD FS servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts.
 
@@ -118,6 +118,10 @@ The internal load balancer in the AD FS subnet provides access to the AD FS serv
 - Give the load balancer a static IP address:
 
 	[![19]][19]
+
+- Create a health probe using the TCP protocol rather than HTTPS. You can ping port 443 to verify that an AD FS server is functioning.
+
+	>[AZURE.NOTE] AD FS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer will fail.
 
 Using the *DNS Manager* console on the instance of AD DS running DNS, add an *A* record for the load balancer to the domain. Specify the IP address of the load balancer, and give it a name in the domain (adfs.contoso.com in the image shown below). This is the name by which clients will access the AD FS server farm.
 
