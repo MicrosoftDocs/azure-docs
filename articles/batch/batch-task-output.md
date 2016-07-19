@@ -174,12 +174,12 @@ foreach (CloudTask task in myJob.ListTasks().ToList())
 
 ## View output in the Azure portal
 
-The Azure portal supports viewing task outputs and logs that have been persisted to Azure Storage using the conventions described in this article. Navigate to the task whose output you are interested in, then click either "Saved output files" or "Saved logs."
+You can use the Azure portal to view task outputs and logs that you persist to Azure Storage using the conventions described in this article. Navigate to the task whose output you are interested in, then click either "Saved output files" or "Saved logs."
 
 To enable this support, you must satisfy the following requirements:
 
- 1. [Linked Azure Storage account](#requirement-linked-storage-account)
- 2. Adherence to predefined Storage container and output file [name conventions](#requirement-name-conventions). If you use the Azure Batch File Conventions library to persist your output to Azure Storage, this requirement is satisfied for you.
+ 1. [Link a Azure Storage account](#requirement-linked-storage-account) to your Batch account.
+ 2. Adhere to a set of predefined **naming conventions** for Storage containers and files. If you use the [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) library to persist your output, this requirement is satisfied.
 
 ![Task outputs blade in the Azure portal][2]
 
@@ -187,12 +187,12 @@ To enable this support, you must satisfy the following requirements:
 
 The [PersistOutputs][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to use the Azure Batch File Conventions library to persist task output to durable storage. To run the sample, follow these steps:
 
-1. Open the project in **Visual Studio 2015**
-2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project
-3. **Build** (but do not run) the solution
-4. Use the Azure portal to an [application package](batch-application-packages.md) for **PersistOutputTask**
-5. Use the Azure portal to **create a pool** (id: "PersistOutputsSamplePool") with one Standard_A1 compute node
-6. **Start** (run) the **PersistOutputs** project
+1. Open the project in **Visual Studio 2015**.
+2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project.
+3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
+4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputTask**. Include the `PersistOutputTask.exe` and its dependent assemblies in the ZIP package.
+5. Use the Azure portal to **create a pool** (id: "PersistOutputsSamplePool") with one Standard_A1 compute node.
+6. **Start** (run) the **PersistOutputs** project.
 
 ## Next steps
 
