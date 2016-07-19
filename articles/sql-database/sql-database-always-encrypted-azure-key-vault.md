@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Always Encrypted - Protect sensitive data in Azure SQL Database with database encryption"
+	pageTitle="Always Encrypted--Protect sensitive data in Azure SQL Database with database encryption"
 	description="Protect sensitive data in your SQL database in minutes."
-	keywords="data encryption, encryption key, cloud encryption"	
+	keywords="data encryption, encryption key, cloud encryption"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -18,7 +18,7 @@
 	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
-# Always Encrypted - Protect sensitive data in SQL Database with data encryption and store your encryption keys in the Azure Key Vault
+# Always Encrypted--Protect sensitive data in SQL Database with data encryption and store your encryption keys in the Azure Key Vault
 
 > [AZURE.SELECTOR]
 - [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
@@ -27,10 +27,10 @@
 
 This article shows you how to secure sensitive data in a SQL database with data encryption using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) and store each encryption key in the Azure Key Vault.
 
-Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that protects sensitive data at rest on the server, during movement between client and server, as well as while the data is in-use, ensuring that sensitive data never appears as plaintext inside the database system. After configuring data encryption, only client applications or app servers, that have access to the keys, can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that protects sensitive data at rest on the server, during movement between client and server, and while the data is in use. Always Encrypted ensures that sensitive data never appears as plain text inside the database system. After configuring data encryption, only client applications or app servers, that have access to the keys, can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
-After configuring the database to use Always Encrypted we will create a client application in C# with Visual Studio to work with the encrypted data. 
+After configuring the database to use Always Encrypted we will create a client application in C# with Visual Studio to work with the encrypted data.
 
 Follow the steps in this article and learn how to setup Always Encrypted for an Azure SQL database. In this article you will learn how to perform the following tasks:
 
@@ -56,7 +56,7 @@ For this tutorial you'll need:
 
 ## Enable your client application to access the SQL Database service
 
-You must first enable your client application to access the SQL Database service by setting up the required authentication and acquiring the *ClientId* and *Secret* that you will need to authenticate your application in the code below. 
+You must first enable your client application to access the SQL Database service by setting up the required authentication and acquiring the *ClientId* and *Secret* that you will need to authenticate your application in the following code.
 
 1. Open the [Classic portal](http://manage.windowsazure.com).
 2. Select **Active Directory** in the left menu and click the Active Directory your application will use.
@@ -65,20 +65,20 @@ You must first enable your client application to access the SQL Database service
 5. For the SIGN-ON URL and APP ID URI you can simply type a valid url (for example: *http://myClientApp*) and continue.
 6. Click **CONFIGURE**.
 7. Copy your **CLIENT ID** (you will need this value in your code later).
-8. In the keys section, set the **Select duration** dropdown to **1 year** (we will copy the key after we save below).
+8. In the keys section, set the **Select duration** dropdown to **1 year** (we will copy the key after we save in Step 14).
 11. Scroll down and click **Add application**.
 12. Leave **SHOW** set to **Microsoft Apps** and then locate and select **Windows Azure Service Management** and click the check-mark to continue.
 13. On the **Windows Azure Service Mana...** line click the **Delegated Permissions** dropdown and select **Access Azure Service Management**.
 14. Click **SAVE** (at the bottom).
-15. After the save completes, locate and copy the key value in the **keys** section (you will need this value in your code later). 
+15. After the save completes, locate and copy the key value in the **keys** section (you will need this value in your code later).
 
 
 
 ## Create an Azure Key Vault to store your keys
 
-Now that your client app is configured and you have your client id its time to create an Azure Key Vault and configure it's access policy to allow you and your application to access the vault's secrets (the Always Encrypted keys). To use keys with the Azure Key Vault *create*, *get*, *list*, *sign*, *verify*, *wrapKey*, and *unwrapKey* permissions are required for creating a new column master key and for setting up encryption with SQL Server Management Studio.
+Now that your client app is configured and you have your client id, it's time to create an Azure Key Vault and configure it's access policy to allow you and your application to access the vault's secrets (the Always Encrypted keys). To use keys with the Azure Key Vault *create*, *get*, *list*, *sign*, *verify*, *wrapKey*, and *unwrapKey* permissions are required for creating a new column master key and for setting up encryption with SQL Server Management Studio.
 
-To quickly create an Azure Key Vault you can run the script below. For a detailed explanation of these cmdlets and more information about creating and configuring an Azure Key Vault, see [Get started with Azure Key Vault](../Key-Vault/key-vault-get-started.md)
+You can quickly create an Azure Key Vault by running the following script. For a detailed explanation of these cmdlets and more information about creating and configuring an Azure Key Vault, see [Get started with Azure Key Vault](../Key-Vault/key-vault-get-started.md)
 
 
 
@@ -88,7 +88,7 @@ To quickly create an Azure Key Vault you can run the script below. For a detaile
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
-    
+
 
     Login-AzureRmAccount
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
@@ -96,7 +96,7 @@ To quickly create an Azure Key Vault you can run the script below. For a detaile
 
     New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
-    
+
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
     Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
@@ -120,7 +120,7 @@ You will need the connection string later in the tutorial so after the database 
 
 ## Connect to the database with SSMS
 
-Open SSMS and connect to the server with the Clinic database. 
+Open SSMS and connect to the server with the Clinic database.
 
 
 1. Open SSMS (click **Connect** > **Database Engine...** to open the **Connect to Server** window if it is not open).
@@ -141,10 +141,10 @@ First we will create a table to hold patient data (not encrypted initially -- we
 
 
         CREATE TABLE [dbo].[Patients](
-         [PatientId] [int] IDENTITY(1,1), 
+         [PatientId] [int] IDENTITY(1,1),
          [SSN] [char](11) NOT NULL,
          [FirstName] [nvarchar](50) NULL,
-         [LastName] [nvarchar](50) NULL, 
+         [LastName] [nvarchar](50) NULL,
          [MiddleName] [nvarchar](50) NULL,
          [StreetAddress] [nvarchar](50) NULL,
          [City] [nvarchar](50) NULL,
@@ -176,7 +176,7 @@ SSMS provides a wizard to easily configure Always Encrypted by setting up the co
 
 4. **Master Key Configuration** (CMK)
 
-    The **Master Key Configuration** page is where you setup your column master key (CMK) and select the key store provider where the CMK will be stored. Currently, you can store a CMK in the Windows certificate store, the Azure Key Vault, or a hardware security module (HSM). 
+    The **Master Key Configuration** page is where you setup your column master key (CMK) and select the key store provider where the CMK will be stored. Currently, you can store a CMK in the Windows certificate store, the Azure Key Vault, or a hardware security module (HSM).
 
     This tutorial shows how to store your keys in an Azure Key Vault.
 
@@ -227,12 +227,12 @@ Now that Always Encrypted is setup lets build an application that does some INSE
 3. Install the following NuGet packages by clicking **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
 Run these 2 lines of code in the Package Manager Console:
-    
+
     Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 
-   
+
 ## Modify your connection string to enable Always Encrypted
 
 This section simply explains how to enable Always Encrypted in your database connection string. It is in the next section **Always Encrypted sample console application** where you will actually modify the console app you just created.
@@ -256,11 +256,11 @@ Add the following keyword to your connection string:
 The following code shows how to enable Always Encrypted by setting the [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
-    SqlConnectionStringBuilder connStringBuilder = 
+    SqlConnectionStringBuilder connStringBuilder =
        new SqlConnectionStringBuilder("replace with your connection string");
 
     // Enable Always Encrypted.
-    connStringBuilder.ColumnEncryptionSetting = 
+    connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
 
 ## Register the Azure Key Vault provider
@@ -294,7 +294,7 @@ This sample demonstrates how to:
 - Insert data into the encrypted columns.
 - Select a record by filtering for a specific value in an encrypted column.
 
-Replace the contents of **Program.cs** with the following. Replace the connection string for the global connectionString variable in the line directly above the Main method with your valid connection string from the Azure Portal. This is the only change you need to make to this code. 
+Replace the contents of **Program.cs** with the following. Replace the connection string for the global connectionString variable in the line directly preceding the Main method with your valid connection string from the Azure Portal. This is the only change you need to make to this code.
 
 Now run the app to see Always Encrypted in action.
 
@@ -307,7 +307,7 @@ Now run the app to see Always Encrypted in action.
     using System.Data.SqlClient;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider;
-    
+
     namespace AlwaysEncryptedConsoleAKVApp
     {
     class Program
@@ -332,7 +332,7 @@ Now run the app to see Always Encrypted in action.
                 new SqlConnectionStringBuilder(connectionString);
 
             // Enable Always Encrypted for the connection.
-            // This is the only change specific to Always Encrypted 
+            // This is the only change specific to Always Encrypted
             connStringBuilder.ColumnEncryptionSetting =
                 SqlConnectionColumnEncryptionSetting.Enabled;
 
@@ -640,7 +640,7 @@ Now run the app to see Always Encrypted in action.
 
 
 
-## Verify the data is encrypted
+## Verify that the data is encrypted
 
 For a quick check that the actual data on the server is encrypted we can easily query the patients data with SSMS (using our current connection where Column Encryption Setting is not yet enabled).
 
@@ -674,15 +674,15 @@ To use SSMS to access the plaintext data we can add the **Column Encryption Sett
 ## Next steps
 After creating a database that uses Always Encrypted you may want to do the following:
 
-- [Rotate and cleanup your Keys](https://msdn.microsoft.com/library/mt607048.aspx).
+- [Rotate and cleanup your keys](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
 
 
 
-## Related Information
+## Related information
 
-- [Always Encrypted (client Development)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
-- [SQL Server Encryption](https://msdn.microsoft.com/library/bb510663.aspx)
-- [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Always Encrypted Blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+- [Always Encrypted (client development)](https://msdn.microsoft.com/library/mt147923.aspx)
+- [Transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx)
+- [SQL Server encryption](https://msdn.microsoft.com/library/bb510663.aspx)
+- [Always Encrypted wizard](https://msdn.microsoft.com/library/mt459280.aspx)
+- [Always Encrypted blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
