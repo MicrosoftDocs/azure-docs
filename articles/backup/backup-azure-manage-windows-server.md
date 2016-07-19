@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="07/19/2016"
 	ms.author="jimpark; markgal"/>
 
 
@@ -267,6 +267,19 @@ To enable throttling:
 9. Continue through the Schedule Backup Wizard by clicking **Next** until the **Confirmation page**, then click **Finish**.
 
     ![Schedule a Windows Server Backup](./media/backup-azure-manage-windows-server/finish-exclusions.png)
+
+## Frequently asked questions
+**Q1. The backup job status shows as completed in the Azure backup agent, why doesn't it get reflected immediately in portal?**
+
+A1. There is at maximum delay of 15 mins between the backup job status reflected in the Azure backup agent and the Azure portal.
+
+**Q.2 When a backup job fails, how long does it take to raise an alert?**
+
+A.2 An alert is raised within 5 mins of the Azure backup failure.
+
+**Q3. Is there a case where an email won’t be sent if notifications are configured?**
+
+A3. If notifications are configured hourly and an alert is raised and resolved within the hour, an email won’t be sent.
 
 ## Next steps
 - [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
