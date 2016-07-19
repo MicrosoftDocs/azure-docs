@@ -22,7 +22,7 @@ This article contains an overview of the Azure SQL Database Solution Quick Start
 
 ## WingTipTickets Demo and Hands-On Lab
 
-[Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) demo and hands on lab These files comprise a hands-on-lab that demostrates an Azure SQL Database and Azure Search based sample application used to selling concert tickets
+[Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) demo and hands on lab These files comprise a hands-on-lab that demostrates an Azure SQL Database and Azure Search based sample application used to selling concert tickets.
 
 ## Collect and monitor resource usage data across multiple pools
 
@@ -54,7 +54,7 @@ This sample is a multitenant web application, called Surveys, that allows users 
 
 ## Contoso Clinic Demo Application
 
-This sample showcases security features of Azure SQL DB (V12). To run this sample, see [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample)
+This sample showcases security features of Azure SQL DB (V12). To run this sample, see [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample).
 
 ## Next steps
 
