@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Application Insights tutorial | Microsoft Azure" 
 	description="Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
 	services="application-insights" 
@@ -90,7 +90,7 @@ Run your app - either in debug mode on your development machine, or by deploying
 
 Navigate to your app's Application Insights overview blade:
 
-![The overview blade](./media/app-insights-tutorial/01-find.png)
+![The overview blade](./media/app-insights-overview/01-find.png)
 
 The overview allows you to see immediately how your app is performing. You can compare load (in terms of rate of requests) with the time your app too to respond to the requests. If there's a disproportionate rise in response time when the load goes up, you might want to allocate more resources to your app. If it shows more failed responses right after you deployed a new build, then you might want to roll back.
 
@@ -99,7 +99,7 @@ The overview allows you to see immediately how your app is performing. You can c
 
 Click through any chart to get a more detailed set of charts. For example, the Server Response Time chart leads to charts that show request rates, response times, and response times of dependencies (that is, services that your app calls).  
 
-![Servers blade](./media/app-insights-tutorial/04.png)
+![Servers blade](./media/app-insights-overview/04.png)
 
 The dependencies chart is useful because it helps you see whether the databases and REST APIs that your app uses are responding well, or are causing delays.
 
@@ -107,7 +107,7 @@ The dependencies chart is useful because it helps you see whether the databases 
 
 Try editing one of these charts. For example, if your web app runs on a collection of server instances, you can compare response times on the different server instances:
 
-![edit the chart](./media/app-insights-tutorial/05.png)
+![edit the chart](./media/app-insights-overview/05.png)
 
 1. Hover over the chart and click Edit.
 2. Choose a metric. Multiple metrics can be displayed on one chart, but only in certain combinations: you might have to deselect one metric before you select the one you want.
@@ -126,25 +126,25 @@ Click through a metric chart to search through instance data with relevant filte
 
 Or you can get directly to instance data from Search on the overview page:
 
-![Search instances](./media/app-insights-tutorial/06.png)
+![Search instances](./media/app-insights-overview/06.png)
 
 Use Filters to focus on particular types of event and on chosen property values:
 
-![Filter on properties](./media/app-insights-tutorial/07.png)
+![Filter on properties](./media/app-insights-overview/07.png)
 
 Click "..." to see a full list of properties, or open other events associated with the same request. In this example, the failed request has an associated exception report:
 
-![Related items and property details](./media/app-insights-tutorial/08.png)
+![Related items and property details](./media/app-insights-overview/08.png)
 
 Open an event - in this example, the related exception - and you can create a work item (if you use Visual Studio Team Services to track tasks). 
  
-![Creating a work item](./media/app-insights-tutorial/09.png)
+![Creating a work item](./media/app-insights-overview/09.png)
 
 ## Analytics
 
 [Analytics](app-insights-analytics.md) is an even more powerful search and analysis feature, in which you can write SQL-like queries over your telemetry data, either to look for specific issues or to compile statistical information.
 
-![Analytics](./media/app-insights-tutorial/10.png)
+![Analytics](./media/app-insights-overview/10.png)
 
 Open the tutorial window to see and run examples of queries over your data, or read the longer [tutorial walkthrough](app-insights-analytics-tour.md). Intellisense prompts you with the queries that you can use, and there's a [full language reference](app-insights-analytics-reference.md). 
 
@@ -169,7 +169,7 @@ For example, if your web page is a single-page game app, you might insert a line
 
 Then we can chart custom event counts, segmenting them by event name:
 
-![Analytics](./media/app-insights-tutorial/11.png)
+![Analytics](./media/app-insights-overview/11.png)
 
 ### Log traces
 
@@ -183,7 +183,7 @@ Many applications consist of several components such as a web service and one or
 
 To monitor your whole system, you can select the most interesting charts from different apps and pin them to an Azure [dashboard](app-insights-dashboards.md), allowing you to keep an eye on the whole system continuously. 
 
-![Dashboards](./media/app-insights-tutorial/12.png)
+![Dashboards](./media/app-insights-overview/12.png)
 
 In fact, you can create multiple dashboards - for example, a team room dashboard for monitoring general system health; a design dashboard that focuses on the usage of different features; a separate dashboard for components under test; and so on.  
 
