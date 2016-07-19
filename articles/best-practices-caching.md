@@ -620,7 +620,7 @@ Similarly, the output cache provider for Azure Redis Cache enables you to save t
 
 ## Building a custom Redis cache
 
-Azure Redis Cache acts as a façade to the underlying Redis servers. Currently it supports a fixed set of configurations. If you require an advanced configuration that is not covered by the Azure Redis cache (such as a cache bigger than 530 GB, or more than 10 shards) you can build and host your own Redis servers by using Azure virtual machines.
+Azure Redis Cache acts as a façade to the underlying Redis servers. Currently it supports a fixed set of configurations but does not provide for Redis clustering. If you require an advanced configuration that is not covered by the Azure Redis cache (such as a cache bigger than 53 GB) you can build and host your own Redis servers by using Azure virtual machines.
 
 This is a potentially complex process because you might need to create several VMs to act as master and subordinate nodes if you want to implement replication. Furthermore, if you wish to create a cluster, then you need multiple masters and subordinate servers. A minimal clustered replication topology that provides a high degree of availability and scalability comprises at least six VMs organized as three pairs of master/subordinate servers (a cluster must contain at least three master nodes).
 
