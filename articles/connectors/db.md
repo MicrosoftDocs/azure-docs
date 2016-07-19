@@ -154,7 +154,7 @@ An * indicates that a property is required
 BlobMetadata
 
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |Id|string|
 |Name|string|
@@ -198,8 +198,8 @@ An * indicates that a property is required
 BlobMetadata
 
 
-| Property Name | Data Type | 
-|---|---|---|
+| Property Name | Data Type |
+|---|---|
 |Id|string|
 |Name|string|
 |DisplayName|string|
@@ -257,7 +257,7 @@ An * indicates that a property is required
 BlobMetadata
 
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |Id|string|
 |Name|string|
@@ -290,7 +290,7 @@ An * indicates that a property is required
 BlobMetadata
 
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |Id|string|
 |Name|string|
@@ -349,7 +349,7 @@ An * indicates that a property is required
 BlobMetadata
 
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |Id|string|
 |Name|string|
@@ -376,7 +376,7 @@ There are no parameters for this call
 BlobMetadata
 
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |Id|string|
 |Name|string|
@@ -411,7 +411,7 @@ An * indicates that a property is required
 BlobMetadata
 
 
-| Property Name | Data Type | 
+| Property Name | Data Type |
 |---|---|
 |Id|string|
 |Name|string|
