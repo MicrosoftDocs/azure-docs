@@ -20,7 +20,7 @@
 
 The July 2016 Microsoft Azure Machine Learning (ML) updates provide the following features:
 
-* Web services are now managed as Azure resources managed through [Azure Resource Manager](../azure-portal/resource-group-overview.md) (ARM) interfaces, allowing for the following enhancements:
+* Web services are now managed as Azure resources managed through [Azure Resource Manager](../articles/resource-group-overview.md) (ARM) interfaces, allowing for the following enhancements:
 	* There are new [REST APIs](https://msdn.microsoft.com/library/azure/Dn950030.aspx) to deploy and manage your ARM based web services.
 	* There is a new [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal that provides one place to manage all aspects of your web service.
 * Incorporates a new subscription-based, multi-region web service deployment model using ARM based APIs leveraging the ARM RP for Web Services.
