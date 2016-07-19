@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,18 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/17/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
 # Publish applications using Azure AD Application Proxy
 
-
-After you enable Microsoft Azure Active Directory (AD) Application Proxy, you can publish on-premises applications so that remote users can access them outside the private network.
-
-This article walks you through the steps to publish applications that are running on your local network and provide secure remote access from outside your network. If you haven't set up Application Proxy or installed any Connectors, follow the steps in [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md) before continuing here.
-
-The first time you use Azure AD Application Proxy, test the Connector by publishing a website from your private network before publishing applications.
+Azure AD Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. By this point, you should already have [enabled Application Proxy in the Azure classic portal](active-directory-application-proxy-enable.md). This article walks you through the steps to publish applications that are running on your local network and provide secure remote access from outside your network. After you complete this article, you'll be ready to configure the application with personalized information or security requirements.
 
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
@@ -47,6 +42,9 @@ The first time you use Azure AD Application Proxy, test the Connector by publish
 
 	- **Name**: The user-friendly name for your application. It must be unique within your directory.
 	- **Internal URL**: The address that the Application Proxy Connector uses to access the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server, and give each one its own name and access rules.
+
+		> [AZURE.TIP] If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at https://yourapp/app and uses images located at https://yourapp/media, then you should publish https://yourapp/ as the path.
+
 	- **Preauthentication Method**: How Application Proxy verifies users before giving them access to your application. Choose one of the options from the drop-down menu.
 
 		- Azure Active Directory: Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application.
@@ -59,7 +57,9 @@ The first time you use Azure AD Application Proxy, test the Connector by publish
 
 ## Assign users and groups to the application
 
-In order for your users to access your published application, you need to assign them either individually or in groups. For apps that require preauthentication, this grants permissions to use the app. For apps that don't require preauthentication, users still need to be assigned to the app so that it appears in their application list.
+In order for your users to access your published application, you need to assign them either individually or in groups. (Remember to assign yourself access, too.) This requires that each user have a license for Azure Basic or higher. You can assign licenses individually or to groups.
+
+For apps that require preauthentication, this grants permissions to use the app. For apps that don't require preauthentication, users can still be assigned to the app so that it appears in their application list, such as MyApps.
 
 1. After finishing the Add App wizard, you see the Quick Start page for your application. To manage who has access to the app, select **Users and groups**.
 
@@ -73,8 +73,11 @@ In order for your users to access your published application, you need to assign
 
 > [AZURE.NOTE] For Integrated Windows Authentication apps, you can assign only users and groups that are synced from your on-premises Active Directory. Users who sign in with a Microsoft account and guests cannot be assigned for apps published with Azure Active Directory Application Proxy. Make sure your users sign in with credentials that are part of the same domain as the app you are publishing.
 
+## Test your published application
 
-## Advanced configuration
+Once you have published your application, you can test it out by navigating to the URL that you published. Make sure that you can access it, that it renders correctly, and that everythign works as expected. If you have trouble or get an error message, try the [troubleshooting guide](active-directory-application-proxy-troubleshoot.md).
+
+## Configure your application
 
 You can modify published apps or set up advanced options on the Configure page. On this page, you can customize your app by changing the name or uploading a logo. You can also manage access rules like the preauthentication method or multi-factor authentication.
 
