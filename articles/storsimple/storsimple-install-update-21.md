@@ -25,7 +25,6 @@ Update 2.2 includes device software, WMI, and iSCSI updates. If updating from a 
 
 > [AZURE.IMPORTANT]
 
-> -  You may not see Update 2.2 immediately because we do a phased rollout of the updates. Scan for updates in a few days again as this Update will become available soon.
 > - A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal.
 > - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 1.5-2.5 hours to install. The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
 > - If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 2.2 prior to updating the device.
