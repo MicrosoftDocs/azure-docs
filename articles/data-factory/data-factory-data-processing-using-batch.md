@@ -93,6 +93,7 @@ The sample solution uses Azure Batch (indirectly via an Azure Data Factory pipel
 
 #### Azure Batch pool of virtual machines (VMs)
 Create an **Azure Batch pool** with at least 2 compute nodes.
+
 1.  In the [Azure Portal](https://portal.azure.com), click **Browse** in the left menu, and click **Batch Accounts**. 
 2. Select your Azure Batch account to open the **Batch Account** blade. 
 3. Click **Pools** tile.
@@ -832,7 +833,7 @@ In this step, you will test the pipeline by dropping files into the input folder
 		2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
 
 
-    **Note:** If you hadn’t deleted the output file 2015-11-16-01.txt before trying with 5 input files, you will see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to output file if it already exists.
+> [AZURE.NOTE] If you hadn’t deleted the output file 2015-11-16-01.txt before trying with 5 input files, you will see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to output file if it already exists.
 
 #### Data Factory and Batch integration
 The Data Factory service creates a job in Azure Batch with the name: **adf-poolname:job-xxx**. 
