@@ -37,7 +37,7 @@ The following articles will help you get started using the Azure Toolkit for Int
 The following articles demonstrate using the Azure Toolkit for IntelliJ to add Azure functionality to your Java projects:
 
 * [Debug a Java Web App on Azure in IntelliJ]
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for HDInsight Spark Linux cluster][HDInsight Tools Plugin for IntelliJ]]
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for HDInsight Spark Linux cluster][HDInsight Tools Plugin for IntelliJ]
 
 ## See Also
 
