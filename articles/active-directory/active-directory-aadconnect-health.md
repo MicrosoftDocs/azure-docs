@@ -67,6 +67,10 @@ Azure AD Connect Health for AD DS provides monitoring for Domain Controllers ins
 - Replication Status dashboard with latest replication information, along with links to troubleshooting guides when errors are detected.
 - Quick anywhere access to performance data graphs of popular performance counters, necessary for troubleshooting and monitoring purposes.
 
+The following video will provide an overview of Azure AD Connect Health for AD DS
+
+>[AZURE.VIDEO Azure-AD-Connect-Health-monitors-on-premises-AD-Domain-Services]
+
 ## Get started with Azure AD Connect Health
 It is very easy to get started with Azure AD Connect Health. Follow the steps below:
 
