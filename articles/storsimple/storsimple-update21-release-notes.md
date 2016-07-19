@@ -29,7 +29,7 @@ Please review the information contained in the release notes before you deploy t
 > 
 > - Update 2.2 has software only updates. It takes approximately 1.5-2 hours to install this update. 
 
-> - If you are running Update 2.1, you must apply Update 2.2 at the earliest.
+> - If you are running Update 2.1, we recommend that you apply Update 2.2 as soon as possible.
 
 > - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
