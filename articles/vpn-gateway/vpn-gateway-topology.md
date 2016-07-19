@@ -16,7 +16,7 @@
    ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Azure VPN Gateway connection topologies
+# Azure VPN Gateway connections
 
 This article shows the baseline VPN gateway connection topologies. You can use the graphics and descriptions to help select the configuration topology to match your requirements. While this article goes through the main baseline topologies, it's possible to build more complex topologies using the diagrams as a guideline.
 
