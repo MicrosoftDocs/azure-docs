@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="07/19/2016"
 	ms.author="cynthn"/>
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
