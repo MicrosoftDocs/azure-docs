@@ -202,7 +202,7 @@ If you have more than one client cumulatively operating above the request rate, 
 
 ##Next steps
 
-To learn more about reserved throughput with Azure DocumentDB, explore these resources:
+To learn more about reserved throughput with Azure DocumentDB databases, explore these resources:
  
 - [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Managing DocumentDB capacity](documentdb-manage.md) 

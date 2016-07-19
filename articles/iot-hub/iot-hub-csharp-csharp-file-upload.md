@@ -149,17 +149,18 @@ Now you are ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you learned how to leverage the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue explore IoT hub features and scenarios with the following tutorial:
+In this tutorial, you learned how to leverage the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue explore IoT hub features and scenarios with the following articles:
 
-- [Process Device-to-Cloud messages], shows how to reliably process telemetry and interactive messages coming from devices.
+- [Create an IoT hub programatically][lnk-create-hub]
+- [Introduction to C SDK][lnk-c-sdk]
+- [IoT Hub SDKs][lnk-sdks]
 
-Additional information on IoT Hub:
+To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub Overview]
-* [IoT Hub Developer Guide]
-* [IoT Hub Guidance]
-* [Supported device platforms and languages][Supported devices]
-* [Azure IoT Developer Center]
+- [Designing your solution][lnk-design]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 <!-- Images. -->
 
@@ -169,32 +170,28 @@ Additional information on IoT Hub:
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-
 [Azure portal]: https://portal.azure.com/
 
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-
-[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
-[IoT Hub Guidance]: iot-hub-guidance.md
-[IoT Hub Developer Guide]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Manage IoT hubs through the Azure portal]: iot-hub-manage-through-portal.md#file-upload
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 

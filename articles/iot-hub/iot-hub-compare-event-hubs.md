@@ -38,17 +38,25 @@ It is not uncommon to use both IoT Hub and Event Hubs in the same solution--wher
 
 ## Next steps
 
-Follow these links to learn more about Azure IoT Hub:
+To learn more about planning your IoT Hub deployment, see [Scaling, HA and DR][lnk-scaling].
 
-- [Get started with Azure IoT Hub (Tutorial)][lnk-get-started]
-- [What is Azure IoT Hub?][]
+To further explore the capabilities of IoT Hub, see:
+
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [Security section of the IoT Hub developer guide]: iot-hub-devguide.md#security
 [Event Hub - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
 [Event Hub publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
-[Azure Service Bus Quotas]: ../service-bus/service-bus-quotas.md
+[Azure Service Bus quotas]: ../service-bus/service-bus-quotas.md
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
+
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md

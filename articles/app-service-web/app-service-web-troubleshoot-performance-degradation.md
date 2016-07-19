@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Troubleshoot: performance degradation in a web app"
-	description="This article helps you troubleshoot performance issues in your web app hosted in Azure App Service."
+	pageTitle="Slow web app performance in App Service | Microsoft Azure"
+	description="This article helps you troubleshoot slow web app performance issues in Azure App Service."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue
+	keywords="web app performance, slow app, app slow"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Troubleshoot: performance degradation in a web app
+# Troubleshoot slow web app performance issues in Azure App Service
 
-This article helps you troubleshoot performance issues in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+This article helps you troubleshoot slow web app performance issues in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -64,7 +65,7 @@ Some of the metrics that you might want to monitor for your web app are
 -	Memory working set
 -	Requests
 
-![](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![monitor web app performance](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 For more information, see:
 
@@ -183,7 +184,7 @@ For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-wind
 
 This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.
 
- ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![restart web app to solve performance issues](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 You can also manage your web app using Azure Powershell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).

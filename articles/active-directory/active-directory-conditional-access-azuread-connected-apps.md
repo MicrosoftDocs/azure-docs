@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 # Getting started with conditional access to Azure AD  
@@ -69,7 +69,7 @@ The current preview supports the following options:
 
 * **Require multi-factor authentication**: With this option the users that the access rules apply to will be required to complete multi-factor authentication before accessing the application the policy applies to.
 
-* **Require multi-factor authentication when not at work**: With this option a user that is coming from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page or by using configuring public IP address ranges on the directory Configure tab.
+* **Require multi-factor authentication when not at work**: With this option a user that is coming from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
 
 * **Block access when not at work**: With this option a user that is not coming from a trusted IP address will be blocked. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
 

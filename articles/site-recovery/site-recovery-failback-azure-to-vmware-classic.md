@@ -3,8 +3,8 @@
    description="Learn about failing back to the on-premises site after failover of VMware VMs and physical servers to Azure." 
    services="site-recovery" 
    documentationCenter="" 
-   authors="rayne-wiselman" 
-   manager="jwhit" 
+   authors="ruturaj" 
+   manager="mkjain" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.workload="required" 
    ms.date="01/11/2015"
-   ms.author="raynew"/>
+   ms.author="ruturajd"/>
 
 # Fail back VMware virtual machines and physical servers to the on-premises site
 

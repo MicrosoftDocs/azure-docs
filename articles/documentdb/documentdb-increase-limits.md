@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Request increased DocumentDB account limits | Microsoft Azure"
-	description="Learn how to request an adjustment to DocumentDB limits such as the number of allowed collections, stored procedures and query clauses."
+	pageTitle="Request increased DocumentDB account quotas | Microsoft Azure"
+	description="Learn how to request an adjustment to DocumentDB database quotas such as document storage and throughput per collection."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/14/2016"
 	ms.author="anhoh"/>
 
 # Request increased DocumentDB account limits
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) has a set of default limits and quota enforcements.  Several quotas can be adjusted by contacting Azure support.  This article shows how to request an account limit increase.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) has a set of default quotas that can be adjusted by contacting Azure support.  This article shows how to request a quota increase.
 
 After reading this article, you'll be able to answer the following questions:  
 
--	Which DocumentDB account quotas can be adjusted by contacting Azure support?
+-	Which DocumentDB database quotas can be adjusted by contacting Azure support?
 -	How can I request a DocumentDB account quota adjustment?
 
 ##<a id="Quotas"></a> DocumentDB account quotas

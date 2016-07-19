@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/18/2016" 
 	ms.author="arramac"/>
 
 # Performance and scale testing with Azure DocumentDB
@@ -29,6 +29,8 @@ After reading this article, you will be able to answer the following questions:
 - How do I achieve high throughput levels with Azure DocumentDB from my client application?
 
 To get started with code, please download the project from [DocumentDB Performance Testing  Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+
+> [AZURE.NOTE] The goal of this application is to demonstrate best practices for extracting better performance out of DocumentDB with a small number of client machines. This was not made to demonstrate the peak capacity of the service, which can scale limitlessly.
 
 ## Key client configuration options
 DocumentDB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database tier with DocumentDB. Scaling up and down is as easy as making a single API call or SDK method call. However, when testing at scale, it is important to note that DocumentDB is accessed via network calls. If you are writing a stanadalone client application to performance test DocumentDB, you must configure it appropriate to counter the impact of network latency on your performance measurements.

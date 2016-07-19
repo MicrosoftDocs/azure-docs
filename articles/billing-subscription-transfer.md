@@ -1,18 +1,19 @@
 <properties
    pageTitle="Transferring Ownership of an Azure subscription| Microsoft Azure"
    description="How to transfer an Azure subscription to another user, and some frequently asked questions (FAQ) about the process"
-   services="billing"
+   services=""
    documentationCenter=""
    authors="genlin"
    manager="stevenpo"
-   editor=""/>
+   editor="n/a"
+   tags="billing,top-support-issue"/>
 
 <tags
    ms.service="billing"
+   ms.workload="na"
+   ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="billing"
    ms.date="07/12/2016"
    ms.author="genli"/>
 

@@ -1,23 +1,25 @@
 <properties
-	pageTitle="Detailed Remote Desktop troubleshooting | Microsoft Azure"
-	description="Detailed troubleshooting steps for RDP connections to an Azure virtual machine running Windows."
+	pageTitle="Detailed troubleshooting: Cannot connect to remote desktop of VM | Microsoft Azure"
+	description="Troubleshoot remote desktop errors where you cannot use remote desktop to connect to Windows virtual machines in Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"
+	keywords="cannot connect to remote desktop, troubleshoot remote desktop, remote desktop cannot connect, remote desktop errors, remote desktop troubleshooting, remote desktop problems
+"/>
 
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/07/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Detailed troubleshooting for Remote Desktop connections to Windows based Azure virtual machines
+# Troubleshoot in details problems with remote desktop that cannot connect to Windows VMs in Azure
 
 This article provides detailed troubleshooting steps to diagnose and fix complex Remote Desktop errors for Windows-based Azure virtual machines.
 
