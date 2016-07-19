@@ -19,7 +19,7 @@
 # Process large-scale datasets using Data Factory and Batch
 This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution using Azure Data Factory and Azure Batch. 
 
-This article is longer than our typical article because it contains walkthrough of an entire sample solution. If you are an designing/architecting a solution, you may focus just on the architecture section of the article and if you are developing a prototype or a solution, you may also want to try out step-by-step instructions in the walkthrough.
+This article is longer than our typical article because it contains a walkthrough of an entire sample solution. If you are new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you may focus just on the [architecture section](#architecture-of-sample-solution) of the article and if you are developing a prototype or a solution, you may also want to try out step-by-step instructions in the [walkthrough](#implementation-of-sample-solution). We invite your comments about this content and how you use it.
 
 First, let's look at how Data Factory and Batch services can help with processing large datasets in the cloud.     
 
@@ -35,7 +35,7 @@ See the following articles if you are not familiar with Azure Batch as it helps 
 
 (optional) To learn more about Azure Batch, see the [Learning path for Azure Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
 
-## Why Azure Data Factory
+## Why Azure Data Factory?
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Using the Data Factory service, you can create managed data pipelines that move data from on-premises and cloud data stores to a centralized data store (for example: Azure Blob Storage), and process/transform data using services such as Azure HDInsight and Azure Machine Learning. You can also schedule data pipelines to run in a scheduled manner (hourly, daily, weekly, etc...) and monitor and manage them at a glance to identify issues and take action. 
 
 See the following articles if you are not familiar with Azure Data Factory as it helps with understanding the architecture/implementation of the solution described in this article.  
