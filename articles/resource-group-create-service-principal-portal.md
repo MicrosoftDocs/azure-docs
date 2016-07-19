@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Use portal to create Active Directory application and service principal that can access resources
@@ -24,12 +24,9 @@
 - [Portal](resource-group-create-service-principal-portal.md)
 
 
-When you have an automated process or application that needs to access or modify resources, you must set up an Active Directory application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. Currently, you must use the classic portal to create a new Active Directory application, and then switch to the Azure portal to assign a role to the application. 
+When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. Currently, you must use the classic portal to create a new Active Directory application, and then switch to the Azure portal to assign a role to the application. 
 
-You have two authentication options for your Active Directory application:
-
-1. Create an id and authentication key for the application, and provide those credentials when the application runs. Use this option for automated processes that run without user interaction.
-2. Enable a user to log in to Azure through your application, and then use those credentials to access resources on behalf of the user. Use this option for applications that are run by a user.
+> [AZURE.NOTE] You may find it easier to set up your AD application and service principal through [PowerShell](resource-group-authenticate-service-principal.md) or [Azure CLI](resource-group-authenticate-service-principal-cli.md), especially if you want to use a certificate for authentication. This topic does not show how to use a certificate.
 
 For an explanation of Active Directory concepts, see [Application Objects and Service Principal Objects](./active-directory/active-directory-application-objects.md). 
 For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](./active-directory/active-directory-authentication-scenarios.md).
@@ -173,18 +170,35 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
-## Get access token in code
+## Sample applications
 
-Your Active Directory application is now configured to access resources. In your application, you provide the credentials and receive an access token. You use this access token for requests to access resources.
+The following sample applications show how to log in as the service principal.
 
-You are ready to programmatically log in your application.
+**.NET**
 
-- For .NET examples, see [Azure Resource Manager SDK for .NET](resource-manager-net-sdk.md).
-- For Java examples, see [Azure Resource Manager SDK for Java](resource-manager-java-sdk.md).
-- For Python examples, see [Resource Management Authentication for Python](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html).
-- For REST examples, see [Resource Manager REST APIs](resource-manager-rest-api.md).
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
-For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
+**Java**
+
+- [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Getting Started with Resources - Manage Resource Group - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+
+**Python**
+
+- [Deploy an SSH Enabled VM with a Template in Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+
+**Node.js**
+
+- [Deploy an SSH Enabled VM with a Template in Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+
+**Ruby**
+
+- [Deploy an SSH Enabled VM with a Template in Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 
 ## Next Steps
 

@@ -181,7 +181,7 @@ That's it! Your AD application and service principal are set up. The next sectio
 
 To authenticate in your script, specify the account is a service principal and provide the certificate thumbprint, the application id, and tenant id. You already have these values in the variables **$azureAdApplication.ApplicationId**, **$cert.Thumbprint**, and **$tenant**. To automate your script, you can store these values as environment variables and retrieve them during execution, or you can include them in your script.
 
-    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint {thumbprint} -ApplicationId {applicationId} -TenantId {tenantid}
+    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint 000000 -ApplicationId 000000 -TenantId 0000000
 
 You are now authenticated as the service principal for the Active Directory application that you created.
 
