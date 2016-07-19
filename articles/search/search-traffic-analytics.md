@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/21/2016" 
+	ms.date="07/19/2016" 
 	ms.author="betorres"
 />
 
@@ -99,13 +99,16 @@ properties |object |see below |Object containing operation specific data
 
 ### Metrics
 
-The metrics blobs contain aggregated values for your search service.
-Each file has one root object called **records** that contains an array of metric objects
+The metrics blobs contain aggregated values for your search service, over one minute time spans.
+Each file has one root object called **records** that contains an array of metric objects.
 
 Available metrics:
 
-- Latency
-- SearchQueriesPerSecond
+- SearchLatency: Time the search service needed to process search queries, during the time period.
+- SearchQueriesPerSecond: Number of search queries received per second, during the time period
+- ThrottledSearchQueriesPercentage: Percentage of search queries that were throttled. 
+
+> [AZURE.IMPORTANT] Throttling occurs when too many queries are sent, exhausting the service's provisioned resource capacity. Consider adding more replicas to your service.
 
 ####Metrics schema
 
@@ -120,6 +123,12 @@ Available metrics:
 |total |int |258 |The total value of the raw samples in the metric time interval |
 |count |int |4 |The number of raw samples used to generate the metric |
 |timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
+
+Every metrics is reported in one-minute intervals. This means that each of the metrics will expose the minimum, maximum and average values for that **minute**.
+
+In the case of the SearchQueriesPerSecond metric, the minimum will mark the lowest number of search queries in a second that were registered during that minute, same applies to the maximum value. Average, will be the the aggregate across the seconds that exist in a minute.
+
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total will be the same value, which is the percentage of search queries that were throttled, based on the total number of search queries.
 
 ## Analyzing your data
 
