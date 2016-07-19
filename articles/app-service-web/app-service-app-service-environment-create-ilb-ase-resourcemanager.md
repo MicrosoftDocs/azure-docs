@@ -128,11 +128,9 @@ However, just like apps running on the public multi-tenant service, developers c
 
 ## Getting started
 
-To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment]
+To get started with App Service Environments, see [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
 
 All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
-
-For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
