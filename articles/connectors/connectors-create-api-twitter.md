@@ -3,7 +3,7 @@
 	description="Overview of Twitter connector with REST API parameters"
 	services=""
 	documentationCenter="" 
-	authors="MandiOhlinger"
+	authors="msftman"
 	manager="erikre"
 	editor=""
 	tags="connectors"/>
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
-   ms.author="mandia"/>
+   ms.date="07/18/2016"
+   ms.author="deonhe"/>
 
 
 # Get started with the Twitter connector
@@ -26,11 +26,11 @@ With the Twitter connector you can:
 - Access timelines, friends and followers
 - Perform any of the other actions and triggers described below  
 
-To use [any connector](./apis-list.md), you first need to create a Logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).  
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).  
 
 ## Connect to Twitter
 
-Before your Logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a Logic app and another service.  
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
 ### Create a connection to Twitter
 
@@ -38,31 +38,27 @@ Before your Logic app can access any service, you first need to create a *connec
 
 ## Use a Twitter trigger
 
-A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 In this example, I will show you how to use the **When a new tweet is posted**  trigger to search for #Seattle and, if #Seattle is found, update a file in Dropbox with the text from the tweet. In an enterprise example, you could search for the name of your company and update a SQL database with the text from the tweet.
 
-1. Enter *twitter* in the search box on the Logic apps designer then select the **Twitter - When a new tweet is posted**  trigger   
+1. Enter *twitter* in the search box on the logic apps designer then select the **Twitter - When a new tweet is posted**  trigger   
 ![](./media/connectors-create-api-twitter/trigger-1.png)  
 - Enter *#Seattle* in the **Search Text** control  
 ![](./media/connectors-create-api-twitter/trigger-2.png) 
 
-At this point, your Logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow. 
+At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow. 
 
->[AZURE.NOTE]For a Logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
+>[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
-
-## Use a Twitter action
-
-An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
-
-Now that you have added a trigger, follow these steps to add an action that will post a new tweet with the contents of the tweets found by the trigger. For the purposes of this walk-through only tweets from users with more than 50 followers will be posted.   
+## Add a condition
+Since we are only interested in tweets from users with more than 50 users, a condition that confirms the number of followers must first be added to the logic app.  
 
 1. Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
 ![](../../includes/media/connectors-create-api-twitter/action-1.png)  
 - Select the **Add a condition** link.  
 ![](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-This opens the **Condition** control where you can you can use check conditions such as *is equal to*, *is less than*, *is greater than*, *contains*, etc.  
+This opens the **Condition** control where you can check conditions such as *is equal to*, *is less than*, *is greater than*, *contains*, etc.  
 ![](../../includes/media/connectors-create-api-twitter/condition-2.png)   
 - Select the **Choose a value** control.  
 In this control, you can select one or more of the properties from any previous actions or triggers as the value whose condition will be evaluated to true or false.
@@ -75,9 +71,19 @@ In this control, you can select one or more of the properties from any previous 
 ![](../../includes/media/connectors-create-api-twitter/condition-6.png)   
 - Select **is greater than** from the operators list.    
 ![](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-- Enter 50 as the operand for the *is greater than* operator. The condition is now added. Save your work using the **Save** link on the menu above. In the next step, you will add a Twitter  action that will post a tweet  using some of the properties of any tweet that has been posted by a user who has more than 50 followers.       
+- Enter 50 as the operand for the *is greater than* operator.  
+The condition is now added. Save your work using the **Save** link on the menu above.    
 ![](../../includes/media/connectors-create-api-twitter/condition-8.png)   
-- Select **Add an action**. This opens the search control where you can search for other actions and triggers.     
+
+## Use a Twitter action
+
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+
+Now that you have added a trigger, follow these steps to add an action that will post a new tweet with the contents of the tweets found by the trigger. For the purposes of this walk-through only tweets from users with more than 50 followers will be posted.  
+
+In the next step, you will add a Twitter action that will post a tweet sing some of the properties of any tweet that has been posted by a user who has more than 50 followers.  
+
+1. Select **Add an action**. This opens the search control where you can search for other actions and triggers.  
 ![](../../includes/media/connectors-create-api-twitter/condition-9.png)   
 - Enter *twitter* into the search box then select the **Twitter - Post a tweet** action. This opens the **Post a tweet** control where you will enter all details for the tweet being posted.      
 ![](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
