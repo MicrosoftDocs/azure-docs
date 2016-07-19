@@ -69,7 +69,7 @@ Azure AD Connect Health for AD DS provides monitoring for Domain Controllers ins
 
 The following video will provide an overview of Azure AD Connect Health for AD DS
 
->[AZURE.VIDEO Azure-AD-Connect-Health-monitors-on-premises-AD-Domain-Services]
+>[AZURE.VIDEO azure-ad-connect-health-monitors-on-premises-ad-domain-services]
 
 ## Get started with Azure AD Connect Health
 It is very easy to get started with Azure AD Connect Health. Follow the steps below:
