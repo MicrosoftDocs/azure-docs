@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+    ms.date="07/18/2016"
     ms.author="carlrab"/>
 
 # Configure Geo-Replication for Azure SQL Database with Transact-SQL
@@ -164,7 +164,7 @@ Use the following steps to monitor a Geo-Replication partnership.
 
 9. Click **Execute** to run the query.
 
-## Upgrade a non-readable secondary to be readable
+## Upgrade a non-readable secondary to readable
 
 In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries. If you are using non-readable secondaries today and want to upgrade them to be readable, you can use the following simple steps for each secondary.
 
