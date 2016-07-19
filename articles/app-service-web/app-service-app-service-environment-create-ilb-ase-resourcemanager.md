@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How To Create an ILB ASE Using Azure Resource Manager Templates" 
+	pageTitle="How To Create an ILB ASE Using Azure Resource Manager Templates | Microsoft Azure" 
 	description="Learn how to create an internal load balancer ASE using Azure Resource Manager templates." 
 	services="app-service" 
 	documentationCenter="" 
