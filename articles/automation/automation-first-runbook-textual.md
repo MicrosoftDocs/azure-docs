@@ -110,7 +110,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
     ```
 
 5.	Click **Test pane** so that we can test the runbook.
-6.	Click **Start** to start the test. Once it completes, you should receive output similar to the following displaying basic information from your account. This confirms that the credential is valid.<br> ![Authenticate](media/automation-first-runbook-textual/runbook-auth-output.png)
+6.	Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the credential is valid.<br> ![Authenticate](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## Step 6 - Add code to start a virtual machine
 
