@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/18/2016"
+	ms.date="07/19/2016"
 	ms.author="danlep"/>
 
 
@@ -91,7 +91,7 @@ Now use the image with a template to create a new Linux VM. These steps show you
 
 ### Create network resources
 
-To use the template, you first need to set up a virtual network and NIC for your new VM. We recommend you create a new resource group for these resources. Run commands similar to the following, substituting names for your resources and an appropriate Azure location ("centralus" in these commands):
+To use the template, you first need to set up a virtual network and NIC for your new VM. We recommend you create a new resource group for these resources in the location where your VM image is stored. Run commands similar to the following, substituting names for your resources and an appropriate Azure location ("centralus" in these commands):
 
 	azure group create <your-new-resource-group-name> -l "centralus"
 
