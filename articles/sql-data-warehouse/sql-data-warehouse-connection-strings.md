@@ -30,7 +30,7 @@ You can connect to SQL Data Warehouse using any of the following application pro
 - [ADO.NET][]
 - [ODBC][]
 - [PHP][]
-- [JDBC ][]
+- [JDBC][]
 
 Below are some examples of connections strings for each protocol.  You can also use the Azure portal to help you set up your connection string.  Simply navigate to your database on the Azure portal.  Under *Essentials* click on *Show database connection strings*. 
 
