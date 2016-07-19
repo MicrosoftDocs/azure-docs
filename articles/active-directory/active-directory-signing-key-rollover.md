@@ -36,7 +36,7 @@ How your application handles key rollover depends on variables such as the type 
 
 * [Native client applications accessing resources](#nativeclient)
 * [Web applications / APIs accessing resources](#webclient)
-* [Web applications / APIs protecting resources using Azure App Services' Easy Auth](#appservices)
+* [Web applications / APIs protecting resources and built using Azure App Services](#appservices)
 * [Web applications / APIs protecting resources using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
 * [Web applications / APIs protecting resources using .NET Core OpenID Connect or  JwtBearerAuthentication middleware](#owincore)
 * [Web applications / APIs protecting resources using Node.js passport-azure-ad module](#passport)
@@ -59,9 +59,9 @@ Applications that are only accessing resources (i.e Microsoft Graph, KeyVault, O
 
 Web applications and web APIs that are using the app-only flow (client credentials / client certificate), fall into this category and are thus not impacted by the rollover.
 
-### <a name="appservices"></a>Web applications / APIs protecting resources using Azure App Services' Easy Auth
+### <a name="appservices"></a>Web applications / APIs protecting resources and built using Azure App Services
 
-Azure App Services' EasyAuth functionality already has the necessary logic to handle key rollover automatically.
+Azure App Services' Authentication / Authorization (EasyAuth) functionality already has the necessary logic to handle key rollover automatically.
 
 ### <a name="owin"></a>Web applications / APIs protecting resources using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware
 
@@ -346,3 +346,7 @@ To manually retrieve the latest key from the federation metadata document:
 3. After you’ve copied the value of the **<X509Certificate>** element, open a plain text editor and paste the value. Make sure that you remove any trailing whitespace, and then save the file with a **.cer** extension.
 
 You’ve just created the X509 certificate that is used as the public key for Azure AD. Using the details of the certificate, such as its thumbprint and expiration date, you can manually or programmatically check that your application’s currently used certificate and thumbprint are valid.
+
+## How to test your application to determine if it will be affected
+
+You can validate whether your application supports automatic key rollover by downloading the scripts and following the instructions in [this Github repository.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
