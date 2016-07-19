@@ -1,6 +1,6 @@
 <properties
 pageTitle="SFTP | Microsoft Azure"
-description="Create Logic apps with Azure App service. Connect to SFTP API to send and receive files. You can perform various operations such as create, update, get or delete files."
+description="Create logic apps with Azure App service. Connect to SFTP API to send and receive files. You can perform various operations such as create, update, get or delete files."
 services="app-servicelogic"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
@@ -21,11 +21,11 @@ ms.author="deonhe"/>
 
 Use the SFTP connector to access an SFTP account to send and receive files. You can perform various operations such as create, update, get or delete files.  
 
-To use [any connector](./apis-list.md), you first need to create a Logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to SFTP
 
-Before your Logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a Logic app and another service.  
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
 ### Create a connection to SFTP
 
@@ -33,11 +33,11 @@ Before your Logic app can access any service, you first need to create a *connec
 
 ## Use an SFTP trigger
 
-A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-In this example, I will show you how to use the **FTP - When a file is added or modified** trigger to initiate a Logic app workflow when a file is added to, or modified on, an SFTP server. In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent orders from customers.  You could then use an SFTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
+In this example, I will show you how to use the **FTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an SFTP server. In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent orders from customers.  You could then use an SFTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
 
-1. Enter *ftp* in the search box on the Logic apps designer then select the **FTP - When a file is added or modified**  trigger   
+1. Enter *ftp* in the search box on the logic apps designer then select the **FTP - When a file is added or modified**  trigger   
 ![](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
 The **When a file is added or modified** control opens up  
 ![](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
@@ -47,13 +47,13 @@ The **When a file is added or modified** control opens up
 ![](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
 
 
-At this point, your Logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
+At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
 
->[AZURE.NOTE]For a Logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
+>[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
 ## Use an SFTP action
 
-An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 ## Technical Details
 
