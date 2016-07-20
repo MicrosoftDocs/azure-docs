@@ -24,12 +24,7 @@ This document discusses how to use security alert capability in Security Center 
 
 ## What is a security incident?
 
-In Security Center, a security incident it is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) tile and blade. An Incident will reveal the list of related alerts, which enables you to obtain more information about each occurrence. Some important considerations regarding this capability:
-
-- A new filter enables you to customize your view to Incident only, Alerts only, or both. 
-- The same alert can exist as part of an Incident (if applicable), as well as to be visible as a standalone alert. 
-- Dismissing an incident will not dismiss the related alerts.
-
+In Security Center, a security incident it is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) tile and blade. An Incident will reveal the list of related alerts, which enables you to obtain more information about each occurrence.
 
 ## Managing security incidents
 
@@ -51,7 +46,11 @@ You can review your current security incidents by looking at the Security alerts
 
 	![Security incident](./media/security-center-incident/security-center-incident-fig4.png)
 
-The information on this blade will vary according to the alert. Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to manage these alerts.
+The information on this blade will vary according to the alert. Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to manage these alerts. Some important considerations regarding this capability:
+
+- A new filter enables you to customize your view to Incident only, Alerts only, or both. 
+- The same alert can exist as part of an Incident (if applicable), as well as to be visible as a standalone alert. 
+- Dismissing an incident will not dismiss the related alerts.
 
 ## See also
 
