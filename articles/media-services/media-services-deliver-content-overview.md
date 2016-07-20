@@ -27,7 +27,7 @@ To achieve this goal, you can:
 
 This article gives an overview of important content delivery concepts.
 
-To check known issues, see [Known issues](media-services-deliver-content-overview.md#known-issues) .
+To check known issues, see [Known issues](media-services-deliver-content-overview.md#known-issues).
 
 ## Dynamic packaging
 
@@ -40,13 +40,13 @@ To take advantage of dynamic packaging, you need to do the following:
 
 With dynamic packaging, you store and pay for the files in single storage format. Media Services will build and serve the appropriate response based on your requests.
 
-Note that in addition to being able to use the dynamic packaging capabilities, on-demand streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute or egress capacity) are shared with all other users. You can improve an on-demand streaming throughput by purchasing on-demand streaming reserved units.
+Note that in addition to providing access to dynamic packaging capabilities, on-demand streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute or egress capacity) are shared with all other users. You can improve an on-demand streaming throughput by purchasing on-demand streaming reserved units.
 
 For more information see [Dynamic packaging](media-services-dynamic-packaging-overview.md).  
 
 ## Filters and dynamic manifests
 
-Media Services enables you to define filters for your assets. These filters are server-side rules that help your customers do things like play a specific section of a video or specify a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering is achieved through *dynamic manifests* that are created when your customer requests to stream a video based on one or more specified filters.
+You can define filters for your assets with Media Services. These filters are server-side rules that help your customers do things like play a specific section of a video or specify a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering is achieved through *dynamic manifests* that are created when your customer requests to stream a video based on one or more specified filters.
 
 For more information, see [Filters and dynamic manifests](media-services-dynamic-manifest-overview.md).
 
@@ -55,13 +55,13 @@ For more information, see [Filters and dynamic manifests](media-services-dynamic
 To provide your user with a URL that can be used to stream or download your content, you first need to publish your asset by creating a locator. A locator provides an entry point to access the files contained in an asset. Media Services supports two types of locators:
 
 - OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download files.
--  SAS (shared access signature) URL locators, used to download media files to your local computer.
+- Shared access signature (SAS) URL locators, used to download media files to your local computer.
 
 An *access policy* is used to define the permissions (such as read, write, and list) and duration for which a client has access for a particular asset. Note that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.
 
-Locators have expiration dates. Azure Portal sets an expiration date 100 years in the future for locators.
+Locators have expiration dates. Azure portal sets an expiration date 100 years in the future for locators.
 
->[AZURE.NOTE] If you used Azure Portal to create locators before March, 2015, those locators were set to expire after two years.  
+>[AZURE.NOTE] If you used Azure portal to create locators before March, 2015, those locators were set to expire after two years.  
 
 To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
@@ -105,11 +105,11 @@ Note that you can only stream over SSL if the streaming endpoint from which you 
 
 ### Apple HTTP Live Streaming (HLS) format with audio-only filter
 
-By default, audio-only tracks are included in the HLS manifest. This is required for Apple store certification for cellular networks. In this case, if a client doesn’t have sufficient bandwidth or is connected over a 2G connection, playback switches to audio-only. This helps to keep content streaming without buffering, but there is no video. In some scenarios, player buffering might be preferred over audio-only. If you want to remove the audio-only track, you can add **audio-only=false** to the URL.
+By default, audio-only tracks are included in the HLS manifest. This is required for Apple Store certification for cellular networks. In this case, if a client doesn’t have sufficient bandwidth or is connected over a 2G connection, playback switches to audio-only. This helps to keep content streaming without buffering, but there is no video. In some scenarios, player buffering might be preferred over audio-only. If you want to remove the audio-only track, add **audio-only=false** to the URL.
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-For more information see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
+For more information see this [blog]  (https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 ### Smooth Streaming format
