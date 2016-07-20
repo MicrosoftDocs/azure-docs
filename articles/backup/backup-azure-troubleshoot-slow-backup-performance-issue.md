@@ -1,4 +1,5 @@
 <properties
+   pageTitle="Troubleshooting slow file backup issue in Azure Backup| Microsoft Azure"
    description="Provides troubleshooting guidance to help you diagnose and narrow down the cause of the Azure Backup performance issue"
    services="backup"
    documentationCenter=""
