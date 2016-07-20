@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Delivering content to customers"
+	pageTitle="Delivering content to customers overview"
 	description="This topic gives an overview of what is involved in delivering your content with Azure Media Services."
 	services="media-services"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 
 
 # Deliver content to customers
-When delivering your streaming or video-on-demand content to customers, your goal is to deliver high-quality video to various devices under different network conditions.
+When you're delivering your streaming or video-on-demand content to customers, your goal is to deliver high-quality video to various devices under different network conditions.
 
 To achieve this goal, you can:
 
@@ -31,7 +31,7 @@ To check known issues, see [Known issues](media-services-deliver-content-overvie
 
 ## Dynamic packaging
 
-With the dynamic packaging Media Services provides, you can deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without having to re-package into these streaming formats. We recommend delivering your content with dynamic packaging.
+With the dynamic packaging that Media Services provides, you can deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without having to re-package into these streaming formats. We recommend delivering your content with dynamic packaging.
 
 To take advantage of dynamic packaging, you need to do the following:
 
@@ -40,9 +40,9 @@ To take advantage of dynamic packaging, you need to do the following:
 
 With dynamic packaging, you store and pay for the files in single storage format. Media Services will build and serve the appropriate response based on your requests.
 
-Note that in addition to providing access to dynamic packaging capabilities, on-demand streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute or egress capacity) are shared with all other users. You can improve an on-demand streaming throughput by purchasing on-demand streaming reserved units.
+in addition to providing access to dynamic packaging capabilities, on-demand streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute or egress capacity) are shared with all other users. You can improve an on-demand streaming throughput by purchasing on-demand streaming reserved units.
 
-For more information see [Dynamic packaging](media-services-dynamic-packaging-overview.md).  
+For more information, see [Dynamic packaging](media-services-dynamic-packaging-overview.md).  
 
 ## Filters and dynamic manifests
 
@@ -54,20 +54,20 @@ For more information, see [Filters and dynamic manifests](media-services-dynamic
 
 To provide your user with a URL that can be used to stream or download your content, you first need to publish your asset by creating a locator. A locator provides an entry point to access the files contained in an asset. Media Services supports two types of locators:
 
-- OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download files.
-- Shared access signature (SAS) URL locators, used to download media files to your local computer.
+- OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download files
+-  Shared access signature (SAS) URL locators, used to download media files to your local computer.
 
-An *access policy* is used to define the permissions (such as read, write, and list) and duration for which a client has access for a particular asset. Note that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.
+An *access policy* is used to define the permissions (such as read, write, and list) and duration for which a client has access for a particular asset. Note that the list permission (AccessPermissions.List) should not be used in creating an OrDemandOrigin locator.
 
-Locators have expiration dates. Azure portal sets an expiration date 100 years in the future for locators.
+Locators have expiration dates. The Azure portal sets an expiration date 100 years in the future for locators.
 
->[AZURE.NOTE] If you used Azure portal to create locators before March 2015, those locators were set to expire after two years.  
+>[AZURE.NOTE] If you used the Azure portal to create locators before March 2015, those locators were set to expire after two years.  
 
 To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
 Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](http://msdn.microsoft.com/library/azure/dn282272.aspx).
 
-Note that when you create a locator, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
+When you create a locator, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
 
 
 ## Adaptive streaming
@@ -78,7 +78,7 @@ To provide users with streaming URLs, you first must create an OnDemandOrigin lo
 
 >[AZURE.NOTE]You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
 
-Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, 2014, the URL contains “streaming.mediaservices.windows.net.” Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs based on the new streaming endpoint to stream your content over SSL.
+You can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, 2014, the URL contains “streaming.mediaservices.windows.net.” Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs based on the new streaming endpoint to stream your content over SSL.
 
 
 ## Streaming URL formats
@@ -109,7 +109,7 @@ By default, audio-only tracks are included in the HLS manifest. This is required
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-For more information see this [blog]  (https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+For more information, see [Dynamic Manifest Composition support and HLS output additional features](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 
 ### Smooth Streaming format
@@ -142,7 +142,7 @@ To progressively download content, use the OnDemandOrigin type of locator. The f
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-You must decrypt any storage-encrypted assets that you wish to stream from the origin service for progressive download.
+You must decrypt any storage-encrypted assets that you want to stream from the origin service for progressive download.
 
 ## Download
 
@@ -154,8 +154,8 @@ The following example shows the URL that is based on the SAS locator:
 
 The following considerations apply:
 
-- You must decrypt any storage-encrypted assets that you wish to stream from the origin service for progressive download.
-- A download that has not completed within 12 hours will fail.
+- You must decrypt any storage-encrypted assets that you want to stream from the origin service for progressive download.
+- A download that has not finished within 12 hours will fail.
 
 ## Streaming endpoints
 
@@ -165,7 +165,7 @@ A streaming endpoint represents a streaming service that can deliver content dir
 
 ### Changes to Smooth Streaming manifest version
 
-Prior to the July 2016 service release when assets produced by Media Encoder Standard, Media Encoder Premium Workflow, or the legacy Azure Media Encoder were streamed using dynamic packaging, the Smooth Streaming manifest returned would conform to version 2.0. In version 2.0, the fragment durations do not use the so-called repeat (‘r’) tags. For example:
+Before the July 2016 service release -- when assets produced by Media Encoder Standard, Media Encoder Premium Workflow, or the earlier Azure Media Encoder were streamed by using dynamic packaging -- the Smooth Streaming manifest returned would conform to version 2.0. In version 2.0, the fragment durations do not use the so-called repeat (‘r’) tags. For example:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
@@ -188,7 +188,7 @@ In the July 2016 service release, the generated Smooth Streaming manifest confor
 		</StreamIndex>
 	</SmoothStreamingMedia>
 
-Some of the legacy Smooth Streaming clients may not support the repeat tags and fail to load the manifest. To mitigate this issue you can use the legacy manifest format parameter **(format=fmp4-v20)**. For more information, see [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20), or update your client to the latest version, which supports repeat tags.
+Some of the legacy Smooth Streaming clients may not support the repeat tags and fail to load the manifest. To mitigate this issue, you can use the legacy manifest format parameter **(format=fmp4-v20)** or update your client to the latest version, which supports repeat tags. For more information, see [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20).
 
 ## Media Services learning paths
 
