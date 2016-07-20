@@ -60,7 +60,7 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 ## Cause 2 Another process or antivirus software is interfering with the Azure Backup process
 
-We have seen several instances where other processes within the Windows system have negatively affected performance of the Azure Backup agent process. For example, if you use both the Azure Backup agent and another program to back up data or  antivirus software is running and has a lock on files to be backed up, the multiple locks on files may cause contention. In this situation, the backup may fail, or the job may take longer than expected.
+We have seen several instances where other processes within the Windows system have negatively affected performance of the Azure Backup agent process. For example, if you use both the Azure Backup agent and another program to back up data or antivirus software is running and has a lock on files to be backed up, the multiple locks on files may cause contention. In this situation, the backup may fail, or the job may take longer than expected.
 
 ### Solution
 
@@ -77,18 +77,18 @@ For antivirus programs, we recommend that you exclude the following files and lo
 
 ### Solution
 
-If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine, this is expected due to IOPS limitations.  However, you can optimize the performance by switching the data drives that are being backed up to premium storage. We are working on fixing this issue and the fix will be available in future release.
+If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected due to IOPS limitations.  However, you can optimize the performance by switching the data drives that are being backed up to premium storage. We are working on fixing this issue and the fix will be available in a future release.
 
 <a id="cause4"></a>
 ## Cause 4 Backing up a large number(multi millions) of files
 
 ### Solution
 
-It is expected that moving a large volume of data will take a longer time than a smaller volume. But in some cases backup time is not related to only the size of the data but also to the number of files or folders, especially for the scenario where multi millions of small files (few Bytes to few Kilobyte).
+It is expected that moving a large volume of data will take a longer time than a smaller volume. But in some cases backup time is not related to only the size of the data but also to the number of files or folders, especially for the scenario where millions of small files (few Bytes to few Kilobyte).
 
 This behavior occurs because while we are backing up the data and moving it to Azure, we are simultaneously cataloging your files, and in some rare scenarios the catalog operation may take longer.
 
-Follow the below steps to understand the bottleneck and accordingly work on the next steps:
+Follow the steps below to understand the bottleneck and accordingly work on the next steps:
 
 a. **UI is showing progress for the amount of data transferred**- In this case, the data is still getting transferred and the network bandwidth or the size of data might be causing delays.
 
