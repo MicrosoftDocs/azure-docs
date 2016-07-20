@@ -24,7 +24,7 @@ There are scenarios in which you might need to customize component properties, s
 
 - Overlaying text on video and setting the text value (for example, the current date) at runtime for each input video.
 - Customizing the Clip List XML (to specify one or several source files, with or without trimming, etc.).
-- Overlaying a logo image on the input video while encoding.
+- Overlaying a logo image on the input video while the video is encoded.
 
 To let the **Media Encoder Premium Workflow** know that you are changing some properties in the workflow when you create the task or send multiple input files, you have to use a configuration string that contains **setRuntimeProperties** and/or **transcodeSource**. This topic explains how to use them.
 
@@ -140,7 +140,7 @@ When you're sending multiple media files to the **Media Encoder Premium Workflow
 
 Connections in the workflow:
 
- - If you use one or several Media File Input components and plan to use **setRuntimeProperties** to specify the file name, then do not connect the primary file component PIN to them. Make sure that there is no connection between the primary file object and the Media File Input(s).
+ - If you use one or several Media File Input components and plan to use **setRuntimeProperties** to specify the file name, then do not connect the primary file component pin to them. Make sure that there is no connection between the primary file object and the Media File Input(s).
  - If you prefer to use Clip List XML and one Media Source component, then you can connect both together.
 
 ![No connection from Primary Source File to Media File Input](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
@@ -248,7 +248,7 @@ With additional frame-accurate trimming:
 
 ## Example
 
-Consider an example in which you want to overlay a logo image on the input video while encoding. In this example, the input video is named "MyInputVideo.mp4" and the logo is named "MyLogo.png". You should perform the following steps:
+Consider an example in which you want to overlay a logo image on the input video while the video is encoded. In this example, the input video is named "MyInputVideo.mp4" and the logo is named "MyLogo.png". You should perform the following steps:
 
 - Create a Workflow Asset with the workflow file (see the following example).
 - Create a Media Asset, which contains two files: MyInputVideo.mp4 as the primary file and MyLogo.png.
