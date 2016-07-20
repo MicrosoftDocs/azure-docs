@@ -21,9 +21,9 @@
 
 Connect to OneDrive to manage your files, including upload, get, delete files, and more. With OneDrive, you can: 
 
-- Build your business flow based on the data you get from OneDrive. 
-- Use triggers for when a file is created or updated.
-- Use actions to create a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in OneDrive, you can email that file using Office 365.
+- Build your workflow by storing files in OneDrive, or update existing files in OneDrive. 
+- Use triggers to start your workflow when a file is created or updated within your OneDrive.
+- Use actions to create a file, delete a file, and more. For example, when a new Office 365 email is received with an attachment (a trigger), create a new file in OneDrive (an action).
 
 This topic shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
 
