@@ -61,7 +61,7 @@ An *access policy* is used to define the permissions (such as read, write, and l
 
 Locators have expiration dates. Azure portal sets an expiration date 100 years in the future for locators.
 
->[AZURE.NOTE] If you used Azure portal to create locators before March, 2015, those locators were set to expire after two years.  
+>[AZURE.NOTE] If you used Azure portal to create locators before March 2015, those locators were set to expire after two years.  
 
 To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
@@ -165,7 +165,7 @@ A streaming endpoint represents a streaming service that can deliver content dir
 
 ### Changes to Smooth Streaming manifest version
 
-Prior to the July, 2016 service release when assets produced by Media Encoder Standard, Media Encoder Premium Workflow, or the legacy Azure Media Encoder were streamed using dynamic packaging, the Smooth Streaming manifest returned would conform to version 2.0. In version 2.0, the fragment durations do not use the so-called repeat (‘r’) tags. For example:
+Prior to the July 2016 service release when assets produced by Media Encoder Standard, Media Encoder Premium Workflow, or the legacy Azure Media Encoder were streamed using dynamic packaging, the Smooth Streaming manifest returned would conform to version 2.0. In version 2.0, the fragment durations do not use the so-called repeat (‘r’) tags. For example:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
@@ -178,7 +178,7 @@ Prior to the July, 2016 service release when assets produced by Media Encoder St
 		</StreamIndex>
 	</SmoothStreamingMedia>
 
-In the July, 2016 service release, the generated Smooth Streaming manifest conforms to version 2.2, with fragment durations using repeat tags. For example:
+In the July 2016 service release, the generated Smooth Streaming manifest conforms to version 2.2, with fragment durations using repeat tags. For example:
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
