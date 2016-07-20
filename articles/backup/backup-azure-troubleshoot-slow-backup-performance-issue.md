@@ -1,5 +1,4 @@
 <properties
-   pageTitle="Troubleshooting slow file backup issue in Azure Backup | Microsoft Azure"
    description="Provides troubleshooting guidance to help you diagnose and narrow down the cause of the Azure Backup performance issue"
    services="backup"
    documentationCenter=""
@@ -75,12 +74,10 @@ For antivirus programs, we recommend that you exclude the following files and lo
 
 ### Solution
 
-If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected.  
-
-In some scenarios, you can optimize the performance by switching the data drives that are being backed up to premium storage.
+If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected.  However, you can optimize the performance by switching the data drives that are being backed up to premium storage.
 
 <a id="cause4"></a>
-## Cause 4 Backing up a Large number(multi millions) of files
+## Cause 4 Backing up a large number(multi millions) of files
 
 ### How to determine and the resolution
 
@@ -90,6 +87,6 @@ This behavior occurs because while we are backing up the data and moving it to A
 
 Follow the below steps to understand the bottleneck and accordingly work on the next steps:
 
-a. **UI is showing progress for the amount of data transferred**- In this case, the data is still getting transferred and the network bandwidth/size of data might be causing delays.
+a. **UI is showing progress for the amount of data transferred**- In this case, the data is still getting transferred and the network bandwidth or the size of data might be causing delays.
 
-b.	**UI is not showing progress**- In that case, open the logs located at “C:\Microsoft Azure Recovery Services Agent\Temp”, and then check for “FileProvider::EndData” entry in the logs. This entry signifies that data transfer completed and catalog operation is happening. Do not cancel the backup jobs instead wait for some more time for catalog to finish. If problem persists, contact Azure support.
+b.	**UI is not showing progress**- In that case, open the logs located at “C:\Microsoft Azure Recovery Services Agent\Temp”, and then check for “FileProvider::EndData” entry in the logs. This entry signifies that data transfer completed and catalog operation is happening. Do not cancel the backup jobs instead wait for some more time for catalog to finish. If problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).
