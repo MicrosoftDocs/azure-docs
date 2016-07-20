@@ -27,11 +27,7 @@ Azure Blob storage is a robust, general-purpose storage solution that integrates
 
 Storing data in Blob storage enables you to safely delete the HDInsight clusters that are used for computation without losing user data.
 
-> [AZURE.NOTE]	The *asv://* syntax is not supported in HDInsight version 3.0 clusters. This means that any jobs submitted to an HDInsight version 3.0 cluster that explicitly use the *asv://* syntax will fail. The *wasb://* syntax should be used instead. Also, jobs submitted to any HDInsight version 3.0 clusters that are created with an existing metastore that contains explicit references to resources that use the asv:// syntax will fail. These metastores need to be re-created using the wasb:// syntax to address resources.
-
-> HDInsight currently only supports block blobs.
-
-> Most HDFS commands (for example, <b>ls</b>, <b>copyFromLocal</b> and <b>mkdir</b>) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as <b>fschk</b> and <b>dfsadmin</b>, will show different behavior in Azure Blob storage.
+> [AZURE.IMPORTANT] HDInsight only supports block blobs. It does not support accessing page or append blobs.
 
 For information about creating an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Create HDInsight clusters][hdinsight-creation].
 
@@ -49,6 +45,7 @@ In addition, HDInsight provides the ability to access data that is stored in Azu
 
 	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] In versions of HDInsight earlier than 3.0, `asv://` was used instead of `wasb://`. `asv://` should not be used with HDInsight clusters 3.0 or higher, as it will result in an error.
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight creation process, an Azure Storage account and a specific Azure Blob storage container from that account is designated as the default file system.
 
@@ -83,7 +80,7 @@ There are several benefits associated with storing the data in Azure Blob storag
 
 Certain MapReduce jobs and packages may create intermediate results that you don't really want to store in Azure Blob storage. In that case, you can elect to store the data in the local HDFS. In fact, HDInsight uses DFS for several of these intermediate results in Hive jobs and other processes.
 
-
+> [AZURE.NOTE] Most HDFS commands (for example, <b>ls</b>, <b>copyFromLocal</b> and <b>mkdir</b>) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as <b>fschk</b> and <b>dfsadmin</b>, will show different behavior in Azure Blob storage.
 
 ## Create Blob containers
 
