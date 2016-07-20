@@ -28,12 +28,12 @@ This article will show you how to create a SQL Data Warehouse database with Tran
 
 ## Prerequisites
 
-Before starting, be sure you have met the following prerequisites.
+To get started, you will need: 
 
-- **Create Azure account**: See [Azure Free Trial][] or [MSDN Azure Credits][].
-- **Create Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
-[Create an Azure SQL Database logical server with PowerShell][].
-- **Create Resource group name**: Either use the same Resource Group as your Azure SQL server or see [resource groups][] to create a new resource group.
+- **Azure account**: Visit [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
+- **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
+[Create an Azure SQL Database logical server with PowerShell][] for more details.
+- **Resource group name**: Either use the same Resource Group as your Azure SQL server or see [resource groups][] to create a new resource group.
 - **Environment to execute T-SQL**: You can use [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][] or [SSMS][] to execute T-SQL.
 
 > [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
