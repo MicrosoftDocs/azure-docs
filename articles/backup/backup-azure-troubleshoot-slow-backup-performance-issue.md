@@ -80,7 +80,7 @@ For antivirus programs, we recommend that you exclude the following files and lo
 If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected due to IOPS limitations.  However, you can optimize the performance by switching the data drives that are being backed up to premium storage. We are working on fixing this issue and the fix will be available in a future release.
 
 <a id="cause4"></a>
-## Cause 4 Backing up a large number(multi millions) of files
+## Cause 4 Backing up a large number (multi millions) of files
 
 ### Solution
 
