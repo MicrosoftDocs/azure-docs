@@ -6,7 +6,7 @@ Before you can use your OneDrive account in a logic app, you must authorize the 
 
 Authorize your logic app to connect to your OneDrive account using the following steps:
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter **onedrive** in the search box. Select one of the triggers or actions:  
+1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "onedrive" in the search box. Select one of the triggers or actions:  
   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 2. If you haven't previously created any connections to OneDrive, you are prompted to sign in using your OneDrive credentials:  
   ![](./media/connectors-create-api-onedrive/onedrive-2.png)
