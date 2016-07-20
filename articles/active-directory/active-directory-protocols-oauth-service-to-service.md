@@ -33,7 +33,7 @@ The following diagram explains how the client credentials grant flow works in Az
 
 ## Register the Services in Azure AD
 
-Register both the calling service and the receiving service in Azure Active Directory (Azure AD). For detailed instructions, see Adding, Updating, and Removing an App
+Register both the calling service and the receiving service in Azure Active Directory (Azure AD). For detailed instructions, see [Adding, Updating, and Removing an App](active-directory-integrating-applications.md#BKMK_Native)
 
 ## Request an Access Token
 
