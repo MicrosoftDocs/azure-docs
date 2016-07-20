@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create SQL Data Warehouse using Powershell
@@ -24,17 +24,19 @@
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
 ## Prerequisites
+
 Before starting, be sure you have met the following prerequisites.
 
-- **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
-- **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
+- **Create Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][].
+- **Create Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][].
-- **Resource group name**: Either use the same Resource Group as your V12 Azure SQL Server or see [resource groups][] to create a new resource group.
+- **Resource group name**: Either use the same Resource Group as your Azure SQL server or see [resource groups][] to create a new resource group.
 - **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
 > [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
 ## Create a SQL Data Warehouse
+
 1. Open Windows PowerShell.
 2. Run this cmdlet to login to Azure Resource Manager.
 
