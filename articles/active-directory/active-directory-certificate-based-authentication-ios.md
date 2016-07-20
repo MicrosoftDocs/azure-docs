@@ -44,7 +44,7 @@ For all scenarios in this topic, the following tasks are required:
 
 - Access to certificate authority(s) to issue client certificates.  
 
-- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the Getting Started section.  
+- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the [Getting Started](#getting-started) section.  
 
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
