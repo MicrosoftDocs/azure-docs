@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/03/2016"
+   ms.date="06/29/2016"
    ms.author="christb"/>
 
 # Azure Guidance
@@ -46,7 +46,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [API Implementation][APIImplementation] 
 
-    A set of recommended practices for implementing and publishing a web API .
+    A set of recommended practices for implementing and publishing a web API.
 
 - [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
 
@@ -120,22 +120,26 @@ Running virtual machines on Azure:
 
 - [Running a Windows VM on Azure][ref-arch-single-vm-windows]
 - [Running a Linux VM on Azure][ref-arch-single-vm-linux]
-- [Running multiple VMs for scalability and availability][ref-arch-multi-vm-windows]
-- [Running VMs for an N-tier architecture][ref-arch-3-tier-windows]
-- [Adding reliability to an N-tier architecture][ref-arch-n-tier-windows]
-- [Running VMs in multiple datacenters for high availability][ref-arch-multi-dc]
+- [Running multiple VMs for scalability and availability][ref-arch-multi-vm]
+- [Running VMs for an N-tier architecture][ref-arch-3-tier]
+- [Adding reliability to an N-tier architecture (Windows)][ref-arch-n-tier-windows]
+- [Adding reliability to an N-tier architecture (Linux)][ref-arch-n-tier-linux]
+- [Running VMs in multiple regions for high availability (Windows)][ref-arch-multi-dc-windows]
+- [Running VMs in multiple regions for high availability (Linux)][ref-arch-multi-dc-linux]
 
 Hybrid network architectures:
 
-- [Implementing a hybrid network architecture with Azure and on-premises VPN][ref-arch-hybrid-network-vpn]
-- [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
+- [Implementing a hybrid network architecture with Azure and on-premises VPN](guidance-hybrid-network-vpn.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
-- [Implementing a secure hybrid network architecture in Azure](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
+- [Implementing a DMZ between Azure and your on-premises datacenter](guidance-iaas-ra-secure-vnet-hybrid.md)
+- [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
 
 Web applications (PaaS):
 
 - [Basic web application](guidance-web-apps-basic.md)
 - [Improving scalability in a web application](guidance-web-apps-scalability.md)
+- [Web application with high availability](guidance-web-apps-multi-region.md)
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
@@ -163,8 +167,9 @@ Web applications (PaaS):
 <!-- reference architectures -->
 [ref-arch-single-vm-windows]: guidance-compute-single-vm.md
 [ref-arch-single-vm-linux]: guidance-compute-single-vm-linux.md
-[ref-arch-multi-vm-windows]: guidance-compute-multi-vm.md
-[ref-arch-3-tier-windows]: guidance-compute-3-tier-vm.md
+[ref-arch-multi-vm]: guidance-compute-multi-vm.md
+[ref-arch-3-tier]: guidance-compute-3-tier-vm.md
 [ref-arch-n-tier-windows]: guidance-compute-n-tier-vm.md
-[ref-arch-multi-dc]: guidance-compute-multiple-datacenters.md
-[ref-arch-hybrid-network-vpn]: guidance-hybrid-network-vpn.md
+[ref-arch-n-tier-linux]: guidance-compute-n-tier-vm-linux.md
+[ref-arch-multi-dc-windows]: guidance-compute-multiple-datacenters.md
+[ref-arch-multi-dc-linux]: guidance-compute-multiple-datacenters-linux.md

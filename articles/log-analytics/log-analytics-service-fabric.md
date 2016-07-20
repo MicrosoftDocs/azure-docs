@@ -3,8 +3,8 @@
 	description="You can use the Service Fabric solution to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters."
 	services="log-analytics"
 	documentationCenter=""
-	authors="bandersmsft"
-	manager="cfreeman"
+	authors="niniikhena"
+	manager="jochan"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
-	ms.author="banders"/>
+	ms.date="06/30/2016"
+	ms.author="nini"/>
 
 
 # Service Fabric Solution in Log Analytics
@@ -50,17 +50,12 @@ After you've created an OMS workspace as described above, the next step is to co
 ```
 <#
     This script will configure an Operations Management Suite workspace (previously called an Operational Insights workspace) to read Diagnostics from an Azure Storage account.
-
     It will enable all supported data types (currently Service Fabric Events, ETW Events and IIS Logs).
-
     It supports Resource Manager storage accounts.
-
     If you have more than one Azure Subscription, you will be prompted for the subscription to configure.
-
     If you have more than one OMS workspace you will be prompted for the workspace to configure.
-
     It will then look through your Service Fabric clusters, and configure your OMS workspace to read Diagnostics from storage accounts that are connected to that cluster and have diagnostics enabled.
-    #>
+#>
 
 try
 {
@@ -91,15 +86,11 @@ function Select-Subscription {
              Write-Host $subscription.SubscriptionId
         }  
     }
-
     return $subscription
-
 }
 
 function Select-Workspace {
-
     $workspace = ""
-
     $allWorkspaces = Get-AzureRmOperationalInsightsWorkspace  
 
     switch ($allWorkspaces.Count) {
@@ -107,7 +98,6 @@ function Select-Workspace {
         1 {return $allWorkspaces}
         default {
             $uiPrompt = "Enter the number corresponding to the workspace you want to configure.`n"
-
             $count = 1
             foreach ($workspace in $allWorkspaces) {
                 $uiPrompt += "$count. " + $workspace.Name + " (" + $workspace.CustomerId + ")`n"
@@ -147,57 +137,35 @@ function Check-ServiceFabricScaleSetDiagnostics {
      param(
           [psobject]$scaleSetDiagnostics
    )
-
-
      $storageAccountsFound = @()
-
-
      Write-Verbose ("Checking " + $scaleSetDiagnostics)
-
-
      $sfReliableActorTable = $null
      $sfReliableServiceTable = $null
      $sfOperationalTable = $null
 
-
      Write-Debug $scaleSetDiagnostics
-
-
      $serviceFabricProviderList = ""
      $etwManifestProviderList = ""
 
      if ( $scaleSetDiagnostics.xmlCfg )  
       {
              Write-Debug ("Found XMLcfg")
-
-
              $xmlCfg = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($scaleSetDiagnostics.xmlCfg))
-
-
              Write-Debug $xmlCfg
-
-
              $etwProviders = Select-Xml -Content $xmlCfg -XPath "//EtwProviders"                 
-
-
              $serviceFabricProviderList = $etwProviders.Node.EtwEventSourceProviderConfiguration
              $etwManifestProviderList = $etwProviders.Node.EtwManifestProviderConfiguration
       } elseif ($scaleSetDiagnostics.WadCfg )  
      {
          Write-Debug ("Found WADcfg")
-
          Write-Debug $scaleSetDiagnostics.WadCfg
-
-
          $serviceFabricProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwEventSourceProviderConfiguration
-         $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration                                              
+         $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration
      } else
      {
          Write-Error "Unable to parse Azure Diagnostics setting for $id"
              Write-Warning ("$id does not have diagnostics enabled")
      }
-
-
      foreach ($provider in $serviceFabricProviderList)  
      {
          Write-Debug ("Event Source Provider: " + $provider.Provider + " Destination: " + $provider.DefaultEvents.eventDestination)
@@ -229,13 +197,9 @@ function Check-ServiceFabricScaleSetDiagnostics {
      Check-ETWProviderLogging $id "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8 (System events)" "ServiceFabricSystemEventTable" $sfOperationalTable
 
      Write-Verbose ("StorageAccount: " + $scaleSetDiagnostics.StorageAccount)
-
-
      $storageAccountsFound += ($scaleSetDiagnostics.StorageAccount)
-
      return ($storageAccountsFound)
  }
-
 
 function Select-StorageAccount {
     $allResources = Get-AzureRmResource #pulls in all resources
@@ -243,14 +207,11 @@ function Select-StorageAccount {
     $storageAccountList = @()
     foreach($cluster in $serviceFabricClusters) {
         Write-Host("Checking cluster: " + $cluster.Name)
-
-
          $scaleSet = $allResources.Where({($_.ResourceType -eq "Microsoft.Compute/virtualMachineScaleSets") -and ($_.ResourceGroupName -eq $cluster.ResourceGroupName)})
 
          foreach($set in $scaleSet) {
              $resource = Get-AzureRmResource -ResourceId $set.ResourceId
              $extensions = $resource.Properties.VirtualMachineProfile.ExtensionProfile.Extensions
-
 
              foreach($ext in $extensions) {
                  if ($ext.Properties.Publisher -eq "Microsoft.Azure.Diagnostics" -and $ext.Properties.Type -eq "IaaSDiagnostics") {
@@ -261,9 +222,7 @@ function Select-StorageAccount {
 
          $storageAccountsToCheck = $allResources.Where({($_.ResourceType -eq "Microsoft.Storage/storageAccounts") -and ($_.ResourceName -in $storageAccountList)})
 
-
          if ($storageAccountsToCheck.Count -eq "0") {
-
                 Write-Error "No storage accounts found"
            }
            else {
@@ -274,7 +233,6 @@ function Select-StorageAccount {
                         try
                             {
                                 $existingConfig = Get-AzureRmOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop
-
                             }
                         catch [Hyak.Common.CloudException]
                             {
@@ -283,8 +241,6 @@ function Select-StorageAccount {
                         if ($existingConfig) {                         
                                   [array]$Tables = $existingConfig.Tables
                                    foreach($table in $validTables) {
-
-
                                          if($Tables -notcontains $table) {
                                                $Tables += $table
                                                $dirty = $true;
@@ -302,32 +258,17 @@ function Select-StorageAccount {
                                     else {
                                            Write-Host "Storage Insight already updated."
                                   }
-
-
                           }
-
                      else {
-                            $key = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1
+                            $key = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name)[0].Value
                            New-AzureRmOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables
-
-                            Write-Host "New Azure Storage Insight Configured. 'n"
-
-
+                            Write-Host "New Azure Storage Insight Configured. `n"
                            }
-
-
                     }
-
              }
-
-
-
       }
       return
-
      }
-
-
 
 $subscription = Select-Subscription
 $subscriptionId = $subscription.SubscriptionId
@@ -352,7 +293,6 @@ function Select-Subscription {
              1 {return $allSubscriptions}
         default {
             $uiPrompt = "Enter the number corresponding to the Azure subscription you would like to work with.`n"
-
             $count = 1
             foreach ($subscription in $allSubscriptions) {
                 $uiPrompt += "$count. " + $subscription.SubscriptionName + " (" + $subscription.SubscriptionId + ")`n"
@@ -363,23 +303,17 @@ function Select-Subscription {
              Write-Host $subscription.SubscriptionId
         }  
     }
-
     return $subscription
-
 }
 
 function Select-Workspace {
-
     $workspace = ""
-
     $allWorkspaces = Get-AzureRmOperationalInsightsWorkspace  
-
     switch ($allWorkspaces.Count) {
         0 {Write-Error "No Operations Management Suite workspaces found"}
         1 {return $allWorkspaces}
         default {
             $uiPrompt = "Enter the number corresponding to the workspace you want to configure.`n"
-
             $count = 1
             foreach ($workspace in $allWorkspaces) {
                 $uiPrompt += "$count. " + $workspace.Name + " (" + $workspace.CustomerId + ")`n"
@@ -400,6 +334,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.Res
 ```
 
 After the solution is enabled, the Service Fabric tile is added to your OMS Overview page, with a view of notable issues such as runAsync failures and cancellations that have occurred in the last 24 hours.
+
 ![Service Fabric tile](./media/log-analytics-service-fabric/sf2.png)
 
 ### View Service Fabric events
@@ -419,6 +354,13 @@ Click the **Service Fabric** tile to open the Service Fabric dashboard. The dash
 ![Service Fabric dashboard](./media/log-analytics-service-fabric/sf4.png)
 
 
+The following table shows data collection methods and other details about how data is collected for Service Fabric.
+
+| platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+|---|---|---|---|---|---|---|
+|Windows|![No](./media/log-analytics-malware/oms-bullet-red.png)|![No](./media/log-analytics-malware/oms-bullet-red.png)| ![Yes](./media/log-analytics-malware/oms-bullet-green.png)|            ![No](./media/log-analytics-malware/oms-bullet-red.png)|![No](./media/log-analytics-malware/oms-bullet-red.png)|10 minutes |
+
+
 >[AZURE.NOTE] You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or 6 hours. Or, you can select **Custom** to specify a custom date range.
 
 
@@ -428,9 +370,7 @@ If you need to verify your OMS configuration because you are unable to view even
 
 ```
 <#
-
     Verify Service Fabric and OMS configuration
-
     1. Read Service Fabric diagnostics configuration
     2. Check for data being written into the tables
     3. Verify OMS is configured to read from the tables
@@ -516,23 +456,16 @@ function Check-TablesForData {
         if ($table -in $createdTables.Name)
         {
             $tbl = Get-AzureStorageTable -Name $table -Context $ctx
-
             $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-
             $list = New-Object System.Collections.Generic.List[string]
             $list.Add("RowKey")
             $list.Add("ProviderName")
             $list.Add("Timestamp")
-
-
             $query.FilterString = "Timestamp gt datetime'$recently'"
             $query.SelectColumns = $list
             $query.TakeCount = 20
-
             $entities = $tbl.CloudTable.ExecuteQuery($query)
-
             Write-Debug $entities
-
             if ($entities.Count -gt 0)
             {
                 Write-Verbose ("Data was written to $table in " + $storageAccount.ResourceName + "after $recently")
@@ -581,38 +514,28 @@ function Check-ServiceFabricScaleSetDiagnostics {
     )
 
     $storageAccountsFound = @()
-
     Write-Verbose ("Checking " + $scaleSetDiagnostics)
-
     $sfReliableActorTable = $null
     $sfReliableServiceTable = $null
     $sfOperationalTable = $null
-
     Write-Debug $scaleSetDiagnostics
-
     $serviceFabricProviderList = ""
     $etwManifestProviderList = ""
 
     if ( $scaleSetDiagnostics.xmlCfg )
 	{
 		Write-Debug ("Found XMLcfg")
-
 		$xmlCfg = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($scaleSetDiagnostics.xmlCfg))
-
 		Write-Debug $xmlCfg
-
 		$etwProviders = Select-Xml -Content $xmlCfg -XPath "//EtwProviders"                
-
 		$serviceFabricProviderList = $etwProviders.Node.EtwEventSourceProviderConfiguration
 		$etwManifestProviderList = $etwProviders.Node.EtwManifestProviderConfiguration
 	} elseif ($scaleSetDiagnostics.WadCfg )
     {
         Write-Debug ("Found WADcfg")
-
         Write-Debug $scaleSetDiagnostics.WadCfg
-
         $serviceFabricProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwEventSourceProviderConfiguration
-        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration                                             
+        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration 
     } else
     {
         Write-Error "Unable to parse Azure Diagnostics setting for $id"
@@ -652,7 +575,6 @@ function Check-ServiceFabricScaleSetDiagnostics {
     Write-Verbose ("StorageAccount: " + $scaleSetDiagnostics.StorageAccount)
 
     $storageAccountsFound += ($scaleSetDiagnostics.StorageAccount)
-
     return ($storageAccountsFound)
 }
 
@@ -678,18 +600,14 @@ if ($OMSworkspace.Name -ne $workspaceName)
 }
 
 $serviceFabricClusters = $allResources.Where({$_.ResourceType -eq "Microsoft.ServiceFabric/clusters"})
-
 $storageAccountList = @()
-
 foreach($cluster in $serviceFabricClusters) {
     Write-Verbose ("Checking cluster: " + $cluster.Name)
     $scaleSet = ($allResources.Where({($_.ResourceType -eq "Microsoft.Compute/virtualMachineScaleSets") -and ($_.ResourceGroupName -eq $cluster.ResourceGroupName)}))
 
     foreach($set in $scaleSet) {
         $resource = Get-AzureRmResource -ResourceId $set.ResourceId
-
         $extensions = $resource.Properties.VirtualMachineProfile.ExtensionProfile.Extensions
-
         foreach($ext in $extensions) {
             if ($ext.Properties.Publisher -eq "Microsoft.Azure.Diagnostics" -and $ext.Properties.Type -eq "IaaSDiagnostics") {
                 $storageAccountList += (Check-ServiceFabricScaleSetDiagnostics $ext.Properties.Settings)
@@ -699,7 +617,6 @@ foreach($cluster in $serviceFabricClusters) {
 }
 
 $storageAccountList = $storageAccountList | Sort-Object | Get-Unique
-
 $storageAccountsToCheck = ($allResources.Where({($_.ResourceType -eq "Microsoft.Storage/storageAccounts") -and ($_.ResourceName -in $storageAccountList)}))
 
 foreach($storageAccount in $storageAccountsToCheck)

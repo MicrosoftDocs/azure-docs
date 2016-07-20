@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -30,6 +30,7 @@ To achieve this goal:
 
 This topic gives an overview of important content delivery concepts.
 
+To check known issues, see [this](media-services-deliver-content-overview.md#known-issues) section.
 
 ##Dynamic packaging
 
@@ -86,7 +87,7 @@ Note that you can only stream over SSL if the streaming endpoint from which you 
 
 ##Streaming URL formats
 
-**MPEG DASH format**
+###MPEG DASH format
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
 
@@ -96,19 +97,19 @@ Example
 
 
 
-**Apple HTTP Live Streaming (HLS) V4 format**
+###Apple HTTP Live Streaming (HLS) V4 format
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
-**Apple HTTP Live Streaming (HLS) V3 format**
+###Apple HTTP Live Streaming (HLS) V3 format
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-**Apple HTTP Live Streaming (HLS) format with audio-only filter**
+###Apple HTTP Live Streaming (HLS) format with audio-only filter
 
 By default audio only tracks are included in the HLS manifest. This is required for Apple store certification for cellular networks. In this case, if a client doesn’t have sufficient bandwidth or connected over a 2G connection it switches to audio only playback. This helps to keep ongoing streaming without buffering but with a drawback of no video. However, in some scenarios, player buffering might be preferred over audio-only. If you want to remove audio-only track you can add (audio-only=false) to the URL and remove it.
 
@@ -117,7 +118,7 @@ By default audio only tracks are included in the HLS manifest. This is required 
 For more information see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 
-**Smooth Streaming format**
+###Smooth Streaming format
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
@@ -125,7 +126,7 @@ Example:
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-**Smooth Streaming 2.0 manifest (legacy manifest)**
+###<a id="fmp4_v20"></a>Smooth Streaming 2.0 manifest (legacy manifest)
 
 By default Smooth Streaming manifest format contains the repeat tag (r-tag). However, some players do not support the r-tag. Such clients can use format that disables the r-tag:
 
@@ -133,12 +134,11 @@ By default Smooth Streaming manifest format contains the repeat tag (r-tag). How
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
-**HDS (for Adobe PrimeTime/Access licensees only)**
+###HDS (for Adobe PrimeTime/Access licensees only)
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
-
 
 ##Progressive download 
 
@@ -151,7 +151,6 @@ To progressively download content, use the OnDemandOrigin type of locator. The f
 The following consideration applies:
 
 - You must decrypt any storage encrypted assets that you wish to stream from the origin service for progressive download.
-
 
 ##Download
 
@@ -166,13 +165,38 @@ The following considerations apply:
 - You must decrypt any storage encrypted assets that you wish to stream from the origin service for progressive download.
 - A download that has not completed within 12 hours will fail.
 
-
-
 ##Streaming Endpoints
 
 A **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming reserved units. You should allocate at least one reserved unit for applications in a production environment. For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
+##Known issues
 
+### Changes to Smooth Streaming manifest version
+
+Prior to July 2016 service release, when Assets produced by Media Encoder Standard, Media Encoder Premium Workflow or the legacy Azure Media Encoder were streamed using Dynamic Packaging, the Smooth Streaming manifest returned would conform to version 2.0, where the fragments durations do not use the so-called repeat (‘r’) tags. For example:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" n="0" />
+			<c d="2000" />
+			<c d="2000" />
+			<c d="2000" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+After the July 2016 service release, the generated Smooth Streaming manifest conforms to version 2.2, with fragment durations using repeat tags. For example:
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
+		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+			<c t="0" d="2000" r="4" />
+		</StreamIndex>
+	</SmoothStreamingMedia>
+
+Some of the legacy Smooth Streaming clients may not support the repeat tags and fail to load the manifest. To mitigate this issue you can use the legacy manifest format parameter **(format=fmp4-v20)** (for more information, see [this](media-services-deliver-content-overview.md#fmp4_v20) section), or update your client to the latest version which supports repeat tags.
 
 ##Media Services learning paths
 

@@ -123,7 +123,7 @@ In this section, you will modify the client project to simulate an offline scena
 
 In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you perform the refresh gesture, data will be synced to your mobile backend.
 
-1. Open `QSTodoService.cs`. Correct the `applicationURL` and `gatewayURL` to point to the correct URLs.
+1. Open `QSTodoService.cs`. Correct the `applicationURL` to point to the correct URL.
 
 2. Rebuild and run the client app. The app attempts to sync with the Azure Mobile App backend after launching. Verify no exceptions logged in the debug console.
 

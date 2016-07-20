@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2016"
+   ms.date="06/24/2016"
    ms.author="yurid"/>
 
 # Monitoring and responding to security alerts in Operations Management Suite Security and Audit Solution

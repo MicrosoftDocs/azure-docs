@@ -3,7 +3,7 @@
    description="Overview of the database restore options for recovering a database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/15/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess"/>
 
 
 # Restore an Azure SQL Data Warehouse (Overview)
@@ -24,7 +24,7 @@
 - [Portal][]
 - [PowerShell][]
 - [REST][]
-s
+
 Azure SQL Data Warehouse protects your data with both locally redundant storage and automated backups. Automated backups give you a zero-admin way to protect your databases from accidental corruption or deletion. In the event that a user unintentionally or incidentally modifies or deletes data, you can ensure business continuity by restoring your database to an earlier point in time. SQL Data Warehouse uses Azure Storage Snapshots to backup your database seemlessly without the need for any downtime.
 
 ## Automated backups

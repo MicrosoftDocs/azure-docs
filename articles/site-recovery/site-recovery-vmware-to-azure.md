@@ -148,7 +148,7 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 	- Allow access to [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) to download MySQL.
 	- Allow firewall communication to Azure with the [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) protocol.
 
-2.	Download and install [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) on the configuration server.
+2.	Download and install [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) on the configuration server. (Currently other versions of PowerCLI aren't supported, including R releases of version 6.0.)
 
 
 ## Create a Recovery Services vault
@@ -159,7 +159,7 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 	![New vault](./media/site-recovery-vmware-to-azure/new-vault3.png)
 
 3. In **Name** specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a new resource group](../resource-group-portal.md#create-resource-group) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 4. If you want to quickly access the vault from the Dashboard click **Pin to dashboard** and then click **Create**.
 
 	![New vault](./media/site-recovery-vmware-to-azure/new-vault-settings.png)

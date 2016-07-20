@@ -51,7 +51,7 @@ Example *function.json*:
       "webHookType": "",
       "name": "req",
       "type": "httpTrigger",
-      "direction": "in"
+      "direction": "in",
       "authLevel": "function"
     },
     {

@@ -16,7 +16,18 @@
 
 # Release Notes - Developer Analytics Tools
 ##### Application Insights and HockeyApp analytics in Visual Studio
-## Version 7.0.1
+## Version 7.0
+###Application Insights Trends
+Application Insights Trends is a new tool in Visual Studio for analyzing how your app behaves over time. To get started, choose "Explore Telemetry Trends" from the Application Insights toolbar button or Application Insights Search window; or choose "Application Insights Trends" from View - Other Windows. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties. To find anomalies in your data, choose one of the anomaly options under the "View Type" dropdown. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
+
+![Application Insights Trends](./media/app-insights-release-notes-vsix/Trends.PNG)
+
+###Exceptions in CodeLens
+Exception telemetry is now displayed in CodeLens. If you've connected your project to the Application Insights service, you'll see the number of exceptions that have occurred in each method in production in the past 24 hours. From CodeLens, you can jump to Search or Trends to investigate the exceptions in more detail.
+
+![Exceptions in CodeLens](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
+
+###ASP.NET Core Support
 Application Insights now supports ASP.NET Core RC2 projects in Visual Studio. You can add Application Insights to new ASP.NET Core RC2 projects from the New Project dialog, or to an existing project by right-clicking the project in the Solution Explorer and choosing "Add Application Insights Telemetry..."
 
 ![.NET Core Support](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
@@ -25,11 +36,15 @@ ASP.NET 5 RC1 and ASP.NET Core RC2 projects also have new support in the Diagnos
 
 ![Diagnostic Tools support](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
 
+###HockeyApp for Universal Windows apps
+In addition to beta distribution and user feedback, HockeyApp provides symbolicated crash reporting for your Universal Windows apps. We've made it even easier to add the HockeyApp SDK: right-click on your Universal Windows project, and choose Hockey App - Enable Crash Analytics... This will install the SDK, set up crash collection, and provision a HockeyApp resource in the cloud, without uploading your app to the HockeyApp service.
+
 Other new features:
 
 * We've made the Application Insights Search experience faster and more intuitive by automatically applying time ranges and detail filters as you select them
 * In Application Insights Search, there's now an option to Go to Code from request telemetry
 * We've made improvements to the HockeyApp sign-in experience.
+* In Diagnostic Tools, there's now production telemetry information displayed for exceptions.
 
 ## Version 5.2
 We are happy to announce the introduction of HockeyApp scenarios in Visual Studio. The first integration we have enabled is beta distribution of Universal Windows and Windows Forms apps within VS.

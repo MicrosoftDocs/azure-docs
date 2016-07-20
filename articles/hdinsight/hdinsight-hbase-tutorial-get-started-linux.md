@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/04/2016"
+	ms.date="06/27/2016"
 	ms.author="jgao"/>
 
 
@@ -61,7 +61,7 @@ The following procedure use an Azure ARM template to create an HBase cluster. To
 6. Click **Create**. It takes about around 20 minutes to create a cluster.
 
 
->[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
+>[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster. To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
 
 ## Create tables and insert data
 
@@ -110,6 +110,8 @@ It will make more sense after you finish the next procedure.
 6. Exit the shell
 
 		exit
+
+
 
 **To bulk load data into the contacts HBase table**
 
@@ -174,34 +176,59 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
-		curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+		curl -u <UserName>:<Password> \
+		-G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 
 	You should receive a response similar to the following:
 
-    {"status":"ok","version":"v1"}
+		{"status":"ok","version":"v1"}
 
-  The parameters used in this command are as follows:
+	The parameters used in this command are as follows:
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+	* **-u** - The user name and password used to authenticate the request.
+	* **-G** - Indicates that this is a GET request.
 
 2. Use the following command to list the exisiting HBase tables:
 
-		curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+		curl -u <UserName>:<Password> \
+		-G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
 3. Use the following command to create a new HBase table wit two column families:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
+		curl -u <UserName>:<Password> \
+		-X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+		-H "Accept: application/json" \
+		-H "Content-Type: application/json" \
+		-d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+		-v
 
 	The schema is provided in the JSon format.
 
 4. Use the following command to insert some data:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
+		curl -u <UserName>:<Password> \
+		-X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+		-H "Accept: application/json" \
+		-H "Content-Type: application/json" \
+		-d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+		-v
+
+	You must base64 encode the values specified in the -d switch.  In the exmaple:
+
+	- MTAwMA==: 1000
+	- UGVyc29uYWw6TmFtZQ==: Personal:Name
+	- Sm9obiBEb2xl: John Dole
+
+	[false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) allows you to insert multiple (batched) value.
 
 5. Use the following command to get a row:
 
-		curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
+		curl -u <UserName>:<Password> \
+		-X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+		-H "Accept: application/json" \
+		-v
+
+For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
 
 ## Check cluster status
 
@@ -252,15 +279,18 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 	- **SOCKS v5**: (selected)
 	- **Remote DNS**: (selected)
 7. Click **OK** to save the changes.
-8. Browse to http://<TheFQDN of a ZooKeeper>:60010/master-status
+8. Browse to http://&lt;The FQDN of a ZooKeeper>:60010/master-status.
 
 In a high availability cluster, you will find a link to the current active HBase master node that is hosting the Web UI.
 
 ##Delete the cluster
 
+To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Next steps?
+## Next steps
+
 In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
 
 To learn more, see:

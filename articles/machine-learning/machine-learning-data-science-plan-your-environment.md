@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" /> 
 
 
 # How to identify scenarios and plan for advanced analytics data processing
 
-What resources should you plan to include when setting up an environment to do advanced analytics processing on a dataset? This article suggests a series of questions to ask that will help identify the tasks and resources relevant your scenario. The order of high-level steps for predictive analytics is outlined in the [What is the Cortana Analytics Process (CAP)?](machine-learning-data-science-the-cortana-analytics-process.md) document. Each of these steps will require specific resources for the  tasks relevant to your particular scenario. The key questions to identify your scenario concern data logistics, characteristics, the quality of the datasets, and the tools and languages you prefer to do the analysis.
+What resources should you plan to include when setting up an environment to do advanced analytics processing on a dataset? This article suggests a series of questions to ask that will help identify the tasks and resources relevant your scenario. The order of high-level steps for predictive analytics is outlined in the [What is the Team Data Science Process (TDSP)?](data-science-process-overview.md) document. Each of these steps will require specific resources for the  tasks relevant to your particular scenario. The key questions to identify your scenario concern data logistics, characteristics, the quality of the datasets, and the tools and languages you prefer to do the analysis.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -47,7 +47,7 @@ The logistic questions concern the location of the **data source**, the **target
 
 4. **Does the data need to be moved on a regular schedule or modified during migration?** Consider using Azure Data Factory (ADF) when data needs to be continually migrated, particularly if a hybrid scenario that accesses both on-premise and cloud resources is involved, or when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. For further information, see [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 
-5. **How much of the data is to be moved to Azure?** Datasets that are very large may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio in the next section. In such cases a sample of the data may be used during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Cortana Analytics Process](machine-learning-data-science-sample-data.md).
+5. **How much of the data is to be moved to Azure?** Datasets that are very large may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio in the next section. In such cases a sample of the data may be used during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md).
 
 
 ## Data characteristics questions: type, format and size
@@ -81,7 +81,7 @@ For information on the limitations of other Azure services used in the analytics
 
 ## Data quality questions: exploration and pre-processing
 
-1. **What do you know about your data?** Explore data when you need to gain an understand its basic characteristics. What patterns or trends it exhibits, what outliers is has or how many values are missing. This step is important for determining the extent of pre-processing needed, for formulating hypotheses that could suggest the most appropriate features or type of analysis, and for formulating plans for additional data collection. Calculating descriptive statistics and plotting visualizations are useful techniques for data inspection. For details of how to explore a dataset in various Azure environments, see [Explore data in the Cortana Analytics Process](machine-learning-data-science-explore-data.md).
+1. **What do you know about your data?** Explore data when you need to gain an understand its basic characteristics. What patterns or trends it exhibits, what outliers is has or how many values are missing. This step is important for determining the extent of pre-processing needed, for formulating hypotheses that could suggest the most appropriate features or type of analysis, and for formulating plans for additional data collection. Calculating descriptive statistics and plotting visualizations are useful techniques for data inspection. For details of how to explore a dataset in various Azure environments, see [Explore data in the Team Data Science Process](machine-learning-data-science-explore-data.md).
 
 2. **Does the data require pre-processing or cleaning?**
 Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. For a description, see [Tasks to prepare data for enhanced machine learning](machine-learning-data-science-prepare-data.md).

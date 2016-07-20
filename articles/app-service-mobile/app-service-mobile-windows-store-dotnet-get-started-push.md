@@ -200,10 +200,26 @@ Next, your app must register for push notifications on start-up. When you have a
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 
-##<a id="more"></a>More
+##<a id="more"></a>Next steps
 
-* Templates give you flexibility to send cross-platform pushes and localized pushes. [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) shows you how to register templates.
-* Tags allow you to target segmented customers with pushes. [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) shows you how to add tags to a device installation.
+Learn more about push notifications:
+
+* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications)  
+Templates give you flexibility to send cross-platform pushes and localized pushes. Learn how to register templates.
+
+* [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags)  
+Tags allow you to target segmented customers with pushes.  Learn how to add tags to a device installation.
+
+* [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  
+There are various reasons why notifications may get dropped or do not end up on devices. This topic shows you how to analyze and figure out the root cause of push notification failures. 
+
+Consider continuing on to one of the following tutorials:
+
++ [Add authentication to your app](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+  Learn how to authenticate users of your app with an identity provider.
+
++ [Enable offline sync for your app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- Anchors. -->
 
@@ -211,4 +227,4 @@ Next, your app must register for push notifications on start-up. When you have a
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
-))) ) 
+

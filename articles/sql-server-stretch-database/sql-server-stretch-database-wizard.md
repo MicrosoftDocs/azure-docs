@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Get started by running the Enable Database for Stretch Wizard
@@ -51,25 +51,25 @@ Tables with lots of rows appear at the top of the sorted list. Before the Wizard
 |**Name**|Specifies the name of the column in the table.|
 |(no title)|A symbol in this column may represent a warning that doesn\'t prevent you from enabling the selected table for Stretch. It may also represent a blocking issue that prevents you from enabling the selected table for Stretch \- for example, because the table uses an unsupported data type. Hover over the symbol to display more info in a tooltip. For more info, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).|
 |**Stretched**|Indicates whether the table is already enabled for Stretch.|
-|**Migrate**|You can migrate an entire table (**Entire Table**) or you can specify a filter on an existing column in the table. If you want to use a different filter predicate to select rows to migrate, run the ALTER TABLE statement to specify the filter predicate after you exit the wizard. For more info about the filter predicate, see [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md). For more info about how to apply the predicate, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) or [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrate**|You can migrate an entire table (**Entire Table**) or you can specify a filter on an existing column in the table. If you want to use a different filter function to select rows to migrate, run the ALTER TABLE statement to specify the filter function after you exit the wizard. For more info about the filter function, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md). For more info about how to apply the function, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) or [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Rows**|Specifies the number of rows in the table.|
 |**Size (KB)**|Specifies the size of the table in KB.|
 
 ## <a name="Filter"></a>Optionally provide a row filter
 
-If you want to provide a filter predicate to select rows to migrate, do the following things on the **Select tables** page.
+If you want to provide a filter function to select rows to migrate, do the following things on the **Select tables** page.
 
 1.  In the **Select the tables you want to stretch** list, click **Entire Table** in the row for the table. The **Select rows to stretch** dialog box opens.
 
-    ![Define a filter predicate][StretchWizardImage2a]
+    ![Define a filter function][StretchWizardImage2a]
 
 2.  In the **Select rows to stretch** dialog box, select **Choose Rows**.
 
-3.  In the **Name field**, provide a name for the filter predicate.
+3.  In the **Name field**, provide a name for the filter function.
 
 4.  For the **Where** clause, pick a column from the table, pick an operator, and provide a value.
 
-5. Click **Check** to test the predicate. If the predicate returns results from the table - that is, if there are rows to migrate that satisfy the condition - the test reports **Success**.
+5. Click **Check** to test the function. If the function returns results from the table - that is, if there are rows to migrate that satisfy the condition - the test reports **Success**.
 
     >   [AZURE.NOTE] The textbox that displays the filter query is read-only. You can't edit the query in the textbox.
 
@@ -77,13 +77,13 @@ If you want to provide a filter predicate to select rows to migrate, do the foll
 
 The filter function is created in SQL Server only when you finish the wizard. Until then, you can return to the **Select tables** page to change or rename the filter function.
 
-![Select Tables page after defining a filter predicate][StretchWizardImage2b]
+![Select Tables page after defining a filter function][StretchWizardImage2b]
 
-If you want to use a different type of filter predicate to select rows to migrate, do one of the following things.  
+If you want to use a different type of filter function to select rows to migrate, do one of the following things.  
 
--   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).  
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a filter function. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).  
 
--   Run the ALTER TABLE statement to specify a predicate after you exit the wizard. For the required steps, see [Add a filter predicate after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Run the ALTER TABLE statement to specify a filter function after you exit the wizard. For the required steps, see [Add a filter function after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
 ## <a name="Configure"></a>Configure Azure deployment
 

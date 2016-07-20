@@ -68,7 +68,7 @@ To test if volume mapping is functioning, try the following command:
 **From Windows**
 
 ```
-a
+docker run -it -v /c/Users/Public:/wormhole busybox
 / # ls
 ```
 

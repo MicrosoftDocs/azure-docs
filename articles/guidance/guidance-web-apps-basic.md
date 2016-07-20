@@ -144,6 +144,8 @@ If you revert to a previous version, make sure any database schema changes are b
 
 Don't use slots on your production deployment for testing, because all apps within the same App Service plan share the same VM instances. For example, load tests might degrade the live production site. Instead, create separate App Service plans for production and test. By putting test deployments into a separate plan, you isolate them from the production version. 
 
+> [AZURE.NOTE] You are charged for the instances in the App Service plan, even if the app is stopped. Make sure to delete plans that you aren't using (for example, test deployments). 
+
 ### Configuration
 
 Store configuration settings as [app settings][app-settings]. Define the app settings in your Resource Manager templates, or by using PowerShell. At runtime, app settings are available to the application as environment variables. 

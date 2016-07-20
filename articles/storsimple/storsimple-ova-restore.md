@@ -68,9 +68,7 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 
 1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
 
-2.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various volumes under it. You must take these volumes offline on the host and device before you can restore them. Access the volumes on the **Volumes** page, and take them offline.
-
-3.  Navigate back to the **Backup Catalog** tab and select a backup set.
+2.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various volumes under it. Select the volume you want to restore. 
 
 5.  At the bottom of the page, click **Restore as new**. The **Restore as new volume** wizard will start.
 
@@ -79,7 +77,7 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 
 	1.  Verify the source device name. This should be the device that contains the volume that you want to restore. The device selection is unavailable. To select a different source device, you will need to exit the wizard and reselect the backup set again.
 
-	2.  Provide a volume name. The volume name must contain 3 to 127 characters.
+	2.  Provide a volume name for the volume being restored as new. The volume name must contain 3 to 127 characters.
 
 	3.  Click the arrow icon.
 
@@ -93,9 +91,15 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 
 2.  After the restore job is complete, the restore will start and you will see another notification. To monitor the progress of restore, click **View job**. This will take you to the **Jobs** page.
 
-3.  You can track the progress of the restore job. When the restore is 100% complete, navigate back to the **Volumes** page on your device.
+3.  You can track the progress of the restore job. Navigate back to the **Volumes** page on your device.
 
 4.  You can now view the new restored volume in the list of volumes on your device. Note that restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
+
+5.  Once the volume appears online on the list of volumes, the volume is available for use.  On the iSCSI initiator host, refresh the list of targets in iSCSI initiator properties window.  A new target which contains the restored volume name should appear as 'inactive' under the status column.
+
+6.  Select the target and click **Connect**.   After the initiator is connected to the target, the status should change to **Connected**. 
+
+7.  In the **Disk Management** window, the mounted volumes will appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.
 
 > [AZURE.IMPORTANT] When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this target volume or share in the portal to minimize any 	future issues arising from this element.
 

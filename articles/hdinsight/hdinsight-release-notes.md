@@ -14,11 +14,42 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/07/2016"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 07/07/2016 release of HDInsight
+
+The full version numbers for Linux-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build   |
+|----|----------------------|----|------------|
+|3.2 |3.2.1000.0.7864996	|2.2 |2.2.9.1-11  |
+|3.3 |3.3.1000.0.7864996	|2.3 |2.3.3.1-18  |
+|3.4 |3.4.1000.0.7861906	|2.4 |2.4.2.0     |
+
+The full version numbers for Windows-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build     |
+|----|----------------------|----|--------------|
+|2.1 |2.1.10.977.2413853    |1.3 |1.3.12.0-01795|
+|3.0 |3.0.6.977.2413853 	|2.0 |2.0.13.0-2117 |
+|3.1 |3.1.4.977.2413853		|2.1 |2.1.16.0-2374 |
+|3.2 |3.2.7.977.2413853		|2.2 |2.2.9.1-11    |
+|3.3 |3.3.0.977.2413853		|2.3 |2.3.3.1-21    |
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example Spark, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| [HDInsight Tools for IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md) | IntelliJ IDEA plugin for HDInsight Spark clusters is now integrated with Azure Toolkit for IntelliJ. It supports Azure SDK v2.9.1, latest Java SDKs, and includes all the features from the standalone HDInsight Plugin for IntelliJ.| Tools    | Spark| N/A|
+| [HDInsight Tools for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md) | Azure Toolkit for Eclipse now supports HDInsight Spark clusters. It enables the following features. <ul><li>Create and write a Spark application easily in Scala and Java with first class authoring support for IntelliSense, auto format, error checking, etc.</li><li>Test the Spark application locally.</li><li>Submit jobs to HDInsight Spark cluster and retrieve the results.</li><li>Log into Azure and access all the Spark clusters associated with your Azure subscriptions.</li><li>Navigate all the associated storage resources of your HDInsight Spark cluster.</li></ul>| Tools    | Spark| N/A
+
+Starting with this release, we have changed the guest OS patching policy for Linux-based HDInsight clusters. The goal of the new policy is to significantly reduce the number of reboots due to patching. The new policy will continue to patch virtual machines (VMs) on Linux clusters every Monday or Thursday starting at 12AM UTC in a staggered fashion across nodes in any given cluster. However, any given VM will only reboot at most once every 30 days due to guest OS patching. In addition, the first reboot for a newly created cluster will not happen sooner than 30 days from the cluster creation date.
+
+>[AZURE.NOTE] These changes will only apply to newly created clusters equal or greater than this release version.
 
 ## Notes for 06/06/2016 release of HDInsight
 

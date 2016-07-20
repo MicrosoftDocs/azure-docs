@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/14/2016"
+	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
 # SQL Database tutorial: Create a SQL database in minutes using the Azure portal
@@ -53,6 +53,8 @@ Now that you've completed this SQL Database tutorial and created a database with
 - If you're ready to start coding, choose your programming language at [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 - If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) to learn more.
+
+- If you want to load some data into a new table from a CSV file using BCP, see [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md).
 
 
 ## Additional resources

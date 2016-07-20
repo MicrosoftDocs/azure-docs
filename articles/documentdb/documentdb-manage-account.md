@@ -19,7 +19,7 @@
 
 # How to manage a DocumentDB account
 
-Learn how to set global consistency and manage multiple regions for global availability of data. Also, learn how to work with keys, and how to delete an account in the Azure Portal.
+Learn how to set global consistency and manage multiple regions for global availability of data in Azure DocumentDB. Also, learn how to work with keys, and how to delete an account in the Azure Portal.
 
 ## <a id="consistency"></a>Manage DocumentDB consistency settings
 
@@ -107,12 +107,18 @@ You should change the access keys to your DocumentDB account periodically to hel
 If you have applications or cloud services using the DocumentDB account, you will lose the connections if you regenerate keys, unless you roll your keys. The following steps outline the process involved in rolling your keys.
 
 1. Update the access key in your application code to reference the secondary access key of the DocumentDB account.
+
 2. Regenerate the primary access key for your DocumentDB account. In the [Azure Portal](https://portal.azure.com/),
 access your DocumentDB account.
+
 3. In the **Essentials** bar from the **DocumentDB Account** blade, click **Keys**.
+
 4. On the **Keys** blade, click the **Regenerate Primary** command, then click **Ok** to confirm that you want to generate a new key.
+
 5. Once you have verified that the new key is available for use (approximately 5 minutes after regeneration), update the access key in your application code to reference the new primary access key.
-6. Regenerate the secondary access key.
+
+6. Regenerate the secondary access key.
+
 
 > [AZURE.NOTE] It can take several minutes before a newly generated key can be used to access your DocumentDB account.
 

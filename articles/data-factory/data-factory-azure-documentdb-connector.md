@@ -22,6 +22,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 The following sample(s) show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
 
+[AZURE.NOTE] Copying data to/from Azure DocumentDB from/to on-premises/Azure IaaS data stores are currently not supported. The full matrix for Azure DocumentDB would be enabled shortly.
 
 ## Sample: Copy data from DocumentDB to Azure Blob
 
@@ -409,8 +410,8 @@ the following properties are available in **typeProperties** section:
 | **Property** | **Description** | **Allowed values** | **Required** |
 | -------- | ----------- | -------------- | -------- |
 | nestingSeparator | A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: Name.First in the output table produces the following JSON structure in the DocumentDB document:<br/><br/>"Name": {<br/>	"First": "John"<br/>}, | Character that is used to separate nesting levels.<br/><br/>Default value is . (dot). | Character that is used to separate nesting levels. <br/><br/>Default value is . (dot). | No | 
-| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). | Integer Value | No |
-| writeBatchTimeout | Wait time for the operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No |
+| writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<br/><br/>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). | Integer | No (default: 10000) |
+| writeBatchTimeout | Wait time for the operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No |
  
 ## Appendix
 1. **Question:** 

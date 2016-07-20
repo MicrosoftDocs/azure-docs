@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="06/28/2016"
 	ms.author="tomfitz"/>
 
 # Export an Azure Resource Manager template from existing resources
 
-Understanding how to construct Azure Resource Manager templates can be daunting. Fortunately, Resource Manager helps you with that task because you can export a template from existing resources in your subscription. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed.
+Resource Manager enables you to export a Resource Manager template from existing resources in your subscription. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed.
+
+It is important to note that there are two different ways to export a template:
+
+- You can export the actual template that was used for a deployment. The exported template includes all of the parameters and variables exactly as they were defined in the original template. This approach is particularly helpful when you have deployed resources through the portal, and now want to see how to construct the template to create those resources.
+- You can export a template that represents the current state of the resource group. The exported template is not based on any template that was used for deployment. Instead, it creates a template that is a snapshot of the resource group. The exported template will have many hard-coded values and probably not as many parameters as you would typically define. This approach is useful when you have modified the resource group through the portal or scripts, and now need to capture the resource group as a template.
+
+Both approaches are shown in this topic. In the [Customize an exported Azure Resource Manager template](resource-manager-customize-template.md) article, you will see how to take a template that was generated from the current state of the resource group and make it more useful for re-deploying your solution.
 
 In this tutorial, you will sign in to the Azure portal, create a storage account, and export the template for that storage account. You will add a virtual network to modify the resource group. Finally, you will export a new template that represents its current state. Although this article focuses on a simplified infrastructure, you could use these same steps to export a template for a more complicated solution.
 
@@ -34,7 +41,7 @@ In this tutorial, you will sign in to the Azure portal, create a storage account
 
 After the deployment finishes, your subscription contains the storage account.
 
-## Export the template for deployment
+## Export the template from deployment history
 
 1. Go to the resource group blade for your new resource group. You will notice that the result of the last deployment is listed. Select this link.
 
@@ -50,15 +57,11 @@ After the deployment finishes, your subscription contains the storage account.
 
 4. Resource Manager retrieves the following five files for you:
 
-   - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
-
-   - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment, but you can change any of these values when you redeploy the template.
-
-   - An Azure PowerShell script file that you can use to deploy the template.
-
-   - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
-
-   - A .NET class that you can use to deploy the template.
+   1. **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
+   2. **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment, but you can change any of these values when you redeploy the template.
+   3. **CLI** - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
+   4. **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
+   5. **.NET** - A .NET class that you can use to deploy the template.
 
      The files are available through links across the blade. By default, the template is selected.
 
@@ -107,25 +110,28 @@ After the deployment finishes, your subscription contains the storage account.
             }
           ]
         }
+ 
+This is the actual template used to create your storage account. Notice it contains parameters that enable you to deploy different types of storage accounts. To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). For the complete list of the functions you can use in a template, see [Azure Resource Manager template functions](resource-group-template-functions.md).
 
-     Notice that the template defines parameters for the storage account name, type, and location. A parameter also indicates whether encryption is enabled, and the default value is **false**. Within the **resources** section, you will see the definition for the storage account to deploy.
-
-Square brackets contain an expression that is evaluated during deployment. The bracketed expressions in the template are used to get parameter values during deployment. You can use many more expressions, and you will see examples of other expressions later in this article. For the complete list, see [Azure Resource Manager template functions](resource-group-template-functions.md).
-
-To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 ## Add a virtual network
 
 The template that you downloaded in the previous section represented the infrastructure for that original deployment, but it will not account for any changes you make after the deployment.
 To illustrate this issue, let's modify the resource group by adding a virtual network through the portal.
 
-1. In the resource group blade, select **Add**, and then pick **virtual network** from the available resources.
+1. In the resource group blade, select **Add**.
+
+      ![add resource](./media/resource-manager-export-template/add-resource.png)
+
+2. Select **Virtual network** from the available resources.
+
+      ![select virtual network](./media/resource-manager-export-template/select-vnet.png)
 
 2. Name your virtual network **VNET**, and use the default values for the other properties. Select **Create**.
 
       ![set alert](./media/resource-manager-export-template/create-vnet.png)
 
-3. After the virtual network has successfully deployed to your resource group, look again at the deployment history. You will now see two deployments. Select the more recent deployment.
+3. After the virtual network has successfully deployed to your resource group, look again at the deployment history. You will now see two deployments. If you do not see the second deployment, you may need to close your resource group blade and re-open it. Select the more recent deployment.
 
       ![deployment history](./media/resource-manager-export-template/deployment-history.png)
 
@@ -134,13 +140,17 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 It is generally a best practice to work with a template that deploys all the infrastructure for your solution in a single operation rather than remembering many different templates to deploy.
 
 
-## Export the template for the resource group
+## Export the template from resource group
 
 Although each deployment shows only the changes that you have made to your resource group, at any time you can export a template to show the attributes of your entire resource group.  
 
 1. To view the template for a resource group, select **Export template**.
 
       ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
+
+     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You will learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
+
+      
 
 2. You will again see the five files that you can use to redeploy the solution, but this time the template is a little different. This template has only two parameters: one for the storage account name, and one for the virtual network name.
 
@@ -155,7 +165,7 @@ Although each deployment shows only the changes that you have made to your resou
           }
         },
 
-     Resource Manager did not retrieve the templates that were used during deployment. Instead, it generated a new template that's based on the current configuration of the resources. Resource Manager does not know the values that you want to pass in as parameters, so it hard-codes most values based on the values in the resource group. For example, the storage account location and replication value are set to:
+     Resource Manager did not retrieve the templates that were used during deployment. Instead, it generated a new template that's based on the current configuration of the resources. For example, the storage account location and replication value are set to:
 
         "location": "northeurope",
         "tags": {},
@@ -168,6 +178,162 @@ Although each deployment shows only the changes that you have made to your resou
       ![download template](./media/resource-manager-export-template/download-template.png)
 
 4. Find the .zip file that you downloaded and extract the contents. You can use this downloaded template to redeploy your infrastructure.
+
+## Fix export issues
+
+Not all resource types support the export template function. Some resource types are specifically not exported to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
+
+> [AZURE.NOTE] You will only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
+
+For example, if you export a template for a resource group that contains a web app, SQL Database, and a connection string in the site config, you will see the following message.
+
+![show error](./media/resource-manager-export-template/show-error.png)
+
+Selecting the message will show you exactly which resource types were not exported. 
+     
+![show error](./media/resource-manager-export-template/show-error-details.png)
+
+Some common fixes are shown below. To implement these resources, you will need to add parameters to template. For more information, see [Customize and re-deploy exported template](resource-manager-customize-template.md).
+
+### Connection string
+
+In the web sites resource, add a definition for the connection string to the database:
+
+```
+{
+  "type": "Microsoft.Web/sites",
+  ...
+  "resources": [
+    {
+      "apiVersion": "2015-08-01",
+      "type": "config",
+      "name": "connectionstrings",
+      "dependsOn": [
+          "[concat('Microsoft.Web/Sites/', parameters('<site-name>'))]"
+      ],
+      "properties": {
+          "DefaultConnection": {
+            "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('<database-server-name>'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('<database-name>'), ';User Id=', parameters('<admin-login>'), '@', parameters('<database-server-name>'), ';Password=', parameters('<admin-password>'), ';')]",
+              "type": "SQLServer"
+          }
+      }
+    }
+  ]
+}
+```    
+
+### Web site extension
+
+In the web site resource, add a definition for the code to install:
+
+```
+{
+  "type": "Microsoft.Web/sites",
+  ...
+  "resources": [
+    {
+      "name": "MSDeploy",
+      "type": "extensions",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[concat('Microsoft.Web/sites/', parameters('<site-name>'))]"
+      ],
+      "properties": {
+        "packageUri": "[concat(parameters('<artifacts-location>'), '/', parameters('<package-folder>'), '/', parameters('<package-file-name>'), parameters('<sas-token>'))]",
+        "dbType": "None",
+        "connectionString": "",
+        "setParameters": {
+          "IIS Web Application Name": "[parameters('<site-name>')]"
+        }
+      }
+    }
+  ]
+}
+```
+
+### Virtual machine extension
+
+For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](./virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
+
+### Virtual network gateway
+
+Add a virtual network gateway resource type.
+
+```
+{
+  "type": "Microsoft.Network/virtualNetworkGateways",
+  "name": "[parameters('<gateway-name>')]",
+  "apiVersion": "2015-06-15",
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "gatewayType": "[parameters('<gateway-type>')]",
+    "ipConfigurations": [
+      {
+        "name": "default",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "subnet": {
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('<vnet-name>'), parameters('<new-subnet-name>'))]"
+          },
+          "publicIpAddress": {
+            "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('<new-public-ip-address-Name>'))]"
+          }
+        }
+      }
+    ],
+    "enableBgp": false,
+    "vpnType": "[parameters('<vpn-type>')]"
+  },
+  "dependsOn": [
+    "Microsoft.Network/virtualNetworks/codegroup4/subnets/GatewaySubnet",
+    "[concat('Microsoft.Network/publicIPAddresses/', parameters('<new-public-ip-address-Name>'))]"
+  ]
+},
+```
+
+### Local network gateway
+
+Add a local network gateway resource type.
+
+```
+{
+    "type": "Microsoft.Network/localNetworkGateways",
+    "name": "[parameters('<local-network-gateway-name>')]",
+    "apiVersion": "2015-06-15",
+    "location": "[resourceGroup().location]",
+    "properties": {
+      "localNetworkAddressSpace": {
+        "addressPrefixes": "[parameters('<address-prefixes>')]"
+      }
+    }
+}
+```
+
+### Connection
+
+Add a connection resource type.
+
+```
+{
+    "apiVersion": "2015-06-15",
+    "name": "[parameters('<connection-name>')]",
+    "type": "Microsoft.Network/connections",
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "virtualNetworkGateway1": {
+        "id": "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('<gateway-name>'))]"
+      },
+      "localNetworkGateway2": {
+        "id": "[resourceId('Microsoft.Network/localNetworkGateways', parameters('<local-gateway-name>'))]"
+      },
+      "connectionType": "IPsec",
+      "routingWeight": 10,
+      "sharedKey": "[parameters('<shared-key>')]"
+    }
+},
+```
+
 
 ## Next steps
 

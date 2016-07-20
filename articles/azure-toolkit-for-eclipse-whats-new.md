@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -25,6 +25,18 @@
 This article contains information on the various releases and latest updates to the Azure Toolkit for Eclipse.
 
 > [AZURE.NOTE] There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
+
+### June 29, 2016
+
+The Azure Toolkit for Eclipse - June 2016 release includes the following enhancements:
+
+* **Java 8 Requirement**. The Azure Toolkit for Eclipse now requires Java 8, although this requirement is only for the toolkit - your applications can continue to use all versions of Java that are supported by Azure.
+* **Support for the latest Java JDKs**. The latest versions of the Java JDKs are now supported by the Azure Toolkit for Eclipse.
+* **Support for Azure SDK v2.9.1**. The latest version of the Azure SDK is now the minimum pre-requisite for the Azure Toolkit for Eclipse.
+* **Integrated Samples**. The Azure Toolkit for Eclipse now features several sample applications to help developers get started.
+* **HDInsight Tool Integration**. Azure's HDInsight Tools are now bundled with the Azure Toolkit for Eclipse.
+* **Remote Debugging of Java Web Apps**. The Azure Toolkit for Eclipse now supports remote debugging of Java web apps on Azure App Service.
+* **Support for the Eclipse Luna release.** The new minimum required Eclipse IDE version is Luna.
 
 ### April 12, 2016
 
@@ -308,6 +320,7 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
 - [Azure Toolkit for IntelliJ]
   - [Installing the Azure Toolkit for IntelliJ]
   - [Create a Hello World Web App for Azure in IntelliJ]
+  - [What's New in the Azure Toolkit for IntelliJ]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
@@ -319,9 +332,12 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [Azul Systems web page for the Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Components properties]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties

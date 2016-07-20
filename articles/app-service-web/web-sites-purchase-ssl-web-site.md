@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/01/2016"
 	ms.author="apurvajo"/>
 
 #Buy and Configure an SSL Certificate for your Azure App Service

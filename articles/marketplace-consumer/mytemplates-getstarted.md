@@ -33,7 +33,7 @@ The following suggestions will help you take full advantage of **Templates** whe
 - A **Template** is an encapsulating resource that contains an Resource Manager template and additional metadata. It behaves very similarly to an item in the Marketplace. The key difference is that it is a private item as opposed to the public Marketplace items.
 - The **Templates** library works well for users who need to customize their deployments.
 - **Templates** work well for users who need a simple repository within Azure.
-- Start with an existing Resource Manager template. Find templates in [github](https://github.com/Azure/azure-quickstart-templates) or [Export template](https://azure.microsoft.com/blog/export-template/) from an existing resource group.
+- Start with an existing Resource Manager template. Find templates in [github](https://github.com/Azure/azure-quickstart-templates) or [Export template](../resource-manager-export-template.md) from an existing resource group.
 - **Templates** are tied to the user who publishes them. The publisher name is visible to everyone who has read access to it.
 - **Templates** are Resource Manager resources and cannot be renamed once published.
 
@@ -44,7 +44,7 @@ There are two ways to create a **Template** resource in the Azure portal.
 ### Method 1 : Create a new Template resource from a running resource group
 
 1. Navigate to an existing resource group on the Azure Portal. Select **Export template** in **Settings**.
-2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](https://azure.microsoft.com/blog/export-template/).
+2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](../resource-manager-export-template.md).
 <br /><br />
 ![Resource group export](media/rg-export-portal1.PNG)  <br />
 
@@ -116,7 +116,7 @@ Select **Share** on the browse item by right clicking or on the view blade of a 
 
 ![Share Template](media/share-template-portal1a.png)  <br />
 
- You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
+ You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section above.
 
 ![Share Template](media/share-template-portal2b.png)  <br />
 

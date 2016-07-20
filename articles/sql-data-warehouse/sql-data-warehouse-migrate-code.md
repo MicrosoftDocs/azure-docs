@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/03/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migrate your SQL code to SQL Data Warehouse
@@ -115,14 +115,14 @@ For a complete list of all supported T-SQL statements, see [Transact-SQL topics]
 <!--Image references-->
 
 <!--Article references-->
-[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md
-[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md
-[merge statement]: ./sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[merge statement]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
 [Transact-SQL topics]: ./sql-data-warehouse-reference-tsql-statements.md
 
 [cursors]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
 [group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options.md
 [nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions.md
 [updating through views]: ./sql-data-warehouse-develop-views.md

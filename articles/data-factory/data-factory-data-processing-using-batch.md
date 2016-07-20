@@ -380,7 +380,7 @@ The method has a few key components that you need to understand.
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
-13.  Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container **customactivitycontainer** if it does not already exist.
+13.  Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactivitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container **customactivitycontainer** if it does not already exist.
 
 ### Execute method
 
@@ -902,7 +902,15 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
  
-		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+	One VM per pending task at a time (for example: 5 pending tasks -> 5 VMs):
+
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+		$TargetDedicated = max(pendingTaskSampleVector);
+
+	Max of one VM at a time irrespective of the number of pending tasks:
+
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+		$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 
 	See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
 

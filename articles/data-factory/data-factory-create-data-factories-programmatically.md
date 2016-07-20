@@ -385,7 +385,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 
 
 [data-factory-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
+[adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  

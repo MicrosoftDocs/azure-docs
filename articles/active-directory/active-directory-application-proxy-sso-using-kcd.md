@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/27/2016"
 	ms.author="kgremban"/>
 
 
 # Single sign-on with Application Proxy
 
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-
 Single sign-on is a key element of Azure AD Application Proxy. It provides the best user experience with the following steps:
-1. A user signs in to the cloud
-2. All security validations happen in the cloud (preauthentication)
+
+1. A user signs in to the cloud  
+2. All security validations happen in the cloud (preauthentication)  
 3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user so the backend application thinks that this is a regular user coming from a domain-joined device.
 
 ![Access diagram from end user, through Application Proxy, to the corporate network](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
-Azure AD Application Proxy enables you to provide a single sign-on (SSO) experience for your users. Use the following instructions to publish your apps using SSO:
+Azure AD Application Proxy helps you provide a single sign-on (SSO) experience for your users. Use the following instructions to publish your apps using SSO:
 
 
 ## SSO for on-prem IWA apps using KCD with Application Proxy
@@ -52,10 +51,15 @@ This diagram explains the flow when a user attempts to access an on-prem applica
 
 ### Prerequisites
 
-- Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-- Create Service Principal Names for your applications.
-- Make sure that the server running the Connector and the server running the app you are publishing are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
+Before you get started with SSO for Application Proxy, make sure your environment is ready with the following settings and configurations:
 
+- Your apps, like SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+
+- All your apps have Service Principal Names.
+
+- The server running the Connector and the server running the app are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
+
+- The server running the Connector has access to read the TokenGroupsGlobalAndUniversal for users. This is a default setting that might have been impacted by security hardening the environment. Get more help with this in [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
 
 ### Active Directory configuration
 

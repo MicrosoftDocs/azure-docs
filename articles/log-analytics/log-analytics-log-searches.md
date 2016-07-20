@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/18/2016"
 	ms.author="banders"/>
 
 # Log searches in Log Analytics
@@ -221,19 +221,19 @@ The simple examples above show you how commands work--they change the shape of t
 Another less known command is LIMIT. Limit is a PowerShell-like verb. Limit is functionally identical to the TOP command. The following queries return the same results.
 
 ```
-Type=Event EventID=2110 | Limit 1
+Type=Event EventID=600 | Limit 1
 ```
 
 ```
-Type=Event EventID=2110 | Top 1
+Type=Event EventID=600 | Top 1
 ```
 
 
 #### To search using top
-- In the search query field, type `Type=Event EventID=2110 | Top 1`   
+- In the search query field, type `Type=Event EventID=600 | Top 1`   
     ![search top](./media/log-analytics-log-searches/oms-search-top.png)
 
-In the image above, there are 988 records with EventID=2110. The fields, facets, and filters on the left always show information about the results returned *by the filter portion* of the query, which is the part before any pipe character. The **Results** pane only returns the most recent 1 result, because the example command shaped and transformed the results.
+In the image above, there are 358 thousand records with EventID=600. The fields, facets, and filters on the left always show information about the results returned *by the filter portion* of the query, which is the part before any pipe character. The **Results** pane only returns the most recent 1 result, because the example command shaped and transformed the results.
 
 ### Select
 
@@ -262,7 +262,7 @@ Results from any search query such as `Type=Event`, show filters also called fac
 
 ![search measure count](./media/log-analytics-log-searches/oms-search-measure-count01.png)
 
-For example, in the image above you'll see the **Computer** field and it shows that within the almost 3 million events in the results, there are 20 unique and distinct values for the **Computer** field in those records. The tile only shows the top 5, which are the most common 5 values that are written in the **Computer** fields), sorted by the number of documents that contain that specific value in that field. In the image you can see that – among those almost 3 million events – 880 thousand come from the DM computer, 602 thousand from the DE computer, and so on.
+For example, in the image above you'll see the **Computer** field and it shows that within the almost 739 thousand events in the results, there are 68 unique and distinct values for the **Computer** field in those records. The tile only shows the top 5, which are the most common 5 values that are written in the **Computer** fields), sorted by the number of documents that contain that specific value in that field. In the image you can see that – among those almost 369 thousand events – 90 thousand come from the OpsInsights04.contoso.com computer, 83 thousand from the DB03.contoso.com computer, and so on.
 
 
 What if you want to see all values, since the tile only shows only the top 5?
@@ -273,7 +273,7 @@ That’s what the measure command can do with the count() function. This functio
 
 ![search measure count](./media/log-analytics-log-searches/oms-search-measure-count-computer.png)
 
-However, **Computer** is just a field used *in* each piece of data – there are no relational databases involved and there is no separate **Computer** object anywhere. Just the values *in* the data can describe which entity generated them, and a number of other characteristics and aspects of the data – hence the term *facet*. However, you can just as well group by other fields. Because the original results of almost 3 million events that  are piped into the measure command also have a field called **EventID**, you can apply the same technique to group by that field and get a count of events by EventID:
+However, **Computer** is just a field used *in* each piece of data – there are no relational databases involved and there is no separate **Computer** object anywhere. Just the values *in* the data can describe which entity generated them, and a number of other characteristics and aspects of the data – hence the term *facet*. However, you can just as well group by other fields. Because the original results of almost 739 thousand events that are piped into the measure command also have a field called **EventID**, you can apply the same technique to group by that field and get a count of events by EventID:
 
 ```
 Type=Event | Measure count() by EventID
@@ -308,23 +308,23 @@ Second, **Measure count** currently returns only the top 100 distinct results. T
 
 There are various scenarios where **Measure Max()** and **Measure Min()** are useful. However, since each function is opposite of each other, we'll illustrate Max() and you can experiment with Min() on your own.
 
-If you query for Configuration Assessment alerts, they have a **Severity** property that can be 0,1, or 2 representing information, warning, and critical. For example:
+If you query for security events, they have a **Level** property that can vary. For example:
 
 ```
-Type=ConfigurationAlert
+Type=SecurityEvent
 ```
 
 ![search measure count start](./media/log-analytics-log-searches/oms-search-measure-max01.png)
 
-If you want to view the highest value for all of the alerts given a common Computer, the group by field, you can use
+If you want to view the highest value for all of the security events given a common Computer, the group by field, you can use
 
 ```
-Type=ConfigurationAlert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Level) by Computer
 ```
 
 ![search measure max computer](./media/log-analytics-log-searches/oms-search-measure-max02.png)
 
-It will display that for the computers that had **Alert** records, most of them have at least one critical alert, and the Bacc computer has a warning as its worst severity.
+It will display that for the computers that had **Level** records, most of them have at least level 8, many had a level of 16.
 
 ```
 Type=ConfigurationAlert | Measure Max(Severity) by Computer
@@ -332,7 +332,7 @@ Type=ConfigurationAlert | Measure Max(Severity) by Computer
 
 ![search measure max time generated computer](./media/log-analytics-log-searches/oms-search-measure-max03.png)
 
-This function works well with numbers, but it also works with DateTime fields. It is useful to check for the last or most recent time stamp for any piece of data indexed for each computer. For example: When was the most recent configuration change reported by change tracking solution for each machine?
+This function works well with numbers, but it also works with DateTime fields. It is useful to check for the last or most recent time stamp for any piece of data indexed for each computer. For example: When was the most recent security event reported for each machine?
 
 ```
 Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
@@ -352,15 +352,17 @@ Type=Perf
 
 ![search avg start](./media/log-analytics-log-searches/oms-search-avg01.png)
 
-The first thing you'll notice is that Log Analytics shows you two perspectives. One is the Metrics perspective which shows the charts for the performance counters. The other is the Logs perspective, which shows the actual records behind the charts.
-
-![search avg start](./media/log-analytics-log-searches/oms-search-avg02.png)
+The first thing you'll notice is that Log Analytics shows you three perspectives: List, which shows you which shows the actual records behind the charts; Table, which shows a tabular view of performance counter data; and Metrics, which shows charts for the performance counters.
 
 In the image above, there are two sets of fields marked that indicate the following:
 
 - The first set identifies Windows Performance Counter Name, Object Name, and Instance Name in the query filter. These are the fields you probably will most commonly use as facets/filters
-- **CounterValue** is the actual value of the counter
-- **TimeGenerated** is 21:00, in 24-hour time format. It is the aggregation for that hourly period from 20:00 to 21:00.
+- **CounterValue** is the actual value of the counter. In this example, the value is *75*.
+- **TimeGenerated** is 12:51, in 24-hour time format.
+
+Here's a view of the metrics in a graph.
+
+![search avg start](./media/log-analytics-log-searches/oms-search-avg02.png)
 
 After reading about the Perf record shape, and having read about other search techniques, you can use measure Avg() to aggregate this type of numerical data.
 
@@ -385,7 +387,7 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 You can aggregate and correlate data *across* computers. For example, imagine that you have a set of hosts in some sort of farm where each node is equal to any other one and they just do all the same type of work and load should be roughly balanced. You could get their counters all in one go with the following query and get averages for the entire farm. You can start by choosing the computers with the following example:
 
 ```
-Type=Perf AND (Computer="SERVER1.contoso.com" OR Computer="SERVER2.contoso.com" OR Computer="SERVER3.contoso.com")
+Type=Perf AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
 Now that you have the computers, you also only want to select two key performance indicators (KPIs): % CPU Usage and % Free Disk Space. So, that part of the query becomes:
@@ -397,13 +399,13 @@ Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Process
 Now you can add computers and counters with the following example:
 
 ```
-Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="SERVER1.contoso.com" OR Computer="SERVER2.contoso.com" OR Computer="SERVER3.contoso.com")
+Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
 Because you have a very specific selection, the **measure Avg()** command can return the average not by computer, but across the farm, simply by grouping by CounterName. For example:
 
 ```
-Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="SERVER1.contoso.com" OR Computer="SERVER2.contoso.com" OR Computer="SERVER3.contoso.com") | Measure Avg(CounterValue) by CounterName
+Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03") | Measure Avg(CounterValue) by CounterName
 ```
 
 This gives you a useful compact view of a couple of your environment's KPIs.
@@ -411,7 +413,7 @@ This gives you a useful compact view of a couple of your environment's KPIs.
 ![search avg grouping](./media/log-analytics-log-searches/oms-search-avg04.png)
 
 
-You can easily use this in a dashboard. To learn more about using dashboards, see [Create a custom dashboard in Log Analytics](log-analytics-dashboards.md).
+You can easily use the search query in a dashboard. For example, you could save the search query and create a dashboard from it named *Web Farm KPIs*. To learn more about using dashboards, see [Create a custom dashboard in Log Analytics](log-analytics-dashboards.md).
 
 ![search avg dashboard](./media/log-analytics-log-searches/oms-search-avg05.png)
 

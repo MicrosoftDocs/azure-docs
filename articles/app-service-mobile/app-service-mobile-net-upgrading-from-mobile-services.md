@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Upgrade from Mobile Services to Azure App Service" 
-	description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+<properties
+	pageTitle="Upgrade from Mobile Services to Azure App Service"
+	description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App"
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Upgrade your existing .NET Azure Mobile Service to App Service
 
 App Service Mobile is a new way to build mobile applications using Microsoft Azure. To learn more, see [What are Mobile Apps?].
 
-This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate. 
+This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.
 
 When a mobile backend is upgraded to Azure App Service, it has access to all App Service features and are billed according to [App Service pricing], not Mobile Services pricing.
 
@@ -84,10 +84,10 @@ Then, in WebApiConfig.cs, you can replace:
 
         // Use this class to set configuration options for your mobile service
         ConfigOptions options = new ConfigOptions();
-        
+
         // Use this class to set WebAPI configuration options
         HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
-        
+
 with
 
         HttpConfiguration config = new HttpConfiguration();
@@ -98,9 +98,9 @@ with
 >[AZURE.NOTE] If you wish to learn more about the new .NET server SDK and how to add/remove features from your app, please see the [How to use the .NET server SDK] topic.
 
 If your app makes use of the authentication features, you will also need to register an OWIN middleware. In this case, you should move the above configuration code into a new OWIN Startup class.
- 
+
 1. Add the NuGet package `Microsoft.Owin.Host.SystemWeb` if it is not already included in your project.
-2. In Visual Studio, right click on your project and select **Add** -> **New Item**. Select **Web** -> **General** -> **OWIN Startup class**. 
+2. In Visual Studio, right click on your project and select **Add** -> **New Item**. Select **Web** -> **General** -> **OWIN Startup class**.
 3. Move the above code for MobileAppConfiguration from `WebApiConfig.Register()` to the `Configuration()` method of your new startup class.
 
 Make sure the `Configuration()` method ends with:
@@ -112,17 +112,17 @@ There are additional changes related to authentication which are covered in the 
 
 ### Working with Data
 
-In Mobile Services, the mobile app name served as the default schema name in the Entity Framework setup. 
+In Mobile Services, the mobile app name served as the default schema name in the Entity Framework setup.
 
 To ensure that you have the same schema being referenced as before, use the following to set the schema in the DbContext for your application:
 
         string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
-        
+
 Please make sure you have MS_MobileServiceName set if you do the above. You can also provide another schema name if your application customized this previously.
 
 ### System Properties
 
-#### Naming 
+#### Naming
 
 In the Azure Mobile Services server SDK, system properties always contain a double underscore (`__`) prefix for the properties:
 
@@ -142,7 +142,7 @@ In Azure Mobile Apps, system properties no longer have a special format and have
 
 The Mobile Apps client SDKs use the new system properties names, so no changes are required to client code. However, if you are directly making REST calls to your service then you should change your queries accordingly.
 
-#### Local store 
+#### Local store
 
 The changes to the names of system properties mean that an offline sync local database for Mobile Services is not compatible with Mobile Apps. If possible, you should avoid upgrading client apps from Mobile Services to Mobile Apps until after pending changes have been sent to the server. Then, the upgraded app should use a new database filename.
 
@@ -159,11 +159,11 @@ On iOS, you should change your Core Data schema for your data entities to match 
 
 #### Querying system properties
 
-In Azure Mobile Services, system properties are not sent by default, but only when they are requested using the query string `__systemProperties`. In contrast, in Azure Mobile Apps system properties are **always selected** since they are part of the server SDK object model. 
+In Azure Mobile Services, system properties are not sent by default, but only when they are requested using the query string `__systemProperties`. In contrast, in Azure Mobile Apps system properties are **always selected** since they are part of the server SDK object model.
 
-This change mainly impacts custom implementations of domain managers, such as extensions of `MappedEntityDomainManager`. In Mobile Services, if a client never requests any system properties, it is possible to use a `MappedEntityDomainManager` that does not actually map all properties. However, in Azure Mobile Apps, these unmapped properties will cause an error in GET queries. 
+This change mainly impacts custom implementations of domain managers, such as extensions of `MappedEntityDomainManager`. In Mobile Services, if a client never requests any system properties, it is possible to use a `MappedEntityDomainManager` that does not actually map all properties. However, in Azure Mobile Apps, these unmapped properties will cause an error in GET queries.
 
-The easiest way to resolve the issue is to modify your DTOs so that they inherit from `ITableData` instead of `EntityData`. Then, add the `[NotMapped]` attribute to the fields that should be omitted. 
+The easiest way to resolve the issue is to modify your DTOs so that they inherit from `ITableData` instead of `EntityData`. Then, add the `[NotMapped]` attribute to the fields that should be omitted.
 
 For example, the following defines `TodoItem` with no system properties:
 
@@ -205,11 +205,11 @@ For push, the main item that you may find missing from the Server SDK is the Pus
 Scheduled jobs are not built into Mobile Apps, so any existing jobs that you have in your .NET backend will need to be upgraded individually. One option is to create a scheduled [Web Job] on the Mobile App code site. You could also set up a controller that holds your job code and configure the [Azure Scheduler] to hit that endpoint on the expected schedule.
 
 ### Miscellaneous changes
-All ApiControllers which will be consumed by a mobile client must now have the `[MobileAppController]` attribute. This is no longer included by default so that other ApiControllers to go unaffected by the mobile formatters. 
+All ApiControllers which will be consumed by a mobile client must now have the `[MobileAppController]` attribute. This is no longer included by default so that other ApiControllers to go unaffected by the mobile formatters.
 
 The `ApiServices` object is no longer part of the SDK. To access Mobile App settings, you can use the following:
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings(); 
+    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
 Similarly, logging is now accomplished using the standard ASP.NET trace writing:
 
@@ -231,16 +231,16 @@ If you were using one of the other AuthorizeLevel options, such as Admin or Appl
 You can get additional user information, including access tokens through the `GetAppServiceIdentityAsync()` method:
 
         FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
-        
+
 Additionally, if your application takes dependencies on user IDs, such as storing them in a database, it is important to note that the user IDs between Mobile Services and App Service Mobile Apps are different. You can still get the Mobile Services User ID, though. All of the ProviderCredentials subclasses have a UserId property. So continuing from the example before:
 
         string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
-        
+
 If your app does take any dependencies on user IDs, it is important that you leverage the same registration with an identity provider if possible. User IDs are typically scoped to the application registration that was used, so introducing a new registration could create problems with matching users to their data.
 
 ### Custom authentication
 
-If your app is using a custom authentication solution, you will want to make sure that the upgraded site has access to the system. Follow the new instructions for custom authentication in the [.NET server SDK overview] to integrate your solution. Please note that the custom authentication components are still in preview. 
+If your app is using a custom authentication solution, you will want to make sure that the upgraded site has access to the system. Follow the new instructions for custom authentication in the [.NET server SDK overview] to integrate your solution. Please note that the custom authentication components are still in preview.
 
 ##<a name="updating-clients"></a>Updating clients
 Once you have an operational Mobile App backend, you can work on a new version of your client application which consumes it. Mobile Apps also includes a new version of the client SDKs, and similar to the server upgrade above, you will need to remove all references to the Mobile Services SDKs before installing the Mobile Apps versions.
@@ -254,7 +254,7 @@ One of the main changes between the versions is that the constructors no longer 
 You can read about installing the new SDKs and using the new structure via the links below:
 
 - [iOS version 3.0.0 or later](app-service-mobile-ios-how-to-use-client-library.md)
-- [.NET (Windows/Xamarin) version 2.0.0 or later](app-service-mobile-dotnet-how-to-use-client-library.md) 
+- [.NET (Windows/Xamarin) version 2.0.0 or later](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 If your application makes use of push notifications, make note of the specific registration instructions for each platform, as there have been some changes there as well.
 
@@ -271,7 +271,7 @@ When you have the new client version ready, try it out against your upgraded ser
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
-[Web Job]: ../app-service-web/websites-webjobs-resources.md 
+[Web Job]: ../app-service-web/websites-webjobs-resources.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

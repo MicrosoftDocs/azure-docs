@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Switching to a different Azure offer | Microsoft Azure"
+	pageTitle="Switch the Azure subscription to another offer | Microsoft Azure"
 	description="Describes how an Azure subscriber can switch to a different Azure offer"
 	services=""
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="07/15/2016"
 	ms.author="genli"/>
 
-# Switching to a different Azure offer
+# Switch the Azure subscription to another offer
 
 You can switch your existing subscription to a more favorable offer without any service downtime. You might consider switching your offer for one of these reasons:
 
@@ -25,6 +25,8 @@ You can switch your existing subscription to a more favorable offer without any 
 -	If you would like to avail of membership benefits such as MSDN or BizSpark, after you’ve already signed up for a Pay-As-You-Go subscription.
 
 ## How to switch your subscription to another offer
+
+> [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 2.	Select the subscription to transfer.

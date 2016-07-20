@@ -51,14 +51,14 @@ Azure Container Service provides a choice of either Docker Swarm or DC/OS for or
 
 ### Using DC/OS
 
-DC/OS is an open-source project that is housed at the Apache Software
-Foundation. It lists some of the [biggest names in
+DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Apache Mesos is housed at the Apache Software
+Foundation and lists some of the [biggest names in
 IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
 users and contributors.
 
 ![Azure Container Service configured for Swarm showing agents and masters.](media/acs-intro/dcos.png)
 
-DC/OS includes an impressive feature set:
+DC/OS and Apache Mesos include an impressive feature set:
 
 -   Scalability to 10,000's of nodes
 
@@ -74,22 +74,18 @@ DC/OS includes an impressive feature set:
 
 -   A web UI for viewing cluster state
 
-DC/OS supports a large number of
-[frameworks](http://mesos.apache.org/documentation/latest/frameworks/)
-that you can use for scheduling workloads on Azure Container
-Service. By default, Azure Container Service includes the Marathon and Chronos frameworks.
+By default, DC/OS running on Azure Container Service includes the Marathon  orchestration platform for scheduling workloads.
 
-#### Using Marathon and Chronos
+#### Using Marathon
 
 Marathon is a cluster-wide init and control system for services in
-cgroups--or, in the case of Azure Container Service, Docker-formatted containers. It is an ideal partner to Chronos, which is a fault-tolerant job scheduler for DC/OS that handles dependencies and time-based schedules.
+cgroups--or, in the case of Azure Container Service, Docker-formatted containers. It is an ideal partner to [Chronos](https://mesos.github.io/chronos/), which is a fault-tolerant job scheduler for DC/OS that handles dependencies and time-based schedules.
 
-Marathon and Chronos provide a web UI from which you can deploy your applications. You can access this at a URL that looks something like
-`http://DNS\_PREFIX.REGION.cloudapp.azure.com`
+Marathon provides a web UI from which you can deploy your applications. You can access this at a URL that looks something like
+`http://DNS_PREFIX.REGION.cloudapp.azure.com`
 where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](container-service-mesos-marathon-ui.md).
 
-You can also use the REST APIs for communicating with Marathon and
-Chronos. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for these schedulers. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](container-service-mesos-marathon-rest.md).
+You can also use the REST APIs for communicating with Marathon. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for these schedulers. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](container-service-mesos-marathon-rest.md).
 
 ### Using Docker Swarm
 

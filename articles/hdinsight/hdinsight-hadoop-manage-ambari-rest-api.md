@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/19/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using the Ambari REST API
@@ -78,13 +78,11 @@ If you run this, replacing __PASSWORD__ with the admin password for your cluster
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-Since this is JSON, it is usually easier to use a JSON parser to retrieve data. For example, if you want to retrieve a count of alerts (contained in the __"Host/host_status/ALERT"__ element,) you can use the following to directly access the value:
+Since this is JSON, it is usually easier to use a JSON parser to retrieve data. For example, if you want to retrieve health status information for the cluster, you can use the following.
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report."Host/host_status/ALERT"'
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
     
-This retrieves the JSON document, then pipes the output to jq. `'.Clusters.health_report."Host/host_status/ALERT"'` indicates the element within the JSON document that you want to retrieve.
-
-> [AZURE.NOTE] The __Host/host_status/ALERT__ element is enclosed in quotes to indicate that '/' is part of the element name. For more information on using jq, see the [jq website](https://stedolan.github.io/jq/).
+This retrieves the JSON document, then pipes the output to jq. `.Clusters.health_report` indicates the element within the JSON document that you want to retrieve.
 
 ##Example: Get the FQDN of cluster nodes
 

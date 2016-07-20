@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Move data to and from Azure Blob | Azure Data Factory" 
-	description="Learn how to move data to/from Azure Blob Storage using Azure Data Factory" 
+	pageTitle="Learn to copy/move Azure Blob Datasets | Azure Data Factory" 
+	description="Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database." 
+    keywords="blob data, azure blob copy"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -17,12 +18,18 @@
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Blob using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Blob from another data store and move data from another data store to Azure Blob. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
+This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure Blob by sourcing blob data from another data store. This article builds on the data movement activities article which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
-The following sample(s) show how to copy data to and from Azure Blob Storage and Azure SQL Database. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
- 
+> [AZURE.NOTE] This Azure Blob connector currently only supports copying from/to block blobs. And it supports both general purpose Azure Storage and Hot/Cool Blob Storage.
+
+## Copy data wizard
+The easiest way to create a pipeline that copies data to/from Azure Blob Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Blob Storage and Azure SQL Database. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
 
 ## Sample: Copy data from Azure Blob to Azure SQL
+ 
+
 The sample below shows:
 
 1.	A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).

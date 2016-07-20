@@ -24,7 +24,7 @@ cluster. To do these tasks, run Azure PowerShell scripts that are
 installed on the head node VM. These scripts help you control the number
 and availability of your HPC Pack cluster resources so you can control costs.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ## Prerequisites
