@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
@@ -29,11 +29,11 @@ This article will show you how to create a SQL Data Warehouse database with Tran
 ## Prerequisites
 Before starting, be sure you have met the following prerequisites.
 
-- **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
-- **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
+- **Create Azure account**: See [Azure Free Trial][] or [MSDN Azure Credits][].
+- **Create Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][].
-- **Resource group name**: Either use the same Resource Group as your V12 Azure SQL Server or see [resource groups][] to create a new resource group.
-- **Visual Studio with SQL Server Data Tools**: For installation instructions, see [Installing Visual Studio and SSDT][].
+- **Create Resource group name**: Either use the same Resource Group as your Azure SQL Server or see [resource groups][] to create a new resource group.
+- **Environment to execute T-SQL**: You can use [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][] or [SSMS][] to execute T-SQL.
 
 > [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
@@ -70,11 +70,12 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
 [Installing Visual Studio and SSDT]: ./sql-data-warehouse-install-visual-studio.md
-
+[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--MSDN references--> 
 [CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
+[SSMS]: /https://msdn.microsoft.com/library/mt238290.aspx
 
 <!--Other Web references-->
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
