@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/15/2016" 
+    ms.date="07/20/2016" 
     ms.author="markvi" />
 
 
@@ -62,16 +62,17 @@ For all scenarios in this topic, the following tasks are required:
 | Apps                      | Support      |
 | ---                       | ---          |
 | OneDrive                  | Yes          |
-| Outlook                   | Coming soon |
+| Outlook                   | Coming soon  |
+| OneNote                   | No           |
 | Word / Excel / PowerPoint | Yes          |
-| Skype for Business        | Coming soon |
+| Skype for Business        | Coming soon  |
 
 
 ### Requirements  
 
 The device OS version must be iOS 9 and above 
 
-A federation server must be configured to perform CBA on Office mobile applications.  
+A federation server must be configured.  
 
 Azure Authenticator is required for Office applications on iOS.  
 

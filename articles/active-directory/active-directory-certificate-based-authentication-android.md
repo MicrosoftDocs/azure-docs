@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/20/2016" 
     ms.author="markvi" />
 
 
@@ -63,15 +63,16 @@ For all scenarios in this topic, the following tasks are required:
 | ---                       | ---          |
 | OneDrive                  | Yes          |
 | Outlook                   | Yes          |
+| OneNote                   | No           |
 | Word / Excel / PowerPoint | Yes          |
 | Skype for Business        | Yes          |
 
 
 ### Requirements  
 
-The device OS version must be Android 5.0 (Lollipop) and above 
+The device OS version must be Android 5.0 (Lollipop) and above. 
 
-A federation server must be configured to perform CBA on Office mobile applications.  
+A federation server must be configured.  
 
 
 For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:  
