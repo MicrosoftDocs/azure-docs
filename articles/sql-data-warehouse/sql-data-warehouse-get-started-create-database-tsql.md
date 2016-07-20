@@ -33,7 +33,7 @@ To get started, you will need:
 - **Azure account**: Visit [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
 - **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][] for more details.
-- **Resource group name**: Either use the same Resource Group as your Azure SQL server or see [resource groups][] to create a new resource group.
+- **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][].
 - **Environment to execute T-SQL**: You can use [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][] or [SSMS][] to execute T-SQL.
 
 > [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
@@ -70,7 +70,7 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 [load sample data]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[resource groups]: ../resource-group-template-deploy-portal.md
+[how to create a resource group]: ../resource-group-template-deploy-portal.md#create-resource-group
 [Installing Visual Studio and SSDT]: ./sql-data-warehouse-install-visual-studio.md
 [sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
