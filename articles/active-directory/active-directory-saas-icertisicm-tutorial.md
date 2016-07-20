@@ -137,7 +137,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 5. To get SSO configured for your application, contact your Icertis Contract Management Platform support team and provide them with the following: 
 
-	- The downloaded metadata file 
+	- The **downloaded metadata** file 
 	
 	- The **Entity ID** 
 		
