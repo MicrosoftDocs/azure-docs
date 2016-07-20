@@ -65,7 +65,7 @@ Follow these steps to enable the schedule for the Test-ResourceSchedule runbook.
 3. On the **Schedules** blade, click **Add a schedule**.
 4. On the **Schedules** blade, select **Link a schedule to your runbook**. Then select **Create a new schedule**.
 5.  On the **New schedule** blade, type in the name of this schedule, for example: *HourlyExecution*.
-6. For the schedule **Start**, set the start time to an hour increment.  
+6. For the schedule **Start**, set the start time to a full hour increment (for example, 1 PM or 3 AM).  
 7. Select **Recurrence**, and for **Reoccur every** interval select **1 hour**.
 8. Verify that **Set expiration** is set to **No**, and then click **Create** to save your new schedule.
 9. On the **Schedule Runbook** options blade, select **Parameters and run settings**. In the Test-ResourceSchedule **Parameters** blade, enter the name of your subscription in the **SubscriptionName** field.  This is the only parameter that's required for the runbook.  When you're finished, click **OK**.  
