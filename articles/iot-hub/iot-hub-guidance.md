@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 # Design your solution
@@ -23,6 +23,7 @@ This article provides guidance for how to design the following capabilities in y
 - Device provisioning
 - Field gateways
 - Device authentication
+- Device heartbeat
 
 ## Device provisioning
 
@@ -60,7 +61,7 @@ You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field ga
 
 ## Custom device authentication
 
-You can use the IoT Hub [device identity registry][lnk-devguide-identityregistry] to configure per-device security credentials and access control. However, if an IoT solution already has a significant investment in a custom device identity registry and/or authentication scheme, you can integrate this existing infrastructure with IoT Hub by creating a *token service*. In this way, you can use other IoT features in your solution.
+You can use the IoT Hub [device identity registry][lnk-devguide-identityregistry] to configure per-device security credentials and access control using [tokens][lnk-sas-token]. However, if an IoT solution already has a significant investment in a custom device identity registry and/or authentication scheme, you can integrate this existing infrastructure with IoT Hub by creating a *token service*. In this way, you can use other IoT features in your solution.
 
 A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with **DeviceConnect** permissions to create *device-scoped* tokens. These tokens enable a device to connect to your IoT hub.
 
@@ -81,7 +82,7 @@ For a device to connect to your hub, you must still add it to the IoT Hub device
 
 ### Comparison with a custom gateway
 
-The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-gateway] topic.
+The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-protocols] topic.
 
 ## Device heartbeat <a id="heartbeat"></a>
 
@@ -96,29 +97,43 @@ A more complex implementation could include the information from [operations mon
 
 ## Next steps
 
-Follow these links to learn more about Azure IoT Hub:
+To learn more about planning your IoT Hub deployment, see:
 
-- [Get started with IoT Hub (Tutorial)][lnk-get-started]
-- [What is Azure IoT Hub?][lnk-what-is-hub]
+- [MQTT support][lnk-mqtt]
+- [Supported devices][lnk-devices]
+- [Support additional protocols][lnk-protocols]
+- [Compare with Event Hubs][lnk-compare]
+- [Scaling, HA and DR][lnk-scaling]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal-manage]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
-[lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
-[lnk-gateway]: iot-hub-protocol-gateway.md
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
 [lnk-portal]: https://portal.azure.com
-[lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
-[lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
-[lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [IoT Hub Quotas and Throttles]: iot-hub-devguide.md#throttling
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+
+[lnk-mqtt]: iot-hub-mqtt-support.md
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal-manage]: iot-hub-manage-through-portal.md
+[lnk-sas-token]: iot-hub-sas-tokens.md

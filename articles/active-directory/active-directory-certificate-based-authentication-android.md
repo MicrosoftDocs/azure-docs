@@ -11,12 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="07/13/2016" 
     ms.author="markvi" />
 
 
 
-# Get started with certificate based authentication on Android 
+# Get started with certificate based authentication on Android - Public Preview  
 
 > [AZURE.SELECTOR]
 - [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -42,7 +42,7 @@ Configuring this feature eliminates the need to enter a username and password co
 
 For all scenarios in this topic, the following tasks are required:  
 
-- Access to a private PKI with certificate authority(s) to issue client certificates.  
+- Access to certificate authority(s) to issue client certificates.  
 
 - The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the Getting Started section.  
 
@@ -84,10 +84,7 @@ For Azure Active Directory to revoke a client certificate, the ADFS token must h
 
 Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation. 
 
-As a best practice, you should update the ADFS error pages with the following: 
-
-- The requirement for installing the Azure Authenticator on iOS
-- Instructions on how to get a user certificate. 
+As a best practice, you should update the ADFS error pages with instructions on how to get a user certificate. 
 
 For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).  
 
@@ -97,11 +94,6 @@ For more details, see [Customizing the AD FS Sign-in Pages](https://technet.micr
 
 
 Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are supported. To determine if your email application does support this feature, please contact your application developer. 
-
-
-### Limitations  
-
-Federated authentication with a client certificate is not supported.  
 
 
 

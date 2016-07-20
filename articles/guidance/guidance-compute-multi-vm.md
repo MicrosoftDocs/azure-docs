@@ -31,27 +31,53 @@ This article builds on [Running a Single VM on Azure][single vm]. The recommenda
 
 ## Architecture diagram
 
-![IaaS: multiple VMs](media/blueprints/compute-multi-vm.png)
+![[0]][0]
 
 The architecture has the following components:
 
-- **Availability Set.** Put the VMs into an [Availability Set][availability set]. This makes the VMs eligible for the [SLA][vm-sla] for virtual machines. For the SLA to apply, you need a minimum of two VMs in the same availability set.
+- **Availability Set.** The [availability Set][availability set] contains the VMs and is necessary for supporting the [availability SLA for Azure VMs][vm-sla].
 
-- **VNet**. Every VM in Azure is deployed into a virtual network (VNet), which is further divided into **subnets**. For this scenario, place the VMs on the same subnet.
+- **VNet**. Every VM in Azure is deployed into a virtual network (VNet), which is further divided into **subnets**.
 
-- **Azure Load Balancer.** Use an Internet-facing [load balancer] to distribute incoming Internet requests to the VM instances. The load balancer includes some related resources:
+- **Azure Load Balancer.** The [load balancer] distributes incoming Internet requests to the VM instances in an availability set. The load balancer includes some related resources:
 
     - **Public IP address.** A public IP address is needed for the load balancer to receive Internet traffic.
+
     - **Front-end configuration.** Associates the public IP address with the load balancer.
+
     - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 
-- **Load balancer rules** are used to distribute network traffic among all the VMs in the back-end address pool. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
+- **Load balancer rules** are used to distribute network traffic among all the VMs in the back-end address pool. 
 
-- **NAT rules** are used to route traffic to a specific VM. For example, to enable remote desktop (RDP) to the VMs, create a separate NAT rule for each VM. Each rule should map a distinct port number to port 3389, which is the default port for RDP. (For example, use port 50001 for "VM1", port 50002 for "VM2", and so on.) Assign the NAT rules to the NICs on the VMs.
+- **NAT rules** are used to route traffic to a specific VM. For example, to enable remote desktop (RDP) to the VMs, create a separate NAT rule for each VM. 
 
-- **Network interfaces (NICs)**. Provision a NIC for each VM. The NIC provides network connectivity to the VM. Associate the NIC with the subnet and also with the back-end address pool of the load balancer.
+- **Network interfaces (NICs)**. Each VM has a NIC to connect to the network.
 
-- **Storage.** Create separate Azure storage accounts for each VM to hold the VHDs, in order to avoid hitting the [IOPS limits][vm-disk-limits] for storage accounts. Create one storage account for diagnostic logs. That account can be shared by all the VMs.
+- **Storage.** Storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
+
+## Recommendations
+
+### Availability set recommendations
+
+You must create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. Note that the Azure load balancer also requires that load-balanced VMs belong to the same availability set.
+
+### Network recommendations
+
+For this scenario, place all the VMs on the same subnet. Do not expose the VMs directly to the Internet, but instead give each VM a private IP address; clients connect by using the public IP address of the load balancer.
+
+### Load balancer recommendations
+
+Add all VMs in the availability set to the back-end address pool of the load balancer.
+
+Define load balancer rules to direct network traffic to the VMs. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
+
+Define NAT rules to route traffic to a specific VM. For example, to enable remote desktop (RDP) to the VMs, create a separate NAT rule for each VM. Each rule should map a distinct port number to port 3389, which is the default port for RDP. (For example, use port 50001 for "VM1", port 50002 for "VM2", and so on.) Assign the NAT rules to the NICs on the VMs.
+
+### Storage account recommendations
+
+Create separate Azure storage accounts for each VM to hold the VHDs, in order to avoid hitting the [IOPS limits][vm-disk-limits] for storage accounts. 
+
+Create one storage account for diagnostic logs. This storage account can be shared by all the VMs.
 
 ## Scalability considerations
 
@@ -97,7 +123,9 @@ Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet cann
 
 For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP whitelisting, so if you want to whitelist certain public IP addresses, add an NSG to the subnet.
 
-## Example deployment script
+## Solution Deployment
+
+<!-- THIS SECTION TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
 
 An example deployment script for this architecture is available on GitHub.
 
@@ -107,10 +135,9 @@ An example deployment script for this architecture is available on GitHub.
 
 The script requires version 0.9.20 or later of the [Azure Command-Line Interface (CLI)][azure-cli]. 
 
-
 ## Next steps
 
-- Putting several VMs behind a load balancer is a building block for creating multi-tier architectures. For more information, see [Running VMs for an N-tier architecture on Azure][3-tier-blueprint].
+- Placing several VMs behind a load balancer is a building block for creating multi-tier architectures. For more information, see [Running VMs for an N-tier architecture on Azure][3-tier-blueprint].
 
 <!-- Links -->
 [3-tier-blueprint]: guidance-compute-3-tier-vm.md
@@ -136,3 +163,4 @@ The script requires version 0.9.20 or later of the [Azure Command-Line Interface
 
 [deployment-script-linux]: https://github.com/mspnp/blueprints/blob/master/multivm-linux/azurecli-multi-vm-single-tier-sample.sh
 [deployment-script-windows]: https://github.com/mspnp/blueprints/blob/master/multivm-windows/azurecli-multi-vm-single-tier-sample.cmd
+[0]: ./media/blueprints/compute-multi-vm.png "Architecture of a multi-VM solution on Azure comprising an availability set with two VMs and a load balancer"

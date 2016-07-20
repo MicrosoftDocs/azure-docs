@@ -144,11 +144,14 @@ The file upload category tracks errors which occur at the IoT hub and are relate
 
 ## Next steps
 
-Now that you’ve seen an overview of operations monitoring, follow these links to learn more:
+Now that you’ve seen an overview of operations monitoring, see [Manage access to IoT Hub][lnk-itpro] for additional information about managing IoT Hub.
 
-- [IoT Hub diagnostic metrics][lnk-diagnostic-metrics]
-- [Scaling IoT Hub][lnk-scaling]
-- [IoT Hub high availability and disaster recovery][lnk-dr]
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -158,3 +161,10 @@ Now that you’ve seen an overview of operations monitoring, follow these links 
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
+
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

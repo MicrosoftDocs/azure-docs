@@ -92,9 +92,9 @@ As discussed above, in addiition to the Azure portal, Active Geo-Replication can
 
 |Command|Description|
 |-------|-----------|
-|[ALTER DATABASE (Azure SQL Database)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication|
-|[ALTER DATABASE (Azure SQL Database)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary in order to initiate failover
-|[ALTER DATABASE (Azure SQL Database)]https://msdn.microsoft.com/en-us/library/mt574871.aspx)|Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database.|
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication|
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary in order to initiate failover
+|[ALTER DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx)|Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database.|
 |[sys.geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx)|Returns information about all exiting replication links for each database on the Azure SQL Database logical server.|
 |[sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx)|Gets the last replication time, last replication lag and other information about the replication link for a given SQL database.|
 |[sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx)|Shows the status for all database operations including the status of the replication links.|
@@ -116,7 +116,7 @@ As discussed above, in addiition to the Azure portal, Active Geo-Replication can
 
 |API|Description|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates, updates, or restores a primary or a secondary database.|
+|[Create or Update Database (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates, updates, or restores a primary or a secondary database.|
 |[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Returns the status during a create operation.|
 |[Set Secondary Database as Primary (Planned Failover)r](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promote a secondary database in a Geo-Replication partnership to become the new primary database.|
 |[Set Secondary Database as Primary (Unplanned Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|To force a failover to the secondary database and set the secondary as the primary.|
@@ -128,8 +128,8 @@ As discussed above, in addiition to the Azure portal, Active Geo-Replication can
 
 ## Next steps
 
-- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md).
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md).
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md).
