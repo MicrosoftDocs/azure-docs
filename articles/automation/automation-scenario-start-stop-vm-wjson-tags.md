@@ -33,7 +33,7 @@ When the Schedule tag is applied to a resource group, it's also applied to all v
 2.  Schedule applied to a resource group and virtual machine in the resource group
 3.  Schedule applied to a virtual machine
 
-This scenario essentially takes a JSON string with a specified format and adds it as the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines, and then identifies the schedules for each VM based on the scenarios listed earlier. Next it loops through the VMs that have schedules attached and evaluates what action should be taken. For example, it determines which VMs need to be stopped, shut down, or ignored.
+This scenario essentially takes a JSON string with a specified format and adds it as the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines and identifies the schedules for each VM based on the scenarios listed earlier. Next it loops through the VMs that have schedules attached and evaluates what action should be taken. For example, it determines which VMs need to be stopped, shut down, or ignored.
 
 These runbooks authenticate by using the [Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md).
 
@@ -64,7 +64,7 @@ Follow these steps to enable the schedule for the Test-ResourceSchedule runbook.
 2. On the **Test-ResourceSchedule** blade, click the **Schedules** tile.
 3. On the **Schedules** blade, click **Add a schedule**.
 4. On the **Schedules** blade, select **Link a schedule to your runbook**. Then select **Create a new schedule**.
-5.  On the **New schedule** blade, type in the name of this schedule, for example: HourlyExecution.
+5.  On the **New schedule** blade, type in the name of this schedule, for example: *HourlyExecution*.
 6. For the schedule **Start**, set the start time to an hour increment.  
 7. Select **Recurrence**, and for **Reoccur every** interval select **1 hour**.
 8. Verify that **Set expiration** is set to **No**, and then click **Create** to save your new schedule.
@@ -101,11 +101,11 @@ Here is some detailed information about this structure:
 
 1. The format of this JSON structure is optimized to work around the 256-character limitation of a single tag value in Azure.
 
-2. *TzId* represents the time zone of the virtual machine.  This ID can be obtained by using the TimeZoneInfo .NET class in a PowerShell session-- **[System.TimeZoneInfo]::GetSystemTimeZones()**.
+2. *TzId* represents the time zone of the virtual machine. This ID can be obtained by using the TimeZoneInfo .NET class in a PowerShell session--**[System.TimeZoneInfo]::GetSystemTimeZones()**.
 
     ![GetSystemTimeZones in PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-    - Weekdays are represented with a numeric value of zero to six.  The value 0 equals Sunday.
+    - Weekdays are represented with a numeric value of zero to six. The value zero equals Sunday.
     - The start time is represented with the **S** attribute, and its value is in a 24-hour format.
     - The end or shutdown time is represented with the **E** attribute, and its value is in a 24-hour format.
 
@@ -185,7 +185,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
 ### Remove a schedule tag with PowerShell
 
-1. Open a PowerShell session and run the following to authenticate with your Run As account and select and specify a subscription:
+1. Open a PowerShell session and run the following to authenticate with your Run As account and to select and specify a subscription:
 
         Conn = Get-AutomationConnection -Name AzureRunAsConnection
         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
@@ -216,7 +216,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
 To view the details of the **Test-ResourceSchedule** runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.  
 
-The **Job Summary** includes messages from the output stream and warning and error streams. Select the **Output** tile to view detailed results from the runbook execution.
+The **Job Summary** includes messages from the output, warning, and error streams. Select the **Output** tile to view detailed results from the runbook execution.
 
 ![Test-ResourceSchedule Output](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)  
 
