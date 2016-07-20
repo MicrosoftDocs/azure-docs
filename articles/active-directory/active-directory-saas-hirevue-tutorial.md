@@ -125,10 +125,10 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     
     - Staging environment: `https://<company name>.stghv.com`
 	
-	b. In the Identifier textbox, type the URN using the following pattern:  
+	b. In the Identifier textbox, type the URN using the following pattern:
 
-    - Production environment: `urn:federation:hirevue.com:saml:sp:prod`
-
+    - Production environment: `urn:federation:hirevue.com:saml:sp:prod` 
+    
     - Staging environment: `urn:federation:hirevue.com:saml:sp:staging`
 
 	c. click **Next**
