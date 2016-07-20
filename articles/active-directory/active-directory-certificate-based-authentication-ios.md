@@ -61,10 +61,10 @@ For all scenarios in this topic, the following tasks are required:
 
 | Apps                      | Support      |
 | ---                       | ---          |
-| OneDrive                  | Yes          |
+| OneDrive                  | ![Check][1]  |
 | Outlook                   | Coming soon  |
-| OneNote                   | Yes          |
-| Word / Excel / PowerPoint | Yes          |
+| OneNote                   | ![Check][1]  |
+| Word / Excel / PowerPoint | ![Check][1]  |
 | Skype for Business        | Coming soon  |
 
 
@@ -149,7 +149,7 @@ Below are examples for adding, removing or modifying a certificate authority.
 
 2. Install the Azure AD module. You need to install Version [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) or higher.  
 
-        Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
 3. Connect to your target tenant: 
 
@@ -277,3 +277,5 @@ The date you set must be in the future. If the date is not in the future, the **
 
 
 
+<!--Image references-->
+[1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
