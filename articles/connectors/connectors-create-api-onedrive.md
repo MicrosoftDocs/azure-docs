@@ -33,7 +33,7 @@ This topic shows you how to use the OneDrive connector in a logic app, and also 
 
 Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to OneDrive, you first need a OneDrive *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So, with OneDrive, enter the credentials to your OneDrive account  to create the connection.
 
-### Create a connection to OneDrive
+### Create the connection
 
 >[AZURE.INCLUDE [Steps to create a connection to OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
@@ -43,17 +43,17 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 
 1. In the logic app, type "onedrive" to get a list of the triggers:  
 
-  ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+	![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Select **When a file is modified**. If a connection already exists, then select the **...** (Show Picker) button to select a folder.
 
-  ![](./media/connectors-create-api-onedrive/sample-folder.png)
+	![](./media/connectors-create-api-onedrive/sample-folder.png)
 
 	If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic lists the steps. 
 
 	> [AZURE.NOTE] In this example, the logic app runs when a file in the folder you choose is updated. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 Outlook *Send an email* action that emails you when a file is updated. 
 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+3. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
 ## Use an action
