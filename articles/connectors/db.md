@@ -21,11 +21,11 @@ ms.author="deonhe"/>
 
 Connect to Dropbox to manage your files. You can perform various actions such as upload, update, get, and delete files in Dropbox.
 
-To use [any connector](./apis-list.md), you first need to create a Logic App. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to Dropbox
 
-Before your Logic App can access any service, you first need to create a *connection* to the service. A connection provides connectivity between a Logic App and another service. For example, in order to connect to Dropbox, you first need a Dropbox *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the Dropbox example, you would need the credentials to your Dropbox account in order to create the connection to Dropbox. [Learn more about connections]()
+Before your logic app can access any service, you first need to create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, in order to connect to Dropbox, you first need a Dropbox *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the Dropbox example, you would need the credentials to your Dropbox account in order to create the connection to Dropbox. [Learn more about connections]()
 
 ### Create a connection to Dropbox
 
@@ -33,19 +33,19 @@ Before your Logic App can access any service, you first need to create a *connec
 
 ## Use a Dropbox trigger
 
-A trigger is an event that can be used to start the workflow defined in a Logic App. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 In this example, we will use the **When a file is created** trigger. When this trigger occurs, we will call the **Get file content using path** Dropbox action. 
 
 1. Enter *dropbox* in the search box on the Logic Apps designer, then select the **Dropbox - When a file is created** trigger.      
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
   
-2. Select the folder in which you want to track file creation. Click on .. (identified in the red box) and browse to the folder you wish to select for the trigger's input.  
+2. Select the folder in which you want to track file creation. Select ... (identified in the red box) and browse to the folder you wish to select for the trigger's input.  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## Use a Dropbox action
 
-An action is an operation carried out by the workflow defined in a Logic App. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 Now that the trigger has been added, follow these steps to add an action that will get the new file's content.
 
@@ -55,12 +55,12 @@ Now that the trigger has been added, follow these steps to add an action that wi
 2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
-3. Enter dropbox to search for actions related to Dropbox.  
+3. Enter *dropbox* to search for actions related to Dropbox.  
 
-4. Select **Dropbox - Get file content using path** as the action to take when a new file is created in the selected Dropbox folder. The action control block opens. **Note**: you will be prompted to authorize your Logic App to access your Dropbox account if you have not done so previously.  
+4. Select **Dropbox - Get file content using path** as the action to take when a new file is created in the selected Dropbox folder. The action control block opens. **Note**: you will be prompted to authorize your logic app to access your Dropbox account if you have not done so previously.  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)
 
-5. Select ... (located at the right side of the **File Path** control) and browse to the file path you would like to use. Or, use the **file path** token to speed up your Logic App creation.  
+5. Select ... (located at the right side of the **File Path** control) and browse to the file path you would like to use. Or, use the **file path** token to speed up your logic app creation.  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)
 
 6. Save your work and create a new file in Dropbox to activate your workflow.  
