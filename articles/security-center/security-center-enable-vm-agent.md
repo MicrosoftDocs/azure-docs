@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Enable VM Agent in Azure Security Center
 
-The VM Agent must be installed on virtual machines (VMs) in order to provision patch scanning, baseline scanning, and antimalware programs.  Azure Security Center enables you to see which VMs require the VM Agent and will recommend that you enable the VM Agent on those VMs.
+The VM Agent must be installed on virtual machines (VMs) in order to [enable data collection](security-center-enable-data-collection.md).  Azure Security Center enables you to see which VMs require the VM Agent and will recommend that you enable the VM Agent on those VMs.
 
 The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.
 

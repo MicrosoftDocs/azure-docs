@@ -38,7 +38,7 @@ To receive emails about high severity alerts, turn on the option **Send me email
 
 4. Select **OK** to apply the security contact information to your subscription.
 
-## Next steps
+## See also
 
 To learn more about Security Center, see the following:
 
