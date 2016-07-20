@@ -21,6 +21,7 @@
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-vmm-to-vmm.md)
 - [Classic Portal](site-recovery-vmm-to-vmm-classic.md)
+- [PowerShell ARM](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V  virtual machines managed in System Center Virtual Machine Manager (VMM) clouds to a secondary site. This article describes how to set up replication using Azure Site Recovery in the Azure portal.
 
