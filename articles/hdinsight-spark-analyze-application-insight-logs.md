@@ -26,7 +26,7 @@ ms.author="larryfr"/>
 
 * An application that is configured to use Application Insights. 
 
-    A [Node.js web app configured to use Application Insights](../app-insights-nodejs.md) was used when developing this document.
+    A [Node.js web app configured to use Application Insights](../application-insights/app-insights-nodejs.md) was used when developing this document.
 
 * Familiarity with creating a Linux-based Spark on HDInsight cluster. This document does not provide a walk-through of creating a new cluster, but does provide guidance on how to add access to the Application Insights telemetry to an existing or new HDInsight cluster.
 
@@ -58,11 +58,11 @@ An HDInsight cluster can directly access block blobs from an Azure storage accou
 
 ### Data schema
 
-Application Insights provides [export data model](../app-insights-export-data-model) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data; Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights, so you should not have to manually define the schema when performing analysis.
+Application Insights provides [export data model](../application-insights/app-insights-export-data-model) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data; Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights, so you should not have to manually define the schema when performing analysis.
 
 ## Configure Application Insights to export telemetry
 
-Follow the steps in [Set up Continous Export](../app-insights-export-telemetry.md) to begin exporting Application Insights telemetry information to an Azure storage blob.
+Follow the steps in [Set up Continous Export](../application-insights/app-insights-export-telemetry.md) to begin exporting Application Insights telemetry information to an Azure storage blob.
 
 ## Configure HDInsight to access the stored telemetry data
 
