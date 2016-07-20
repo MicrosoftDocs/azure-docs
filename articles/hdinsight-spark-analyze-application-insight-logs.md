@@ -58,7 +58,7 @@ An HDInsight cluster can directly access block blobs from an Azure storage accou
 
 ### Data schema
 
-Application Insights provides [export data model](../application-insights/app-insights-export-data-model) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data; Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights, so you should not have to manually define the schema when performing analysis.
+Application Insights provides [export data model](../application-insights/app-insights-export-data-model.md) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data; Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights, so you should not have to manually define the schema when performing analysis.
 
 ## Configure Application Insights to export telemetry
 
