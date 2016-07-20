@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/20/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -71,14 +71,16 @@ Use the table below as a reference to help you understand the available recommen
 |[Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)|Recommends that you reboot a VM to complete the process of applying system updates.|
 |[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future.|
 |[Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
-|[Add a Next Generation Firewall](security-center-add-next-generation-firewall.md)|Recommends that you add a next generation firewall from a Microsoft partner in order to increase your security protections.|
+|[Add a Next Generation Firewall](security-center-add-next-generation-firewall.md)|Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner in order to increase your security protections.|
+|[Route traffic through NGFW only](security-center-route-traffic-through-ngfw-only.md)|Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW.|
 |[Install Endpoint Protection](security-center-install-endpoint-protection.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
-|[Enable Network Security Groups on subnets or virtual machines](security-center-enable-network-security-groups.md)|Recommends that you enable network security groups (NSGs) on subnets or VMs.|
-|Restrict access through public external endpoints|Recommends that you configure inbound traffic rules for NSGs.|
+|[Resolve Endpoint Protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)|Recommends that you resolve endpoint protection failures.|
+|[Enable Network Security Groups on subnets or virtual machines](security-center-enable-network-security-groups.md)|Recommends that you enable NSGs on subnets or VMs.|
+|[Restrict access through Internet facing endpoint](security-center-restrict-access-through-internet-facing-endpoints.md)|Recommends that you configure inbound traffic rules for NSGs.|
 |[Enable server SQL Auditing](security-center-enable-auditing-on-sql-servers.md)|Recommends that you turn on auditing for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines).|
 |[Enable database SQL Auditing](security-center-enable-auditing-on-sql-databases.md)|Recommends that you turn on auditing for Azure SQL databases (Azure SQL service only; doesn't include SQL running on your virtual machines).|
 |[Enable Transparent Data Encryption on SQL databases](security-center-enable-transparent-data-encryption.md)|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
-|Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
+|[Enable VM Agent](security-center-enable-vm-agent.md)|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
 | [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM.|
 |[Provide security contact details](security-center-provide-security-contact-details.md) | Recommends that you provide security contact information for each of your subscriptions. Contact information is an email address and phone number. The information will be used to contact you if our security team finds that your resources are compromised. |
 | [Update OS version](security-center-update-os-version.md) | Recommends that you update the operating system (OS) version for your Cloud Service to the most recent version available for your OS family.  To learn more about Cloud Services, see the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md). |
