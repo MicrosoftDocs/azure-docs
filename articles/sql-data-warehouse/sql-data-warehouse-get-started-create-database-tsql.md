@@ -27,6 +27,7 @@
 This article will show you how to create a SQL Data Warehouse database with Transact-SQL (T-SQL).
 
 ## Prerequisites
+
 Before starting, be sure you have met the following prerequisites.
 
 - **Create Azure account**: See [Azure Free Trial][] or [MSDN Azure Credits][].
@@ -56,6 +57,7 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 The `MAXSIZE` can be between 250 GB and 240 TB.  The `SERVICE_OBJECTIVE` can be between DW100 and DW2000 [DWU][].  For a list of all valid values, see the MSDN documentation for [CREATE DATABASE][].  Both the MAXSIZE and SERVICE_OBJECTIVE can also be changed with an [ALTER DATABASE][] T-SQL command.  Caution should be used when changing the SERVICE_OBJECTIVE as this causes a restart of services which will cancel all queries in flight.  Changing MAXSIZE does not restart services as it is just a simple metadata operation.
 
 ## Next steps
+
 After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
 
 <!--Article references-->
