@@ -32,7 +32,7 @@ Before starting, be sure you have met the following prerequisites.
 - **Create Azure account**: See [Azure Free Trial][] or [MSDN Azure Credits][].
 - **Create Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][].
-- **Create Resource group name**: Either use the same Resource Group as your Azure SQL Server or see [resource groups][] to create a new resource group.
+- **Create Resource group name**: Either use the same Resource Group as your Azure SQL server or see [resource groups][] to create a new resource group.
 - **Environment to execute T-SQL**: You can use [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][] or [SSMS][] to execute T-SQL.
 
 > [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
