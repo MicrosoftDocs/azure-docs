@@ -77,7 +77,7 @@ When you enable and deploy Azure disk encryption for Azure IaaS VMs, the followi
 
 - Encryption of OS volume to protect boot volume at rest in customer storage
 
-	- Encryption of OS volume on Linus IaaS VM already running in Azure is not support currently. Encryption of OS volume for Linux IaaS VM is supported only for pre-encrypted VHD scenario
+	- Encryption of OS volume on Linux IaaS VM already running in Azure is not support currently. Encryption of OS volume for Linux IaaS VM is supported only for pre-encrypted VHD scenario
 	
 - Encryption of Data volume/s to protect the data volumes at rest in customer storage
 
