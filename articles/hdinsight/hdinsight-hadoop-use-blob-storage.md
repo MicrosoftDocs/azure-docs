@@ -27,7 +27,7 @@ Azure Blob storage is a robust, general-purpose storage solution that integrates
 
 Storing data in Blob storage enables you to safely delete the HDInsight clusters that are used for computation without losing user data.
 
-> [AZURE.IMPORTANT] HDInsight only supports block blobs. It does not support accessing page or append blobs.
+> [AZURE.IMPORTANT] HDInsight only supports block blobs. It does not support page or append blobs.
 
 For information about creating an HDInsight cluster, see [Get Started with HDInsight][hdinsight-get-started] or [Create HDInsight clusters][hdinsight-creation].
 
