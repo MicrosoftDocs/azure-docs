@@ -13,12 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/21/2016"
+   ms.date="07/19/2016"
    ms.author="yuemlu"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## July Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+|  | [] |  | 4.34, 3.41, 2.53 | July 12, 2016 |
+|  | [] |  | 4.34, 3.41, 2.53 | July 12, 2016 |
+|  | [] |  | 4.34, 3.41, 2.53 | July 12, 2016 |
 
 ## June Guest OS 
 
