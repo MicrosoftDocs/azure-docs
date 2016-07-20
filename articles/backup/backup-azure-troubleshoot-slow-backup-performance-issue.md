@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Troubleshooting slow performance issue in Azure Backup | Microsoft Azure"
+   pageTitle="Troubleshooting slow file backup issue in Azure Backup | Microsoft Azure"
    description="Provides troubleshooting guidance to help you diagnose and narrow down the cause of the Azure Backup performance issue"
    services="backup"
    documentationCenter=""
@@ -16,11 +16,11 @@
     ms.date="07/20/2016"
     ms.author="genli"/>
 
-# Troubleshooting slow performance in Azure Backup
+# Troubleshooting slow file backup issue in Azure Backup
 
 This article provides troubleshooting guidance to help you diagnose and narrow down the cause of performance issues in Azure Backup. When you use the Azure Backup agent to back up files, the backup process may take longer than expected. This issue may be caused by one or more of the following:
 
--	[Performance bottlenecks on the computer that’s being backed up](#cause1). The bottleneck is usually in network bandwidth or in hard disk I/O.
+-	[Performance bottlenecks on the computer that’s being backed up](#cause1).
 -	[Another process or antivirus software is interfering with Azure Backup](#cause2).
 -	[The Backup agent is running on an Azure virtual machine (VM)](#cause3).  
 -	[You are trying to back up a large number of files (multi millions)](#cause4).
