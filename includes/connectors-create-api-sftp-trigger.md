@@ -1,3 +1,4 @@
+Let's add a trigger.
 
 1. Enter *sftp* in the search box on the logic apps designer then select the **SFTP - When a file is added or modified**  trigger   
 ![](./media/connectors-create-api-sftp/trigger-1.png)  

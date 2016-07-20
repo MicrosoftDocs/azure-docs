@@ -35,7 +35,9 @@ Before your logic app can access any service, you first need to create a *connec
 
 A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-In this example, I will show you how to use the **FTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an SFTP server. In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent orders from customers.  You could then use an SFTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
+In this example, I will show you how to use the **SFTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an SFTP server. In the example, you will also learn how to add a condition that checks the contents of the new or modified file and make a decision to extract the file if its contents indicate that it  should be extracted before using the contents. Finally, you will learn how to add an action to extract the contents of a file and place the extracted contents in a folder on the SFTP server. 
+
+In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent orders from customers.  You could then use an SFTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
 
 >[AZURE.INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
 
@@ -99,21 +101,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -131,21 +133,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -175,21 +177,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -234,21 +236,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+|| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -267,21 +269,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -313,21 +315,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -340,21 +342,21 @@ There are no parameters for this call
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -375,21 +377,21 @@ An * indicates that a property is required
 
 #### Output Details
 
-BlobMetadata: undefined
+BlobMetadata
 
 
-| Property Name | Data Type | Description |
+| Property Name | Data Type |
 |---|---|---|
-|Id|string|undefined|
-|Name|string|undefined|
-|DisplayName|string|undefined|
-|Path|string|undefined|
-|LastModified|string|undefined|
-|Size|integer|undefined|
-|MediaType|string|undefined|
-|IsFolder|boolean|undefined|
-|ETag|string|undefined|
-|FileLocator|string|undefined|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
@@ -405,7 +407,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 |401|Unauthorized|
 |403|Forbidden|
 |404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
 
