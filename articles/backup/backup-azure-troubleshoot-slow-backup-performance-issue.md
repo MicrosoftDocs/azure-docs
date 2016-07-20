@@ -65,6 +65,7 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 > [AZURE.NOTE] If the infrastructure is a possible culprit, it's frequently to make sure that any drives being protected are defragged on a semiregular basis.
 <a id="cause2"></a>
+
 ## Cause 2 Another process is interfering with the Azure Backup process
 
 ### How to determine and the resolution
