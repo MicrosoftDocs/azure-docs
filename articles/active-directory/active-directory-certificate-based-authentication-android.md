@@ -63,7 +63,7 @@ For all scenarios in this topic, the following tasks are required:
 | ---                       | ---          |
 | OneDrive                  | Yes          |
 | Outlook                   | Yes          |
-| OneNote                   | No           |
+| OneNote                   | Coming soon  |
 | Word / Excel / PowerPoint | Yes          |
 | Skype for Business        | Yes          |
 
