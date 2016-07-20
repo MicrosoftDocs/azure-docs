@@ -40,7 +40,7 @@ The recovery time to restore a database using automated database backups is impa
 
  There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
-< [AZURE.IMPORTANT] To recover using automated backups, you must be the subscription owner. You can recover using the Azure portal, PowerShell or the REST API. You cannot use Transact-SQL. 
+> [AZURE.IMPORTANT] To recover using automated backups, you must be the subscription owner. You can recover using the Azure portal, PowerShell or the REST API. You cannot use Transact-SQL. 
 
 ## Point-In-Time Restore
 
