@@ -34,12 +34,12 @@ The article includes prerequisites for the scenario, and shows you
 - Register the VMM server(s) in the vault
 - Configure replication policy for the VMM Cloud. The replication settings in the policy will be applied to all protected virtual machines 
 - Enable protection for the virtual machines. 
-- Test the failover of VMs and recovery plans to make sure everything's working as expected.
-- Perform a planned or an unplanned failover of VMs and recovery plans to make sure everything's working as expected.
+- Test the failover of VMs individually or as part of a recovery plan to make sure everything is working as expected.
+- Perform a planned or an unplanned failover of VMs individually or as part of a recovery plan to make sure everything is working as expected.
 
 If you run into problems setting up this scenario, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-> [AZURE.NOTE] Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager (ARM) and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. 
+> [AZURE.NOTE] Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager (ARM) and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. This article covers the Resource Manager deployment model.
 
 
 
@@ -169,7 +169,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
 		$policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod 
 
-	> [AZURE.NOTE] The VMM cloud can contain Hyper-V hosts running different (supported)versions of Windows Server, but a replication policy is applied to hosts running the same operating system version. If you have hosts running more than one operating system version (2012 R2 and 2012) then create another replication policy for Hyper-V 2012 R2 hosts.
+	> [AZURE.NOTE] The VMM cloud can contain Hyper-V hosts running different versions of Windows Server (as mentioned in the Hyper-V prerequisites), but the replication policy is OS version specific. If you have different hosts running on different operating system versions, then create separate replication policies for each type of OS version. For eg: If you have five hosts running on Windows Servers 2012 and three on Windows Server 2012 R2, create two replication polices – one for each type of operating system versions.
 
 2.	Get the primary protection container (primary VMM Cloud) and recovery protection container (recovery VMM Cloud) by running the following commands:
 	
@@ -292,13 +292,13 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 ### Run an unplanned failover
 
-1. Perform a unplanned failover of a VM by doing the following:
+1. Perform an unplanned failover of a VM by doing the following:
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
 		$jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity 
 
-2.Perform a unplanned failover of a recovery plan by doing the following:
+2.Perform an unplanned failover of a recovery plan by doing the following:
 		
 		$recoveryplanname = "test-recovery-plan"
 
