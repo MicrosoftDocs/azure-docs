@@ -141,7 +141,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ## Solution components
 
-A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Azure Resource Manager (ARM)][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
+A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Azure Resource Manager][arm-templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
 The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
@@ -342,7 +342,6 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 
 <!-- links -->
 
-[arm-templates]: ../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
@@ -382,10 +381,10 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[arm-templates]: ../articles/resource-group-authoring-templates.md
 [solution-script]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
 [vnet-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/linux/virtualNetwork.parameters.json 
 [nsg-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/linux/networkSecurityGroup.parameters.json 
 [vm-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/linux/virtualMachine.parameters.json
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell-download]: ../articles/powershell-install-configure.md
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Linux VM architecture in Azure"
