@@ -34,7 +34,7 @@ An email notification is sent on the first daily occurrence of an alert and only
 
 3. A second **Provide security contact details** blade opens. Enter the security contact email address or addresses separated by commas. There is not a limit to the number of email addresses that you can enter.  Enter one security contact international phone number.
 
-To receive emails about high severity alerts, turn on the option **Send me emails about alerts**. In the future, you will have the option to send email notifications to subscription owners. This option is currently grayed out.
+  To receive emails about high severity alerts, turn on the option **Send me emails about alerts**. In the future, you will have the option to send email notifications to subscription owners. This option is currently grayed out.
 
 4. Select **OK** to apply the security contact information to your subscription.
 
