@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Troubleshooting slow file backup issue in Azure Backup| Microsoft Azure"
+   pageTitle="Troubleshooting slow backup of files and folders in Azure Backup| Microsoft Azure"
    description="Provides troubleshooting guidance to help you diagnose and narrow down the cause of the Azure Backup performance issue"
    services="backup"
    documentationCenter=""
@@ -16,9 +16,9 @@
     ms.date="07/20/2016"
     ms.author="genli"/>
 
-# Troubleshooting slow file backup issue in Azure Backup
+# Troubleshooting slow backup of files and folders in Azure Backup
 
-This article provides troubleshooting guidance to help you diagnose and narrow down the cause of performance issues in Azure Backup. When you use the Azure Backup agent to back up files, the backup process may take longer than expected. This issue may be caused by one or more of the following:
+This article provides troubleshooting guidance to help you diagnose and narrow down the cause of slow backup performance for files and folder backups using Azure Backup. When you use the Azure Backup agent to back up files, the backup process may take longer than expected. This issue may be caused by one or more of the following:
 
 -	[Performance bottlenecks on the computer that’s being backed up](#cause1).
 -	[Another process or antivirus software is interfering with Azure Backup](#cause2).
@@ -38,9 +38,9 @@ We also strongly recommend that you review the [Azure Backup service- FAQ](backu
 
 ### Solution
 
-There may be a bottleneck that causes delays. These delays could affect the computer's ability to read or write to disk, and even to send data over the network.
+There may be some bottlenecks on the machine being backed up that can cause delays. For example, computer's ability to read or write to disk, and even to send data over the network etc.
 
-Windows provide a built-in tool that’s called Performance Monitor (Perfmon) to detect these bottlenecks, below table summarizes the performance counters and ranges for Backups to be optimal.
+Windows provide a built-in tool that’s called [Performance Monito](https://technet.microsoft.com/en-us/magazine/2008.08.pulse.aspx)(Perfmon) to detect these bottlenecks, below table summarizes the performance counters and ranges for Backups to be optimal.
 
 Here are some performance counters and ranges that can be helpful in diagnosing bottlenecks.
 
@@ -77,7 +77,7 @@ For antivirus programs, we recommend that you exclude the following files and lo
 
 ### Solution
 
-If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected.  However, you can optimize the performance by switching the data drives that are being backed up to premium storage.
+If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine, this is expected due to IOPS limitations.  However, you can optimize the performance by switching the data drives that are being backed up to premium storage. We are working on fixing this issue and the fix will be available in future release.
 
 <a id="cause4"></a>
 ## Cause 4 Backing up a large number(multi millions) of files
