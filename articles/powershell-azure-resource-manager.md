@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
