@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Delivering content to customers overview"
+	pageTitle="Delivering content to customers"
 	description="This topic gives an overview of what is involved in delivering your content with Azure Media Services."
 	services="media-services"
 	documentationCenter=""
