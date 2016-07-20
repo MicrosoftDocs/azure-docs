@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/20/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.date="07/20/2016"
+   ms.author="barbkess;lodipalm;sonyama"/>
 
 # Create an Azure SQL Data Warehouse
 
@@ -27,8 +27,17 @@
 In this tutorial you will use the Azure Portal to create a SQL Data Warehouse that contains an AdventureWorksDW sample database.
 
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+## Prerequisites
 
+Before starting, be sure you have met the following prerequisites.
+
+- **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
+- **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
+[Create an Azure SQL Database logical server with PowerShell][].
+
+> [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
+
+## Create a SQL Data Warehouse
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
@@ -44,7 +53,7 @@ In this tutorial you will use the Azure Portal to create a SQL Data Warehouse th
 
 	- **Database name**:The name that will be used to reference the SQL Data Warehouse.  It must be unique to the server.
 	
-    - **Performance**: We recommend starting with 400 DWUs. You can move the slider to the left or right to adjust the performance of your data warehouse, or scale up or down after creation.  To learn more about DWUs see our documentation on [scaling](./sql-data-warehouse-manage-compute-overview.md) or our [pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/). 
+    - **Performance**: We recommend starting with 400 DWUs. You can move the slider to the left or right to adjust the performance of your data warehouse, or scale up or down after creation.  To learn more about DWUs see our documentation on [scaling](./sql-data-warehouse-manage-compute-overview.md) or our [pricing page][SQL Data Warehouse pricing]. 
 
     - **Subscription**: Select the subscription that this SQL Data Warehouse will bill to.
 
@@ -68,3 +77,17 @@ To load data into SQL Data Warehouse, see the [loading overview](./sql-data-ware
 
 If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview](./sql-data-warehouse-overview-migrate.md) or use [Migration Utility](./sql-data-warehouse-migrate-migration-utility.md).
 
+It's also a great idea to take a look at our [Best practices][].
+
+<!--Article references-->
+[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../resource-group-template-deploy-portal.md
+[Best practices]: ./sql-data-warehouse-best-practices.md
+
+<!--MSDN references-->
+
+<!--Other Web references-->
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
