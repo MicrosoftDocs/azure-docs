@@ -80,8 +80,6 @@ If you are running the Backup agent on a VM, performance will be slower than whe
 <a id="cause4"></a>
 ## Cause 4 Backing up a large number(multi millions) of files
 
-### How to determine and the resolution
-
 It is expected that moving a large volume of data will take a longer time than a smaller volume. But in some cases backup time is not related to only the size of the data but also to the number of files or folders, especially for the scenario where multi millions of small files (few Bytes to few Kilobyte).
 
 This behavior occurs because while we are backing up the data and moving it to Azure, we are simultaneously cataloging your files, and in some rare scenarios the catalog operation may take longer.
