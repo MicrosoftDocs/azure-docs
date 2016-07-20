@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="femina"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
  	
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_03.png) 
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_04.png) 
 
@@ -137,6 +137,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     | Mobile browser settings | `https://ap.sansan.com/s/saml2/<company name>` |
 
 
+    c. Click **Next**.
 
 4. On the **Configure single sign-on at SanSan** page, perform the following steps:
 
