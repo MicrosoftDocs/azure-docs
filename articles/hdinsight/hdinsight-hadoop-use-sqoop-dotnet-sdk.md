@@ -108,6 +108,12 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
         
 4. Press **F5** to run the program. 
 
+##Limitations
+
+* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
+
+* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching the insert operations.
+
 ##Next steps
 
 Now you have learned how to use Sqoop. To learn more, see:
