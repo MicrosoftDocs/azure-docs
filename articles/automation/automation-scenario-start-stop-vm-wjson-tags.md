@@ -22,7 +22,7 @@ Customers often want to schedule the startup and shutdown of virtual machines to
 The following scenario enables you to set up automated startup and shutdown of your VMs by using a tag called Schedule at a resource group level or virtual machine level in Azure. This schedule can be configured from Sunday to Saturday with a startup time and shutdown time.  
 
 We do have some out-of-the-box options. These include:
--  [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) with auto scale settings that enable you to scale in or out.
+-  [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) with autoscale settings that enable you to scale in or out.
 - [DevTest Labs](../devtest-lab/devtest-lab-overview.md) service, which has the built-in capability of scheduling startup and shutdown operations.
 
 However, these options only support specific scenarios and cannot be applied to IaaS VMs.   
@@ -58,14 +58,14 @@ After downloading the runbooks, you can import them by using the procedure in [C
 
 ### Add a schedule to the Test-ResourceSchedule runbook
 
-Follow these steps to enable the schedule for the Test-ResourceSchedule runbook.  This is the runbook that verifies which virtual machines will be started, shut down, or left as is.
+Follow these steps to enable the schedule for the Test-ResourceSchedule runbook. This is the runbook that verifies which virtual machines will be started, shut down, or left as is.
 
 1. From the Azure portal, open your Automation account, and then click the  **Runbooks** tile.
 2. On the **Test-ResourceSchedule** blade, click the **Schedules** tile.
 3. On the **Schedules** blade, click **Add a schedule**.
 4. On the **Schedules** blade, select **Link a schedule to your runbook**. Then select **Create a new schedule**.
 5.  On the **New schedule** blade, type in the name of this schedule, for example: HourlyExecution.
-6. For the schedule **Start**, set start time to an hour increment.  
+6. For the schedule **Start**, set the start time to an hour increment.  
 7. Select **Recurrence**, and for **Reoccur every** interval select **1 hour** .
 8. Verify that **Set expiration** is set to **No**, and then click **Create** to save your new schedule.
 9. On the **Schedule Runbook** options blade, select **Parameters and run settings**. In the Test-ResourceSchedule **Parameters** blade, enter the name of your subscription in the **SubscriptionName** field.  This is the only parameter that's required for the runbook.  When you're finished, click **OK**.  
@@ -75,7 +75,7 @@ The runbook schedule should look like the following when it's completed:
 
 ![Configured Test-ResourceSchedule runbook](./media/automation-scenario-start-stop-vm-wjson-tags/automation-schedule-config.png)<br>
 
-## Schedule JSON format
+## Format the JSON string
 
 This solution basically takes a JSON string with a specified format and adds it as a the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines and identifies the schedules for each virtual machine.
 
@@ -139,20 +139,20 @@ Follow these steps to tag a virtual machine or resource group in the portal.
 2. Select the **Tag** icon for a VM or resource group to apply this schedule.
 
 ![VM tag option](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)    
-3. Tags are defined following a Key/Value pair. Type **Schedule** in the **Key** field, and paste the JSON string into **Value** field. Then click **Save**.  Your new tag should now appear in the list of tags for your resource.
+3. Tags are defined following a key/value pair. Type **Schedule** in the **Key** field, and paste the JSON string into **Value** field. Then click **Save**.  Your new tag should now appear in the list of tags for your resource.
 
 ![VM schedule tag](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 
 ### Tag from PowerShell
 
-All imported runbooks contain help information at the beginning of the script that describes how to execute the runbooks directly from PowerShell. The Add-ScheduleResource and Update-ScheduleResource runbooks can be called from PowerShell by passing required parameters that enable you to create or update the Schedule tag on a VM or resource group outside of the portal.  
+All imported runbooks contain help information at the beginning of the script that describes how to execute the runbooks directly from PowerShell. You can call the Add-ScheduleResource and Update-ScheduleResource runbooks from PowerShell. You do this  by passing required parameters that enable you to create or update the Schedule tag on a VM or resource group outside of the portal.  
 
 To create, add, and delete tags through PowerShell, you first need to [set up your PowerShell environment for Azure](../powershell-install-configure.md). After you have completed the setup, you can proceed with the following steps.
 
 ### Create a schedule tag with PowerShell
 
-1. Open a PowerShell session. Then run the following to authenticate with your Run As account and to specify a subscription:   
+1. Open a PowerShell session. Then use the following example to authenticate with your Run As account and to specify a subscription:   
 
         Conn = Get-AutomationConnection -Name AzureRunAsConnection
         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
@@ -214,7 +214,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
 >[AZURE.NOTE] It is recommended you proactively monitor these runbooks (and the virtual machine states) to verify that your virtual machines are being shut down and started accordingly.  
 
-To view the details of the **Test-ResourceSchedule** runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the Output Stream, in addition to general information about the job and any exceptions if they occurred.  
+To view the details of the **Test-ResourceSchedule** runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.  
 
 The **Job Summary** includes messages from the output stream and warning and error streams. Select the **Output** tile to view detailed results from the runbook execution.
 
