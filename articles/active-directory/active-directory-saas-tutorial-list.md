@@ -42,6 +42,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Alcumus.png)| [Alcumus Info Exchange](https://go.microsoft.com/fwLink/?LinkID=530244&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Allocadia.png)| [Allocadia](https://go.microsoft.com/fwLink/?LinkID=807994&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AmazonWebServices.png)| [Amazon Web Services (AWS)](https://go.microsoft.com/fwLink/?LinkID=512725&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Anaplan.png)| [Anaplan](https://go.microsoft.com/fwLink/?LinkID=808010&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AnswerHub.png)| [AnswerHub](https://go.microsoft.com/fwLink/?LinkID=403241&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AppBlade.png)| [AppBlade](https://go.microsoft.com/fwLink/?LinkID=708658&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AppDynamics.png)| [AppDynamics](https://go.microsoft.com/fwLink/?LinkID=512728&clcid=0x409)|
