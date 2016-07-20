@@ -163,13 +163,13 @@ public partial class Startup
         {
             // This is where you specify that your API only accepts tokens from its own clients
             ValidAudience = clientId,
+            AuthenticationType = policy,
         };
 
         return new OAuthBearerAuthenticationOptions
         {
             // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
-            AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, signUpPolicy))),
-            AuthenticationType = policy,
+            AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, policy))),
         };
     }
 }
