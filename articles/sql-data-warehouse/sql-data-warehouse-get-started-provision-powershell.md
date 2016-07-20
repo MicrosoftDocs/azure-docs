@@ -25,11 +25,11 @@
 
 ## Prerequisites
 
-Before starting, be sure you have met the following prerequisites.
+To get started, you will need:
 
-- **Create Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][].
+- **Azure account**: Visit [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
 - **Create Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
-[Create an Azure SQL Database logical server with PowerShell][].
+[Create an Azure SQL Database logical server with PowerShell][] for more details.
 - **Resource group name**: Either use the same Resource Group as your Azure SQL server or see [resource groups][] to create a new resource group.
 - **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
