@@ -30,7 +30,7 @@ The next section helps you determine the specific cause of the issue.
 Before you start troubleshooting the issue, we recommend that you go to the [Azure portal](https://ms.portal.azure.com/) and download the latest Azure Backup agent. We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.  
 
-We also strongly recommend that you review the [Azure Backup service- FAQ](https://azure.microsoft.com/documentation/articles/backup-azure-backup-faq/) to make sure you’re not experiencing any of the common configuration issues.
+We also strongly recommend that you review the [Azure Backup service- FAQ](backup-azure-backup-faq.md) to make sure you’re not experiencing any of the common configuration issues.
 
 ## Troubleshooting steps
 <a id="cause1"></a>
@@ -88,7 +88,7 @@ For antivirus programs, we recommend that you exclude the following files and lo
 
 If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected.  
 
-In some scenarios, performance will improve by switching the data drives that are being backed up to premium storage. However, the ideal solution is to migrate your backup workload to our [VM backup solution](https://azure.microsoft.com/documentation/articles/backup-azure-vms-introduction/). We are working on a feature to enable item level recovery from VM backup so that you can restore individual files and folders as you can with the Azure Backup agent but with much better backup performance. We will update this article when that information is available.
+In some scenarios, performance will improve by switching the data drives that are being backed up to premium storage. However, the ideal solution is to migrate your backup workload to our [VM backup solution](backup-azure-vms-introduction.md). We are working on a feature to enable item level recovery from VM backup so that you can restore individual files and folders as you can with the Azure Backup agent but with much better backup performance. We will update this article when that information is available.
 <a id="cause4"></a>
 ## Cause 4 Backing up a Large number of files
 
