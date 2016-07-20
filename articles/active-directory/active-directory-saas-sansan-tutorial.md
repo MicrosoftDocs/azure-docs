@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="femila"
+	manager="femina"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="07/18/2016"
 	ms.author="jeedes"/>
 
 
@@ -119,21 +119,20 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_04.png) 
 
-	a. In the **Reply URL** textbox, type the URL in the following pattern: 
-
-    - For PC web environment: `https://ap.sansan.com/v/saml2/<company name>/acs`
-    - For Native Mobile app: `https://internal.api.sansan.com/saml2/<company name>/acs`
-    - For Mobile browser settings: `https://ap.sansan.com/s/saml2/<company name>/acs` 
-
-	b. In the **Identifier** textbox, type the URL in the following pattern: 
+	a. In the Sign on URL textbox, type the URL in the following pattern:
  
-    - For PC web environment: `https://ap.sansan.com/v/saml2/<company name>`
-    - For Native Mobile app: `https://internal.api.sansan.com/saml2/<company name>`
-    - For Mobile browser settings: `https://ap.sansan.com/s/saml2/\<company name/>`
-    
+	- For PC web environment use the URL pattern as  **https://ap.sansan.com/v/saml2/\<company name/>/acs**. 
+    - For Native Mobile app use the pattern as **https://internal.api.sansan.com/saml2/\<company name/>/acs**. 
+    - For Mobile browser settings use the pattern as **https://ap.sansan.com/s/saml2/\<company name/>/acs**. 
+
+	b. In the IDENTIFER box type the URL in the following pattern: 
+
+	- For PC web environment use the URL pattern as **https://ap.sansan.com/v/saml2/\<company name/>**. 
+	- For Native Mobile app use the pattern as **https://internal.api.sansan.com/saml2/\<company name/>**. 
+	- For Mobile browser settings use the pattern as **https://ap.sansan.com/s/saml2/\<company name/>**.
 
 
-6. On the **Configure single sign-on at SanSan** page, perform the following steps:
+4. On the **Configure single sign-on at SanSan** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_05.png) 
 
@@ -142,16 +141,16 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-7.  To get SSO configured for your application, contact SanSan Support team. You have to to send them the downloaded metadata file.
+5.  To get SSO configured for your application, contact SanSan Support team and they will assist to configure SSO. Please note that you have to send email and attach downloaded metadata file to configure SSO on the SanSan side.
  
 > [AZURE.NOTE] PC browser setting also work for Mobile app and Mobile browser along with PC web. 
 
 
-8. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
 	![Azure AD Single Sign-On][10]
 
-9. On the **Single sign-on confirmation** page, click **Complete**.  
+7. On the **Single sign-on confirmation** page, click **Complete**.  
   	
 	![Azure AD Single Sign-On][11]
 
@@ -220,9 +219,7 @@ In the Users list, select **Britta Simon**.
 
 ### Creating an SanSan test user
 
-In this section, you create a user called Britta Simon in SanSan. 
-
-The SanSan application supports just-in-time provisioning. There is no action item for you. 
+In this section, you create a user called Britta Simon in SanSan. SanSan application need the user to be provisioned in the application before doing SSO. 
 
 
 > [AZURE.NOTE] If you need to create a user manually or batch of users, you need to contact the SanSan support team.
