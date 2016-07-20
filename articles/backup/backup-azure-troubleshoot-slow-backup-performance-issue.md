@@ -36,6 +36,8 @@ We also strongly recommend that you review the [Azure Backup service- FAQ](backu
 <a id="cause1"></a>
 ## Cause 1: Backup slow due to performance bottlenecks on the computer that’s being backed up
 
+### Solution
+
 There may be a bottleneck that causes delays. These delays could affect the computer's ability to read or write to disk, and even to send data over the network.
 
 Windows provide a built-in tool that’s called Performance Monitor (Perfmon) to detect these bottlenecks, below table summarizes the performance counters and ranges for Backups to be optimal.
@@ -79,6 +81,8 @@ If you are running the Backup agent on a VM, performance will be slower than whe
 
 <a id="cause4"></a>
 ## Cause 4 Backing up a large number(multi millions) of files
+
+### Solution
 
 It is expected that moving a large volume of data will take a longer time than a smaller volume. But in some cases backup time is not related to only the size of the data but also to the number of files or folders, especially for the scenario where multi millions of small files (few Bytes to few Kilobyte).
 
