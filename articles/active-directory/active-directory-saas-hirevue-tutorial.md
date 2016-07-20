@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Tutorial: Azure Active Directory integration with HireVue | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and HireVue."
 	services="active-directory"
@@ -126,19 +126,12 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     - Staging environment: `https://<company name>.stghv.com`
 	
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your HireVue application using the following pattern: 
-    
-    - Production environment: `https://<company name>.hirevue.com` 
-    
-    - Staging environment: `https://<company name>.stghv.com`
-
-
-
 	
-    b. In the **Identifier** textbox, type the URN using the following pattern: 
-    
+    b. In the **Identifier** textbox, type the URN using the following pattern:
+
+
     - Production environment: `urn:federation:hirevue.com:saml:sp:prod` 
-    
+
     - Staging environment: `urn:federation:hirevue.com:saml:sp:staging`
 
 
