@@ -13,18 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
 This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
-
 ## What are security policies?
-A security policy defines the set of controls which are recommended for resources within the specified subscription or resource group. In Azure Security Center, you define policies for your Azure subscriptions or resource group according to your company security needs and the type of applications or sensitivity of the data in each subscription.
+A security policy defines the set of controls which are recommended for resources within the specified subscription or resource group. In Security Center, you can define policies for your Azure subscriptions or resource groups according to your company security needs and the type of applications or sensitivity of the data in each subscription. 
 
-For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center will drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats.
+For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center will drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. Read [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) for more information on how to decide which option is more appropriate for you.
 
 ## Setting security policies for subscriptions
 
