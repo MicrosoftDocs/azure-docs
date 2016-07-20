@@ -32,7 +32,7 @@ Storing and retrieving task output presents several challenges:
 
 * **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. The outputs of the tasks that run on a node are available only while the node exists, and only within the file retention time you've set for the task. To ensure that the task output is preserved, your tasks must therefore upload their output files to a durable store, for example, Azure Storage.
 
-* **Storing output**: To persist task output data to durable storage, you would typically use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) directly in your task application, with each task uploading its output data to a Blob storage container. In most situations, you must design and implement a strict naming convention so that other tasks in the job (such as a merge task) or your client application can determine the path of, and then download, this output.
+* **Storing output**: To persist task output data to durable storage, you would typically use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) directly in your task application, with each task uploading its output data to a Blob storage container. In most situations, you must design and implement a strict naming convention so that other tasks in the job or your client application can determine the path of, and then download, this output. For example, you might have several tasks that each render a single frame of a movie, and a final task that merges all of the rendered frames into a complete movie. This final merge task would need to know the full path to the output of each frame rendering task.
 
 * **Retrieving output**: If you wish to retrieve a task's output directly from a compute node, you must know the file name and its output location on the node. If, however, your task stores its output to Azure Storage, you must write the code to first determine the full path to the file in Azure Storage, then to download the file using the Azure Storage SDK. There is currently no built-in feature of the Batch SDK to determine which output files are associated with a certain task--you must determine or track this manually.
 
@@ -40,7 +40,7 @@ Storing and retrieving task output presents several challenges:
 
 To address these challenges, the Batch team has defined and implemented a set of naming conventions for persisting Batch job and task data to Azure Storage. We've implemented these conventions in a .NET class library which can greatly simplify persistence to durable storage. The Azure portal is aware of these conventions so that you can view the job and task output you've stored this way.
 
-## Using the file conventions library
+## Use the file conventions library
 
 [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code to persist files, and in client code to list and retrieve them. Your tasks can also implement the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
 
