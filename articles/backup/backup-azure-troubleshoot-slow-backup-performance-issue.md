@@ -20,10 +20,10 @@
 
 This article provides troubleshooting guidance to help you diagnose and narrow down the cause of performance issues in Azure Backup. When you use the Azure Backup agent to back up files, the backup process may take longer than expected. This issue may be caused by one or more of the following:
 
--	Performance bottlenecks on the computer that’s running the Backup agent. The bottleneck is usually in network bandwidth or in hard disk I/O.
--	Another process is interfering with Azure Backup.
--	The Backup agent is running on a virtual machine (VM).  
--	You are trying to back up a large number of files.
+-	[Performance bottlenecks on the computer that’s running the Backup agent](#cause1). The bottleneck is usually in network bandwidth or in hard disk I/O.
+-	[Another process is interfering with Azure Backup](#cause2).
+-	[The Backup agent is running on a virtual machine (VM)](#cause3).  
+-	[You are trying to back up a large number of files](#cause4).
 
 The next section helps you determine the specific cause of the issue.
 
@@ -33,7 +33,7 @@ updates to the Backup agent to fix various issues, add features, and improve per
 We also strongly recommend that you review the [Azure Backup service- FAQ](https://azure.microsoft.com/documentation/articles/backup-azure-backup-faq/) to make sure you’re not experiencing any of the common configuration issues.
 
 ## Troubleshooting steps
-
+<a id="cause1"></a>
 ## Cause 1: Performance bottlenecks on the computer that’s running the Backup agent
 
 ### How to determine and the resolution
@@ -64,7 +64,7 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 
 > [AZURE.NOTE] If the infrastructure is a possible culprit, it's frequently to make sure that any drives being protected are defragged on a semiregular basis.
-
+<a id="cause2"></a>
 ## Cause 2 Another process is interfering with the Azure Backup process
 
 ### How to determine and the resolution
@@ -81,7 +81,7 @@ For antivirus programs, we recommend that you exclude the following files and lo
 - Exclude C:\Program Files\Microsoft Azure Recovery Services Agent\ folders.
 - Exclude Scratch location (if not using standard location above).
 
-
+<a id="cause3"></a>
 ## Cause 3 The Backup agent is running in a Virtual Machine (VM)
 
 ### How to determine and the resolution
@@ -89,7 +89,7 @@ For antivirus programs, we recommend that you exclude the following files and lo
 If you are running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected.  
 
 In some scenarios, performance will improve by switching the data drives that are being backed up to premium storage. However, the ideal solution is to migrate your backup workload to our [VM backup solution](https://azure.microsoft.com/documentation/articles/backup-azure-vms-introduction/). We are working on a feature to enable item level recovery from VM backup so that you can restore individual files and folders as you can with the Azure Backup agent but with much better backup performance. We will update this article when that information is available.
-
+<a id="cause4"></a>
 ## Cause 4 Backing up a Large number of files
 
 ### How to determine and the resolution
