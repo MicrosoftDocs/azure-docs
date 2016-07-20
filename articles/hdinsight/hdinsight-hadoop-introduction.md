@@ -189,10 +189,6 @@ HDInsight clusters provide support for the following languages that are specific
 
 * HiveQL for Hive jobs and SparkSQL
 
-## HDInsight Standard and HDInsight Premium
-
-HDInsight provides big data cloud offerings in two categories, Standard and Premium. HDInsight Standard provides an enterprise-scale cluster that organizations can use to run their big data workloads. HDInsight Premium builds on that and provides advanced analytical and security capabilities for an HDInsight cluster. For more information, see [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
-
 
 ## <a name="advantage"></a>Advantages of Hadoop in the cloud
 
@@ -217,6 +213,11 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 * Low entry cost. Start a [free trial](https://azure.microsoft.com/free/), or consult [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 To read more about the advantages on Hadoop in HDInsight, see the  [Azure features page for HDInsight][marketing-page].
+
+## HDInsight Standard and HDInsight Premium
+
+HDInsight provides big data cloud offerings in two categories, Standard and Premium. HDInsight Standard provides an enterprise-scale cluster that organizations can use to run their big data workloads. HDInsight Premium builds on that and provides advanced analytical and security capabilities for an HDInsight cluster. For more information, see [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
+
 
 ## <a id="resources"></a>Resources for learning more about big-data analysis, Hadoop, and HDInsight
 
