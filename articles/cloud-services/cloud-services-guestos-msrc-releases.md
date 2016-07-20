@@ -25,7 +25,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS16-084 | [3169991] | Cumulative Security Update for Internet Explorer | 4.34, 3.41, 2.53 | July 12, 2016 |
-| MS16-086 | [3169996] | Cumulative Security Update for JScript and VBScript | 2.53 | July 12, 2016 |
 | MS16-087 | [3170005] | Security Update for Microsoft Print Spooler | 4.34, 3.41, 2.53 | July 12, 2016 |
 | MS16-090 | [3171481] | Security Update for Kernel Mode Drivers | 4.34, 3.41, 2.53 | July 12, 2016 |
 | MS16-091 | [3170048] | Security Update for .NET Framework | 4.34, 3.41, 2.53 | July 12, 2016 |
@@ -337,8 +336,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 [3169991]: http://support.microsoft.com/kb/3169991
-[3169999]: http://support.microsoft.com/kb/3169999
-[3169996]: http://support.microsoft.com/kb/3169996
 [3170005]: http://support.microsoft.com/kb/3170005
 [3170050]: http://support.microsoft.com/kb/3170050
 [3171481]: http://support.microsoft.com/kb/3171481
