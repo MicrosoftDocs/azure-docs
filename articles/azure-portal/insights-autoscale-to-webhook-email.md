@@ -115,14 +115,14 @@ When the autoscale notification is generated, the following metadata is included
 |operation|	yes	|For an increase of instances, it will be "Scale Out" and for a decrease in instances, it will be "Scale In"|
 |context|	yes	|The autoscale action context|
 |timestamp|	yes	|Time stamp when the autoscale action was triggered|
-|id	|Yes|	ARM (Azure Resource Manager) ID of the autoscale setting|
+|id	|Yes|	Resource Manager ID of the autoscale setting|
 |name	|Yes|	The name of the autoscale setting|
 |details|	Yes	|Explanation of the action that the autoscale service took and the change in the instance count|
 |subscriptionId|	Yes	|Subscription ID of the target resource that is being scaled|
 |resourceGroupName|	Yes|	Resource Group name of the target resource that is being scaled|
 |resourceName	|Yes|	Name of the target resource that is being scaled|
 |resourceType	|Yes|	The three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service roles, "microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets,  and "Microsoft.Web/serverfarms" - Web App|
-|resourceId	|Yes|ARM ID of the target resource that is being scaled|
+|resourceId	|Yes|Resource Manager ID of the target resource that is being scaled|
 |portalLink	|Yes	|Azure portal link to the summary page of the target resource|
 |oldCapacity|	Yes	|The current (old) instance count when Autoscale took a scale action|
 |newCapacity|	Yes	|The new instance count that Autoscale scaled the resource to|
