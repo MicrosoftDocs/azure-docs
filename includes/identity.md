@@ -1,4 +1,4 @@
-Managing identity is just as important in the public cloud is it is on premises. To help with this, Azure supports several different cloud identity technologies. They include these:
+Managing identity is just as important in the public cloud as it is on premises. To help with this, Azure supports several different cloud identity technologies. They include these:
 
 - You can run Windows Server Active Directory (commonly called just AD) in the cloud using virtual machines created with Azure Virtual machines. This approach makes sense when you're using Azure to extend your on-premises datacenter into the cloud.
 
