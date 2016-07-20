@@ -48,7 +48,7 @@ You can also use [SQL Database automated backups](sql-database-automated-backups
 
 ## What happens to my restore point retention period when I downgrade/upgrade by service tier?
 
-After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded from P1 to S3, the retention period will change from 35 days to 35 days immediately, all the restore points prior to 35 days will no longer be available. Subsequently, if it is upgraded to P1 again, the retention period would begin from 35 days and start building up to 35 days.
+After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded to Basic, the retention period will change from 35 days to 7 days immediately, all the restore points prior to 35 days will no longer be available. Subsequently, if it is upgraded to Standard or Premium, the retention period would begin from 7 days and start building up to 35 days.
 
 ## How long is the retention period for a dropped DB? 
 The retention period is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.
