@@ -174,7 +174,9 @@ You can also use Sqoop to import and export data from SQL Server, either in your
 
 ##Limitations
 
-Currently, bulk insert using Sqoop export from Linux-based HDInsight does not currently work. Also, when using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching.
+* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
+
+* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching the insert operations.
 
 ##Next steps
 
