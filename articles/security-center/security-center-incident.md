@@ -46,7 +46,7 @@ You can review your current security incidents by looking at the Security alerts
 
 	![Security incident](./media/security-center-incident/security-center-incident-fig4.png)
 
-The information on this blade will vary according to the alert. Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts) for more information on how to manage these alerts.
+The information on this blade will vary according to the alert. Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to manage these alerts.
 
 ## See also
 
