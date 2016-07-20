@@ -31,9 +31,8 @@ In this tutorial you will use the Azure Portal to create a SQL Data Warehouse th
 
 Before starting, be sure you have met the following prerequisites.
 
-- **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
-- **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
-[Create an Azure SQL Database logical server with PowerShell][].
+- **Create Azure account**: See [Azure Free Trial][] or [MSDN Azure Credits][].
+- **Create Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][].
 
 > [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
