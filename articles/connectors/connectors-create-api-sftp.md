@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/15/2016"
+ms.date="07/20/2016"
 ms.author="deonhe"/>
 
 # Get started with the SFTP connector

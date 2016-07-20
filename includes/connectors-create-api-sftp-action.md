@@ -2,7 +2,7 @@ Now that you have added a trigger, its time to do something interesting with the
 
 To configure the this action, you will need to provide the following information. You will notice that it is easy to use data generated  by the trigger as input for some of the properties for the new file:
 
-|Create file property|Description|
+|SFTP - extract folder property|Description|
 |---|---|
 |Source archive file path|This is the path for the file being extracted. You can select one of the tokens from an earlier action or browse the SFTP server to find the file path.|
 |Destination folder path|This is the path the extracted files will be placed. You can select one of the tokens from an earlier action as the destination path or browse the SFTP server and select a path.|
