@@ -38,7 +38,7 @@ We also strongly recommend that you review the [Azure Backup service- FAQ](backu
 
 ### Solution
 
-There may be some bottlenecks on the machine being backed up that can cause delays. For example, computer's ability to read or write to disk, and even to send data over the network etc.
+There may be some bottlenecks on the machine being backed up that can cause delays. For example, computer's ability to read or write to disk, bandwidths to send data over the network etc.
 
 Windows provide a built-in tool that’s called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx)(Perfmon) to detect these bottlenecks, below table summarizes the performance counters and ranges for Backups to be optimal.
 
