@@ -62,13 +62,17 @@ From the virtual machine that the operating system was installed to, complete th
 
 You need a storage account in Azure so you have a place to upload the .vhd file. This step shows you how to create an account, or get the info you need from an existing account. Replace the variables in &lsaquo; brackets &rsaquo; with your own information.
 
+1. Login
+
+	Add-AzureAccount
+
 1. Set your Azure subscription.
 
-    	Select-AzureSubscription -SubscriptionName <SubscriptionName> –Default
+    	Select-AzureSubscription -SubscriptionName <SubscriptionName> 
 
-2. Create a new storage account. You need to specify a location like "West US"
+2. Create a new storage account. The name of the storage account should be unique, 3-24 characters. The name can be any combination of letters and numbers. You also need to specify a location like "East US"
     	
-		New-AzureStorageAccount –StorageAccountName <StorageAccountName> -Location <Location
+		New-AzureStorageAccount –StorageAccountName <StorageAccountName> -Location <Location>
 
 3. Set the new storage account as the default.
     	
