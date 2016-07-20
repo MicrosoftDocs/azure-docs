@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Using JSON formatted tags to create a schedule for Azure VM startup and shutdown | Microsoft Azure"
+   pageTitle="Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown | Microsoft Azure"
    description="This article demonstrates how to use JSON strings on tags to automate the scheduling of VM startup and shutdown."
    services="automation"
    documentationCenter=""
@@ -25,7 +25,7 @@ We do have some out-of-the-box options. These include:
 -  [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) with autoscale settings that enable you to scale in or out.
 - [DevTest Labs](../devtest-lab/devtest-lab-overview.md) service, which has the built-in capability of scheduling startup and shutdown operations.
 
-However, these options only support specific scenarios and cannot be applied to IaaS VMs.   
+However, these options only support specific scenarios and cannot be applied to infrastructure-as-a-service (IaaS) VMs.   
 
 When the Schedule tag is applied to a resource group, it's also applied to all virtual machines inside that resource group. If a schedule is also directly applied to a VM, the last schedule takes precedence in the following order:
 
@@ -33,7 +33,7 @@ When the Schedule tag is applied to a resource group, it's also applied to all v
 2.  Schedule applied to a resource group and virtual machine in the resource group
 3.  Schedule applied to a virtual machine
 
-This scenario essentially takes a JSON string with a specified format and adds it as a the value for a tag called Schedule.  Then a runbook lists all resource groups and virtual machines and identifies the schedules for each VM based on the scenarios listed earlier. Next it loops through the VMs that have schedules attached and evaluates what action should be taken. For example, it determines which VMs need to be stopped, shut down, or ignored.
+This scenario essentially takes a JSON string with a specified format and adds it as the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines, and then identifies the schedules for each VM based on the scenarios listed earlier. Next it loops through the VMs that have schedules attached and evaluates what action should be taken. For example, it determines which VMs need to be stopped, shut down, or ignored.
 
 These runbooks authenticate by using the [Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md).
 
@@ -43,10 +43,10 @@ This scenario consists of four PowerShell Workflow runbooks that you can downloa
 
 Runbook | Description
 ----------|----------
-Test-ResourceSchedule | Checks each virtual machine schedule and performs shutdown or startup depending on the schedule
-Add-ResourceSchedule | Adds the Schedule tag to a VM or resource group
-Update-ResourceSchedule | Modifies the existing Schedule tag by replacing it with a new one
-Remove-ResourceSchedule | Removes the Schedule tag from a VM or resource group
+Test-ResourceSchedule | Checks each virtual machine schedule and performs shutdown or startup depending on the schedule.
+Add-ResourceSchedule | Adds the Schedule tag to a VM or resource group.
+Update-ResourceSchedule | Modifies the existing Schedule tag by replacing it with a new one.
+Remove-ResourceSchedule | Removes the Schedule tag from a VM or resource group.
 
 
 ## Install and configure this scenario
@@ -58,15 +58,15 @@ After downloading the runbooks, you can import them by using the procedure in [C
 
 ### Add a schedule to the Test-ResourceSchedule runbook
 
-Follow these steps to enable the schedule for the Test-ResourceSchedule runbook. This is the runbook that verifies which virtual machines will be started, shut down, or left as is.
+Follow these steps to enable the schedule for the Test-ResourceSchedule runbook. This is the runbook that verifies which virtual machines should be started, shut down, or left as is.
 
-1. From the Azure portal, open your Automation account, and then click the  **Runbooks** tile.
+1. From the Azure portal, open your Automation account, and then click the **Runbooks** tile.
 2. On the **Test-ResourceSchedule** blade, click the **Schedules** tile.
 3. On the **Schedules** blade, click **Add a schedule**.
 4. On the **Schedules** blade, select **Link a schedule to your runbook**. Then select **Create a new schedule**.
 5.  On the **New schedule** blade, type in the name of this schedule, for example: HourlyExecution.
 6. For the schedule **Start**, set the start time to an hour increment.  
-7. Select **Recurrence**, and for **Reoccur every** interval select **1 hour** .
+7. Select **Recurrence**, and for **Reoccur every** interval select **1 hour**.
 8. Verify that **Set expiration** is set to **No**, and then click **Create** to save your new schedule.
 9. On the **Schedule Runbook** options blade, select **Parameters and run settings**. In the Test-ResourceSchedule **Parameters** blade, enter the name of your subscription in the **SubscriptionName** field.  This is the only parameter that's required for the runbook.  When you're finished, click **OK**.  
 
@@ -77,7 +77,7 @@ The runbook schedule should look like the following when it's completed:
 
 ## Format the JSON string
 
-This solution basically takes a JSON string with a specified format and adds it as a the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines and identifies the schedules for each virtual machine.
+This solution basically takes a JSON string with a specified format and adds it as the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines and identifies the schedules for each virtual machine.
 
 The runbook loops over the virtual machines that have schedules attached and checks what actions should be taken. The following is an example of how the solutions should be formatted:
 
@@ -123,13 +123,13 @@ Here is some detailed information about this structure:
 
 ## Tag resource groups or VMs
 
-To shut down VMs, you need to tag either the VMs or the resource groups where they're located. Virtual machines that don't have a Schedule tag are not evaluated. Therefore, they aren't started or shut down.
+To shut down VMs, you need to tag either the VMs or the resource groups in which they're located. Virtual machines that don't have a Schedule tag are not evaluated. Therefore, they aren't started or shut down.
 
-There are two ways to tag resource groups or VMs with this solution. You can do it directly from the portal. Or you can use the **Add-ResourceSchedule**, **Update-ResourceSchedule** and **Remove-ResourceSchedule** runbooks.
+There are two ways to tag resource groups or VMs with this solution. You can do it directly from the portal. Or you can use the **Add-ResourceSchedule**, **Update-ResourceSchedule**, and **Remove-ResourceSchedule** runbooks.
 
 ### Tag through the portal
 
-Follow these steps to tag a virtual machine or resource group in the portal.
+Follow these steps to tag a virtual machine or resource group in the portal:
 
 1. Flatten the JSON string and verify that there aren't any spaces.  Your JSON string should look like this:
 
@@ -139,16 +139,16 @@ Follow these steps to tag a virtual machine or resource group in the portal.
 2. Select the **Tag** icon for a VM or resource group to apply this schedule.
 
 ![VM tag option](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)    
-3. Tags are defined following a key/value pair. Type **Schedule** in the **Key** field, and paste the JSON string into **Value** field. Then click **Save**.  Your new tag should now appear in the list of tags for your resource.
+3. Tags are defined following a key/value pair. Type **Schedule** in the **Key** field, and then paste the JSON string into the **Value** field. Click **Save**. Your new tag should now appear in the list of tags for your resource.
 
 ![VM schedule tag](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 
 ### Tag from PowerShell
 
-All imported runbooks contain help information at the beginning of the script that describes how to execute the runbooks directly from PowerShell. You can call the Add-ScheduleResource and Update-ScheduleResource runbooks from PowerShell. You do this  by passing required parameters that enable you to create or update the Schedule tag on a VM or resource group outside of the portal.  
+All imported runbooks contain help information at the beginning of the script that describes how to execute the runbooks directly from PowerShell. You can call the Add-ScheduleResource and Update-ScheduleResource runbooks from PowerShell. You do this by passing required parameters that enable you to create or update the Schedule tag on a VM or resource group outside of the portal.  
 
-To create, add, and delete tags through PowerShell, you first need to [set up your PowerShell environment for Azure](../powershell-install-configure.md). After you have completed the setup, you can proceed with the following steps.
+To create, add, and delete tags through PowerShell, you first need to [set up your PowerShell environment for Azure](../powershell-install-configure.md). After you complete the setup, you can proceed with the following steps.
 
 ### Create a schedule tag with PowerShell
 
@@ -212,7 +212,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
 
->[AZURE.NOTE] It is recommended you proactively monitor these runbooks (and the virtual machine states) to verify that your virtual machines are being shut down and started accordingly.  
+>[AZURE.NOTE] We recommend that you proactively monitor these runbooks (and the virtual machine states) to verify that your virtual machines are being shut down and started accordingly.  
 
 To view the details of the **Test-ResourceSchedule** runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.  
 
