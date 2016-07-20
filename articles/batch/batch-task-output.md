@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Job and task output persistence in Azure Batch | Microsoft Azure"
-	description="Use the "
+	description="Learn how to use Azure Storage as a durable store for your Batch task and job output, and enable viewing this persisted output in the Azure portal."
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -37,8 +37,6 @@ Storing and retrieving task output presents several challenges:
 * **Retrieving output**: If you wish to retrieve a task's output directly from a compute node, you must know the file name and its output location on the node. If, however, your task stores its output to Azure Storage, you must write the code to first determine the full path to the file in Azure Storage, then to download the file using the Azure Storage SDK. There is currently no built-in feature of the Batch SDK to determine which output files are associated with a certain task--you must determine or track this manually.
 
 * **Viewing output**: Previously, if you wanted to view an individual task's outputs in the Azure portal, you had to navigate to the task and then view the *Files on node*. This presents *all* of the files associated with the task--not just the output file(s) you're interested in--and these files are as transient as the compute nodes on which they reside. For output that your tasks "manually" persisted to Azure Storage, you needed to know where in Storage it was uploaded to, then navigate to the files within your Azure Storage account in the portal. The Azure portal now supports viewing persisted Batch task output, and in the remainder of this article, you'll learn how to enable this for your tasks.
-
-## Solving task output challenges
 
 To address these challenges, the Batch team has defined and implemented a set of naming conventions for persisting Batch job and task data to Azure Storage. We've implemented these conventions in a .NET class library which can greatly simplify persistence to durable storage. The Azure portal is aware of these conventions so that you can view the job and task output you've stored this way.
 
