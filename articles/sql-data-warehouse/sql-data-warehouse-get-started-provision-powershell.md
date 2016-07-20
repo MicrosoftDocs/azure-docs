@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create SQL Data Warehouse by using Powershell | Microsoft Azure"
-   description="Create SQL Data Warehouse by using Powershell"
+   pageTitle="Create SQL Data Warehouse by using PowerShell | Microsoft Azure"
+   description="Create SQL Data Warehouse by using PowerShell"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -16,14 +16,14 @@
    ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# Create SQL Data Warehouse using Powershell
+# Create SQL Data Warehouse using PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-This article will show you how to create a SQL Data Warehouse using Powershell.
+This article will show you how to create a SQL Data Warehouse using PowerShell.
 
 ## Prerequisites
 
