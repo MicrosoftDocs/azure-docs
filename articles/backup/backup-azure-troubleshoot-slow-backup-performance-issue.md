@@ -3,7 +3,7 @@
    services="backup"
    documentationCenter=""
    authors="genlin"
-   manager="jwhit"
+   manager="markgal"
    editor=""/>
 
 <tags
