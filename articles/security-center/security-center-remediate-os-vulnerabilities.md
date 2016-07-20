@@ -60,7 +60,7 @@ Select a rule. In this example, lets select **Password must meet complexity requ
   - EVALUATION RESULT –- Result of analysis: Pass, Fail
 
 
-## Next steps
+## See also
 
 This article showed you how to implement the Security Center recommendation "Remediate OS vulnerabilities." You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](http://cce.mitre.org) site for more information.
 
