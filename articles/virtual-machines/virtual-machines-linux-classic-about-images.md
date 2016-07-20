@@ -1,6 +1,6 @@
 <properties
-	pageTitle="About images for virtual machines | Microsoft Azure"
-	description="Learn about how images are used with virtual machines in Azure."
+	pageTitle="About Linux images for VMs | Microsoft Azure"
+	description="Learn about how Linux images are used with virtual machines in Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/19/2016"
 	ms.author="cynthn"/>
 
 # About images for virtual machines
@@ -22,3 +22,14 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
+
+## Working with images
+
+You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to manage the images available to your Azure subscription. You also can use the Azure classic portal for some image tasks, but the command line gives you more options.
+
+For examples of using the tools, see "Commands to manage your Azure virtual machine images" in [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](../articles/virtual-machines-command-line-tools.md)
+
+
+## Next steps
+
+You can also [upload your own image](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
