@@ -32,7 +32,6 @@ Azure Security Center will recommend that you resolve detected endpoint protecti
 
 3. A **Failures List** blade opens for the selected VM, displaying a list of failures. Select a failure from the list to learn more. This opens a blade with information about the selected failure.
 ![Failures list][3]
-
   ![Failure event][4]
 
 ## See also
