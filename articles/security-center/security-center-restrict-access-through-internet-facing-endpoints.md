@@ -40,7 +40,8 @@ Azure Security Center will recommend that you restrict access through Internet-f
 ![Default rules][5]
 
 5. On the **AllowWeb** blade, edit the properties of the inbound rule so that the **Source** is an IP address or block of IP addresses. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-![Edit inbound rule][6]
+
+  ![Edit inbound rule][6]
 
 ## See also
 
