@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="07/20/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -21,8 +21,13 @@
 Learn the answers to common questions, patterns and best practices for Azure Redis Cache. 
 
 
+## What if my question isn't answered here?
 
+If your question isn't listed here, please let us know and we'll help you find an answer.
 
+-	You can post a question in the [Disqus thread](#comments) at the end of this FAQ and engage with the Azure Cache team and other community members about this article.
+-	You can post a question on the [Azure Cache MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) and engage with the Azure Cache team and other members of the community.
+-	You can send an email to us at [Azure Cache External Feedback](mailto:azurecache@microsoft.com).
 
 ## Planning FAQs
 
