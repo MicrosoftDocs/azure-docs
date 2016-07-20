@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create and upload a Windows Server VHD using Powershell | Microsoft Azure"
-	description="Learn to create and upload a Windows Server based virtual hard disk (VHD)  using the classic deployment model and Azure Powershell."
+	description="Learn to create and upload a Windows Server based virtual hard disk (VHD) using the classic deployment model and Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -30,7 +30,7 @@ This article assumes you have:
 
 1. **An Azure subscription** - If you don't have one, you can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-2. **[Microsoft Azure PowerShell]((https://azure.microsoft.com/downloads/))** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. 
+2. **[Microsoft Azure PowerShell](../powershell-install-configure.md)** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. 
 
 3. **A .VHD file** - supported Windows operating system stored in a .vhd file and attached to a virtual machine.
 
