@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/18/2016"
+	ms.date="07/20/2016"
 	ms.author="jeedes"/>
 
 
@@ -119,30 +119,44 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_04.png) 
 
-	a. In the Sign on URL textbox, type the URL in the following pattern:
- 
-	- For PC web environment use the URL pattern as  **https://ap.sansan.com/v/saml2/\<company name/>/acs**. 
-    - For Native Mobile app use the pattern as **https://internal.api.sansan.com/saml2/\<company name/>/acs**. 
-    - For Mobile browser settings use the pattern as **https://ap.sansan.com/s/saml2/\<company name/>/acs**. 
+	a. In the **Sign On URL** textbox, type the URL in the following pattern:
 
-	b. In the IDENTIFER box type the URL in the following pattern: 
+    | Environment             | URL |
+    | :--                     | :-- |
+    | PC web                  | `https://ap.sansan.com/v/saml2/<company name>/acs`|
+    | Native Mobile app       | `https://internal.api.sansan.com/saml2/<company name>/acs` |
+    | Mobile browser settings | `https://ap.sansan.com/s/saml2/<company name>/acs` |
 
-	- For PC web environment use the URL pattern as **https://ap.sansan.com/v/saml2/\<company name/>**. 
-	- For Native Mobile app use the pattern as **https://internal.api.sansan.com/saml2/\<company name/>**. 
-	- For Mobile browser settings use the pattern as **https://ap.sansan.com/s/saml2/\<company name/>**.
+
+	b. In the **Identifier** textbox type the URL in the following pattern: 
+
+    | Environment             | URL |
+    | :--                     | :-- |
+    | PC web                  | `https://ap.sansan.com/v/saml2/<company name>`|
+    | Native Mobile app       | `https://internal.api.sansan.com/saml2/<company name>` |
+    | Mobile browser settings | `https://ap.sansan.com/s/saml2/<company name>` |
+
 
 
 4. On the **Configure single sign-on at SanSan** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_05.png) 
 
-    a. Click **Download metadata**, and then save the file on your computer.
+    a. Click **Download certificate**, and then save the file on your computer.
 
     b. Click **Next**.
 
 
-5.  To get SSO configured for your application, contact SanSan Support team and they will assist to configure SSO. Please note that you have to send email and attach downloaded metadata file to configure SSO on the SanSan side.
- 
+5.  To get SSO configured for your application, contact SanSan Support team and they will assist to configure SSO. Please provide them with the following information :
+
+	• The downloaded **certificate**
+
+	• The **Identity Provider ID**
+
+	• The **SAML SSO URL**
+
+	• The **Single Sign Out Service URL**
+
 > [AZURE.NOTE] PC browser setting also work for Mobile app and Mobile browser along with PC web. 
 
 
