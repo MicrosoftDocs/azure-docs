@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/18/2016"
+    ms.date="07/20/2016"
     ms.author="genli"/>
 
 # Troubleshooting slow performance in Azure Backup
@@ -27,7 +27,7 @@ This article provides troubleshooting guidance to help you diagnose and narrow d
 
 The next section helps you determine the specific cause of the issue.
 
-Before you start troubleshooting the issue, we recommend that you go to the [Azure portal](https://ms.portal.azure.com/) and download the latest Azure Backup agent. We make frequent
+Before you start troubleshooting the issue, we recommend that you go download and install the [latest Azure Backup agent](http://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.  
 
 We also strongly recommend that you review the [Azure Backup service- FAQ](backup-azure-backup-faq.md) to make sure you’re not experiencing any of the common configuration issues.
