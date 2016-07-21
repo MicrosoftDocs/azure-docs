@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Plan your VM backup infrastructure in Azure
@@ -79,7 +79,7 @@ For each disk being backed up, Azure Backup reads the blocks on the disk and sto
 | Initial backup | 160 Mbps |
 | Incremental backup (DR) | 640 Mbps <br><br> This throughput can drop significantly if there is a lot of dispersed churn on the disk that needs to be backed up. |
 
-### Total VM backup time
+## Total VM backup time
 While a majority of the backup time is spent in reading and copying data, there are other operations that contribute to the total time needed to back up a VM:
 
 - Time needed to [install or update the backup extension](backup-azure-vms.md#offline-vms).

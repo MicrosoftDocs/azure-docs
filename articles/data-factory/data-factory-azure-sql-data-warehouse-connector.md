@@ -496,7 +496,7 @@ Set the **allowPolyBase** property to **true** as shown in the following example
 		"polyBaseSettings":
 		{
 			"rejectType": "percentage",
-			"rejectValue": 10,
+			"rejectValue": 10.0,
 			"rejectSampleValue": 100,
 			"useTypeDefault": true 
 		}

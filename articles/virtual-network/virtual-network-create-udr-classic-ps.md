@@ -88,8 +88,8 @@ To create the route table and route needed for the back end subnet based on the 
 5. Run the **`Set-AzureSubnetRouteTable`** cmdlet to associate the route table created above with the **BackEnd** subnet.
 
 		Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
-			-SubnetName FrontEnd `
-			-RouteTableName UDR-FrontEnd
+			-SubnetName BackEnd `
+			-RouteTableName UDR-BackEnd
 
 ## Enable IP forwarding on the FW1 VM
 To enable IP forwarding in the FW1 VM, follow the steps below.

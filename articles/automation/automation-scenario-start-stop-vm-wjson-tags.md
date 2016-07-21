@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="07/18/2016"
    ms.author="magoedte;paulomarquesc" />
 
 # Azure Automation scenario - using JSON formatted tags to create a schedule for Azure VM startup and shutdown
@@ -29,6 +29,7 @@ When the Schedule tag is applied to a resource group, it will be applied to all 
 
 This scenario essentially takes a JSON string with a specified format and add it as a the value for a tag called Schedule.  Then a runbook lists all resource groups and virtual machines and identifies the schedules for each VM based on the scenarios listed above, then it will loop through these VM's with schedules attached and evaluate what action it should be taken, which can be stopped, shutdown, or ignored.
 
+These runbooks authenticate using the [Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md).
 
 ## Getting the scenario
 
@@ -205,3 +206,4 @@ You can view the details of the **Test-ResourceSchedule** runbook job in the Azu
 -  To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
 -  For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 -  To learn more about runbook logging and output, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+-  To learn more about an Azure Run As account and how you authenticate your runbooks using it, see [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)

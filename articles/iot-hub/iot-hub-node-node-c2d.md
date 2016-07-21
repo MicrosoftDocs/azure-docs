@@ -45,7 +45,7 @@ To complete this tutorial, you'll need the following:
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
-## Receiving messages on the simulated device
+## Receive messages on the simulated device
 
 In this section, you'll modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
@@ -77,7 +77,7 @@ In this section, you'll modify the simulated device application you created in [
 
     > [AZURE.NOTE] If you use HTTP/1 instead of AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between AMQP and HTTP/1 support, and IoT Hub throttling, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
 
-## Send a cloud-to-device message from the app back end
+## Send a cloud-to-device message
 
 In this section, you'll create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device Id of the device you added in the [Get started with IoT Hub] tutorial and the connection string for your IoT hub which you can find in the [Azure portal].
 
@@ -165,7 +165,7 @@ You are now ready to run the applications.
     node SimulatedDevice.js 
     ```
 
-    ![][img-simulated-device]
+    ![Run the simulated device app][img-simulated-device]
 
 2. At a command-prompt in the **sendcloudtodevicemessage** folder, run the following command to send a cloud-to-device message and wait for the acknowledgment feedback:
 
@@ -173,7 +173,7 @@ You are now ready to run the applications.
     node SendCloudToDeviceMessage.js 
     ```
 
-    ![][img-send-command]
+    ![Run the app to send the c2d command][img-send-command]
 
     > [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
 
@@ -193,12 +193,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub Develope
 
 [Get started with IoT Hub]: iot-hub-node-node-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
-[IoT Hub Guidance]: iot-hub-guidance.md
 [IoT Hub Developer Guide]: iot-hub-devguide.md
-[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
