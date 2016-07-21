@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/06/2016"
+	ms.date="07/20/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -33,7 +33,9 @@ You can add multiple pools to a server, but you can't add databases from differe
 
 ## Step 1: Create a new pool
 
-Create an elastic database pool by adding a new pool to a server. You can add multiple pools to a server, but you can't add databases from different servers into the same pool.
+This article shows how to create a new pool from your **server** blade in the portal, which is the easiest way to move existing databases into a pool. 
+
+[AZURE.NOTE] Whether you have an existing server or not, you can also create a new pool from the **SQL elastic pools** blade (click **Browse** **>** **SQL elastic pools**). Starting on the SQL elastic pools blade provides steps to create a new server during the pool provisioning workflow.
 
 1. In the [Azure portal](http://portal.azure.com/) click **SQL servers**, and then click the server that contains the databases you want to add to a pool.
 2. Click **New pool**.
