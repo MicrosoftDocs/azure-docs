@@ -50,15 +50,15 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 
 3. In the **About you** section, enter your personal information.  
 
-	![Enter your personal infromation here](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+    ![Enter your personal infromation here](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
-	**Note** The email address and Country information that you provide when you sign up for an Azure subscription will always be associated with the subscription, and cannot be changed at a later time.</br>
+    >[AZURE.NOTE] The email address and country information that you provide when you sign up for an Azure subscription will always be associated with the subscription, and cannot be changed at a later time.
 
 4. In the **Verification by phone** section, you must provide a phone number to receive a verification code that you can provide to complete the verification process.
 
     You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button.
 
-    **Note** You cannot use a VOIP phone number for the phone verification process.
+    >[AZURE.NOTE] You cannot use a VOIP phone number for the phone verification process.
  
     ![Enter a valid phone number to verify your phone](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)
     
@@ -72,7 +72,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 
 6. In the **Agreement** section, check the box if you agree to the subscription agreement, offer details and privacy statement. Then select **Sign up**. The agreement form may vary by country.
 
-    ![The English version of the agreement. The agreement form may vary by country.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
+    ![The English version of the agreement. The agreement form may vary b country.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
  
     It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance.
  
