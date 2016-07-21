@@ -71,4 +71,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
