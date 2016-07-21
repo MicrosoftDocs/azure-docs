@@ -18,7 +18,7 @@
 
 # Tools and PaaS services for Azure Stack
 
-Azure Stack enables deploying Platform as a Service (PaaS) services from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
+Azure Stack enables deploying [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) services from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
 
 ## Additional PaaS services
 In Technical Preview 1, three PaaS resource providers are now available.

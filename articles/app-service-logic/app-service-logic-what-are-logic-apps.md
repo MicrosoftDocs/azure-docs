@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="What are Logic Apps?" 
-	description="Learn more about App Service Logic Apps" 
-	authors="kevinlam1" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+<properties
+	pageTitle="What are Logic Apps?"
+	description="Learn more about App Service Logic Apps"
+	authors="kevinlam1"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="07/12/2016"
 	ms.author="klam"/>
 
@@ -36,23 +36,23 @@ The advantages of using Logic Apps include the following:
 - Monetizing your Logic App in the marketplace
 - Starting easy and grow as you need
 
-Logic Apps is a fully managed iPaaS (integration Platform as a Service) allowing developers not to have to worry about doing extra work to handle hosting, scalability, availability and management. 
+Logic Apps is a fully managed iPaaS (integration [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/)) allowing developers not to have to worry about doing extra work to handle hosting, scalability, availability and management. 
 
-Most importantly, Logic Apps can be combined with built-in [Managed Connectors][managedapis] to help solve even tricky integration scenarios with ease: 
+Most importantly, Logic Apps can be combined with built-in [Managed Connectors][managedapis] to help solve even tricky integration scenarios with ease:
 
 ![Flow app designer](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
 
 As mentioned, with Logic Apps, you can automate business processes. Here are a couple examples:  
- 
+
 * You can automatically replicate new records in your SQL DB and then send mail to the front desk.   
 * Automatically find negative tweets and send them to a slack channel.
-* When a file is created on an FTP server, parse the file, add new records to Dynamics CRM, and create an item in a SharePoint list. 
+* When a file is created on an FTP server, parse the file, add new records to Dynamics CRM, and create an item in a SharePoint list.
 
 Scenarios such as these can be configured all from the visual designer and without writing a single line of code. Get started [building your logic app now][create].
 
 ## Why Logic Apps?
 
-If you want to automate any business process (e.g. find negative tweets and post to your internal slack channel or replicate new customer records from SQL, as they arrive, into your CRM system), Logic Apps makes it easy to integrate disparate data sources, from cloud to on-premises. Check out our [managed connectors][managedapis] for more inspiration and [get started][create] now to see what you can do. 
+If you want to automate any business process (e.g. find negative tweets and post to your internal slack channel or replicate new customer records from SQL, as they arrive, into your CRM system), Logic Apps makes it easy to integrate disparate data sources, from cloud to on-premises. Check out our [managed connectors][managedapis] for more inspiration and [get started][create] now to see what you can do.
 
 Additionally, with our [Enterprise Integration Account][biztalk] you can scale to mature integration scenarios with the power of a [XML messaging][xml], [trading partner management][tpm], and more.
 
@@ -68,7 +68,7 @@ Additionally, with our [Enterprise Integration Account][biztalk] you can scale t
 
 ## Logic App Concepts
 
-The following are some of the key pieces that comprise the Logic Apps experience. 
+The following are some of the key pieces that comprise the Logic Apps experience.
 
 - **Workflow** - Logic Apps provides a graphical way to model your business processes as a series of steps or a workflow.
 - **Managed Connectors** - Your logic apps need access to data and services. Managed connectors are created specifically to aid you when you are connecting to and working with your data. See the list of connectors available now in [managed connectors][managedapis].
@@ -80,7 +80,7 @@ The following are some of the key pieces that comprise the Logic Apps experience
 
  - To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
  - [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
- - [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
+ - [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
  - [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 - For more information on Azure App Service platform, see [Azure App Service][appservice].
 
