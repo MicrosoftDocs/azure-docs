@@ -44,13 +44,13 @@ If you need faster recovery, use [Active Geo-Replication](sql-database-geo-repli
 
 ### Use Active Geo-Replication to reduce recovery time and limit data loss associated with a recovery
 
-In addition to using database backups for database recovery in the event of a business disruption, you can use [Active Geo-Replication](sql-database-geo-replication-overview.md) to configure a database to have up to 4 readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption in the event of a data center outage or during an application upgrade - these scenarios are discussed below. It is also used to provide better query performance for read-only queries to geographically dispersed users - this scenario is not discussed in any detail in this topic.
+In addition to using database backups for database recovery in the event of a business disruption, you can use [Active Geo-Replication](sql-database-geo-replication-overview.md) to configure a database to have up to 4 readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption in the event of a data center outage or during an application upgrade. Active Geo-Replication can also be also used to provide better query performance for read-only queries to geographically dispersed users.
 
-If the primary database goes offline unexpectedly or according to a plan, you can quickly promote a secondary to become the primary and configure applications to connect to the newly promoted primary (also called a failover). With a planned failover, there is no data loss. With an unplanned failover, there will be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users will experience extremely minimal downtime. See below for more details regarding the use of Active Geo-Replication to recover in a number of scenarios.
+If the primary database goes offline unexpectedly or you need to take it offline for maintenance activities, you can quickly promote a secondary to become the primary (also called a failover) and configure applications to connect to the newly promoted primary. With a planned failover, there is no data loss. With an unplanned failover, there will be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users will experience a small amount of downtime and will need to reconnect. 
 
 > [AZURE.IMPORTANT] To use Active Gee-Replication, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
 
-If your application meets any of these criteria, we recommend using Active Geo-Replication.
+Use Active Geo-Replication if your application meets any of these criteria:
 
 - Is mission critical.
 - Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
@@ -66,17 +66,17 @@ In this scenario, these are your recovery options.
 
 ### Perform a point-in-time restore
 
-You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is  within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses Active Geo-Replication, we recommend restoring to a database copy and then copying the required data into the original database. If you replace the original database with the restored database, you will need to reconfigure Active Geo-Replication. 
+You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses Active Geo-Replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you will need to reconfigure and resynchronize Active Geo-Replication (which can take quite some time for a large database). 
 
 For more information and for detailed steps for restoring a database to a point in time using the Azure Portal or using PowerShell, see [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore). You cannot recover using Transact-SQL.
 
 ### Restore a deleted database
 
-If the database is deleted but the logical server has not been deleted, you can restore the deleted database to the point at which it was deleted. This restores a database backup to the same logical SQL server from which it was deleted. You can restore it using the original or provide a new database name.
+If the database is deleted but the logical server has not been deleted, you can restore the deleted database to the point at which it was deleted. This restores a database backup to the same logical SQL server from which it was deleted. You can restore it using the original name or provide a new name or the restored database.
 
 For more information and for detailed steps for restoring a deleted database using the Azure Portal or using PowerShell, see [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore). You cannot restore using Transact-SQL.
 
-> [AZURE.IMPORTANT] If the logical server is also deleted, you cannot recover the database. 
+> [AZURE.IMPORTANT] If the logical server is deleted, you cannot recover a deleted database. 
 
 ### Import from a database archive
 
@@ -86,14 +86,14 @@ If the data loss occurred outside the current retention period for automated bac
 
 <!-- Explain this scenario -->
 
-Although rare, an Azure region can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
+Although rare, an Azure data ceneter can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
 
 - One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you won't know how long the outage will last, so this option only works if you don't need your database for a while.
 - Another option is to either failover to another data region if you are using Active Geo-Replication or the recover using geo-redundant database backups (Geo-Restore). Failover will only take a few seconds while recovery from backups will take hours.
 
-When you take action, how long it takes you to recover, and how much data loss you incur in the event of a data center outage depends upon your business continuity plan, your service tier and how you decide to use the business continuity features discussed above in your application. Indeed, you may choose to use a combination of database backups and Active Geo-Replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+When you take action, how long it takes you to recover, and how much data loss you incur in the event of a data center outage depends upon how you decide to use the business continuity features discussed above in your application. Indeed, you may choose to use a combination of database backups and Active Geo-Replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-The sections below provide an overview of the steps to recover using either database backups or Active Geo-Replication. For detailed failover / recovery steps including planning requirements, post recovery steps and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](sql-database-disaster-recovery.md).
+The sections below provide an overview of the steps to recover using either database backups or Active Geo-Replication. For detailed steps including planning requirements, post recovery steps and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](sql-database-disaster-recovery.md).
 
 ### Prepare for an outage
 
@@ -102,16 +102,16 @@ Regardless of the business continuity feature you will use, you must:
 - Identify and prepare the target server, including server-level firewall rules, logins and master database level permissions.
 - Determine how you will redirect clients and client applications to the new server
 - Document other dependencies, such as auditing settings and alerts 
+ 
+If you do not plan and prepare properly, bringing your applications online after a failover or a recovery will take additional time and will likely also require troubleshooting at a time of stress - a bad combination.
 
-### Failover to a geo-replicated secondary database if that is your recovery mechanism
+### Failover to a geo-replicated secondary database 
 
-If you are using Active Geo-Replication as your recovery mechanism, [force a failover to a geo-replicated secondary](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Within seconds, the secondary is promoted to become the new primary and is ready to record new transactions and respond to any queries - with only a few seconds of data loss for the data that had not yet been replicated. 
+If you are using Active Geo-Replication as your recovery mechanism, [force a failover to a geo-replicated secondary](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Within seconds, the secondary is promoted to become the new primary and is ready to record new transactions and respond to any queries - with only a few seconds of data loss for the data that had not yet been replicated. For information on automating the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-> [AZURE.NOTE] For information on automating the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+> [AZURE.NOTE] When the data center comes back online, you can failback to the original primary (or not).
 
-When the data center comes back online, you can failback to the original primary (or not).
-
-### Perform a geo-restore if that is your recovery mechanism
+### Perform a Geo-Restore 
 
 If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery will take place within 12 hours in most cases - with data loss of up to 1 hour determined by when the last hourly differential backup with takan and replicated. Until the recovery completes, the database will be unable to record any transactions or respond to any queries. 
 
@@ -119,17 +119,17 @@ If you are using automated backups with geo-redundant storage replication as you
 
 ### Perform post failover / recovery tasks 
 
-After recovery from either recovery mechanism, you must:
+After recovery from either recovery mechanism, you must perform the following addtional tasks before your users and applications are back up and running:
 
-- Redirect clients and client applications to the new server
-- Ensure appropriate server-level firewall rules are in place
-- Ensure appropriate logins and master database level permissions are in place
+- Redirect clients and client applications to the new server and restored database
+- Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-database-level-firewall-rules))
+- Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://msdn.microsoft.com/library/ff929188.aspx))
 - Configure auditing, as appropriate
 - Configure alerts, as appropriate
 
 ## Upgrade an application with minimal downtime
 
-Sometimes an application needs to be take offline because of planned maintenance such as an application upgrade. [Manage application upgrades](sql-database-manage-application-rolling-upgrade.md) describes how to use Active Geo-Replication to enable rolling upgrades of your cloud application. This article looks at two different methods of orchestrating the upgrade process and discusses the benefits and trade-offs of each option.
+Sometimes an application needs to be take offline because of planned maintenance such as an application upgrade. [Manage application upgrades](sql-database-manage-application-rolling-upgrade.md) describes how to use Active Geo-Replication to enable rolling upgrades of your cloud application to minimize downtime during upgrades and provide a recovery path in the event something goes wrong. This article looks at two different methods of orchestrating the upgrade process and discusses the benefits and trade-offs of each option.
 
 ## Next steps
 
