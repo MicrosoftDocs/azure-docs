@@ -248,19 +248,9 @@ The following query does not have a filter on the partition key (DeviceId) and i
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
-#### Parallel Cross-partition Queries
+### Parallel Query Execution
 
-Parallel execution can improve the latency and throughput of a cross-partition query, especially when you have a large number of partitions and the query needs to be fanned out. Parallel queries achive this by visiting multiple partitions somultaneously and consolidating the results at the client-side. One can control the degree of parallelism (i.e., maximum number of simultaneous network connections to the partitions) and the buffer size (i.e., the maximum memory used to store and consolidate results from multiple partitions), through the rest API. Given the same state of the database, a parallel query will show the results in the same order as compared to a serial execution. 
-
-    // Parallel query across partitions
-    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
-        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
-        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
-        
-#### Cross-partition Order By Queries
-
-Similar to parallel query, a cross-partition order by query works by visiting the partitions in parallel followed by fetching and ordering the results at the client side. As before, you can control the maximum degree of parallelism and the buffer size through the rest API.
+The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
 
     // Cross-partition Order By Queries
     IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
@@ -268,6 +258,13 @@ Similar to parallel query, a cross-partition order by query works by visiting th
         new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
         .OrderBy(m => m.MetricValue);
+
+You can manage parallel query execution by tuning the following parameters:
+
+- By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the collection's partitions. If you set this to -1, the degree of parallelism is managed by the SDK.
+- By setting `MaxBufferedItemCount`, you can trade off query latency and client side memory utilization. If you omit this parameter or set this to -1, the number of items buffered during parallel query execution is managed by the SDK.
+
+Given the same state of the collection, a parallel query will return results in the same order as in serial execution. When performing cross-partition queries that include sorting (ORDER BY and/or TOP), the DocumentDB SDKs issue the query in parallel across partitions and merges partially sorted results in the client side to produce globally ordered results.
 
 ### Executing stored procedures
 
