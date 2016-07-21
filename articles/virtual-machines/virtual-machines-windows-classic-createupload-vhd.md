@@ -64,7 +64,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 1. Login
 
-	Add-AzureAccount
+		Add-AzureAccount
 
 1. Set your Azure subscription.
 
@@ -84,20 +84,20 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
  
 
-## Step 4: Upload the .vhd file
+## Step 3: Upload the .vhd file
 
 Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) to upload the VHD.
 
-1. From the Azure PowerShell window you used in the previous step, type a command similar to this:
+From the Azure PowerShell window you used in the previous step, type the following command and replace the variables in &lsaquo; brackets &rsaquo; with your own information.
 
-	Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -LocalFilePath <LocalPathtoVHDFile>
+		Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -LocalFilePath <LocalPathtoVHDFile>
 
 
-## Step 5: Add the image to your list of custom images
+## Step 4: Add the image to your list of custom images
 
 Use the [Add-AzureVMImage])(https://msdn.microsoft.com/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
 
-	Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
+		Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 
 
 ## Next steps
