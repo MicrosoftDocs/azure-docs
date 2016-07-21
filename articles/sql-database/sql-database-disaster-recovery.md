@@ -35,7 +35,7 @@ For success with recovery to another data region using either Active Geo-Replica
 - Identify, and optionally create, the logins that must be present in the master database on the new primary server, and ensure these logins have appropriate permissions in the master database, if any. For more information, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)
 - Identify alert rules that will need to be updated to map to the new primary database.
 - Document the auditing configuration on the current primary database 
-- Perform a disaster recovery drill. To simulate an outage for Geo-Restore, you can delete or rename the source database to cause application connectivity failure. To simulate an outage for Active Geo-Replication, you can disable the web application or virtual machine connected to the database or failover the database to cause application connectity failures. 
+- Perform a [disaster recovery drill](sql-database-disaster-recovery-drills.md). To simulate an outage for Geo-Restore, you can delete or rename the source database to cause application connectivity failure. To simulate an outage for Active Geo-Replication, you can disable the web application or virtual machine connected to the database or failover the database to cause application connectity failures. 
 
 ## When to initiate recovery
 
