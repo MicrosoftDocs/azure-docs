@@ -75,8 +75,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 
 ### Resources included
 
-When the Run As account is successfully created, several resources are automatically created for you.  For the service principal, they are summarized in the following table.
-
+When the Run As account is successfully created, several resources are automatically created for you.  For the service principal, they are summarized in the following table.<br>
 
 Resource|Description 
 ----|----
@@ -85,7 +84,7 @@ AzureAutomationTutorialScript Runbook|An example PowerShell runbook that demonst
 AzureRunAsCertificate|Certificate asset automatically created during Automation account creation or using the PowerShell script below for an existing account.  It allows you to authenticate with Azure so that you can manage Azure Resource Manager resources from runbooks.  This certificate has a one-year lifespan. 
 AzureRunAsConnection|Connection asset automatically created during Automation account creation or using the PowerShell script below for an existing account.
 
-Below are resources for the classic Run As account.
+The following table summarizes resources for the classic Run As account.<br>
 
 Resource|Description 
 ----|----
