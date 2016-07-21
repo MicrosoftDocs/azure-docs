@@ -71,7 +71,7 @@ Now look at the table on the right. This time we measured each person’s body m
 
 The next ingredient is connected data.
 
-![Connected data vs. disconnected data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Connected data vs. disconnected data - data criteria, data ready](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
 
 Here is some relevant data on the quality of hamburgers: grill temperature, patty weight and rating in the local food magazine. But notice the gaps in the table on the left.
 
