@@ -19,11 +19,12 @@
 # Security in Azure Data Lake Store
 
 Many enterprises are taking advantage of big data analytics for business insights to help them make smart decisions. An organization might have a complex and regulated environment, with an increasing number and diverse levels of users. It is vital for an enterprise to make sure that critical business data is stored securely, with the correct level of access granted to individual users. Azure Data Lake Store is designed to help meet these security requirements. In this article, learn about the security capabilities of Data Lake Store, including:
-- Authentication
-- Authorization
-- Network isolation
-- Data protection
-- Auditing
+
+* Authentication
+* Authorization
+* Network isolation
+* Data protection
+* Auditing
 
 ## Authentication and identity management
 
