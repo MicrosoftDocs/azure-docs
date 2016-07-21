@@ -91,7 +91,7 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 ### Additional resources
 
 - [I can’t activate an Azure Free Trial](billing-troubleshoot-azure-sign-up-issues.md/#i-cant-activate-an-azure-free-trial)
-- [Azure Free Trial FAQ](https://azure.microsoft.com/en-us/pricing/free-trial-faq/).
+- [Azure Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 <a name="UpgradeFreeToPYG"></a>
 ## Upgrade Azure Free Trial to Pay-As-You-Go
