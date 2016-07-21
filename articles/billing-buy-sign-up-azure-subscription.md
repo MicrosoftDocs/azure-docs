@@ -42,13 +42,15 @@ The following table provides details on common offers:
 
 To sign up for an Azure Free Trial subscription, you must provide a phone number, a credit card, and a Microsoft Account. Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, or OneDrive. You may set up a Microsoft account using any email address belonging to you, including your company email. Please see [Microsoft account FAQ](https://www.microsoft.com/account/faq.aspx) for more details.
 
+See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issues.md) if you encounter any issues.
+
 >[AZURE.NOTE] Your phone number and credit card details are used only to verify your identity. Although your credit card won’t be charged, Microsoft will place an authorization hold on it for a minimal amount to verify that the credit card is valid. The hold will be released within 3-5 business days, depending on your financial institution’s policies.
 
 1. Open the [Azure free trial page](https://azure.microsoft.com/pricing/free-trial/), and then select **Start now**.
 
 2. Sign in with your Microsoft account or organizational account.
 
-3. In the **About you** section, enter your personal information.  
+3. In the **About you** section, enter your personal information. [Learn more](billing-troubleshoot-azure-sign-up-issues.md/#i-am-getting-an-error-when-entering-my-information-to-sign-up) about entering your personal information accurately.
 
     ![Enter your personal infromation here](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
@@ -56,7 +58,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 
 4. In the **Verification by phone** section, you must provide a phone number to receive a verification code that you can provide to complete the verification process.
 
-    You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button.
+    You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button. [Learn more](billing-troubleshoot-azure-sign-up-issues.md/#i-am-not-getting-text-messages-or-calls-during-account-verification-when-i-try-to-sign-up).
 
     >[AZURE.NOTE] You cannot use a VOIP phone number for the phone verification process.
  
@@ -72,7 +74,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 
 6. In the **Agreement** section, check the box if you agree to the subscription agreement, offer details and privacy statement. Then select **Sign up**. The agreement form may vary by country.
 
-    ![The English version of the agreement. The agreement form may vary b country.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
+    ![The English version of the agreement. The agreement form may vary by country.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
  
     It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance.
  
@@ -85,6 +87,11 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 7. When the subscription is ready, select **Start managing my service** to begin.
  
     ![Welcome to your Azure subscription](./media/billing-buy-sign-up-azure-subscription/startservice.png)
+
+### Additional resources
+
+- [I can’t activate an Azure Free Trial](billing-troubleshoot-azure-sign-up-issues.md/#i-cant-activate-an-azure-free-trial)
+- [Azure Free Trial FAQ](https://azure.microsoft.com/en-us/pricing/free-trial-faq/).
 
 <a name="UpgradeFreeToPYG"></a>
 ## Upgrade Azure Free Trial to Pay-As-You-Go
