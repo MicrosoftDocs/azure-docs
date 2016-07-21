@@ -32,7 +32,7 @@ All Basic, Standard, and Premium databases are protected by automatic backups. F
 
 ## Geo-redundancy
 
-Backup files are stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes. The following shows the geo-replication of weekly and daily backups stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes.
+Backup files are stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes. This ensures that the backup files are replicated to a [paired data center]()../best-practices-availability-paired-regions). The following shows the geo-replication of weekly and daily backups stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
 
