@@ -50,20 +50,22 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 ![The screenshot of personal information](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **Note** The email address and Country information that you provide when you sign up for an Azure subscription will always be associated with the subscription, and cannot be changed at a later time.</br>
+
 4. In the **Verification by phone** section, you must provide a phone number to receive a verification code that you can provide to complete the verification process.
 
  You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button.
 
  **Note** You cannot use a VOIP phone number for the phone verification process.</br>
  ![the screenshot about phone verification](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>If you don't receive a text message or a call, try using a different phone number or contact [Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for help. </br>
-5. In the **Verification by card** section, enter the details of a valid credit card. This information is collected only to verify your identity.
 
- **Note** Although your credit card won’t be charged, Microsoft will place an authorization hold on it for a minimal amount to verify that the credit card is valid. The hold will be released within 3-5 business days, depending on your financial institution’s policies.
+5. In the **Verification by card** section, enter the details of a valid credit card. This information is collected only to verify your identity.
 
  If you receive an error after submitting your credit card information, see the article [My credit card doesn’t go through when I try to sign up for Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
  ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
+
 6. In the **Agreement** section, check the box if you agree to the subscription agreement, offer details and privacy statement. Then select **Sign up**.
+
 The example screenshot is for the English version of the agreement. The agreement form may vary by country.
 
  ![Signup](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br>
@@ -73,6 +75,7 @@ The example screenshot is for the English version of the agreement. The agreemen
  **Sorry, we could not complete the operation. Please try again later or reload the web page** </br>
 
  In this case, try using another browser to complete the sign-up process. If the issue still occurs, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.</br>
+
 7. When the subscription is ready, select **Start managing my service** to begin.</br>
  ![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
