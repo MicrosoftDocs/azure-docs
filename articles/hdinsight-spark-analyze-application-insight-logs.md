@@ -26,17 +26,17 @@ ms.author="larryfr"/>
 
 * An application that is configured to use Application Insights. 
 
-    A [Node.js web app configured to use Application Insights](../application-insights/app-insights-nodejs.md) was used when developing this document.
+* Familiarity with creating a Linux-based HDInsight cluster. If you are not familiar with creating a cluster, see [Create Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) for more information.
 
-* Familiarity with creating a Linux-based Spark on HDInsight cluster. This document does not provide a walk-through of creating a new cluster, but does provide guidance on how to add access to the Application Insights telemetry to an existing or new HDInsight cluster.
+    > [AZURE.NOTE] This document does not provide a walk-through of creating a new cluster, but does provide guidance on how to add access to the Application Insights telemetry to an existing or new HDInsight cluster.
 
-    If you are not familiar with creating a cluster, see [Create Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) for more information.
+* A web browser. This will be used to run interactively run analysis using a Jupyter Notebook.
 
-    A Linux-based Spark on HDInsight cluster version 3.4 was used when developing this document.
+The following were used in developing and testing this document:
 
-* A web browser and familiarity with Jupyter Notebooks. The examples in this document use Jupyter Notebooks (an interactive web UI,) to analyze the data; however, you should be able to apply the same logic when creating dedicated Spark applications.
+* Application Insights telemetry data was generated using a [Node.js web app configured to use Application Insights](../application-insights/app-insights-nodejs.md).
 
-    If you are unfamiliar with Jupyter Notebooks, see [Create Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) for information on using them with Spark on HDInsight.
+* A Linux-based Spark on HDInsight cluster version 3.4 was used to analyze the data.
 
 ## Architecture and planning
 
