@@ -55,22 +55,20 @@ The following steps are needed to enable telemetry:
 
 You can query for the following StreamingEndPoint metrics. 
 
-- **PartitionKey** gets the partition key of the record.
-- **RowKey** gets the row key of the record.
-- **AccountId** gets the Media Services account ID.
-- **AccountId** gets the Media Services Streaming Endpoint ID.
-- **ObservedTime** gets the observed time of the metric.
-- **HostName** gets the Streaming Endpoint host name.
-- **StatusCode** gets the status code.
-- **ResultCode** gets the result code.
-- **RequestCount** gets the request count.
-- **BytesSent** gets the bytes sent.
-- **ServerLatency** gets the server latency.
-- **EndToEndLatency** gets the end to end request time.
-
-###Streaming Endpoint query result example
-
-![Streaming Endpoint query](media/media-services-telemetry/media-services-telemetry01.png)
+Property|Description|Sample value
+---|---|---
+**PartitionKey**|Gets the partition key of the record.|60b71b0f6a0e4d869eb0645c16d708e1_6efed125eef44fb5b61916edc80e6e23
+**RowKey**|Gets the row key of the record.|00959_00000
+**AccountId**|Gets the Media Services account ID.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**StreamingEndpointId**|Gets the Media Services Streaming Endpoint ID.|d17ec9e4-a5d4-033d-0c36-def70229f06f
+**ObservedTime**|Gets the observed time of the metric.|1/20/16 23:44:01
+**HostName**|Gets the Streaming Endpoint host name.|builddemoserver.origin.mediaservices.windows.net
+**StatusCode**|Gets the status code.|200
+**ResultCode**|Gets the result code.|S_OK
+**RequestCount**|Gets the request count.|3
+**BytesSent**|Gets the bytes sent.|2987358
+**ServerLatency**|Gets the server latency (including storage).|129
+**EndToEndLatency**|Gets the end to end request time.|250
 
 
 ## Live channel heartbeat
@@ -79,24 +77,22 @@ You can query for the following StreamingEndPoint metrics.
 
 You can query for the following live channel metrics. 
 
-- **PartitionKey** gets the partition key of the record.
-- **RowKey** gets the row key of the record.
-- **AccountId** gets the Media Services account ID.
-- **ChannelId** gets the Media Services Channel ID.
-- **ObservedTime** gets the observed time of the metric.
-- **CustomAttributes** gets the custom attributes.
-- **TrackType** gets the track type.
-- **TrackName** gets the track name.
-- **Bitrate** gets the bitrate.
-- **IncomingBitrate** gets the incoming bitrate.
-- **OverlapCount** gets the overlap count.
-- **DiscontinuityCount** gets the discontinuity count.
-- **LastTimestamp** gets the last time stamp.
+Property|Description|Sample value
+---|---|---
+**PartitionKey**|Gets the partition key of the record.|60b71b0f6a0e4d869eb0645c16d708e1_0625cc45918e4f98acfc9a33e8066628
+**RowKey**|Gets the row key of the record.|13872_00005
+**AccountId**|Gets the Media Services account ID.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**ChannelId**|Gets the Media Services channel ID.|
+**ObservedTime**|Gets the observed time of the metric.|1/21/2016 20:08:49
+**CustomAttributes**|Gets the custom attributes.|
+**TrackType**|Gets the track type.|video
+**TrackName**|Gets the track name.|video
+**Bitrate**|Gets the bitrate.|785000
+**IncomingBitrate**|Gets the incoming bitrate.|784548
+**OverlapCount**|Gets the overlap count.|0
+**DiscontinuityCount**|Gets the discontinuity count.|0
+**LastTimestamp**|Gets the last time stamp.|1800488800
  
-###Live Channel query result example
-
-![Streaming Endpoint query](media/media-services-telemetry/media-services-telemetry01.png)
-
 ## StreamingEndpoint metrics example
 		
 	using System;
@@ -136,8 +132,7 @@ You can query for the following live channel metrics.
 	            // Used the cached credentials to create CloudMediaContext.
 	            _context = new CloudMediaContext(_cachedCredentials);
 	
-	            INotificationEndPoint notificationEndPoint = 
-	                          _context.NotificationEndPoints.Create("monitoring", NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	
 	            var monitoringConfigurations = _context.MonitoringConfigurations;
 	            IMonitoringConfiguration monitoringConfiguration = null;
@@ -149,6 +144,10 @@ You can query for the following live channel metrics.
 	            }
 	            else
 	            {
+		            INotificationEndPoint notificationEndPoint = 
+		                          _context.NotificationEndPoints.Create("monitoring", 
+								  NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
 	                    new List<ComponentMonitoringSetting>()
 	                    {
