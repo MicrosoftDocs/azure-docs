@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. Click **Next**
 
-	> [AZURE.NOTE] Please note that these are not the real value. You have to update the values with the actual Reply URL. To get these values, contact eDigitalResearch.
+	> [AZURE.NOTE] The value for the Reply URL in this tutorial is just a placeholfer. To get the actual vlaue for your environment, contact eDigitalResearch.
 
 4. On the **Configure single sign-on at eDigitalResearch** page, perform the following steps and click **Next**:
 
