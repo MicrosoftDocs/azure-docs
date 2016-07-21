@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create and upload a Windows Server VHD using Powershell | Microsoft Azure"
-	description="Learn to create and upload a Windows Server based virtual hard disk (VHD) using the classic deployment model and Azure Powershell."
+	pageTitle="Create and upload a Windows Server image using Powershell | Microsoft Azure"
+	description="Learn to create and upload a generalized Windows Server image (VHD) using the classic deployment model and Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -19,7 +19,7 @@
 
 # Create and upload a Windows Server VHD to Azure
 
-This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more details about disks and VHDs in Microsoft Azure, see [About Disks and VHDs for Virtual Machines](virtual-machines-linux-about-disks-vhds.md).
+This article shows you how to upload your own generalized VM image as a virtual hard disk (VHD) so you can use it to create virtual machines. For more details about disks and VHDs in Microsoft Azure, see [About Disks and VHDs for Virtual Machines](virtual-machines-linux-about-disks-vhds.md).
 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. You can also [capture](virtual-machines-windows-capture-image.md) and [upload](virtual-machines-windows-upload-image.md) a virtual machine using the Resource Manager model. 
@@ -86,31 +86,20 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 ## Step 4: Upload the .vhd file
 
-When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage.
+Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) to upload the VHD.
 
 1. From the Azure PowerShell window you used in the previous step, type a command similar to this:
 
-	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
+	Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName.vhd" -LocalFilePath <PathToLocalVHDFile>
 
-	Where:
-	- **BlobStorageURL** is the URL for the storage account
-	- **YourImagesFolder** is the container within blob storage where you want to store your images
-	- **VHDName** is the name you want the Azure classic portal to display to identify the virtual hard disk
-	- **PathToVHDFile** is the full path and name of the .vhd file
-
-	![PowerShell Add-AzureVHD](./media/virtual-machines-windows-classic-createupload-vhd/powershell_upload_vhd.png)
-
-For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx).
 
 ## Step 5: Add the image to your list of custom images
 
-Use Azure PowerShell to add the image, use the **Add-AzureVMImage** cmdlet.
+Use the [Add-AzureVMImage])(https://msdn.microsoft.com/en-us/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
 
 	Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>
 
 
+## Next steps
 
-[Step 1: Prepare the image to be uploaded]: #prepimage
-[Step 2: Create a storage account in Azure]: #createstorage
-[Step 3: Prepare the connection to Azure]: #prepAzure
-[Step 4: Upload the .vhd file]: #upload
+You can now [create a custom VM](virtual-machines-windows-classic-createportal) using the image you uploaded.
