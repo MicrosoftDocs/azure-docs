@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Efficient list queries in Azure Batch | Microsoft Azure"
-	description="Increase performance by reducing the amount of data that is returned when querying Azure Batch entities such as pools, jobs, tasks, and compute nodes."
+	description="Increase performance by filtering your queries when requesting information on Batch entities such as pools, jobs, tasks, and compute nodes."
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="07/21/2016"
 	ms.author="marsma" />
 
 # Query the Azure Batch service efficiently
 
 Learn here how to increase your Azure Batch application's performance by reducing the amount of data that is returned when you query the Batch service using the [Batch .NET][api_net] library.
 
-Azure Batch offers big-compute capabilities--and in a production environment, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information on these items can therefore generate a large amount of data that must be transferred from the service to your application on each query. By limiting the number of items and the type of information that is returned for each, you can increase the speed of your queries, and therefore the performance of your application.
+In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information on these items can therefore generate a large amount of data that must be transferred from the service to your application on each query. By filtering your queries--limiting the number of items and the type of information that is returned--you can increase the speed of your queries, and therefore the performance of your application.
 
 Nearly every application using Azure Batch will perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine the capacity and status of a pool, you must query every node within the pool. To determine whether any of a job's tasks are still queued, you must query every task within the job. This article explains how to execute these types of queries in the most efficient way.
 
@@ -31,7 +31,7 @@ This [Batch .NET][api_net] API code snippet retrieves every task that is associa
 IPagedEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
 ```
 
-A much more efficient list query can be performed, however. You do this by supplying an [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns only the ID, command line, and compute node information properties of completed tasks:
+A much more efficient list query can be performed, however, by applying a filter to your query. You do this by supplying an [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns only the ID, command line, and compute node information properties of completed tasks:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and their properties to return
@@ -80,6 +80,7 @@ The expand string reduces the number of API calls that are required to obtain ce
 - Properties specified in filter, select, and expand strings equate to the property names as they appear in the [Batch REST][api_rest] API--even when you use the [Batch .NET][api_net] library.
 - All property names are case sensitive, but property values are case insensitive.
 - Date/time strings can be one of two formats, and must be preceded with `DateTime`.
+
   - W3C-DTF format example: `creationTime gt DateTime'2011-05-08T08:49:37Z'`.
   - RFC 1123 format example: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`.
 - Boolean strings are either `true` or `false`.
@@ -201,6 +202,17 @@ Check out the [EfficientListQueries][efficient_query_sample] sample project on G
 
 As is shown in the elapsed time information, you can greatly lower query response times by limiting the properties and the number of items that are returned. You can find this and other sample projects in the [azure-batch-samples][github_samples] repository on GitHub.
 
+### BatchMetrics library and code sample
+
+In addition to the EfficientListQueries code sample above, you can find the [BatchMetrics][batch_metrics] project in the [azure-batch-samples][github_samples] GitHub repository. The BatchMetrics sample project demonstrates how to efficiently monitor Azure Batch job progress using the Batch API.
+
+The [BatchMetrics][batch_metrics] sample includes a .NET class library project which you can incorporate into your own projects, and a simple command line program to exercise and demonstrate the use of the library.
+
+The sample application within the project demonstrates the following operations:
+
+1. Selecting specific attributes in order to download only the fields you need
+2. Filtering on state transition times in order to download only changes since the last query
+
 ### Batch Forum
 
 The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.
@@ -209,6 +221,7 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
