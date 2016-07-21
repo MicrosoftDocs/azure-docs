@@ -95,11 +95,12 @@ Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) to uploa
 
 ## Step 5: Add the image to your list of custom images
 
-Use the [Add-AzureVMImage])(https://msdn.microsoft.com/en-us/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
+Use the [Add-AzureVMImage])(https://msdn.microsoft.com/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
 
 	Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 
 
 ## Next steps
 
-You can now [create a custom VM](virtual-machines-windows-classic-createportal) using the image you uploaded.
+You can now [create a custom VM](virtual-machines-windows-classic-createportal.md) using the image you uploaded.
+
