@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Add a Next Generation Firewall in Azure Security Center
 
 Azure Security Center may recommend that you add a next generation firewall (NGFW) from a Microsoft partner in order to increase your security protections. This document walks you through an example of how to do this.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
 ## Implement the recommendation
 
@@ -42,7 +42,7 @@ Azure Security Center may recommend that you add a next generation firewall (NGF
 6. The **Create virtual machine** blade opens. Here you can enter information required to spin up a virtual machine that will run the NGFW. Follow the steps and provide the NGFW information required. Select OK to apply.
 ![Create virtual machine to run NGFW][6]
 
-## Next steps
+## See also
 
 This document showed you how to implement the Security Center recommendation "Add a Next Generation Firewall." To learn more about NGFWs and the Check Point partner solution, see the following:
 

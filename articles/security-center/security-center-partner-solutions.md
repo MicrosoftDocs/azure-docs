@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Monitoring partner solutions with Azure Security Center
 
 This document walks you through how to monitor the health status of your partner solutions in Azure Security Center.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment. This is not a step-by-step guide.
+> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
 
 ## Monitoring partner solutions
 
