@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center quick start guide
 
 This document helps you get started quickly with Azure Security Center by guiding you through the security monitoring and policy management components and linking you to next steps.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment. This is not a step-by-step guide.
+> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
 
 ## Data collection
 
