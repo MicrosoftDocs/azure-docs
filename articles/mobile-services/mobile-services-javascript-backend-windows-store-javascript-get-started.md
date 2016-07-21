@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="03/06/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Get started with Mobile Services

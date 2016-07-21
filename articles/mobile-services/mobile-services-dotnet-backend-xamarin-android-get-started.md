@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="01/14/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
