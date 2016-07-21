@@ -38,7 +38,7 @@ Backup files are stored in a geo-redundant storage account with read access (RA-
 
 ## Using automated backups
 
-You can [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) during their [retention period](sql-database-service-tiers.md) to:
+You can [restore a database from automated backups](sql-database-recovery-using-backups.md) during their [retention period](sql-database-service-tiers.md) to:
 
 - A new database on the same logical server recovered to a specified point in time within the retention period. 
 - A database on the same logical server recovered to the deletion time for a deleted database.
