@@ -90,14 +90,14 @@ Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) to uploa
 
 1. From the Azure PowerShell window you used in the previous step, type a command similar to this:
 
-	Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName.vhd" -LocalFilePath <PathToLocalVHDFile>
+	Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -LocalFilePath <LocalPathtoVHDFile>
 
 
 ## Step 5: Add the image to your list of custom images
 
 Use the [Add-AzureVMImage])(https://msdn.microsoft.com/en-us/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
 
-	Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>
+	Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 
 
 ## Next steps
