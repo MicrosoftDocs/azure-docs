@@ -57,7 +57,7 @@ Azure AD Application Proxy helps you support remote workers by publishing on-pre
 
 ## Assign users and groups to the application
 
-In order for your users to access your published application, you need to assign them either individually or in groups. (Remember to assign yourself access, too.) This requires that each user have a license for Azure Basic or higher. You can assign licenses individually or to groups.
+In order for your users to access your published application, you need to assign them either individually or in groups. (Remember to assign yourself access, too.) This requires that each user have a license for Azure Basic or higher. You can assign licenses individually or to groups. See [Assigning users to an application](https://azure.microsoft.com/en-us/documentation/articles/active-directory-applications-guiding-developers-assigning-users/) for more details. 
 
 For apps that require preauthentication, this grants permissions to use the app. For apps that don't require preauthentication, users can still be assigned to the app so that it appears in their application list, such as MyApps.
 

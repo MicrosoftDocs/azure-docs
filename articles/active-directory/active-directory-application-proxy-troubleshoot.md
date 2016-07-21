@@ -45,7 +45,7 @@ This corporate app can’t be accessed. You are not authorized to access this ap
 
 
 ## Connector troubleshooting
-If registration fails during the Connector wizard installation, you can view the reason for the failure either by looking in the event log under **Windows Logs** > **Application**, or by running the following Windows PowerShell command.
+If registration fails during the Connector wizard installation, you can view the reason for the failure either by looking in the event log under Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin, or by running the following Windows PowerShell command.
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
 

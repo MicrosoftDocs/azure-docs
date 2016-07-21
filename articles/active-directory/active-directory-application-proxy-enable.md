@@ -30,7 +30,7 @@ Before you can enable and use Application Proxy services, you need to have:
 
 	- For single sign-on to your published applications, this machine should be domain-joined in the same AD domain as the applications that you are publishing.
 
-- If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy. The Connector uses these ports together with subdomains that are part of the high-level domains msappproxy.net and servicebus.windows.net. Make sure to open **all** the following ports to **outbound** traffic:
+- If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy. The Connector uses these ports together with subdomains that are part of the high-level domains msappproxy.net and servicebus.windows.net. Make sure to open the following ports to **outbound** traffic:
 
 	| Port Number | Description |
 	| --- | --- |
@@ -79,18 +79,13 @@ Before you can enable and use Application Proxy services, you need to have:
 
 5. Click **Finish** in the installation window.
 
-You are now ready to [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
-
 For high availability purposes, you should deploy at least two connectors. To deploy more connectors, repeat steps 2 and 3, above. Each connector must be registered separately.
-
-If you have applications that are on separate networks or different locations, you can use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](active-directory-application-proxy-connectors.md).
 
 If you want to uninstall the Connector, uninstall both the Connector service and the Updater service. Restart your computer to fully remove the service.
 
 
 ## Next steps
 
-- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+You are now ready to [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+If you have applications that are on separate networks or different locations, you can use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](active-directory-application-proxy-connectors.md).
