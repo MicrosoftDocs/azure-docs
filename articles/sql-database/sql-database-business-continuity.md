@@ -48,7 +48,7 @@ In addition to using database backups for database recovery in the event of a bu
 
 If the primary database goes offline unexpectedly or you need to take it offline for maintenance activities, you can quickly promote a secondary to become the primary (also called a failover) and configure applications to connect to the newly promoted primary. With a planned failover, there is no data loss. With an unplanned failover, there will be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users will experience a small amount of downtime and will need to reconnect. 
 
-> [AZURE.IMPORTANT] To use Active Gee-Replication, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
+> [AZURE.IMPORTANT] To use Active Geo-Replication, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
 
 Use Active Geo-Replication if your application meets any of these criteria:
 
