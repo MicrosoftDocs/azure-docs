@@ -17,7 +17,7 @@
    ms.date="07/21/2016"
    ms.author="genli"/>
 
-# Transferring Ownership of an Azure subscription
+# Transferring ownership of an Azure subscription
 
 Do you:
 
