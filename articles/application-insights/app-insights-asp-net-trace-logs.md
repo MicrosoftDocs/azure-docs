@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Explore .NET trace logs in Application Insights  
@@ -95,6 +95,15 @@ For example:
 
 An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there. 
 
+In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level relating to a particular database.
 
 ## Explore your logs
 
@@ -104,7 +113,7 @@ In your app's overview blade in [the Application Insights portal][portal], choos
 
 ![In Application Insights, choose Search](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![Diagnostic Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 You can, for example:
 
@@ -119,7 +128,7 @@ You can, for example:
 
 [Diagnose failures and exceptions in ASP.NET][exceptions]
 
-[Learn more about Diagnostic Search][diagnostic].
+[Learn more about Search][diagnostic].
 
 
 
