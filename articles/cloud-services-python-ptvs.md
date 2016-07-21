@@ -26,7 +26,7 @@ This article provides an overview of using Python web and worker roles using [Py
  - Visual Studio 2013 or 2015
  - [Python Tools for Visual Studio][] (PTVS)
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2015][]
- - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
+ - [Python 2.7 32-bit][] or [Python 3.5 32-bit][]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -68,7 +68,7 @@ Your cloud service can contain roles implemented in different languages.  For ex
 The main problem with the setup scripts are that they do not install python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
 
 
->[AZURE.TIP] The scripts above were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) >file to **on** on the two startup tasks and the runtime task.
+>[AZURE.TIP] The scripts above were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** on the two startup tasks and the runtime task.
 >
 >```xml
 ><Variable name="PYTHON2" value="on" />
@@ -302,5 +302,5 @@ For more details about using Azure services from your web and worker roles, such
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
-[Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/
