@@ -300,7 +300,22 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
+
+You can search on message content, but (unlike property values) you can't filter on it.
+
+The size limit on `message` is much higher than limit on properties.
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there.  
+
+
+In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level relating to a particular database.
 
 ## Track Dependency
 
