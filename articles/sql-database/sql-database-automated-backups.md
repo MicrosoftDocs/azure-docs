@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cloud business continuity - Builit-in backup - SQL Database | Microsoft Azure"
+   pageTitle="Cloud business continuity - Built-in backup - SQL Database | Microsoft Azure"
    description="Learn about SQL Database buiit-in backups that enable you to roll back an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region (up to 35 days)."
    services="sql-database"
    documentationCenter=""
