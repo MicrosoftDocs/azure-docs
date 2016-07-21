@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Python web and worker roles with Python Tools 2.2 for Visual Studio | Microsoft Azure"
+	pageTitle="Python web and worker roles with Visual Studio | Microsoft Azure"
 	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
 	services="cloud-services"
 	documentationCenter="python"
 	authors="thraka"
-	manager="wpickett"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article"
-	ms.date="08/30/2015"
+	ms.date="07/20/2016"
 	ms.author="adegeo"/>
 
 
+# Python web and worker roles with Python Tools for Visual Studio
 
-
-# Python web and worker roles with Python Tools 2.2 for Visual Studio
-
-This article provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][].
+This article provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][]. You will learn how to use Visual Studio to create and deploy a basic Cloud Service that uses Python.
 
 ## Prerequisites
 
  - Visual Studio 2013 or 2015
- - [Python Tools 2.2 for Visual Studio][] (PTVS)
+ - [Python Tools for Visual Studio][] (PTVS)
  - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2015][]
  - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
 
@@ -63,6 +61,176 @@ You can add web or worker roles to an existing cloud service at any time.  You c
 
 Your cloud service can contain roles implemented in different languages.  For example, you can have a Python web role implemented using Django, with Python, or with C# worker roles.  You can easily communicate between your roles using Service Bus queues or storage queues.
 
+## Install Python on the cloud service
+
+>[AZURE.WARNING] The setup scripts that are installed at the time this article was last updated do not work. The rest of this article describes a workaround.
+
+The main problem with the setup scripts are that they do not install python. First, define two [startup tasks] in the [ServiceDefinition.csdef] file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
+
+```xml
+<Startup>
+
+  <Task executionContext="elevated" taskType="simple" commandLine="bin\ps.cmd PrepPython.ps1">
+    <Environment>
+      <Variable name="EMULATED">
+        <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+      </Variable>
+	  <Variable name="PYTHON2" value="off" />
+    </Environment>
+  </Task>
+
+  <Task executionContext="elevated" taskType="simple" commandLine="bin\ps.cmd PipInstaller.ps1">
+    <Environment>
+      <Variable name="EMULATED">
+        <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+      </Variable>
+    </Environment>
+	<Variable name="PYTHON2" value="off" />
+  </Task>
+
+</Startup>
+```
+
+The **PYTHON2** and **PYPATH** variables needs to be added to the worker startup task. The **PYPATH** variable is only used if the **PYTHON2** variable is set to **on**.
+
+```xml
+<Runtime>
+  <Environment>
+    <Variable name="EMULATED">
+      <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+    </Variable>
+    <Variable name="PYTHON2" value="off" />
+    <Variable name="PYPATH" value="%SystemDrive%\Python27" />
+  </Environment>
+  <EntryPoint>
+    <ProgramEntryPoint commandLine="bin\ps.cmd LaunchWorker.ps1" setReadyOnProcessStart="true" />
+  </EntryPoint>
+</Runtime>
+```
+
+Next, create the **PrepPython.ps1** and **PipInstaller.ps1** files in the **./bin** folder of your role.
+
+#### PrepPython.ps1
+
+This script installs either Python 3.5 or it will Python 2.7 based on the if the **PYTHON2** enviornment variable is set to **on**. See [below](#use-other-python-versions) to install other versions.
+
+```powershell
+$is_emulated = $env:EMULATED -eq "true"
+$is_python2 = $env:PYTHON2 -eq "on"
+$nl = [Environment]::NewLine
+
+if (-not $is_emulated){
+	Write-Host "Checking if python is installed...$nl"
+	if ($is_python2) {
+		& "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
+	}
+	else {
+		py -V | Out-Null
+	}
+
+	if (-not $?) {
+
+		$url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
+		$outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+
+		if ($is_python2) {
+			$url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
+			$outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+		}
+		
+		Write-Host "Not found, downloading $url to $outFile$nl"
+		Invoke-WebRequest $url -OutFile $outFile
+		Write-Host "Installing$nl"
+
+		if ($is_python2) {
+			Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
+		}
+		else {
+			Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
+		}
+
+		Write-Host "Done$nl"
+	}
+	else {
+		Write-Host "Already installed"
+	}
+}
+```
+
+#### PipInstaller.ps1
+
+This script forces Python 3.5. See [below](#use-other-python-versions) to use other versions.
+
+```powershell
+$is_emulated = $env:EMULATED -eq "true"
+$is_python2 = $env:PYTHON2 -eq "on"
+$nl = [Environment]::NewLine
+
+if (-not $is_emulated){
+	Write-Host "Checking if requirements.txt exists$nl"
+	if (Test-Path ..\requirements.txt) {
+		Write-Host "Found. Processing pip$nl"
+
+		if ($is_python2) {
+			& "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
+		}
+		else {
+			py -m pip install -r ..\requirements.txt
+		}
+
+		Write-Host "Done$nl"
+	}
+	else {
+		Write-Host "Not found$nl"
+	}
+}
+```
+
+#### Modify LaunchWorker.ps1
+
+The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the content in this file with the following script.
+
+```powershell
+$is_emulated = $env:EMULATED -eq "true"
+$is_python2 = $env:PYTHON2 -eq "on"
+$nl = [Environment]::NewLine
+
+if (-not $is_emulated){
+	Write-Host "Running worker.py$nl"
+
+	if ($is_python2) {
+        cd..
+		iex "$env:PYPATH\python.exe worker.py"
+	}
+	else {
+		cd..
+		iex "py worker.py"
+	}
+	
+}
+```
+
+#### ps.cmd
+
+The Visual Studio templates should have created a **ps.cmd** file int he **./bin** folder. If that wasn't created, here is what is in that file. 
+
+```bat
+@echo off
+
+cd /D %~dp0
+
+if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
+%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -File %* >> "%DiagnosticStore%\LogFiles\%~n1.txt" 2>> "%DiagnosticStore%\LogFiles\%~n1.err.txt"
+```
+
+#### Use other Python versions
+
+The scripts above were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable in the [ServiceDefinition.csdef] file to **on** on the two startup tasks and the runtime task.
+
+```xml
+<Variable name="PYTHON2" value="on" />
+```
+
 ## Run locally
 
 If you set your cloud service project as the startup project and press F5, the cloud service will run in the local Azure emulator.
@@ -79,17 +247,7 @@ To publish, right-click the cloud service project in the solution and then selec
 
 ![Microsoft Azure Publish Sign In](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
-On the settings page, select the cloud service you want to publish to.
-
-![Microsoft Azure Publish Settings](./media/cloud-services-python-ptvs/publish-settings.png)
-
-You can create a new cloud service if you don't already have one available.
-
-![Create Cloud Service Dialog](./media/cloud-services-python-ptvs/publish-create-cloud-service.png)
-
-It's also useful to enable remote desktop connections to the machine(s) for debugging failures.
-
-![Remote Desktop Configuration Dialog](./media/cloud-services-python-ptvs/publish-remote-desktop-configuration.png)
+Follow the wizard. If you need to, enable remote desktop. Remote desktop is helpful when you need to debug something.
 
 When you are done configuring settings, click **Publish**.
 
@@ -98,6 +256,10 @@ Some progress will appear in the output window, then you'll see the Microsoft Az
 ![Microsoft Azure Activity Log Window](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
 Deployment will take several minutes to complete, then your web and/or worker roles will be running on Azure!
+
+### Investigate logs
+
+After the cloud service virtual machine starts up and installs Python, you can look at the logs to find any failure messages. These logs are located in the **C:\Resources\Directory\{role}\LogFiles** folder. **PrepPython.err.txt** will have at least one error in it from when the script tries to detect if Python is installed and **PipInstaller.err.txt** may complain about an outdated version of pip.
 
 ## Next steps
 
@@ -134,7 +296,6 @@ For more details about using Azure services from your web and worker roles, such
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
