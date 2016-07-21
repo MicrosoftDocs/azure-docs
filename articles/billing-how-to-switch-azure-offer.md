@@ -24,7 +24,7 @@ You can switch your existing subscription to a more favorable offer without any 
 -	If you find that you have a high Azure spend, you might be eligible for a discount by switching to the monetary commitment offer. Click [here](billing-usage-rate-card-overview.md) to see more information about how to gain insights into your Microsoft Azure resource consumption.
 -	If you would like to avail of membership benefits such as MSDN or BizSpark, after you’ve already signed up for a Pay-As-You-Go subscription.
 
-## How to switch your subscription to another offer
+## Guide to switching your subscription to another offer
 
 > [AZURE.VIDEO switch-to-a-different-azure-offer]
 
