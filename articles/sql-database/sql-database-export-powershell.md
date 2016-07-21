@@ -64,7 +64,7 @@ Replace with your specific values.
 In the [Azure portal](https://portal.azure.com) browse to your storage account to get these values. You can find the primary access key by clicking **All settings** and then **Keys** from your storage account's blade.
 
     $StorageName = "storageaccountname"
-    $StorageKeyType = "storageKeyType"
+    $StorageKeyType = "StorageAccessKey"
     $StorageUri = "http://$StorageName.blob.core.windows.net/containerName/filename.bacpac"
     $StorageKey = "primaryaccesskey"
 
