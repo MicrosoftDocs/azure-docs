@@ -214,11 +214,9 @@ The objective of this section is to create a test user in the classic portal cal
 
 ### Creating a eDigitalResearch test user
 
-The objective of this section is to create a user called Britta Simon in eDigitalResearch. eDigitalResearch supports just-in-time provisioning, which is by default enabled.
+The objective of this section is to create a user called Britta Simon in eDigitalResearch. 
 
-There is no action item for you in this section. A new user will be created during an attempt to access eDigitalResearch if it doesn't exist yet. 
-
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the eDigitalResearch support team.
+Please work with the eDigitalResearch support team to get users created.
 
 
 ### Assigning the Azure AD test user
