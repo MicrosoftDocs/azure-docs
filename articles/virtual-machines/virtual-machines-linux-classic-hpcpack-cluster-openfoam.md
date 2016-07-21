@@ -167,17 +167,19 @@ After restarting, ensure that the shared folder is mounted as /openfoam.
 
 ### Compile and install OpenFOAM
 
-Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-4.x-version-4.0.tar.gz in this example) to C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to compile OpenFOAM on all of the Linux nodes.
+Use the following **clusrun** commands to download and extract the OpenFOAM v4.0 Source Pack on the Linux nodes and then compile OpenFOAM on all of the Linux nodes.
 
 
-1.  Create a folder /opt/OpenFOAM on each Linux node, copy the source package to this folder, and extract it there.
+1.  Create a folder /opt/OpenFOAM on each Linux node, download the [source package](http://download.openfoam.org/source/4-0) to the /openfoam folder, and copy it and extract to the /opt/OpenFOAM folder.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
 
-    clusrun /nodegroup:LinuxNodes cp /openfoam/OpenFOAM-4.0.tar.gz /opt/OpenFOAM/
-
-    clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-4.0.tar.gz -C /opt/OpenFOAM
+    clusrun/nodegroup:LinuxNodes cp OpenFOAM-4.x-version-4.0.tar.gz /opt/OpenFOAM
+    
+    clusrun /nodegroup:LinuxNodes tar -xzf /openfoam/OpenFOAM-4.x-version-4.0.tar.gz -C /opt/OpenFOAM
+    
+    clusrun /nodegroup:LinuxNodes mv /opt/OpenFOAM/OpenFOAM-4.x-version-4.0 /opt/OpenFOAM/OpenFOAM-4.0
     ```
 
 2.  To compile OpenFOAM with the Intel MPI Library, first set up some environment variables for both Intel MPI and OpenFOAM. Use a bash script called settings.sh to do this. You can find an example in the sample files at the end of this article. Place this file (saved with Linux line endings) in the shared folder /openfoam. This file also contains settings for the MPI and OpenFOAM runtimes that you use later to run an OpenFOAM job.
@@ -195,7 +197,7 @@ Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-
 4.  Run the following command to compile OpenFOAM. The compilation process will take some time to complete and will generate a large amount of log information to standard output, so use the **/interleaved** option to display the output interleaved.
 
     ```
-    clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-4.x-version-4.0/Allwmake
+    clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-4.0/Allwmake
     ```
     
     >[AZURE.NOTE]The “\`” symbol in the command is an escape symbol for PowerShell. “\`&” means the “&” is a part of the command.
