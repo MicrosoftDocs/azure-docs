@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Enable Transparent Data Encryption in Azure Security Center
@@ -22,7 +22,7 @@ Azure Security Center will recommend that you enable Transparent Data Encryption
 
 This recommendation applies to the Azure SQL service only; doesn't include SQL running on your virtual machines.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
 ## Implement the recommendation
 
@@ -38,7 +38,7 @@ This recommendation applies to the Azure SQL service only; doesn't include SQL r
 
   ![Encryption status][4]
 
-## Next steps
+## See also
 
 This article showed you how to implement the Security Center recommendation "Enable Transparent Data Encryption." To learn more about SQL TDE, see the following:
 

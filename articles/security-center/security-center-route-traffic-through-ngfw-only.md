@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Route traffic through Next Generation Firewall only in Azure Security Center
@@ -30,8 +30,9 @@ Azure Security Center can detect when you have deployed a Next Generation Firewa
 2. This opens the blade **Route traffic through NGFW only** which lists VMs that you can route traffic. Select a VM from the list.
 ![Select a VM][2]
 
-3. A blade for the selected VM opens, displaying related inbound rules. A description provides you with more information on possible next steps.
+3. A blade for the selected VM opens, displaying related inbound rules. A description provides you with more information on possible next steps. Select **Edit inbound rules** to proceed with editing an inbound rule.
 ![Configure rules to limit access][3]
+![Edit inbound rule][4]
 
 ## See also
 
@@ -49,3 +50,4 @@ To learn more about Security Center, see the following:
 [1]: ./media/security-center-route-traffic-through-ngfw/route-traffic-through-ngfw.png
 [2]: ./media/security-center-route-traffic-through-ngfw/select-vm.png
 [3]: ./media/security-center-route-traffic-through-ngfw/configure-rules-to-limit-access.png
+[4]: ./media/security-center-route-traffic-through-ngfw/edit-inbound-rule.png

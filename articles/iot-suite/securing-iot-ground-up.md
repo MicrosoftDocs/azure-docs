@@ -18,3 +18,15 @@
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
+
+## Next steps
+
+To learn more about securing your IoT solution, see:
+
+- [IoT Security Best Practices][lnk-security-best-practices]
+- [IoT Security Architecture][lnk-security-architecture]
+- [Secure your IoT deployment][lnk-security-deployment]
+
+[lnk-security-best-practices]: iot-security-best-practices.md
+[lnk-security-architecture]: iot-security-architecture.md
+[lnk-security-deployment]: iot-suite-security-deployment.md

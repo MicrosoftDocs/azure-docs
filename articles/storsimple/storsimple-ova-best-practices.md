@@ -82,7 +82,7 @@ The total space required on the local tier so far will be: 240 GB + 120 GB + 330
 Second, we will need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
 If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
 
-Third, we will need 15% of your total local space so far to store local snapshots, so that only 85% of it will be available. In this example, that would be around 990 GB = 0.85*provisioned data disk TB. So, the provisioned data disk would be (990*(1/0.85))= 1320 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
+Third, we will need 15% of your total local space so far to store local snapshots, so that only 85% of it will be available. In this example, that would be around 990 GB = 0.85*provisioned data disk TB. So, the provisioned data disk would be (990*(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
 
 Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
 

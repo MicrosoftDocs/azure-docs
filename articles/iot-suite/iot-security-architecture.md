@@ -18,3 +18,9 @@
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
+
+## Next steps
+
+To learn more about securing your IoT solution, see [Secure your IoT deployment][lnk-security-deployment].
+
+[lnk-security-deployment]: iot-suite-security-deployment.md
