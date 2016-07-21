@@ -303,7 +303,7 @@ The script will create a self-signed management certificate and save it to the t
     -SubscriptionId <SubscriptionId> `
     -CertPlainPassword "<StrongPassword>" 
 
-After the script completes successfully, you will need to copy the certificate created in your user profile **Temp** folder.  Follow the steps for [uploading a management API certificate](./azure-api-management-certs.md) to the Azure classic portal.  Then proceed to the next section to test and verify the new credential configuration.  
+After the script completes successfully, you will need to copy the certificate created in your user profile **Temp** folder.  Follow the steps for [uploading a management API certificate](../azure-api-management-certs.md) to the Azure classic portal.  Then proceed to the next section to test and verify the new credential configuration.  
 
 
 ### Verify authentication
