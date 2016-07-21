@@ -17,7 +17,7 @@
 	ms.date="07/21/2016"
 	ms.author="cynthn"/>
 
-# About images for virtual machines
+# About images for Linux virtual machines
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
