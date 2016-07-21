@@ -1,6 +1,6 @@
 <properties
-	pageTitle="About images for virtual machines | Microsoft Azure"
-	description="Learn about how images are used with virtual machines in Azure."
+	pageTitle="About images for Windows virtual machines | Microsoft Azure"
+	description="Learn about how images are used with Windows virtual machines in Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="07/21/2016"
 	ms.author="cynthn"/>
 
 # About images for virtual machines
@@ -42,5 +42,5 @@ You can use the Azure PowerShell module to manage the images available to your A
 
 ## Next Steps
 
-You can also [create a Windows machine using the classic portal](../articles/virtual-machines/virtual-machines-windows-classic-tutorial.md)
+You can also [create a Windows machine using the classic portal](virtual-machines/virtual-machines-windows-classic-tutorial.md)
 
