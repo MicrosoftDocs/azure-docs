@@ -65,7 +65,15 @@ Your cloud service can contain roles implemented in different languages.  For ex
 
 >[AZURE.WARNING] The setup scripts that are installed at the time this article was last updated do not work. The rest of this article describes a workaround.
 
-The main problem with the setup scripts are that they do not install python. First, define two [startup tasks] in the [ServiceDefinition.csdef] file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
+The main problem with the setup scripts are that they do not install python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
+
+
+>[AZURE.TIP] The scripts above were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) >file to **on** on the two startup tasks and the runtime task.
+>
+>```xml
+><Variable name="PYTHON2" value="on" />
+>```
+
 
 ```xml
 <Startup>
@@ -112,7 +120,7 @@ Next, create the **PrepPython.ps1** and **PipInstaller.ps1** files in the **./bi
 
 #### PrepPython.ps1
 
-This script installs either Python 3.5 or it will Python 2.7 based on the if the **PYTHON2** enviornment variable is set to **on**. See [below](#use-other-python-versions) to install other versions.
+This script installs python. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be installed, otherwise Python 3.5 will be installed.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -159,7 +167,7 @@ if (-not $is_emulated){
 
 #### PipInstaller.ps1
 
-This script forces Python 3.5. See [below](#use-other-python-versions) to use other versions.
+This script calls up pip and installs all of the dependencies in the **requirements.txt** file. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -188,7 +196,9 @@ if (-not $is_emulated){
 
 #### Modify LaunchWorker.ps1
 
-The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the content in this file with the following script.
+The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
+
+This script calls the **worker.py** file from your python project. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -212,7 +222,7 @@ if (-not $is_emulated){
 
 #### ps.cmd
 
-The Visual Studio templates should have created a **ps.cmd** file int he **./bin** folder. If that wasn't created, here is what is in that file. 
+The Visual Studio templates should have created a **ps.cmd** file in the **./bin** folder. This shell script calls out the PowerShell wrapper scripts above and provides logging based on the name of the PowerShell wrapper called. If this file wasn't created, here is what should be in it. 
 
 ```bat
 @echo off
@@ -223,13 +233,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -File %* >> "%DiagnosticStore%\LogFiles\%~n1.txt" 2>> "%DiagnosticStore%\LogFiles\%~n1.err.txt"
 ```
 
-#### Use other Python versions
 
-The scripts above were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable in the [ServiceDefinition.csdef] file to **on** on the two startup tasks and the runtime task.
-
-```xml
-<Variable name="PYTHON2" value="on" />
-```
 
 ## Run locally
 
