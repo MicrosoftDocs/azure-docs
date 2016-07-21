@@ -27,7 +27,7 @@
 
 You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to manage the images available to your Azure subscription. You also can use the Azure classic portal for some image tasks, but the command line gives you more options.
 
-For examples of using the tools, see "Commands to manage your Azure virtual machine images" in [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md)
+For examples of using the tools, see [Common Azure CLI commands on Linux and Mac](virtual-machines-linux-cli-manage.md).
 
 
 ## Next steps

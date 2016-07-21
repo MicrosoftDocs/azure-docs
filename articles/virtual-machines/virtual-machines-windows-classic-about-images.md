@@ -42,5 +42,5 @@ You can use the Azure PowerShell module to manage the images available to your A
 
 ## Next Steps
 
-You can also [create a Windows machine using the classic portal](virtual-machines/virtual-machines-windows-classic-tutorial.md)
+You can also [create a Windows machine using the classic portal](virtual-machines-windows-classic-tutorial.md)
 
