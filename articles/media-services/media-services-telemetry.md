@@ -1,11 +1,22 @@
 <properties pageTitle="Azure Media Services Telemetry with .NET | Microsoft Azure" 
 	description="This article shows you how to use the Azure Media Services telemetry." 
-	services="" 
-	documentationCenter=""
-	authors="juliako" />
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/20/2016"   
+	ms.author="juliako"/>
 
 # Azure Media Services Telemetry with .NET
-
+ 
 ## Overview
 
 Media Services telemetry/monitoring allows Media Services customers to access metrics data for its services. Current version supports telemetry data for "Channel" and "StreamingEndpoint" entities. You can configure telemetry on component level granularity. There are two detail levels "Normal" and "Verbose". The current version only supports "Normal".
