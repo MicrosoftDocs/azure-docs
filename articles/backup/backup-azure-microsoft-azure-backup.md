@@ -35,10 +35,25 @@ Azure Backup Server inherits much of the workload backup functionality from Data
 
 The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
 
-| Location | Minimum requirements | Comments |
-| -------- | -------------------- | ----------------------- |
-| Azure | Azure IaaS virtual machine<br><br>A2 Standard: 2 cores, 3.5GB RAM | Start with a gallery image of Windows Server 2012 R2 Datacenter. <br/>Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Please read this article completely before deploying the machine. |
-| On-premises | Hyper-V VM,<br> VMWare VM,<br> or a physical host<br><br>2 cores and 4GB RAM | You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.<br/> The FAQ [lists the supported operating systems](backup-azure-backup-faq/#installation-amp-configuration) you can use on-premises.  |
+### Using a server in Azure
+
+When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-hero-tutorial/), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with 2 cores and 3.5 GB RAM.
+
+Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Please read this article completely before deploying the machine.
+
+### Using an on-premises server
+
+If you do not want to run the base server in Azure, you can run the server on a Hyper-V VM, a VMware VM, or a physical host. The recommended minimum requirements for the server hardware are 2 cores and 4 GB RAM. The supported operating systems are listed in the following table.
+
+| Operating System        | Platform           | SKU  |
+| :------------- |-------------| :-----|
+|Windows Server 2012 R2 and latest SPs|	64 bit|	Standard, Datacenter, Foundation|
+|Windows Server 2012 and latest SPs|	64 bit|	Datacenter, Foundation, Standard|
+|Windows Storage Server 2012 R2 and latest SPs	|64 bit|	Standard, Workgroup|
+|Windows Storage Server 2012 and latest SPs	|64 bit	|Standard, Workgroup|
+
+
+You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.<br/> The FAQ [lists the supported operating systems](backup-azure-backup-faq/#installation-amp-configuration) you can use on-premises.
 
 > [AZURE.NOTE]  You cannot install Azure Backup Server on a machine running as a domain controller.
 
