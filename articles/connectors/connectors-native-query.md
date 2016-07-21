@@ -30,7 +30,7 @@ To get started using the query action in a logic app, see [create a logic app](.
 
 ## Use the query action
 	
-An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions.](connectors-overview.md)  The query action currently has one operation exposed in the designer - filter array.  This allows you to query an array and return a set of filtered results.  Here's how you can add it in a logic app:
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md)  The query action currently has one operation exposed in the designer - filter array.  This allows you to query an array and return a set of filtered results.  Here's how you can add it in a logic app:
 
 1. Select the **New Step** button
 1. Choose **Add an action**
@@ -54,7 +54,7 @@ Below are the details for actions this connector supports.
 
 ## Query actions
 
-An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions.](connectors-overview.md) The connector has 1 possible action. 
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md) The connector has 1 possible action. 
 
 |Action|Description|
 |---|---|
