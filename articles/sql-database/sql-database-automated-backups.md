@@ -28,7 +28,7 @@ Microsoft Azure SQL Database provides up to 200% of your maximum provisioned dat
 
 ## Automatic backup details
 
-All Basic, Standard, and Premium databases are protected by automatic backups. Full backups are taken every week, differential backups every day, and log backups every 5 minutes. The first full backup is scheduled immediately after a database is created. Normally this completes within 30 minutes but it can take longer. If a database is already big, for example if it is created as the result of a database copy or restore from a large database, then the first full backup may take longer to complete. After the first full backup all further backups are scheduled automatically and managed silently in the background. Exact timing of full and differential backups is determined by the system to balance overall load. 
+All Basic, Standard, and Premium databases are protected by automatic backups. Full database backups are taken every week, differential database backups are taken hourly, and transaction log backups are taken every 5 minutes. The first full backup is scheduled immediately after a database is created. Normally this completes within 30 minutes but it can take longer. If a database is already big, for example if it is created as the result of a database copy or restore from a large database, then the first full backup may take longer to complete. After the first full backup all further backups are scheduled automatically and managed silently in the background. Exact timing of full and differential backups is determined by the system to balance overall load. 
 
 ## Geo-redundancy
 
@@ -48,7 +48,7 @@ You can also use [SQL Database automated backups](sql-database-automated-backups
 
 ## What happens to my restore point retention period when I downgrade/upgrade by service tier?
 
-After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded from P1 to S3, the retention period will change from 35 days to 35 days immediately, all the restore points prior to 35 days will no longer be available. Subsequently, if it is upgraded to P1 again, the retention period would begin from 35 days and start building up to 35 days.
+After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded to Basic, the retention period will change from 35 days to 7 days immediately, all the restore points prior to 35 days will no longer be available. Subsequently, if it is upgraded to Standard or Premium, the retention period would begin from 7 days and start building up to 35 days.
 
 ## How long is the retention period for a dropped DB? 
 The retention period is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.

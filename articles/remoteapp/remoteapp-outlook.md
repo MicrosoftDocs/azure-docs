@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/18/2016"
+    ms.date="07/20/2016"
     ms.author="elizapo" />
 
 # Using Microsoft Outlook in Azure RemoteApp
@@ -27,6 +27,6 @@ The user can select **Cached Exchange Mode** or **Online Mode** during account s
 Read [step by step instructions on enabling cached mode](https://technet.microsoft.com/library/c6f4cad9-c918-420e-bab3-8b49e1885034#proc).
 
 ## Search
-In Azure RemoteApp, using search within Outlook has limitations. Azure RemoteApp uses pooled VMs to accommodate user sessions. Search indexing depends on the machine ID, which is different for different VMs. It is possible that every time a user logs into Azure RemoteApp, they are directed to a new VM. That would mean, if we enable local search, the indexer will run every time the machine ID changes (when the user is on a different VM). Depending on the size of the .OST file, the indexer could take a long time to complete and use up resources needed for other apps. Search would not only be slow but might not produce results. A way to work around this would be to enable online search by default. Unfortunately, indexed/local search cannot be disabled and online search cannot be enabled by default in Outlook 2013.
+In Azure RemoteApp, using search within Outlook has limitations. Azure RemoteApp uses pooled VMs to accommodate user sessions. Search indexing depends on the machine ID, which is different for different VMs. It is possible that every time a user logs into Azure RemoteApp, they are directed to a new VM. That would mean, if we enable local search, the indexer will run every time the machine ID changes (when the user is on a different VM). Depending on the size of the .OST file, the indexer could take a long time to complete and use up resources needed for other apps. Search would not only be slow but might not produce results. Using an Online Mode account profile would work around this, but overall performance would suffer due to the lack of a local cache (see the link above for more information about the difference between cached and online mode). Unfortunately, indexed/local search cannot be disabled and online search cannot be enabled by default in Outlook 2013.
 
-Outlook 2016 has a solution to tackle this, by providing a new online search experience for mailboxes hosted on Exchange 2016 (or hosted in Office 365). This uses server search results against the local cache (OST). Outlook might fall back to using the search indexer in some scenarios, but most searches would use the online mode. The recommendation from Azure RemoteApp would be to use Outlook 2016 if mail search is a very important scenario.
+Outlook 2016 has a solution to tackle this in cached mode by providing a new service search experience for mailboxes hosted on Exchange 2016 (or hosted in Office 365). This uses service search results against the local cache (OST). Outlook might fall back to using the local search indexer in some scenarios, but most searches would use this new service search feature. The recommendation from Azure RemoteApp would be to use Outlook 2016 if mail search is a very important scenario.

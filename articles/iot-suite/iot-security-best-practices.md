@@ -18,3 +18,13 @@
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
+
+## Next steps
+
+To learn more about securing your IoT solution, see:
+
+- [IoT Security Architecture][lnk-security-architecture]
+- [Secure your IoT deployment][lnk-security-deployment]
+
+[lnk-security-architecture]: iot-security-architecture.md
+[lnk-security-deployment]: iot-suite-security-deployment.md

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/19/2016"
 	ms.author="ashwink"/>
 
 # Use autoscale actions to send email and webhook alert notifications in Azure Insights
@@ -35,7 +35,42 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 ![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
 ## Virtual Machine scale sets
-For newer ARM based Virtual Machines (Virtual Machine scale sets), you can configure this using REST API, PowerShell, and CLI. A portal interface is not yet available.
+For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
+When using the REST API or Resource Manager template, include the notifications element with the following options.
+
+```
+"notifications": [
+      {
+        "operation": "Scale",
+        "email": {
+          "sendToSubscriptionAdministrator": false,
+          "sendToSubscriptionCoAdministrators": false,
+          "customEmails": [
+              "user1@mycompany.com",
+              "user2@mycompany.com"
+              ]
+        },
+        "webhooks": [
+          {
+            "serviceUri": "https://foo.webhook.example.com?token=abcd1234",
+            "properties": {
+              "optional_key1": "optional_value1",
+              "optional_key2": "optional_value2"
+            }
+          }
+        ]
+      }
+    ]
+```
+|Field	|Mandatory?|	Description|
+|---|---|---|
+|operation	|yes	|value must be "Scale"|
+|sendToSubscriptionAdministrator	|yes	|value must be "true" or "false"|
+|sendToSubscriptionCoAdministrators	|yes	|value must be "true" or "false"|
+|customEmails	|yes	|value can be null [] or string array of emails|
+|webhooks	|yes	|value can be null or valid Uri|
+|serviceUri	|yes	|a valid https Uri|
+|properties	|yes	|value must be empty {} or can contain key-value pairs|
 
 
 ## Authentication in webhooks
@@ -80,14 +115,14 @@ When the autoscale notification is generated, the following metadata is included
 |operation|	yes	|For an increase of instances, it will be "Scale Out" and for a decrease in instances, it will be "Scale In"|
 |context|	yes	|The autoscale action context|
 |timestamp|	yes	|Time stamp when the autoscale action was triggered|
-|id	|Yes|	ARM (Azure Resource Manager) ID of the autoscale setting|
+|id	|Yes|	Resource Manager ID of the autoscale setting|
 |name	|Yes|	The name of the autoscale setting|
 |details|	Yes	|Explanation of the action that the autoscale service took and the change in the instance count|
 |subscriptionId|	Yes	|Subscription ID of the target resource that is being scaled|
 |resourceGroupName|	Yes|	Resource Group name of the target resource that is being scaled|
 |resourceName	|Yes|	Name of the target resource that is being scaled|
 |resourceType	|Yes|	The three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service roles, "microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets,  and "Microsoft.Web/serverfarms" - Web App|
-|resourceId	|Yes|ARM ID of the target resource that is being scaled|
+|resourceId	|Yes|Resource Manager ID of the target resource that is being scaled|
 |portalLink	|Yes	|Azure portal link to the summary page of the target resource|
 |oldCapacity|	Yes	|The current (old) instance count when Autoscale took a scale action|
 |newCapacity|	Yes	|The new instance count that Autoscale scaled the resource to|
