@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/>
 
 # Performance and scale testing with Azure DocumentDB
@@ -30,6 +30,8 @@ After reading this article, you will be able to answer the following questions:
 To get started with code, please download the project from [DocumentDB Performance Testing  Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [AZURE.NOTE] The goal of this application is to demonstrate best practices for extracting better performance out of DocumentDB with a small number of client machines. This was not made to demonstrate the peak capacity of the service, which can scale limitlessly.
+
+If you're looking for client-side configuration options to improve DocumentDB performance, see [DocumentDB performance tips](documentdb-performance-tips.md).
 
 ## Run the performance testing application
 The quickest way to get started is to compile and run the .NET sample below, as described in the steps below. You can also review the source code and implement similar configurations to your own client applications.
