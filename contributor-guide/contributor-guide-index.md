@@ -35,6 +35,8 @@
 
 - [Quality criteria for pull request review](contributor-guide-pr-criteria.md)
 
+- [Pull request comment automation](contributor-guide-pull-request-comments.md)
+
 
 ##Authoring articles: markdown
 

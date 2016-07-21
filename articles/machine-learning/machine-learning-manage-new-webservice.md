@@ -23,7 +23,7 @@
 
 Using the Microsoft Azure Machine Learning Web Services portal, you can manage your New Machine Learning web services. You can:
 
-- Monitor how the web service is being usage.
+- Monitor how the web service is being used.
 - Configure the description, update the keys for the web service, update your storage account key, and enable or disable sample data.
 - Delete the web service.
 - Create, delete, or update billing plans.
@@ -76,7 +76,7 @@ You can update the following properties:
 * **Description** allows you to enter a description for the web service.
 * **Title** allows you to enter a title for the web service
 * **Keys** allows you to rotate your primary and secondary API keys.
-* **Storage account key** allows update the key for the storage account associated with the web service changes. 
+* **Storage account key** allows you to update the key for the storage account associated with the web service changes. 
 * **Enable Sample data** allows you to provide sample data that you can use to test the your Request-Response service. If you created the web service in Machine Learning Studio, the sample data is taken from the data your used to train your model. If you created the service programatically, the data is taken from the example data you provided as part of the JSON package.
 
 ## Managing billing plans
@@ -93,7 +93,7 @@ Click on a plan to view its dashboard. The dashboard gives you snapshot or plan 
 The plan dashboard provides the following information:
 
 * **Plan Description** displays information about the costs and capacity associated with the plan.
-* **Plan Usage** displays the number of transactions and computer hours that have been charged against the plan.
+* **Plan Usage** displays the number of transactions and compute hours that have been charged against the plan.
 * **Web Services** displays the number of web services that are using this plan.
 * **Top Web Service By Calls** displays the the top four web services that are making calls that are charged against the plan.
 * **Top Web Services by Compute Hrs** displays the the top four web services that are using compute resources that are charged against the plan.

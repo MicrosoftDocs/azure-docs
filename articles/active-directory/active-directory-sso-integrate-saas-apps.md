@@ -5,7 +5,7 @@
 	  keywords="integrate Azure AD with SaaS apps"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="04/26/2016"
+    ms.date="07/20/2016"
     ms.author="curtand"/>
 
 # Integrate Azure Active Directory single sign-on with SaaS apps  
@@ -31,7 +31,7 @@ For applications that support only HTML forms-based sign-in, Azure Active Direct
 
 ## Authorization
 
-A provisioned account enables a user to be authorized to use an application after they have authenticated through single sign-on. User provisioning can be done manually, or in some cases you can add and remove user information from the SaaS app based on changes made in Azure Active Directory. For more information on using existing Azure AD connectors for automated provisioning, see  [Automated user provisioning and de-provisioning for SaaS applications](active-directory-saas-app-provisioning.md)
+A provisioned account enables a user to be authorized to use an application after they have authenticated through single sign-on. User provisioning can be done manually, or in some cases you can add and remove user information from the SaaS app based on changes made in Azure Active Directory. For more information on using existing Azure AD connectors for automated provisioning, see  [Automated user provisioning and de-provisioning for SaaS applications](active-directory-saas-app-provisioning.md).
 
 Otherwise, you can manually add user information to an app, or use other provisioning solutions that are available in the marketplace.
 
