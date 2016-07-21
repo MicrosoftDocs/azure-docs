@@ -92,6 +92,14 @@ A Point-to-Site connection is a VPN connection over SSTP (Secure Socket Tunnelin
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+For more information about ExpressRoute, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
+
+
+
 ## Next steps
 
 You'll want to become familiar with the items in the [About VPN Gateways](vpn-gateway-about-vpngateways.md) and [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) articles to better understand VPN gateways before moving forward with planning and designing your connection.
