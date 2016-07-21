@@ -131,7 +131,7 @@ This property can be updated via the resource [application’s manifest][AAD-App
 
 A similar case happens if the different tiers of an application are registered in different tenants.  For example, consider the case of building a native client application that calls the Office 365 Exchange Online API.  To develop the native application, and later for the native application to run in a customer’s tenant, the Exchange Online service principal must be present.  In this case the customer has to purchase Exchange Online for the service principal to be created in their tenant.  In the case of an API built by an organization other than Microsoft, the developer of the API needs to provide a way for their customers to consent their application into a customer tenant, for example a web page that drives consent using the mechanisms described in this article.  After the service principal is created in the tenant, the native application can get tokens for the API.
 
-The diagram below provides an overview of consent for a multi-tier multi-tenant app:
+The diagram below provides an overview of consent for a multi-tier app registered in different tenants:
 
 ![Consent to multi-tier multi-party app][Consent-Multi-Tier-Multi-Party] 
 
