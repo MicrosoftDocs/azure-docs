@@ -270,8 +270,8 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-db-service-tiers]: ../sql-database/sql-database-service-tiers.md
 [sql-db-v12]: ../sql-database/sql-database-v12-whats-new.md
 [sql-dtu]: ../sql-database/sql-database-service-tiers.md#understanding-dtus
-[sql-human-error]: ../sql-database/sql-database-user-error-recovery.md
-[sql-outage-recovery]: ../sql-database/sql-database-disaster-recovery.md
+[sql-human-error]: ../sql-database/sql-database-business-continuity.md#recover-a-database-after-a-user-or-application-error
+[sql-outage-recovery]: ../sql-database/sql-database-business-continuity.md#recover-a-database-to-another-region-from-an-azure-regional-data-center-outage
 [ssl-redirect]: ../app-service-web/web-sites-configure-ssl-certificate.md#4-enforce-https-on-your-app
 [sql-resource-limits]: ../sql-database/sql-database-resource-limits.md
 [ssl-cert]: ../app-service-web/web-sites-purchase-ssl-web-site.md
