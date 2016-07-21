@@ -18,8 +18,7 @@
 
 # Getting recommendations in batches
 
->[AZURE.NOTE] **Note**
-> Getting recommendations in batches is more complicated than getting a recommendation results one at a time. Please do check the APIs for getting recommendations for a single request here:<br>
+>[AZURE.NOTE] Getting recommendations in batches is more complicated than getting a recommendation results one at a time. Please do check the APIs for getting recommendations for a single request here:<br>
 > [Item-to-Item Recoomendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
 > [User-to-Item Recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
