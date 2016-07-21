@@ -22,7 +22,7 @@ This article shows the baseline VPN gateway connection topologies. You can use t
 
 Each topology contains a table listing the deployment model that the topology is available for, the deployment tools that you can use to configure each topology, and will link directly to an article if an article is available. We update the tables frequently as new articles and deployment tools become available for you to use.
 
-The instructions that you use to create your VPN gateway will depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you'll use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway. You can't create a Resource Manager VPN gateway for a classic deployment model virtual network. See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information about deployment models.
+After deciding on the connection that you want to create, the instructions that you use to create your VPN gateway will depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you'll use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway. You can't create a Resource Manager VPN gateway for a classic deployment model virtual network. See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information about deployment models.
 
 ## Site-to-Site and Multi-Site
 
@@ -102,7 +102,7 @@ For more information about ExpressRoute, see the [ExpressRoute technical overvie
 
 ## Next steps
 
-You'll want to become familiar with the items in the [About VPN Gateways](vpn-gateway-about-vpngateways.md) and [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) articles to better understand VPN gateways before moving forward with planning and designing your connection.
+You'll want to become familiar with the items in the [About VPN Gateways](vpn-gateway-about-vpngateways.md) and [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) articles to better understand VPN Gateway settings.
 
 
 
