@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="spelluru"/>
 
 # Move data From Amazon Redshift using Azure Data Factory
@@ -22,8 +22,13 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data factory currently supports only moving data from Amazon Redshift to other data stores, but not for moving data from other data stores to Amazon Redshift.
 
+## Prerequisites
+
+- Grant Azure or Data Management Gateway the access to Amazon Redshift cluster. See [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions.  
+- 
+
 ## Sample: Copy data from Amazon Redshift to Azure Blob
-This sample shows how to copy data from an Redshift database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+This sample shows how to copy data from a Amazon Redshift database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
  
 The sample has the following data factory entities:
 
@@ -44,9 +49,9 @@ The sample copies data from a query result in Amazon Redshift to a blob every ho
 	        "type": "AmazonRedshift",
 	        "typeProperties":
 	        {
-	            "server": "< The IP address or host name of the redshift server >",
-	            "port": "<The number of the TCP port that the redshift server uses to listen for client connections.>",
-	            "database": "<The database name of the redshift database>",
+	            "server": "< The IP address or host name of the Amazon Redshift server >",
+	            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
+	            "database": "<The database name of the Amazon Redshift database>",
 	            "username": "<username>",
 	            "password": "<password>",
 	        }
@@ -97,7 +102,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	        "type": "AzureBlob",
 	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties": {
-	            "folderPath": "mycontainer/fromredshift/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	            "folderPath": "mycontainer/fromamazonredshift/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	            "format": {
 	                "type": "TextFormat",
 	                "rowDelimiter": "\n",
@@ -152,7 +157,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 	
 	{
-	    "name": "CopyRedshiftToBlob",
+	    "name": "CopyAmazonRedshiftToBlob",
 	    "properties": {
 	        "description": "pipeline for copy activity",
 	        "activities": [
@@ -187,7 +192,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                    "frequency": "Hour",
 	                    "interval": 1
 	                },
-	                "name": "RedshiftToBlob"
+	                "name": "AmazonRedshiftToBlob"
 	            }
 	        ],
 	        "start": "2014-06-01T18:00:00Z",
@@ -205,7 +210,7 @@ The following table provides description for JSON elements specific to Amazon Re
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **AmazonRedshift**. | Yes |
 | server | IP address or host name of the Amazon Redshift server. | Yes |
-| port | The number of the TCP port that the Redshift server uses to listen for client connections. | No, default value: 5439 |
+| port | The number of the TCP port that the Amazon Redshift server uses to listen for client connections. | No, default value: 5439 |
 | database | Name of the Amazon Redshift database. | Yes |
 | username | Name of user who has access to the database.| Yes |
 | password | Password for the user account.| Yes |
