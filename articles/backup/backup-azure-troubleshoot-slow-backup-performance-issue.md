@@ -29,8 +29,9 @@ The next section helps you determine the specific cause of the issue.
 
 Before you start troubleshooting the issue, we recommend that you download and install the [latest Azure Backup agent](http://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.  
-
 We also strongly recommend that you review the [Azure Backup service- FAQ](backup-azure-backup-faq.md) to make sure you’re not experiencing any of the common configuration issues.
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Troubleshooting steps
 <a id="cause1"></a>
