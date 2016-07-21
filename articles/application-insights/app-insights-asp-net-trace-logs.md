@@ -181,8 +181,8 @@ If your application sends a lot of data and you are using the Application Insigh
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[portal]: http://portal.azure.com/
+[exceptions]: app-insights-asp-net-exceptions.md
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
