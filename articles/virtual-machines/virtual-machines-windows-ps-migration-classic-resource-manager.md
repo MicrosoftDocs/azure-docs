@@ -132,7 +132,7 @@ Check the configuration for the prepared resources by using either PowerShell or
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
 
-	Move-AzureService -Commit -ServiceName docmigtest1 -DeploymentName docmigtest1
+	Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 
 ### Migrate virtual machines in a virtual network
 

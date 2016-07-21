@@ -66,3 +66,9 @@ Take your cue from the PRMerger automation rules above, and do the following:
 * Submit articles with light changes together in a PR with 10 or fewer files.
 * Create a separate PR for articles in which images or selectors change. This requires human review.
 * Create a separate PR for new or deleted articles. This requires human review.
+
+## Related
+
+- [Quality criteria for pull request review](contributor-guide-pr-criteria.md)
+
+- [Pull request comment automation](contributor-guide-pull-request-comments.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -47,7 +47,7 @@ new version is available. For more information, see [How to install and configur
 For now, the services that support moving to both a new resource group and subscription are:
 
 - API Management
-- App Service apps - see [App Service limitations](#app-service-limitations)
+- App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 - Automation
 - Batch
 - CDN
