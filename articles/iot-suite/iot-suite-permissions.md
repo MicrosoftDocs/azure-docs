@@ -39,7 +39,7 @@ You can find more information about administrator roles in AAD in [Assigning adm
 
 **Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **ADMINISTRATOR** role for the application inside of their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role the global administrator is granted is **IMPLICIT READ ONLY**. Global administrators can assign roles for applications using the [Azure classic portal][lnk-classic-portal].
 
-**Domain User/Member:** There can be many domain users/members per AAD tenant. A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. The default role they are granted  for the application they provision is **ADMINISTRATOR**. They can create an application using the build.cmd script in the [azure-iot-solution][lnk-github-repo] repository, but the default role they are granted is **IMPLICIT READONLY**, as they do not have permission to assign roles. If another user in the AAD tenant creates an application, they are assigned the **IMPLICIT READONLY** role by default for that application. They do not have the ability to assign roles for applications; therefore cannot add users or roles for users for an application even if they provisioned it.
+**Domain User/Member:** There can be many domain users/members per AAD tenant. A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. The default role they are granted  for the application they provision is **ADMINISTRATOR**. They can create an application using the build.cmd script in the [azure-iot-remote-monitoring][lnk-rm-github-repo] or [azure-iot-predictive-maintenance][lnk-pm-github-repo] repository, but the default role they are granted is **IMPLICIT READONLY**, as they do not have permission to assign roles. If another user in the AAD tenant creates an application, they are assigned the **IMPLICIT READONLY** role by default for that application. They do not have the ability to assign roles for applications; therefore cannot add users or roles for users for an application even if they provisioned it.
 
 **Guest User/Guest:** There can be many guest users/guests per AAD tenant. Guest users have a limited set of rights in the AAD tenant. As a result, guest users cannot provision a preconfigured solution in the AAD tenant.
 
@@ -135,10 +135,15 @@ Take a look at the diagram below:
 
 If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and ensure the correct tenant is selected in the dropdown. If you’ve validated the desired tenant is correct, follow the diagram above and validate the mapping of your subscription and this AAD tenant.
 
+## Next steps
+
+Next, you can learn how to [customize a preconfigured solution][lnk-customize].
+
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-github-repo]: https://github.com/Azure/azure-iot-solution
+[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
@@ -147,3 +152,4 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
