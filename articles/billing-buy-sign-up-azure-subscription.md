@@ -62,7 +62,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
  
     ![Enter a valid phone number to verify your phone](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)
     
-    If you don't receive a text message or a call, try using a different phone number or contact [Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for help. 
+    If you don't receive a text message or a call, try using a different phone number or contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help. 
 
 5. In the **Verification by card** section, enter the details of a valid credit card. This information is collected only to verify your identity.
 
@@ -76,11 +76,11 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
  
     It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance.
  
-    If you get an error message, follow the steps in the message to resolve the issue. A typical error message is:
+    > [AZURE.NOTE] If you get an error message, follow the steps in the message to resolve the issue. A typical error message is:
 
-    **Sorry, we could not complete the operation. Please try again later or reload the web page** 
+    > **Sorry, we could not complete the operation. Please try again later or reload the web page** 
 
-    In this case, try using another browser to complete the sign-up process. If the issue still occurs, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.
+    > In this case, try using another browser to complete the sign-up process. If the issue still occurs, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.
 
 7. When the subscription is ready, select **Start managing my service** to begin.
  
