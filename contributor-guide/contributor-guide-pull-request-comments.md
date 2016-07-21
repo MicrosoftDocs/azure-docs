@@ -10,4 +10,8 @@ We use comment automation in pull request comments to allow contributors and aut
 | #please-close	| You can type the **#please-close** comment in the comment stream of a pull request to close it if you decide not to have the changes merged. | Public |
 
 
+## Related
 
+- [Pull request etiquette and best practices for Microsoft contributors](contributor-guide-pull-request-etiquette.md)
+
+- [Quality criteria for pull request review](contributor-guide-pr-criteria.md)
