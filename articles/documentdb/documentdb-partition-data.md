@@ -248,6 +248,27 @@ The following query does not have a filter on the partition key (DeviceId) and i
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
+#### Parallel Cross-partition Queries
+
+Parallel execution can improve the latency and throughput of a cross-partition query, especially when you have a large number of partitions and the query needs to be fanned out. Parallel queries achive this by visiting multiple partitions somultaneously and consolidating the results at the client-side. One can control the degree of parallelism (i.e., maximum number of simultaneous network connections to the partitions) and the buffer size (i.e., the maximum memory used to store and consolidate results from multiple partitions), through the rest API. Given the same state of the database, a parallel query will show the results in the same order as compared to a serial execution. 
+
+    // Parallel query across partitions
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+        
+#### Cross-partition Order By Queries
+
+Similar to parallel query, a cross-partition order by query works by visiting the partitions in parallel followed by fetching and ordering the results at the client side. As before, you can control the maximum degree of parallelism and the buffer size through the rest API.
+
+    // Cross-partition Order By Queries
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
+        .OrderBy(m => m.MetricValue);
+
 ### Executing stored procedures
 
 You can also execute atomic transactions against documents with the same device ID, e.g. if you're maintaining aggregates or the latest state of a device in a single document. 
