@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="07/21/2016"
    ms.author="mikewasson"/>
 
 # Azure reference architecture: Basic web application
@@ -35,6 +35,7 @@ The architecture has the following components:
 - **Resource group**. A [resource group][resource-group] is a logical container for Azure resources. 
 
 - **App Service app**. [Azure App Service][app-service] is a fully managed platform for creating and deploying cloud applications.     
+
 - **App Service plan**. An [App Service plan][app-service-plans] provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances. 
 
 - **Deployment slots.**  A [deployment slot][deployment-slots] lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.   
@@ -51,7 +52,7 @@ The architecture has the following components:
 
 ## Recommendations
 
-### App Service plan**
+### App Service plan
 
 Use the Standard or Premium tiers, because they support scale out, autoscale, and SSL, among other features. Each tier supports several *instance sizes*, which differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about app service plans, see [App Service Pricing][app-service-plans-tiers].
 
