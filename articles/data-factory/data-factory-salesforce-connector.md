@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Move data from Salesforce by using Data Factory | Microsoft Azure "
+	pageTitle="Move data from Salesforce by using Data Factory | Microsoft Azure"
 	description="Learn about how to move data from Salesforce by using Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
@@ -95,9 +95,9 @@ This example uses the **Salesforce** linked service. See the [Salesforce linked 
 		}
 	}
 
-Setting **external**  to **true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting **external** to **true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
-> [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
+> [AZURE.IMPORTANT] The "__c" part of the API Name is needed for any custom object.
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
@@ -175,11 +175,11 @@ See [RelationalSource type properties](#relationalsource-type-properties) for th
 		}
 	}
 
-> [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
+> [AZURE.IMPORTANT] The "__c" part of the API Name is needed for any custom object.
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
-## Salesforce Linked Service properties
+## Salesforce linked service properties
 
 The following table provides descriptions for JSON elements that are specific to the Salesforce linked service.
 
@@ -213,9 +213,9 @@ In the case of Copy Activity, when the source is of type **RelationalSource** (w
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| query | Use the custom query to read data. | SQL-92 query or [Salesforce Object Query Language (SOQL) ](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  select * from MyTable__c. | No (if the **tableName** of the **dataset** is specified) |
+| query | Use the custom query to read data. | SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  select * from MyTable__c. | No (if the **tableName** of the **dataset** is specified) |
 
-> [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.<br>
+> [AZURE.IMPORTANT] The "__c" part of the API Name is needed for any custom object.<br>
 When you specify a query that includes the where clause on the DateTime column, use SOQL. For example: $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd).
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
