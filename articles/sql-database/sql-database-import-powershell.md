@@ -90,7 +90,7 @@ Checking status immediately after the request will usually return a status of **
 Running this command will prompt you for a password. Enter the admin login and password for your SQL server.
 
 
-    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest .OperationStatusLink
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
  
 
 
