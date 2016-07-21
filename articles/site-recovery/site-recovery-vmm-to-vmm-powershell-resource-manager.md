@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-vmm-to-vmm.md)
 - [Classic Portal](site-recovery-vmm-to-vmm-classic.md)
-- [PowerShell ARM](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V  virtual machines managed in System Center Virtual Machine Manager (VMM) clouds to a secondary site. 
 
@@ -99,7 +99,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
 ## Step 2: Create a Recovery Services vault 
 
-1. Create an ARM resource group if you don't have one already
+1. Create an Azure Resource Manager resource group if you don't have one already
 
 		New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 
