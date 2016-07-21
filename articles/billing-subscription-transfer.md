@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Transferring Ownership of an Azure subscription| Microsoft Azure"
+   pageTitle="Transferring ownership of an Azure subscription| Microsoft Azure"
    description="How to transfer an Azure subscription to another user, and some frequently asked questions (FAQ) about the process"
    services=""
    documentationCenter=""
