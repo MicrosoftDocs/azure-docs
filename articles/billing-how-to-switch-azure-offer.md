@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Switch your Azure subscription to another offer | Microsoft Azure"
-	description="Describes how an Azure subscriber can switch to a different Azure offer"
+	description="Learn about how to change your Azure subscription and switch it to a different Azure offer using the subscription management portal"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -29,7 +29,7 @@ You can switch your existing subscription to a more favorable offer without any 
 > [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions).
-2.	Select the subscription to transfer.
+2.	Select the subscription to change.
 3.	Click **Switch to another offer**.
 
 	![siwtchbutton](.\media\billing-how-to-switch-azure-offer\switchbutton.png)
@@ -48,7 +48,7 @@ You can switch your existing subscription to a more favorable offer without any 
 
 **What offer changes do you support?**
 
-See [Available offers you can switch to](#available-offers-you-can-switch-to).
+See the list of [available offers you can switch to](#available-offers-you-can-switch-to).
 
 **Does switching offers have any impact to my service?**
 
@@ -67,11 +67,13 @@ On the day you switch, an invoice will be generated for all outstanding charges.
 **Can I use this mechanism to migrate from web direct to [Cloud
  Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP), or an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA) offer?**
 
-This mechanism can be used to switch from- and to- only web direct offers. In order to move your existing subscription into EA, have your enrollment admin add your account into the EA. You will then receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing web direct subscription into CSP today.
+This mechanism can be used to switch from - and to - only web direct offers. In order to move your existing subscription into EA, have your enrollment admin add your account into the EA. You will then receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing web direct subscription into CSP today.
 
 ## Available offers you can switch to
 
-Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions). This article will be updated as we add more options. For other offer changes, [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
+Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions). This article will be updated as we add more options. 
 
 -	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) to the [12-Month Prepay Offer](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) to any of the [Monthly Azure Credit offers for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
+
+For other offer changes, [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
