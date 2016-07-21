@@ -62,6 +62,28 @@ Azure currently has two deployment models: Azure Service Management (referred to
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
 
+## Point-to-Site
+
+A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. This is a useful solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
+
+A Point-to-Site connection is a VPN connection over SSTP (Secure Socket Tunneling Protocol). Point-to-Site connections do not require a VPN device or a public-facing IP address to work. 
+
+**P2S diagram**
+
+![Point-to-site connection](./media/vpn-gateway-topology/point2site.png "point-to-site")
+
+**Available deployment models and methods**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+For more information about ExpressRoute, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
+
+
 
 ## Site-to-Site and ExpressRoute coexisting connections
 
@@ -77,26 +99,6 @@ ExpressRoute is a direct, dedicated connection to Microsoft Services, including 
 
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)] 
 
-
-## Point-to-Site
-
-A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. This is a useful solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
-
-A Point-to-Site connection is a VPN connection over SSTP (Secure Socket Tunneling Protocol). Point-to-Site connections do not require a VPN device or a public-facing IP address to work. 
-
-**P2S diagram**
-
-![Point-to-site connection](./media/vpn-gateway-topology/point2site.png "point-to-site")
-
-**Available deployment models and methods**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
-
-##ExpressRoute
-
-[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
-
-For more information about ExpressRoute, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
 
 
