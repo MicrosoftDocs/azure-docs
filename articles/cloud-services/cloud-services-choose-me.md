@@ -60,4 +60,4 @@ The PaaS nature of Cloud Services has other implications, too. One of the most i
 [Create a cloud service app in .NET](cloud-services-dotnet-get-started.md)  
 [Create a cloud service app in Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Create a cloud service app in PHP](../cloud-services-php-create-web-role.md)  
-[Create a cloud service app in Python](../cloud-services-python-ptvs.md)
+[Create a cloud service app in Python](cloud-services-python-ptvs.md)
