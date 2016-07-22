@@ -28,7 +28,7 @@ This article provides troubleshooting guidance to help you diagnose the cause of
 Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](http://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.
 
-We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.md) to make sure you’re not experiencing any of the common configuration issues.
+We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.md) to make sure you're not experiencing any of the common configuration issues.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -37,7 +37,7 @@ We also strongly recommend that you review the [Azure Backup service FAQ](backup
 
 Bottlenecks on the computer that's being backed up can cause delays. For example, the computer's ability to read or write to disk, or available bandwidth to send data over the network, can cause bottlenecks.
 
-Windows provides a built-in tool that’s called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) to detect these bottlenecks.
+Windows provides a built-in tool that's called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) to detect these bottlenecks.
 
 Here are some performance counters and ranges that can be helpful in diagnosing bottlenecks for optimal backups.
 
