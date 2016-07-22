@@ -18,15 +18,15 @@
 
 # Query the Azure Batch service efficiently
 
-Here you'll learn how to increase your Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, and compute nodes with the [Batch .NET][api_net] library.
+Here you'll learn how to increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, and compute nodes with the [Batch .NET][api_net] library.
 
-Nearly all Azure Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on *every* task within the job. This article explains how to execute these types of queries in the most efficient way.
+Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on *every* task within the job. This article explains how to execute these types of queries in the most efficient way.
 
 ## Meet the DetailLevel
 
 In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information for these can therefore generate a large amount of data that must "cross the wire" from the service to your application on each query. By limiting the number of items and the type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
 
-This [Batch .NET][api_net] API code snippet lists every task that is associated with a job, along with *all* of the properties of each task:
+This [Batch .NET][api_net] API code snippet lists *every* task that is associated with a job, along with *all* of the properties of each task:
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
