@@ -98,7 +98,7 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 
 1. Log on to the [Azure Account Portal](https://account.windowsazure.com/subscriptions) by using the Microsoft account or your organizational account that you used to sign up for the free trial.
 
-2. Select the subscription, and then select **Upgrade
+2. Select the subscription, and then select **Upgrade**
 
     ![Notice to upgrade from Free Trial to Pay-As-You-Go](./media/billing-buy-sign-up-azure-subscription/billpage.png)
 
