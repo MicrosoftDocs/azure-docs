@@ -138,7 +138,7 @@ The following example shows how to upload a blob into a container and assumes th
 
 > [AZURE.TIP] **List blobs with Microsoft Azure Storage Explorer**
 > 
-> Microsoft Azure Storage Explorer enables you to visually manage your blob containers and blobs, including the ability to [list the blobs in a container](../vs-azure-tools-storage-explorer-blobs.md#view-a-blob-containers-contents).   
+> Microsoft Azure Storage Explorer enables you to visually manage your blob containers and blobs, including the ability to [view a list of blobs in a container](../vs-azure-tools-storage-explorer-blobs.md#view-a-blob-containers-contents).   
 
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs and/or directories
@@ -404,7 +404,7 @@ Now that you've learned the basics of Blob storage, follow these links
 to learn more.
 
 ### Microsoft Azure Storage Explorer
-- [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, MacOS, and Linux.
+- [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, OS X, and Linux.
 
 ### Blob storage samples
 
