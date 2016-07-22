@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/16/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -176,7 +176,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [CAT Team Blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature Requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN Forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
+[MSDN Forum]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow Forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

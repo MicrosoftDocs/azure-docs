@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/20/2016" 
 	ms.author="awills"/>
 
 
@@ -25,8 +25,10 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
- 
 Let's take a walk through some basic queries to get you started.
+
+> [AZURE.NOTE] If your app isn't sending data to Application Insights yet, you can [test Analytics using our simulated data](https://analytics.applicationinsights.io/demo).
+
 
 ## Connect to your Application Insights data
 
@@ -459,7 +461,7 @@ In the same clauses, we rename the timestamp column.
 
 ## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
 
-Use [let](./app-insights-analytics-syntax.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
+Use [let](./app-insights-analytics-reference.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
 
 ```AIQL
 
@@ -472,6 +474,8 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) to separate out the
 ```
 
 > Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
+
+
 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

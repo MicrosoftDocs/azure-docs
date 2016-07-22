@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/11/2016"
 	ms.author="jhubbard"/>
 
 
@@ -49,7 +49,7 @@ Be sure that you have the following installed on the computer where you install 
 
 - **.NET Framework 4.0**
 
- You can install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).
+ Install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).
 
 - **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
 

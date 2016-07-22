@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="04/22/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Deploy an ASP.NET web app to Azure App Service, using Visual Studio
 
@@ -239,4 +239,4 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * Delete the resource group that contains your web app and any related Azure resources when you're done with them.
 
-	For information about how to work with resource groups in the Azure portal, see [Using the Azure Portal to deploy and manage your Azure resources](../resource-group-portal.md).   
+	For information about how to work with resource groups in the Azure portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).   

@@ -37,7 +37,9 @@ By the end of this tutorial, you will be able to programatically detect:
 
 - **Languages** - What language is text written in?
 
-Note that this API charges 1 transaction per text record submitted. 
+Note that this API charges 1 transaction per document submitted. As an example, if you request sentiment for 1000 documents in a single call, 1000 transactions will be deducted.
+
+
 
 <a name="Overview"></a>
 ## General overview ##

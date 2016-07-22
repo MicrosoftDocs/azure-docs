@@ -177,9 +177,9 @@ If you want to switch off the standard dependency tracking module, remove the re
 
 ## Next steps
 
-- [Exceptions](app-insights-asp-net-exception-mvc.md#selector1)
-- [User & page data](app-insights-asp-net-client.md#selector1)
-- [Availability](app-insights-monitor-web-app-availability.md#selector1)
+- [Exceptions](app-insights-asp-net-exceptions.md)
+- [User & page data][client]
+- [Availability](app-insights-monitor-web-app-availability.md)
 
 
 

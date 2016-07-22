@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="07/06/2016"
    ms.author="mikewasson"/>
 
 # Running VMs for an N-tier architecture on Azure
@@ -37,7 +37,7 @@ There are variations of N-tier architectures. For the most part, the differences
 
 The following diagram builds on the topology shown in [Running multiple VMs on Azure][multi-vm].
 
-![IaaS: multi-tier](media/blueprints/compute-n-tier.png)
+![[0]][0]
 
 - **Availability Sets.** Create an [Availability Set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This approach is required to reach the availability [SLA][vm-sla] for VMs.
 
@@ -45,7 +45,7 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 - **Load balancers.** Use an [Internet-facing load balancer][load-balancer-external] to distribute incoming Internet traffic to the web tier, and an [internal load balancer][load-balancer-internal] to distribute network traffic from the web tier to the business tier.
 
-- **Jumpbox**. A _jumpbox_, also called a [bastion host], is a VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote desktop (RDP) only from whitelisted public IP addresses.
+- **Jumpbox**. A _jumpbox_, also called a [bastion host], is a VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from whitelisted public IP addresses. The NSG should permit remote desktop (RDP) traffic if the jumpbox is a Windows VM, or secure shell (SSH) requests if the jumpbox is a Linux VM.
 
 - **Monitoring**. Monitoring software sush as [Nagios], [Zabbix], or [Icinga] can give you insight into response time, VM uptime, and the overall health of your system. Install the monitoring software on a VM that's placed in a separate management subnet.
 
@@ -53,7 +53,7 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 - **Key Vault**. Use [Azure Key Vault][azure-key-vault] to manage encryption keys, for encrypting data at rest.
 
-## Network recommendations
+## Recommendations
 
 ### VNet / Subnets
 
@@ -87,17 +87,19 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 ### Jumpbox
 
-- Use a small VM size for the jumpbox, such as Standard A1. T
+- Place the jumpbox in the same VNet as the other VMs, but in a separate management subnet.
 
-- The jumpbox belongs to the same VNet as the other VMs, and connects to them through their private IP addresses.
+- Create a [public IP address] for the jumpbox.
 
-- Place the jumpbox in a separate management subnet, and create a [public IP address] for the jumpbox.
+- Use a small VM size for the jumpbox, such as Standard A1.
 
-- To secure the jumpbox, create an NSG and apply it to jumpbox subnet. Add an NSG rule that allows remote desktop (RDP) only from a whitelisted set of public IP addresses.
+- Configure the NSGs for the web tier, business tier, and database tier subnets to allow administrative (RDP/SSH) traffic to pass through from the management subnet.
 
-    The NSG can be attached either to the subnet or to the jumpbox NIC. In this case, we recommend attaching it to the NIC, so RDP traffic is permitted only to the jumpbox, even if you add other VMs to the same subnet.
+- To secure the jumpbox, create an NSG and apply it to the jumpbox subnet. Add an NSG rule that allows RDP or SSH connections only from a whitelisted set of public IP addresses.
 
-## Availability
+    The NSG can be attached either to the subnet or to the jumpbox NIC. In this case, we recommend attaching it to the NIC, so RDP/SSH traffic is permitted only to the jumpbox, even if you add other VMs to the same subnet.
+
+## Availability considerations
 
 - Put each tier or VM role into a separate availability set. Don't put VMs from different tiers into the same availability set. 
 
@@ -105,11 +107,11 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 > [AZURE.NOTE] For SQL Server, we recommend using [AlwaysOn Availability Groups][sql-alwayson]. For more information, see  
 
-## Security
+## Security considerations
 
 - Encrypt data at rest. Use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs][sql-keyvault] It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
-- Do not allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, whitelisted IP addresses.
+- Do not allow RDP/SSH access from the public Internet to the VMs that run the application workload. Instead, all RDP/SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP/SSH traffic from the Internet, but only from known, whitelisted IP addresses.
 
 - Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the data tier. To enforce this, the data tier should block incoming traffic from the web tier subnet.  
 
@@ -121,27 +123,26 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
   3. Add a rule that allows inbound traffic from within the data tier subnet itself. This rule allows communication between VMs in the data tier, which is needed for database replication and failover.
 
-  4. Add a rule that allows RDP traffic from the jumpbox subnet. This rule lets administrators connect to the data tier from the jumpbox.
+  4. Add a rule that allows RDP/SSH traffic from the jumpbox subnet. This rule lets administrators connect to the data tier from the jumpbox.
 
   > [AZURE.NOTE] An NSG has [default rules][nsg-rules] that allow any inbound traffic from within the VNet. These rules can't be deleted, but you can override them by creating higher-priority rules.
 
-
-## Scalability
+## Scalability considerations
 
 The load balancers distribute network traffic to the web and business tiers. Scale horizontally by adding new VM instances. Note that you can scale the web and business tiers independently, based on load. To reduce possible complications caused by the need to maintain client affinity, the VMs in the web tier should be stateless. The VMs hosting the business logic should also be stateless.
 
-## Manageability
+## Manageability considerations
 
 Simplify management of the entire system by using centralized administration tools such as [Azure Automation][azure-administration], [Microsoft Operations Management Suite][operations-management-suite], [Chef][chef], or [Puppet][puppet]. These tools can consolidate diagnostic and health information captured from multiple VMs to provide an overall view of the system.
 
-## Example deployment script
+## Solution Deployment
 
+<!-- This needs to be revisited when the ARM templates are available -->
 An example deployment script for this architecture is available on GitHub.
 
 - [Bash script (Linux)][deployment-script-linux]
 
 - [Batch file (Windows)][deployment-script-windows]
-
 
 ## Next steps
 
@@ -183,3 +184,5 @@ An example deployment script for this architecture is available on GitHub.
 
 [deployment-script-linux]: https://github.com/mspnp/blueprints/blob/master/3tier-linux/3TierCLIScript.sh
 [deployment-script-windows]: https://github.com/mspnp/blueprints/blob/master/3tier-windows/3TierCLIScript.cmd
+
+[0]: ./media/blueprints/compute-n-tier.png "N-tier architecture using Microsoft Azure"

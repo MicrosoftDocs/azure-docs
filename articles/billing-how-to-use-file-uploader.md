@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # Microsoft Azure new support request File Upload utility guidelines
@@ -30,7 +30,7 @@ Follow these guidelines when you use the File Upload utility:
 - You can’t upload more than one file.
 - Files can’t be larger than 4 MB.
 
-## Table of file name extensions
+## Table of the allowed file name extensions
 
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
