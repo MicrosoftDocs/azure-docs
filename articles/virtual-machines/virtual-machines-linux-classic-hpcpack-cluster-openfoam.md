@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="07/11/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Run OpenFoam with Microsoft HPC Pack on a Linux RDMA cluster in Azure
 
-This article shows you one way to run OpenFoam in Azure virtual machines. You'll deploy a Microsoft HPC Pack cluster on Azure and run an [OpenFoam](http://openfoam.com/) job with Intel MPI on multiple Linux compute nodes that connect across the Azure remote direct memory access (RDMA) network. Other options to run OpenFoam in Azure include fully configured commercial images available in the Marketplace, such as UberCloud's [OpenFoam 2.3 on CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/). 
+This article shows you one way to run OpenFoam in Azure virtual machines. You'll deploy a Microsoft HPC Pack cluster on Azure and run an [OpenFoam](http://openfoam.com/) job with Intel MPI on multiple Linux compute nodes that connect across the Azure remote direct memory access (RDMA) network. Other options to run OpenFoam in Azure include fully configured commercial images available in the Marketplace, such as UberCloud's [OpenFoam 2.3 on CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/), and by running on [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -26,7 +26,7 @@ OpenFOAM (for Open Field Operation and Manipulation) is a freely available open-
 
 Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. HPC Pack also supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for an introduction to using Linux compute nodes with HPC Pack.
 
->[AZURE.NOTE] This article assumes you have some familiarity with Linux system administration and with running MPI workloads on Linux HPC clusters. 
+>[AZURE.NOTE] This article illustrates how to run a Linux MPI workload with HPC Pack and assumes you have some familiarity with Linux system administration and with running MPI workloads on Linux clusters. If you use versions of MPI and OpenFOAM different from the ones shown in this article, you might have to modify some installation and configuration steps. 
 
 ## Prerequisites
 
@@ -34,15 +34,15 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 
     **Additional things to know**
 
-    *   Currently, Linux RDMA networking in Azure is only supported on size A8 or A9 VMs running  a SUSE Linux Enterprise Server (SLES) 12 for HPC, SLES 12 for HPC (Premium), CentOS-based 7.1 HPC, or CentOS-based 6.5 HPC distribution deployed from an Azure Marketplace image. For additional considerations, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+    *   Currently, Linux RDMA networking in Azure is only supported on size A8 or A9 VMs running a SUSE Linux Enterprise Server (SLES) 12 for HPC, SLES 12 for HPC (Premium), CentOS-based 7.1 HPC, or CentOS-based 6.5 HPC distribution deployed from an Azure Marketplace image. For additional considerations, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
     *   If you use the Powershell script deployment option, deploy all the Linux compute nodes within one cloud service to use the RDMA network connection.
 
     *   After deploying the Linux nodes, if you need to connect by SSH to perform any additional administrative tasks, find the SSH connection details for each Linux VM in the Azure portal.  
         
-*   **Intel MPI** - To run OpenFOAM on SLES 12 HPC compute nodes in Azure, you need to install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is already preintalled on CentOS-based HPC images).  In a later step, if necessary, you'll install Intel MPI on your Linux compute nodes. To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.1.
+*   **Intel MPI** - To run OpenFOAM on SLES 12 HPC compute nodes in Azure, you need to install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is already preintalled on CentOS-based HPC images).  In a later step, if necessary, you'll install Intel MPI on your Linux compute nodes. To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
 
-*   **OpenFOAM Source Pack** - Download the OpenFOAM Source Pack software for Linux from the [OpenFOAM Foundation site](http://www.openfoam.org/download/source.php). This article is based on Source Pack version 4.0. Follow the instructions later in this article to unpack and compile OpenFOAM on the Linux compute nodes.
+*   **OpenFOAM Source Pack** - Download the OpenFOAM Source Pack software for Linux from the [OpenFOAM Foundation site](http://openfoam.org/download/2-3-1-source/). This article is based on Source Pack version 2.3.1. Follow the instructions later in this article to unpack and compile OpenFOAM on the Linux compute nodes.
 
 *   **EnSight** (optional) - To see the results of your OpenFOAM simulation, download and install the [EnSight](https://www.ceisoftware.com/download/) visualization and analysis program. Licensing and download information are at the EnSight site.
 
@@ -121,21 +121,21 @@ To run OpenFOAM as an MPI job on the RDMA network, you need to compile OpenFOAM 
 
 You'll first run several **clusrun** commands to install Intel MPI libraries (if not already installed) and OpenFOAM on all of your Linux nodes. Use the head node share configured previously to share the installation files among the Linux nodes.
 
->[AZURE.IMPORTANT]These installation and compiling steps are examples and require some knowledge of Linux system administration to ensure that dependent compilers and libraries are installed correctly. You might need to modify certain environment variables or other settings for your versions of Intel MPI and OpenFOAM. For details see [Intel MPI Library for Linux Installation Guide](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) and [OpenFOAM Source Pack Installation](http://www.openfoam.org/download/source.php).
+>[AZURE.IMPORTANT]These installation and compiling steps are examples and require some knowledge of Linux system administration to ensure that dependent compilers and libraries are installed correctly. You might need to modify certain environment variables or other settings for your versions of Intel MPI and OpenFOAM. For details see [Intel MPI Library for Linux Installation Guide](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) and [OpenFOAM Source Pack Installation](http://openfoam.org/download/2-3-1-source/) for your environment.
 
 
 ### Install Intel MPI
 
-Save the downloaded installation package for Intel MPI (l_mpi_p_5.1.3.223.tgz in this example) in C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to install Intel MPI library on all of the Linux nodes.
+Save the downloaded installation package for Intel MPI (l_mpi_p_5.0.3.048.tgz in this example) in C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to install Intel MPI library on all of the Linux nodes.
 
 1.  The following commands copy the installation package and extract it to /opt/intel on each node.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/intel
 
-    clusrun /nodegroup:LinuxNodes cp /openfoam/l_mpi_p_5.1.3.223.tgz /opt/intel/
+    clusrun /nodegroup:LinuxNodes cp /openfoam/l_mpi_p_5.0.3.048.tgz /opt/intel/
 
-    clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.1.3.223.tgz -C /opt/intel/
+    clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
     ```
 
 2.  To install Intel MPI Library silently, use a silent.cfg file. You can find an example in the sample files at the end of this article. Place this file in the shared folder /openfoam. For details about the silent.cfg file, see [Intel MPI Library for Linux Installation Guide - Silent Installation](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall).
@@ -145,7 +145,7 @@ Save the downloaded installation package for Intel MPI (l_mpi_p_5.1.3.223.tgz in
 3.  Install Intel MPI Library in silent mode.
  
     ```
-    clusrun /nodegroup:LinuxNodes bash /opt/intel/l_mpi_p_5.1.3.223/install.sh --silent /openfoam/silent.cfg
+    clusrun /nodegroup:LinuxNodes bash /opt/intel/l_mpi_p_5.0.3.048/install.sh --silent /openfoam/silent.cfg
     ```
     
 ### Configure MPI
@@ -167,19 +167,17 @@ After restarting, ensure that the shared folder is mounted as /openfoam.
 
 ### Compile and install OpenFOAM
 
-Use the following **clusrun** commands to download and extract the OpenFOAM v4.0 Source Pack on the Linux nodes and then compile OpenFOAM on all of the Linux nodes.
+Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-2.3.1.tgz in this example) to C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** commands to compile OpenFOAM on all of the Linux nodes.
 
 
-1.  Create a folder /opt/OpenFOAM on each Linux node, download the [source package](http://download.openfoam.org/source/4-0) to the /openfoam folder, and copy it and extract to the /opt/OpenFOAM folder.
+1.  Create a folder /opt/OpenFOAM on each Linux node, copy the source package to this folder, and extract it there.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
 
-    clusrun/nodegroup:LinuxNodes cp OpenFOAM-4.x-version-4.0.tar.gz /opt/OpenFOAM
+    clusrun /nodegroup:LinuxNodes cp /openfoam/OpenFOAM-2.3.1.tgz /opt/OpenFOAM/
     
-    clusrun /nodegroup:LinuxNodes tar -xzf /openfoam/OpenFOAM-4.x-version-4.0.tar.gz -C /opt/OpenFOAM
-    
-    clusrun /nodegroup:LinuxNodes mv /opt/OpenFOAM/OpenFOAM-4.x-version-4.0 /opt/OpenFOAM/OpenFOAM-4.0
+    clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
 2.  To compile OpenFOAM with the Intel MPI Library, first set up some environment variables for both Intel MPI and OpenFOAM. Use a bash script called settings.sh to do this. You can find an example in the sample files at the end of this article. Place this file (saved with Linux line endings) in the shared folder /openfoam. This file also contains settings for the MPI and OpenFOAM runtimes that you use later to run an OpenFOAM job.
@@ -192,12 +190,12 @@ Use the following **clusrun** commands to download and extract the OpenFOAM v4.0
     clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
     ```
     
-    If necessary, ssh to each Linux node to run the commands to confirm that they run properly.
+    If necessary, SSH to each Linux node to run the commands to confirm that they run properly.
 
 4.  Run the following command to compile OpenFOAM. The compilation process will take some time to complete and will generate a large amount of log information to standard output, so use the **/interleaved** option to display the output interleaved.
 
     ```
-    clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-4.0/Allwmake
+    clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
     ```
     
     >[AZURE.NOTE]The “\`” symbol in the command is an escape symbol for PowerShell. “\`&” means the “&” is a part of the command.
@@ -295,11 +293,11 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
 
         where
 
-        * `<Number of nodes>`: the number of nodes allocated to this job.  
+        * `<Number of nodes>` - the number of nodes allocated to this job.  
         
-        * `<Name of node_n_...>`: the name of each node allocated to this job.
+        * `<Name of node_n_...>` - the name of each node allocated to this job.
         
-        * `<Cores of node_n_...>`: the number of cores on the node allocated to this job.
+        * `<Cores of node_n_...>` - the number of cores on the node allocated to this job.
 
         For example, if the job needs 2 nodes to run, $CCP_NODES_CORES will be similar to
         
@@ -515,25 +513,25 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 # lspat       - the license server address pattern (0123@hostname)
 # snpat       - the serial number pattern (ABCD-01234567)
 
-# Accept EULA, valid values are: {accept, decline}
+# accept EULA, valid values are: {accept, decline}
 ACCEPT_EULA=accept
 
-# Optional error behavior, valid values are: {yes, no}
+# optional error behavior, valid values are: {yes, no}
 CONTINUE_WITH_OPTIONAL_ERROR=yes
 
-# Install location, valid values are: {/opt/intel, filepat}
+# install location, valid values are: {/opt/intel, filepat}
 PSET_INSTALL_DIR=/opt/intel
 
-# Continue with overwrite of existing installation directory, valid values are: {yes, no}
+# continue with overwrite of existing installation directory, valid values are: {yes, no}
 CONTINUE_WITH_INSTALLDIR_OVERWRITE=yes
 
-# List of components to install, valid values are: {ALL, anythingpat}
-COMPONENTS=ALL
+# list of components to install, valid values are: {ALL, DEFAULTS, anythingpat}
+COMPONENTS=DEFAULTS
 
-# Installation mode, valid values are: {install, modify, repair, uninstall}
+# installation mode, valid values are: {install, modify, repair, uninstall}
 PSET_MODE=install
 
-# Directory for non-RPM database, valid values are: {filepat}
+# directory for non-RPM database, valid values are: {filepat}
 #NONRPM_DB_DIR=filepat
 
 # Serial number, valid values are: {snpat}
@@ -554,8 +552,12 @@ PHONEHOME_SEND_USAGE_DATA=no
 # Perform validation of digital signatures of RPM files, valid values are: {yes, no}
 SIGNING_ENABLED=yes
 
-# Select target architecture of your applications, valid values are: {IA32, INTEL64, ALL}
-ARCH_SELECTED=INTEL64
+# Select yes to enable mpi-selector integration, valid values are: {yes, no}
+ENVIRONMENT_REG_MPI_ENV=no
+
+# Select yes to update ld.so.conf, valid values are: {yes, no}
+ENVIRONMENT_LD_SO_CONF=no
+
 
 ```
 
@@ -565,7 +567,7 @@ ARCH_SELECTED=INTEL64
 #!/bin/bash
 
 # impi
-source /opt/intel/impi/5.1.3.223/bin64/mpivars.sh
+source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 export MPI_ROOT=$I_MPI_ROOT
 export I_MPI_FABRICS=shm:dapl
 export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
@@ -573,7 +575,7 @@ export I_MPI_DYNAMIC_CONNECTION=0
 
 # openfoam
 export FOAM_INST_DIR=/opt/OpenFOAM
-source /opt/OpenFOAM/OpenFOAM-4.x-version-4.0/etc/bashrc
+source /opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
 export WM_MPLIB=INTELMPI
 ```
 
