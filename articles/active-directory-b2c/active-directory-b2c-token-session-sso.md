@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Token, session and single sign-on configuration | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Token, session and single sign-on configuration | Microsoft Azure"
 	description="Token, session and single sign-on configuration in Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: Token, session and single sign-on configuration
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: Token, session and single sign-on configuration
 
 This feature gives you fine-grained control, on a [per-policy basis](active-directory-b2c-reference-policies.md), of:
  

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Self-service password reset | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Self-service password reset | Microsoft Azure"
 	description="A topic demonstrating how to set up self-service password reset for your consumers in Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
 
-# Azure Active Directory B2C preview: Set up self-service password reset for your consumers
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: Set up self-service password reset for your consumers
 
 With the self-service password reset feature, your consumers (who have signed up for local accounts) can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of consumers using it on a regular basis. Currently, we only support using a verified email address as a recovery method. We will add additional recovery methods (verified phone number, security questions, etc.) in the future.
 

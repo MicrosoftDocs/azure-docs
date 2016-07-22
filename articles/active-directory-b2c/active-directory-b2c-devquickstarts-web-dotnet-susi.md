@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C | Microsoft Azure"
 	description="How to build a web application that has sign-up, sign-in, and password reset using Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="07/22/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C preview: Sign-Up & Sign-In in a ASP.NET Web App
+# Azure AD B2C: Sign-Up & Sign-In in a ASP.NET Web App
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
@@ -71,7 +71,7 @@ To begin, add the OWIN middleware NuGet packages to the project by using the Vis
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
 Install-Package Microsoft.Owin.Host.SystemWeb
-Intsall-Package System.IdentityModel.Tokens.Jwt
+Install-Package System.IdentityModel.Tokens.Jwt
 ```
 
 Next, open the `web.config` file in the root of the project and enter your app's configuration values in the `<appSettings>` section, replacing the values below with your own.  You may leave the `ida:RedirectUri` and the `ida:AadInstance` values as is, unchanged.

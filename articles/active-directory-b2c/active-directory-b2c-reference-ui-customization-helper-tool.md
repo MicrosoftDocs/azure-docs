@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Page UI customization helper tool | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Page UI customization helper tool | Microsoft Azure"
 	description="A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: A helper tool used to demonstrate the page user interface (UI) customization feature
+# Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature
 
 This article is a companion to the [main UI customization article](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. The following steps describe how to exercise the page UI customization feature by using sample HTML and CSS content that we've provided.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Get an Azure AD B2C tenant
 
