@@ -135,10 +135,10 @@ An * means required field.
 |Unsubscribe URI*|uri|HTTP URI to use for unsubscribe request|
 |Subscribe Body|body|HTTP request body for subscribe|
 |Subscribe Headers|headers|HTTP request headers for subscribe|
-|Subscribe Authentication|authencation|HTTP authentication to use for subscribe. [See HTTP connector](./connectors-native-http.md#authenication) for details|
+|Subscribe Authentication|authencation|HTTP authentication to use for subscribe. [See HTTP connector](./connectors-native-http.md#authentication) for details|
 |Unsubscribe Body|body|HTTP request body for unsubscribe|
 |Unsubscribe Headers|headers|HTTP request headers for unsubscribe|
-|Unsubscribe Authentication|authentication|HTTP authentication to use for unsubscribe. [See HTTP connector](./connectors-native-http.md#authenication) for details|
+|Unsubscribe Authentication|authentication|HTTP authentication to use for unsubscribe. [See HTTP connector](./connectors-native-http.md#authentication) for details|
 <br>
 
 **Output Details**
