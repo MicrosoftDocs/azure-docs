@@ -34,13 +34,13 @@ This Quick Start in the GitHub SQL Server samples repository provides a set of P
 
 ## Get started with Elastic Database in an SaaS scenario
 
-This [Solution Quick Start: Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) provides a solution for a Software-as-a-Solution (SaaS) scenario that leverages the Elastic Database feature of SQL Database to provide a cost-effective, scalable database backend of an SaaS application.
+This [Solution Quick Start: Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) provides a solution for a Software-as-a-Solution (SaaS) scenario that leverages the Elastic Database feature of SQL Database to provide a cost-effective, scalable database backend for an SaaS application.
 
 In this solution, you will walk through the implementation of a web app. This web app lets you visualize the load that's created on an elastic database by a load generator that uses a custom dashboard that supplements the Azure portal.
 
-This Quick Start in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation on what the app does and how to use it.
+This Quick Start in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation about what the app does and how to use it.
 
-## Create an Azure SQL database by using the Entity Framework and Code First Development
+## Create an Azure SQL database by using Code First Development and the Entity Framework
 
 The video and sample in [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) provides an introduction to Code First development that targets a new database. This scenario targets a database that doesn’t exist, but which will be created by Code First. Alternatively, the scenario creates an empty database to which Code First adds new tables.
 
