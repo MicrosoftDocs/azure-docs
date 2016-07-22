@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/13/2016"
+	ms.date="07/22/2016"
 	ms.author="jroth"/>
 
 # Get started with SQL Server on Azure Virtual Machines
