@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/21/2016"
+	ms.date="07/22/2016"
 	ms.author="marsma" />
 
 # Query the Azure Batch service efficiently
 
 Here you'll learn how to increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, and compute nodes with the [Batch .NET][api_net] library.
 
-Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on *every* task within the job. This article explains how to execute these types of queries in the most efficient way.
+Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task within the job. To determine the status of the nodes in your pool, you must get data on every node in the pool. This article explains how to execute these types of queries in the most efficient way.
 
 ## Meet the DetailLevel
 
