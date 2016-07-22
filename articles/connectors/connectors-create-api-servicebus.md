@@ -29,15 +29,19 @@ Before your Logic app can access any service, you first need to create a *connec
 
 ### Create a connection to Azure Service Bus
 
->[AZURE.INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-azureservicebus.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
 
 ## Use a Azure Service Bus trigger
 
-A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+
+[Learn more about the available Azure Service Bus triggers](../connectors-create-api-servicebus.md#azure-service-bus-triggers)  
 
 ## Use a Azure Service Bus action
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+[Learn more about the available Azure Service Bus actions](../connectors-create-api-servicebus.md#azure-service-bus-actions)
 
 ## Technical Details
 

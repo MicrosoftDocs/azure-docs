@@ -27,15 +27,17 @@ To configure the this action, you will need to provide the following information
 
 Now that you have added an action to get a lead, you may want to do something interesting with the newly created lead. In an enterprise, you may want to send an email to notify a distribution list that a new lead has been created. Let's use the Office 365 connector to send an email with some of the relevant information from the new lead object in Salesforce.  
 
-1. Select **Add an action** then enter the **email** in the search box to filter the actions to those that are used to work with email
-- Select the **Office 365 Outlook - Send an email** list item. If you haven't already created a *connection* to Office 365, you will be prompted to enter your Office 365 credentials to create it now. After you are done, the **Send an email** control opens.        
+1. Select **Add an action** then enter *email* in the search. this filters the actions to those that are related to sending and receiving email.  
+- Select the **Office 365 Outlook - Send an email** list item. If you haven't already created a *connection* to your Office 365 account, you will be prompted to enter your Office 365 credentials to create it now. After you are done, the **Send an email** control opens.        
 ![](./media/connectors-create-api-salesforce/action-7.png)  
 - Enter the email address that you'd like to send email to in the **To** control.
--  In the **Subject** control, *New Lead created - * then select the *Company* token. This will display the *company* field from the new lead in Salesforce.  
--  In the body control, you can select any of the tokens from the new lead object and you can also enter whatever text you would like to display in the body of the email.  Here's an example:  
+-  In the **Subject** control, enter *New Lead created - * then select the *Company* token. This will display the *company* field from the new lead created in Salesforce.  
+-  In the **body** control, you can select any of the tokens from the new lead object and you can also enter whatever text you would like to display in the body of the email. Here's an example:  
 ![](./media/connectors-create-api-salesforce/action-8.png)   
 - Save your workflow.  
 
-Now, in Salesforce, you can test your workflow by creating a lead that meets the condition you created.  If you followed this walk-through fully, just create a lead with an email address that contains *amazon.com* in it. After a few seconds your logic app should be triggered and the results may look similar to this:  
+That's it. Your logic app is now complete.  
+
+Now, you can test your logic app: in Salesforce, create a new lead that meets the condition you created.  If you followed this walk-through fully, just create a lead with an email address that contains *amazon.com* in it. After a few seconds your logic app should be triggered and the results may look similar to this:  
 ![](./media/connectors-create-api-salesforce/action-9.png)  
 
