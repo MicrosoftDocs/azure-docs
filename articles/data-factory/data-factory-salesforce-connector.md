@@ -22,7 +22,7 @@ This article outlines how you can use Copy Activity in an Azure data factory to 
 Azure Data Factory currently supports only moving data from Salesforce to [supported sink data stores]((data-factory-data-movement-activities.md#supported-data-stores), but does not support moving data from other data stores to Salesforce.
 
 ## Prerequisites
-- You must use one of the following editions: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
+- You must use one of the following editions of Salesforce: Developer Edition, Professional Edition, Enterprise Edition, or Unlimited Edition.
 - API permission must be enabled. See [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 - To copy data from Salesforce to on-premises data stores, you must have at least Data Management Gateway 2.0 installed in your on-premises environment.
 
@@ -31,13 +31,13 @@ The easiest way to create a pipeline that copies data from Salesforce to any of 
 
 The following example provides sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
-## Sample: Copy data from Salesforce to Azure Blob storage
-This sample copies data from Salesforce to an Azure blob every hour. The JSON properties that are used in these examples are described in sections following the examples. You can copy data directly to any of the sinks that are stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article by using Copy Activity in Azure Data Factory.
+## Sample: Copy data from Salesforce to an Azure blob
+This sample copies data from Salesforce to an Azure blob every hour. The JSON properties that are used in these examples are described in sections after the examples. You can copy data directly to any of the sinks that are listed in the [data movement activities](data-factory-data-movement-activities.md#supported-data-stores) article by using Copy Activity in Azure Data Factory.
 
-- A linked service of type [Salesforce](#salesforce-linked-service-properties)
-- A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
-- An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#salesforce-dataset-properties)
-- An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties)
+- A linked service of the type [Salesforce](#salesforce-linked-service-properties)
+- A linked service of the type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+- An input [dataset](data-factory-create-datasets.md) of the type [RelationalTable](#salesforce-dataset-properties)
+- An output [dataset](data-factory-create-datasets.md) of the type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties)
 - A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#relationalsource-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)
 
 **Salesforce linked service**
@@ -101,7 +101,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
-**Azure Blob output dataset**
+**Azure blob output dataset**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1).
 
@@ -126,7 +126,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 **Pipeline with Copy Activity**
 
-The pipeline contains Copy Activity, which is configured to use the above input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource**, and **sink** type is set to **BlobSink**.
+The pipeline contains Copy Activity, which is configured to use the above input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource**, and the **sink** type is set to **BlobSink**.
 
 See [RelationalSource type properties](#relationalsource-type-properties) for the list of properties that are supported by the RelationalSource.
 
@@ -192,7 +192,7 @@ The following table provides descriptions for JSON elements that are specific to
 
 ## Salesforce dataset properties
 
-For a full list of sections and properties that are available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, and so on).
+For a full list of sections and properties that are available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like the structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, and so on).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for a dataset of the type **RelationalTable** has the following properties:
 
@@ -209,19 +209,19 @@ For a full list of sections and properties that are available for defining activ
 
 The properties that are available in the typeProperties section of the activity, on the other hand, vary with each activity type--and in the case of Copy Activity, they vary depending on the types of sources and sinks.
 
-In the case of Copy Activity, when the source is of type **RelationalSource** (which includes Salesforce), the following properties are available in typeProperties section:
+In the case of Copy Activity, when the source is of the type **RelationalSource** (which includes Salesforce), the following properties are available in typeProperties section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| query | Use the custom query to read data. | SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  select * from MyTable__c. | No (if the **tableName** of the **dataset** is specified) |
+| query | Use the custom query to read data. | A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  select * from MyTable__c. | No (if the **tableName** of the **dataset** is specified) |
 
 > [AZURE.IMPORTANT] The "__c" part of the API Name is needed for any custom object.<br>
-When you specify a query that includes the where clause on the DateTime column, use SOQL. For example: $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd).
+When you specify a query that includes the **where** clause on the DateTime column, use SOQL. For example: $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd).
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Salesforce request limits
-Salesforce has limits for both total API requests and concurrent API requests. See the **API Request Limits** section in the [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
+Salesforce has limits for both total API requests and concurrent API requests. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
 
 If the number of concurrent requests exceeds the limit, throttling occurs and you will see random failures. If the total number of requests exceeds the limit, the Salesforce account will be blocked for 24 hours. You might also receive the “REQUEST_LIMIT_EXCEEDED“ error in both scenarios.  
 
