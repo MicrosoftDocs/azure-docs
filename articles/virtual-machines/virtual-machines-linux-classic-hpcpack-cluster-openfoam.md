@@ -40,9 +40,9 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 
     *   After deploying the Linux nodes, if you need to connect by SSH to perform any additional administrative tasks, find the SSH connection details for each Linux VM in the Azure portal.  
         
-*   **Intel MPI** - To run OpenFOAM on SLES 12 HPC compute nodes in Azure, you need to install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is already preintalled on CentOS-based HPC images).  In a later step, if necessary, you'll install Intel MPI on your Linux compute nodes. To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
+*   **Intel MPI** - To run OpenFOAM on SLES 12 HPC compute nodes in Azure, you need to install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is already preintalled on CentOS-based HPC images.)  In a later step, if necessary, you'll install Intel MPI on your Linux compute nodes. To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
 
-*   **OpenFOAM Source Pack** - Download the OpenFOAM Source Pack software for Linux from the [OpenFOAM Foundation site](http://openfoam.org/download/2-3-1-source/). This article is based on Source Pack version 2.3.1. Follow the instructions later in this article to unpack and compile OpenFOAM on the Linux compute nodes.
+*   **OpenFOAM Source Pack** - Download the OpenFOAM Source Pack software for Linux from the [OpenFOAM Foundation site](http://openfoam.org/download/2-3-1-source/). This article is based on Source Pack version 2.3.1, available for download as OpenFOAM-2.3.1.tgz. Follow the instructions later in this article to unpack and compile OpenFOAM on the Linux compute nodes.
 
 *   **EnSight** (optional) - To see the results of your OpenFOAM simulation, download and install the [EnSight](https://www.ceisoftware.com/download/) visualization and analysis program. Licensing and download information are at the EnSight site.
 
@@ -589,7 +589,7 @@ export WM_MPLIB=INTELMPI
 SCRIPT_PATH="$( dirname "${BASH_SOURCE[0]}" )"
 
 # Set mpirun runtime evironment
-source /opt/intel/impi/5.1.3.223/bin64/mpivars.sh
+source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 export MPI_ROOT=$I_MPI_ROOT
 export I_MPI_FABRICS=shm:dapl
 export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
