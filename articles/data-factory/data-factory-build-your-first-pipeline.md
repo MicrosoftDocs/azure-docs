@@ -17,7 +17,7 @@
 	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
-# Azure Data Factory tutorial: Build a data pipeline that processes data using Hadoop cluster 
+# Tutorial: Build a data pipeline that processes data using Hadoop cluster 
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
