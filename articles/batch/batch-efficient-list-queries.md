@@ -18,20 +18,23 @@
 
 # Query the Azure Batch service efficiently
 
-Learn here how to increase your Azure Batch application's performance by reducing the amount of data that is returned when you query the Batch service using the [Batch .NET][api_net] library.
+Here you'll learn how to increase your Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, and compute nodes with the [Batch .NET][api_net] library.
 
-In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information on these items can therefore generate a large amount of data that must be transferred from the service to your application on each query. By filtering your queries--limiting the number of items and the type of information that is returned--you can increase the speed of your queries, and therefore the performance of your application.
+Nearly all Azure Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on *every* task within the job. This article explains how to execute these types of queries in the most efficient way.
 
-Nearly every application using Azure Batch will perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine the capacity and status of a pool, you must query every node within the pool. To determine whether any of a job's tasks are still queued, you must query every task within the job. This article explains how to execute these types of queries in the most efficient way.
+## Meet the DetailLevel
 
-This [Batch .NET][api_net] API code snippet retrieves every task that is associated with a job, along with *all* of the tasks' properties:
+In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information for these can therefore generate a large amount of data that must "cross the wire" from the service to your application on each query. By limiting the number of items and the type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
+
+This [Batch .NET][api_net] API code snippet lists every task that is associated with a job, along with *all* of the properties of each task:
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
-IPagedEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
+IPagedEnumerable<CloudTask> allTasks =
+	batchClient.JobOperations.ListTasks("job-001");
 ```
 
-A much more efficient list query can be performed, however, by applying a filter to your query. You do this by supplying an [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns only the ID, command line, and compute node information properties of completed tasks:
+You can perform a much more efficient list query, however, by applying a "detail level" to your query. You do this by supplying an [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns only the ID, command line, and compute node information properties of completed tasks:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and their properties to return
@@ -48,7 +51,7 @@ In the above example scenario, if there are thousands of tasks in the job, the r
 > [AZURE.IMPORTANT]
 > We highly recommend that you *always* supply an ODATADetailLevel object to your .NET API list calls to ensure maximum efficiency and performance of your application. By specifying a detail level, you can help to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
 
-## Tools for efficient querying
+## Filter, select, and expand
 
 The [Batch .NET][api_net] and [Batch REST][api_rest] APIs provide the ability to reduce both the number of items that are returned in a list, as well as the amount of information that is returned for each. You do so by specifying **filter**, **select**, and **expand strings** when performing list queries.
 
@@ -75,9 +78,9 @@ The expand string reduces the number of API calls that are required to obtain ce
 
 > [AZURE.NOTE] When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). See the tables below for property mappings between the .NET and REST APIs.
 
-### Filter, select, and expand string specifications
+### Rules for filter, select, and expand strings
 
-- Properties specified in filter, select, and expand strings equate to the property names as they appear in the [Batch REST][api_rest] API--even when you use the [Batch .NET][api_net] library.
+- Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API--even when you use the [Batch .NET][api_net] library.
 - All property names are case sensitive, but property values are case insensitive.
 - Date/time strings can be one of two formats, and must be preceded with `DateTime`.
 
@@ -97,26 +100,29 @@ Within the [Batch .NET][api_net] API, the [ODATADetailLevel][odata] class is use
 The following code snippet uses the Batch .NET API to efficiently query the Batch service for the statistics of a specific set of pools. In this scenario, the Batch user has both test and production pools. The test pool IDs are prefixed with "test", and the production pool IDs are prefixed with "prod". In the snippet, *myBatchClient* is a properly initialized instance of the [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) class.
 
 ```csharp
-// First we need an ODATADetailLevel instance on which to set the expand, filter, and select
-// clause strings
+// First we need an ODATADetailLevel instance on which to set the filter, select,
+// and expand clause strings
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 
-// We want to pull only the "test" pools, so we limit the number of items returned by using a
-// FilterClause and specifying that the pool IDs must start with "test"
+// We want to pull only the "test" pools, so we limit the number of items returned
+// by using a FilterClause and specifying that the pool IDs must start with "test"
 detailLevel.FilterClause = "startswith(id, 'test')";
 
-// To further limit the data that crosses the wire, configure the SelectClause to limit the
-// properties that are returned on each CloudPool object to only CloudPool.Id and CloudPool.Statistics
+// To further limit the data that crosses the wire, configure the SelectClause to
+// limit the properties that are returned on each CloudPool object to only
+// CloudPool.Id and CloudPool.Statistics
 detailLevel.SelectClause = "id, stats";
 
-// Specify the ExpandClause so that the .NET API pulls the statistics for the CloudPools in a single
-// underlying REST API call. Note that we use the pool's REST API element name "stats" here as opposed
-// to "Statistics" as it appears in the .NET API (CloudPool.Statistics)
+// Specify the ExpandClause so that the .NET API pulls the statistics for the
+// CloudPools in a single underlying REST API call. Note that we use the pool's
+// REST API element name "stats" here as opposed to "Statistics" as it appears in
+// the .NET API (CloudPool.Statistics)
 detailLevel.ExpandClause = "stats";
 
-// Now get our collection of pools, minimizing the amount of data that is returned by specifying the
-// detail level that we configured above
-List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
+// Now get our collection of pools, minimizing the amount of data that is returned
+// by specifying the detail level that we configured above
+List<CloudPool> testPools =
+	await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
 ```
 
 > [AZURE.TIP] An instance of [ODATADetailLevel][odata] that is configured with Select and Expand clauses can also be passed to appropriate Get methods, such as [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), to limit the amount of data that is returned.
@@ -188,19 +194,21 @@ The select string for including only the ID and command line with each listed ta
 
 Check out the [EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it makes multiple calls to the [JobOperations.ListTasks][net_list_tasks] method and passes [ODATADetailLevel][odata] objects that are configured with different property values to vary the amount of data to be returned. It produces output similar to the following:
 
-		Adding 5000 tasks to job jobEffQuery...
-		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+```
+Adding 5000 tasks to job jobEffQuery...
+5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
 
-		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
-		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
-		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
-		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
-		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
-		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
 
-		Sample complete, hit ENTER to continue...
+Sample complete, hit ENTER to continue...
+```
 
-As is shown in the elapsed time information, you can greatly lower query response times by limiting the properties and the number of items that are returned. You can find this and other sample projects in the [azure-batch-samples][github_samples] repository on GitHub.
+As shown in the elapsed times, you can greatly lower query response times by limiting the properties and the number of items that are returned. You can find this and other sample projects in the [azure-batch-samples][github_samples] repository on GitHub.
 
 ### BatchMetrics library and code sample
 
