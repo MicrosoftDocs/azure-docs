@@ -30,7 +30,7 @@ To do this, set up the HPC Pack cluster property **AutoGrowShrink**. Alternative
 **AzureAutoGrowShrink.ps1** HPC PowerShell script that is installed with
 HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Also, currently you can only automatically grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Also, currently you can only automatically grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
 
 ## Set the AutoGrowShrink cluster property
 
