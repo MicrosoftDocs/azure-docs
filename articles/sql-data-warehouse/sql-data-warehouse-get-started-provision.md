@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="07/22/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Create an Azure SQL Data Warehouse
@@ -76,6 +76,8 @@ To load data into SQL Data Warehouse, see the [loading overview](./sql-data-ware
 
 If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview](./sql-data-warehouse-overview-migrate.md) or use [Migration Utility](./sql-data-warehouse-migrate-migration-utility.md).
 
+Firewall rules can also be configured using Transact-SQL. For more information, see [sp_set_firewall_rule][] and [sp_set_database_firewall_rule][].
+
 It's also a great idea to take a look at our [Best practices][].
 
 <!--Article references-->
@@ -85,8 +87,11 @@ It's also a great idea to take a look at our [Best practices][].
 [Best practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
+[sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
 <!--Other Web references-->
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+
