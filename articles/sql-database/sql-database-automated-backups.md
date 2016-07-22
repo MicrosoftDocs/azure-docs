@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cloud business continuity - Builit-in backup - SQL Database | Microsoft Azure"
-   description="Learn about SQL Database builit-in backups that enable you to roll back an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region (up to 35 days)."
+   pageTitle="Cloud business continuity - Built-in backup - SQL Database | Microsoft Azure"
+   description="Learn about SQL Database buiit-in backups that enable you to roll back an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region (up to 35 days)."
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
+   ms.workload="NA"
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -32,13 +32,13 @@ All Basic, Standard, and Premium databases are protected by automatic backups. F
 
 ## Geo-redundancy
 
-Backup files are stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes. The following shows the geo-replication of weekly and daily backups stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes.
+Backup files are stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes. This ensures that the backup files are replicated to a [paired data center](../best-practices-availability-paired-regions.md). The following shows the geo-replication of weekly and daily backups stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes.
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
 
 ## Using automated backups
 
-You can [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) during their [retention period](sql-database-service-tiers.md) to:
+You can [restore a database from automated backups](sql-database-recovery-using-backups.md) during their [retention period](sql-database-service-tiers.md) to:
 
 - A new database on the same logical server recovered to a specified point in time within the retention period. 
 - A database on the same logical server recovered to the deletion time for a deleted database.
@@ -48,7 +48,7 @@ You can also use [SQL Database automated backups](sql-database-automated-backups
 
 ## What happens to my restore point retention period when I downgrade/upgrade by service tier?
 
-After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded from P1 to S3, the retention period will change from 35 days to 35 days immediately, all the restore points prior to 35 days will no longer be available. Subsequently, if it is upgraded to P1 again, the retention period would begin from 35 days and start building up to 35 days.
+After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a datbase is downgraded to Basic, the retention period will change from 35 days to 7 days immediately, all the restore points prior to 35 days will no longer be available. Subsequently, if it is upgraded to Standard or Premium, the retention period would begin from 7 days and start building up to 35 days.
 
 ## How long is the retention period for a dropped DB? 
 The retention period is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.

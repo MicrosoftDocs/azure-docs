@@ -13,28 +13,35 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/18/2016"
+   ms.date="07/20/2016"
    ms.author="cherylmc" />
 
 # About VPN Gateway
 
-VPN Gateway is used to send network traffic between virtual networks and on-premises locations. It is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). The sections below discuss the items that relate to VPN Gateway. For connection diagrams, see [VPN Gateway connection topologies](vpn-gateway-topology.md). 
+VPN Gateway is a collection of settings that are used to send network traffic between virtual networks and on-premises locations. The sections in this article discuss settings that relate to VPN Gateway. VPN Gateway is used for Site-to-Site, Point-to-Site, and ExpressRoute connections. VPN Gateway is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). 
 
-## <a name="gwsub"></a>Gateway subnet
+VPN Gateway can be added to a virtual network to create a connection. Each virtual network can have only one VPN Gateway and there are specific configuration steps for each connection. For connection diagrams, see [VPN Gateway connection topologies](vpn-gateway-topology.md). 
 
-To configure a VPN gateway, you first need to create a gateway subnet for your VNet. The gateway subnet must be named *GatewaySubnet* to work properly. This name allows Azure to know that this subnet should be used for the gateway.<BR>If you are using the classic portal, the gateway subnet is automatically named *Gateway* in the portal interface. This is specific to viewing the gateway subnet in the classic portal only. In this case, the subnet is actually created in Azure as *GatewaySubnet* and can be viewed this way in the Azure portal and in PowerShell.
+## <a name="gwsku"></a>Gateway SKUs
 
-The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26, etc.). 
+When you create a VPN gateway, you'll need to specify the gateway SKU that you want to use. Gateway SKUs apply to both ExpressRoute and Vpn gateway types. Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). For more information about ExpressRoute, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
-Creating a larger gateway size prevents you from running up against gateway size limitations. For example, if you created a gateway with a gateway subnet size /29 and you want to configure a Site-to-Site/ExpressRoute coexist configuration, you would have to delete the gateway, delete the gateway subnet, create the gateway subnet as a /28 or larger, and then recreate your gateway. 
+There are 3 VPN Gateway SKUs:
 
-By creating a gateway subnet of a larger size from the start, you can save time later when adding new configuration features to your network environment. 
+- Basic
+- Standard
+- HighPerformance
 
-The example below shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that exist at this time.
+The example below specifies the `-GatewaySku` as *Standard*.
 
-	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
->[AZURE.IMPORTANT] Ensure that the GatewaySubnet does not have a Network Security Group (NSG) applied to it, as this may cause connections to fail.
+###  <a name="aggthroughput"></a>Estimated aggregate throughput by SKU and gateway type
+
+
+The table below shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 ## <a name="gwtype"></a>Gateway types
 
@@ -48,25 +55,18 @@ This example for the Resource Manager deployment model specifies the -GatewayTyp
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## <a name="gwsku"></a>Gateway SKUs
+## <a name="connectiontype"></a>Connection types
 
-When you create a VPN gateway, you'll need to specify the gateway SKU that you want to use. There are 3 VPN Gateway SKUs:
+Each configuration requires a specific connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
 
-- Basic
-- Standard
-- HighPerformance
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
 
-The example below specifies the `-GatewaySku` as *Standard*.
+In the example below, we are creating a Site-to-Site connection, which requires the connection type "IPsec".
 
-	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
-
-###  <a name="aggthroughput"></a>Estimated aggregate throughput by SKU and gateway type
-
-
-The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
-
-[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 ## <a name="vpntype"></a>VPN types
 
@@ -84,24 +84,32 @@ This example for the Resource Manager deployment model specifies the `-VpnType` 
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## <a name="connectiontype"></a>Connection types
+##  <a name="requirements"></a>Gateway requirements
 
-Each configuration requires a specific connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
+[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
-- IPsec
-- Vnet2Vnet
-- ExpressRoute
-- VPNClient
 
-In the example below, we are creating a Site-to-Site connection, which requires the connection type "IPsec".
+## <a name="gwsub"></a>Gateway subnet
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+To configure a VPN gateway, you first need to create a gateway subnet for your VNet. The gateway subnet must be named *GatewaySubnet* to work properly. This name allows Azure to know that this subnet should be used for the gateway.<BR>If you are using the classic portal, the gateway subnet is automatically named *Gateway* in the portal interface. This is specific to viewing the gateway subnet in the classic portal only. In this case, the subnet is actually created in Azure as *GatewaySubnet* and can be viewed this way in the Azure portal and in PowerShell.
+
+The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26, etc.). 
+
+Creating a larger gateway size prevents you from running up against gateway size limitations. For example, if you created a gateway with a gateway subnet size /29 and you want to configure a Site-to-Site/ExpressRoute coexist configuration, you would have to delete the gateway, delete the gateway subnet, create the gateway subnet as a /28 or larger, and then recreate your gateway. 
+
+By creating a gateway subnet of a larger size from the start, you can save time later when adding new configuration features to your network environment. 
+
+The example below shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that exist at this time.
+
+	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+
+>[AZURE.IMPORTANT] Ensure that the GatewaySubnet does not have a Network Security Group (NSG) applied to it, as this may cause connections to fail.
+
 
 
 ## <a name="lng"></a>Local network gateways
 
 The local network gateway typically refers to your on-premises location. In the classic deployment model, the local network gateway was referred to as a Local Site. You'll give the local network gateway a name, the public IP address of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure will look at the destination address prefixes for network traffic, consult the configuration that you have specified for your local network gateway, and route packets accordingly. You can modify these address prefixes as needed.
-
 
 
 ### Modify address prefixes - Resource Manager
@@ -116,15 +124,6 @@ In the example below, you can see a local network gateway named MyOnPremiseWest 
 
 If you need to modify your local sites when using the classic deployment model, you can use the Local Networks configuration page in the classic portal, or modify the Network Configuration file, NETCFG.XML, directly.
 
-
-##  <a name="devices"></a> VPN devices
-
-You must make sure that the VPN device that you plan to use supports the VPN type required for your configuration. See [About VPN devices](vpn-gateway-about-vpn-devices.md) for more information about compatible VPN devices.
-
-##  <a name="requirements"></a>Gateway requirements
-
-
-[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
 
 ## Next steps
