@@ -1,5 +1,5 @@
 <properties
-pageTitle="SharePoint Online connector | Microsoft Azure"
+pageTitle="Learn how to use the SharePoint Online connector in logic apps | Microsoft Azure"
 description="Create logic apps with the SharePoint Online connector to mange lists on SharePoint."
 services="app-servicelogic"	
 documentationCenter=".net,nodejs,java" 	
@@ -448,9 +448,9 @@ An * indicates that a property is required
 ItemsList
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|value|array|undefined|
+| Property Name | Data Type | 
+|---|---|
+|value|array|
 
 
 
@@ -475,9 +475,9 @@ An * indicates that a property is required
 ItemsList
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|value|array|undefined|
+| Property Name | Data Type |
+|---|---|
+|value|array|
 
 
 
@@ -502,9 +502,9 @@ An * indicates that a property is required
 ItemsList
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|value|array|undefined|
+| Property Name | Data Type |
+|---|---|
+|value|array|
 
 
 
@@ -526,9 +526,9 @@ An * indicates that a property is required
 Item
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|ItemInternalId|string|undefined|
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
 
 
 
@@ -550,9 +550,9 @@ An * indicates that a property is required
 Item
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|ItemInternalId|string|undefined|
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
 
 
 
@@ -590,9 +590,9 @@ An * indicates that a property is required
 Item
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|ItemInternalId|string|undefined|
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
 
 
 
@@ -630,9 +630,9 @@ An * indicates that a property is required
 TablesList
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|value|array|undefined|
+| Property Name | Data Type |
+|---|---|
+|value|array|
 
 
 
