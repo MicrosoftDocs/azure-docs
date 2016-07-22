@@ -11,18 +11,18 @@ To configure the this action, you will need to provide the following information
 Let's get started adding the action to extract the files if the condition defined earlier evaluates to *True*. 
 
 1. Select **Add an action**.        
-![](./media/connectors-create-api-sftp/condition-6.png)   
+![SFTP action condition image 6](./media/connectors-create-api-sftp/condition-6.png)   
 - Select the **SFTP - Extract folder** action      
-![](./media/connectors-create-api-sftp/condition-7.png)   
+![SFTP action condition image 7](./media/connectors-create-api-sftp/condition-7.png)   
 - Select **Source archive file path**              
-![](./media/connectors-create-api-sftp/condition-9.png)   
+![SFTP action condition image 9](./media/connectors-create-api-sftp/condition-9.png)   
 - Select the **File path** token. This indicates that you will use the file path of the file that the trigger found as the source archive file path.           
-![](./media/connectors-create-api-sftp/condition-10.png)   
+![SFTP action condition image 10](./media/connectors-create-api-sftp/condition-10.png)   
 - Select **Destination folder path**           
-![](./media/connectors-create-api-sftp/condition-11.png)   
+![SFTP action condition image 11](./media/connectors-create-api-sftp/condition-11.png)   
 - Select the **File path** token. This indicates that you will use the file path of the file that the trigger found as the destination path for the extracted files.   
 - Enter *\ExtractedFile* in the **Destination folder path** control. Do this just after the file path token in the Destination folder path control.         
-![](./media/connectors-create-api-sftp/condition-12.png)   
+![SFTP action condition image 12](./media/connectors-create-api-sftp/condition-12.png)   
 - Enter *True* in the **Overwrite?* control to indicate that existing files should be overwritten if they have the same name as the extracted files.      
-![](./media/connectors-create-api-sftp/condition-13.png)   
+![SFTP action condition image 13](./media/connectors-create-api-sftp/condition-13.png)   
 - Save the changes to your workflow  

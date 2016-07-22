@@ -10,21 +10,21 @@ To configure the this action, you will need to provide the following information
 |File content|The content that will be written to the file.|
 
 1. Select **+ New step** to add the action.  
-![](./media/connectors-create-api-sharepointonline/action-1.png)  
+![SharePoint online action image 1](./media/connectors-create-api-sharepointonline/action-1.png)  
 - Select the **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, SharePoint actions are of interest.    
-![](./media/connectors-create-api-sharepointonline/action-2.png)    
+![SharePoint online action image 2](./media/connectors-create-api-sharepointonline/action-2.png)    
 - Enter *sharepoint* to search for actions related to SharePoint.
 - Select **SharePoint Online - Create file** as the action to take.   **Note**: you will be prompted to authorize your logic app to access your SharePoint account if you have not created a connection to SharePoint Online previously.    
-![](./media/connectors-create-api-sharepointonline/action-3.png)    
+![SharePoint online action image 3](./media/connectors-create-api-sharepointonline/action-3.png)    
 - The **Create file** control opens.   
-![](./media/connectors-create-api-sharepointonline/action-4.png)     
+![SharePoint online action image 4](./media/connectors-create-api-sharepointonline/action-4.png)     
 - Select **Site URL** and browse to find the site where you would like to create the file.     
-![](./media/connectors-create-api-sharepointonline/action-5.png)  
+![SharePoint online action image 5](./media/connectors-create-api-sharepointonline/action-5.png)  
 - Select **Folder path** and browse to find the folder where the new file will be placed.  
-![](./media/connectors-create-api-sharepointonline/action-6.png)  
+![SharePoint online action image 6](./media/connectors-create-api-sharepointonline/action-6.png)  
 - Select the **File name** control and enter the name of the file you want to create. Here, you can either enter the file name directly or you can use any of the properties from the trigger you created previously. You do this by selecting properties from the list of **Outputs from When a new item is created**. This list is only display after you select the **File name** control. In this walkthough, I selected ID (the ID of the new list item) as the name of the file being created by the **SharePoint Online - Create file** action.    
-![](./media/connectors-create-api-sharepointonline/action-7.png)  
+![SharePoint online action image 7](./media/connectors-create-api-sharepointonline/action-7.png)  
 - Select the **File content** control and enter the content that will be written to the file that will be created. For the file content, notice that you can use any of the properties from the trigger you created previously. Simply select the properties from the list presented. Alternatively, you can enter the **File content** text directly into the control. In this example, I selected some properties and added spaces and a hyphen between each property.        
-![](./media/connectors-create-api-sharepointonline/action-8.png)  
+![SharePoint online action image 8](./media/connectors-create-api-sharepointonline/action-8.png)  
 - Save the changes to your workflow  
 - Congratulations, you now have a fully functional logic app that is triggered when a new item is added to a SharePoint Online list. The app will then create a file, using some of the properties from the new list item.  You can now test it by creating a new item in the SharePoint list. 
