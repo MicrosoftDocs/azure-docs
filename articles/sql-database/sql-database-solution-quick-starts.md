@@ -18,7 +18,7 @@
 
 # Explore Azure SQL Database Solution Quick Starts
 
-This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts demonstrate the use of SQL Database in a complete solution based on real-world scenarios. For simple step-by-step tutorials that demonstrate the use of a particular SQL Database feature, see [Explore Azure SQL Database tutorials](sql-database-explore-tutorials.md).
+This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts are located in the GitHub SQL Server samples repository and demonstrate the use of SQL Database in a complete solution based on real-world scenarios. For simple step-by-step tutorials that demonstrate the use of a particular SQL Database feature, see [Explore Azure SQL Database tutorials](sql-database-explore-tutorials.md).
 
 ## Try the WingTipTickets demo and hands-on lab
 
@@ -26,19 +26,19 @@ The [Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptick
 
 ## Collect and monitor resource usage data across multiple pools
 
-This [Solution Quick Start: Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) provides a solution for collecting and monitoring SQL Database resource usage across multiple pools in a subscription. When you have a large number of databases in a subscription, it's cumbersome to monitor each elastic pool separately.
+[Solution Quick Start: Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) provides a solution for collecting and monitoring SQL Database resource usage across multiple pools in a subscription. When you have a large number of databases in a subscription, it's cumbersome to monitor each elastic pool separately.
 
 To resolve this issue, you can combine SQL Database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases. This helps you monitor and analyze resource usage more efficiently.
 
-This Quick Start in the GitHub SQL Server samples repository provides a set of PowerShell scripts and T-SQL queries along with documentation on what the solution does and how to implement it.
+This Quick Start provides a set of PowerShell scripts and T-SQL queries along with documentation on what the solution does and how to implement it.
 
 ## Get started with Elastic Database in an SaaS scenario
 
-This [Solution Quick Start: Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) provides a solution for a Software-as-a-Solution (SaaS) scenario that leverages the Elastic Database feature of SQL Database to provide a cost-effective, scalable database backend for an SaaS application.
+ [Solution Quick Start: Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) provides a solution for a Software-as-a-Solution (SaaS) scenario that leverages the Elastic Database feature of SQL Database to provide a cost-effective and scalable database backend for an SaaS application.
 
 In this solution, you will walk through the implementation of a web app. This web app lets you visualize the load that's created on an elastic database by a load generator that uses a custom dashboard that supplements the Azure portal.
 
-This Quick Start in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation about what the app does and how to use it.
+This Quick provides a load generator and monitoring web app along with the documentation about what the app does and how to use it.
 
 ## Create an Azure SQL database by using Code First Development and the Entity Framework
 
@@ -54,7 +54,7 @@ The [Code First to a new database sample for EF](http://msdn.microsoft.com/data/
 
 ## Integrate Elastic Database tools with row-level security
 
-[Multi-tenant applications with Elastic Database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md) shows the changes that you need to make to an Entity Framework application to integrate [Elastic Database tools](sql-database-elastic-scale-get-started.md) with [row-level security](https://msdn.microsoft.com/library/dn765131). This sample illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multi-tenant shards.
+[Multitenant applications with Elastic Database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md) shows the changes that you need to make to an Entity Framework application to integrate [Elastic Database tools](sql-database-elastic-scale-get-started.md) with [row-level security](https://msdn.microsoft.com/library/dn765131). This sample illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multitenant shards.
 
 You do this by using ADO.NET SqlClient or Entity Framework. This sample extends the [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multitenant shard databases.
 It builds a simple console application for creating blogs and posts, with four tenants and two multitenant shard databases.
