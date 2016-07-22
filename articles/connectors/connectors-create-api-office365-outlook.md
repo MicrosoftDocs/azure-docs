@@ -123,7 +123,7 @@ Here are the details about the triggers, actions and responses that this connect
 |[Delete contact](connectors-create-api-office365-outlook.md#delete-contact)|This operation deletes a contact from a contacts folder.|
 |[Update contact](connectors-create-api-office365-outlook.md#update-contact)|This operation updates a contact in a contacts folder.|
 
-### Action details
+### Trigger and Action details
 
 In this section, see the specific details about each trigger and action, including any required or optional input properties, and any corresponding output associated with the connector.
 
