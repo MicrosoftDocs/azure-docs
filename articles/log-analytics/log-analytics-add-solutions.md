@@ -77,7 +77,7 @@ Refer to [Connecting Operations Manager to Log Analytics](log-analytics-om-agent
 
 ## Data collection details for OMS features and solutions
 
-The following table shows data collection methods and other details about how data is collected for OMS features and solutions. Direct agents and SCOM agents are essentially the same, however the direct agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use a SCOM agent, it must be targeted as an OMS agent to communicate with OMS. SCOM agents in this table are OMS agents that are connected to SCOM. See [Connect Operations Manager to Log Analytics](og-analytics-om-agents.md) for information about connecting your existing SCOM environment to OMS.
+The following table shows data collection methods and other details about how data is collected for OMS features and solutions. Direct agents and SCOM agents are essentially the same, however the direct agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use a SCOM agent, it must be targeted as an OMS agent to communicate with OMS. SCOM agents in this table are OMS agents that are connected to SCOM. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing SCOM environment to OMS.
 
 >[AZURE.NOTE] The type of agent that you use determines how data is sent to OMS, with the following conditions:
 
