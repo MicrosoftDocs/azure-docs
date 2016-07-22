@@ -21,7 +21,7 @@ By: Tsuyoshi Matsuzaki, Technical Evangelist, Microsoft, Tokyo
 
 
 ## Power BI Embedded: What it is and what it's for
-An overview of Power BI Embedded is described in the official [Power BI Embedded site](https://azure.microsoft.com/en-us/services/power-bi-embedded/), but let's take a quick look before we get into the details about using it with REST.
+An overview of Power BI Embedded is described in the official [Power BI Embedded site](https://azure.microsoft.com/services/power-bi-embedded/), but let's take a quick look before we get into the details about using it with REST.
 
 It's quite simple, really. An ISV \(or Cloud Solution Vendor, CSV) often wants to use the dynamic data visualizations of [Power BI](https://powerbi.microsoft.com) in their own application as UI building blocks.
 
@@ -49,7 +49,7 @@ When we finish creating the workspace collection, copy the access key from Azure
 ![](media\power-bi-embedded-how-to-with-rest\copy-access-key.png)
 
 **Note:** We can also provision the workspace collection and get access key via REST API.
- To learn more, see [Power BI Resource Provider APIs](https://msdn.microsoft.com/en-us/library/azure/mt712306.aspx)
+ To learn more, see [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx)
 
 ## Create .pbix file with Power BI Desktop
 Next, we must create the data connection and reports to be embedded.
@@ -440,5 +440,5 @@ At this time, Power BI Embedded only shows the report in the iframe. But, keep a
 
 
 ## See also
-- [Embed a Power BI report with an IFrame](power-bi-embedded-iframe.md)
+- [Embed a Power BI report with an iframe](power-bi-embedded-iframe.md)
 - [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
