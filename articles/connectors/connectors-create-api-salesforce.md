@@ -88,12 +88,12 @@ An * indicates that a property is required
 
 #### Output Details
 
-ItemsList: undefined
+ItemsList
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|value|array|undefined|
+| Property Name | Data Type |
+|---|---|
+|value|array|
 
 
 
@@ -111,12 +111,12 @@ An * indicates that a property is required
 
 #### Output Details
 
-Item: undefined
+Item
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|ItemInternalId|string|undefined|
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
 
 
 
@@ -134,12 +134,12 @@ An * indicates that a property is required
 
 #### Output Details
 
-Item: undefined
+Item
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|ItemInternalId|string|undefined|
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
 
 
 
@@ -172,12 +172,12 @@ An * indicates that a property is required
 
 #### Output Details
 
-Item: undefined
+Item
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|ItemInternalId|string|undefined|
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
 
 
 
@@ -198,12 +198,12 @@ An * indicates that a property is required
 
 #### Output Details
 
-ItemsList: undefined
+ItemsList
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|value|array|undefined|
+| Property Name | Data Type |
+|---|---|
+|value|array|
 
 
 
@@ -224,12 +224,12 @@ An * indicates that a property is required
 
 #### Output Details
 
-ItemsList: undefined
+ItemsList
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|value|array|undefined|
+| Property Name | Data Type |
+|---|---|
+|value|array|
 
 
 
@@ -242,12 +242,12 @@ There are no parameters for this call
 
 #### Output Details
 
-TablesList: undefined
+TablesList
 
 
-| Property Name | Data Type | Description |
-|---|---|---|
-|value|array|undefined|
+| Property Name | Data Type | 
+|---|---|
+|value|array|
 
 
 
@@ -263,7 +263,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 |401|Unauthorized|
 |403|Forbidden|
 |404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
 
