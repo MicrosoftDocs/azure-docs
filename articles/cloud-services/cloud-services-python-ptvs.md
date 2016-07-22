@@ -63,16 +63,16 @@ Your cloud service can contain roles implemented in different languages.  For ex
 
 ## Install Python on the cloud service
 
->[AZURE.WARNING] The setup scripts that are installed at the time this article was last updated do not work. The rest of this article describes a workaround.
-
-The main problem with the setup scripts are that they do not install python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
-
-
->[AZURE.TIP] The scripts above were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** on the two startup tasks and the runtime task.
+>[AZURE.WARNING]  The setup scripts that are installed at the time this article was last updated do not work. The rest of this article describes a workaround.
+>
+>The scripts below were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task.
 >
 >```xml
 ><Variable name="PYTHON2" value="on" />
 >```
+
+
+The main problem with the setup scripts are that they do not install python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
 
 
 ```xml
