@@ -86,7 +86,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-To add a nonclustered index on a table, simply specify CLUSTERED INDEX in the WITH clause: <--- Loc Comment: In the sample query, WITH clause is not used --->
+To add a nonclustered index on a table, simply specify CLUSTERED INDEX in the WITH clause: <!--Loc Comment: In the sample query, WITH clause is not used--->
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
