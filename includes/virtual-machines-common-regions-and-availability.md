@@ -4,13 +4,13 @@ Azure operates in multiple datacenters around the world. These datacenters are g
 ## What are Azure regions?
 Azure allows you to create resources, such as VMs, in defined geographic regions like 'West US', 'North Europe', or 'Southeast Asia'. There are currently 26 Azure regions around the world. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). Within each region, multiple datacenters exist in order to provide for redundancy and availability. This gives you flexibility when building your applications to create virtual machines (VMs) closest to your users and to meet any legal, compliance, or tax purposes.
 
-## Specialized Azure regions
-There are some specialized Azure regions for compliance or legal purposes which you may wish to use when building out your applications.
+## Special Azure regions
+There are some special Azure regions for compliance or legal purposes which you may wish to use when building out your applications.
 
-Existing specialized regions include:
+Existing special regions include:
 
 - **US Gov Virginia** and **US Gov Iowa**
-    - A physical and logical network-isolated instance of Azure for US government and agencies, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.fedramp.gov/marketplace/compliant-systems/) and [DISA](http://www.disa.mil/). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
+    - A physical and logical network-isolated instance of Azure for US government and agencies, operated by approved US citizens. Includes additional compliance certifications such as [FedRAMP](https://www.fedramp.gov/marketplace/compliant-systems/) and [DISA](http://www.disa.mil/). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
 - **Australia East** and **Australia Southeast**
     - These regions are available to customers with a business presence in Australia or New Zealand.
 - **Central India**, **South India**, and **West India**
@@ -18,7 +18,7 @@ Existing specialized regions include:
 - **China East** and **China North**
     - These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Microsoft Azure in China](http://www.windowsazure.cn/).
 
-Announced specialized regions include:
+Announced special regions include:
 
 - **Germany Central** and **Germany Northeast**
     - Azure will be available via a new data trustee model whereby customer data remains in Germany under control of T-Systems, a Deutsche Telekom company, acting as the German data trustee.
