@@ -131,7 +131,7 @@ The following diagram shows a cloud security architecture as the flow of informa
 For your organization to send data to Log Analytics, you configure Windows agents, agents running on Azure virtual machines, or OMS Agents for Linux. If you use Operations Manager agents, then you'll use a configuration wizard in the Operations console to configure them. Users (which might be you, other individual users, or a group of people) create one or more OMS accounts (OMS workspaces), and register agents by using one of the following accounts:
 
 
-- [Organizational ID](./active-directory/sign-up-organization.md)
+- [Organizational ID](../active-directory/sign-up-organization.md)
 
 - [Microsoft Account - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
 
