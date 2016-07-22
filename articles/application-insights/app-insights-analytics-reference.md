@@ -22,6 +22,7 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
 
 ## Index
 
