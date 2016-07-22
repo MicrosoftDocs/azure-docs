@@ -40,7 +40,7 @@ In this solution, you will walk through the implementation of a web app. This we
 
 This Quick Start provides a load generator and monitoring web app along with the documentation about what the app does and how to use it.
 
-## Create an Azure SQL database by using Code First Development and the Entity Framework
+## Create an Azure SQL database by using Code First development and the Entity Framework
 
 The video and sample in [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) provides an introduction to Code First development that targets a new database. This scenario targets a database that doesn’t exist, but which will be created by Code First. Alternatively, the scenario creates an empty database to which Code First adds new tables.
 
