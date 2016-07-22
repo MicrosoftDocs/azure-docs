@@ -77,7 +77,7 @@ In this example, we’ll first create a quota for the Compute Service, so we’l
 ##Compute Quota Types
 
 |**Type**                    |**Default Value**| **Description**|
-|--------------------------- | ------------------------------------------------------------------------------------------------------|
+|--------------------------- | ------------------------------------|------------------------------------------------------------------|
 |Max Number of Virtual Machines   |50|The maximum number of Virtual Machines that a subscription can create in this location. |
 |Max Number of Virtual Machine Cores              |100|The maximum number of cores that a subscription can create in this location (e.g. an A3 VM has 4 cores).|
 |Max Amount of Virtual Machine Memory (MB)         |150000|The maximum amount of RAM that can be provisioned in megabytes (e.g. an A1 VM consumes 1750 MB in RAM)|
