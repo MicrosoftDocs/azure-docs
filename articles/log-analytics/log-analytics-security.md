@@ -156,7 +156,7 @@ As described above, data from your agents is sent over SSL to Microsoft Azure da
 
 ## 3. The Log Analytics service receives and processes data
 
-The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](./storage/storage-introduction.md) and is not encrypted. However, each Azure storage blob has a set of unique set of keys which is accessible only to that user. The type of data that is stored is dependent on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data for the Azure storage blog.
+The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](../storage/storage-introduction.md) and is not encrypted. However, each Azure storage blob has a set of unique set of keys which is accessible only to that user. The type of data that is stored is dependent on the types of solutions that were imported and used to collect data. Then, the Log Analytics service processes the raw data for the Azure storage blog.
 
 ## 4. Use Log Analytics to access the data
 
