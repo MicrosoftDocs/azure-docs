@@ -137,7 +137,7 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 
 ## Next steps
 
-Next, you can learn how to [customize a preconfigured solution][lnk-customize].
+To continue learning about IoT Suite, see how you can [customize a preconfigured solution][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 
