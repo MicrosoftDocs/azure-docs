@@ -98,6 +98,7 @@ An * means required field.
 |URI*|uri|URI for the HTTP request|
 |Headers|headers|A JSON object of HTTP headers to include|
 |Body|body|The HTTP request body|
+|Authentication|authentication|Authentication to use for request - [see HTTP for details](./connectors-native-http.md#authentication)|
 <br>
 
 **Output Details**
