@@ -114,11 +114,6 @@ A Team Services release definition describes a workflow that is composed of a se
 
 The definition that is created consists of one task: **Deploy Service Fabric Application**. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820528) for more information about this task.
 
-### Verify the template defaults
-
-1.	Verify the **Publish Profile** input field for the **Deploy Service Fabric Application** task. By default, this field references a publish profile named Cloud.xml contained in the build's artifacts. If you want to reference a different publish profile or if the build contains multiple application packages in its artifacts, you need to update the path appropriately.
-2.	Verify the **Application Package** input field for the **Deploy Service Fabric Application** task. By default, this references the default application package path used in the build definition template.  If you've modified the default application package path in the build definition, you need to update the path appropriately here as well.
-
 ### Try it
 
 Select **Create Release** from the **Release** button menu to manually create a release. In the dialog that opens, select the build that you want to base the release on and then click **Create**. If you enabled continuous deployment, releases will also be created automatically when the associated build definition completes a build.
