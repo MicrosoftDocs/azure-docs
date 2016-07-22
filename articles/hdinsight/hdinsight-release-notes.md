@@ -20,7 +20,7 @@
 
 # Release notes for Hadoop components on Azure HDInsight
 
-## Notes for 07/21/2016 release of HDInsight
+## Notes for 07/14/2016 release of HDInsight
 
 The full version numbers for Linux-based HDInsight clusters deployed with this release:
 
