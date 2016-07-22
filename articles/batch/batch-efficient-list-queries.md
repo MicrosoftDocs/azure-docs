@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/22/2016"
+	ms.date="07/25/2016"
 	ms.author="marsma" />
 
 # Query the Azure Batch service efficiently
@@ -163,7 +163,7 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 | [CloudPool][net_pool] | [Get information about a pool][rest_get_pool] |
 | [CloudTask][net_task] | [Get information about a task][rest_get_task] |
 
-### Example: constructing a filter string
+## Example: construct a filter string
 
 When you construct a filter string for [ODATADetailLevel.FilterClause][odata_filter], consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job][rest_list_tasks] specifies the applicable property string and allowable operators:
 
@@ -175,7 +175,7 @@ Thus, the filter string for listing all tasks with a nonzero exit code would be:
 
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
-### Example: constructing a select string
+## Example: construct a select string
 
 To construct [ODATADetailLevel.SelectClause][odata_select], consult the table above under "Mappings for select strings" and navigate to the REST API page that corresponds to the type of entity that you are listing. You will find the selectable properties and their supported operators in the first multirow table on that page. If you wish to retrieve only the ID and command line for each task in a list, for example, you will find these rows in the applicable table on [Get information about a task][rest_get_task]:
 
@@ -188,7 +188,7 @@ The select string for including only the ID and command line with each listed ta
 
 `id, commandLine`
 
-## Next steps
+## Code samples
 
 ### Efficient list queries code sample
 
@@ -220,6 +220,12 @@ The sample application within the project demonstrates the following operations:
 
 1. Selecting specific attributes in order to download only the fields you need
 2. Filtering on state transition times in order to download only changes since the last query
+
+## Next steps
+
+### Parallel node tasks
+
+[Maximize Azure Batch compute resource usage with concurrent node tasks](batch-parallel-node-tasks.md) is another article related to Batch application performance. Some types of workloads can benefit from executing parallel tasks on larger--but fewer--compute nodes. Check out the [example scenario](batch-parallel-node-tasks.md#example-scenario) in the article for details on such a scenario.
 
 ### Batch Forum
 
