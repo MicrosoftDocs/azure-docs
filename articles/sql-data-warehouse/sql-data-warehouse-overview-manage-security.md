@@ -115,7 +115,7 @@ For details and examples on connecting to your SQL Data Warehouse with different
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
-[sp_set_firewall_rule}: https]://msdn.microsoft.com/library/dn270017.aspx
+[sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 [Database roles]: https://msdn.microsoft.com/library/ms189121.aspx
 [Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
