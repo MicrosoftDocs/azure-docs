@@ -19,9 +19,10 @@
 # How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern
 If you offer a Software as a Service application to many organizations, you can configure your application to accept sign-ins from any Azure AD tenant.  In Azure AD this is called making your application multi-tenant.  Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.  
 
-If you have an existing application that has its own account system, or supports other kinds of sign in from other cloud providers, adding Azure AD sign in from any tenant is as simple as registering your app, adding sign in code via OAuth2, OpenID Connect, or SAML, and putting a Sign In with Microsoft button on your application.
+If you have an existing application that has its own account system, or supports other kinds of sign in from other cloud providers, adding Azure AD sign in from any tenant is as simple as registering your app, adding sign in code via OAuth2, OpenID Connect, or SAML, and putting a Sign In with Microsoft button on your application. Click the button below to learn more about branding your application.
 
-![Sign in button][AAD-Sign-In] 
+[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+
 
 This article assumes you’re already familiar with building a single tenant application for Azure AD.  If you’re not, head back up to the [developer guide homepage][AAD-Dev-Guide] and try one of our quick starts!
 
@@ -52,9 +53,13 @@ Requests sent to a tenant’s endpoint can sign in users (or guests) in that ten
 
 When Azure AD receives a request on the /common endpoint, it signs the user in and as a consequence discovers which tenant the user is from.  The /common endpoint works with all of the authentication protocols supported by Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0, and WS-Federation.
 
-The sign in response to the application then contains a token representing the user.  The issuer value in the token tells an application what tenant the user is from.  When a response returns from the /common endpoint, the issuer value in the token will correspond to the user’s tenant.  It’s important to note the /common endpoint is not a tenant and is not an issuer, it’s just a multiplexer.  When using /common, the logic in your application to validate tokens needs to be updated to take this into account.
+The sign in response to the application then contains a token representing the user.  The issuer value in the token tells an application what tenant the user is from.  When a response returns from the /common endpoint, the issuer value in the token will correspond to the user’s tenant.  It’s important to note the /common endpoint is not a tenant and is not an issuer, it’s just a multiplexer.  When using /common, the logic in your application to validate tokens needs to be updated to take this into account. 
 
-Let’s take a look at this in more detail.
+As mentioned earlier, multi-tenant applications should also provide a consistent sign-in experience for users, following the Azure AD application branding guidelines. Click the button below to learn more about branding your application.
+
+[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+
+Let’s take a look at the use of the /common endpoint and your code implementation in more detail.
 
 ## Update your code to handle multiple issuer values
 Web applications and web APIs receive and validate tokens from Azure AD.  
@@ -152,6 +157,7 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 ## Related content
 
 - [Multi-tenant application samples][AAD-Samples-MT]
+- [Branding Guidelines for Applications][AAD-App-Branding]
 - [Azure AD Developer's Guide][AAD-Dev-Guide]
 - [Application Objects and Service Principal Objects][AAD-App-SP-Objects]
 - [Integrating Applications with Azure Active Directory][AAD-Integrating-Apps]
@@ -161,8 +167,9 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 
 Please use the Disqus comments section below to provide feedback and help us refine and shape our content.
 
-<!--Reference style links -->
+<!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
+[AAD-App-Branding]: ./active-directory-branding-guidelines.md
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
