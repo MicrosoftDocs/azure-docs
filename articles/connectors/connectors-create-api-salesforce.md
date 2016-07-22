@@ -27,23 +27,30 @@ To use [any connector](./apis-list.md), you first need to create a Logic app. Yo
 
 Before your Logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a Logic app and another service.  
 
-### Create a connection to Salesforce Connector
+### Create a connection to Salesforce connector
 
 >[AZURE.INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
 
-## Use a Salesforce Connector trigger
+## Use a Salesforce connector trigger
 
 A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## Use a Salesforce Connector action
+>[AZURE.INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
+
+## Add a condition 
+>[AZURE.INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
+
+## Use a Salesforce connector action
 
 An action is an operation carried out by the workflow defined in a Logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## Technical Details
+>[AZURE.INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
+
+## Technical details
 
 Here are the details about the triggers, actions and responses that this connection supports:
 
-## Salesforce Connector triggers
+## Salesforce connector triggers
 
 Salesforce Connector has the following trigger(s):  
 
@@ -53,7 +60,7 @@ Salesforce Connector has the following trigger(s):
 |[When an object is modified](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|This operation triggers a flow when an object is modified.|
 
 
-## Salesforce Connector actions
+## Salesforce connector actions
 
 Salesforce Connector has the following actions:
 
@@ -86,7 +93,7 @@ Thie operation gets objects of a certain object type like 'Lead'.
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 ItemsList
 
@@ -109,7 +116,7 @@ This operation creates an object.
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 Item
 
@@ -132,7 +139,7 @@ This operation gets an object.
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 Item
 
@@ -170,7 +177,7 @@ This operation updates an object.
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 Item
 
@@ -196,7 +203,7 @@ This operation triggers a flow when an object is created.
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 ItemsList
 
@@ -222,7 +229,7 @@ This operation triggers a flow when an object is modified.
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 ItemsList
 
@@ -240,7 +247,7 @@ This operation lists the available object types.
 
 There are no parameters for this call
 
-#### Output Details
+#### Output details
 
 TablesList
 
@@ -271,5 +278,5 @@ The actions and triggers above can return one or more of the following HTTP stat
 
 
 
-## Next Steps
+## Next steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
