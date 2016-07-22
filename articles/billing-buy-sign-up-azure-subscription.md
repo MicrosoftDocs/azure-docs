@@ -50,7 +50,7 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 
 2. Sign in with your Microsoft account or organizational account.
 
-3. In the **About you** section, enter your personal information. [Learn more](./billing-troubleshoot-azure-sign-up-issues/#i-am-getting-an-error-when-entering-my-information-to-sign-up) about entering your personal information accurately.
+3. In the **About you** section, enter your personal information. [Learn more](../articles/billing-troubleshoot-azure-sign-up-issues/#i-am-getting-an-error-when-entering-my-information-to-sign-up) about entering your personal information accurately.
 
     ![Enter your personal infromation here](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
@@ -58,7 +58,7 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 
 4. In the **Verification by phone** section, you must provide a phone number to receive a verification code that you can provide to complete the verification process.
 
-    You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button. [See this for more details](./billing-troubleshoot-azure-sign-up-issues/#i-am-not-getting-text-messages-or-calls-during-account-verification-when-i-try-to-sign-up).
+    You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button. [See this for more details](../articles/billing-troubleshoot-azure-sign-up-issues/#i-am-not-getting-text-messages-or-calls-during-account-verification-when-i-try-to-sign-up).
 
     >[AZURE.NOTE] You cannot use a VOIP phone number for the phone verification process.
  
@@ -90,7 +90,7 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 
 ### Additional resources
 
-- [I can’t activate an Azure Free Trial](billing-troubleshoot-azure-sign-up-issues.md/#i-cant-activate-an-azure-free-trial)
+- [I can’t activate an Azure Free Trial](../articles/billing-troubleshoot-azure-sign-up-issues/#i-cant-activate-an-azure-free-trial)
 - [Azure Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 <a name="UpgradeFreeToPYG"></a>
