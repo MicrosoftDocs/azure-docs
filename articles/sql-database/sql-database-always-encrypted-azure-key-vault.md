@@ -18,7 +18,7 @@
 	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
-# Always Encrypted--Protect sensitive data in SQL Database with data encryption and store your encryption keys in the Azure Key Vault
+# Always Encrypted--Protect sensitive data in a SQL Database with data encryption and store your encryption keys in the Azure Key Vault
 
 > [AZURE.SELECTOR]
 - [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
