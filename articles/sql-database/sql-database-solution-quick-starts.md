@@ -38,7 +38,7 @@ This Quick Start provides a set of PowerShell scripts and T-SQL queries along wi
 
 In this solution, you will walk through the implementation of a web app. This web app lets you visualize the load that's created on an elastic database by a load generator that uses a custom dashboard that supplements the Azure portal.
 
-This Quick provides a load generator and monitoring web app along with the documentation about what the app does and how to use it.
+This Quick Start provides a load generator and monitoring web app along with the documentation about what the app does and how to use it.
 
 ## Create an Azure SQL database by using Code First Development and the Entity Framework
 
