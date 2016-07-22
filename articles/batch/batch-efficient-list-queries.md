@@ -37,13 +37,15 @@ IPagedEnumerable<CloudTask> allTasks =
 You can perform a much more efficient list query, however, by applying a "detail level" to your query. You do this by supplying an [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns only the ID, command line, and compute node information properties of completed tasks:
 
 ```csharp
-// Configure an ODATADetailLevel specifying a subset of tasks and their properties to return
+// Configure an ODATADetailLevel specifying a subset of tasks and
+// their properties to return
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 detailLevel.FilterClause = "state eq 'completed'";
 detailLevel.SelectClause = "id,commandLine,nodeInfo";
 
 // Supply the ODATADetailLevel to the ListTasks method
-IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks("job-001", detailLevel);
+IPagedEnumerable<CloudTask> completedTasks =
+	batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
 In the above example scenario, if there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More information about using ODATADetailLevel when you list items with the Batch .NET API is included [below](#efficient-querying-in-batch-net).
@@ -218,8 +220,20 @@ The [BatchMetrics][batch_metrics] sample includes a .NET class library project w
 
 The sample application within the project demonstrates the following operations:
 
-1. Selecting specific attributes in order to download only the fields you need
+1. Selecting specific attributes in order to download only the properties you need
 2. Filtering on state transition times in order to download only changes since the last query
+
+For example, the following method appears in the BatchMetrics library. It returns an ODATADetailLevel that specifies that only the `id` and `state` properties should be obtained for the entities that are queried. It also specifies that only entities whose state has changed since the specified `DateTime` parameter should be returned.
+
+```csharp
+internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
+{
+    return new ODATADetailLevel(
+        selectClause: "id, state",
+        filterClause: string.Format("stateTransitionTime gt DateTime'{0:o}'", time)
+    );
+}
+```
 
 ## Next steps
 
