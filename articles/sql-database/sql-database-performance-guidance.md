@@ -118,7 +118,7 @@ The following sections provide more information on each area in the previous tab
 
 ### Point-in-time restore
 
-**Point-in-time restore** is the ability to restore your database to a previous point in time. Your service tier determines how many days back in time you can go. For more information, see [Recover an Azure SQL Database from a user error](sql-database-user-error-recovery.md).
+**Point-in-time restore** is the ability to restore your database to a previous point in time. Your service tier determines how many days back in time you can go. For more information, see [Point-in-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ### Disaster recovery
 
