@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
+   ms.date="07/22/2016"
    ms.author="roshar"/>
 
 # Implementing a Hybrid Network Architecture with Azure and On-premises VPN
@@ -55,19 +55,19 @@ The following diagram highlights the components in this architecture:
 
     > [AZURE.NOTE] This article describes the cloud application as a single entity. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
 
-- **[Virtual network (VNet)][azure-virtual-network].** The cloud application and the Azure VPN Gateway are placed into the same VNet.
+- **[Virtual network (VNet)][azure-virtual-network].** The cloud application and the components for the Azure VPN Gateway reside in the same VNet.
 
-- **[Azure VPN Gateway][azure-vpn-gateway].** The VPN gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
+- **[Azure VPN Gateway][azure-vpn-gateway].** The VPN gateway service enables you to connect the VNet to the on-premises network through a VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet]. The VPN Gateway comprises the following elements:
 
-- **Gateway subnet.** The Azure VPN Gateway is held in its own subnet, which is subject to various requirements.
+	- **Virtual network gateway.** This is a resource that provides a virtual VPN appliance for the VNet. It is responsible for routing traffic from the on-premises network to the VNet.
+	
+	- **Local network gateway.** This is an abstraction of the on-premises VPN appliance. Network traffic from the cloud application to the on-premises network is routed through this gateway.
+
+	- **Connection.** The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
+
+	- **Gateway subnet.** The virtual network gateway is held in its own subnet, which is subject to various requirements, as described in the Recommendations section below.
 
 - **Internal load balancer.** Network traffic from the VPN Gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
-
-- **Virtual network gateway.** This is a resource that provides a virtual VPN appliance for the VNet. It is responsible for routing traffic from the on-premises network to the VNet.
-
-- **Local network gateway.** This is an abstraction of the on-premises VPN appliance. Network traffic from the cloud application to the on-premises network is routed through this gateway.
-
-- **Connection.** The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
 
 ## Recommendations
 
@@ -75,7 +75,7 @@ The following diagram highlights the components in this architecture:
 
 - Create an Azure VNet for holding the components in the cloud. The address space of the Azure VNet must be large enough to accommodate the addresses used by the VMs and subnets in the VNet. Ensure that the VNet address space has sufficient room for growth if additional VMs are likely to be needed in the future. The address space of the VNet must not overlap with the on-premises network. For example, the diagram above uses the address space 10.20.0.0/16 for the VNet.
 
-- Create a subnet named _GatewaySubnet_, with an address range of /27. This subnet is required by the Azure VPN gateway, and allocating 32 addresses to this subnet will help to prevent you running up against possible gateway size limitations in the future. Avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.224/27.  A quick procedure to calculate the CIDR is as follows:
+- Create a subnet named _GatewaySubnet_, with an address range of /27. This subnet is required by the virtual network gateway, and allocating 32 addresses to this subnet will help to prevent you running up against possible gateway size limitations in the future. Avoid placing this subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space. The example shown in the diagram uses 10.20.255.224/27.  A quick procedure to calculate the CIDR is as follows:
 
     1. Set the variable bits in the address space of the VNet to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
     2. Convert the resulting bits to decimal and express it as an address space with the prefix length set to the size of the gateway subnet.
@@ -84,11 +84,11 @@ The following diagram highlights the components in this architecture:
 
     > [AZURE.WARNING] Do not deploy other virtual machines or role instances to the gateway subnet. Also, do not assign an NSG to this subnet, as it will cause the gateway to stop functioning.
 
-### VPN gateway
+### Virtual network gateway
 
 - Allocate a public IP address for the virtual network gateway.
 
-- Create the virtual network gateway for the VNet and assign it the newly allocated public IP address. Use the Azure VPN Gateway type that most closely matches your requirements and which is enabled by your VPN appliance:
+- Create the virtual network gateway in the Gateway subnet and assign it the newly allocated public IP address. Use the gateway type that most closely matches your requirements and which is enabled by your VPN appliance:
 
 	- Create a [policy-based gateway][policy-based-routing] if you need to closely control how requests are routed. based on policy criteria such as address prefixes. Policy-based gateways use static routing, and only work with site-to-site connections.
 
@@ -106,13 +106,13 @@ The following diagram highlights the components in this architecture:
 	| Standard | 100 Mbps | 10 |
 	| High Performance | 200 Mbps | 30 |
 
-	> [AZURE.NOTE] The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the Azure VPN Gateway has been created.
+	> [AZURE.NOTE] The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the getway has been created.
 
-- Create routing rules for the Gateway subnet that direct incoming application traffic from the VPN gateway to the internal load balancer rather than allowing requests to pass directly to the VMs that implement the application.
+- Create routing rules for the gateway subnet that direct incoming application traffic from the gateway to the internal load balancer rather than allowing requests to pass directly to the VMs that implement the application.
 
 ### On-premises network connection
 
-- Create a local network gateway. Specify the public IP address of the on-premises VPN appliance, and the address space of the on-premises network. Note that the on-premises VPN appliance must have a public IP address that can be accessed by the Azure VPN Gateway. The VPN device cannot be located behind a NAT device.
+- Create a local network gateway. Specify the public IP address of the on-premises VPN appliance, and the address space of the on-premises network. Note that the on-premises VPN appliance must have a public IP address that can be accessed by the local network gateway in Azure VPN Gateway. The VPN device cannot be located behind a NAT device.
 
 - Create a site-to-site connection for the virtual network gateway and the local network gateway. Select the Site-to-site (IPSec) connection type, and specify the shared key. Site-to-site encryption with the Azure VPN Gateway is based on the IPSec protocol, using pre-shared keys for authentication. You specify the key when you create the Azure VPN Gateway. You must configure the VPN appliance running on-premises with the same key. Other authentication mechanisms are not currently supported.
 
@@ -447,165 +447,123 @@ If traffic is unable to traverse the VPN connection, check the following:
 
 ## Solution components
 
-<!-- The following content should be replaced with a description of the ARM templates -->
+<!-- The following text is boilerplate, and should be used in all RA docs -->
 
-The script in this section uses [Azure CLI][azure-cli] commands to connect an on-premises network to an Azure VNet by using an Azure VPN Gateway. Requests are routed to VMs in the VNet through an internal load balancer. Running these commands results in the structure shown in the previous diagrams.
+A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Azure Resource Manager (ARM)][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
-This script assumes that you have:
+The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
-- Created and [prepared your on-premises network][create-on-prem-network] with an address space of 10.10.0.0/16.
+When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-- Installed and configured an on-premises VPN device with a public IP address. This example uses a fictitious IP address of 40.50.60.70.
+<!-- End of boilerplate -->
 
-```text
-@ECHO OFF
-SETLOCAL
+The script references the parameters in the **[vpn-gateway-vpn-connection-settings.parameters.json][gateway-parameters]** file to create an Azure VPN gateway, VNet structure, and connection to the on-premises network:
 
-IF "%~1"=="" (
-    ECHO Usage: %0 subscription-id
-    ECHO   For example: %0 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    EXIT /B
-    )
-
-REM Explicitly set the subscription to avoid confusion as to which subscription
-REM is active/default
-
-SET SUBSCRIPTION=%1
-
-REM Set up variables to build out the naming conventions for deployment
-
-SET APP_NAME=hybrid
-SET LOCATION=centralus
-SET ENVIRONMENT=dev
-SET VPN_GATEWAY_TYPE=RouteBased
-
-SET VNET_IP_RANGE=10.20.0.0/16
-SET ON_PREMISES_ADDRESS_SPACE=10.10.0.0/16
-SET ON_PREMISES_PUBLIC_IP=40.50.60.70
-REM This gives the gateway an IP range 10.20.255.224 - 10.20.255.254
-SET GATEWAY_SUBNET_IP_RANGE=10.20.255.224/27
-REM This give the internal subnet an IP range of 10.20.1.1 - 10.20.1.254
-SET INTERNAL_SUBNET_IP_RANGE=10.20.1.0/24
-REM We will put this at the end of the subnet
-SET INTERNAL_LOAD_BALANCER_FRONTEND_IP_ADDRESS=10.20.1.254
-
-REM Set up the names of things using recommended conventions
-SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
-SET VNET_NAME=%APP_NAME%-vnet
-SET PUBLIC_IP_NAME=%APP_NAME%-pip
-
-SET INTERNAL_SUBNET_NAME=%APP_NAME%-internal-subnet
-SET VPN_GATEWAY_NAME=%APP_NAME%-vgw
-SET LOCAL_GATEWAY_NAME=%APP_NAME%-lgw
-SET VPN_CONNECTION_NAME=%APP_NAME%-vpn
-
-SET INTERNAL_LOAD_BALANCER_NAME=%APP_NAME%-ilb
-SET INTERNAL_LOAD_BALANCER_FRONTEND_IP_NAME=%APP_NAME%-ilb-fip
-SET INTERNAL_LOAD_BALANCER_POOL_NAME=%APP_NAME%-ilb-pool
-
-SET INTERNAL_LOAD_BALANCER_PROBE_PROTOCOL=tcp
-SET INTERNAL_LOAD_BALANCER_PROBE_INTERVAL=300
-SET INTERNAL_LOAD_BALANCER_PROBE_COUNT=4
-SET INTERNAL_LOAD_BALANCER_PROBE_NAME=%INTERNAL_LOAD_BALANCER_NAME%-probe
-
-REM Set up the postfix variables attached to most CLI commands
-SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
-
-CALL azure config mode arm
-
-REM Create resources
-
-REM Create the enclosing resource group
-CALL :CallCLI azure group create --name %RESOURCE_GROUP% --location %LOCATION% ^
-  --subscription %SUBSCRIPTION%
-
-REM Create the VNet
-CALL :CallCLI azure network vnet create --address-prefixes %VNET_IP_RANGE% ^
-  --name %VNET_NAME% --location %LOCATION% %POSTFIX%
-
-REM Create the GatewaySubnet
-CALL :CallCLI azure network vnet subnet create --vnet-name %VNET_NAME% ^
-  --address-prefix %GATEWAY_SUBNET_IP_RANGE% --name GatewaySubnet %POSTFIX%
-
-REM Create public IP address for VPN Gateway
-REM Note that the Azure VPN Gateway only supports dynamic IP addresses
-CALL :CallCLI azure network public-ip create --allocation-method Dynamic ^
-  --name %PUBLIC_IP_NAME% --location %LOCATION% %POSTFIX%
-
-REM Create virtual network gateway
-CALL :CallCLI azure network vpn-gateway create --name %VPN_GATEWAY_NAME% ^
-  --vpn-type %VPN_GATEWAY_TYPE% --public-ip-name %PUBLIC_IP_NAME% --vnet-name %VNET_NAME% ^
-  --location %LOCATION% %POSTFIX%
-
-REM Create local gateway
-CALL :CallCLI azure network local-gateway create --name %LOCAL_GATEWAY_NAME% ^
-  --address-space %ON_PREMISES_ADDRESS_SPACE% --ip-address %ON_PREMISES_PUBLIC_IP% ^
-  --location %LOCATION% %POSTFIX%
-
-REM Create a site-to-site connection
-CALL :CallCLI azure network vpn-connection create --name %VPN_CONNECTION_NAME% ^
-  --vnet-gateway1 %VPN_GATEWAY_NAME% --vnet-gateway1-group %RESOURCE_GROUP% ^
-  --lnet-gateway2 %LOCAL_GATEWAY_NAME% --lnet-gateway2-group %RESOURCE_GROUP% ^
-  --type IPsec --location %LOCATION% %POSTFIX%
-
-REM Create the internal subnet
-CALL :CallCLI azure network vnet subnet create --vnet-name %VNET_NAME% ^
-  --address-prefix %INTERNAL_SUBNET_IP_RANGE% --name %INTERNAL_SUBNET_NAME% %POSTFIX%
-
-REM Create an internal load balancer for routing requests
-CALL :CallCLI azure network lb create --name %INTERNAL_LOAD_BALANCER_NAME% ^
-  --location %LOCATION% %POSTFIX%
-
-REM Create a frontend IP address for the internal load balancer
-CALL :CallCLI azure network lb frontend-ip create --subnet-vnet-name %VNET_NAME% ^
-  --subnet-name %INTERNAL_SUBNET_NAME% ^
-  --private-ip-address %INTERNAL_LOAD_BALANCER_FRONTEND_IP_ADDRESS% ^
-  --lb-name %INTERNAL_LOAD_BALANCER_NAME% ^
-  --name %INTERNAL_LOAD_BALANCER_FRONTEND_IP_NAME% ^
-  %POSTFIX%
-
-REM Create the backend address pool for the internal load balancer
-CALL :CallCLI azure network lb address-pool create --lb-name %INTERNAL_LOAD_BALANCER_NAME% ^
-  --name %INTERNAL_LOAD_BALANCER_POOL_NAME% %POSTFIX%
-
-REM Create a health probe for the internal load balancer
-CALL :CallCLI azure network lb probe create --protocol %INTERNAL_LOAD_BALANCER_PROBE_PROTOCOL% ^
-  --interval %INTERNAL_LOAD_BALANCER_PROBE_INTERVAL% --count %INTERNAL_LOAD_BALANCER_PROBE_COUNT% ^
-  --lb-name %INTERNAL_LOAD_BALANCER_NAME% --name %INTERNAL_LOAD_BALANCER_PROBE_NAME% %POSTFIX%
-
-REM This will show the shared key for the VPN connection.  We do not need the error checking.
-CALL azure network vpn-connection shared-key show --name %VPN_CONNECTION_NAME% %POSTFIX%
-
-GOTO :eof
-
-:CallCLI
-SETLOCAL
-CALL %*
-IF ERRORLEVEL 1 (
-    CALL :ShowError "Error executing CLI Command: " %*
-    REM This command executes in the main script context so we can exit the whole script on an error
-    (GOTO) 2>NULL & GOTO :eof
-)
-GOTO :eof
-
-:ShowError
-SETLOCAL EnableDelayedExpansion
-REM Print the message
-ECHO %~1
-SHIFT
-REM Get the first part of the azure CLI command so we do not have an extra space at the beginning
-SET CLICommand=%~1
-SHIFT
-REM Loop through the rest of the parameters and recreate the CLI command
-:Loop
-    IF "%~1"=="" GOTO Continue
-    SET "CLICommand=!CLICommand! %~1"
-    SHIFT
-GOTO Loop
-:Continue
-ECHO %CLICommand%
-GOTO :eof
+```json
+"parameters": {
+  "virtualNetworkSettings": {
+    "value": {
+      "name": "hybrid-vnet",
+      "addressPrefixes": [
+        "10.20.0.0/16"
+      ],
+      "subnets": [
+        {
+          "name": "GatewaySubnet",
+          "addressPrefix": "10.20.255.224/27"
+        },
+        {
+          "name": "hybrid-internal-subnet",
+          "addressPrefix": "10.20.1.0/24"
+        }
+      ],
+      "dnsServers": [ ]
+    }
+  },
+  "virtualNetworkGatewaySettings": {
+    "value": {
+      "name": "hybrid-vgw",
+      "gatewayType": "Vpn",
+      "vpnType": "RouteBased",
+      "sku": "Standard"
+    }
+  },
+  "connectionSettings": {
+    "value": {
+      "name": "hybrid-vpn",
+      "connectionType": "IPsec",
+      "sharedKey": "123secret",
+      "virtualNetworkGateway1": {
+        "name": "hybrid-vgw"
+      },
+      "localNetworkGateway": {
+        "name": "hybrid-lgw",
+        "ipAddress": "40.50.60.70",
+        "addressPrefixes": [ "10.10.0.0/16" ]
+      }
+    }
+  }
+}
 ```
+
+- The `virtualNetworkSettings` section defines the structure of the VNet to create. You can specify the name of the VNet (*hybrid-vnet* shown in the example above) and the address space (*10.20.0.0/16*).
+
+	The `subnets` array indicates the subnets to add to the VNet. You must always create at least one subnet named *GatewaySubnet* with an address space of at least /27. You can create additional subnets as required by your application. Do not create any application objects in the GatewaySubnet.
+
+	You can also use the `dnsServers` array to specify the addresses of DNS servers required by your application.
+
+- The `virtualNetworkGatewaySettings` section contains the information used to create the Azure VPN gateway. 
+
+	For this architecture, do not change the `gatewayType` parameter. The `vpnType` parameter can be *RouteBased* or *PolicyBased*. You can set the `sku` parameter to *Standard* or *HighPerformance*. 
+
+- The `connectionSettings` section defines the configuration for the local network gateway and the connection to the on-premises network.
+
+	The `connectionType` and `sharedKey` settings specify the connection protocol and key to use to connect to the on-premises network (you should have already configured the on-premises VPN appliance).
+
+	The `localNetworkGateway` object specifies the public IP address of the on-premises VPN appliance (*40.50.60.70* in this example), and an array of internal address spaces for the on-premises side of the network.
+
+## Deployment
+
+The solution assumes the following prerequisites:
+
+- You have an existing on-premises infrastructure already configured with a VPN appliance.
+
+- You have an existing Azure subscription in which you can create resource groups.
+
+- You have downloaded and installed the most recent build of Azure Powershell. See [here][azure-powershell-download] for instructions.
+
+To run the script that deploys the solution:
+
+1. Move to a convenient folder on your local computer and create the following two subfolders:
+
+	- Scripts
+
+	- Templates
+
+2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder
+
+3. Download the [vpn-gateway-vpn-connection-settings.parameters.json][gateway-parameters] file to Templates folder:
+
+4. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the resources created by the script:
+
+	```powershell
+	$resourceGroupName = "hybrid-dev-rg"
+	```
+5. Edit the vpn-gateway-vpn-connection-settings.parameters.json file in the Templates folder to set the parameters for the VNet, virtual network gateway, and connection, as described in the Solution Components section above.
+
+6. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location>
+	```
+
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+7. When the script has completed, use the Azure portal to verify that the network and gateway have been created successfully.
+
+8. From an on-premises machine, verify that you can connect to the VNet through the gateway.
 
 ## Next steps
 
@@ -665,6 +623,12 @@ GOTO :eof
 [stormshield]: https://azure.microsoft.com/marketplace/partners/stormshield/stormshield-network-security-for-cloud/
 [vpn-appliance-ipsec]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters
 [expressroute]: ./guidance-hybrid-network-expressroute.md
+
+[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-hybrid-network-vpn/Scripts/Deploy-ReferenceArchitecture.ps1
+[gateway-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-hybrid-network-vpn/Templates/vpn-gateway-vpn-connection-settings.parameters.json 
+
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+
 [0]: ./media/guidance-hybrid-network-vpn/arch-diagram.png "Structure of a hybrid network spanning the on-premises and cloud infrastructures"
 [1]: ./media/guidance-hybrid-network-vpn/partitioned-vpn.png "Partitioning a VNet to improve scalability"
 [2]: ./media/guidance-hybrid-network-vpn/audit-logs.png "Audit logs in the Azure portal"
