@@ -20,10 +20,10 @@
 
 This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you're using Azure Backup. When you use the Azure Backup agent to back up files, the backup process might take longer than expected. This delay might be caused by one or more of the following:
 
--	[There are performance bottlenecks on the computer that’s being backed up](#cause1).
--	[Another process or antivirus software is interfering with the Azure Backup process](#cause2).
--	[The Backup agent is running on an Azure virtual machine (VM)](#cause3).  
--	[You're backing up a large number (millions) of files](#cause4).
+-	[There are performance bottlenecks on the computer that’s being backed up.](#cause1)
+-	[Another process or antivirus software is interfering with the Azure Backup process.](#cause2)
+-	[The Backup agent is running on an Azure virtual machine (VM).](#cause3)  
+-	[You're backing up a large number (millions) of files.](#cause4)
 
 Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](http://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.
@@ -37,7 +37,7 @@ We also strongly recommend that you review the [Azure Backup service FAQ](backup
 
 Bottlenecks on the computer that's being backed up can cause delays. For example, the computer's ability to read or write to disk, or available bandwidth to send data over the network, can cause bottlenecks.
 
-Windows provides a built-in tool that’s called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx)(Perfmon) to detect these bottlenecks.
+Windows provides a built-in tool that’s called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) to detect these bottlenecks.
 
 Here are some performance counters and ranges that can be helpful in diagnosing bottlenecks for optimal backups.
 
