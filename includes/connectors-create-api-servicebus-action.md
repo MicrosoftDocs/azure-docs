@@ -10,20 +10,20 @@ To configure the this action, you will need to provide the following information
 |File content|The content that will be written to the file.|
 
 1. Select **+ New step** to add the action.  
-![](./media/connectors-create-api-sharepointonline/action-1.png)  
+![Service Bus action image 1](./media/connectors-create-api-sharepointonline/action-1.png)  
 - Select **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, SharePoint actions are of interest.    
-![](./media/connectors-create-api-sharepointonline/action-2.png)    
+![Service Bus action image 2](./media/connectors-create-api-sharepointonline/action-2.png)    
 - Enter *sharepoint* to search for actions related to SharePoint.
 - Select **SharePoint Online - Create file** as the action to take.   **Note**: you will be prompted to authorize your Logic app to access your SharePoint account if you have not done so previously.    
-![](./media/connectors-create-api-sharepointonline/action-3.png)    
+![Service Bus action image 3](./media/connectors-create-api-sharepointonline/action-3.png)    
 - The **Create file** control opens.   
-![](./media/connectors-create-api-sharepointonline/action-4.png)     
+![Service Bus action image 4](./media/connectors-create-api-sharepointonline/action-4.png)     
 - Select **Site URL** and browse to find the site where you would like to create the file.     
-![](./media/connectors-create-api-sharepointonline/action-5.png)  
+![Service Bus action image 5](./media/connectors-create-api-sharepointonline/action-5.png)  
 - Select **Folder path** and browse to find the folder where the new file will be placed.  
-![](./media/connectors-create-api-sharepointonline/action-6.png)  
+![Service Bus action image 6](./media/connectors-create-api-sharepointonline/action-6.png)  
 - Select the **File name** control and enter the name of the file you want to create. For the file name, notice that you can use any of the properties from the trigger you created previously by simply selecting it from the list presented.     
-![](./media/connectors-create-api-sharepointonline/action-7.png)  
+![Service Bus action image 7](./media/connectors-create-api-sharepointonline/action-7.png)  
 - Select the **File content** control and enter the content that will be written to the file that will be created. For the file content, notice that you can use any of the properties from the trigger you created previously. Simply select the properties from the list presented. Alternatively, you can enter the **File content** text directly into the control. In this example, I selected some properties and added spaces and a hyphen between each property.        
-![](./media/connectors-create-api-sharepointonline/action-8.png)  
+![Service Bus action image 8](./media/connectors-create-api-sharepointonline/action-8.png)  
 - Save the changes to your workflow  
