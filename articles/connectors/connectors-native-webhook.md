@@ -21,7 +21,7 @@
 
 With the webhook action and trigger you can trigger, pause, and resume flows to accomplish:
 
-- Trigger from an (Azure Event Hub as soon as an item)[https://github.com/logicappsio/EventHubAPI] is received
+- Trigger from an [Azure Event Hub as soon as an item](https://github.com/logicappsio/EventHubAPI) is received
 - Wait for an approval before continuing a workflow
 
 Information on creating an API that supports a webhook subscribe can be found [in this article on creating Logic App connectors](../app-service-logic/app-service-logic-create-api-app.md).
