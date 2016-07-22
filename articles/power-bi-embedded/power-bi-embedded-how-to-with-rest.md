@@ -355,81 +355,81 @@ If we look at the next sample code, the former part is the same as the previous 
 **Note:** You'll need to change the **id** value for your own id.
 
 ```
-<?php
-// 1. power bi access key
-$accesskey = "MpaUgrTv5e...";
+    <?php
+    // 1. power bi access key
+    $accesskey = "MpaUgrTv5e...";
 
-// 2. construct input value
-$token1 = "{" .
-  "\"typ\":\"JWT\"," .
-  "\"alg\":\"HS256\"" .
-  "}";
-$token2 = "{" .
-  "\"wid\":\"32960a09-6366-4208-a8bb-9e0678cdbb9d\"," . // workspace id
-  "\"rid\":\"2027efc6-a308-4632-a775-b9a9186f087c\"," . // report id
-  "\"wcn\":\"mypbiapp\"," . // workspace collection name
-  "\"iss\":\"PowerBISDK\"," .
-  "\"ver\":\"0.2.0\"," .
-  "\"aud\":\"https://analysis.windows.net/powerbi/api\"," .
-  "\"nbf\":" . date("U") . "," .
-  "\"exp\":" . date("U" , strtotime("+1 hour")) .
-  "}";
-$inputval = rfc4648_base64_encode($token1) .
-  "." .
-  rfc4648_base64_encode($token2);
+    // 2. construct input value
+    $token1 = "{" .
+      "\"typ\":\"JWT\"," .
+      "\"alg\":\"HS256\"" .
+      "}";
+    $token2 = "{" .
+      "\"wid\":\"32960a09-6366-4208-a8bb-9e0678cdbb9d\"," . // workspace id
+      "\"rid\":\"2027efc6-a308-4632-a775-b9a9186f087c\"," . // report id
+      "\"wcn\":\"mypbiapp\"," . // workspace collection name
+      "\"iss\":\"PowerBISDK\"," .
+      "\"ver\":\"0.2.0\"," .
+      "\"aud\":\"https://analysis.windows.net/powerbi/api\"," .
+      "\"nbf\":" . date("U") . "," .
+      "\"exp\":" . date("U" , strtotime("+1 hour")) .
+      "}";
+    $inputval = rfc4648_base64_encode($token1) .
+      "." .
+      rfc4648_base64_encode($token2);
 
-// 3. get encoded signature value
-$hash = hash_hmac("sha256",
-	$inputval,
-	$accesskey,
-	true);
-$sig = rfc4648_base64_encode($hash);
+    // 3. get encoded signature value
+    $hash = hash_hmac("sha256",
+    	$inputval,
+    	$accesskey,
+    	true);
+    $sig = rfc4648_base64_encode($hash);
 
-// 4. get apptoken
-$apptoken = $inputval . "." . $sig;
+    // 4. get apptoken
+    $apptoken = $inputval . "." . $sig;
 
-// helper functions
-function rfc4648_base64_encode($arg) {
-  $res = $arg;
-  $res = base64_encode($res);
-  $res = str_replace("/", "_", $res);
-  $res = str_replace("+", "-", $res);
-  $res = rtrim($res, "=");
-  return $res;
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Test page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <button id="btnView">View Report !</button>
-  <div id="divView">
-    <iframe id="ifrTile" width="100%" height="400"></iframe>
-  </div>
-  <script>
-    (function () {
-      document.getElementById('btnView').onclick = function() {
-        var iframe = document.getElementById('ifrTile');
-        iframe.src = 'https://embedded.powerbi.com/appTokenReportEmbed?reportId=2027efc6-a308-4632-a775-b9a9186f087c';
-        iframe.onload = function() {
-          var msgJson = {
-            action: "loadReport",
-            accessToken: "<?=$apptoken?>",
-            height: 500,
-            width: 722
+    // helper functions
+    function rfc4648_base64_encode($arg) {
+      $res = $arg;
+      $res = base64_encode($res);
+      $res = str_replace("/", "_", $res);
+      $res = str_replace("+", "-", $res);
+      $res = rtrim($res, "=");
+      return $res;
+    }
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Test page</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+      <button id="btnView">View Report !</button>
+      <div id="divView">
+        <iframe id="ifrTile" width="100%" height="400"></iframe>
+      </div>
+      <script>
+        (function () {
+          document.getElementById('btnView').onclick = function() {
+            var iframe = document.getElementById('ifrTile');
+            iframe.src = 'https://embedded.powerbi.com/appTokenReportEmbed?reportId=2027efc6-a308-4632-a775-b9a9186f087c';
+            iframe.onload = function() {
+              var msgJson = {
+                action: "loadReport",
+                accessToken: "<?=$apptoken?>",
+                height: 500,
+                width: 722
+              };
+              var msgTxt = JSON.stringify(msgJson);
+              iframe.contentWindow.postMessage(msgTxt, "*");
+            };
           };
-          var msgTxt = JSON.stringify(msgJson);
-          iframe.contentWindow.postMessage(msgTxt, "*");
-        };
-      };
-    }());
-  </script>
-</body>
+        }());
+      </script>
+    </body>
 ```
 
 And here's our result:
