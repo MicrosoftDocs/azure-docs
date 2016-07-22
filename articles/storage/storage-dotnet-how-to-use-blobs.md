@@ -21,6 +21,8 @@
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+
 ## Overview
 
 Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
@@ -100,6 +102,11 @@ Anyone on the Internet can see blobs in a public container, but you can modify o
 
 ## Upload a blob into a container
 
+> [AZURE.TIP] **Upload blobs with Microsoft Azure Storage Explorer**
+> 
+> In addition to being able to programmatically upload a blob, Microsoft Azure Storage Explorer enables you to 
+> visually manage your blob containers and blobs, including the ability to upload blobs to your storage account.   
+
 Azure Blob Storage supports block blobs and page blobs.  In the majority of cases, block blob is the recommended type to use.
 
 To upload a file to a block blob, get a container reference and use it to get
@@ -129,6 +136,11 @@ The following example shows how to upload a blob into a container and assumes th
     }
 
 ## List the blobs in a container
+
+> [AZURE.TIP] **Upload blobs with Microsoft Azure Storage Explorer**
+> 
+> In addition to being able to programmatically upload a blob, Microsoft Azure Storage Explorer enables you to 
+> visually manage your blob containers and blobs, including the ability to view the blobs belonging to a container.   
 
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs and/or directories
@@ -392,6 +404,9 @@ Azure Storage supports encrypting blob data both at the client and on the server
 
 Now that you've learned the basics of Blob storage, follow these links
 to learn more.
+
+### Microsoft Azure Storage Explorer
+- [Microsoft Azure Storage Explorer (MASE)](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, MacOS, and Linux.
 
 ### Blob storage samples
 
