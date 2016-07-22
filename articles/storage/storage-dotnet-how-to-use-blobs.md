@@ -140,7 +140,7 @@ The following example shows how to upload a blob into a container and assumes th
 > [AZURE.TIP] **List blobs with Microsoft Azure Storage Explorer**
 > 
 > In addition to being able to programmatically upload a blob, Microsoft Azure Storage Explorer enables you to 
-> visually manage your blob containers and blobs, including the ability to view the blobs belonging to a container.   
+> visually manage your blob containers and blobs, including the ability to list the blobs belonging to a container.   
 
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs and/or directories
