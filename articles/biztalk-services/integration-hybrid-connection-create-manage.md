@@ -26,9 +26,12 @@
 3. Install the Hybrid Connection Manager on your on-premises resource and connect to the specific Hybrid Connection. The Azure portal provides a single-click experience to install and connect.
 4. Manage Hybrid Connections and their connection keys.
 
-[AZURE.NOTE] Using the IP address of your on-premises resource instead of host name or FQDN is not supported and will result in communication failure.
-
 This topic lists these steps. 
+
+[AZURE.IMPORTANT] It is possible to set a Hybrid Connection endpoint to an IP address **but** if you do so, you may or may not be able to reach the on premises resource depending on your client. The Hybrid Connection feature depends on the client doing a DNS lookup (In most cases the __client__ is your application code). If the client does not perform a DNS lookup, so it does not try to resolve the IP address as if it were a domain name (x.x.x.x), then traffic will not be sent through the Hybrid Connection.
+Example (pseudocode) -- Considering you define **10.4.5.6** as your on premises host: 
+**This works:** `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host` // 
+**This doesn't work:** `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
 
 
 ## <a name="CreateHybridConnection"></a>Create a Hybrid Connection
