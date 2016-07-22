@@ -14,16 +14,16 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/15/2016"
+ms.date="07/22/2016"
 ms.author="deonhe"/>
 
-# Get started with the Salesforce Connector connector
+# Get started with the Salesforce connector
 
 The Salesforce Connector provides an API to work with Salesforce objects.
 
 To use [any connector](./apis-list.md), you first need to create a Logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Connect to Salesforce Connector
+## Connect to Salesforce connector
 
 Before your Logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a Logic app and another service.  
 
