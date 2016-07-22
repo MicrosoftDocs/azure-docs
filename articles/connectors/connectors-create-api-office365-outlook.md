@@ -1,793 +1,763 @@
 <properties
-    pageTitle="Add the Office 365 Outlook connector in PowerApps Enterprise or Logic Apps | Microsoft Azure"
-    description="Overview of Office 365 Outlook connector with REST API parameters"
+    pageTitle="Add the Office 365 Outlook connector in your Logic Apps | Microsoft Azure"
+    description="Create logic apps with Azure App service. Office 365 connector enables interaction with Office 365. For example: creating, editing, and updating contacts and calendar items."
     services=""    
     documentationCenter=""     
-    authors="msftman"    
+    authors="MandiOhlinger"    
     manager="erikre"    
     editor="" 
     tags="connectors" />
 
 <tags
-ms.service="multiple"
+ms.service="app-service-logic"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
+ms.date="07/21/2016"
 ms.author="mandia"/>
 
 # Get started with the Office 365 Outlook connector 
 
-Connect to Office 365 Outlook to get email, reply to an email, update your calendar and contacts, and more. The Office 365 Outlook connector can be used from:
-
-- Logic apps 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/connectors-create-api-office365-outlook.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
-
-&nbsp; 
-
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
 
 With Office 365 Outlook, you can:
 
-- Build your business flow based on the data you get from Office 365 Outlook. 
-- Use a trigger when there is a new email, when you create a new contact, and more.
-- Use actions that reply to an email, create a new calendar event, and more. These actions get a response, and then make the output available for other actions. For example, when there is a new object in Salesforce, you can take that object and update your Office 365 Outlook contacts. 
-- Add the Office 365 Outlook connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
+- Build your workflow using the email and calendar features within Office 365. 
+- Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
+- Use actions to send an email, create a new calendar event, and more. For example, when there is a new object in Salesforce (a trigger), send an email to your Office 365 Outlook (an action). 
 
-For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA).
 
-## Triggers and actions
+## Connect to Office 365
 
-The Office 365 Outlook connector has the following triggers and actions available. 
-
-| Triggers | Actions|
-| --- | --- |
-|<ul><li>On event starting soon</li><li>On new email</li><li>On new items</li><li>On updated items</li></ul>| <ul><li>Create contact</li><li>Create event</li><li>Send approval email</li><li>Send email</li><li>Delete contact</li><li>Delete email</li><li>Delete event</li><li>Get attachment</li><li>Get calendars</li><li>Get contact</li><li>Get contact folders</li><li>Get contacts</li><li>Get emails</li><li>Get event</li><li>Get events</li><li>Mark as read</li><li>On event starting soon</li><li>On new email</li><li>On new items</li><li>On updated items</li><li>Reply to message</li><li>Send email with options</li><li>Update contact</li><li>Update event</li></ul> |
-
-All connectors support data in JSON and XML formats. 
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Office 365 Outlook, you first need an Office 365 *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Office 365 Outlook, enter the credentials to your Office 365 account to create the connection.
 
 
-## Create a connection to Office365
+## Create the connection
 
-When you add this connector to your logic apps, you must sign-in to your Office 365 Outlook account and allow logic apps to connect to your account.
+>[AZURE.INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
 
-1. Sign in to your Office 365 Outlook account account.
-2. Allow your logic apps to connect and use your Office 365 account. 
+## Use a trigger
 
-After you create the connection, you enter the Office 365 Outlook properties, like the inbox folder path or email message. The **REST API reference** in this topic describes these properties.
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.TIP] You can use this same Office 365 Outlook connection in other logic apps.
+1. In the logic app, type "office 365" to get a list of the triggers:  
 
-## Swagger REST API reference
-Applies to version: 1.0.
+	![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
+
+2. Select **Office 365 Outlook - When an upcoming event is starting soon**. If a connection already exists, then select a calendar from the drop-down list.
+
+	![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
+
+	If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic lists the steps. 
+
+	> [AZURE.NOTE] In this example, the logic app runs when a calendar event is updated. To see the results of this trigger, add another action that sends you a text message. For example, add the Twilio *Send message* action that texts you when the calendar event is starting in 15 minutes. 
+
+3. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
-### On event starting soon 
-Triggers a flow when an upcoming calendar event is starting.  
-```GET: /Events/OnUpcomingEvents``` 
+## Use an action
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|query|none|Unique identifier of the calendar|
-|lookAheadTimeInMinutes|integer|no|query|15|Time (in minutes) to look ahead for upcoming events.|
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-#### Response
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+
+	![](./media/connectors-create-api-office365-outlook/add-action.png)
+
+2. Choose **Add an action**.
+
+3. In the text box, type “office 365” to get a list of all the available actions.
+
+	![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+
+4. In our example, choose **Office 365 Outlook - Create contact**. If a connection already exists, then choose the **Folder ID**, **Given Name**, and other properties:  
+
+	![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+
+	If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic describes these properties. 
+
+	> [AZURE.NOTE] In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new new contact in Office 365. 
+
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+
+
+## Technical Details
+
+Here are the details about the triggers, actions and responses that this connection supports:
+
+## Office 365 triggers
+
+|Trigger | Description|
+|--- | ---|
+|[When an upcoming event is starting soon](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon)|This operation triggers a flow when an upcoming calendar event is starting.|
+|[When a new email arrives](connectors-create-api-office365-outlook.md#when-a-new-email-arrives)|This operation triggers a flow when a new email arrives|
+|[When a new event is created](connectors-create-api-office365-outlook.md#when-a-new-event-is-created)|This operation triggers a flow when a new event is created in a calendar.|
+|[When an event is modified](connectors-create-api-office365-outlook.md#when-an-event-is-modified)|This operation triggers a flow when an event is modified in a calendar.|
+
+
+## Office 365 actions
+
+|Action|Description|
+|--- | ---|
+|[Get emails](connectors-create-api-office365-outlook.md#get-emails)|This operation gets emails from a folder.|
+|[Send an email](connectors-create-api-office365-outlook.md#send-an-email)|This operation sends an email message.|
+|[Delete email](connectors-create-api-office365-outlook.md#delete-email)|This operation deletes an email by id.|
+|[Mark as read](connectors-create-api-office365-outlook.md#mark-as-read)|This operation marks an email as having been read.|
+|[Reply to email](connectors-create-api-office365-outlook.md#reply-to-email)|This operation replies to an email.|
+|[Get attachment](connectors-create-api-office365-outlook.md#get-attachment)|This operation gets an email attachment by id.|
+|[Send email with options](connectors-create-api-office365-outlook.md#send-email-with-options)|This operation sends an email with multiple options and waits for the recipient to respond back with one of the options.|
+|[Send approval email](connectors-create-api-office365-outlook.md#send-approval-email)|This operation sends an approval email and waits for a response from the recipient.|
+|[Get calendars](connectors-create-api-office365-outlook.md#get-calendars)|This operation lists available calendars.|
+|[Get events](connectors-create-api-office365-outlook.md#get-events)|This operation gets events from a calendar.|
+|[Create event](connectors-create-api-office365-outlook.md#create-event)|This operation creates a new event in a calendar.|
+|[Get event](connectors-create-api-office365-outlook.md#get-event)|This operation gets a specific event from a calendar.|
+|[Delete event](connectors-create-api-office365-outlook.md#delete-event)|This operation deletes an event in a calendar.|
+|[Update event](connectors-create-api-office365-outlook.md#update-event)|This operation updates an event in a calendar.|
+|[Get contact folders](connectors-create-api-office365-outlook.md#get-contact-folders)|This operation lists available contacts folders.|
+|[Get contacts](connectors-create-api-office365-outlook.md#get-contacts)|This operation gets contacts from a contacts folder.|
+|[Create contact](connectors-create-api-office365-outlook.md#create-contact)|This operation creates a new contact in a contacts folder.|
+|[Get contact](connectors-create-api-office365-outlook.md#get-contact)|This operation gets a specific contact from a contacts folder.|
+|[Delete contact](connectors-create-api-office365-outlook.md#delete-contact)|This operation deletes a contact from a contacts folder.|
+|[Update contact](connectors-create-api-office365-outlook.md#update-contact)|This operation updates a contact in a contacts folder.|
+
+### Action details
+
+In this section, see the specific details about each trigger and action, including any required or optional input properties, and any corresponding output associated with the connector.
+
+#### When an upcoming event is starting soon
+This operation triggers a flow when an upcoming calendar event is starting. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id|Unique identifier of the calendar|
+|lookAheadTimeInMinutes|Look ahead time|Time (in minutes) to look ahead for upcoming events|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+CalendarItemsList: The list of calendar items
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|value|array|List of calendar items|
+
+
+#### Get emails
+This operation gets emails from a folder. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderPath|Folder Path|Path of the folder to retrieve emails (default: 'Inbox')|
+|top|Top|Number of emails to retrieve (default: 10)|
+|fetchOnlyUnread|Fetch Only Unread Messages|Retrieve only unread emails?|
+|includeAttachments|Include Attachments|If set to true, attachments will also be retrieved along with the email|
+|searchQuery|Search Query|Search query to filter emails|
+|skip|Skip|Number of emails to skip (default: 0)|
+|skipToken|Skip Token|Skip token to fetch new page|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+ReceiveMessage: Receive Email Message
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|From|string|From|
+|To|string|To|
+|Subject|string|Subject|
+|Body|string|Body|
+|Importance|string|Importance|
+|HasAttachment|boolean|Has Attachment|
+|Id|string|Message Id|
+|IsRead|boolean|Is Read|
+|DateTimeReceived|string|Date time received|
+|Attachments|array|Attachments|
+|Cc|string|Specify email addresses separated by semicolons like someone@contoso.com|
+|Bcc|string|Specify email addresses separated by semicolons like someone@contoso.com|
+|IsHtml|boolean|Is Html|
+
+
+#### Send an email
+This operation sends an email message. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|emailMessage*|Email|Email|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+#### Delete email
+This operation deletes an email by id. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|messageId*|Message Id|Id of the email to delete|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+#### Mark as read
+This operation marks an email as having been read. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|messageId*|Message Id|Id of the email to be marked as read|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+
+#### Reply to email
+This operation replies to an email. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|messageId*|Message Id|Id of the email to reply to|
+|comment*|Comment|Reply comment|
+|replyAll|Reply All|Reply to all recipients|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+
+#### Get attachment
+This operation gets an email attachment by id. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|messageId*|Message Id|Id of the email|
+|attachmentId*|Attachment Id|Id of the attachment to download|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+
+#### When a new email arrives
+This operation triggers a flow when a new email arrives.
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderPath|Folder Path|Email folder to retrieve (default: Inbox)|
+|to|To|Recipient email addresses|
+|from|From|From address|
+|importance|Importance|Importance of the email (High, Normal, Low) (default: Normal)|
+|fetchOnlyWithAttachment|Has Attachments|Retrieve only emails with an attachment|
+|includeAttachments|Include Attachments|Include attachments|
+|subjectFilter|Subject Filter|String to look for in the subject|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+TriggerBatchResponse[ReceiveMessage]
+
+| Property Name | Data Type |
+|---|---|
+|value|array|
+
+
+#### Send email with options
+This operation sends an email with multiple options and waits for the recipient to respond back with one of the options. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|optionsEmailSubscription*|Subscription request for options email|Subscription request for options email|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+SubscriptionResponse: Model for Approval Email Subscription
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|id|string|Id of the subscription|
+|resource|string|Resource of the subscription request|
+|notificationType|string|Notification Type|
+|notificationUrl|string|Notification Url|
+
+
+#### Send approval email
+This operation sends an approval email and waits for a response from the recipient. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|approvalEmailSubscription*|Subscription request for approval email|Subscription request for approval email|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+SubscriptionResponse: Model for Approval Email Subscription
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|id|string|Id of the subscription|
+|resource|string|Resource of the subscription request|
+|notificationType|string|Notification Type|
+|notificationUrl|string|Notification Url|
+
+
+#### Get calendars
+This operation lists available calendars. 
+
+There are no parameters for this call.
+
+##### Output Details
+TablesList
+
+| Property Name | Data Type |
+|---|---|
+|value|array|
+
+
+#### Get events
+This operation gets events from a calendar. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id|Select a calendar|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+CalendarEventList: The list of calendar items
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|value|array|List of calendar items|
+
+
+#### Create event
+This operation creates a new event in a calendar. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id|Select a calendar|
+|item*|Item|Event to create|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+CalendarEvent: Connector specific calendar event model class.
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|Id|string|The Event's unique identifier.|
+|Attendees|array|List of attendees for the event.|
+|Body|not defined|The body of the message associated with the event.|
+|BodyPreview|string|The preview of the message associated with the event.|
+|Categories|array|The categories associated with the event.|
+|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
+|DateTimeCreated|string|The date and time that the event was created.|
+|DateTimeLastModified|string|The date and time that the event was last modified.|
+|End|string|The end time of the event.|
+|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
+|HasAttachments|boolean|Set to true if the event has attachments.|
+|Importance|string|The importance of the event: Low, Normal or High.|
+|IsAllDay|boolean|Set to true if the event lasts all day.|
+|IsCancelled|boolean|Set to true if the event has been canceled.|
+|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
+|Location|not defined|The location of the event.|
+|Organizer|not defined|The organizer of the event.|
+|Recurrence|not defined|The recurrence pattern for the event.|
+|Reminder|integer|Time in minutes before event start to remind.|
+|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
+|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
+|SeriesMasterId|string|Unique identifier for Series Master event type.|
+|ShowAs|string|Shows as free or busy.|
+|Start|string|The start time of the event.|
+|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
+|Subject|string|Event subject.|
+|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
+|WebLink|string|The preview of the message associated with the event.|
+
+
+#### Get event
+This operation gets a specific event from a calendar. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id|Select a calendar|
+|id*|Item id|Select an event|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+CalendarEvent: Connector specific calendar event model class.
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|Id|string|The Event's unique identifier.|
+|Attendees|array|List of attendees for the event.|
+|Body|not defined|The body of the message associated with the event.|
+|BodyPreview|string|The preview of the message associated with the event.|
+|Categories|array|The categories associated with the event.|
+|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
+|DateTimeCreated|string|The date and time that the event was created.|
+|DateTimeLastModified|string|The date and time that the event was last modified.|
+|End|string|The end time of the event.|
+|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
+|HasAttachments|boolean|Set to true if the event has attachments.|
+|Importance|string|The importance of the event: Low, Normal or High.|
+|IsAllDay|boolean|Set to true if the event lasts all day.|
+|IsCancelled|boolean|Set to true if the event has been canceled.|
+|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
+|Location|not defined|The location of the event.|
+|Organizer|not defined|The organizer of the event.|
+|Recurrence|not defined|The recurrence pattern for the event.|
+|Reminder|integer|Time in minutes before event start to remind.|
+|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
+|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
+|SeriesMasterId|string|Unique identifier for Series Master event type.|
+|ShowAs|string|Shows as free or busy.|
+|Start|string|The start time of the event.|
+|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
+|Subject|string|Event subject.|
+|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
+|WebLink|string|The preview of the message associated with the event.|
+
+
+#### Delete event
+This operation deletes an event in a calendar. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id|Select a calendar|
+|id*|Id|Select an event|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+
+#### Update event
+This operation updates an event in a calendar. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id|Select a calendar|
+|id*|Id|Select an event|
+|item*|Item|Event to update|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+CalendarEvent: Connector specific calendar event model class.
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|Id|string|The Event's unique identifier.|
+|Attendees|array|List of attendees for the event.|
+|Body|not defined|The body of the message associated with the event.|
+|BodyPreview|string|The preview of the message associated with the event.|
+|Categories|array|The categories associated with the event.|
+|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
+|DateTimeCreated|string|The date and time that the event was created.|
+|DateTimeLastModified|string|The date and time that the event was last modified.|
+|End|string|The end time of the event.|
+|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
+|HasAttachments|boolean|Set to true if the event has attachments.|
+|Importance|string|The importance of the event: Low, Normal or High.|
+|IsAllDay|boolean|Set to true if the event lasts all day.|
+|IsCancelled|boolean|Set to true if the event has been canceled.|
+|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
+|Location|not defined|The location of the event.|
+|Organizer|not defined|The organizer of the event.|
+|Recurrence|not defined|The recurrence pattern for the event.|
+|Reminder|integer|Time in minutes before event start to remind.|
+|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
+|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
+|SeriesMasterId|string|Unique identifier for Series Master event type.|
+|ShowAs|string|Shows as free or busy.|
+|Start|string|The start time of the event.|
+|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
+|Subject|string|Event subject.|
+|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
+|WebLink|string|The preview of the message associated with the event.|
+
+
+#### When a new event is created
+This operation triggers a flow when a new event is created in a calendar. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id|Select a calendar|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+CalendarItemsList: The list of calendar items
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|value|array|List of calendar items|
+
+
+#### When an event is modified
+This operation triggers a flow when an event is modified in a calendar. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Calendar id|Select a calendar|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+CalendarItemsList: The list of calendar items
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|value|array|List of calendar items|
+
+
+#### Get contact folders
+This operation lists available contacts folders. 
+
+There are no parameters for this call.
+
+##### Output Details
+TablesList
+
+| Property Name | Data Type |
+|---|---|
+|value|array|
+
+
+#### Get contacts
+This operation gets contacts from a contacts folder. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Folder id|Unique identifier of the contacts folder to retrieve|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+ContactList: The list of contacts
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|value|array|List of contacts|
+
+
+#### Create contact
+This operation creates a new contact in a contacts folder. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Folder id|Select a contacts folder|
+|item*|Item|Contact to create|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+Contact: Contact
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|Id|string|The contact's unique identifier.|
+|ParentFolderId|string|The ID of the contact's parent folder|
+|Birthday|string|The contact's birthday.|
+|FileAs|string|The name the contact is filed under.|
+|DisplayName|string|The contact's display name.|
+|GivenName|string|The contact's given name.|
+|Initials|string|The contact's initials.|
+|MiddleName|string|The contact's middle name.|
+|NickName|string|The contact's nickname.|
+|Surname|string|The contact's surname.|
+|Title|string|The contact's title.|
+|Generation|string|The contact's generation.|
+|EmailAddresses|array|The contact's email addresses.|
+|ImAddresses|array|The contact's instant messaging (IM) addresses.|
+|JobTitle|string|The contact's job title.|
+|CompanyName|string|The name of the contact's company.|
+|Department|string|The contact's department.|
+|OfficeLocation|string|The location of the contact's office.|
+|Profession|string|The contact's profession.|
+|BusinessHomePage|string|The business home page of the contact.|
+|AssistantName|string|The name of the contact's assistant.|
+|Manager|string|The name of the contact's manager.|
+|HomePhones|array|The contact's home phone numbers.|
+|BusinessPhones|array|The contact's business phone numbers|
+|MobilePhone1|string|The contact's mobile phone number.|
+|HomeAddress|not defined|The contact's home address.|
+|BusinessAddress|not defined|The contact's business address.|
+|OtherAddress|not defined|Other addresses for the contact.|
+|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
+|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
+|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
+|Categories|array|The categories associated with the contact.|
+|ChangeKey|string|Identifies the version of the event object|
+|DateTimeCreated|string|The time the contact was created.|
+|DateTimeLastModified|string|The time the contact was modified.|
+
+
+#### Get contact
+This operation gets a specific contact from a contacts folder. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Folder id|Select a contacts folder|
+|id*|Item id|Unique identifier of a contact to retrieve|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+Contact: Contact
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|Id|string|The contact's unique identifier.|
+|ParentFolderId|string|The ID of the contact's parent folder|
+|Birthday|string|The contact's birthday.|
+|FileAs|string|The name the contact is filed under.|
+|DisplayName|string|The contact's display name.|
+|GivenName|string|The contact's given name.|
+|Initials|string|The contact's initials.|
+|MiddleName|string|The contact's middle name.|
+|NickName|string|The contact's nickname.|
+|Surname|string|The contact's surname.|
+|Title|string|The contact's title.|
+|Generation|string|The contact's generation.|
+|EmailAddresses|array|The contact's email addresses.|
+|ImAddresses|array|The contact's instant messaging (IM) addresses.|
+|JobTitle|string|The contact's job title.|
+|CompanyName|string|The name of the contact's company.|
+|Department|string|The contact's department.|
+|OfficeLocation|string|The location of the contact's office.|
+|Profession|string|The contact's profession.|
+|BusinessHomePage|string|The business home page of the contact.|
+|AssistantName|string|The name of the contact's assistant.|
+|Manager|string|The name of the contact's manager.|
+|HomePhones|array|The contact's home phone numbers.|
+|BusinessPhones|array|The contact's business phone numbers|
+|MobilePhone1|string|The contact's mobile phone number.|
+|HomeAddress|not defined|The contact's home address.|
+|BusinessAddress|not defined|The contact's business address.|
+|OtherAddress|not defined|Other addresses for the contact.|
+|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
+|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
+|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
+|Categories|array|The categories associated with the contact.|
+|ChangeKey|string|Identifies the version of the event object|
+|DateTimeCreated|string|The time the contact was created.|
+|DateTimeLastModified|string|The time the contact was modified.|
+
+
+#### Delete contact
+This operation deletes a contact from a contacts folder. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Folder id|Select a contacts folder|
+|id*|Id|Unique identifier of contact to delete|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+
+#### Update contact
+This operation updates a contact in a contacts folder. 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Folder id|Select a contacts folder|
+|id*|Id|Unique identifier of contact to update|
+|item*|Item|Contact item to update|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+Contact: Contact
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|Id|string|The contact's unique identifier.|
+|ParentFolderId|string|The ID of the contact's parent folder|
+|Birthday|string|The contact's birthday.|
+|FileAs|string|The name the contact is filed under.|
+|DisplayName|string|The contact's display name.|
+|GivenName|string|The contact's given name.|
+|Initials|string|The contact's initials.|
+|MiddleName|string|The contact's middle name.|
+|NickName|string|The contact's nickname.|
+|Surname|string|The contact's surname.|
+|Title|string|The contact's title.|
+|Generation|string|The contact's generation.|
+|EmailAddresses|array|The contact's email addresses.|
+|ImAddresses|array|The contact's instant messaging (IM) addresses.|
+|JobTitle|string|The contact's job title.|
+|CompanyName|string|The name of the contact's company.|
+|Department|string|The contact's department.|
+|OfficeLocation|string|The location of the contact's office.|
+|Profession|string|The contact's profession.|
+|BusinessHomePage|string|The business home page of the contact.|
+|AssistantName|string|The name of the contact's assistant.|
+|Manager|string|The name of the contact's manager.|
+|HomePhones|array|The contact's home phone numbers.|
+|BusinessPhones|array|The contact's business phone numbers|
+|MobilePhone1|string|The contact's mobile phone number.|
+|HomeAddress|not defined|The contact's home address.|
+|BusinessAddress|not defined|The contact's business address.|
+|OtherAddress|not defined|Other addresses for the contact.|
+|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
+|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
+|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
+|Categories|array|The categories associated with the contact.|
+|ChangeKey|string|Identifies the version of the event object|
+|DateTimeCreated|string|The time the contact was created.|
+|DateTimeLastModified|string|The time the contact was modified.|
+
+
+
+## HTTP responses
+
+The actions and triggers above can return one or more of the following HTTP status codes: 
+
 |Name|Description|
 |---|---|
-|200|Operation was successful|
-|202|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-### Get emails 
-Retrieves emails from a folder.  
-```GET: /Mail```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Path of the folder to retrieve messages (default: 'Inbox')|
-|top|integer|no|query|10|Number of emails to retrieve (default: 10)|
-|fetchOnlyUnread|boolean|no|query|true|Retrieve only unread messages?|
-|includeAttachments|boolean|no|query|false|If set to true, attachments will also be retrieved along with the email message.|
-|searchQuery|string|no|query|none|Search query to filter emails|
-|skip|integer|no|query|0|Number of emails to skip (default: 0)|
-|skipToken|string|no|query|none|Skip token to fetch new page|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-### Send Email 
-Sends an email message.  
-```POST: /Mail``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|emailMessage| |yes|body|none|Email message instance|
-
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-### Delete email 
-Deletes an email message by id.  
-```DELETE: /Mail/{messageId}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|none|Id of the message to delete.|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-### Mark as read 
-Marks an email message as having been read.  
-```POST: /Mail/MarkAsRead/{messageId}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|none|Id of the message to be marked as read|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-### Reply to message 
-Replies to an email message.  
-```POST: /Mail/ReplyTo/{messageId}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|none|Id of the message to reply to|
-|comment|string|yes|query|none|Reply comment|
-|replyAll|boolean|no|query|false|Reply to all recipients|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-### Get attachment 
-Retrieves message attachment by id.  
-```GET: /Mail/{messageId}/Attachments/{attachmentId}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|messageId|string|yes|path|none|Id of the message|
-|attachmentId|string|yes|path|none|Id of the attachment to download|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|Operation was successful|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-### On new email 
-Triggers a flow when a new email arrives.  
-```GET: /Mail/OnNewEmail``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Email folder to retrieve (default: Inbox)|
-|to|string|no|query|none|Recipient email addresses|
-|from|string|no|query|none|From address|
-|importance|string|no|query|Normal|Importance of the email (High, Normal, Low) (default: Normal)|
-|fetchOnlyWithAttachment|boolean|no|query|false|Retrieve only emails with an attachment|
-|includeAttachments|boolean|no|query|false|Include attachments|
-|subjectFilter|string|no|query|none|String to look for in the subject.|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|Operation was successful.|
+|200|OK|
 |202|Accepted|
-|400|BadRequest|
+|400|Bad Request|
 |401|Unauthorized|
 |403|Forbidden|
-|500|Internal Server Error|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
 |default|Operation Failed.|
-
-
-### Send email with options 
-Send an email with multiple options and wait for the recipient to respond back with one of the options.  
-```POST: /mailwithoptions/$subscriptions``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|optionsEmailSubscription| |yes|body|none|Subscription Request for options Email|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|201|Subscription Created|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-### Send approval email 
-Send an approval email and wait for a response from the To recipient.  
-```POST: /approvalmail/$subscriptions``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|approvalEmailSubscription| |yes|body|none|Subscription Request for Approval Email.|
-
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|201|Subscription Created|
-|400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
-
-
-
-
-### Get calendars 
-Retrieves calendars.  
-```GET: /datasets/calendars/tables``` 
-
-There are no parameters for this call.
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-
-
-### Get events 
-Retrieves items from a calendar.  
-```GET: /datasets/calendars/tables/{table}/items```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of the calendar to retrieve|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Create event 
-Creates a new event.  
-```POST: /datasets/calendars/tables/{table}/items``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|item| |yes|body|none|Calendar item to create|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get event 
-Retrieves a specific item from a calendar.  
-```GET: /datasets/calendars/tables/{table}/items/{id}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|id|string|yes|path|none|Unique identifier of a calendar item to retrieve|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Delete event 
-Deletes a calendar item.  
-```DELETE: /datasets/calendars/tables/{table}/items/{id}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar.|
-|id|string|yes|path|none|Unique identifier of calendar item to delete|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Update event 
-Partially updates a calendar item.  
-```PATCH: /datasets/calendars/tables/{table}/items/{id}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|id|string|yes|path|none|Unique identifier of calendar item to update|
-|item| |yes|body|none|Calendar item to update|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### On new items 
-Triggered when a new calendar item is created.  
-```GET: /datasets/calendars/tables/{table}/onnewitems``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### On updated items 
-Triggered when a calendar item is modified.  
-```GET: /datasets/calendars/tables/{table}/onupdateditems``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get contact folders 
-Retrieves contacts folders.  
-```GET: /datasets/contacts/tables``` 
-
-There are no parameters for this call.
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get contacts 
-Retrieves contacts from a contacts folder.  
-```GET: /datasets/contacts/tables/{table}/items```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of the contacts folder to retrieve|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Create contact 
-Creates a new contact.  
-```POST: /datasets/contacts/tables/{table}/items``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a contacts folder|
-|item| |yes|body|none|Contact to create|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get contact 
-Retrieves a specific contact from a contacts folder.  
-```GET: /datasets/contacts/tables/{table}/items/{id}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a contacts folder|
-|id|string|yes|path|none|Unique identifier of a contact to retrieve|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Delete contact 
-Deletes a contact.  
-```DELETE: /datasets/contacts/tables/{table}/items/{id}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a contacts folder.|
-|id|string|yes|path|none|Unique identifier of contact to delete|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Update contact 
-Partially updates a contact.  
-```PATCH: /datasets/contacts/tables/{table}/items/{id}``` 
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a contacts folder|
-|id|string|yes|path|none|Unique identifier of contact to update|
-|item| |yes|body|none|Contact item to update|
-
-#### Response
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-## Object definitions
-
-#### TriggerBatchResponse[IDictionary[String,Object]]
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-
-#### SendMessage: Send Email Message
-
-| Name | Data Type |Required|
-|---|---|---|
-|Attachments|array|no|
-|From|string|no|
-|Cc|string|no|
-|Bcc|string|no|
-|Subject|string|yes|
-|Body|string|yes|
-|Importance|string|no|
-|IsHtml|boolean|no|
-|To|string|yes|
-
-#### SendAttachment: Attachment
-
-| Name | Data Type |Required|
-|---|---|---|
-|@odata.type|string|no|
-|Name|string|yes|
-|ContentBytes|string|yes|
-
-
-#### ReceiveMessage: Receive Email Message
-
-| Name | Data Type |Required|
-|---|---|---|
-|Id|string|no|
-|IsRead|boolean|no|
-|HasAttachment|boolean|no|
-|DateTimeReceived|string|no|
-|Attachments|array|no|
-|From|string|no|
-|Cc|string|no|
-|Bcc|string|no|
-|Subject|string|yes|
-|Body|string|yes|
-|Importance|string|no|
-|IsHtml|boolean|no|
-|To|string|yes|
-
-
-#### ReceiveAttachment: Receive Attachment
-
-| Name | Data Type |Required|
-|---|---|---|
-|Id|string|yes|
-|ContentType|string|yes|
-|@odata.type|string|no|
-|Name|string|no|
-|ContentBytes|string|yes|
-
-
-#### DigestMessage: Send Email Message
-
-| Name | Data Type |Required|
-|---|---|---|
-|Subject|string|yes|
-|Body|string|no|
-|Importance|string|no|
-|Digest|array|yes|
-|Attachments|array|no|
-|To|string|yes|
-
-#### TriggerBatchResponse[ReceiveMessage]
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-
-#### DataSetsMetadata
-
-| Name | Data Type |Required|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-
-#### TabularDataSetsMetadata
-
-| Name | Data Type |Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-
-#### BlobDataSetsMetadata
-
-| Name | Data Type |Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-#### TableMetadata
-
-| Name | Data Type |Required|
-|---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|not defined|no|
-
-
-#### OptionsEmailSubscription: Model for Options Email Subscription
-
-| Name | Data Type |Required|
-|---|---|---|
-|NotificationUrl|string|no|
-|Message|not defined|no|
-
-#### MessageWithOptions: User Options Email Message. This is the message expected as part of user input
-
-| Name | Data Type |Required|
-|---|---|---|
-|Subject|string|yes|
-|Options|string|yes|
-|Body|string|no|
-|Importance|string|no|
-|Attachments|array|no|
-|To|string|yes|
-
-#### SubscriptionResponse: Model for Approval Email Subscription
-
-| Name | Data Type |Required|
-|---|---|---|
-|id|string|no|
-|resource|string|no|
-|notificationType|string|no|
-|notificationUrl|string|no|
-
-
-#### ApprovalEmailSubscription: Model for Approval Email Subscription
-
-| Name | Data Type |Required|
-|---|---|---|
-|NotificationUrl|string|no|
-|Message|not defined|no|
-
-
-#### ApprovalMessage: Approval Email Message. This is the message expected as part of user input
-
-| Name | Data Type |Required|
-|---|---|---|
-|Subject|string|yes|
-|Options|string|yes|
-|Body|string|no|
-|Importance|string|no|
-|Attachments|array|no|
-|To|string|yes|
-
-#### ApprovalEmailResponse: Approval Email Response
-
-| Name | Data Type |Required|
-|---|---|---|
-|SelectedOption|string|no|
-
-#### TablesList
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-
-#### Table
-
-| Name | Data Type |Required|
-|---|---|---|
-|Name|string|no|
-|DisplayName|string|no|
-
-
-#### Item
-
-| Name | Data Type |Required|
-|---|---|---|
-|ItemInternalId|string|no|
-
-
-#### CalendarItemsList: The list of calendar items
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-
-#### CalendarItem: Represents a calendar table item
-
-| Name | Data Type |Required|
-|---|---|---|
-|ItemInternalId|string|no|
-
-
-#### ContactItemsList: The list of contact items
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-
-#### ContactItem: Represents a contact table item
-
-| Name | Data Type |Required|
-|---|---|---|
-|ItemInternalId|string|no|
-
-
-#### DataSetsList
-
-| Name | Data Type |Required|
-|---|---|---|
-|value|array|no|
-
-
-#### DataSet
-
-| Name | Data Type | Required|
-|---|---|---|
-|Name|string|no|
-|DisplayName|string|no|
 
 
 ## Next Steps
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-Go back to the [APIs list](apis-list.md).
-
-<!--References-->
-[5]: https://portal.azure.com
-[7]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications.png
-[8]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications-add-appinfo.png
-[9]: ./media/connectors-create-api-office365-outlook/aad-tenant-applications-add-app-properties.png
-[10]: ./media/connectors-create-api-office365-outlook/contoso-aad-app.png
-[11]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-configure.png
-[12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
-[13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
