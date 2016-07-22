@@ -28,7 +28,7 @@ The [Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptick
 
 This [Solution Quick Start: Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) provides a solution for collecting and monitoring SQL Database resource usage across multiple pools in a subscription. When you have a large number of databases in a subscription, it's cumbersome to monitor each elastic pool separately.
 
-To resolve this issue, you can combine SQL Database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases. Then you can monitor and analyze resource usage more efficiently.
+To resolve this issue, you can combine SQL Database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases. This helps you monitor and analyze resource usage more efficiently.
 
 This Quick Start in the GitHub SQL Server samples repository provides a set of PowerShell scripts and T-SQL queries along with documentation on what the solution does and how to implement it.
 
@@ -40,24 +40,24 @@ In this solution, you will walk through the implementation of a web app. This we
 
 This Quick Start in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation on what the app does and how to use it.
 
-## Create an Azure SQL Database by the Entity Framework and Code First Development
+## Create an Azure SQL database by using the Entity Framework and Code First Development
 
-The video and sample in [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) provides an introduction to Code First development that targets a new database. This scenario targets a database that doesn’t exist, but which will be created by Code First. Alternately, it will create an empty database to which Code First will add new tables.
+The video and sample in [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) provides an introduction to Code First development that targets a new database. This scenario targets a database that doesn’t exist, but which will be created by Code First. Alternatively, the scenario creates an empty database to which Code First adds new tables.
 
-Code First enables you to define your model by using by C# or Visual Basic .NET classes. You can perform optional additional configuration by using attributes on your classes and properties or by using a fluent API. See [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx).
+Code First enables you to define your model by using by C# or Visual Basic .NET classes. You can perform optional additional configuration by using attributes on your classes and properties or by using a fluent API.
 
 ## Integrate Elastic Database tools into an Entity Framework application
 
-This sample shows the changes that you need to make to an Entity Framework application to integrate it with [Elastic Database tools](sql-database-elastic-scale-get-started.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework Code First approach.
+The [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) sample shows the changes that you need to make to an Entity Framework application to integrate it with [Elastic Database tools](sql-database-elastic-scale-get-started.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework Code First approach.
 
-The [Code First to a new database sample for EF](http://msdn.microsoft.com/data/jj193542.aspx) serves as our running example throughout this sample. The sample code that accompanies this document is part of the Elastic Database tools set of samples in the Visual Studio code samples. See [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md).
+The [Code First to a new database sample for EF](http://msdn.microsoft.com/data/jj193542.aspx) serves as our running example throughout this sample. The sample code that accompanies this document is part of the Elastic Database tools set of samples in the Visual Studio code samples.
 
 ## Integrate Elastic Database tools with row-level security
 
-This sample shows that you need to make to an Entity Framework application to integrate [Elastic Database tools](sql-database-elastic-scale-get-started.md) with [row-level security](https://msdn.microsoft.com/library/dn765131). This sample illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multi-tenant shards.
+[Multi-tenant applications with Elastic Database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md) shows the changes that you need to make to an Entity Framework application to integrate [Elastic Database tools](sql-database-elastic-scale-get-started.md) with [row-level security](https://msdn.microsoft.com/library/dn765131). This sample illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multi-tenant shards.
 
 You do this by using ADO.NET SqlClient or Entity Framework. This sample extends the [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multitenant shard databases.
-It builds a simple console application for creating blogs and posts, with four tenants and two multitenant shard databases. For more information, see [Multi-tenant applications with Elastic Database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md).
+It builds a simple console application for creating blogs and posts, with four tenants and two multitenant shard databases.
 
 ## Create online surveys with the Tailspin Surveys application
 
