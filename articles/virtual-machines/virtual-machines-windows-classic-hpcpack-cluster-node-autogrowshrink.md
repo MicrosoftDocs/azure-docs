@@ -23,7 +23,7 @@ ms.service="virtual-machines-windows"
 
 If you deploy Azure “burst” nodes in your HPC Pack cluster, or you
 create an HPC Pack cluster in Azure VMs, you may want a way to
-automatically grow or shrink the number of Azure compute resources such as cores according to
+automatically grow or shrink the number of Azure compute resources such as nodes or cores according to
 the current workload on the cluster. This allows you
 to use your Azure resources more efficiently and control their costs.
 To do this, set up the HPC Pack cluster property **AutoGrowShrink**. Alternatively, run the
