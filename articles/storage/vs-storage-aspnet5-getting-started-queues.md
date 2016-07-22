@@ -18,7 +18,7 @@
 
 # Get started with queue storage and Visual Studio connected services (ASP.NET 5)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools-queues.md)]
 
 ##Overview
 
