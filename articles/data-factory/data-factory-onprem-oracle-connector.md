@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Move data to/from on-premises Oracle using Azure Data Factory 
@@ -25,6 +25,10 @@ For the Azure Data Factory service to be able to connect to your on-premises Ora
 
 - Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. 
 - Oracle Data Provider for .NET. This is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the host machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
+
+	If you choose “XCopy Installation”, follow steps in the readme.htm. We recommend you choose the installer with UI (non XCopy one). 
+ 
+	After installing the provider, Restart the Data Management Gateway Host service on your machine using Services applet (or) Data Management Gateway Configuration Manager.  
 
 > [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
@@ -433,7 +437,7 @@ oracleReaderQuery | Use the custom query to read data. | SQL query string. For e
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: 00:30:00 (30 minutes). | No
-writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.	| Integer | No (default: 10000)  
+writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.	| Integer (number of rows)| No (default: 10000)  
 sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. | A query statement. | No
 sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. | Column name of a column with data type of binary(32). | No
 

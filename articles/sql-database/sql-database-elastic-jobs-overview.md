@@ -29,7 +29,7 @@ To manage scaled-out sharded databases, the **Elastic Database jobs** feature (p
 * [Install the Elastic Database job components](sql-database-elastic-jobs-service-installation.md). 
 * [Get started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 * [Create and manage jobs using PowerShell](sql-database-elastic-jobs-powershell.md).
-* [Create and manage scaled out SQL Azure databases](sql-database-elastic-jobs-getting-started.md)
+* [Create and manage scaled out Azure SQL Databases](sql-database-elastic-jobs-getting-started.md)
 
 **Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL Databases by running Transact-SQL scripts to perform administrative operations. 
 

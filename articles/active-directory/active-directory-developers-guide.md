@@ -13,23 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/23/2016"
+   ms.date="07/06/2016"
    ms.author="mbaldwin"/>
 
 
 # Azure Active Directory developer's guide
 
 ## Overview
-As an identity management as a service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation and key features of Azure Active Directory. We suggest that you read them in order, or jump to [Getting started](#getting-started) if you're ready to dig in.
+As an identity management as a service (IDMaaS) platform, Azure Active Directory (AD) provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation and key features of Azure AD. We suggest that you read them in order, or jump to [Getting started](#getting-started) if you're ready to dig in.
 
 
-1. [The benefits of Azure Active Directory integration](active-directory-how-to-integrate.md): Discover why integration with Azure Active Directory offers the best solution for secure sign-in and authorization.
+1. [The benefits of Azure Active Directory integration](active-directory-how-to-integrate.md): Discover why integration with Azure AD offers the best solution for secure sign-in and authorization.
 
-1. [Active Directory authentication scenarios](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure Active Directory to provide sign-on to your application.
+1. [Active Directory authentication scenarios](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure AD to provide sign-on to your application.
 
-1. [Integrating applications with Azure Active Directory](active-directory-integrating-applications.md): Learn how to add, update, and remove applications from Azure Active Directory, and about the branding guidelines for integrated apps.
+1. [Integrating applications with Azure Active Directory](active-directory-integrating-applications.md): Learn how to add, update, and remove applications from Azure AD, and about the branding guidelines for integrated apps.
 
-1. [Azure Active Directory Graph API](active-directory-graph-api.md): Use the Azure Active Directory Graph API to programmatically access Azure Active Directory through REST API endpoints. Note that Azure AD Graph API is also accessible through [Microsoft Graph](https://graph.microsoft.io/), a unified API that  enables access to multiple Microsoft cloud service APIs through a single REST API endpoint, and with a single access token.
+1. [Azure Active Directory Graph API](active-directory-graph-api.md): Use the Azure AD Graph API to programmatically access Azure AD through REST API endpoints. Note that Azure AD Graph API is also accessible through [Microsoft Graph](https://graph.microsoft.io/), a unified API that  enables access to multiple Microsoft cloud service APIs through a single REST API endpoint, and with a single access token.
 
 1. [Azure Active Directory authentication libraries](active-directory-authentication-libraries.md): Easily authenticate users to obtain access tokens by using Azure AD authentication libraries for .NET, JavaScript, Objective-C, Android, and more.
 
@@ -66,12 +66,13 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 
 These articles describe how to perform specific tasks by using Azure Active Directory:
 
-- [Get an Azure Active Directory tenant](active-directory-howto-tenant.md)
-- [List your application in the Azure Active Directory application gallery](active-directory-app-gallery-listing.md)
-- [Understand the Azure Active Directory application manifest](active-directory-application-manifest.md)
-- [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [Get an Azure AD tenant](active-directory-howto-tenant.md)
+- [Sign in any Azure AD user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md) 
+- Enable cross-app SSO using ADAL, on [Android](active-directory-sso-android.md) and on [iOS](active-directory-sso-ios.md) devices
+- [Make your application AppSource Certified for Azure AD](active-directory-devhowto-appsource-certified.md)
+- [List your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
 - [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- Learn how to enable cross-app SSO using ADAL, on [Android](active-directory-sso-android.md) and on [iOS](active-directory-sso-ios.md) devices
+- [Understand the Azure Active Directory application manifest](active-directory-application-manifest.md)
 - [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](active-directory-branding-guidelines.md)
 - [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
 - [Preview: How to build apps that sign up & sign in consumers](../active-directory-b2c/active-directory-b2c-overview.md)

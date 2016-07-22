@@ -36,7 +36,7 @@ Adventure Works Cycles wants to build an on-line store application in Azure that
 	- a front end subnet for the web servers 
 	- a back end subnet for the application servers, MongoDB cluster, and domain controllers
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
+![Diagram of different tiers for application infrastructure](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
 Incoming secure web traffic needs to be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers needs to be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
 
@@ -115,7 +115,7 @@ Adventure Works Cycles decided on the following names for their Azure VMs:
 
 Here is the resulting configuration.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Final application infrastructure deployed in Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
 This configuration incorporates:
 

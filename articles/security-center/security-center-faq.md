@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
 
 This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources.
-
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
 ## General questions
 
@@ -102,10 +100,10 @@ Azure Security Center automatically collects, analyzes and fuses log data from y
 ### What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
 The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contact(s) specified in Azure Security Center or the Azure subscription owner if a security contact is not specified.
 
-Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard. In the future, email notification of security alerts will be sent to security contact(s) as well.
+Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard.
 
 ### How are permissions handled in Azure Security Center?
-Azure Security Center supports role based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
+Azure Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 When a user opens Azure Security Center, only recommendations and alerts that are related to resources the user has access to will be seen.  This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to.
 
@@ -114,18 +112,20 @@ To edit a security policy, you must be an Owner or Contributor of the subscripti
 ## Virtual Machines
 
 ### What types of virtual machines will be supported?
-Virtual machines created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md) are supported, including virtual machines that are part of Azure Service Fabric clusters.
+Security health monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md), including VMs that are part of Azure Service Fabric clusters.
 
-Supported Windows virtual machines:
+Supported Windows VMs:
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-Supported Linux virtual machines:
+Supported Linux VMs:
 
 - Ubuntu versions 12.04, 14.04, 15.10, 16.04
 - Debian versions 7, 8
 - CentOS versions 6.\*, 7.*
 - Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
 - SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*
+
+VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).

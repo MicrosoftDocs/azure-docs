@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/21/2016"
    ms.author="jeffstok"
 />
 
@@ -26,12 +26,15 @@ The edge node of a Premium cluster provides a convenient place to connect to the
 
 ## Compute contexts for an edge node
 
-In general, an R script that's run in R Server on the edge node runs within the R interpreter on that node. The exception is those steps that call a ScaleR function. The ScaleR calls run in a compute environment that's determined by how you set the ScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are local sequential (‘local’), local parallel (‘localpar’), Map Reduce, and Spark, as follows:
+In general, an R script that's run in R Server on the edge node runs within the R interpreter on that node. The exception is those steps that call a ScaleR function. The ScaleR calls run in a compute environment that's determined by how you set the ScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are local sequential (‘local’), local parallel (‘localpar’), Map Reduce, and Spark.
+
+The ‘local’ and ‘localpar’ options differ only in how rxExec calls are executed. They both execute other rx-function calls in a parallel manner across all available cores unless specified otherwise through use of the ScaleR numCoresToUse option, e.g. rxOptions(numCoresToUse=6). 
+The following summarizes the various compute context options
 
 | Compute context  | How to set                      | Execution context                                                                     |
 |------------------|---------------------------------|---------------------------------------------------------------------------------------|
-| Local sequential | rxSetComputeContext(‘local’)    | Sequential (non-parallelized) execution on the edge node server                       |
-| Local parallel   | rxSetComputeContext(‘localpar’) | Parallelized across the cores of the edge node server                                 |
+| Local sequential | rxSetComputeContext(‘local’)    | Parallelized execution across the cores of the edge node server, except for rxExec calls which are executed serially |
+| Local parallel   | rxSetComputeContext(‘localpar’) | Parallelized execution across the cores of the edge node server                                 |
 | Spark            | RxSpark()                       | Parallelized distributed execution via Spark across the nodes of the HDI cluster      |
 | Map Reduce       | RxHadoopMR()                    | Parallelized distributed execution via Map Reduce across the nodes of the HDI cluster |
 
@@ -46,14 +49,14 @@ Currently, there is no formula that tells you which compute context to use. Ther
 2.	Repeated analyses are faster if the data is local, and if it's in XDF.
 3.	It's preferable to stream small amounts of data from a text data source; if the amount of data is larger, convert it to XDF prior to analysis.
 4.	The overhead of copying or streaming the data to the edge node for analysis becomes unmanageable for very large amounts of data.
-5.	Spark is faster than Map Reduce for analysis in Hadoop until the amount of data gets very large and can no longer fit in distributed memory.
+5.	Spark is faster than Map Reduce for analysis in Hadoop.
 
 Given these principles, some general rules of thumb for selecting a compute context are:
 
-### Local parallel
+### Local
 
-- If the amount of data to analyze is small and does not require repeated analysis, then stream it directly into the analysis routine and use ‘localpar’.
-- If the amount of data to analyze is small or medium-sized and requires repeated analysis, then copy it to the local file system, import it to XDF, and analyze it via ‘localpar’.
+- If the amount of data to analyze is small and does not require repeated analysis, then stream it directly into the analysis routine and use 'local' or 'localpar'.
+- If the amount of data to analyze is small or medium-sized and requires repeated analysis, then copy it to the local file system, import it to XDF, and analyze it via 'local' or 'localpar'.
 
 ### Hadoop Spark
 
@@ -61,7 +64,7 @@ Given these principles, some general rules of thumb for selecting a compute cont
 
 ### Hadoop Map Reduce
 
-- If the amount of data to analyze is very large and Spark performance begins to deteriorate, then try an analysis via Map Reduce.
+- Use only if you encounter an insurmountable problem with use of the Spark compute context since generally it will be slower.  
 
 ## Inline help on rxSetComputeContext
 

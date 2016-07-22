@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="06/20/2016"
+    ms.date="07/08/2016"
     ms.author="anhoh"/>
 
 #Connecting DocumentDB with Azure Search using indexers
@@ -134,6 +134,8 @@ Create a target Azure Search index if you don’t have one already. You can do t
 
 
 Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
+
+>[AZURE.NOTE] For partitioned collections, the default document key is DocumentDB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, DocumentDB's `_rid` values contain characters that are invalid in Azure Search keys; therefore, the `_rid` values are Base64 encoded.
 
 ###Figure A: Mapping between JSON Data Types and Azure Search Data Types
 

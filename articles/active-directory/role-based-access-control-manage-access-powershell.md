@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/12/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 # Manage Role-Based Access Control with Azure PowerShell
@@ -117,7 +117,9 @@ To remove access for users, groups and applications use:
 ## Create custom role
 To create a custom role, use the `New-AzureRmRoleDefinition` command.
 
-The following example creates a custom role called *Virtual Machine Operator* that grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers, and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
+When you create a custom role in PowerShell, you need to start with one of the [built-in roles](role-based-access-built-in-roles.md). Edit the attributes and add whatever Actions, notActions, or scopes you want, and then save the changes as a new role.
+
+The following example starts with the role *Virtual Machine Contributor* and uses that to create a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers, and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 

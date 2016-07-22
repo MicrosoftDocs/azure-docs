@@ -20,6 +20,10 @@
 
 This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts demonstrate the use of SQL Database in complete solution based on real world scenarios. For simple step-by-step tutorials demonstrating the use of a particular Azure SQL Database feature, see [Explore Azure SQL Database Tutorials](sql-database-explore-tutorials.md).
 
+## WingTipTickets Demo and Hands-On Lab
+
+[Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) demo and hands on lab These files comprise a hands-on-lab that demostrates an Azure SQL Database and Azure Search based sample application used to selling concert tickets.
+
 ## Collect and monitor resource usage data across multiple pools
 
 This Solution Quick Start provides a solution for collecting and monitoring Azure SQL Database resource usage accross multiple pools in a subscription. When you have a large number of databases in a subscription, it is cumbersome to monitor each elastic pool separately. To solve this, you can combine SQL database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases for monitoring and analysis of resource usage. 
@@ -32,7 +36,7 @@ This Solution Quick Start provides a solution for a Softwware-as-a-Solution (Saa
 
 [Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) in the GitHub SQL Server samples repository provides a load generator and monitoring web app along with the documentation on what it does and how to use it.
 
-## Creating an Azure SQL Database using the Entity Framework and COde First Development
+## Creating an Azure SQL Database using the Entity Framework and Code First Development
 
 This video and sample provides an introduction to Code First development targeting a new database. This scenario includes targeting a database that doesn’t exist and Code First will create, or an empty database that Code First will add new tables too. Code First allows you to define your model using C# or VB.Net classes. Additional configuration can optionally be performed using attributes on your classes and properties or by using a fluent API. See [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx). 
 
@@ -47,6 +51,10 @@ This sample shows the changes to an Entity Framework application that are needed
 ## Tailspin Surveys application
 
 This sample is a multitenant web application, called Surveys, that allows users to create online surveys. The sample demonstrates some key concerns when managing user identities in a multitenant application, including sign-up, authentication, authorization, and app roles. To run this sample, see [How to run the Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md).
+
+## Contoso Clinic Demo Application
+
+This sample showcases security features of Azure SQL DB (V12). To run this sample, see [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample).
 
 ## Next steps
 

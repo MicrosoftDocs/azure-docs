@@ -19,7 +19,7 @@
 
 # How to manage a DocumentDB account
 
-Learn how to set global consistency and manage multiple regions for global availability of data. Also, learn how to work with keys, and how to delete an account in the Azure Portal.
+Learn how to set global consistency and manage multiple regions for global availability of data in Azure DocumentDB. Also, learn how to work with keys, and how to delete an account in the Azure Portal.
 
 ## <a id="consistency"></a>Manage DocumentDB consistency settings
 

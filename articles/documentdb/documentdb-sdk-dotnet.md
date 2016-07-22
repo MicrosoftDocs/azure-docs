@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="07/22/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -24,7 +24,7 @@
 - [Java SDK](documentdb-sdk-java.md)
 - [Python SDK](documentdb-sdk-python.md)
 
-##DocumentDB .NET SDK
+## DocumentDB .NET SDK
 
 <table>
 <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -35,6 +35,27 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.9.1"/>[1.9.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.1)
+> [AZURE.IMPORTANT] 7/22/2016: A backwards compatibility issue has been found with this release. DocumentDB .NET SDK version 1.9.2 will be released shortly to address this issue. 
+
+  - Added support for SELECT VALUE for parallel queries, cross-partition TOP queries, and cross-partition ORDER BY queries.
+  - Improved the performance of cross-partition TOP and ORDER BY queries.
+  - Updated an error message to clarify that if you receive an unhandled System.NotSupportedException when running queries against    partitioned collections, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab, to avoid the error.
+  - Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing a DocumentDB project with a reference to the DocumentDB Nuget package.
+  - Fixed the ability to use parameters of different types when using user defined functions in LINQ. 
+
+
+### <a name="1.9.0"/>[1.9.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.0)
+> [AZURE.IMPORTANT] 7/22/2016: A backwards compatibility issue has been found with this release. DocumentDB .NET SDK version 1.9.2 will be released shortly to address this issue.
+
+  - Changed the default connection mode for the .NET client to ConnectionMode.Direct to improve performance by using Direct connectivity with TCP. Deprecated the ConnectionPolicy.ConnectionProtocol property and added a DirectHttps value to the ConnectionMode enumeration.
+  - Fixed a bug for globally replicated accounts where Upsert calls were being directed to read locations instead of write locations.
+  - Added methods to the IDocumentClient interface that were missing which include: UpsertAttachmentAsync method that takes mediaStream and options as parameters, CreateAttachmentAsync method that takes options as a parameter, and CreateOfferQuery method that takes querySpec as a parameter.
+  - Unsealed public classes that are exposed in the IDocumentClient interface.
+  - Added support for parallel queries for partitioned collections.
+  - Added cross partition Order By support for partitioned collections.
+  
 
 ### <a name="1.8.0"/>[1.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - Added the support for multi-region database accounts.
@@ -142,6 +163,8 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.9.1](#1.9.1) | July 20, 2016 |---
+| [1.9.0](#1.9.0) | July 9, 2016 |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.1](#1.7.1) | May 06, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---

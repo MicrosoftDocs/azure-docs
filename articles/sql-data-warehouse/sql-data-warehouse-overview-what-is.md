@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/16/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -85,13 +85,13 @@ Allocation of resources to your SQL Data Warehouse is measured in Data Warehouse
 
 - Microsoft can rapidly improve performance in SQL Data Warehouse, in a way the is scalable and evenly effects the system.
 
-Specifically, Data Warehouse Units provide a measure of three precise metrics that are highly correlated with data warehousing workload performance. The goal is that the following key workload metrics will scale linearly with the DWUs that you have chosen for your data warehouse.
+Data Warehouse Units provide a measure of three precise metrics that are highly correlated with data warehousing workload performance. The goal is that the following key workload metrics will scale linearly with the DWUs that you have chosen for your data warehouse.
 
 **Scan/Aggregation:** This workload metric takes a standard data warehousing query that scans a large number of rows and then performs a complex aggregation. This is an I/O and CPU intensive operation.
 
 **Load:** This metric measures the ability to ingest data into the service. Loads are completed with PolyBase loading a representative data set from Azure Blob storage. This metric is designed to stress network and CPU aspects of the service.
 
-**Create Table As Select (CTAS):** CTAS measures the ability to create copy of a table. This involves reading data from storage, distributing it across the nodes of the appliance, and writing it to storage again. It is a CPU and network intensive operation.
+**Create Table As Select (CTAS):** CTAS measures the ability to copy a table. This involves reading data from storage, distributing it across the nodes of the appliance and writing it to storage again. It is a CPU, IO and network intensive operation.
 
 ## Pause and scale on demand
 
@@ -162,13 +162,13 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Create Support Ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-integrate-solution-partners.md
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Create Support Ticket]: sql-data-warehouse-get-started-create-support-ticket.md
+[load sample data]: sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Migration documentation]: sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
@@ -176,7 +176,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [CAT Team Blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature Requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN Forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+[MSDN Forum]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow Forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

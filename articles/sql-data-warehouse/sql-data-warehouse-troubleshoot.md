@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
@@ -34,7 +34,6 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Issue                              | Resolution                                      |
 | :----------------------------------| :---------------------------------------------- |
 | Visual Studio object explorer is missing AAD users | This is a known issue.  As a workaround, view the users in [sys.database_principals][].  See [Authentication to Azure SQL Data Warehouse][] to learn more about using Azure Active Directory with SQL Data Warehouse.|
-| SSMS error messages                 |SQL Server Management Studio (SSMS) is not yet supported.  While it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work only after you ignore some error messages or disable some options.|
 
 ## Performance
 
@@ -51,6 +50,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 
 |  Issue                             | Resolution                                      |
 | :----------------------------------| :---------------------------------------------- |
+| Msg 40847: Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 45000. | Either reduce the [DWU][] of the database you are trying to create or [request a quota increase][].|
 | Investigating space utilization    | See [Table sizes][] to understand the space utilization of your system.|
 | Help with managing tables          | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary].|
 
@@ -72,6 +72,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | MERGE statement is not supported   | See [MERGE workarounds][].|
 | Stored procedure limitations       | See [Stored procedure limitations][] to understand some of the limitations of stored procedures.|
 | UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION][] for the syntax we support.   |
+'<--LocComment: Page not found "Stored procedure limitations" is broken. I've tried fixing the link in Article References -->'
 
 ## Next steps
 
@@ -92,6 +93,8 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change 
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
@@ -114,7 +117,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Stored procedure limitations]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Stored procedure limitations]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 [Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 

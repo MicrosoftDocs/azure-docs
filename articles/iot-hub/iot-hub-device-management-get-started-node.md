@@ -10,7 +10,7 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="dotnet"
- ms.topic="hero-article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
@@ -182,9 +182,11 @@ To retrieve, build, and run the device management sample UI, follow the steps be
 Leave the simulated devices and the device management app running as you proceed to the next device management tutorial.
 
 
-## Next step
+## Next steps
 
-To continue learning about the Azure IoT Hub device management features, see the [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] tutorial.
+To continue getting started with IoT Hub, see [Getting started with the Gateway SDK][lnk-gateway-SDK].
+
+To learn more about the Azure IoT Hub device management features, see the [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] tutorial.
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png
@@ -200,3 +202,4 @@ To continue learning about the Azure IoT Hub device management features, see the
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
