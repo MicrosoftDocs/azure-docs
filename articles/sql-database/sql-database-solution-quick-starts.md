@@ -28,9 +28,9 @@ The [Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptick
 
 This [Solution Quick Start: Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) provides a solution for collecting and monitoring SQL Database resource usage across multiple pools in a subscription. When you have a large number of databases in a subscription, it's cumbersome to monitor each elastic pool separately.
 
-To resolve this issue, you can combine SQL Database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases for monitoring and analysis of resource usage.
+To resolve this issue, you can combine SQL Database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases. Then you can monitor and analyze resource usage more efficiently.
 
-This Quick Start in the GitHub SQL Server samples repository provides a set of PowerShell scripts and T-SQL queries along with documentation on what the solution does and how to implement  it.
+This Quick Start in the GitHub SQL Server samples repository provides a set of PowerShell scripts and T-SQL queries along with documentation on what the solution does and how to implement it.
 
 ## Get started with Elastic Database in an SaaS scenario
 
@@ -44,7 +44,7 @@ This Quick Start in the GitHub SQL Server samples repository provides a load gen
 
 The video and sample in [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) provides an introduction to Code First development that targets a new database. This scenario targets a database that doesn’t exist, but which will be created by Code First. Alternately, it will create an empty database to which Code First will add new tables.
 
-Code First enables you to define your model by using by C# or Visual Basic .NET  classes. You can perform optional additional configuration by using attributes on your classes and properties or by using a fluent API. See [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx).
+Code First enables you to define your model by using by C# or Visual Basic .NET classes. You can perform optional additional configuration by using attributes on your classes and properties or by using a fluent API. See [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx).
 
 ## Integrate Elastic Database tools into an Entity Framework application
 
@@ -63,9 +63,9 @@ It builds a simple console application for creating blogs and posts, with four t
 
 This [Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) is a multitenant web application, called Surveys, that enables users to create online surveys. The sample addresses some key concerns about how to manage user identities in a multitenant application, including sign-up, authentication, authorization, and app roles.
 
-## Contoso Clinic Demo Application
+## Learn about the latest security features of SQL Database with the Contoso Clinic Demo Application
 
-This [Contoso Clinic Demo application](https://github.com/Microsoft/azure-sql-security-sample) showcases security features of the latest Azure SQL Database.
+This [Contoso Clinic Demo application](https://github.com/Microsoft/azure-sql-security-sample) showcases the latest security features of SQL Database.
 
 ## Next steps
 
