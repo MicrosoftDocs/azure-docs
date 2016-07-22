@@ -150,7 +150,7 @@ on the Hub menu, click **Browse**.
 
     ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-7. In the **Prepare infrastructure** blade that opens, click on **Download Azure Backup Server** and Vault credentials which you use during registration of Azure Backup Server to recovery services vault. This will take you to the Download Center page from where the software package can be downloaded.
+7. In the **Prepare infrastructure** blade that opens, click the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
 
     ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
