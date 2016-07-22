@@ -191,6 +191,6 @@ The sample below show an example of what the output may look like. In the exampl
 
 ## Limitations
 
-1.	Only one batch job can be called per subscription at a time.
-2.	A batch job input file cannot be more than 2MB.
+-	Only one batch job can be called per subscription at a time.
+-	A batch job input file cannot be more than 2MB.
 
