@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/20/2016" 
 	ms.author="awills"/>
 
 
@@ -25,8 +25,10 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
- 
 Let's take a walk through some basic queries to get you started.
+
+> [AZURE.NOTE] If your app isn't sending data to Application Insights yet, you can [test Analytics using our simulated data](https://analytics.applicationinsights.io/demo).
+
 
 ## Connect to your Application Insights data
 
@@ -472,6 +474,8 @@ Use [let](./app-insights-analytics-reference.md#let-statements) to separate out 
 ```
 
 > Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
+
+
 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
