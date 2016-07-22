@@ -1,5 +1,5 @@
 <properties
-pageTitle="Azure Service Bus | Microsoft Azure"
+pageTitle="Learn to use the Azure Service Bus connector in your logic apps.| Microsoft Azure"
 description="Create Logic apps with Azure App service. Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc."
 services="app-servicelogic"	
 documentationCenter=".net,nodejs,java" 	
