@@ -38,14 +38,14 @@ Here are steps to follow to investigate query execution plans and times for a pa
 ### STEP 1: Identify the query to investigate
 
 ```sql
--- Monitor Submitted Queries
+-- Monitor executing or eancelling queries
 SELECT * 
 FROM sys.dm_pdw_exec_requests 
-WHERE status not in ('Completed','Failed','Cancelled','Cancelling')
+WHERE status not in ('Completed','Failed','Cancelled')
   AND session_id <> session_id()
 ORDER BY submit_time DESC;
 
--- Find 10 queries which have been running for the longest time
+-- Find top 10 queries longest running queries time
 SELECT TOP 10 * 
 FROM sys.dm_pdw_exec_requests 
 ORDER BY total_elapsed_time DESC;
