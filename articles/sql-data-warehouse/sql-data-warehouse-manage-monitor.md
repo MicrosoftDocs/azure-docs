@@ -135,7 +135,7 @@ Use the Request ID and the Step Index to retrieve information about the Data Mov
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_dms_workers
-WHERE request_id = 'QID1234' AND step_index = 2;
+WHERE request_id = 'QID33209' AND step_index = 2;
 
 ```
 
