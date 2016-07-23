@@ -102,10 +102,6 @@ Anyone on the Internet can see blobs in a public container, but you can modify o
 
 ## Upload a blob into a container
 
-> [AZURE.TIP] **Upload blobs with Microsoft Azure Storage Explorer**
-> 
-> Microsoft Azure Storage Explorer enables you to visually manage your blob containers and blobs, including the ability to [upload blobs to your storage account](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container).   
-
 Azure Blob Storage supports block blobs and page blobs.  In the majority of cases, block blob is the recommended type to use.
 
 To upload a file to a block blob, get a container reference and use it to get
@@ -135,10 +131,6 @@ The following example shows how to upload a blob into a container and assumes th
     }
 
 ## List the blobs in a container
-
-> [AZURE.TIP] **List blobs with Microsoft Azure Storage Explorer**
-> 
-> Microsoft Azure Storage Explorer enables you to visually manage your blob containers and blobs, including the ability to [view a list of blobs in a container](../vs-azure-tools-storage-explorer-blobs.md#view-a-blob-containers-contents).   
 
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs and/or directories
