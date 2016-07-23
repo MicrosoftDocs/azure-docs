@@ -63,11 +63,11 @@ There are two types of triggers:
 ### Connectors can be actions
 Connectors can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination table. You can do this using the actions provided by the connectors. Actions map to operations that are defined in the Swagger metadata.
 
+## Next Steps
 
-[What's new](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Build a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Get started with PowerApps now](../power-apps/powerapps-get-started-azure-portal.md)  
-[Migrate existing Logic apps to the latest schema version](connectors-schema-migration.md) 
+- [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+- [Create a custom connector](../app-service-logic/app-service-logic-create-api-app.md)
+- [Monitor your logic apps](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
