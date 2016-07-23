@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="07/23/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Create an Azure SQL Data Warehouse
@@ -54,9 +54,9 @@ To get started, you will need:
 	
     - **Performance**: We recommend starting with 400 DWUs. You can move the slider to the left or right to adjust the performance of your data warehouse, or scale up or down after creation.  To learn more about DWUs see our documentation on [scaling](./sql-data-warehouse-manage-compute-overview.md) or our [pricing page][SQL Data Warehouse pricing]. 
 
-    - **Subscription**: Select the subscription that this SQL Data Warehouse will bill to.
+    - **[Subscription]**: Select the subscription that this SQL Data Warehouse will bill to.
 
-    - **Resource group**: Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../resource-group-overview.md).
+    - **[Resource group]**: Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../resource-group-overview.md).
 
     - **Select source**: Click **Select source** > **Sample**. Since there is only one sample database available at this time, when you select Sample Azure automatically populates the **Select sample** option with AdventureWorksDW.
 
@@ -85,6 +85,10 @@ It's also a great idea to take a look at our [Best practices][].
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
 [Best practices]: ./sql-data-warehouse-best-practices.md
+
+<!--Terminology references--> 
+[subscription]: ../azure-glossary-cloud-terminology.md#subscription
+[Resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 
 <!--MSDN references-->
 [sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
