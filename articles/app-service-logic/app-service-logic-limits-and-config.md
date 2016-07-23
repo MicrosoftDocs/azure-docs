@@ -37,6 +37,7 @@ These are limits for a single HTTP request and/or connector call
 |Name|Limit|Notes|
 |----|----|----|
 |Message size|50 MB|Some connectors and APIs may not support 50MB|
+|Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this|
 
 #### Retry policy
 
@@ -53,6 +54,9 @@ These are the limits for a single logic app run.
 |----|----|----|
 |Run duration|90 days||
 |Storage retention|90 days|This is from the run start time|
+|Min recurrence interval|15 sec||
+|Max recurrence interval|500 days||
+
 
 ### Looping and debatching limits
 
@@ -71,7 +75,7 @@ These are limits for a single logic app instance.
 
 |Name|Limit|Notes|
 |----|----|----|
-|Triggers per second|100|Can distribute via traffic manager to allocate across multiple apps.|
+|Triggers per second|100|Can distribute workfload across multiple apps as needed|
 
 ### Definition limits
 
@@ -81,8 +85,11 @@ These are limits for a single logic app definition.
 |----|----|----|
 |Actions in ForEach|1|You can add nested workflows to extend this as needed|
 |Actions per workflow|60|You can add nested workflows to extend this as needed|
-|Allowed action nesting depth|8|You can add nested workflows to extend this as needed|
-|Triggers per workflow|8||
+|Allowed action nesting depth|5|You can add nested workflows to extend this as needed|
+|Triggers per workflow|10||
+|Max characters per expression|8,192||
+|`parameters` limit|50||
+|`outputs` limit|10||
 
 ## Configuration
 
@@ -92,7 +99,7 @@ Calls made from a [connector](../connectors/apis-list.md) will come from the IP 
 
 Calls made from a logic app directly (i.e. via [HTTP](../connectors/connectors-native-http.md) or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) may come from any of the [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
-|Logic ASE|Outbound IP|
+|Logic App Region|Outbound IP|
 |-----|----|
 |Australia East|40.126.251.213|
 |Australia Southeast|40.127.80.34|
