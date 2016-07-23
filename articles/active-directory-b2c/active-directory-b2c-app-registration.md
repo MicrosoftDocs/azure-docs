@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
 
@@ -39,8 +39,8 @@ You can also access the blade by clicking **Browse** and then **Azure AD B2C** i
 
 You can also access the blade directly by navigating to [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/) where **{tenant}** is to be replaced by the name used at tenant creation time (for example, contosob2c). You can bookmark this link for future use.
 
-    > [AZURE.IMPORTANT]
-    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
+   > [AZURE.IMPORTANT]
+   You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
 
 ### 2. Access on the Azure classic portal
 

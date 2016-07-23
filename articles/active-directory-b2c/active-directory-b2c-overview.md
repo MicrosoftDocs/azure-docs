@@ -37,7 +37,7 @@ You can write your application against the Azure Active Directory B2C service ei
 Check back here often to learn about future changes to the Azure Active Directory B2C preview. We'll also tweet about any updates by using @AzureAD.
 
 - Learn about our [extensible policy framework](active-directory-b2c-reference-policies.md) and about the types of policies that you can create and use in your applications.
-- Bookmark our [service notifications page](active-directory-b2c-service-notifications.md) for notifications on minor service issues, status and mitigations. Continue to monitor the [Azure status dashboard](https://azure.microsoft.com/status/) as well.
+- Bookmark our [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) for notifications on minor service issues, updates, status and mitigations. Continue to monitor the [Azure status dashboard](https://azure.microsoft.com/status/) as well.
 - Current [preview limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
 
 ## How-to articles

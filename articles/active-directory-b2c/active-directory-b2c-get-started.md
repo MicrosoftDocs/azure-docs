@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="07/18/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Create an Azure AD B2C tenant
@@ -66,6 +66,16 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
 
     > [AZURE.NOTE]
     You can manage users and groups, self-service password reset configuration, and company branding features of your tenant on the [Azure classic portal](https://manage.windowsazure.com/).
+
+## Easy access to the B2C features blade on the Azure portal
+
+To improve discoverability, we've added a shortcut to the B2C features blade on the Azure portal.
+
+1. Sign into the Azure portal as the Global Administrator of your B2C tenant. If you are already signed into a different tenant, switch tenants (on the top-right corner).
+2. Click **Browse** on the left hand navigation.
+3. Click **Azure AD B2C** to access the B2C features blade.
+
+    ![Screen shot of Browse to B2C features blade](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 ## Next steps
 

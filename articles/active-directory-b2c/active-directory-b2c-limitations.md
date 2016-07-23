@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/18/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Limitations and restrictions
@@ -72,7 +72,11 @@ Many of the tokens issued by Azure AD B2C preview are implemented as JSON Web To
 
 ## Restriction on nested groups
 
-Nested group memberships aren't supported in Azure AD B2C tenants. There are no plans to add this capability.
+Nested group memberships aren't supported in Azure AD B2C tenants. We don't plan to add this capability.
+
+## Restriction on differential query feature on Azure AD Graph API
+
+The [differential query feature on Azure AD Graph API](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-differential-query) isn't supported in Azure AD B2C tenants. This is on our long-term roadmap.
 
 ## Issues with user management on the Azure classic portal
 
@@ -90,7 +94,7 @@ If you reset the password for a local account-based consumer on the Azure classi
 
 ## Issues with creating a custom attribute
 
-A [custom attribute added on the Azure portal](active-directory-b2c-reference-custom-attr.md) is not immediately created in your B2C tenant. You'll have to use the custom attribute in at least one of your policies before it is created in your B2C tenant and becomes available via Graph API.
+A [custom attribute added on the Azure portal](active-directory-b2c-reference-custom-attr.md) is not immediately created in your B2C tenant. You'll have to use the custom attribute in at least one of your policies for it to get created in your B2C tenant and to become available via Graph API.
 
 ## Issues with verifying a domain on the Azure classic portal
 
@@ -101,4 +105,4 @@ Currently you can't verify a domain successfully on the [Azure classic portal](h
 Requests to sign-in policies (with MFA turned ON) fail intermittently on Safari browsers with HTTP 400 (Bad Request) errors. This is due Safari's low cookie size limits. There are a couple of workarounds for this issue:
 
 - Use the "Sign-up or sign-in policy" instead of the "sign-in policy".
-- Reduce the number of **Application claims** being requested in your policy. 
+- Reduce the number of **Application claims** being requested in your policy.
