@@ -91,4 +91,4 @@ To start querying your data warehouse with Visual Studio and other applications,
 <!-- Article references -->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]: ../active-directory-whatis.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
