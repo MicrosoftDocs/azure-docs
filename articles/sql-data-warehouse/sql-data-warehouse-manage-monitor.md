@@ -28,7 +28,7 @@ The [sys.dm_pdw_exec_sessions][] view allows you to monitor connections to your 
 SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ```
 
-## Investigate query execution
+## Monitor query execution
 
 To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is assigned sequentially for each new query.  Querying this table for a given session_id will show all queries for a given logon.
 
@@ -120,7 +120,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 <a name="waiting"></a>
-## Investigating queries waiting for resources
+## Monitor waiting queries
 
 If you discover that your query is not making progress because it is waiting for a resource, here is a query which shows you all reasources a query is waiting for.  Repe
 
