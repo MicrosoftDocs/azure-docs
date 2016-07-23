@@ -19,13 +19,9 @@
 
 # List of connectors
 
-For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
-
-> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
+Select an icon to learn how to quickly leverage these connectors to build workflows that call these services.
 
 ## Standard connectors
-
-Select an icon to learn how to quickly leverage these connectors to build  apps that call these services. These connectors can be used to build Logic apps, PowerApps and Flows.
 
 |Connectors||||
 |-----------|-----------|-----------|-----------|
@@ -42,6 +38,8 @@ Select an icon to learn how to quickly leverage these connectors to build  apps 
 |[![API Icon][SQLicon]<br/>**SQL**][SQLdoc]|[![API Icon][Translatoricon]<br/>**Translator**][Translatordoc]|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|
 |[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
 |[![API Icon][YouTubeicon]<br/>**YouTube**][YouTubedoc]||||
+
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 
 ## Enterprise Integration Pack (EIP) connectors
 Use the EIP connectors to create Logic apps for B2B scenarios that include EAI and EDI.  
