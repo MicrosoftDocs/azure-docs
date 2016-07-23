@@ -35,7 +35,7 @@ To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view 
 
 Here are steps to follow to investigate query execution plans and times for a particular query.
 
-### STEP 1: Find the query to investigate
+### STEP 1: Identify the query to investigate
 
 ```sql
 -- Monitor Submitted Queries
@@ -73,7 +73,7 @@ SELECT waits.session_id,
 FROM   sys.dm_pdw_waits waits
    JOIN  sys.dm_pdw_exec_requests requests
    ON waits.request_id=requests.request_id
-WHERE waits.request_id = 'QID33188'
+WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
@@ -92,11 +92,11 @@ Use the Request ID to retrieve a list of the query plan steps from [sys.dm_pdw_r
 -- Replace request_id with value from Step 1.
 
 SELECT * FROM sys.dm_pdw_request_steps
-WHERE request_id = 'QID33209'
+WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Save the Step Index of the long-running step.
+Note the Step Index of the long-running step.
 
 Check the *operation_type* column of the long-running query step:
 
@@ -112,11 +112,10 @@ Use the Request ID and the Step Index to retrieve information from [sys.dm_pdw_s
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_sql_requests
-WHERE request_id = 'QID33209' AND step_index = 2;
+WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-
-If the query is currently running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server execution plan for the currently running SQL Step for a particular distribution.
+If the query is running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server estimated plan from the SQL Server plan cache for the currently running SQL Step within a particular distribution.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -135,7 +134,7 @@ Use the Request ID and the Step Index to retrieve information about the Data Mov
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_dms_workers
-WHERE request_id = 'QID33209' AND step_index = 2;
+WHERE request_id = 'QID####' AND step_index = 2;
 
 ```
 
