@@ -85,10 +85,8 @@ It's also a great idea to take a look at our [Best practices][].
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
 [Best practices]: ./sql-data-warehouse-best-practices.md
-
-<!--Terminology references--> 
 [subscription]: ../azure-glossary-cloud-terminology.md#subscription
-[Resource group]: ../azure-glossary-cloud-terminology.md#resource-group
+[resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 
 <!--MSDN references-->
 [sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
