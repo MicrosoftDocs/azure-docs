@@ -73,7 +73,7 @@ SELECT waits.session_id,
 FROM   sys.dm_pdw_waits waits
    JOIN  sys.dm_pdw_exec_requests requests
    ON waits.request_id=requests.request_id
-WHERE waits.request_id = 'QID1234'
+WHERE waits.request_id = 'QID33188'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
@@ -92,11 +92,11 @@ Use the Request ID to retrieve a list of the query plan steps from [sys.dm_pdw_r
 -- Replace request_id with value from Step 1.
 
 SELECT * FROM sys.dm_pdw_request_steps
-WHERE request_id = 'QID1234'
+WHERE request_id = 'QID33209'
 ORDER BY step_index;
 ```
 
-Note the Step Index of the long-running step.
+Save the Step Index of the long-running step.
 
 Check the *operation_type* column of the long-running query step:
 
@@ -112,8 +112,9 @@ Use the Request ID and the Step Index to retrieve information from [sys.dm_pdw_s
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_sql_requests
-WHERE request_id = 'QID1234' AND step_index = 2;
+WHERE request_id = 'QID33209' AND step_index = 2;
 ```
+
 
 If the query is currently running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server execution plan for the currently running SQL Step for a particular distribution.
 
