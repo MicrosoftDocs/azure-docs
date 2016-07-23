@@ -131,7 +131,7 @@ Tracked properties can be added onto actions in the workflow definition to track
 
 ### Extending your solutions
 
-You can use this data with services like [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite), [Azure Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/), and [Power BI](http://powerbi.com) to have real time monitoring of your integration workflows.
+You can use this data with services like [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), and [Power BI](https://powerbi.com) to have real time monitoring of your integration workflows.
 
 ## Next Steps
 - [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
