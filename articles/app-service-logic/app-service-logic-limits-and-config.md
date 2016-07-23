@@ -89,7 +89,7 @@ These are limits for a single logic app definition.
 
 Calls made from a [connector](../connectors/apis-list.md) will come from the IP Address specified below.
 
-Calls made from a logic app directly (i.e. via [HTTP](../connectors/connectors-native-http.md) or [HTTP + Swagger](../connectors/connectors-native-httpswagger.md)) may come from any of the [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Calls made from a logic app directly (i.e. via [HTTP](../connectors/connectors-native-http.md) or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) may come from any of the [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 |Logic ASE|Outbound IP|
 |-----|----|
@@ -115,7 +115,7 @@ Calls made from a logic app directly (i.e. via [HTTP](../connectors/connectors-n
 
 ## Next Steps  
 
-- To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
+- To get started with Logic Apps, follow the [create a Logic App](app-service-logic-create-a-logic-app.md) tutorial.  
 - [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
 - [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
