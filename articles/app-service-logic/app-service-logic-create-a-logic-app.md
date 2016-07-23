@@ -25,7 +25,7 @@
 | [Logic Apps Connector Documentation](../connectors/apis-list.md) |
 | [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
 
-This topic demonstrates how, in just a few minutes, you can get started with [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a simple workflow that lets send interesting tweets to your email.
+This topic demonstrates how, in just a few minutes, you can get started with [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a simple workflow that lets you send interesting tweets to your email.
 
 To use this scenario, you need:
 
@@ -40,7 +40,7 @@ To use this scenario, you need:
 3. Enter a name for your logic app, select a location, resource group, and select **Create**.  If you select **Pin to Dashboard** the logic app will automatically open once deployed.  
 4. After opening your logic app for the first time you can select from a template to start.  For now click **Blank Logic App** to build this from scratch. 
 1. The first item you need to create is the trigger.  This is the event that will start your logic app.  Search for **twitter** in the trigger search box, and select it.
-7. Now you'll type in a search term to trigger on:
+7. Now you'll type in a search term to trigger on.  The **Frequency** and **Interval** will determine how often your logic app will check for new tweets (and return all tweets during that time span).
 	![Twitter search](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
 5. Select the **New step** button, and then choose **Add an action** or **Add a condition**
@@ -66,7 +66,7 @@ Now your logic app is up and running. It will periodically check for tweets with
 
 5. To turn off the app, click **Disable** in the command bar.
 
-1. View run and trigger histories to monitor when your logic app is running.
+1. View run and trigger histories to monitor when your logic app is running.  You can click **Refresh** to see the latest data.
 
 In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features]. To learn about the Logic App definitions themselves, see [author Logic App definitions](app-service-logic-author-definitions.md).
 
