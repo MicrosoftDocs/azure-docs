@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/06/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL Data Warehouse data integration partners
 
-To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools. 
-
-This article lists partner companies that have data integration partners for SQL Data Warehouse.
+To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools.  Below is a list of several partner companies that have data integration solutions for SQL Data Warehouse.
 
 ## Our data integration partners
 
@@ -36,9 +34,7 @@ This article lists partner companies that have data integration partners for SQL
 
 ## Next Steps
 
-To learn more about some of our other partners please refer to the following articles:
-- [Business Intelligence partners][bi_partners]
-- [Data Management partners][dm_partners]
+To learn more about some of our other partners, see [Business Intelligence partners][bi_partners] and [Data Management partners][dm_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png

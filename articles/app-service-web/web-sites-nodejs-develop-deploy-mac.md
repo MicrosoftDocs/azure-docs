@@ -66,7 +66,7 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 6. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources](../resource-group-portal.md).
+	For more information about resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
 7. Select an **App Service plan/Location** or create a new one.
 

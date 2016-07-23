@@ -8,12 +8,12 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/06/2016"
+	ms.date="07/14/2016"
 	ms.author="tarcher" />
 
 # Getting started with Storage Explorer (Preview)
@@ -175,7 +175,7 @@ allow UserB to access a storage account for a limited time with certain permissi
 
 ## Attach service using SAS
 
-The section [Attach account using SAS](#attach-account-using-sas) illustrates how 
+The section [Attach storage account using SAS](#attach-storage-account-using-sas) illustrates how 
 an Azure subscription admin can grant temporary access to a storage account by generating (and sharing) a SAS for the storage account. Similarly, a SAS can be generated for a specific service (blob container, queue, or table) within a storage account.  
 
 ### Generate a SAS for the service you want to share

@@ -68,7 +68,7 @@ The script example installs a LAMP stack to Ubuntu (including setting up a silen
 
 ### Upload script
 
-Save the script as a text file, for example *lamp_install.sh*, and then upload it to Azure Storage. You can do this easily with Azure CLI. The following example uploads the file to a storage container named "scripts". If the container doesn't exist you'll need to create it first.
+Save the script as a text file, for example *install_lamp.sh*, and then upload it to Azure Storage. You can do this easily with Azure CLI. The following example uploads the file to a storage container named "scripts". If the container doesn't exist you'll need to create it first.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
@@ -83,7 +83,7 @@ Now you can use the next command to deploy the Linux CustomScript Extension to t
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-The previous command downloads and runs the *lamp_install.sh* script on the VM called *lamp-vm*.
+The previous command downloads and runs the *install_lamp.sh* script on the VM called *lamp-vm*.
 
 Since the app includes a web server, remember to open an HTTP listening port on the remote VM with the next command.
 
