@@ -1,0 +1,1 @@
+>[AZURE.NOTE] We are working hard to provide step-by-step walkthroughs for each of our connectors. This document is currently in progress. In the meantime, [check out all the other connectors that are already available in Logic Apps](../articles/connectors/apis-list.md).
