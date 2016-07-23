@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/22/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
@@ -38,14 +38,22 @@ Here are steps to follow to investigate query execution plans and times for a pa
 ### STEP 1: Find the query to investigate
 
 ```sql
--- Monitor running queries
-SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
+-- Monitor Submitted Queries
+SELECT * 
+FROM sys.dm_pdw_exec_requests 
+WHERE status not in ('Completed','Failed','Cancelled','Cancelling')
+  AND session_id <> session_id()
+ORDER BY submit_time DESC;
 
--- Find 10 queries which ran the longest
-SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
+-- Find 10 queries which have been running for the longest time
+SELECT TOP 10 * 
+FROM sys.dm_pdw_exec_requests 
+ORDER BY total_elapsed_time DESC;
 ```
 
-Note the Request ID of the query which you would like to investigate.
+Queries in the Suspended state are being queued due to concurrency limits which is explained in detail in [Concurrency and workload management][].  These queries will also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType.  Queries can also wait for other reasons such as for locks.
+
+From the above query results, note the Request ID of the query which you would like to investigate.
 
 ### STEP 2: Check if the query is waiting for resources
 
@@ -155,6 +163,7 @@ For best practices, see [SQL Data Warehouse best practices][].
 [Manage overview]: ./sql-data-warehouse-overview-manage.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
+[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
