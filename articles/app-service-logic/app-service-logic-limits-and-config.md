@@ -82,6 +82,7 @@ These are limits for a single logic app definition.
 |Actions in ForEach|1|You can add nested workflows to extend this as needed|
 |Actions per workflow|60|You can add nested workflows to extend this as needed|
 |Allowed action nesting depth|8|You can add nested workflows to extend this as needed|
+|Triggers per workflow|8||
 
 ## Configuration
 
