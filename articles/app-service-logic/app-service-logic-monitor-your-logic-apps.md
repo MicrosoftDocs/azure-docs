@@ -63,7 +63,7 @@ You can configure the **Condition**, **Threshold**, and **Period** as desired.  
 
 ### Azure Diagnostics Settings
 
-Each of these events contains details about the logic app and event like status.  Here is an example of a ***ActionCompleted*** event:
+Each of these events contains details about the logic app and event like status.  Here is an example of a *ActionCompleted* event:
 
 ```javascript
 {
@@ -99,7 +99,7 @@ Each of these events contains details about the logic app and event like status.
 		}
 ```
 
-The two properties that are especially useful for tracking and monitoring are ***clientTrackingId*** and ***trackedProperties***.  
+The two properties that are especially useful for tracking and monitoring are *clientTrackingId* and *trackedProperties*.  
 
 #### Client tracking ID
 
@@ -131,7 +131,7 @@ Tracked properties can be added onto actions in the workflow definition to track
 
 ### Extending your solutions
 
-You can use this data with services like [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), and [Power BI](https://powerbi.com) to have real time monitoring of your integration workflows.
+You can leverage this telemetry from the Event Hub or Storage into other services like [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), and [Power BI](https://powerbi.com) to have real time monitoring of your integration workflows.
 
 ## Next Steps
 - [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
