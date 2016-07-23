@@ -137,7 +137,7 @@ HTTP Response
 
 ## Authentication
 
-Logic Apps allows you to use different types of authentication against HTTP endpoints.  This authentication can be used with the HTTP, [HTTP + Swagger](./connectors-native-httpswagger.md), and [HTTP Webhook](./connectors-native-webhook.md) connectors.  The following types of authentication are configurable:
+Logic Apps allows you to use different types of authentication against HTTP endpoints.  This authentication can be used with the HTTP, [HTTP + Swagger](./connectors-native-http-swagger.md), and [HTTP Webhook](./connectors-native-webhook.md) connectors.  The following types of authentication are configurable:
 
 * [Basic Authentication](#basic-authentication)
 * [ClientCertificate Authentication](#client-certificate-authentication)
@@ -161,7 +161,7 @@ So you would create an object like this in the authentication field:
 ```javascript
 {
 	"type": "Basic",
-	"username": "jeff",
+	"username": "user",
 	"password": "test"
 }
 ```
