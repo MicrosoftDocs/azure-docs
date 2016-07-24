@@ -43,12 +43,12 @@ Here's an example of how to use the HTTP + Swagger operation as an action in a w
 4. Type the URL for a Swagger document:
 	- To work from the designer, the URL must be an HTTPS endpoint and have CORS enabled.
 	- If the Swagger document doesn't meet this requirement, you can use [Azure Storage with CORS enabled](#hosting-swagger-from-storage) to store the document.
-5. Click **next** to read and render from the Swagger document.
+5. Click **Next** to read and render from the Swagger document.
 6. Add in any parameters that are required for the HTTP call.
 
 	![Complete HTTP action](./media/connectors-native-http-swagger/using-action-2.png)
 
-1. Click **save** on the upper-left corner of the toolbar, and your logic app will both save and publish (activate).
+1. Click **Save** on the upper-left corner of the toolbar, and your logic app will both save and publish (activate).
 
 ### Host Swagger from Azure Storage
 
