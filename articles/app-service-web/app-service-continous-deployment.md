@@ -73,7 +73,7 @@ To disable continuous deployment,
 
 ## Additional Resources
 
-* [How to investigate common issues with continous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
+* [How to investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [How to use PowerShell for Azure]
 * [How to use the Azure Command-Line Tools for Mac and Linux]
 * [Git documentation]
