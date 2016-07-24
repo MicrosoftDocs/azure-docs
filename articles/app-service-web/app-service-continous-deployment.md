@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="07/23/2016"
 	ms.author="dariagrigoriu"/>
     
 # Continuous Deployment to Azure App Service
@@ -73,6 +73,7 @@ To disable continuous deployment,
 
 ## Additional Resources
 
+* [How to investigate common issues with continous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [How to use PowerShell for Azure]
 * [How to use the Azure Command-Line Tools for Mac and Linux]
 * [Git documentation]
