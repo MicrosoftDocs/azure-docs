@@ -1,255 +1,450 @@
 <properties
-    pageTitle="Add the FTP connector in your Logic Apps | Microsoft Azure"
-    description="Overview of the FTP connector with REST API parameters"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+pageTitle="Learn how to use the FTP connector in logic apps| Microsoft Azure"
+description="Create logic apps with Azure App service. Connect to FTP server to manage your files. You can perform various actions such as upload, update, get, and delete files in FTP server."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/18/2016"
-   ms.author="mandia"/>
+ms.service="app-service-logic"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/22/2016"
+ms.author="deonhe"/>
 
 # Get started with the FTP connector
-Connect to an FTP server to manage your files, including upload files, delete files, and more. The FTP connector can be used from:
 
-- Logic apps (discussed in this topic)
-- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
+Use the FTP connector to monitor, manage and create files on an  FTP server. 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-With FTP, you can: 
+## Connect to FTP
 
-- Build your business flow based on the data you get from FTP. 
-- Use a trigger when a file is updated.
-- Use actions that create files, get file content, and more. These actions get a response, and then make the output available for other actions. For example, you can get the content of a file, and then update a SQL database. 
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Create a connection to FTP
+
+>[AZURE.INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
+
+## Use a FTP trigger
+
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+
+>[AZURE.IMPORTANT]The FTP connector requires an FTP server that  is accessible from the Internet and is configured to operate with PASSIVE mode. Also, the FTP connector is **not compatible with implicit FTPS (FTP over SSL)**. The FTP connector only supports explicit FTPS (FTP over SSL).  
+
+In this example, I will show you how to use the **FTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an FTP server. In an enterprise example, you could use this trigger to monitor an FTP folder for new files that represent orders from customers.  You could then use an FTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
+
+1. Enter *ftp* in the search box on the logic apps designer then select the **FTP - When a file is added or modified**  trigger   
+![FTP trigger image 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
+The **When a file is added or modified** control opens up  
+![FTP trigger image 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
+- Select the **...** located on the right side of the control. This opens the folder picker control  
+![FTP trigger image 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
+- Select the **>** (right arrow) and browse to find the folder that you want to monitor for new or modified files. Select the folder and notice the folder is now displayed in the **Folder** control.  
+![FTP trigger image 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
 
 
-## Triggers and actions
-FTP has the following triggers and actions available.
+At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific FTP folder. 
 
-Triggers | Actions
---- | ---
-<ul><li>Gets an updated file</li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Gets an updated file</li><li>Update file</li></ul>
-
-All connectors support data in JSON and XML formats.
-
-## Create a connection to FTP
+>[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
 
->[AZURE.INCLUDE [Steps to create an FTP connection](../../includes/connectors-create-api-ftp.md)]
 
-After you create the connection, you enter the FTP properties, like the source file or destination folder. The **REST API reference** in this topic describes these properties.
+## Use a FTP action
 
->[AZURE.TIP] You can use this same FTP connection in other logic apps.
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-## Swagger REST API reference
-Applies to version: 1.0.
+Now that you have added a trigger, follow these steps to add an action that will get the contents of the new or modified file found by the trigger.    
 
-### Create file
-Uploads a file to FTP server.  
-```POST: /datasets/default/files```
+1. Select **+ New step** to add the the action to get the contents of the file on the FTP server  
+- Select the **Add an action** link.  
+![FTP action image 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
+- Enter *FTP* to search for all actions related to FTP.
+- Select **FTP - Get file content**  as the action to take when a new or modified file is found in the FTP folder.      
+![FTP action image 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
+The **Get file content** control opens. **Note**: you will be prompted to authorize your logic app to access your FTP server account if you have not done so previously.  
+![FTP action image 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
+- Select the **File** control (the white space located below **FILE***). Here, you can use any of the various properties from the new or modified file found on the FTP server.  
+- Select the **File content** option.  
+![FTP action image 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
+-  The control is updated, indicating that the **FTP - Get file content** action will get the *file content* of the new or modified file on the FTP server.      
+![FTP action image 5](./media/connectors-create-api-ftp/ftp-action-5.png)     
+- Save your work then add a file to the FTP folder to test your workflow.    
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|yes|query|none |Folder path to upload the file to FTP server|
-|name|string|yes|query| none|Name of the file to create in FTP server|
-|body| |yes|body|none |Content of the file to upload to FTP server|
+At this point, the logic app has been configured with a trigger to monitor a folder on an FTP server and initiate the workflow when it finds either a new file or a modified file on the FTP server. 
 
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+The logic app also has been configured with an action to get the contents of the new or modified file.
 
-### Copy file
-Copies a file to FTP server.  
-```POST: /datasets/default/copyFile```
+You can now add another action such as the [SQL Server - insert row](./connectors-create-api-sqlazure.md#insert-row) action to insert the contents of the new or modified file into a SQL database table.  
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query|none |Url to source file|
-|destination|string|yes|query|none |Destination file path in FTP server, including target filename|
-|overwrite|boolean|no|query|none |Overwrites the destination file if set to 'true'|
+## Technical Details
 
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+Here are the details about the triggers, actions and responses that this connection supports:
 
-### Delete file 
-Deletes a file from FTP server.  
-```DELETE: /datasets/default/files/{id}```
+## FTP triggers
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file to delete from FTP server|
+FTP has the following trigger(s):  
 
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+|Trigger | Description|
+|--- | ---|
+|[When a file is added or modified](connectors-create-api-ftp.md#when-a-file-is-added-or-modified)|This operation triggers a flow when a file is added or modified in a folder.|
 
-### Extract folder
-Extracts an archive file into a folder in FTP server (example: .zip).  
-```POST: /datasets/default/extractFolderV2```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query| none|Path to the archive file|
-|destination|string|yes|query| none|Path to the destination folder|
-|overwrite|boolean|no|query|none|Overwrites the destination files if set to 'true'|
+## FTP actions
 
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+FTP has the following actions:
 
-### Get file content
-Retrieves file contents from FTP Server using id.  
-```GET: /datasets/default/files/{id}/content```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file|
+|Action|Description|
+|--- | ---|
+|[Get file metadata](connectors-create-api-ftp.md#get-file-metadata)|This operation gets the metadata for a file.|
+|[Update file](connectors-create-api-ftp.md#update-file)|This operation updates a file.|
+|[Delete file](connectors-create-api-ftp.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-ftp.md#get-file-metadata-using-path)|This operation gets the metadata of a file using the path.|
+|[Get file content using path](connectors-create-api-ftp.md#get-file-content-using-path)|This operation gets the content of a file using the path.|
+|[Get file content](connectors-create-api-ftp.md#get-file-content)|This operation gets the content of a file.|
+|[Create file](connectors-create-api-ftp.md#create-file)|This operation creates a file.|
+|[Copy file](connectors-create-api-ftp.md#copy-file)|This operation copies a file to an FTP server.|
+|[List files in folder](connectors-create-api-ftp.md#list-files-in-folder)|This operation gets the list of files and subfolders in a folder.|
+|[List files in root folder](connectors-create-api-ftp.md#list-files-in-root-folder)|This operation gets the list of files and subfolders in the root folder.|
+|[Extract folder](connectors-create-api-ftp.md#extract-folder)|This operation extracts an archive file into a folder (example: .zip).|
+### Action details
 
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+Here are the details for the actions and triggers for this connector, along with their responses:
+
+
+
+### Get file metadata
+This operation gets the metadata for a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Update file
+This operation updates a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+|body*|File content|Content of the file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Delete file
+This operation deletes a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+
+An * indicates that a property is required
+
+
+
+
+### Get file metadata using path
+This operation gets the metadata of a file using the path. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|path*|File path|Select a file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
 
 
 ### Get file content using path
-Retrieves file contents from FTP server using path.  
-```GET: /datasets/default/GetFileContentByPath```
+This operation gets the content of a file using the path. 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|none |Unique path to the file in FTP server|
 
-#### Response
+|Property Name| Display Name|Description|
+| ---|---|---|
+|path*|File path|Select a file|
+
+An * indicates that a property is required
+
+
+
+
+### Get file content
+This operation gets the content of a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+
+An * indicates that a property is required
+
+
+
+
+### Create file
+This operation creates a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderPath*|Folder path|Select a folder|
+|name*|File name|Name of the file|
+|body*|File content|Content of the file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Copy file
+This operation copies a file to an FTP server. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source url|Url to source file|
+|destination*|Destination file path|Destination file path, including target filename|
+|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### When a file is added or modified
+This operation triggers a flow when a file is added or modified in a folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderId*|Folder|Select a folder|
+
+An * indicates that a property is required
+
+
+
+
+### List files in folder
+This operation gets the list of files and subfolders in a folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|Folder|Select a folder|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### List files in root folder
+This operation gets the list of files and subfolders in the root folder. 
+
+
+There are no parameters for this call
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Extract folder
+This operation extracts an archive file into a folder (example: .zip). 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source archive file path|Path to the archive file|
+|destination*|Destination folder path|Path to the destination folder|
+|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+## HTTP responses
+
+The actions and triggers above can return one or more of the following HTTP status codes: 
+
 |Name|Description|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
 
-### Get File Metadata 
-Retrieves file metadata from FTP server using file id.  
-```GET: /datasets/default/files/{id}```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none|Unique identifier of the file|
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 | OK | 
-| default | Operation Failed.
 
 
-### Get File Metadata using path
-Retrieves file metadata from FTP server using path.  
-```GET: /datasets/default/GetFileByPath```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query| none|Unique path to the file in FTP server|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
 
 
-### Gets an updated file
-Gets an updated file.  
-```GET: /datasets/default/triggers/onupdatedfile```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|none |Folder Id under which to look for an updated file|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Update file 
-Updates a file in FTP server.  
-```PUT: /datasets/default/files/{id}```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path| none|Unique identifier of the file to update in FTP server|
-|body| |yes|body|none |Content of the file to update in FTP server|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-## Object definitions
-
-#### DataSetsMetadata
-
-| Name | Data Type | Required |
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-| Name | Data Type | Required |
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-| Name | Data Type | Required |
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-#### BlobMetadata
-
-| Name | Data Type | Required |
-|---|---|---|
-|Id|string|no|
-|Name|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|Size|integer|no|
-|MediaType|string|no|
-|IsFolder|boolean|no|
-|ETag|string|no|
-|FileLocator|string|no|
-
-## Next steps
-
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
