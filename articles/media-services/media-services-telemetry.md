@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/21/2016"   
+	ms.date="07/23/2016"   
 	ms.author="juliako"/>
 
 # Azure Media Services Telemetry with .NET
@@ -48,10 +48,11 @@ The following steps are needed to enable telemetry:
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
+## Consuming telemetry
 
-## StreamingEndpoint log
+Telemetry is written to an Azure Storage Table in the storage account specified when configuring telemetry for the Media Services account. Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be separate table.
 
-###Available metrics
+### StreamingEndpoint log
 
 You can query for the following StreamingEndPoint metrics. 
 
@@ -71,9 +72,7 @@ Property|Description|Sample value
 **EndToEndLatency**|Gets the end to end request time.|250
 
 
-## Live channel heartbeat
-
-###Available metrics
+### Live channel heartbeat
 
 You can query for the following live channel metrics. 
 
