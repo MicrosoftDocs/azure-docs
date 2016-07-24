@@ -65,8 +65,8 @@ Follow these steps to enable the schedule for the Test-ResourceSchedule runbook.
 3. On the **Schedules** blade, click **Add a schedule**.
 4. On the **Schedules** blade, select **Link a schedule to your runbook**. Then select **Create a new schedule**.
 5.  On the **New schedule** blade, type in the name of this schedule, for example: *HourlyExecution*.
-6. For the schedule **Start**, set the start time to a full hour increment (for example, 1 PM or 3 AM).  
-7. Select **Recurrence**, and for **Reoccur every** interval select **1 hour**.
+6. For the schedule **Start**, set the start time to an hour increment.
+7. Select **Recurrence**, and then for **Recur every interval**, select **1 hour**.
 8. Verify that **Set expiration** is set to **No**, and then click **Create** to save your new schedule.
 9. On the **Schedule Runbook** options blade, select **Parameters and run settings**. In the Test-ResourceSchedule **Parameters** blade, enter the name of your subscription in the **SubscriptionName** field.  This is the only parameter that's required for the runbook.  When you're finished, click **OK**.  
 
@@ -111,7 +111,7 @@ Here is some detailed information about this structure:
 
     If the **S** and **E** attributes each have a value of zero (0), the virtual machine will be left in its present state at the time of evaluation.   
 
-3. If you want to skip evaluation for a specific day of the week, don’t add the section of related day of week.  In the following example, only Monday is evaluated, and the other days of the week are ignored:
+3. If you want to skip evaluation for a specific day of the week, don’t add a section for that day of the week. In the following example, only Monday is evaluated, and the other days of the week are ignored:
 
         {
           "TzId": "Eastern Standard Time",
@@ -125,7 +125,7 @@ Here is some detailed information about this structure:
 
 To shut down VMs, you need to tag either the VMs or the resource groups in which they're located. Virtual machines that don't have a Schedule tag are not evaluated. Therefore, they aren't started or shut down.
 
-There are two ways to tag resource groups or VMs with this solution. You can do it directly from the portal. Or you can use the **Add-ResourceSchedule**, **Update-ResourceSchedule**, and **Remove-ResourceSchedule** runbooks.
+There are two ways to tag resource groups or VMs with this solution. You can do it directly from the portal. Or you can use the Add-ResourceSchedule, Update-ResourceSchedule, and Remove-ResourceSchedule runbooks.
 
 ### Tag through the portal
 
@@ -173,7 +173,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
         "Schedule"=$schedule}
 
-4. Run the **Add-ResourceSchedule** runbook with the following parameters to create the Schedule tag:
+4. Run the Add-ResourceSchedule runbook with the following parameters to create the Schedule tag:
 
         Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
@@ -201,12 +201,12 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
 
-3. Execute the **Remove-ResourceSchedule** runbook to remove the Schedule tag:
+3. Execute the Remove-ResourceSchedule runbook to remove the Schedule tag:
 
         Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
-4. To update a resource group or virtual machine tag, execute the **Remove-ResourceSchedule** runbook with the following parameters:
+4. To update a resource group or virtual machine tag, execute the Remove-ResourceSchedule runbook with the following parameters:
 
         Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
@@ -214,7 +214,7 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 
 >[AZURE.NOTE] We recommend that you proactively monitor these runbooks (and the virtual machine states) to verify that your virtual machines are being shut down and started accordingly.  
 
-To view the details of the **Test-ResourceSchedule** runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.  
+To view the details of the Test-ResourceSchedule runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.  
 
 The **Job Summary** includes messages from the output, warning, and error streams. Select the **Output** tile to view detailed results from the runbook execution.
 
