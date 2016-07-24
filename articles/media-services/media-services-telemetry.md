@@ -52,6 +52,8 @@ The following steps are needed to enable telemetry:
 
 Telemetry is written to an Azure Storage Table in the storage account specified when configuring telemetry for the Media Services account. Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be separate table.
 
+You can query the tables for the following metrics information.
+
 ### StreamingEndpoint log
 
 You can query for the following StreamingEndPoint metrics. 
