@@ -106,7 +106,7 @@ What if you wish to index an array of JSON objects, but that array is nested som
 			"level2" : [
 				{ "id" : "1", "text" : "Use the documentRoot property" }, 
 				{ "id" : "2", "text" : "to pluck the array you want to index" },
-				{ "id" : "3", "text" : "even if it's nested inside the document" },  
+				{ "id" : "3", "text" : "even if it's nested inside the document" }  
 			]
 		}
 	} 
