@@ -19,15 +19,15 @@
 
 # Get started with the HTTP + Swagger action
 
-With the HTTP + Swagger action, you can create a first-class connector to any REST endpoint through a [Swagger document](https://swagger.io).You can also extend a logic app to call any REST endpoint with a first-class designer experience
+With the HTTP + Swagger action, you can create a first-class connector to any REST endpoint through a [Swagger document](https://swagger.io).You can also extend a logic app to call any REST endpoint with a first-class designer experience.
 
-To get started using the HTTP + Swagger action in a logic app, see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To get started with the HTTP + Swagger action in a logic app, see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ---
 
 ## Use HTTP + Swagger as a trigger or an action
 
-The HTTP + Swagger trigger and action functions the same as the [HTTP action](connectors-native-http.md) but provides a better design experience by showing the shape of the API and outputs in the designer from the [Swagger metadata](https://swagger.io). In addition, you can use HTTP + Swagger as a trigger. If you want to implement a polling trigger, it should follow the polling pattern that's [described in Creating a custom API to use with logic apps](../app-service-logic/app-service-logic-create-api-app.md#polling-triggers).
+The HTTP + Swagger trigger and action function the same as the [HTTP action](connectors-native-http.md) but providee a better design experience by showing the shape of the API and outputs in the designer from the [Swagger metadata](https://swagger.io). In addition, you can use HTTP + Swagger as a trigger. If you want to implement a polling trigger, it should follow the polling pattern that's described in [Creating a custom API to use with logic apps](../app-service-logic/app-service-logic-create-api-app.md#polling-triggers).
 
 [Learn more about logic app triggers and actions.](connectors-overview.md)
 
@@ -40,35 +40,35 @@ Here's an example of how to use the HTTP + Swagger operation as an action in a w
 	![Select HTTP + Swagger action](./media/connectors-native-http-swagger/using-action-1.png)
 
 4. Enter the URL for a Swagger document:
-	- To work from the desinger, the URL must be an HTTPS endpoint and have CORS enabled.
-	- If the swagger document doesn't meet this requirement, you can use [Azure storage with CORS enabled](#hosting-swagger-from-storage) to store the document.
+	- To work from the designer, the URL must be an HTTPS endpoint and have CORS enabled.
+	- If the Swagger document doesn't meet this requirement, you can use [Azure Storage with CORS enabled](#hosting-swagger-from-storage) to store the document.
 5. Click **next** to read and render from the Swagger document.
 6. Add in any parameters that are required for the HTTP call.
 
 	![Complete HTTP action](./media/connectors-native-http-swagger/using-action-2.png)
 
-1. Click **save** at the top left corner of the toolbar, and your logic app will both save and publish (activate).
+1. Click **save** at the upper-left corner of the toolbar, and your logic app will both save and publish (activate).
 
 ### Host Swagger from Azure Storage
 
-You might want to reference a Swagger document which is either not hosted, or which does not meet the security and cross-origin requirements that are necessary to use in the designer. As a workaround, you can store the Swagger document in Azure Storage and enable CORS to reference the document.  
+You might want to reference a Swagger document that's either not hosted, or that doesn't meet the security and cross-origin requirements that are necessary to use in the designer. As a workaround, you can store the Swagger document in Azure Storage and enable CORS to reference the document.  
 
 Here are the steps to create, configure, and store Swagger documents in Azure Storage:
 
 1. [Create an Azure storage account with Azure Blob storage](../storage/storage-create-storage-account.md) (to do this, set permissions to **Public Access**).
 2. Enable CORS on the blob. You can use [this PowerShell script](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) to configure that setting automatically.
-3. Upload the Swagger file into blob. You can do this from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/)
-1. Reference an HTTPS link to the document in Azure Blob storage (the link follows the format `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`)
+3. Upload the Swagger file into the blob. You can do this from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
+1. Reference an HTTPS link to the document in Azure Blob storage (the link follows the format `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`).
 
----
+
 
 ## Technical details
 
-Below are the details for the triggers and actions this connector supports.
+Following are the details for the triggers and actions that this connector supports.
 
 ## HTTP + Swagger triggers
 
-A trigger is an event that can be used to start the workflow that's defined in a logic app. [Learn more about triggers.](connectors-overview.md) The HTTP + Swagger connector has 1 trigger.
+A trigger is an event that can be used to start the workflow that's defined in a logic app. [Learn more about triggers.](connectors-overview.md) The HTTP + Swagger connector has one trigger.
 
 |Trigger|Description|
 |---|---|
@@ -76,7 +76,7 @@ A trigger is an event that can be used to start the workflow that's defined in a
 
 ## HTTP + Swagger actions
 
-An action is an operation carried out by the workflow that's defined in a logic app. [Learn more about actions.](connectors-overview.md) The HTTP + Swagger connector has one possible action.
+An action is an operation that's carried out by the workflow that's defined in a logic app. [Learn more about actions.](connectors-overview.md) The HTTP + Swagger connector has one possible action.
 
 |Action|Description|
 |---|---|
@@ -93,11 +93,11 @@ An asterisk (*) means a required field.
 
 |Display name|Property name|Description|
 |---|---|---|
-|Method*|method|HTTP Verb to use|
-|URI*|uri|URI for the HTTP request|
-|Headers|headers|A JSON object of HTTP headers to include|
-|Body|body|The HTTP request body|
-|Authentication|authentication|Authentication to use for request--[see HTTP for details](./connectors-native-http.md#authentication)|
+|Method*|method|HTTP verb to use.|
+|URI*|uri|URI for the HTTP request.|
+|Headers|headers|A JSON object of HTTP headers to include.|
+|Body|body|The HTTP request body.|
+|Authentication|authentication|Authentication to use for request.[See HTTP for details].(./connectors-native-http.md#authentication)|
 <br>
 
 **Output details**
@@ -118,17 +118,17 @@ When making calls to various actions, you might get certain responses. Below is 
 |---|---|
 |200|OK|
 |202|Accepted|
-|400|Bad Request|
+|400|Bad request|
 |401|Unauthorized|
 |403|Forbidden|
 |404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
+|500|Internal server error. Unknown error occurred.|
 
 ---
 
 ## Next steps
 
-Following are details on how to move forward with logic apps and our community.
+Following are details about how to move forward with logic apps and our community.
 
 ## Create a logic app
 
