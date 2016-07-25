@@ -53,7 +53,7 @@ Now that the trigger has been added, follow these steps to add an action that wi
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action.PNG)  
 
 2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
- ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.PNG)  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 
 3. Enter *smtp* to search for actions related to SMTP.  
 
