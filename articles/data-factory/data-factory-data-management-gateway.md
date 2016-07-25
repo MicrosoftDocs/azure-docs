@@ -127,10 +127,10 @@ The Home page allows you do the following:
 ### Settings page
 The Settings page allows you to do the following:
 
-- View, change, and export **certificate** used by the gateway.
+- View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
 - Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials. 
 - **Status** of the endpoint
-- View **SSL certificate** used to set credentials for data sources.  
+- View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.  
 
 ### Diagnostics page
 The Diagnostics page allows you do the following:

@@ -35,7 +35,7 @@ The [Azure portal](https://portal.azure.com/) allows you to create, monitor and 
 
 The Azure portal provides a set of common database actions accessible at the top of a database blade. You can restore a database to a previous point in time, open a database in Visual Studio, copy a database to a new server, and export the database to an Azure storage account.
 
-- [Restoring a SQL database](sql-database-user-error-recovery.md)
+- [Restoring a SQL database](sql-database-recovery-using-backups.md)
 - [Open a SQL database in Visual Studio](sql-database-connect-query.md)
 - [Export a SQL database](sql-database-export.md)
 
