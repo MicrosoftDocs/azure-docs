@@ -24,8 +24,7 @@ manage, and viewing reports. For an overview of what Azure Automation DSC is, se
 [Windows PowerShell Desired State Configuration Overview](Windows PowerShell Desired State Configuration Overview).
 
 This topic provides a step-by-step guide to using Azure Automation DSC. If you want a sample environment that is already set up without following the steps described in this topic,
-you can use the ARM template at https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup. This template sets up a completed Azure Automation DSC
-environment, including an Azure VM that is managed by Azure Automation DSC.
+you can use [the following ARM template](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). This template sets up a completed Azure Automation DSC environment, including an Azure VM that is managed by Azure Automation DSC.
  
 ## Prerequisites
 
