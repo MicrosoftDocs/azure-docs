@@ -22,7 +22,7 @@
 
 ## Video 2: Data Science for Beginners series
 
-Learn about evaluating your data to make sure it meets the basic criteria for data science.
+Learn about evaluating your data to make sure it meets basic criteria to be ready for data science.
 
 To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
 
@@ -40,7 +40,7 @@ To get the most out of the series, watch them in order. [Go to the list of video
 
 ## Transcript: Is your data ready for data science?
 
-Welcome to "Is your data is ready for data science?" the second video in the series *Data Science for Beginners*.  
+Welcome to "Is your data ready for data science?" the second video in the series *Data Science for Beginners*.  
 
 Before data science can give you the answers you want, you have to give it some high quality raw materials to work with. Just like making a pizza, the better the ingredients you start with, the better the final product.
 
@@ -71,7 +71,7 @@ Now look at the table on the right. This time we measured each person’s body m
 
 The next ingredient is connected data.
 
-![Connected data vs. disconnected data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Connected data vs. disconnected data - data criteria, data ready](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
 
 Here is some relevant data on the quality of hamburgers: grill temperature, patty weight and rating in the local food magazine. But notice the gaps in the table on the left.
 
