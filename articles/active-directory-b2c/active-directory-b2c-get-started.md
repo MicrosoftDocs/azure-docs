@@ -24,12 +24,9 @@ To start using Microsoft Azure Active Directory (Azure AD) B2C, follow the three
 
 If you already have an Azure subscription, skip this step. If not, sign up for an [Azure subscription](../active-directory/sign-up-organization.md) and get access to Azure AD B2C.
 
-> [AZURE.NOTE]
-Currently, you can use Azure AD B2C for free but its use is limited to 50,000 users per tenant. An Azure subscription is required to access the [Azure classic portal](http://manage.windowsazure.com/).
-
 ## Step 2: Create an Azure AD B2C tenant
 
-Use the following steps to create a new Azure AD B2C tenant. Currently B2C features can't be turned on in your existing directories, if you have any.
+Use the following steps to create a new Azure AD B2C tenant. Currently B2C features can't be turned on in your existing tenants.
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to sign up for Azure.
 2. Click **New** > **App Services** > **Active Directory** > **Directory** > **Custom Create**.
@@ -43,6 +40,9 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
     ![Screen shot of the check mark to create a B2C directory](./media/active-directory-b2c-get-started/create-b2c-directory.png)
 
 6. Your tenant is now created and will appear in the Active Directory extension. You are also made a Global Administrator of the tenant. You can add other Global Administrators as required.
+
+    > [AZURE.IMPORTANT]
+	If you are planning to use a B2C tenant for a production app, read the article on [production-scale vs. preview B2C tenants](active-directory-b2c-reference-tenant-support-matrix.md).
 
 ## Step 3: Navigate to the B2C features blade on the Azure portal
 
