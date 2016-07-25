@@ -103,7 +103,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                 {
                     var parameters = new PigJobSubmissionParameters
                     {
-                        Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
+                        Query = @"LOGS = LOAD 'wasbs:///example/data/sample.log';
                                     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
                                     FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
                                     GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
