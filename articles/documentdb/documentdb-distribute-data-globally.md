@@ -19,7 +19,7 @@
    
 # Distribute data globally with DocumentDB
 
-> [AZURE.NOTE] This feature is now generally available, and is automatically enabled for any newly created DocumentDb account. If you want to enable the feature for your existing DocumentDB accounts and collections, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you.
+> [AZURE.NOTE] This feature is now generally available and is automatically enabled for any newly created DocumentDB account. If you want to enable the feature for your existing DocumentDB accounts and collections, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you.
 
 Azure DocumentDB is designed to meet the needs of IoT applications consisting of millions of globally distributed devices and internet scale applications that deliver highly responsive experiences to users across the world. These database systems face the challenge of achieving low latency access to application data from multiple geographic regions with well-defined data consistency and availability guarantees. As a globally distributed database system, DocumentDB simplifies the global distribution of data by offering fully managed, multi-region database accounts that provide clear tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB database accounts are offered with high availability, single digit ms latencies, multiple [well-defined consistency levels] [consistency], transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
 
