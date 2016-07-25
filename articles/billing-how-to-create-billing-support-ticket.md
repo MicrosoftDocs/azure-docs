@@ -42,4 +42,4 @@ You can also submit an support request from the Azure Support web site or from t
  * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
 
- >[AZURE.NOTE]Only the Azure account administrator has permission to access the Account Center. For more information about how to find out who is the account administrator of the subscription, see the Frequently asked questions.
+ >[AZURE.NOTE]Only the Azure account administrator has permission to access the Account Center. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
