@@ -36,15 +36,16 @@ These are limits for a single HTTP request and/or connector call
 
 |Name|Limit|Notes|
 |----|----|----|
-|Message size|50 MB|Some connectors and APIs may not support 50MB|
+|Message size|50 MB|Some connectors and APIs may not support 50MB.  Request trigger supports up to 25MB|
 |Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this|
 
 #### Retry policy
 
 |Name|Limit|Notes|
 |----|----|----|
-|Retry attempts|5|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Retry delay|1 hour|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry attempts|4|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry max delay|1 hour|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry min delay|20 min|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### Run duration and retention
 
@@ -67,6 +68,7 @@ These are limits for a single logic app run.
 |ForEach items|10,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
 |Until iterations|10,000||
 |SplitOn items|10,000||
+|ForEach Parallelism|20|You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action|
 
 
 ### Throughput limits
@@ -75,7 +77,7 @@ These are limits for a single logic app instance.
 
 |Name|Limit|Notes|
 |----|----|----|
-|Triggers per second|100|Can distribute workfload across multiple apps as needed|
+|Triggers per second|100|Can distribute workflows across multiple apps as needed|
 
 ### Definition limits
 
@@ -86,8 +88,12 @@ These are limits for a single logic app definition.
 |Actions in ForEach|1|You can add nested workflows to extend this as needed|
 |Actions per workflow|60|You can add nested workflows to extend this as needed|
 |Allowed action nesting depth|5|You can add nested workflows to extend this as needed|
+|Flows per region per subscription|1000||
 |Triggers per workflow|10||
 |Max characters per expression|8,192||
+|Max `trackedProperties` size in characters|16,000|
+|`action`/`trigger` name limit|80||
+|`description` length limit|256||
 |`parameters` limit|50||
 |`outputs` limit|10||
 
