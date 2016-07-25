@@ -31,25 +31,31 @@ Before your logic app can access any service, you first need to create a *connec
 
 >[AZURE.INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
 
-## Use a SMTP trigger
+## Use an SMTP trigger
 
 A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-In this example, because SMTP does not have a trigger of its own, we'll use the **recurrence** trigger. This trigger ensures that some action occurs periodically based on configured recurrence settings. 
+In this example, because SMTP does not have a trigger of its own, we'll use the **Salesforce - When an object is created** trigger. This trigger will activate when a new object is created in Salesforce. For our example, we'll set it up such that every time a new lead is created in Salesforce, a *send email* action occurs via the SMTP connector with a notification of the new lead being created.
 
-1. Enter *recurrence* in the search box on the Logic Apps designer, then select the **Recurrence** trigger.  
- ![](../../includes/media/connectors-create-api-smtp/using-trigger.PNG)  
+1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created** trigger.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 
-2. In this example, we'll use the default recurrence settings.
- ![](../../includes/media/connectors-create-api-smtp/using-trigger-2.PNG) 
+2. The **When an object is created** control is displayed.
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
 
-## Use a SMTP action
+3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-3.png)  
+
+4. The trigger has been created.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
+
+## Use an SMTP action
 
 An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Now that the trigger has been added, follow these steps to add an action that will occur periodically based on the recurrence settings.
+Now that the trigger has been added, follow these steps to add an SMTP action that will occur when a new lead is created in Salesforce.
 
-1. Select **+ New Step** to add the action you would like to take when a new file is created.  
+1. Select **+ New Step** to add the action you would like to take when a new lead is created.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action.PNG)  
 
 2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
@@ -57,7 +63,7 @@ Now that the trigger has been added, follow these steps to add an action that wi
 
 3. Enter *smtp* to search for actions related to SMTP.  
 
-4. Select **SMTP - Send Email** as the action to take when the recurrence period occurs. The action control block opens. **Note**: you will have to establish your smtp connection in the designer block if you have not done so previously.  
+4. Select **SMTP - Send Email** as the action to take when the new lead is created. The action control block opens. **Note**: you will have to establish your smtp connection in the designer block if you have not done so previously.  
  ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
 
 5. Input your desired email information in the **SMTP - Send Email** block.  
