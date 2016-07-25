@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-data"
-   ms.date="07/22/2016"
+   ms.date="07/25/2016"
    ms.author="jeffstok" />
 
 | Limit identifier | Limit       | Comments |

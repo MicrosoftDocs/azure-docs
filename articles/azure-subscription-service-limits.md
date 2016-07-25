@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="07/26/2016"
 	ms.author="jroth"/>
 
 # Azure subscription and service limits, quotas, and constraints
