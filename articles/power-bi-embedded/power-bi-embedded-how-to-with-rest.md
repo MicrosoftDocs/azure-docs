@@ -48,8 +48,7 @@ When we finish creating the workspace collection, copy the access key from Azure
 
 ![](media\power-bi-embedded-how-to-with-rest\copy-access-key.png)
 
-**Note:** We can also provision the workspace collection and get access key via REST API.
- To learn more, see [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx)
+**Note:** We can also provision the workspace collection and get access key via REST API. To learn more, see [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx).
 
 ## Create .pbix file with Power BI Desktop
 Next, we must create the data connection and reports to be embedded.
@@ -64,12 +63,14 @@ Now that the provisioning is all done, let’s get started creating a customer�
 We just set the access key, which we previously copied, as **AppKey**. It’s very simple authentication!
 
 **HTTP Request**
+
 ```
 POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces
 Authorization: AppKey MpaUgrTv5e...
 ```
 
 **HTTP Response**
+
 ```
 HTTP/1.1 201 Created
 Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
@@ -114,12 +115,14 @@ RequestId: 658bd6b4-b68d-4ec3-8818-2a94266dc220
 ```
 
 The following is asking status using this import id:
+
 ```
 GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports/4eec64dd-533b-47c3-a72c-6508ad854659
 Authorization: AppKey MpaUgrTv5e...
 ```
 
 If the task isn't complete, the HTTP response could be like this:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
@@ -135,6 +138,7 @@ RequestId: 614a13a5-4de7-43e8-83c9-9cd225535136
 ```
 
 If the task is complete, the HTTP response could be more like this:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
@@ -172,12 +176,14 @@ While almost all of the artifacts in .pbix file are imported into our workspace,
 First, we must get the gateway datasource. We know the dataset **id** is the previously returned id.
 
 **HTTP Request**
+
 ```
 GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/datasets/458e0451-7215-4029-80b3-9627bf3417b0/Default.GetBoundGatewayDatasources
 Authorization: AppKey MpaUgrTv5e...
 ```
 
 **HTTP Response**
+
 ```
 GET HTTP/1.1 200 OK
 Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
@@ -199,6 +205,7 @@ RequestId: 574b0b18-a6fa-46a6-826c-e65840cf6e15
 Using the returned gateway id and datasource id \(see the previous **gatewayId** and **id** in the returned result), we can change the credential of this datasource as follows:
 
 **HTTP Request**
+
 ```
 PATCH https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/gateways/ca17e77f-1b51-429b-b059-6b3e3e9685d1/datasources/5f7ee2e7-4851-44a1-8b75-3eb01309d0ea
 Authorization: AppKey MpaUgrTv5e...
@@ -214,6 +221,7 @@ Content-Type: application/json; charset=utf-8
 ```
 
 **HTTP Response**
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/octet-stream
@@ -221,7 +229,9 @@ RequestId: 0e533c13-266a-4a9d-8718-fdad90391099
 ```
 
 In production, we can also set the different connection string for each workspace using REST API. \(i.e, we can separate the database for each customers.)
+
 The following is changing the connection string of datasource via REST.
+
 ```
 POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/datasets/458e0451-7215-4029-80b3-9627bf3417b0/Default.SetAllConnections
 Authorization: AppKey MpaUgrTv5e...
@@ -275,6 +285,7 @@ Second, we must create the base64 encoded string of HMAC \(the signature) with S
 Last, we must combine the input value and signature string using period \(.) character. The completed string is the app token for the report embedding. Even if the app token is discovered by a malicious user, they cannot get the original access key. This app token will expire quickly.
 
 Here's a PHP example for these steps:
+
 ```
 <?php
 // 1. power bi access key
@@ -325,12 +336,14 @@ function rfc4648_base64_encode($arg) {
 ## Finally, embed the report into the web page
 For embedding our report, we must get the embed url and report **id** using the following REST API.
 **HTTP Request**
+
 ```
 GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/reports
 Authorization: AppKey MpaUgrTv5e...
 ```
 
 ** HTTP Response**
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
