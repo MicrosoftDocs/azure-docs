@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/25/2016"
    ms.author="alkohli" />
 
 # Manage your StorSimple device controllers
@@ -139,6 +139,8 @@ This section explains how to shut down a running or a failed StorSimple device f
 1. After both the controllers are completely shut down, the status LEDs on both should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.-->
 
 ## Reset the device to factory default settings
+
+> [AZURE.IMPORTANT] If you need to reset your device to factory default settings, contact Microsoft Support. The prcoedure described below should be used in conjunction with Microsoft Support.
 
 This procedure describes how to reset your Microsoft Azure StorSimple device to factory default settings using Windows PowerShell for StorSimple.
 Resetting a device removes all data and settings from the entire cluster by default.
