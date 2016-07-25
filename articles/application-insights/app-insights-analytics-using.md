@@ -30,7 +30,7 @@
 ## Open Analytics
 
 From your app's home resource in Application Insights, click Analytics.
-
+p
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-using/001.png)
 
 The inline tutorial will give you some ideas about what you can do.
@@ -126,7 +126,7 @@ If you have several columns of the right types, you can choose the x and y axes,
 
 By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-reference.md#render-directive) at the end of a query to select a diagram.
 
-You can pin a diagram to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (Only available in a paid subscription.) 
+You can pin a diagram to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (Only available for apps in a paid-for pricing tier.) 
 
 ## Export to Excel
 
