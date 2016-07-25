@@ -274,7 +274,7 @@ If you no longer want a node to be managed by Azure Automation DSC, you can unre
 
 3. On the **Automation account** blade, click **DSC Nodes**.
 
-4. On the **DSC Nodes** blade, click on the name of the node you want to reassign.
+4. On the **DSC Nodes** blade, click on the name of the node you want to unregister.
 
 5. On the blade for that node, click **Unregister**.
 
