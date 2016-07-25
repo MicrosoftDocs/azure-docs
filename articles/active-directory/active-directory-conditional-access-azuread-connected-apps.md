@@ -3,8 +3,8 @@
 	description="Conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. "
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="femila"/>
+	ms.date="07/25/2016"
+	ms.author="markvi"/>
 
 # Getting started with conditional access to Azure AD  
 
