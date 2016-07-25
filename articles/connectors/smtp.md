@@ -58,7 +58,7 @@ Now that the trigger has been added, follow these steps to add an action that wi
 3. Enter *smtp* to search for actions related to SMTP.  
 
 4. Select **SMTP - Send Email** as the action to take when the recurrence period occurs. The action control block opens. **Note**: you will have to establish your smtp connection in the designer block if you have not done so previously.  
- ![](../../includes/media/connectors-create-api-smtp/smtp-2.PNG)  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
 
 5. Input your desired email information in the **SMTP - Send Email** block.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
