@@ -207,22 +207,24 @@ Complete the following steps on the same Ubuntu 14.04 machine you used in the pr
 
 3. Copy the file **iotdm-edison-sample.bb** from the **~/azure-iot-sdks/c/iotdm_client/samples/iotdm_edison_sample/bitbake/** folder to the **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample** folder.
 
-4. Copy the file **iotdm_edison_sample.service** from the **~/azure-iot-sdks/c/iotdm_client/samples/iotdm_edison_sample/bitbake/** folder to the **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files** folder.
+4. Edit the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/iotdm-edison-sample.bb** and replace `-Duse_http:BOOL=OFF` with `-Duse_http:BOOL=ON`.
 
-5. Edit the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** to add an entry for your new recipe. Add the following line at the end of the file:
+5. Copy the file **iotdm_edison_sample.service** from the **~/azure-iot-sdks/c/iotdm_client/samples/iotdm_edison_sample/bitbake/** folder to the **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files** folder.
+
+6. Edit the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** to add an entry for your new recipe. Add the following line at the end of the file:
     
     ```
     IMAGE_INSTALL += "iotdm-edison-sample"
     ```
 
-6. Because the Gateway SDK and device management client share some libraries, you need to edit the **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** file. Add the following lines at the end of this file. Be sure to replace `<your user>` with your current user name:
+7. Because the Gateway SDK and device management client share some libraries, you need to edit the **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** file. Add the following lines at the end of this file. Be sure to replace `<your user>` with your current user name:
     
     ```
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
     ```
 
-7. Configure WiFi to start automatically on the Edison board by editing the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa_supplicant/wpa-supplicant/wpa_supplicant.conf-sane** and adding the following lines at the end of the file. Be sure to replace `<your wifi ssid>` and `<your wifi password>` with the correct values for your WiFi network:
+8. Configure WiFi to start automatically on the Edison board by editing the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa_supplicant/wpa-supplicant/wpa_supplicant.conf-sane** and adding the following lines at the end of the file. Be sure to replace `<your wifi ssid>` and `<your wifi password>` with the correct values for your WiFi network:
     
     ```
     network={
@@ -235,7 +237,7 @@ Complete the following steps on the same Ubuntu 14.04 machine you used in the pr
     }
     ```
 
-8. You can now build the image for your Edison board that contains the Gateway SDK and device management client. The **bitbake** command will run much faster than previously because it only needs to build the new recipe and add it to the image:
+9. You can now build the image for your Edison board that contains the Gateway SDK and device management client. The **bitbake** command will run much faster than previously because it only needs to build the new recipe and add it to the image:
     
     ```
     cd ~/edison-src/out/linux64/
@@ -243,7 +245,7 @@ Complete the following steps on the same Ubuntu 14.04 machine you used in the pr
     bitbake edison-image
     ```
 
-9. Finalize the build by running the following commands:
+10. Finalize the build by running the following commands:
   
     ```
     cd ~/edison-src/

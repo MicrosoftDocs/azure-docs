@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a web front end for your application | Microsoft Azure"
+   pageTitle="Create a web front end for your application using ASP.NET Core | Microsoft Azure"
    description="Expose your Service Fabric application to the web by using an ASP.NET Core Web API project and inter-service communication via ServiceProxy."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="07/22/2016"
    ms.author="seanmck"/>
 
 
-# Build a web service front end for your application
+# Build a web service front end for your application using ASP.NET Core
 
 By default, Azure Service Fabric services do not provide a public interface to the web. To expose your application's functionality to HTTP clients, you will need to create a web project to act as an entry point and then communicate from there to your individual services.
 
@@ -27,7 +27,7 @@ In this tutorial, we will pick up where we left off in the [Creating your first 
 
 ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. Let's add an ASP.NET Web API project to our existing application.
 
->[AZURE.NOTE] To complete this tutorial, you will need to [install .NET Core RC2][dotnetcore-install].
+>[AZURE.NOTE] To complete this tutorial, you will need to [install .NET Core 1.0][dotnetcore-install].
 
 1. In Solution Explorer, right-click **Services** within the application project and choose **Add > New Service Fabric Service**.
 
@@ -205,6 +205,9 @@ Our stateful service is now ready to receive traffic from other services. So all
     Refresh the browser periodically to see the counter value update.
 
 
+>[AZURE.WARNING] The ASP.NET Core web server provided in the template, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). For production scenarios, consider hosting your ASP.NET Core endpoints behind [API Management][api-management-landing-page] or another internet-facing gateway. Note that Service Fabric is not supported for deployment within IIS.
+
+
 ## What about actors?
 
 This tutorial focused on adding a web front end that communicated with a stateful service. However, you can follow a very similar model to talk to actors. In fact, it is somewhat simpler.
@@ -240,3 +243,4 @@ To learn how to configure different values for different environment, see [Manag
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
+[api-management-landing-page]: https://azure.microsoft.com/en-us/services/api-management/

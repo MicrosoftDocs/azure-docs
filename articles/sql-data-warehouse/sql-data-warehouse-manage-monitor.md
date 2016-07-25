@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/22/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
@@ -35,17 +35,25 @@ To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view 
 
 Here are steps to follow to investigate query execution plans and times for a particular query.
 
-### STEP 1: Find the query to investigate
+### STEP 1: Identify the query to investigate
 
 ```sql
--- Monitor running queries
-SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
+-- Monitor executing or eancelling queries
+SELECT * 
+FROM sys.dm_pdw_exec_requests 
+WHERE status not in ('Completed','Failed','Cancelled')
+  AND session_id <> session_id()
+ORDER BY submit_time DESC;
 
--- Find 10 queries which ran the longest
-SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
+-- Find top 10 queries longest running queries time
+SELECT TOP 10 * 
+FROM sys.dm_pdw_exec_requests 
+ORDER BY total_elapsed_time DESC;
 ```
 
-Note the Request ID of the query which you would like to investigate.
+Queries in the Suspended state are being queued due to concurrency limits which is explained in detail in [Concurrency and workload management][].  These queries will also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType.  Queries can also wait for other reasons such as for locks.
+
+From the above query results, note the Request ID of the query which you would like to investigate.
 
 ### STEP 2: Check if the query is waiting for resources
 
@@ -65,7 +73,7 @@ SELECT waits.session_id,
 FROM   sys.dm_pdw_waits waits
    JOIN  sys.dm_pdw_exec_requests requests
    ON waits.request_id=requests.request_id
-WHERE waits.request_id = 'QID33188'
+WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
@@ -84,11 +92,11 @@ Use the Request ID to retrieve a list of the query plan steps from [sys.dm_pdw_r
 -- Replace request_id with value from Step 1.
 
 SELECT * FROM sys.dm_pdw_request_steps
-WHERE request_id = 'QID33209'
+WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Save the Step Index of the long-running step.
+Note the Step Index of the long-running step.
 
 Check the *operation_type* column of the long-running query step:
 
@@ -104,11 +112,10 @@ Use the Request ID and the Step Index to retrieve information from [sys.dm_pdw_s
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_sql_requests
-WHERE request_id = 'QID33209' AND step_index = 2;
+WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-
-If the query is currently running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server execution plan for the currently running SQL Step for a particular distribution.
+If the query is running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server estimated plan from the SQL Server plan cache for the currently running SQL Step within a particular distribution.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -127,7 +134,7 @@ Use the Request ID and the Step Index to retrieve information about the Data Mov
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_dms_workers
-WHERE request_id = 'QID33209' AND step_index = 2;
+WHERE request_id = 'QID####' AND step_index = 2;
 
 ```
 
@@ -155,6 +162,7 @@ For best practices, see [SQL Data Warehouse best practices][].
 [Manage overview]: ./sql-data-warehouse-overview-manage.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
+[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
