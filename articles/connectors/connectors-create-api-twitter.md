@@ -43,9 +43,9 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 In this example, I will show you how to use the **When a new tweet is posted**  trigger to search for #Seattle and, if #Seattle is found, update a file in Dropbox with the text from the tweet. In an enterprise example, you could search for the name of your company and update a SQL database with the text from the tweet.
 
 1. Enter *twitter* in the search box on the logic apps designer then select the **Twitter - When a new tweet is posted**  trigger   
-![](./media/connectors-create-api-twitter/trigger-1.png)  
+![Twitter trigger image 1](./media/connectors-create-api-twitter/trigger-1.png)  
 - Enter *#Seattle* in the **Search Text** control  
-![](./media/connectors-create-api-twitter/trigger-2.png) 
+![Twitter trigger image 2](./media/connectors-create-api-twitter/trigger-2.png) 
 
 At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow. 
 
@@ -55,25 +55,25 @@ At this point, your logic app has been configured with a trigger that will begin
 Since we are only interested in tweets from users with more than 50 users, a condition that confirms the number of followers must first be added to the logic app.  
 
 1. Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
-![](../../includes/media/connectors-create-api-twitter/action-1.png)  
+![Twitter action image 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
 - Select the **Add a condition** link.  
-![](../../includes/media/connectors-create-api-twitter/condition-1.png)   
+![Twitter condition image 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
 This opens the **Condition** control where you can check conditions such as *is equal to*, *is less than*, *is greater than*, *contains*, etc.  
-![](../../includes/media/connectors-create-api-twitter/condition-2.png)   
+![Twitter condition image 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
 - Select the **Choose a value** control.  
 In this control, you can select one or more of the properties from any previous actions or triggers as the value whose condition will be evaluated to true or false.
-![](../../includes/media/connectors-create-api-twitter/condition-3.png)   
+![Twitter condition image 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
 - Select the **...** to expand the list of properties so you can see all the properties that are available.        
-![](../../includes/media/connectors-create-api-twitter/condition-4.png)   
+![Twitter condition image 4](../../includes/media/connectors-create-api-twitter/condition-4.png)   
 - Select the **Followers count** property.    
-![](../../includes/media/connectors-create-api-twitter/condition-5.png)   
+![Twitter condition image 5](../../includes/media/connectors-create-api-twitter/condition-5.png)   
 - Notice the Followers count property is now in the value control.    
-![](../../includes/media/connectors-create-api-twitter/condition-6.png)   
+![Twitter condition image 6](../../includes/media/connectors-create-api-twitter/condition-6.png)   
 - Select **is greater than** from the operators list.    
-![](../../includes/media/connectors-create-api-twitter/condition-7.png)   
+![Twitter condition image 7](../../includes/media/connectors-create-api-twitter/condition-7.png)   
 - Enter 50 as the operand for the *is greater than* operator.  
 The condition is now added. Save your work using the **Save** link on the menu above.    
-![](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+![Twitter condition image 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## Use a Twitter action
 
@@ -84,15 +84,15 @@ Now that you have added a trigger, follow these steps to add an action that will
 In the next step, you will add a Twitter action that will post a tweet using some of the properties of each tweet that has been posted by a user who has more than 50 followers.  
 
 1. Select **Add an action**. This opens the search control where you can search for other actions and triggers.  
-![](../../includes/media/connectors-create-api-twitter/condition-9.png)   
+![Twitter condition image 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
 - Enter *twitter* into the search box then select the **Twitter - Post a tweet** action. This opens the **Post a tweet** control where you will enter all details for the tweet being posted.      
-![](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
+![Twitter action image 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
 - Select the **Tweet text** control. All outputs from previous actions and triggers in the logic app are now visible. You can select any of these and use them as part of the tweet text of the new tweet.     
-![](../../includes/media/connectors-create-api-twitter/action-2.png)   
+![Twitter action image 2](../../includes/media/connectors-create-api-twitter/action-2.png)   
 - Select **User name**   
 - Enter *says:* in the tweet text control. Do this just after User name.  
 - Select *Tweet text*.       
-![](../../includes/media/connectors-create-api-twitter/action-3.png)   
+![Twitter action image 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
 - Save your work and send a tweet with the #Seattle hashtag to activate your workflow.  
 
 ## Technical Details

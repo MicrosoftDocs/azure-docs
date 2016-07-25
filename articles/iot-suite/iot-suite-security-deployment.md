@@ -21,6 +21,10 @@
 
 ## Next steps
 
-For additional IoT Suite resources, see [IoT Suite FAQ][lnk-faq].
+You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
-[lnk-faq]: iot-suite-FAQ.md
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+- [Frequently asked questions for IoT Suite][lnk-faq]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-faq]: iot-suite-faq.md
