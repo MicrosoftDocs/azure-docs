@@ -27,10 +27,7 @@ on Azure HDInsight to get a list of Twitter users who sent the most tweets that 
 to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 
-
-> [AZURE.TIP] A similar sample is in the HDInsight Sample Gallery. Watch the Channel 9 video: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">Analyze Twitter trends using Apache Hive in HDInsight</a>.
-
-###Prerequisites
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
@@ -78,11 +75,11 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 2. Click **Create New App**.
 3. Enter **Name**, **Description**, **Website**. You can make up a URL for the **Website** field. The following table shows some sample values to use:
 
-Field|Value
----|---
-Name|MyHDInsightApp
-Description|MyHDInsightApp
-Website|http://www.myhdinsightapp.com
+	Field|Value
+	---|---
+	Name|MyHDInsightApp
+	Description|MyHDInsightApp
+	Website|http://www.myhdinsightapp.com
 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial.
@@ -228,16 +225,16 @@ In this tutorial, you will use Windows PowerShell to make the web service call. 
 3. Set the first five to eight variables in the script:
 
 
-Variable|Description
----|---
-$clusterName|This is the name of the HDInsight cluster where you want to run the application.
-$oauth_consumer_key|This is the Twitter application **consumer key** you wrote down earlier when you created the Twitter application.
-$oauth_consumer_secret|This is the Twitter application **consumer secret** you wrote down earlier.
-$oauth_token|This is the Twitter application **access token** you wrote down earlier.
-$oauth_token_secret|This is the Twitter application **access token secret** you wrote down earlier.
-$destBlobName|This is the output blob name. The default value is **tutorials/twitter/data/tweets.txt**. If you change the default value, you will need to update the Windows PowerShell scripts accordingly.
-$trackString|The web service will return tweets related to these keywords. The default value is **Azure, Cloud, HDInsight**. If you change the default value, you will update the Windows PowerShell scripts accordingly.
-$lineMax|The value determines how many tweets the script will read. It takes about three minutes to read 100 tweets. You can set a larger number, but it will take more time to download.
+	Variable|Description
+	---|---
+	$clusterName|This is the name of the HDInsight cluster where you want to run the application.
+	$oauth_consumer_key|This is the Twitter application **consumer key** you wrote down earlier when you created the Twitter application.
+	$oauth_consumer_secret|This is the Twitter application **consumer secret** you wrote down earlier.
+	$oauth_token|This is the Twitter application **access token** you wrote down earlier.
+	$oauth_token_secret|This is the Twitter application **access token secret** you wrote down earlier.
+	$destBlobName|This is the output blob name. The default value is **tutorials/twitter/data/tweets.txt**. If you change the default value, you will need to update the Windows PowerShell scripts accordingly.
+	$trackString|The web service will return tweets related to these keywords. The default value is **Azure, Cloud, HDInsight**. If you change the default value, you will update the Windows PowerShell scripts accordingly.
+	$lineMax|The value determines how many tweets the script will read. It takes about three minutes to read 100 tweets. You can set a larger number, but it will take more time to download.
 
 5. Press **F5** to run the script. If you run into problems, as a workaround, select all the lines, and then press **F8**.
 6. You shall see "Complete!" at the end of the output. Any error messages will be displayed in red.
@@ -439,13 +436,13 @@ The HiveQL script will perform the following:
 
 4. Set the first two variables in the script:
 
-Variable|Description
----|---
-$clusterName|Enter the HDInsight cluster name where you want to run the application.
-$subscriptionID|Enter your Azure subscription ID.
-$sourceDataPath|The Azure Blob storage location where the Hive queries will read the data from. You don't need to change this variable.
-$outputPath|The Azure Blob storage location where the Hive queries will output the results. You don't need to change this variable.
-$hqlScriptFile|The location and the file name of the HiveQL script file. You don't need to change this variable.
+	Variable|Description
+	---|---
+	$clusterName|Enter the HDInsight cluster name where you want to run the application.
+	$subscriptionID|Enter your Azure subscription ID.
+	$sourceDataPath|The Azure Blob storage location where the Hive queries will read the data from. You don't need to change this variable.
+	$outputPath|The Azure Blob storage location where the Hive queries will output the results. You don't need to change this variable.
+	$hqlScriptFile|The location and the file name of the HiveQL script file. You don't need to change this variable.
 
 5. Press **F5** to run the script. If you run into problems, as a workaround, select all the lines, and then press **F8**.
 6. You shall see "Complete!" at the end of the output. Any error messages will be displayed in red.
