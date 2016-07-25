@@ -442,7 +442,7 @@ There are 3 steps in this section.
 
 4. Click **OK**.
 5. Click **Create**.
-6. Open the virtual network public gateway.  In the Settings > Properties, find the public IP address:  40.79.76.167
+6. Open the virtual network public gateway (contosohdivnetvirtualnetworkgateway.  In the Settings > Properties, find the public IP address:  40.79.35.228
 
 
 
@@ -457,12 +457,13 @@ There are 3 steps in this section.
 7. From a PowerShell console, setup a shared key by running the command below. Make sure you change the names of the VNets to the your own VNet names.
 
 		Add-AzureAccount
-		Set-AzureVNetGatewayKey -VNetName contosoaadvnet -LocalNetworkSiteName contosohdi-vnet -SharedKey "Password123"
+		Set-AzureVNetGatewayKey -VNetName contosoaadvnet -LocalNetworkSiteName contosohdivnet -SharedKey "Password123"
 
 8. Create the VPN connection by running the commands below.
 
-		$vnet01gateway = Get-AzureRmLocalNetworkGateway  -ResourceGroupName  contosohdirg -Name contosohdivnetlocalgateway
-		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName contosohdirg -Name contosohdivnetpublicgateway
+		Add-AzureRmAccount
+		$vnet01gateway = Get-AzureRmLocalNetworkGateway  -ResourceGroupName  contosohdirg -Name contosohdivnetlocalnetworkgateway
+		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName contosohdirg -Name contosohdivnetvirtualnetworkgateway
 
 		New-AzureRmVirtualNetworkGatewayConnection -Name contoso-asm-arm-connection `
 			-ResourceGroupName contosohdirg -Location "East US 2" -VirtualNetworkGateway1 $vnet02gateway `
@@ -491,9 +492,9 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 
 	- DomainName: contoso158.onmicrosoft.com
 	- OrganizationUnitDN: OU=Hadoop System Users,DC=contoso158,DC=onmicrosoft,DC=com
-	- LDAPUrls: ["ldaps://40.84.54.252:636"]
+	- LDAPUrls: ["ldaps://40.84.54.252:636"], ["ldaps://10.1.0.4:636","ldaps://10.1.0.5:636"]
 	- DomainAdminUserName: jgao@contoso158.onmicrosoft.com
-	- DomainAdminPassword: Kasa6500
+	- DomainAdminPassword: Bodu8439
 
 	The organizational unit is what you created earlier in the article.
 
@@ -508,7 +509,7 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
     - Subnet address range: 10.2.0.0/24
 
 3. Click **OK** to save the parameters.
-4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
+4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **Use existing** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 5. Click **Legal terms**, and then click **Create**.
 6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
