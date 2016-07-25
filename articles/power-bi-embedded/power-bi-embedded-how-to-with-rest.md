@@ -352,7 +352,10 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 
 We can embed the report in our web app using the previous app token.
 If we look at the next sample code, the former part is the same as the previous example. In the latter part, this sample shows the **embedUrl** \(see the previous result) in the iframe, and is posting the app token into the iframe.
+
 **Note:** You'll need to change the **id** value for your own id.
+
+**Note:** Due to a bug in GIT, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
 
 ```
     <?php
@@ -409,7 +412,7 @@ If we look at the next sample code, the former part is the same as the previous 
     <body>
       <button id="btnView">View Report !</button>
       <div id="divView">
-        <iframe id="ifrTile" width="100%" height="400"></iframe>
+        <**REMOVE THIS CAPPED TEXT IF COPIED** iframe id="ifrTile" width="100%" height="400"></iframe>
       </div>
       <script>
         (function () {
