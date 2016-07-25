@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: FAQs | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: FAQs | Microsoft Azure"
 	description="Frequently asked questions about Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: FAQs
+# Azure Active Directory B2C: FAQs
 
-This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C preview. Keep checking back for updates.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C. Keep checking back for updates.
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 
@@ -56,7 +54,7 @@ No, you can host your application anywhere (in the cloud or on-premises). All it
 
 ### I have multiple Azure AD B2C Tenants. How can I manage them on the Azure Portal?
 
-Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C preview: Register your application](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal will not keep your B2C features blade open on most browsers.
+Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C: Register your application](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal will not keep your B2C features blade open on most browsers.
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
 
@@ -68,7 +66,7 @@ You can use the Azure AD Graph API to write your migration tool. See the [Graph 
 
 ### What password policy is used for local accounts in Azure AD B2C?
 
-The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details.
+The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset policies uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details.
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 
@@ -128,4 +126,4 @@ We can't provide any information on the generally available date at this time.
 
 ## More information
 
-You also might want to review current [preview limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
+You also might want to review current [service limitations, restrictions, and constraints](active-directory-b2c-limitations.md).

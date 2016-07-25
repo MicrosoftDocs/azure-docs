@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: User interface (UI) customization | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: User interface (UI) customization | Microsoft Azure"
 	description="A topic on the user interface (UI) customization features in Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: Customize the Azure AD B2C user interface (UI)
+# Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI)
 
 User experience is paramount in a consumer-facing application. It is the difference between a good application and a great one, and between merely active consumers and truly engaged ones. Azure Active Directory (Azure AD) B2C lets you customize consumer sign-up, sign-in (*see note below*), profile editing, and  password reset pages with pixel-perfect control.
 
@@ -29,8 +29,6 @@ In this article, you will read about:
 - A helper tool that will help you test the page UI customization feature by using our sample content.
 - The core UI elements in each type of page.
 - Best practices when exercising this feature.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## The page UI customization feature
 
@@ -45,9 +43,6 @@ If you want to try out the UI customization feature by using our sample HTML and
 ## The core UI elements in each type of page
 
 In the following sections, you will find examples of HTML5 fragments that Azure AD B2C merges into the <div id="api"></div> element located in your content. Do not insert these fragments in your HTML 5 content. They are only shown here for illustration purposes; the Azure AD B2C service inserts them at run-time. You can use your own style sheets to customize these UI elements. These style sheets will have to override the default style sheets that we add into these pages in the <head> fragments.
-
-> [AZURE.IMPORTANT]
-	During preview, expect the exact UI elements to change as we learn and adapt from your feedback. Always inspect the source code of default pages for the latest updates. In fact, the first change being considered is the removal of our default style sheets; this would mean that you would always have to supply your own style sheets for these UI elements in your content.
 
 ### Identity provider selection page
 
