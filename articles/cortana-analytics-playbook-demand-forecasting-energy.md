@@ -113,7 +113,7 @@ Since the consumption scenario for LTLF is mostly planning, we can expect much l
 ### Short Term vs. Long Term Prediction
 The following table compares STLF and LTLF in respect to the most important attributes:
 
-|Attribute|Short Term Load Forecast|Long Term Load Forecase|
+|Attribute|Short Term Load Forecast|Long Term Load Forecast|
 |---|---|---|
 |Forecast Horizon|From 1 hour to 48 hours|From 1 to 6 months or more|
 |Data granularity|Hourly|Hourly or daily|
@@ -243,7 +243,7 @@ Formulating these questions allows us to focus on getting the right data and imp
 accurate should the forecast be and what is the range of error that would still be acceptable by the business?
 
 ### Data Sources
-The modern smart grid collects data from various parts and components of the grid. This data represents various aspects of the operation and the utilization of the power grid. Within the scope of the energy demand forecast, we are limiting the discussion on data sources that reflect the actual demand consumption. One important source of energy consumption are smart meters. Utilities around the globe are rapidly deploying smart meters for their consumers. Smart meters record the actual power consumption and constantly relay this data back to the utility company. Data is collected and sent back at a fixed interval, ranging from every 5 minutes to 1 hour. More advanced smart meters can be programmed remotely to control and balance the actual consumption within a household. Smart meter data is relatively reliable and includes a time stamp. That makes it an important ingredient for demand forecast. Meter data can be aggregated (summed up) at various levels within the grid topology: transformer, substation, region, *etc.*. We can then pick the required aggregation level to build a forecasting model for it. For example, if the utility company would like to forecast future load on each of its grid substations then all meters' data can be aggregated for each individual substation and used as an input for the forecasting model. We refer to smart meters as an internal data source.
+The modern smart grid collects data from various parts and components of the grid. This data represents various aspects of the operation and the utilization of the power grid. Within the scope of the energy demand forecast, we are limiting the discussion on data sources that reflect the actual demand consumption. One important source of energy consumption are smart meters. Utilities around the globe are rapidly deploying smart meters for their consumers. Smart meters record the actual power consumption and constantly relay this data back to the utility company. Data is collected and sent back at a fixed interval, ranging from every 5 minutes to 1 hour. More advanced smart meters can be programmed remotely to control and balance the actual consumption within a household. Smart meter data is relatively reliable and includes a time stamp. That makes it an important ingredient for demand forecast. Meter data can be aggregated (summed up) at various levels within the grid topology: transformer, substation, region, *etc*. We can then pick the required aggregation level to build a forecasting model for it. For example, if the utility company would like to forecast future load on each of its grid substations then all meters' data can be aggregated for each individual substation and used as an input for the forecasting model. We refer to smart meters as an internal data source.
 
 A reliable energy demand forecast will also rely on other external data sources. One important factor that affects power consumption is the weather, or more precisely the temperature. Historical data shows strong correlation between outside temperature and power consumption. During hot summer days, consumers make use of their air conditioners and during the winter power on heating systems. A reliable source of historical temperatures at the grid location is therefore key. Furthermore, we also rely on accurate forecast of temperature as a predictor of power
 consumption.
@@ -278,7 +278,7 @@ The following tables shows examples of a good consumption and temperature data f
 As can be seen above, this example includes 3 different values for consumption associated with 3 power phases. Also, note that the date and time fields are separated, however they can also be combined into a single column. In this case the location column is represented in a 5-digit zip-code format and the temperature in a degree Celsius format.
 
 ### Data Format
-Cortana Intelligence Suite can support the most common data formats like CSV, TSV, JSON, *etc.*. It is important that the data format stays consistent for the entire life cycle of the project.
+Cortana Intelligence Suite can support the most common data formats like CSV, TSV, JSON, *etc*. It is important that the data format stays consistent for the entire life cycle of the project.
 
 ### Data Ingestion
 Since energy demand forecast is constantly and frequently predicted, we must ensure that the raw data is flowing by means of a solid and reliable data ingestion process. The ingestion process must guarantee that the raw data is available for the forecasting process at the required time. That implies that the data ingestion frequency should be greater than the forecasting frequency.
@@ -314,7 +314,7 @@ These features are derived from the date/timestamp data. These are extracted and
 
 **Independent measurement features:**
 The independent features include all the data elements that we would like to use as predictors in our model. Here we exclude the dependent feature which we would need to predict.
--   Lag feature – these are time shifted values of the actual demand. For example, lag 1 features will hold the demand value in the previous hour (assuming hourly data) relative to the current timestamp. Similarly, we can add lag 2, lag 3, *etc.*. The actual combination of lag features that are used are determined during the modeling phase by evaluation of the model results.
+-   Lag feature – these are time shifted values of the actual demand. For example, lag 1 features will hold the demand value in the previous hour (assuming hourly data) relative to the current timestamp. Similarly, we can add lag 2, lag 3, *etc*. The actual combination of lag features that are used are determined during the modeling phase by evaluation of the model results.
 -   Long term trending – this feature represents the linear growth in demand between years.
 
 **Dependent feature:**
