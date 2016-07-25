@@ -232,14 +232,12 @@ for that node.
     ![Screenshot of the Report blade](./media/automation-dsc-getting-started/NodeReport.png)
 
 On the blade for an individual report, you can see the following status information for the corresponding consistency check:
-- The report status--whether the node is "Compliant", the configuration "Failed", or the node is "Not Compliant" (when the node is in **applyandmonitor** mode and the machine is not in the
-desired state).
+- The report status — whether the node is "Compliant", the configuration "Failed", or the node is "Not Compliant" (when the node is in **applyandmonitor** mode and the machine is not in the desired state).
 - The start time for the consistency check.
 - The total runtime for the consistency check.
 - The type of consistency check.
 - Any errors, including the error code and error message. 
-- Any DSC resources used in the configuration, and the state of each resource (whether the node is in the desired state for that resource)--you can click on each resource to get more 
-detailed information for that resource.
+- Any DSC resources used in the configuration, and the state of each resource (whether the node is in the desired state for that resource) — you can click on each resource to get more detailed information for that resource.
 - The name, IP address, and configuration mode of the node.
 
 You can also click **View raw report** to see the actual data that the node sends to the server. For more information about using that data, see 
