@@ -28,10 +28,15 @@
 
 This topic lists these steps. 
 
-[AZURE.IMPORTANT] It is possible to set a Hybrid Connection endpoint to an IP address **but** if you do so, you may or may not be able to reach the on premises resource depending on your client. The Hybrid Connection feature depends on the client doing a DNS lookup (In most cases the __client__ is your application code). If the client does not perform a DNS lookup, so it does not try to resolve the IP address as if it were a domain name (x.x.x.x), then traffic will not be sent through the Hybrid Connection.
-Example (pseudocode) -- Considering you define **10.4.5.6** as your on premises host: 
-**This works:** `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host` // 
-**This doesn't work:** `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
+> [AZURE.IMPORTANT] It is possible to set a Hybrid Connection endpoint to an IP address. If you use an IP address, you may or may not reach the on-premises resource, depending on your client. The Hybrid Connection depends on the client doing a DNS lookup. In most cases, the __client__ is your application code. If the client does not perform a DNS lookup, (it does not try to resolve the IP address as if it were a domain name (x.x.x.x)), then traffic is not sent through the Hybrid Connection.
+>
+> For example (pseudocode), you define **10.4.5.6** as your on-premises host:
+> 
+> **The following scenario works:**  
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> 
+> **The following scenario doesn't work:**  
+> `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
 
 
 ## <a name="CreateHybridConnection"></a>Create a Hybrid Connection
@@ -54,7 +59,7 @@ A Hybrid Connection can be created in the Azure portal using Web Apps **or** usi
 	Property | Description
 --- | ---
 Name | The Hybrid Connection name must be unique and cannot be the same name as the BizTalk Service. You can enter any name but be specific with its purpose. Examples include:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
-Host Name | Enter the fully qualified host name or only the host name of the on-premises resource. Examples include:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com
+Host Name | Enter the fully qualified host name, only the host name, or the IPv4 address of the on-premises resource. Examples include:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10<br/><br/>If you use the IPv4 address, note that your client or application code may not resolve the IP address. See the Important note at the top of this topic.
 Port | Enter the port number of the on-premises resource. For example, if you're using Web Apps, enter port 80 or port 443. If you're using SQL Server, enter port 1433.
 
 5. Select the check mark to complete the setup. 
