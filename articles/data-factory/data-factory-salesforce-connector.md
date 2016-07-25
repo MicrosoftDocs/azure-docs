@@ -34,6 +34,8 @@ The following example provides sample JSON definitions that you can use to creat
 ## Sample: Copy data from Salesforce to an Azure blob
 This sample copies data from Salesforce to an Azure blob every hour. The JSON properties that are used in these examples are described in sections after the examples. You can copy data directly to any of the sinks that are listed in the [data movement activities](data-factory-data-movement-activities.md#supported-data-stores) article by using Copy Activity in Azure Data Factory.
 
+Here are the Data Factory artifacts that you'll need to create to implement the scenario. The sections that follow the list provide details about these steps.
+
 - A linked service of the type [Salesforce](#salesforce-linked-service-properties)
 - A linked service of the type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
 - An input [dataset](data-factory-create-datasets.md) of the type [RelationalTable](#salesforce-dataset-properties)
@@ -138,7 +140,7 @@ See [RelationalSource type properties](#relationalsource-type-properties) for th
 			"description":"pipeline with copy activity",
 			"activities":[  
 			{
-				"name": "SaleforceToAzureBlob",
+				"name": "SalesforceToAzureBlob",
 				"description": "Copy from Salesforce to an Azure blob",
 				"type": "Copy",
 				"inputs": [
@@ -229,7 +231,7 @@ If the number of concurrent requests exceeds the limit, throttling occurs and yo
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Type mapping for Salesforce
-Salesforce type | .NET-based Type
+Salesforce type | .NET-based type
 --------------- | ---------------
 Auto Number | String
 Checkbox | Boolean
