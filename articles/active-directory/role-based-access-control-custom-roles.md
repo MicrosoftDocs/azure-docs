@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/22/2016"
+	ms.date="07/25/2016"
 	ms.author="kgremban"/>
 
 
@@ -74,7 +74,7 @@ Get-AzureRMProviderOperation Microsoft.Network/*
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
 
 azure provider operations show "Microsoft.Network/*"
-***
+```
 
 ![Azure CLI screenshot - azure provider operations show "Microsoft.Compute/virtualMachines/\*/action" ](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
 
