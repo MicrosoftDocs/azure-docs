@@ -34,11 +34,16 @@ The report shows active usage of the paid features in the last 30 days.
 > [AZURE.NOTE] If a user account has been deleted the ‘Unlicensed User’ column will be populated with an ID, like 1003000090D8B285
 
 
-## Conditional Access Feature
+## Conditional access feature
 
 Unlicensed users will be flagged when they access a service that has conditional access policy applied if they do not have an Azure AD Premium license. 
 
 This applies to MFA / Location policies as well as device polices that use Intune.
  
+
+## See also
+
+- [Using Conditional Access with Office 365 and other Azure Active Directory connected apps](active-directory-conditional-access.md)
+- [Getting started with conditional access to Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
 
 
