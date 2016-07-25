@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -46,6 +46,7 @@ For any device failover, keep in mind the following:
 - The prerequisites for DR are that all the volumes within the volume containers are offline and the volume containers have an associated cloud snapshot. 
 - The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
 - The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
+- Following a DR, for a limited duration, the data access performance can be affected significantly, as the device will need to access the data from the cloud and store it locally.
 
 #### Device failover across software versions
 
