@@ -17,7 +17,7 @@
    ms.author="owend"/>
 
 # How to use Power BI Embedded with REST
-By: Tsuyoshi Matsuzaki, Technical Evangelist, Microsoft, Tokyo
+**By: Tsuyoshi Matsuzaki, Technical Evangelist, Microsoft, Tokyo**
 
 
 ## Power BI Embedded: What it is and what it's for
@@ -280,7 +280,7 @@ First, we must prepare the input value, which is signed later. This value is the
 }
 ```
 
-Second, we must create the base64 encoded string of HMAC \(the signature) with SHA256 algorithm. This signed input value is the previous string.
+Next, we must create the base64 encoded string of HMAC \(the signature) with SHA256 algorithm. This signed input value is the previous string.
 
 Last, we must combine the input value and signature string using period \(.) character. The completed string is the app token for the report embedding. Even if the app token is discovered by a malicious user, they cannot get the original access key. This app token will expire quickly.
 
@@ -334,7 +334,9 @@ function rfc4648_base64_encode($arg) {
 ```
 
 ## Finally, embed the report into the web page
+
 For embedding our report, we must get the embed url and report **id** using the following REST API.
+
 **HTTP Request**
 
 ```
@@ -342,7 +344,7 @@ GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4
 Authorization: AppKey MpaUgrTv5e...
 ```
 
-** HTTP Response**
+**HTTP Response**
 
 ```
 HTTP/1.1 200 OK
