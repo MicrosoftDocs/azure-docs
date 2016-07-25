@@ -102,7 +102,7 @@ After you have imported a configuration, you can view it in the Azure portal.
 
 3. On the **Automation account** blade, click **DSC Configurations**
 
-4. On the **DSC Configurations blade, click **TestConfig** (this is the name of the configuration you imported in the previous procedure).
+4. On the **DSC Configurations** blade, click **TestConfig** (this is the name of the configuration you imported in the previous procedure).
 
 5. On the **TestConfig Configuration** blade, click **View configuration source**.
 
@@ -122,7 +122,7 @@ For more information about compiling configurations, see [DSC Configurations](ht
 
 3. On the **Automation account** blade, click **DSC Configurations**
 
-4. On the **DSC Configurations blade, click **TestConfig** (the name of the previously imported configuration).
+4. On the **DSC Configurations** blade, click **TestConfig** (the name of the previously imported configuration).
 
 5. On the **TestConfig Configuration** blade, click **Compile**, and then click **Yes**. This starts a compilation job.
     
@@ -142,7 +142,7 @@ compilation logs.
 
 3. On the **Automation account** blade, click **DSC Configurations**.
 
-4. On the **DSC Configurations blade, click **TestConfig** (the name of the previously imported configuration).
+4. On the **DSC Configurations** blade, click **TestConfig** (the name of the previously imported configuration).
 
 5. On the **Compilation jobs** tile of the **TestConfig Configuration** blade, click on any of the jobs listed. A **Compilation Job** blade opens, labeled with the date that the 
 compilation job was started.
