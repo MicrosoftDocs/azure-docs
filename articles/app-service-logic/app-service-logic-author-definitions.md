@@ -21,7 +21,7 @@ This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are
 
 ## Several steps that repeat over a list
 
-You can leverage the [foreach type](app-service-logic-loops-and-scopes.mds) to repeat over an array of up to 10k items and perform an action for each.
+You can leverage the [foreach type](app-service-logic-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.
 
 ## A failure-handling step if something goes wrong
 
