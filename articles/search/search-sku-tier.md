@@ -14,14 +14,14 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/12/2016"
+	ms.date="07/25/2016"
 	ms.author="heidist"/>
 
 # Choose a SKU or pricing tier for Azure Search
 
-During [service provisioning](search-create-service-portal.md), you will need to specify which SKU or pricing tier to use. Choices include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple resource configurations and capacities.
+During [service provisioning](search-create-service-portal.md), you'll need to specify ah SKU or pricing tier. Choices include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities.
 
-We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for demonstration or testing. You can use the **Free** service for testing and evaluation, and then create a second billable service for production or larger test workloads.
+We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for demonstration or testing. You can use the **Free** service for testing and evaluation. You can then create a second billable service at the **Basic** or **Standard** tier for production or larger test workloads.
 
 In Azure Search, the SKU determines capacity, not feature availability. All features are available at every pricing tier.
 
@@ -58,7 +58,7 @@ Standard 3 High Density (**S3 HD**) Preview|A large number of smaller indexes. T
 
 > [AZURE.NOTE] Replica and partition maximums are billed out as search units (36 unit maximum per service), which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
 
-## Decision path for choosing a SKU
+## Review limits per tier
 
 The following chart is a subset of the limits from [Service Limits in Azure Search](search-limits-quotas-capacity.md). It lists the factors most likely to impact a SKU decision. You can refer to this chart when reviewing the questions below.
 
@@ -75,7 +75,7 @@ Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per re
 <sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
 
 
-### Common questions when choosing a SKU
+## Eliminate SKUs that don't meet requirements 
 
 The following questions can help you arrive at the right SKU decision for your workload.
 

@@ -25,10 +25,12 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+
+* **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
+
+
 Let's take a walk through some basic queries to get you started.
-
-> [AZURE.NOTE] If your app isn't sending data to Application Insights yet, you can [test Analytics using our simulated data](https://analytics.applicationinsights.io/demo).
-
 
 ## Connect to your Application Insights data
 
