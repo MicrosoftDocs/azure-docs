@@ -152,22 +152,22 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 ### Standard tier: D-series###
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
-    |---|---|---|---|---|---|---|
-    |Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
-        |Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
-        |Standard_D12 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
-        |Standard_D13 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
-        |Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|
+|---|---|---|---|---|---|---|
+|Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
+|Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
+|Standard_D12 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
+|Standard_D13 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
+|Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|
 
 ### Standard tier: Dv2-series###
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
-        |---|---|---|---|---|---|---|
-        |Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
-        |Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
-        |Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
-        |Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
-        |Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|    
+|---|---|---|---|---|---|---|
+|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
+|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
+|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
+|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
+|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|    
 
 For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-size-specs.md). For information about pricing of the various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight)   
 
