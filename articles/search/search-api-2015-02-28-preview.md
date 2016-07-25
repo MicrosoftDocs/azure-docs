@@ -982,7 +982,7 @@ The **Get Index Statistics** operation returns from Azure Search a document coun
 	GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
 
-> [AZURE.NOTE] The returned statistics are collected periodically and may not reflect changes caused by recent indexing operations.
+> [AZURE.NOTE] Statistics on document count and storage size are collected every few minutes, not in real time. Therefore, the statistics returned by this API may not reflect changes caused by recent indexing operations.
 
 **Request**
 
