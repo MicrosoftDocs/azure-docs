@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/21/2016"
 	ms.author="cynthn"/>
 
 # Create and upload a Windows Server VHD to Azure
