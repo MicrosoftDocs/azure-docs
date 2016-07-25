@@ -32,17 +32,6 @@ For even higher level of support, go to the [Azure Support site](https://azure.m
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
-## Types of domains you can map
-Azure App Service lets you map the following categories of custom domains to your app.
-
-- **Root domain** - the domain name that you reserved with the domain registrar (represented by the `@` host record, typically). 
-For example, **contoso.com**.
-- **Subdomain** - any domain that's under your root domain. For example, **www.contoso.com** (represented by the `www` host record).  You can 
-map different subdomains of the same root domain to different apps in Azure.
-- **Wildcard domain** - [any subdomain whose leftmost DNS label is `*`](https://en.wikipedia.org/wiki/Wildcard_DNS_record) 
-(e.g. host records `*` and `*.blogs`). For example, **\*.contoso.com**.
-
-
 ## Buy a new custom domain in Azure portal
 
 If you haven't already purchased a custom domain name, you can buy one and manage it directly in your app's settings in the 
@@ -64,16 +53,31 @@ there are three main steps to map the custom domain to your app:
     - **Why**: so your domain registrar knows to resolves the desired custom domain to your Azure app.
 3. [Verify DNS propagation](#verify).
 
+### Types of domains you can map
+
+Azure App Service lets you map the following categories of custom domains to your app.
+
+- **Root domain** - the domain name that you reserved with the domain registrar (represented by the `@` host record, typically). 
+For example, **contoso.com**.
+- **Subdomain** - any domain that's under your root domain. For example, **www.contoso.com** (represented by the `www` host record).  You can 
+map different subdomains of the same root domain to different apps in Azure.
+- **Wildcard domain** - [any subdomain whose leftmost DNS label is `*`](https://en.wikipedia.org/wiki/Wildcard_DNS_record) 
+(e.g. host records `*` and `*.blogs`). For example, **\*.contoso.com**.
+
+### Types of DNS records you can use
+
 Depending on your need, you can use two different types of standard DNS records to map your custom domain: 
 
 - [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) - maps your custom domain name to the Azure app's virtual 
 IP address directly. 
 - [CNAME](https://en.wikipedia.org/wiki/CNAME_record) - maps your custom domain name to your app's Azure domain name, 
-**&lt;appname>.azurewebsites.net**. 
+**&lt;*appname*>.azurewebsites.net**. 
 
-The advantage of the CNAME approach is that it persists across IP address changes. Your app's virtual IP address may change 
+The advantage of CNAME is that it persists across IP address changes. Your app's virtual IP address may change 
 if you delete and recreate your app, or change from a higher pricing tier back to the **Shared** tier. Through such a change,
-a CNAME entry is still valid, whereas an A record must be updated. 
+a CNAME record is still valid, whereas an A record must be updated. 
+
+The tutorial shows you steps for using the A record and also for using the CNAME record.
 
 <a name="enable"></a>
 ## Step 1. Enable the custom domain name for your app
@@ -125,8 +129,8 @@ Your A record should be configured as follows (@ typically represents the root d
     <td>IP address from [Step 1]()</td>
   </tr>
   <tr>
-    <td>\*.contoso.com (wildcard)</td>
-    <td>\*</td>
+    <td>*.contoso.com (wildcard)</td>
+    <td>*</td>
     <td>IP address from [Step 1]()</td>
   </tr>
 </table>
@@ -143,17 +147,17 @@ See examples below:
   <tr>
     <td>contoso.com (root)</td>
     <td>awverify</td>
-    <td>awverify.&lt;appname>.azurewebsites.net</td>
+    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
     <td>awverify.www</td>
-    <td>awverify.www.&lt;appname>.azurewebsites.net</td>
+    <td>awverify.www.&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>\*.contoso.com (wildcard)</td>
+    <td>*.contoso.com (wildcard)</td>
     <td>awverify</td>
-    <td>awverify.&lt;appname>.azurewebsites.net</td>
+    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
 
@@ -174,17 +178,17 @@ Your CNAME record should be configured as follows (@ typically represents the ro
   <tr>
     <td>contoso.com (root)</td>
     <td>@</td>
-    <td>&lt;appname>.azurewebsites.net</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
     <td>www</td>
-    <td>&lt;appname>.azurewebsites.net</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>*.contoso.com (wildcard)</td>
     <td>*</td>
-    <td>&lt;appname>.azurewebsites.net</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
 
