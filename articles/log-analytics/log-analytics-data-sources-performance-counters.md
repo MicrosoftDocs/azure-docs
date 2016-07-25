@@ -23,7 +23,7 @@ Performance counters in Windows and Linux provide insight into the performance o
 
 ## Configuring Performance counters
 
-Configure  Performance counters from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md/configuring-data-sources).
+Configure  Performance counters from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).
 
 When you first configure Windows or Linux Performance counters for a new OMS workspace, you will be given the option to quickly create several common counters.  They will be listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
