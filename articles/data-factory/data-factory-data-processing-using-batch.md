@@ -55,23 +55,23 @@ Even though the architecture described in this article is for a simple solution,
 
 The diagram illustrates 1) how Data Factory orchestrates data movement and processing and 2) how Azure Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 in. or A3 size): [HPC and data orchestration using Azure Batch and Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
 
-![HPC as a service diagram](./media/data-factory-data-processing-using-batch/image1.png)
+[![Large scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
 
 These are the basic steps of the process. The solution includes code and explanations to build the end-to-end solution.
 
-1.  Configure Azure Batch with a pool of compute nodes (VMs). You can specify the number of nodes and size of each node.
+1.  **Configure Azure Batch with a pool of compute nodes (VMs)**. You can specify the number of nodes and size of each node.
 
-2.  Create an Azure Data Factory instance that is configured with entities that represent Azure blob storage, Azure Batch compute service, input/output data, and a workflow/pipeline with activities that move and transform data.
+2.  **Create an Azure Data Factory instance** that is configured with entities that represent Azure blob storage, Azure Batch compute service, input/output data, and a workflow/pipeline with activities that move and transform data.
 
-3.  The Data Factory pipeline has a custom .NET activity, which is configured to run on Azure Batch pool of nodes.
+3.   **Create a custom .NET activity in the Data Factory pipeline**. The activity is your user code that will run on the Azure Batch pool.
 
-4.  Store large amounts of input data as blobs in Azure storage. Data is divided into logical slices (usually by time).
+4.  **Store large amounts of input data as blobs in Azure storage**. Data is divided into logical slices (usually by time).
 
-5.  Data Factory copies data that will be processed in parallel to the secondary location.
+5.  **Data Factory copies data that will be processed in parallel** to the secondary location.
 
-6.  Data Factory runs the custom activity using the pool allocated by Batch. Data Factory can run activities concurrently. Each activity processes a slice of data. The results are stored in Azure storage.
+6.  **Data Factory runs the custom activity using the pool allocated by Batch**. Data Factory can run activities concurrently. Each activity processes a slice of data. The results are stored in Azure storage.
 
-7.  After all results are obtained, Data Factory moves the results to a third location, either for distribution via an app, or for further processing by other tools.
+7.  **Data Factory moves the final results to a third location**, either for distribution via an app, or for further processing by other tools.
 
 ## Implementation of sample solution
 The sample solution is intentionally simple and is to show you how to use Data Factory and Batch together to process datasets. The solution simply counts the number of occurrences of a search term (“Microsoft”) in input files organized in a time series. It outputs the count to output files.

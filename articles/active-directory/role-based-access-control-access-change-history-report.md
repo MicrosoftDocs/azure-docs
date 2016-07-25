@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -55,7 +55,7 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ## Create a report with Azure CLI
 To create an access change history report in the Azure command line interface (CLI), use the following command:
 ```
-azure authorization changelog
+azure role assignment changelog list
 ```
 
 ## Export to a spreadsheet

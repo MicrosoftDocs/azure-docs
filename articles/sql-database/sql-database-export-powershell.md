@@ -109,13 +109,7 @@ Running this command will prompt you for a password. Enter the admin password fo
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
 
+
 ## Next steps
 
-- [Import an Azure SQL database](sql-database-import-powershell.md)
-
-
-## Additional resources
-
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- To learn how to import an Azure SQL database using Powershell, [Import a BACPAC using PowerShell](sql-database-import-powershell.md)

@@ -77,7 +77,7 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 <!--MSDN references--> 
 [CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-[SSMS]: /https://msdn.microsoft.com/library/mt238290.aspx
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
 
 <!--Other Web references-->
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
