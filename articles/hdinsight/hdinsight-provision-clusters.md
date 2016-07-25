@@ -204,7 +204,7 @@ An [Azure Virtual Network](https://azure.microsoft.com/documentation/services/vi
 
 * Connect your cloud resources to your local data-center network (site-to-site or point-to-site) by using a virtual private network (VPN).
 
-    | Site-to-site configuration | Point-to-site configuration |
+| Site-to-site configuration | Point-to-site configuration |
     | -------------------------- | --------------------------- |
     | Site-to-site configuration allows you to connect multiple resources from your data center to the Azure virtual network by using a hardware VPN or the Routing and Remote Access Service.<br />![diagram of site-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | Point-to-site configuration allows you to connect a specific resource to the Azure virtual network by using a software VPN.<br />![diagram of point-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
