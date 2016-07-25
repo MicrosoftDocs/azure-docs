@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you have to provide only general configuration information. In this article, you will learn these configuration settings.
+A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you have to provide general configuration information. In this article, you will learn these configuration settings.
 
 >[AZURE.NOTE] The information in this document is specific to Windows-based Azure HDInsight clusters. For information about Linux-based clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -141,7 +141,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 * Standard_A3 is Large
 * Standard_A4 is ExtraLarge
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+        |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
         |---|---|---|---|---|---|---|
         |Standard_A3\Large|4|7 GB|2|Temporary = 285 GB |8|8x500|
         |Standard_A4\ExtraLarge|8|14 GB|4|Temporary = 605 GB |16|16x500|
@@ -151,7 +151,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 
 ### Standard tier: D-series###
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+        |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
         |---|---|---|---|---|---|---|
         |Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
         |Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
@@ -161,7 +161,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 
 ### Standard tier: Dv2-series###
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+        |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
         |---|---|---|---|---|---|---|
         |Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
         |Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
