@@ -135,7 +135,7 @@ Your A record should be configured as follows (@ typically represents the root d
   </tr>
 </table>
 
-Your additional CNAME record takes on the convention that maps from `awverify.<subdomain>.<rootdomain>` to `awverify.<subdomain>.azurewebsites.net`. 
+Your additional CNAME record takes on the convention that maps from awverify.&lt;*subdomain*>.&lt;*rootdomain*> to awverify.&lt;*subdomain*>.azurewebsites.net. 
 See examples below:
 
 <table cellspacing="0" border="1">
