@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configure a custom domain name for an Azure app"
-	description="Learn how to use a custom domain name with a web app in Azure App Service."
+	pageTitle="Map a custom domain name to an Azure app"
+	description="Learn how to map a your custom domain name (vanity domain) to your app in Azure App Service."
 	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
@@ -14,19 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="07/25/2016"
 	ms.author="cephalin"/>
 
 # Map a custom domain name to an Azure app
 
-> [AZURE.SELECTOR]
-- [Buy a domain](custom-dns-web-site-buydomains-web-app.md)
-- [Map an external domain](web-sites-custom-domain-name.md)
-- [Map to a Traffic Manager profile](web-sites-traffic-manager-custom-domain-name.md)
-- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
-
->[AZURE.NOTE] Get technical help from Azure experts on the [Azure forums](https://azure.microsoft.com/support/forums/). 
-For even higher level of support, go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
+[AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 This article shows you how to manually map a custom domain name to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
 
@@ -34,17 +27,21 @@ Your app already comes with a unique subdomain of azurewebsites.net. For example
 **contoso.azurewebsites.net**. However, you can map a custom domain name to app so that its URL, such
 as `www.contoso.com`, reflects your brand.
 
+>[AZURE.NOTE] Get help from Azure experts on the [Azure forums](https://azure.microsoft.com/support/forums/). 
+For even higher level of support, go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
+
+[AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
+
+## Types of domains you can map
 Azure App Service lets you map the following categories of custom domains to your app.
 
 - **Root domain** - the domain name that you reserved with the domain registrar (represented by the `@` host record, typically). 
 For example, **contoso.com**.
-- **Subdomain**. any domain that's under your root domain. For example, **www.contoso.com** (represented by the `www` host record).  You can 
+- **Subdomain** - any domain that's under your root domain. For example, **www.contoso.com** (represented by the `www` host record).  You can 
 map different subdomains of the same root domain to different apps in Azure.
 - **Wildcard domain** - [any subdomain whose leftmost DNS label is `*`](https://en.wikipedia.org/wiki/Wildcard_DNS_record) 
 (e.g. host records `*` and `*.blogs`). For example, **\*.contoso.com**.
 
-
-[AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## Buy a new custom domain in Azure portal
 
