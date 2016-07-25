@@ -1,10 +1,10 @@
-﻿<properties
+<properties
    pageTitle="Azure Data Catalog supported data sources | Microsoft Azure"
    description="Specification of the currently supported data sources."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="spelluru"
+   manager="paulettm"
    editor=""
    tags=""/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
+   ms.date="07/25/2016"
    ms.author="trhabe"/>
 
 # Azure Data Catalog supported data sources

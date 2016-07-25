@@ -1,10 +1,10 @@
-﻿<properties
+<properties
    pageTitle="Azure Data Catalog developer concepts"
    description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="spelluru"
+   manager="paulettm"
    editor=""
    tags=""/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/27/2015"
+   ms.date="07/25/2016"
    ms.author="derrickv"/>  
 
 # Azure Data Catalog developer concepts
@@ -327,6 +327,7 @@ Special security principal <Everyone> has objectId "00000000-0000-0000-0000-0000
 
   **Assign owners and restrict visibility for an existing root item**
   **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+
 	{
 		"roles": [
 			{
