@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="06/01/2016"
+   ms.date="07/25/2016"
    ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
@@ -981,6 +981,8 @@ The **Get Index Statistics** operation returns from Azure Search a document coun
 
 	GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
+
+> [AZURE.NOTE] The returned statistics are collected periodically and may not reflect changes caused by recent indexing operations.
 
 **Request**
 
