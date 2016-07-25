@@ -28,7 +28,7 @@
 >[AZURE.NOTE] Get technical help from Azure experts on the [Azure forums](https://azure.microsoft.com/support/forums/). 
 For even higher level of support, go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
-This article shows you how to manually map a custom domain to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
+This article shows you how to manually map a custom domain name to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
 
 Your app already comes with a unique subdomain of azurewebsites.net. For example, if your app is named **contoso**, the then its domain name is 
 **contoso.azurewebsites.net**. However, you can map a custom domain name to app so that its URL, such
@@ -54,9 +54,9 @@ uses [Azure Traffic Manager](web-sites-traffic-manager-custom-domain-name.md) or
 
 For instructions, see [Buy a custom domain name for App Service](custom-dns-web-site-buydomains-web-app.md).
 
-## Map a custom domain you purchased exteranlly
+## Map a custom domain you purchased externally
 
-If you have already purchased a custom domain from [Azure DNS](https://azure.microsoft.com/en-us/services/dns/) or from a third-party provider, 
+If you have already purchased a custom domain from [Azure DNS](https://azure.microsoft.com/services/dns/) or from a third-party provider, 
 there are three main steps to map the custom domain to your app:
 
 1. [Enable the custom domain name for your Azure app](#enable).
