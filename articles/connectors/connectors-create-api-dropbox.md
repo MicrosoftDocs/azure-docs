@@ -424,7 +424,7 @@ BlobMetadata
 
 The actions and triggers above can return one or more of the following HTTP status codes: 
 
-|Name|Description|
+| Name | Description |
 |---|---|
 |200|OK|
 |202|Accepted|
