@@ -137,7 +137,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -145,7 +145,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -153,7 +153,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ],
