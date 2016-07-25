@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="bwren" />
 
 # Windows and Linux performance data sources in Log Analytics 
