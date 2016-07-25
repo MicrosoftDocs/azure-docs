@@ -39,7 +39,7 @@ Most of the Azure service names must be globally unique.  The following are the 
 - AAD VNet: contosoaadvnet
 - AAD Virtual Machine (VM): contosoaadadmin
 - AAD directory: contosoaaddirectory
-- AAD domain name: contoso157 (contoso157.onmicrosoft.com)
+- AAD domain name: contoso158 (contoso158.onmicrosoft.com)
 
 - HDInsight VNet: contosohdivnet
 - HDInsight VNet resource group: contosohdirg
@@ -80,7 +80,7 @@ In this section, you will create a classic VNet using the Azure classic portal. 
 	- **Subscription**: (Select a subscription).
 4. Click **Next**.
 4. On the **DNS Servers and VPN Connectivity** page, click **Next**. If you do not specify a DNS server, your VNet will use the internal naming resolution provided by Azure. For our scenario, we will not configure DNS servers.
-5. Configure **Address Space** with **10.1.0.0/16**, and **Subnet-1** with **10.1.0.0.24** as shown below:
+5. Configure **Address Space** with **10.1.0.0/16**, and **Subnet-1** with **10.1.0.0/24** as shown below:
 
 	![Configure Secure HDInsight Azure Activie directory virtual network](.\media\hdinsight-secure-setup\hdinsight-secure-aad-vnet-setting.png)
 	
@@ -104,7 +104,7 @@ In this section, you will:
 3. Enter or select the following values:
 
 	- Name: contosoaaddirectory
-	- Domain name: contoso157.  This name must be globally unique. Replace the number in the name with a different number until it is validated successfully.
+	- Domain name: contoso158.  This name must be globally unique. Replace the number in the name with a different number until it is validated successfully.
 	- Country or region: Select your country or region.
 4. Click **Complete**.
 
@@ -118,13 +118,13 @@ In this section, you will:
 4. Enter **User Name**, and then click **Next**. 
 5. Configure user profile; In **Role**, select **Global Admin**; and then click **Next**.
 6. Click **Create** to get a temporary password.
-7. Make a copy of the password - Kasa6500, and then click **Complete**. jgao@contoso157.onmicrosoft.com
+7. Make a copy of the password - Bodu8439, and then click **Complete**. jgao@contoso158.onmicrosoft.com
 
 
 Follow the same procedure to create 2 more users with the **User** role.
 
-- HiveUser1
-- HiveUser2
+- HiveUser1, Mala7341
+- HiveUser2, Curo7602
 
 **To create the AAD DC Administrators' group, and add the AAD user**
 
@@ -139,7 +139,7 @@ Follow the same procedure to create 2 more users with the **User** role.
 6. Click **Complete**.
 7. Click **AAD DC Administrators** to open the group.
 8. Click **Add Members**.
-9. Select the user you created in the previous step, for example jgao@contoso157.onmicrosoft.com, and then click **Complete**.
+9. Select the first user you created in the previous step, for example jgao@contoso158.onmicrosoft.com, and then click **Complete**.
 
 	- Members of this group will be granted administrative privileges on machines that are domain joined to the Azure AD domain Service domain you will setup.	
 	- After domain join, this group will be added to the Administrators group on these domain joined machines.
@@ -155,7 +155,7 @@ For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD 
 4. Scroll down to **Domain Services**, and set the following values:
 
 	- **Enable domain services for this directory**: Yes.
-	- **DNS domain name of domain services**: This shows the default NDS name of the Azure directory. For example, contoso157.onmicrosoft.com.
+	- **DNS domain name of domain services**: This shows the default NDS name of the Azure directory. For example, contoso158.onmicrosoft.com.
 	- **Connect domain services to this virtual network**: Select the classic virtual network you created earlier. I.e. **contosoaadvnet**.
 	
 6. Click **Save** from the bottom of the page. You will see **Pending ...** next to **Enable domain services for this directory**.  
@@ -189,7 +189,7 @@ You can skip the next step in this tutorial. In your real implementation, you mi
 
 		$certFile = "c:\Tutorials\cert\SecureLdapCert.pfx" # this must be an existing folder
 		$certPassword = "Pass@word123"
-		$certName = "*.contoso157.onmicrosoft.com" # this must match the AAD DNS name
+		$certName = "*.contoso158.onmicrosoft.com" # this must match the AAD DNS name
 
 		$lifetime=Get-Date
 		$cert = New-SelfSignedCertificate `
@@ -238,7 +238,7 @@ In this section, you will add a virtual machine to the AAD VNet, you will instal
 	Please note the username and the password is the local admin.
 	
 5. Click **Next**
-6. In **Region/Virtual Network**, select the new virtual network you created in the last step, and then click **Next**.
+6. In **Region/Virtual Network**, select the new virtual network you created in the last step (contosoaadvnet), and then click **Next**.
 7. Click **Complete**.
 
 **To RDP to the VM**
@@ -255,7 +255,7 @@ In this section, you will add a virtual machine to the AAD VNet, you will instal
 2. Click **Local Server** from the left menu.
 3. From Workgroup, click **Workgroup**.
 4. Click **Change**.
-5. Click **Domain**, enter **contoso157.onmicrosoft.com**, and then click **OK**.
+5. Click **Domain**, enter **contoso158.onmicrosoft.com**, and then click **OK**.
 6. Enter the domain user credentials, and then click **OK**.
 7. Click **OK**.
 8. Click **OK** to agree to reboot the computer.
@@ -274,7 +274,7 @@ For more information, see [Join a Windows Server virtual machine to a managed do
 6. Select **Role-based or feature-based installation**, and then click **Next**.
 7. Select the current virtual machine from the server pool, and click **Next**.
 8. Click **Next** to skip roles.
-9. Expand **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools** and **DNS Server Tools**, and then click **Next**
+9. Expand **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools** and **DNS Server Tools**, and then click **Next**. [jgao: don't need to select DNS server Tools. It is for reversed dns which is no longer needed.]
 10. Click **Next**
 10. Click **Install**.
 
@@ -283,7 +283,7 @@ For more information, see [Install Active Directory administration tools on the 
 
 **To configure reverse DNS on the AAD DC/DNS**
 
-[This step will not be needed in the future.]
+[This step is not needed anymore.]
 
 1. RDP to contosoaadadmin using the AAD user account.
 2. Click **Start**, click **Administrative Tools**, and then click **DNS**. The DNS Manager opens.
@@ -309,7 +309,7 @@ This organization unit will be used when creating the HDInsight cluster. It will
 
 1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
 2. Click **Start**, click **Administrative Tools**, and then click **Active Directory Administrative Center**.
-5. Click the domain name in the left pane. For example contoso157.
+5. Click the domain name in the left pane. For example, contoso158.
 6. Click **New** under the domain name in the **Task** pane, and then click **Organizational Unit**.
 7. Enter a name, for sample **Hadoop System Users**, and then click **OK**. 
 
@@ -387,6 +387,7 @@ After creating the VNet, you will configure the ARM VNet to use the same DNS ser
 	- Secondary DNS server: 10.1.0.5
 
 	These DNS server IP addresses must match to the DNS servers in the AAD VNet (classic VNet).
+7. Click **Save**.
 
 ## Bridge the AAD VNet and the HDInsight VNet
 
@@ -397,20 +398,24 @@ There are 3 steps in this section.
 
 1. Sign on to the [classic portal](https://manage.windowsazure.com).
 2. Click **New** > **NETWORK SERVICES** > **VIRTUAL NETWORKS** > **ADD LOCAL NETWORK**. 
-3. Enter a name for the ARM VNet you want to connect to, and then click **Next**. For example: contosohdivnet
+3. Enter the following:
+
+	- Name: For example: contosohdivnet. 
+	- VPN Device IP Address: Type any valid public IP address. For example, 192.168.0.1. We will change this IP address later. 
+4. Click **Next**.
 4. Enter or select the following values:
 
-	- In the address space STARTING IP text box, type the network prefix for the ARM VNet you want to connect to. For example, 10.2.0.0/16
+	- In the address space STARTING IP text box, type the network prefix for the ARM VNet you want to connect to. For example, 10.2.0.0/16.
 	- In the CIDR (ADDRESS COUNT) drop down, select the number of bits used for the network portion of the CIDR block used by the ARM VNet you want to connect to.
-	- In VPN DEVICE IP ADDRESS (OPTIONAL), type any valid public IP address. For example, 192.168.0.1. We will change this IP address later. 
+4. Click **Complete**.
 5. Click **Networks** from the left pane >  **VIRTUAL NETWORKS**, and then click on your classic VNet (contosoaadvnet), and then click **CONFIGURE**.
 6. Under **site-to-site connectivity**,  check **Connect to the local network**, and then select the local network you just created in **Local Network**.
 7. Click **Save** on the bottom of the page.
 8. Click **Yes** to confirm.
-9. Click **Dashboard** from the top menu, click **Create Gateway** from the bottom of the page, click **Dynamic Routing**, and then click **Yes**. When it is done, copy the gateway public IP address. You will need it to setup the gateway in the ARM VNet. Don't worry if you see the status is disconnected.  It is expected. 40.79.38.243
+9. Click **Dashboard** from the top menu, click **Create Gateway** from the bottom of the page, click **Dynamic Routing**, and then click **Yes**. When it is done, copy the gateway public IP address. You will need it to setup the gateway in the ARM VNet. Don't worry if you see the status is disconnected.  It is expected. 104.209.180.23
 
 
-**To create a VPN gateway for the ARM VNet**
+**To create a VPN gateway for the HDInsight(ARM) VNet**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Networking** > **Local network gateway**.
@@ -484,10 +489,10 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
 
-	- DomainName: contoso157.onmicrosoft.com
-	- OrganizationUnitDN: OU=Hadoop System Users,DC=contoso157,DC=onmicrosoft,DC=com
+	- DomainName: contoso158.onmicrosoft.com
+	- OrganizationUnitDN: OU=Hadoop System Users,DC=contoso158,DC=onmicrosoft,DC=com
 	- LDAPUrls: ["ldaps://40.84.54.252:636"]
-	- DomainAdminUserName: jgao@contoso157.onmicrosoft.com
+	- DomainAdminUserName: jgao@contoso158.onmicrosoft.com
 	- DomainAdminPassword: Kasa6500
 
 	The organizational unit is what you created earlier in the article.
