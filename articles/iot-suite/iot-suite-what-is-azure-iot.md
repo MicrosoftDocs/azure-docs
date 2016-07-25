@@ -29,15 +29,14 @@ You may also be interested in the [Azure IoT Hub][] service that many of the pre
 
 ## Next steps
 
-Explore these resources for more information about IoT on Azure:
+Explore these resources to continue learning about IoT Suite and the preconfigured solutions:
 
-- [Overview of Azure IoT Suite][lnk-suite-overview].
-- [Get started with the IoT preconfigured solutions][lnk-preconfigured-solutions].
-- [Connecting your device to the IoT Suite remote monitoring solution][lnk-connecting].
-- [Azure IoT Hub]
+- [What is Azure IoT Suite?][lnk-whatissuite]
+- [What are the Azure IoT Suite preconfigured solutions?][lnk-whatarepreconfigured]
 
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-connecting]: iot-suite-connecting-devices.md
+[lnk-whatissuite]: iot-suite-overview.md
+[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
+
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
 [Azure IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/

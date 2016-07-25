@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
 
 This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources.
-
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
 ## General questions
 

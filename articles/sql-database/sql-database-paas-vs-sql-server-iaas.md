@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
+	ms.date="07/20/2016"
 	ms.author="carlrab"/>
 
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database  or SQL Server on Azure VMs (IaaS)
 
 Azure has two options for hosting SQL Server workloads in Microsoft Azure:
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database native to the cloud, also known as a platform as a service (PaaS) database or a database as a service (DBaaS) that is optimized for software-as-a-service (SaaS) app development. It offers compatibility with the majority of SQL Server features.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database native to the cloud, also known as a platform as a service (PaaS) database or a database as a service (DBaaS) that is optimized for software-as-a-service (SaaS) app development. It offers compatibility with the majority of SQL Server features. For more information on PaaS, see [What is PaaS](https://azure.microsoft.com/overview/what-is-paas/)
 * [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server installed and hosted in the cloud on Windows Server Virtual Machines (VMs) running on Azure, also known as an infrastructure as a service (IaaS).
 
 Learn how each option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
@@ -31,7 +31,7 @@ Learn how each option fits into the Microsoft data platform and get help matchin
 
 One of the first things to understand in any discussion of Azure versus on-premises SQL Server databases is that you can use it all. Microsoft’s data platform leverages SQL Server technology and makes it available across physical on-premises machines, private cloud environments, third-party hosted private cloud environments, and public cloud. This enables you to meet unique and diverse business needs through a combination of on-premises and cloud-hosted deployments, while using the same set of server products, development tools, and expertise across these environments.
 
-   ![Cloud SQL Server options: SQL server on IaaS, or SaaS SQL database in the cloud.](./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
+   ![Cloud SQL Server options: SQL server on IaaS, or SaaS SQL database in the cloud.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
 As seen in the diagram, each offering can be characterized by the level of administration you have over the infrastructure (on the X axis), and by the degree of cost efficiency achieved by database level consolidation and automation (on the Y axis).
 

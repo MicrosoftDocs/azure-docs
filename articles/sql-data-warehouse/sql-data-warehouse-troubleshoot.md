@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
@@ -50,6 +50,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 
 |  Issue                             | Resolution                                      |
 | :----------------------------------| :---------------------------------------------- |
+| Msg 40847: Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 45000. | Either reduce the [DWU][] of the database you are trying to create or [request a quota increase][].|
 | Investigating space utilization    | See [Table sizes][] to understand the space utilization of your system.|
 | Help with managing tables          | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary].|
 
@@ -92,6 +93,8 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change 
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
