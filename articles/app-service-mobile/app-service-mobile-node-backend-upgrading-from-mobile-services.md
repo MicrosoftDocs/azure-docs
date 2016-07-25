@@ -167,7 +167,7 @@ constructor is now:
 
 You can read about installing the new SDKs and using the new structure via the links below:
 
-- [Android version 2.2 or later](app-service-android-how-to-use-client-library.md)
+- [Android version 2.2 or later](app-service-mobile-android-how-to-use-client-library.md)
 - [iOS version 3.0.0 or later](app-service-mobile-ios-how-to-use-client-library.md)
 - [.NET (Windows/Xamarin) version 2.0.0 or later](app-service-mobile-dotnet-how-to-use-client-library.md)
 - [Apache Cordova version 2.0 or later](app-service-mobile-cordova-how-to-use-client-library.md)
