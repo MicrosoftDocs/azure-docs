@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a copy of your Linux VM | Microsoft Azure"
-	description="Learn how to create a copy of your Azure virtual machine running Linux, in the Resource Manager deployment model, by creating a *specialized image*."
+	pageTitle="Create a copy of your Azure Linux VM | Microsoft Azure"
+	description="Learn how to create a copy of your Azure Linux virtual machine in the Resource Manager deployment model"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -16,16 +16,10 @@
 	ms.date="04/26/2016"
 	ms.author="cynthn"/>
 
-# Create a copy of a Linux virtual machine in the Azure Resource Manager deployment model
+# Create a copy of a Linux virtual machine running on Azure
 
 
-
->> ASM to ARM should be done through migration. This should be RM only. Let's try that and see what happens.
-
-
-** How do we get a storage account and blob name?
-
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. It shows you how to create a *specialized* image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for porting your Linux VM from the classic deployment model to the Resource Manager deployment model, or creating a backup copy of your VM. First you copy over the operating system and data disks to a new resource group, then set up the network resources and create the new virtual machine.
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new resource group, then set up the network resources and create the new virtual machine.
 
 If you need to create mass deployments of similar Linux VMs, you should use a *generalized* image. For that, see [How to capture a Linux virtual machine](virtual-machines-linux-capture-image.md).
 
@@ -43,21 +37,78 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 > [AZURE.NOTE] Similar steps apply for a VM created by using either of the two deployment models as the source image. Where applicable, this article notes the minor differences.  
 
+## Login and set your subscription
+
+1. Login to the CLI.
+		azure login
+
+2. Make sure you are in Resource Manager mode.
+	
+		azure config mode arm
+
+3. Set the correct subscription. You can use 'azure account list' to see all of your subscriptions.
+
+		azure account set <SubscriptionId>
+
+## Create a storage account and a container for the new VM
+
+First, create a resource group:
+
+```bash
+azure group create TestRG --location "WestUS"
+```
+
+Create a storage account to hold your virtual disks:
+
+```bash
+azure storage account create testuploadedstorage --resource-group TestRG \
+	--location "WestUS" --kind Storage --sku-name LRS
+```
+
+List the storage keys for the storage account you just created and make a note of `key1`:
+
+```bash
+azure storage account keys list testuploadedstorage --resource-group TestRG
+```
+
+The output will be similar to:
+
+```
+info:    Executing command storage account keys list
++ Getting storage account keys
+data:    Name  Key                                                                                       Permissions
+data:    ----  ----------------------------------------------------------------------------------------  -----------
+data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
+data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
+info:    storage account keys list command OK
+```
+
+Create a container within your storage account using the storage key you just obtained:
+
+```bash
+azure storage container create --account-name testuploadedstorage \
+	--account-key <key1> --container vm-images
+```
+
+Finally, upload your VHD to the container you just created:
+
+```bash
+azure storage blob upload --blobtype page --account-name testuploadedstorage \
+	--account-key <key1> --container vm-images /path/to/disk/yourdisk.vhd
+```
 
 ## Stop the VM 
 
 
-1. Stop and deallocate the source VM. For VMs created in the Resource Manager deployment model, use the Azure CLI commands:
-	
-		azure vm stop <yourResourceGroup> <yourVmName>
-		azure vm deallocate <yourResourceGroup> <yourVmName>
-	
-	If your source VM was created in the classic deployment model, you need to stop it using the [portal](http://portal.azure.com). 
-	
-	Click **Browse** > **Virtual machines (classic)** > *your VM* > **Stop**.
-	
-	Notice that the status of the VM in the portal changes from **Running** to **Stopped (deallocated)**.
 
+3. Stop and deallocate the source VM. To get the names and resource group of all of the VMs in your subscription, use 'azure vm list'.
+	
+		azure vm stop <ResourceGroup> <VmName>
+		azure vm deallocate <ResourceGroup> <VmName>
+
+		
+		
+		
 ## Get the access key for the source VM storage account
 
 Copy the access key source VM storage account. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
