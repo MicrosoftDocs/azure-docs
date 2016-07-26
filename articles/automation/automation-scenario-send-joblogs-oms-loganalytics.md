@@ -46,9 +46,9 @@ The script requires the following parameters during execution:
 - *StorageResourceGroup* - the name of the Resource Group the storage account is located in
 
 
-To get the values for *AutomationResourceGroup* and *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-sec-configure-azure-runas-account/automation-account-properties.png).
+To get the values for *AutomationResourceGroup* and *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-scenario-send-joblogs-oms-loganalytics/automation-account-properties.png).
 
-To get the value for *StorageAccountName* and *StorageResourceGroup*, in the Azure portal navigate to the storage account and on the **Storage accounts** blade note for a standard storage account, the name and resource group it is defined in.  
+To get the value for *StorageAccountName* and *StorageResourceGroup*, in the Azure portal navigate to the storage account and on the **Storage accounts** blade note for a standard storage account, the name and resource group it is defined in.<br> ![Azure Storage Accounts](media/automation-scenario-send-joblogs-oms-loganalytics/azure-storage-accounts.png)<br>
 
 >[AZURE.NOTE] Reminder, this Storage account must be in the same region as the Automation account.  
 
