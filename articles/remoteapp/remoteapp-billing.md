@@ -23,6 +23,7 @@
 As long as you have Azure RemoteApp collections, even with no users assigned, you will be billed for RemoteApp. To stop this billing, delete all of your collections. 
 
 To delete your collection:
+
 1. In the Azure portal, open the RemoteApp page.
 2. Click the collection you want to delete, and then click **Delete** at the bottom of the page.
 3. Repeat this for each collection in your subscription. 
