@@ -16,7 +16,7 @@
 	ms.date="07/26/2016"
 	ms.author="jehollan"/> 
 	
-# Deploy from Visual Studio
+# Build and Deploy Logic Apps in Visual Studio
 
 Although the [Azure Portal](https://portal.azure.com/) gives you a great way to design and manage your Logic apps, you may also want to design and deploy your logic app from Visual Studio instead.  Logic Apps comes with a rich Visual Studio toolset which allows you to build a logic app using the designer, configure any deployment and automation templates, and deploy into any environment.  
 
@@ -32,7 +32,7 @@ Below are the steps to install and configure the Visual Studio tools for Logic A
 
 ### Install Visual Studio tools for Logic Apps
 
-Once you have the prequisites installed, 
+Once you have the prerequisites installed, 
 
 1. Open Visual Studio 2015 to the **Tools** menu and select **Extensions and Updates**
 1. Select the **Online** category to search online
@@ -71,6 +71,8 @@ Once you have an Azure Resource Group project that contains a logic app, you can
 1. The designer should render based on the definition in the `<template>.json` file.
 1. You can now create and design your logic app, and changes will be updated in the deployment template.
 	![Designer in Visual Studio](./media/app-service-logic-deploy-from-vs/designer_in_vs.png)
+
+You will also see `Microsoft.Web/connections` resources being added to your resource file for any connections needed for the logic app to function.  These connection properties can be set when you deploy, and managed after you deploy in **API Connections** in the Azure Portal.
 
 ### Switching to the JSON code-view
 
