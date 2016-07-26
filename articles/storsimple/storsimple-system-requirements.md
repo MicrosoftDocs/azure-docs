@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -37,7 +37,7 @@ The following software requirements are for the storage clients that access your
 | --------------------------- | ---------------- | ------------- |
 | Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Windows Server 2012 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components).|
 | VMWare ESX | 5.5, and 6.0 | Supported with VMWare vSphere as iSCSI client. VAAI-block feature is supported with VMware vSphere on StorSimple devices.
-| Linux RHEL/CentOS | 5 and 6 | Support for Linux iSCSI clients with open-iSCSI initiator versions 5 and 6. |
+| Linux RHEL/CentOS | 5, 6, and 7 | Support for Linux iSCSI clients with open-iSCSI initiator versions 5, 6, and 7. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX is currently not supported with StorSimple.
 
