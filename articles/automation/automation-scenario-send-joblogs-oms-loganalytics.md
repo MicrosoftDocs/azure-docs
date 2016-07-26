@@ -32,7 +32,7 @@ To start sending your Automation logs to Log Analytics, you must have the follow
 1. A paid Microsoft Azure subscription to fully use Log Analytics. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service. Or, you can create a free OMS account at the [Operations Management Suite](http://microsoft.com/oms) website and click **Try for free**.
 2. An OMS workspace which is used to store the logs being sent to Log Analytics. 
 3. An [Azure Storage account](../storage/storage-create-storage-account.md).  Please note this Storage account must be in the same region as the Automation account.  
-4. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+4. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 5. Azure Diagnostic and Log Analytics PowerShell.  For further information about this release and how to install it, see [Azure Diagnostic and Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
 6. Download the PowerShell script **Enable-AzureDiagnostics.ps1** from the PowerShell Gallery <URL to Gallery Item>.  
 
