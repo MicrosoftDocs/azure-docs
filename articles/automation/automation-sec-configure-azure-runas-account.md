@@ -91,7 +91,7 @@ AzureClassicRunAsConnection|Connection asset automatically created that is used 
 
 ### Verify service principal authentication
 
-Next we will perform a small test to confirm you are able to successfully authenticate using the new service principal. If you’re unable to successfully authenticate, go back to Step 1 and confirm each of the previous steps again.    
+Next we will perform a small test to confirm you are able to successfully authenticate using the new service principal.     
 
 1. In the Azure Portal, open the Automation account created earlier.  
 2. Click on the **Runbooks** tile to open the list of runbooks.
@@ -106,7 +106,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 
 ### Verify classic Run As authentication
 
-Next we will perform a small test to confirm you are able to successfully authenticate using the new classic Run As account. If you’re unable to successfully authenticate, go back to Step 1 and confirm each of the previous steps again.    
+Next we will perform a small test to confirm you are able to successfully authenticate using the new classic Run As account.     
 
 1. In the Azure Portal, open the Automation account created earlier.  
 2. Click on the **Runbooks** tile to open the list of runbooks.
@@ -228,7 +228,7 @@ The steps below will walk you through the process of executing the script.
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
 3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
 
-    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You will be prompted to authenticate with Azure after you execute the script. You must log in with an account that is member of the Subscription Admins role and co-admin of the subscription.
+    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script. You must log in with an account that is a member of the Subscription Admins role and co-admin of the subscription.
     
         .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
         -AutomationAccountName <NameofAutomationAccount> `
@@ -305,7 +305,7 @@ The script will create a self-signed management certificate and save it to the t
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.  
 3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
 
-    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You *must* log in with an account that is a Service administrator and co-admin of the subscription.
+    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script. You must log in with an account that is a member of the Subscription Admins role and co-admin of the subscription.
    
         .\New-AzureClassicRunAsAccount.ps1 -ResourceGroup <ResourceGroupName> 
         -AutomationAccountName <NameofAutomationAccount> `
