@@ -18,7 +18,7 @@
 
 # Getting started with Azure table storage and Visual Studio connected services (cloud services projects)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools-tables.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ##Overview
 

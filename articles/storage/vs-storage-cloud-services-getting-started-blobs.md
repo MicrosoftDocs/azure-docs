@@ -18,7 +18,7 @@
 
 # Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 

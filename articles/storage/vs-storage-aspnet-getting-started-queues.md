@@ -18,7 +18,7 @@
 
 # Get started with Azure Queue storage and Visual Studio connected services
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools-queues.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 

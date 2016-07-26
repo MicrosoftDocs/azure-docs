@@ -18,7 +18,7 @@
 
 # Get started with blob storage and Visual Studio connected services (ASP.NET)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 
