@@ -9,17 +9,19 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="app-service-logic"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 
 # Get started with the Azure SQL Database connector
-Using the Azure SQL Database connector, create workflows for your organization that manage data in your tables. Also:
+Using the Azure SQL Database connector, create workflows for your organization that manage data in your tables. 
+
+With SQL Database, you:
 
 - Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
 - Use actions to get a row of data, insert a new row, and even delete. For example,  when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Azure SQL Database (an action). 
@@ -28,44 +30,23 @@ This topic shows you how to use the SQL Database connector in a logic app, and a
 
 >[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-To learn more about Logic Apps, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
->[AZURE.INCLUDE [What you need to get started](../../includes/connectors-create-api-sqlazure.md)]
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to Azure SQL Database
 
 Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to SQL Database, you first create a SQL Database *connection*. To create a connection, you enter the credentials you normally use to access the service you are connecting to. So, in SQL Database, enter your SQL Database credentials to create the connection. 
 
-When you add this connector to your logic apps, you create the connection to SQL Database. The first time you add this connector, you are prompted for the connection information: 
-
-![](./media/connectors-create-api-sqlazure/connection-details.png)  
-
 #### Create the connection
 
-1. Enter the SQL Database details. Properties with an asterisk are required.
-
-	| Property | Details |
-|---|---|
-| Connect via Gateway | Leave this unchecked. This is used when connecting to an on-premises SQL Server. |
-| Connection Name * | Enter any name for your connection. | 
-| SQL Server Name * | Enter the server name; which is something like *servername.database.windows.net*. The server name is displayed in the SQL Database properties in the Azure portal, and also displayed in the connection string. | 
-| SQL Database Name * | Enter the name you gave your SQL Database. This is listed in the SQL Database properties in the connection string: Initial Catalog=*yoursqldbname*. | 
-| Username * | Enter the username you created when the SQL Database was created. This is listed in the SQL Database properties in the Azure portal. | 
-| Password * | Enter the password you created when the SQL Database was created. | 
-
-	These credentials are used to authorize your logic app to connect, and access your SQL data. Once complete, your connection details look similar to the following:  
-
-	![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sample-connection.png) 
-
-2. Select **Create**. 
+>[AZURE.INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
 
 ## Use a trigger
 
-This connector does not have any triggers. Use other triggers to start the logic app, including a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
 
 ## Use an action
 	
-An action is an operation carried out by the workflow defined in a logic app.
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
 
@@ -90,7 +71,7 @@ An action is an operation carried out by the workflow defined in a logic app.
 
 ## Technical Details
 
-## Actions
+## SQL Database actions
 An action is an operation carried out by the workflow defined in a logic app. The SQL Database connector includes the following actions. 
 
 |Action|Description|
