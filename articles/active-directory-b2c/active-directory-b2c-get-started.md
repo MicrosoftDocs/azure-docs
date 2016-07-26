@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Create an Azure Active Directory B2C tenant | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Create an Azure Active Directory B2C tenant | Microsoft Azure"
 	description="A topic on how to create an Azure Active Directory B2C tenant"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -11,23 +11,21 @@
 	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.topic="article"
+    ms.devlang="na"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: Create an Azure AD B2C tenant
+# Azure Active Directory B2C: Create an Azure AD B2C tenant
 
 To start using Microsoft Azure Active Directory (Azure AD) B2C, follow the three steps outlined in this article.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Step 1: Sign up for an Azure subscription
 
 If you already have an Azure subscription, skip this step. If not, sign up for an [Azure subscription](../active-directory/sign-up-organization.md) and get access to Azure AD B2C.
 
 > [AZURE.NOTE]
-Currently, you can use Azure AD B2C preview for free but its use is limited to 50,000 users per tenant. An Azure subscription is required to access the [Azure classic portal](http://manage.windowsazure.com/).
+Currently, you can use Azure AD B2C for free but its use is limited to 50,000 users per tenant. An Azure subscription is required to access the [Azure classic portal](http://manage.windowsazure.com/).
 
 ## Step 2: Create an Azure AD B2C tenant
 
@@ -67,6 +65,16 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
     > [AZURE.NOTE]
     You can manage users and groups, self-service password reset configuration, and company branding features of your tenant on the [Azure classic portal](https://manage.windowsazure.com/).
 
+## Easy access to the B2C features blade on the Azure portal
+
+To improve discoverability, we've added a shortcut to the B2C features blade on the Azure portal.
+
+1. Sign into the Azure portal as the Global Administrator of your B2C tenant. If you are already signed into a different tenant, switch tenants (on the top-right corner).
+2. Click **Browse** on the left hand navigation.
+3. Click **Azure AD B2C** to access the B2C features blade.
+
+    ![Screen shot of Browse to B2C features blade](./media/active-directory-b2c-get-started/b2c-browse.png)
+
 ## Next steps
 
-Learn how to register an application with Azure AD B2C and to build a Quick Start application by reading [Azure Active Directory B2C preview: Register your application](active-directory-b2c-app-registration.md).
+Learn how to register an application with Azure AD B2C and to build a Quick Start application by reading [Azure Active Directory B2C: Register your application](active-directory-b2c-app-registration.md).

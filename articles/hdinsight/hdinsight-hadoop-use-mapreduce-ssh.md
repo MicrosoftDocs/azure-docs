@@ -57,9 +57,9 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 1. After you are connected to the HDInsight cluster, use the following **Hadoop** command to start a MapReduce job:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
+		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
 
-	This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file. As input, it uses the **wasb://example/data/gutenberg/davinci.txt** document, and output is stored at **wasb:///example/data/WordCountOutput**.
+	This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file. As input, it uses the **wasbs://example/data/gutenberg/davinci.txt** document, and output is stored at **wasbs:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] For more information about this MapReduce job and the example data, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
 
@@ -70,9 +70,9 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 		File Output Format Counters
         Bytes Written=337623
 
-3. When the job completes, use the following command to list the output files that are stored at **wasb://example/data/WordCountOutput**:
+3. When the job completes, use the following command to list the output files that are stored at **wasbs://example/data/WordCountOutput**:
 
-		hdfs dfs -ls wasb:///example/data/WordCountOutput
+		hdfs dfs -ls wasbs:///example/data/WordCountOutput
 
 	This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
 
@@ -80,9 +80,9 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 4. To view the output, use the following command:
 
-		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hdfs dfs -cat wasbs:///example/data/WordCountOutput/part-r-00000
 
-	This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file and the number of times each word occured. The following is an example of the data that will be contained in the file:
+	This displays a list of the words that are contained in the **wasbs://example/data/gutenberg/davinci.txt** file and the number of times each word occured. The following is an example of the data that will be contained in the file:
 
 		wreathed        3
 		wreathing       1

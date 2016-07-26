@@ -122,7 +122,7 @@ When your app receives an id_token upon user sign-in, it should also perform a f
 
 For an full list of claim validations your app should perform, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
-Details of the expected values for these claims are included above in the [id_token section](#id_tokens).
+Details of the expected values for these claims are included above in the [id_token section](#id-tokens).
 
 ## Sample Tokens
 

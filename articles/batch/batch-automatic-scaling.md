@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="04/18/2016"
+	ms.date="07/21/2016"
 	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
 
-With automatic scaling, the Azure Batch service can dynamically add or remove compute nodes in a pool based on parameters you define. This allows you to automatically adjust the amount of compute resources used by your application, potentially saving you time and money.
+With automatic scaling, the Azure Batch service can dynamically add or remove compute nodes in a pool based on parameters that you define. You can potentially save both time and money by automatically adjusting the amount of compute power used by your application--add nodes as your job's task demands increase, and remove them when they decrease.
 
 You enable automatic scaling on a pool of compute nodes by associating with it an *autoscale formula* that you define, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. Batch responds to service metrics data samples that are collected periodically, and adjusts the number of compute nodes in the pool at a configurable interval based on your formula.
 
@@ -28,15 +28,15 @@ You can enable automatic scaling when a pool is created, or on an existing pool.
 
 An automatic scaling formula is a string value that you define that contains one or more statements, and is assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET). When assigned to a pool, the Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing (more on intervals later). The formula string cannot exceed 8 KB in size, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
 
-You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions that can include system-defined and user-defined variables, as well as constants. They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
+You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions that can include both service-defined variables (variables defined by the Batch service) and user-defined variables (variables that you define). They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
 
-`VAR = Expression(system-defined variables, user-defined variables);`
+`$myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);`
 
-Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements:
+Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements. For example, first we obtain a value for  `variable1`, then pass it to a function to populate `variable2`:
 
 ```
-VAR₀ = Expression₀(system-defined variables);
-VAR₁ = Expression₁(system-defined variables, VAR₀);
+$variable1 = function1($ServiceDefinedVariable);
+$variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
 With these statements in your formula, your goal is to arrive at a number of compute nodes that the pool should be scaled to--the **target** number of **dedicated nodes**. This number may be higher, lower, or the same as the current number of nodes in the pool. Batch evaluates a pool's autoscale formula at a specific interval ([automatic scaling intervals](#automatic-scaling-interval) are discussed below). Then it will adjust the target number of nodes in the pool to the number that your autoscale formula specifies at the time of evaluation.
@@ -50,17 +50,19 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 The next few sections of this article discuss the various entities that will make up your autoscale formulas, including variables, operators, operations, and functions. You'll find out how to obtain various compute resource and task metrics within Batch. You can use these metrics to intelligently adjust your pool's node count based on resource usage and task status. You'll then learn how to construct a formula and enable automatic scaling on a pool by using both the Batch REST and .NET APIs. We'll finish up with a few example formulas.
 
-> [AZURE.IMPORTANT] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The Batch service will create nodes only up to that limit. Therefore, it may not reach the target number that is specified by a formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
+> [AZURE.IMPORTANT] Each Azure Batch account is limited to a maximum number of cores (and therefore compute nodes) that can be used for processing. The Batch service will create nodes only up to that core limit. Therefore, it may not reach the target number of compute nodes that is specified by a formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 
-## <a name="variables"></a>Variables
+## Variables
 
-You can use both system-defined and user-defined variables in autoscale formulas. In the two-line example formula above, `$TargetDedicated` is a system-defined variable, while `$averageActiveTaskCount` is user-defined. The tables below show both read-write and read-only variables that are defined by the Batch service.
+You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service--some are read-write, and some are read-only. User-defined variables are variables that *you* define. In the two-line example formula above, `$TargetDedicated` is a service-defined variable, while `$averageActiveTaskCount` is a user-defined variable.
 
-*Get* and *set* the values of these **system-defined variables** to manage the number of compute nodes in a pool:
+The tables below show both read-write and read-only variables that are defined by the Batch service.
+
+You can **get** and **set** the values of these service-defined variables to manage the number of compute nodes in a pool:
 
 <table>
   <tr>
-    <th>Variables (read-write)</th>
+    <th>Read-write<br/>service-defined variables</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -80,11 +82,11 @@ You can use both system-defined and user-defined variables in autoscale formulas
    </tr>
 </table>
 
-*Get* the value of these **system-defined variables** to make adjustments that are based on metrics from the Batch service:
+You can **get** the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
 
 <table>
   <tr>
-    <th>Variables (read-only)</th>
+    <th>Read-only<br/>service-defined<br/>variables</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -152,7 +154,7 @@ You can use both system-defined and user-defined variables in autoscale formulas
   </tr>
 </table>
 
-> [AZURE.TIP] The read-only, system-defined variables that are shown above are *objects* that provide various methods to access data associated with each. See [Obtain sample data](#getsampledata) below for more information.
+> [AZURE.TIP] The read-only, service-defined variables that are shown above are *objects* that provide various methods to access data associated with each. See [Obtain sample data](#getsampledata) below for more information.
 
 ## Types
 
@@ -163,6 +165,7 @@ These **types** are supported in a formula.
 - doubleVecList
 - string
 - timestamp--timestamp is a compound structure that contains the following members:
+
 	- year
 	- month (1-12)
 	- day (1-31)
@@ -171,6 +174,7 @@ These **types** are supported in a formula.
 	- minute (00-59)
 	- second (00-59)
 - timeinterval
+
 	- TimeInterval_Zero
 	- TimeInterval_100ns
 	- TimeInterval_Microsecond
@@ -241,7 +245,7 @@ The *doubleVecList* value is converted to a single *doubleVec* prior to evaluati
 
 ## <a name="getsampledata"></a>Obtain sample data
 
-Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The system-defined variables that are described above are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
+Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The service-defined variables that are described above are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
@@ -332,13 +336,13 @@ You can use both **resource** and **task** metrics when you're defining a formul
   <tr>
     <td><b>Resource</b></td>
     <td><p><b>Resource metrics</b> are based on the CPU, bandwidth, and memory usage of compute nodes, as well as the number of nodes.</p>
-		<p> These system-defined variables are useful for making adjustments based on node count:</p>
+		<p> These service-defined variables are useful for making adjustments based on node count:</p>
     <p><ul>
       <li>$TargetDedicated</li>
 			<li>$CurrentDedicated</li>
 			<li>$SampleNodeCount</li>
     </ul></p>
-    <p>These system-defined variables are useful for making adjustments based on node resource usage:</p>
+    <p>These service-defined variables are useful for making adjustments based on node resource usage:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -353,7 +357,7 @@ You can use both **resource** and **task** metrics when you're defining a formul
   </tr>
   <tr>
     <td><b>Task</b></td>
-    <td><p><b>Task metrics</b> are based on the status of tasks, such as Active, Pending, and Completed. The following system-defined variables are useful for making pool-size adjustments based on task metrics:</p>
+    <td><p><b>Task metrics</b> are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
