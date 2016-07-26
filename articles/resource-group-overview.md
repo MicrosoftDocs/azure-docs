@@ -13,12 +13,22 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/27/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
 
 The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update or delete all of the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment. 
+
+## Terminology
+
+If you are new to Azure Resource Manager, there are some terms you might not be familiar with.
+
+- **resource** - An item that is part of your Azure solution. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.
+- **resource group** - A container that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that you group together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
+- **resource provider** - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute which supplies the virtual machine resource, Microsoft.Storage which supplies the storage account resource, and Microsoft.Web which supplies resources related to web apps. See [Resource providers](#resource-providers).
+- **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment](#template-deployment).
+- **declarative syntax** - A syntax that lets you state "Here is what I intend to create" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure. 
 
 ## The benefits of using Resource Manager
 
@@ -26,7 +36,7 @@ Resource Manager provides several benefits:
 
 - You can deploy, manage, and monitor all of the resources for your solution as a group, rather than handling these resources individually.
 - You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.
-- You can use declarative templates to define your deployment.
+- You can manage your infrastructure through declarative templates rather than scripts.
 - You can define the dependencies between resources so they are deployed in the correct order.
 - You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.
 - You can apply tags to resources to logically organize all of the resources in your subscription.
@@ -43,9 +53,9 @@ The following suggestions will help you take full advantage of Resource Manager 
 3. Run imperative commands to manage your resources, such as to start or stop an app or machine.
 4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
 
-## Resource groups
+For more recommendations, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 
-A resource group is a container that holds related resources for an application. The resource group could include all of the resources for an application, or only those resources that are logically grouped together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization.
+## Resource groups
 
 There are some important factors to consider when defining your resource group:
 
@@ -55,21 +65,19 @@ There are some important factors to consider when defining your resource group:
 4. You can move a resource from one resource group to another group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 4. A resource group can contain resources that reside in different regions.
 5. A resource group can be used to scope access control for administrative actions.
-6. A resource can be linked to a resource in another resource group when the two resources must interact with each other but they do not share the same lifecycle (for example, multiple apps connecting to a database). For more information, see [Linking resources in Azure Resource Manager](resource-group-link-resources.md).
+6. A resource can interact with a resource in another resource groups when the two resources are related but they do not share the same lifecycle (for example, a web apps connecting to a database).
 
 ## Resource providers
 
-A resource provider is a service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers REST API operations for working with the resources. For example, if you want to deploy an Azure Key Vault for storing keys and secrets, you will work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. You can learn about a resource provider by looking at it REST API operations, such as [Key Vault REST API operations](https://msdn.microsoft.com/library/azure/dn903609.aspx).
+Each resource provider offers a set of resources and operations for working with technical area. For example, if you want to store keys and secrets, you will work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. It also provides operations through [Key Vault REST API operations](https://msdn.microsoft.com/library/azure/dn903609.aspx). You can call the REST API directly or you can use [Key Vault PowerShell cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) and [Key Vault Azure CLI](./key-vault/key-vault-manage-with-cli.md) to manage the key vault. You can also use a number of programming languages to work with most resources. For more information, see [SDKs and samples](#sdks-and-samples). 
 
 To deploy and manage your infrastructure, you will need to know details about the resource providers; such as, what resource types it offers, the version numbers of the REST API operations, the operations it supports, and the schema to use when setting the values of the resource type to create. To learn about the supported resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
 
 ## Template deployment
 
-With Resource Manager, you can create a simple template (in JSON format) that defines deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
+With Resource Manager, you can create a simple template (in JSON format) that defines deployment and configuration of your application. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
 
-Within the template, you define the infrastructure for your app, how to configure that infrastructure, and how to publish your app code to that infrastructure. You do not need to worry about the order for deployment because Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
-
-When you create a solution from the Marketplace, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group to a template, or viewing the template that was used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax. To learn more about working with exported templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
+When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group to a template, or viewing the template that was used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax. To learn more about working with exported templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
 You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily re-use these templates for different solutions. To deploy a particular solution, you create a master template that links all of the required templates. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
@@ -121,7 +129,7 @@ For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Wi
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx). To view REST operations for your deployed resources, see [Use Azure Resource Explorer to view and modify resources](resource-manager-resource-explorer.md).
 
-For information about using the portal, see [Using the Azure Portal to manage your Azure resources](./azure-portal/resource-group-portal.md).
+For information about using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 
 Azure Resource Manager supports cross-origin resource sharing (CORS). With CORS, you can call the Resource Manager REST API or an Azure service REST API from a web application that resides in a different domain. Without CORS support, the web browser would prevent an app in one domain from accessing resources in another domain. Resource Manager enables CORS for all requests with valid authentication credentials.
 
@@ -139,8 +147,8 @@ the entire set of tools to create the SDKs are open, freely available, and based
 
 **Samples**: Get started quickly in the language of your choice.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *coming soon*
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *coming soon*
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
 - [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
 - [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
 - [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *coming soon*
@@ -163,7 +171,8 @@ the entire set of tools to create the SDKs are open, freely available, and based
 - For a simple introduction to working with templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 - For a more thorough walkthrough of creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
 - To understand the functions you can use in a template, see [Template functions](resource-group-template-functions.md)
-- For information about using Visual Studio with Resource Manager, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+- For information about using Visual Studio with Resource Manager, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- For information about using VS Code with Resource Manager, see [Working with Azure Resource Manager Templates in Visual Studio Code](resource-manager-vs-code.md).
 
 Here's a video demonstration of this overview:
 

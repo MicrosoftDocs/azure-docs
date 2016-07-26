@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Protect VMs in Azure with Azure Backup | Microsoft Azure"
+	pageTitle="First Look: Protect VMs in Azure with Azure Backup | Microsoft Azure"
 	description="Protect Azure VMs with Azure Backup service. Tutorial explains create vault, register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/22/2016"
+	ms.date="07/18/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # First look: Backing up Azure virtual machines
 
 > [AZURE.SELECTOR]
-- [Back up ARM VMs](backup-azure-vms-first-look-arm.md)
+- [Back up Resource Manager VMs](backup-azure-vms-first-look-arm.md)
 - [Back up Classic mode VMs](backup-azure-vms-first-look.md)
 
-This tutorial takes you through the steps for backing up an Azure virtual machine (VM) to Azure. To successfully complete this tutorial, these prerequisites must exist:
+This tutorial takes you through the steps for backing up an Azure virtual machine (VM) to a backup vault in Azure. This article describes the Classic model or Service Manager deployment model, for backing up VMs. If you are interested in backing up a VM to a Recovery Services vault that belongs to a Resource Group, see the other tab - Back up Resource Manager VMs. To successfully complete this tutorial, these prerequisites must exist:
 
 - You have created a VM in your Azure subscription.
 - The VM has connectivity to Azure public IP addresses. For additional information, see [Network connectivity](./backup-azure-vms-prepare.md#network-connectivity).

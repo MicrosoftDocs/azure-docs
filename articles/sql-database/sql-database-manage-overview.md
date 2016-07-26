@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"/>
 
 # Overview: management tools for SQL Database

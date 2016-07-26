@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/22/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: Sign up and sign in consumers in your applications
@@ -32,10 +32,12 @@ You can write your application against the Azure Active Directory B2C service ei
 
 ## What's new
 
-Check back here often to learn about future changes to Azure Active Directory B2C. We'll also tweet about any updates by using @AzureAD.
+Check back here often to learn about future changes to the Azure Active Directory B2C. We'll also tweet about any updates by using @AzureAD.
 
 - Learn about our [extensible policy framework](active-directory-b2c-reference-policies.md) and about the types of policies that you can create and use in your applications.
-- Current [limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
+- Bookmark our [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) for notifications on minor service issues, updates, status and mitigations. Continue to monitor the [Azure status dashboard](https://azure.microsoft.com/status/) as well.
+- Current [service limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
+- Finally, a [code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) using Azure AD B2C & ASP.NET Core.
 
 ## How-to articles
 

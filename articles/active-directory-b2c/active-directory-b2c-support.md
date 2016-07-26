@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: File Support Requests
@@ -53,7 +53,7 @@ You can file support requests for Azure Active Directory (Azure AD) B2C on the A
 
     ![Support - Problem](./media/active-directory-b2c-support/support-problem.png)
 
-7. In the **Contact information** blade, add your contact information. Click **Create**. *Note: Currently, support for Azure AD B2C is only available in English.*
+7. In the **Contact information** blade, add your contact information. Click **Create**.
 
     ![Support - Contact](./media/active-directory-b2c-support/support-contact.png)
 

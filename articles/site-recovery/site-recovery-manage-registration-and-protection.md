@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="07/12/2016" 
 	ms.author="raynew"/>
 
 # Remove servers and disable protection

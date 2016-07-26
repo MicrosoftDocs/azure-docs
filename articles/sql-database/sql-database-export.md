@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/06/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -87,14 +87,9 @@ Open the SQL Database blade for the database you want to export.
 
 ## Next steps
 
-- [Import a BACPCAC to an Azure SQL database](sql-database-import.md)
-- [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
+- To learn about importing a BACPAC to an Azure SQL Database, see [Import a BACPCAC to an Azure SQL database](sql-database-import.md)
+- To learn about importing a BACPAC to a SQL Server database, see [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
 
-## Additional resources
-
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 <!--Image references-->

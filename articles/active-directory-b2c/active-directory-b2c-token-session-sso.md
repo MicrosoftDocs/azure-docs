@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="07/18/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: Token, session and single sign-on configuration
@@ -43,7 +43,7 @@ Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2
 
 - **Access & ID token lifetimes (minutes)**: The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. Azure AD B2C issues only ID tokens at this time. This value would apply to access tokens as well, when we add support for them.
    - Default = 60 minutes.
-   - Minimum (inclusive) = 15 minutes.
+   - Minimum (inclusive) = 5 minutes.
    - Maximum (inclusive) = 1440 minutes.
 - **Refresh token lifetime (days)**: The maximum time period before which a refresh token can be used to acquire a new access or ID token (and optionally, a new refresh token, if your application had been granted the `offline_access` scope).
    - Default = 14 days.

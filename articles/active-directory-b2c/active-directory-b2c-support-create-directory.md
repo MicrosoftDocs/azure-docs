@@ -13,7 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
+<<<<<<< HEAD
 	ms.date="07/22/2016"
+=======
+	ms.date="07/24/2016"
+>>>>>>> 8db9bad8a6330ffdbb544c73a7d4aae87508e3fd
 	ms.author="swkrish"/>
 
 # Creating an Azure Active Directory (Azure AD) tenant or Azure AD B2C tenant: Issues and resolutions

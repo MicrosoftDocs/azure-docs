@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
 # Manage an Azure Machine Learning workspace
+
+>[AZURE.NOTE] The procedures in this article are relevant to Azure Machine Learning Classic web services. For information on managing new web services, see [Manage a New Machine Learning Web Service](machine-learning-manage-new-webservice.md).
+
 Using the Azure classic portal, you can manage your Machine Learning workspaces to:
 
 - Monitor how the workspace is being used

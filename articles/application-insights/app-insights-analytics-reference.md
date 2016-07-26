@@ -22,6 +22,7 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
 
 ## Index
 
@@ -29,7 +30,7 @@
 **Let and set** [let](#let-clause) | [set](#set-clause)
 
 
-**Queries and operators** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -65,7 +66,7 @@
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
     requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
 
 A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
@@ -85,7 +86,7 @@ A let clause binds a [name](#names) to a tabular result, scalar value or functio
 
 **Examples**
 
-    let rows(n:long) = range steps from 1 to n step 1;
+    let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
 
@@ -178,6 +179,229 @@ This function returns a table with a single record and column of type
 ```AIQL
 requests | count
 ```
+
+### evaluate operator
+
+`evaluate` is an extension mechanism that allows specialized algorithms to be appended to queries.
+
+`evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
+
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+
+#### evaluate autocluster
+
+     T | evaluate autocluster()
+
+AutoCluster finds common patterns of discrete attributes (dimensions) in the data and will reduce the results of the original query (whether it's 100 or 100k rows) to a small number of patterns. AutoCluster was developed to help analyze failures (e.g. exceptions, crashes) but can potentially work on any filtered data set. 
+
+**Syntax**
+
+    T | evaluate autocluster( arguments )
+
+**Returns**
+
+AutoCluster returns a (usually small) set of patterns that capture portions of the data with shared common values across multiple discrete attributes. Each pattern is represented by a row in the results. 
+
+The first two columns are the count and percentage of rows out of the original query that are captured by the pattern. The remaining columns are from the original query and their value is either a specific value from the column or '*' meaning variable values. 
+
+Note that the patterns are not disjoint: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
+
+**Tips**
+
+* Use `where` and `project` in the input pipe to reduce the data to just what you're interested in.
+* When you find an interesting row, you might want to drill into it further by adding its specific values to your `where` filter.
+
+**Arguments (all optional)**
+
+* `output=all | values | minimal` 
+
+    The format of the results. The Count and Percent columns always appear in the results. 
+
+ * `all` - all the columns from the input are output
+ * `values` - filters out columns with only '*' in the results
+ * `minimal` - also filters out columns that are identical for all the rows in the original query. 
+
+
+* `min_percent=`*double* (default: 1)
+
+    The minimum percentage coverage of the generated rows.
+
+    Example: `T | evaluate autocluster("min_percent=5.5")`
+
+
+* `num_seeds=` *int* (default: 25) 
+
+    The number of seeds determines the number of initial local search points of the algorithm. In some cases, depending on the structure of the data, increasing the number of seeds increases the number (or quality) of the results through increased search space at slower query tradeoff. The num_seeds argument has diminishing results in both directions so decreasing it below 5 will achieve negligible performance improvements and increasing above 50 will rarely generate additional patterns.
+
+    Example: `T | evaluate autocluster("num_seeds=50")`
+
+
+* `size_weight=` *0<double<1*+ (default: 0.5)
+
+    Gives you some control over the balance between generic (high coverage) and informative (many shared values). Increasing size_weight usually reduces the number of patterns, and each pattern tends to cover a larger percentage. Decreasing size_weight usually produces more specific patterns with more shared values and smaller percentage coverage. The under the hood formula is a weighted geometric mean between the normalized generic score and informative score with size_weight and 1-size_weight as the weights. 
+
+    Example: `T | evaluate autocluster("size_weight=0.8")`
+
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'), common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    Example: `T | evaluate autocluster("weight_column=sample_Count")` 
+
+
+
+#### evaluate basket
+
+     T | evaluate basket()
+
+Basket finds all frequent patterns of discrete attributes (dimensions) in the data and will return all frequent patterns that passed the frequency threshold in the original query. Basket is guaranteed to find all frequent patterns in the data but is not guaranteed to have polynomial run-time. The run-time of the query is linear in the number of rows but in some cases might be exponential in the number of columns (dimensions). Basket is based on the Apriori algorithm originally developed for basket analysis data mining. 
+
+**Returns**
+
+All patterns appearing in more than a specified fraction (default 0.05) of the events.
+
+**Arguments (all optional)**
+
+
+* `threshold=` *0.015<double<1* (default: 0.05) 
+
+    Sets the minimal ratio of the rows to be considered frequent (patterns with smaller ratio will not be returned).
+
+    Example: `T | evaluate basket("threshold=0.02")`
+
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'), common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    Example: T | evaluate basket("weight_column=sample_Count")
+
+
+* `max_dims=` *1<int* (default: 5)
+
+    Sets the maximal number of uncorrelated dimensions per basket, limited by default to decrease the query runtime.
+
+
+* `output=minimize` | `all` 
+
+    The format of the results. The Count and Percent columns always appear in the results.
+
+ * `minimize` - filters out columns with only '*' in the results.
+ * `all` - all the columns from the input are output.
+
+
+
+
+#### evaluate diffpatterns
+
+     requests | evaluate diffpatterns("split=success")
+
+Diffpatterns compares two data sets of the same structure and finds patterns of discrete attributes (dimensions) that characterize differences between the two data sets. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
+
+**Syntax**
+
+`T | evaluate diffpatterns("split=` *BinaryColumn* `" [, arguments] )`
+
+**Returns**
+
+Diffpatterns returns a (usually small) set of patterns that capture different portions of the data in the two sets (i.e. a pattern capturing a large percentage of the rows in the first data set and low percentage of the rows in the second set). Each pattern is represented by a row in the results.
+
+The first four columns are the count and percentage of rows out of the original query that are captured by the pattern in each set, the fifth column is the difference (in absolute percentage points) between the two sets. The remaining columns are from the original query and their value is either a specific value from the column or * meaning variable values. 
+
+Note that the patterns are not distinct: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
+
+**Tips**
+
+* Use where and project in the input pipe to reduce the data to just what you're interested in.
+
+* When you find an interesting row, you might want to drill into it further by adding its specific values to your where filter.
+
+**Arguments**
+
+* `split=` *column name* (required)
+
+    The column must have precisely two values. If necessary, create such a column:
+
+    `requests | extend fault = toint(resultCode) >= 500` <br/>
+    `| evaluate diffpatterns("split=fault")`
+
+* `target=` *string*
+
+    Tells the algorithm to only look for patterns which have higher percentage in the target data set, the target must be one of the two values of the split column.
+
+    `requests | evaluate diffpatterns("split=success", "target=false")`
+
+* `threshold=` *0.015<double<1* (default: 0.05) 
+
+    Sets the minimal pattern (ratio) difference between the two sets.
+
+    `requests | evaluate diffpatterns("split=success", "threshold=0.04")`
+
+* `output=minimize | all`
+
+    The format of the results. The Count and Percent columns always appear in the results. 
+
+ * `minimize` - filters out columns with only '*' in the results
+ * `all` - all the columns from the input are output
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'). A common use of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    `requests | evaluate autocluster("weight_column=itemCount")`
+
+
+
+
+
+
+#### evaluate extractcolumns
+
+     exceptions | take 1000 | evaluate extractcolumns("details=json") 
+
+Extractcolumns is used to enrich a table with multiple simple columns that are dynamically extracted out of (semi) structured column(s) based on their type. Currently it supports json columns only, both dynamic and string serialization of jsons.
+
+
+* `max_columns=` *int* (default: 10) 
+
+    The number of new added columns is dynamic and it can be very big (actually it’s the number of distinct keys in all json records) so we must limit it. The new columns are sorted in descending order based on their frequency and up to max_columns are added to the table.
+
+    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
+
+
+* `min_percent=` *double* (default: 10.0) 
+
+    Another way to limit new columns by ignoring columns whose frequency is lower than min_percent.
+
+    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
+
+
+* `add_prefix=` *bool* (default: true) 
+
+    If true the name of the complex column will be added as a prefix to the extracted columns names.
+
+
+* `prefix_delimiter=` *string* (default: "_") 
+
+    If add_prefix=true this parameter defines the delimiter that will be used to concatenate the names of the new columns.
+
+    `T | evaluate extractcolumns("json_column_name=json",` <br/>
+    `"add_prefix=true", "prefix_delimiter=@")`
+
+
+* `keep_original=` *bool* (default: false) 
+
+    If true the original (json) columns will be kept in the output table.
+
+
+* `output=query | table` 
+
+    The format of the results. 
+
+ * `table` - The output is the same table as received minus the specified input columns plus new columns that were extracted from the input columns.
+ * `query` - The output is a string representing the query you would make to get the result as table. 
+
 
 
 

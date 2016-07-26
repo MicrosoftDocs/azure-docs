@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/06/2016" 
+	ms.date="07/12/2016" 
 	ms.author="raynew"/>
 
 # Plan capacity for protecting virtual machines and physical servers in Azure Site Recovery

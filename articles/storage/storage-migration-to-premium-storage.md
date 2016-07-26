@@ -418,7 +418,7 @@ If you have multiple VMs to migrate, automation through PowerShell scripts will 
 
     # whether or not to copy the os disk, the default is only copy data disks
     [Parameter(Mandatory = $false)]
-    [String] $DataDiskOnly = $true,
+    [Bool] $DataDiskOnly = $true,
 
     # how frequently to report the copy status in sceconds
     [Parameter(Mandatory = $false)]

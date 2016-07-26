@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 #Analyze flight delay data by using Hive in HDInsight
@@ -68,8 +68,8 @@ The following table lists the files used in this tutorial:
 
 <table border="1">
 <tr><th>Files</th><th>Description</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>The HiveQL script file used by the Hive job that you will run. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</td></tr>
+<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>The HiveQL script file used by the Hive job that you will run. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.</td></tr>
+<tr><td>wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>The output path for the Hive job. The default container is used for storing the output data.</td></tr>
 <tr><td>\tutorials\flightdelays\jobstatus</td><td>The Hive job status folder on the default container.</td></tr>
 </table>
@@ -202,7 +202,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
 		###########################################
 		# Submit the Sqoop job
 		###########################################
-		$exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
+		$exportDir = "wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
 		
 		$sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
 						-Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
@@ -353,7 +353,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
 
 If you choose to use a different method for uploading the files, please make sure the file path is tutorials/flightdelay/data. The syntax for accessing the files is:
 
-	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
+	wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
 The path tutorials/flightdelay/data is the virtual folder you created when you uploaded the files. Verify that there are 12 files, one for each month.
 
@@ -502,7 +502,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 			"ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
 			"LINES TERMINATED BY '\n' " +
 			"STORED AS TEXTFILE " +
-			"LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
+			"LOCATION 'wasbs://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
 		
 		$hqlDropDelays = "DROP TABLE delays;"
 		

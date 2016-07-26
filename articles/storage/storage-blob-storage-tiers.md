@@ -163,7 +163,7 @@ In this section we will demonstrate the following scenarios using the Azure port
 
 8. Select the subscription in which you want to create the new storage account.
 
-9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
+9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
 10. Select the region for your storage account.
 

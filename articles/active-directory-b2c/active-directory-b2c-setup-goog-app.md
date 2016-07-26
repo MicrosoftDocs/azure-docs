@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Google+ accounts
