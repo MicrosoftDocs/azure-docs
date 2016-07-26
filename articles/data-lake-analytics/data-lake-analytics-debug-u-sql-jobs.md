@@ -57,9 +57,9 @@ If you have registered .dll assemblies to your Data Lake Analytics database, you
  
 ##Debug the job
 
-After you have created a debug solution by downloawing the vertex and have configured the environment, you can start debug your U-SQL code.
+After you have created a debug solution by downloading the vertex and have configured the environment, you can start debug your U-SQL code.
 
-1.	From Solution Explorer, right-click the **LocalVertexHost** project, point to **Debug**, and then click **Start new instance**. The LocalVertexHost must be set as the Startup project. You may see this screen for the first time which you can igore. It can take up to one minute to get to the debug screen.
+1.	From Solution Explorer, right-click the **LocalVertexHost** project, point to **Debug**, and then click **Start new instance**. The LocalVertexHost must be set as the Startup project. You may see the following message for the first time which you can ignore. It can take up to one minute to get to the debug screen.
  
     ![Azure Data Lake Analytics U-SQL debug visual studio warning](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
 
@@ -70,13 +70,13 @@ After you have created a debug solution by downloawing the vertex and have confi
  
 ##Re-submit the job
 
-After you have completed debuging your U-SQL code, you can resubmit the failed job.
+After you have completed debugging your U-SQL code, you can resubmit the failed job.
 
 1. Register new .dll assemblies to your ADLA database.
 
-    a.	Expand your Databases node from Server Explorer/Cloud Explorer in ADL VS Tool.
-    b.	Right click Assemblies to Register assemblies. 
-    c.	Register your new .dll assemblies to your ADLA database.
+    1.	From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node 
+    2.	Right-click Assemblies to Register assemblies. 
+    3.	Register your new .dll assemblies to the ADLA database.
  
 2.	Or copy your C# code to script.usql.cs--C# code behind file.
 3.	Re-submit your job.
