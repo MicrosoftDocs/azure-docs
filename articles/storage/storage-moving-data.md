@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="07/27/2016"
 	ms.author="micurd"/>
 
 # Moving data to and from Azure Storage
@@ -27,6 +27,8 @@ If you're building an application, developing against the REST API or one of our
 Azure Storage provides rich client libraries for .NET, iOS, Java, Android, Universal Windows Platform (UWP), Xamarin, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
 See [Get Started with Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) to learn more.
+
+In addition, we also offer the [Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) which is a library designed for high-performance copying of data to and from Azure. Please refer to our Data Movement Library [documentation](https://github.com/Azure/azure-storage-net-data-movement) to learn more. 
 
 ## Quickly viewing/interacting with your data
 
