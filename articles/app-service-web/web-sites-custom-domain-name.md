@@ -79,14 +79,17 @@ a CNAME record is still valid, whereas an A record must be updated.
 
 The tutorial shows you steps for using the A record and also for using the CNAME record.
 
-<a name="enable"></a>
-## Step 1. Enable the custom domain name for your app
+<a name="vip"></a>
+## Step 1. *(A record only)* Get app's IP address
+To map a custom domain name using an A record, you need your Azure app's IP address. If you will map using a CNAME record
+instead, skip this step and move onto the next section.
 
 1.	Log in to the [Azure portal](https://portal.azure.com).
 2.	Click **App Services** on the left menu.
 4.	Click your app, then click **Settings** > **Custom domains and SSL** > **Bring External Domains**.
 5.	In **Domain Names**, type your custom domain name.
-6.  *(A record only)* Take note of the IP address to use later.
+6.  Take note of the IP address to use later.
+7.  Keep this portal blade open. You will come back to it once you create the DNS records.
 
 <a name="dns"></a>
 ## Step 2. Create the DNS record(s)
@@ -194,6 +197,21 @@ Your CNAME record should be configured as follows (@ typically represents the ro
 
 
 >[AZURE.NOTE] You can use Azure DNS to host the necessary domain records for your web app. To configure your custom domain, and create your records, in Azure DNS, see [Create custom DNS records for a web app](../dns/dns-web-sites-custom-domain.md).
+
+<a name="enable"></a>
+## Step 3. Enable the custom domain name for your app
+
+Back in the **Bring Exteranl Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully-qualified
+domain name (FQDN) of your custom domain to the list.
+
+1.	Navigate back to the **Bring Exteranl Domains** blade in the Azure portal.
+
+2.	Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
+
+    >[AZURE.NOTE] Azure will attempt to verify the domain name you use here, so be sure that it is the same domain name
+    for which you created a DNS record in [Step 2](#dns).
+
+6.  Click **Save**.
 
 <a name="verify"></a>
 ## Step 3. Verify DNS propagation
