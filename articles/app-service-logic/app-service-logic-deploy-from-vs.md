@@ -26,8 +26,8 @@ Below are the steps to install and configure the Visual Studio tools for Logic A
 
 ### Prerequisites
 
-- [Visual studio 2015](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
-- [Latest Azure SDK](https://azure.microsoft.com/en-us/downloads/) (2.9.1 or greater)
+- [Visual studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+- [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
 - Access to the web when using the embedded designer
 
 ### Install Visual Studio tools for Logic Apps
