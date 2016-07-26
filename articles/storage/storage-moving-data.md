@@ -28,7 +28,7 @@ Azure Storage provides rich client libraries for .NET, iOS, Java, Android, Unive
 
 See [Get Started with Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) to learn more.
 
-In addition, we also offer the [Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) which is a library designed for high-performance copying of data to and from Azure. Please refer to our Data Movement Library [documentation](https://github.com/Azure/azure-storage-net-data-movement) to learn more. 
+In addition, we also offer the [Azure Storage Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) which is a library designed for high-performance copying of data to and from Azure. Please refer to our Data Movement Library [documentation](https://github.com/Azure/azure-storage-net-data-movement) to learn more. 
 
 ## Quickly viewing/interacting with your data
 
