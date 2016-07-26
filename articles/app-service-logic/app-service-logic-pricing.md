@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Logic Apps pricing model" 
+	pageTitle="Logic Apps pricing model | Microsoft Azure" 
 	description="Details about how pricing works in Logic Apps" 
 	authors="kevinlam1" 
 	manager="dwrede" 
@@ -20,7 +20,7 @@
 
 Logic Apps allows you to scale and execute a integration workflows in the cloud.  Below are details on the billing and pricing plans for Azure Logic Apps.
 
-## Consumption Pricing
+## Consumption pricing
 
 Newly created Logic Apps use a consumption plan. With Logic Apps consumption pricing model, you only pay for what you use.  Logic Apps are not throttled when using a consumption plan.
 All action executions performed in the execution of a logic app instance are metered.
@@ -44,7 +44,7 @@ Actions executed within loops are counted per iteration of the loop.  For exampl
 
 Logic Apps that are disabled cannot have new instances instantiated and therefore during the time that they are disabled will not get charged.  Be mindful that after disabling a logic app it may take a little time for the instances to quiesce before being completely disabled.
 
-## App Service Plans
+## App Service plans
 
 App Service Plans are no longer required to create a Logic App.  Logic Apps previously created with an App Service Plan will continue to behave as before where, depending on the plan chosen, will get throttled after a number of daily executions are exceeded and will not be billed using the action execution meter.
 
@@ -62,10 +62,10 @@ To change a Logic App that has an App Service Plan associated with it to a consu
 
 For pricing details please see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logicapps/).
 
-## See Also
+## Next Steps
 
-- [What are Logic Apps?][whatis]
-- [Create a Logic App][create]
+- [An overview of Logic Apps][whatis]
+- [Create your first logic app][create]
 
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [whatis]: app-service-logic-what-are-logic-apps.md
