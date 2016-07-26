@@ -18,7 +18,6 @@
 
 
 #  Virtual Machines
-![alt text](./media/azure-government-us-cloud.PNG)
 
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
 

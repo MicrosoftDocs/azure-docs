@@ -17,7 +17,6 @@
 	ms.author="ryansoc"/>
 
 #  Detecting & Responding to Incidents
-![alt text](./media/azure-government-us-cloud.PNG)
 
 Microsoft Azure uses a shared responsibility model to define security and operational accountabilities. This means that a portion of security responsibility belongs to Microsoft, as the CSP, while some belongs to the customer. Microsoft Azure does not monitor for, or respond to, security events within the customer’s area of responsibility (such as a customer VM).
 

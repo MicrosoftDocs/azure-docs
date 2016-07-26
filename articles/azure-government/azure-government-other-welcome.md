@@ -18,7 +18,6 @@
 
 
 #  Welcome to Azure Government Documentation
-![alt text](./media/azure-government-us-cloud.PNG)
 
 Azure Government is enabling U.S. Government & their partners to transform their mission-critical workloads to a trusted hyper-scale cloud by enabling and supporting:
 

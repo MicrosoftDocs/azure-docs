@@ -17,7 +17,6 @@
 	ms.author="ryansoc"/>
 
 #  SQL Database
-![alt text](./media/azure-government-us-cloud.PNG)
 
 The following information identifies the Azure Government boundary for Azure Storage:
 

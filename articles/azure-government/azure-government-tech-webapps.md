@@ -18,7 +18,6 @@
 
 
 #  Web Apps
-![alt text](./media/azure-government-us-cloud.PNG)
 
 The following information identifies the Azure Government boundary for Web Apps:
 
@@ -27,7 +26,7 @@ The following information identifies the Azure Government boundary for Web Apps:
 
 Web Apps is generally available in the following tiers:
 * Web Apps Basic
-* Web Apps Standard 
+* Web Apps Standard
 
 For additional information, please see the <a href=https://azure.microsoft.com/en-us/documentation/services/app-service/web/> Web Apps Public documentation </a>.
 

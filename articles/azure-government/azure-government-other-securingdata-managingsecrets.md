@@ -17,7 +17,6 @@
 	ms.author="ryansoc"/>
 
 #  Protecting Customer Data by Managing Secrets
-![alt text](./media/azure-government-us-cloud.PNG)
 
 Secure key management is essential for protecting data in the cloud. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data.
 

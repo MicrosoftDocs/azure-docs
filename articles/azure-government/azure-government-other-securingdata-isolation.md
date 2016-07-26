@@ -17,7 +17,6 @@
 	ms.author="ryansoc"/>
 
 #  Isolation to Restrict Data Access
-![alt text](./media/azure-government-us-cloud.PNG)
 
 Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multitenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
 

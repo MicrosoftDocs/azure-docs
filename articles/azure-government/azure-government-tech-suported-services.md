@@ -17,7 +17,6 @@
 	ms.author="ryansoc"/>
 
 #  Azure Government Supported Services
-![alt text](./media/azure-government-us-cloud.PNG)
 
 ## <a name="Overview"></a>Compute
 * [Virtual Machines](azure-government-tech-virtual-machines.md)

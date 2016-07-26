@@ -17,7 +17,6 @@
 	ms.author="brendalee"/>
 
 #  Principles for Securing Customer Data in Azure Government
-![alt text](./media/azure-government-us-cloud.PNG)
 
 Azure Government provides a range of features and services that you can use to build cloud solutions to meet your regulated/controlled data needs. A compliant customer solution is nothing more than the effective implementation of out-of-the-box Azure Government capabilities, coupled with a solid data security practice.
 When you host a solution in Azure Government, Microsoft handles many of these requirements at the cloud infrastructure level.

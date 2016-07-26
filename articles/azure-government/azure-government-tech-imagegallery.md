@@ -17,7 +17,6 @@
 	ms.author="brendalee"/>
 
 #  Microsoft Azure Government Image Gallery
-![alt text](./media/azure-government-us-cloud.PNG)
 
 <p> The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
 

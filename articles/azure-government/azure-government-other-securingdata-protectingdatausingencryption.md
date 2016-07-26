@@ -17,7 +17,6 @@
 	ms.author="ryansoc"/>
 
 #  Protecting Customer Data Using Encryption
-![alt text](./media/azure-government-us-cloud.PNG)
 
 Mitigating risk and meeting regulatory obligations are driving the increasing focus and importance of data encryption. Use an effective encryption implementation to enhance current network and application security measures—and decrease the overall risk of your cloud environment.
 
