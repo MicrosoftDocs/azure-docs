@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="07/27/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -28,14 +28,14 @@ In this step of the publishing process, you will need to provide certain marketi
 
   > [AZURE.IMPORTANT] All fields must have entries, including the images, for you to be able to push to staging.
 
-### Details
-1. Enter the offer title (maximum 50 characters), offer summary (maximum 100 characters), offer long summary (maximum 256 characters), offer description (maximum 1300 characters), logos under the **Details** tab
-2. Enter SKU title (maximum 50 characters), SKU summary (maximum 100 characters), SKU description (maximum 2000 characters) under the **Plans** tab
-3. Do not enter duplicate text under offer and SKU description.
-4. Do not enter duplicate text under SKU's title and offer long summary.
-5. Do not enter duplicate text under SKU Title and Offer Summary.
-6. Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
-7. Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
+### Details and plans
+1.	Enter the offer title (maximum 50 characters), offer summary (maximum 100 characters), offer long summary (maximum 256 characters), offer description (maximum 1300 characters), logos under the **Details** tab
+2.	Enter plan title (maximum 50 characters), plan summary (maximum 100 characters), plan description (maximum 2000 characters) under the **Plans** tab.
+3.	Do not enter duplicate text under offer and plan description.
+4.	Do not enter duplicate text under plan’s title and offer long summary.
+5.	Do not enter duplicate text under plan title and offer summary.
+6.	Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
+7.	Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
 
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
@@ -43,11 +43,10 @@ In this step of the publishing process, you will need to provide certain marketi
 
 All the logos uploaded in the Publishing Portal should follow the below guidelines:
 
-- The Azure design has a simple color palette. Please keep the number of primary and secondary colors on the logos low.
-- Logos should not be placed on a white background. We recommend simple primary colors or transparent backgrounds.
+- The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
+- The theme colors of the Azure portal are white and black. Hence avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. **If you are using transparent background, then make sure that the logos/text are not white or black.**
 - Do not use a gradient background on the logo.
-- Avoid placing text, even your company or brand name, on the logo.
-- The look and feel of your logo should be 'flat' and should avoid gradients.
+- Avoid placing text, even your company or brand name, on the logo. The look and feel of your logo should be 'flat' and should avoid gradients.
 - The logo should not be stretched.
 - Small logo should be of size 40 X 40 px
 - Medium logo should be of size 90 X 90 px
@@ -55,14 +54,15 @@ All the logos uploaded in the Publishing Portal should follow the below guidelin
 - Wide logo should be of size 255 X 115 px
 - Hero logo should be of size 815 X 290 px
 
+>[AZURE.NOTE] The Hero logo is optional. The publisher can choose not to upload a Hero logo. However once uploaded the hero icon cannot be deleted from the Publishing portal. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons.
+
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
 
-**Additional guidelines for the Hero logo banner:**
+**Additional guidelines for the Hero logo icon (optional)**
 
-- The Hero logo is optional. You can choose not to upload a Hero logo.
-- The publisher display name, SKU title, the offer long summary and the create button are embedded automatically inside the Hero logo once the offer goes live. So you do not have to enter them while you are designing the Hero logo.
-- As the Publisher Display Name, SKU title and the offer long summary are displayed in white font color, you should avoid keeping the background of the Hero Icon as white, or any light color.
-- You should leave space for the above text on the top of the Hero Icon. The space for the text is 415x100 and it is offset by 370px from the left.
+- The Hero logo is optional. The publisher can choose not to upload a Hero logo. **However once uploaded the hero icon cannot be deleted from the Publishing portal. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons else the offer will not be approved to production.**
+- The Publisher Display Name, plan title and the offer long summary are displayed in white font color. Hence you should avoid keeping any light color in the background of the Hero Icon. Black, white and transparent background is not allowed for Hero icons.
+- The publisher display name, plan title, the offer long summary and the create button are embedded programmatically inside the Hero logo once the offer goes listed. So you should not enter any text while you are designing the Hero logo. Just leave empty space on the right because the text (i.e. publisher display name, plan title, the offer long summary) will be included programmatically by us over there. The empty space for the text should be 415x100 on the right (and it is offset by 370px from the left).
 
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
