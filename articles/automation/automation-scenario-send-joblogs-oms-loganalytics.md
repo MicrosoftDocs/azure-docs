@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="07/18/2016"
+    ms.date="07/26/2016"
     ms.author="magoedte" />
 
 # Azure Automation scenario - Forward job status and job streams from Automation to Log Analytics (OMS)
@@ -36,7 +36,6 @@ To start sending your Automation logs to Log Analytics, you must have the follow
 5. Azure Diagnostic and Log Analytics PowerShell.  For further information about this release and how to install it, see [Azure Diagnostic and Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
 6. Download the PowerShell script **Enable-AzureDiagnostics.ps1** from the PowerShell Gallery <URL to Gallery Item>.  
 
-
 The script requires the following parameters during execution:
 
 - *AutomationResourceGroup* - the Resource Group your Automation account is located in
@@ -45,12 +44,11 @@ The script requires the following parameters during execution:
 - *StorageAccountName* - the name of the storage account that you want to store your Automation logs in
 - *StorageResourceGroup* - the name of the Resource Group the storage account is located in
 
+To find the values for *AutomationResourceGroup* and *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-scenario-send-joblogs-oms-loganalytics/automation-account-properties.png).
 
-To get the values for *AutomationResourceGroup* and *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-scenario-send-joblogs-oms-loganalytics/automation-account-properties.png).
+To find the value for *StorageAccountName* and *StorageResourceGroup*, in the Azure portal navigate to the storage account and on the **Storage accounts** blade note for a standard storage account, the name and resource group it is defined in.<br> ![Azure Storage Accounts](media/automation-scenario-send-joblogs-oms-loganalytics/azure-storage-accounts.png)<br>
 
-To get the value for *StorageAccountName* and *StorageResourceGroup*, in the Azure portal navigate to the storage account and on the **Storage accounts** blade note for a standard storage account, the name and resource group it is defined in.<br> ![Azure Storage Accounts](media/automation-scenario-send-joblogs-oms-loganalytics/azure-storage-accounts.png)<br>
-
->[AZURE.NOTE] Reminder, this Storage account must be in the same region as the Automation account.  
+>[AZURE.NOTE] This Storage account must be in the same region as the Automation account.  
 
 
 ## Setup integration with Log Analytics
@@ -58,7 +56,7 @@ To get the value for *StorageAccountName* and *StorageResourceGroup*, in the Azu
 1. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.  
 2. From the elevated PowerShell command-line shell, navigate to the folder which contains the script you downloaded and execute it changing the values for parameters *–AutomationResourceGroup*, *-AutomationAccountName*, *-LogAnalyticsWorkspaceName*,and *-StorageAccountName*, -*StorageResourceGroup*.
 
-    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You *must* log in with an account that is a Service administrator and co-admin of the subscription.   
+    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You **must** log in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.   
     
         .\Enable-AzureDiagnostics -AutomationResourceGroup <ResourceGroupName> 
         -AutomationAccountName <NameofAutomationAccount> `
@@ -82,6 +80,7 @@ To create an alert rule, you start by creating a log search for the runbook job 
 2.	Create a log search query for your alert by typing in the following in the query field:  `Category=JobLogs (ResultType=Failed || ResultType=Suspended)`.  You can also group by the RunbookName by using: `Category=JobLogs (ResultType=Failed || ResultType=Suspended) | measure Count() by RunbookName_s`.   
   
     If you have set up logs from more than one Automation account or subscription to your workspace, you may also be interested in grouping your alerts by the subscription or Automation account.  Automation account name can be derived from the Resource field in the search of JobLogs.  
+
 3.	Click **Alert** at the top of the page to open the **Add Alert Rule** screen.  For further details on the options to configure the alert, please see [Alerts in Log Analytics](../log-analytics/log-analytics-lerts.md#creating-an-alert-rule).
 
 ### Find all jobs that have completed with errors 
