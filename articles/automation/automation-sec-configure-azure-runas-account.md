@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/20/2016"
+    ms.date="07/26/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
@@ -35,47 +35,44 @@ Using a service principal and classic Run As account, you can:
 
 >[AZURE.NOTE] The Azure [Alert integration feature](../azure-portal/insights-receive-alert-notifications.md) with Automation Global Runbooks requires an Automation account that is configured with a service principal and classic Run As account. You can either select an Automation account that already has a service principal user and classic Run As account defined or choose to create a new one.
 
-We will cover the following topics:
-
-- Create a new Automation account from the portal
-- Upgrade an existing Automation account and create the service principal using PowerShell
-- Demonstrate with sample code, how to authenticate with Resource Manager resources
-- Update an existing Automation account and create a classic Run As account using PowerShell
-- Demonstrate with sample code, how to authenticate with Service Management resources
+We will show you how to create the Automation account from the Azure portal, update an Automation account using PowerShell, and demonstrate how to authenticate in your runbooks.
 
 Before we do that, there are a few things that you should understand and consider before proceeding.
 
 1. This does not impact existing Automation accounts already created in either the classic or Resource Manager deployment model.  
 2. This will only work for Automation accounts created through the Azure portal.  Attempting to create an account from the classic portal will not replicate the Run As account configuration.
 3. If you currently have runbooks and assets (i.e. schedules, variables, etc.) created for runbooks to manage classic resources, you will either need to migrate them from the current account to the new Run As account or update the Automation account with the classic Run As account using PowerShell.  
-4. To authenticate using the new Automation account, you will need to modify your existing runbooks with the sample code.  **Please note** that the service principal is for authentication against Resource Manager resources, and the classic Run As account is for authenticating against Service Management resources.     
+4. To authenticate using the new service principal and Run As Automation account, you will need to modify your existing runbooks with the sample code.  **Please note** that the service principal is for authentication against Resource Manager resources, and the classic Run As account is for authenticating against Service Management resources.     
 
 
 ## Create a new Automation Account from the Azure Portal
 
-In this section, you will perform the following steps to create a new Azure Automation account and service principal from the Azure portal.  This creates both the service principal and classic Run As account.  
+In this section, you will perform the following steps to create a new Azure Automation account  from the Azure portal.  This creates both the service principal and classic Run As account.  
 
 >[AZURE.NOTE] The user performing these steps *must* be a member of the Subscription Admins role and co-administrator of the subscription which is granting access to the subscription for the user.  The user must also be added as a User to that subscriptions default Active Directory; the account does not need to be assigned to a privileged role. 
 
-1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
+1. Log in to the Azure portal as an account member of the Subscription Admins role and co-administrator of the subscription.
 2. Select **Automation Accounts**.
 3. In the Automation Accounts blade, click **Add**.<br>![Add Automation Account](media/automation-sec-configure-azure-runas-account/create-automation-account-properties.png)
 
-    >[AZURE.NOTE] If you see the following warning in the **Add Automation Account** blade, this is because your account is not a member of the Subscription admins role and co-admin of the subcription.<br>![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
+    >[AZURE.NOTE] If you see the following warning in the **Add Automation Account** blade, this is because your account is not a member of the Subscription Admins role and co-admin of the subcription.<br>![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
 
 4. In the **Add Automation Account** blade, in the **Name** box type in a name for your new Automation account.
 5. If you have more than one subscription, specify one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 6. Verify the value **Yes** is selected for the **Create Azure Run As account** option, and click the **Create** button.  
 
-    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created in the Azure portal and and assigned to the **Contributor** role in the subscription, it will not have a corresponding authentication identity within your classic or Resource Manager subscription directory service and therefore, no access to resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against resources in those deployment models.
+    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created in the Azure portal, it will not have a corresponding authentication identity within your classic or Resource Manager subscription directory service and therefore, no access to resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against resources in those deployment models.
     >
     >![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)
+
+    >[AZURE.NOTE] When the service principal is not created the Contributor role will not be assigned.
+
 
 7. While Azure creates the Automation account, you can track the progress under **Notifications** from the menu.
 
 ### Resources included
 
-When the Run As account is successfully created, several resources are automatically created for you.  For the service principal, they are summarized in the following table.<br>
+When the Run As account is successfully created, several resources are automatically created for you.  The following table summarizes resources for the service principal.<br>
 
 Resource|Description 
 ----|----
@@ -93,6 +90,35 @@ AzureClassicAutomationTutorial Script Runbook|An example runbook  which gets all
 AzureClassicRunAsCertificate|Certificate asset automatically created that is used to authenticate with Azure so that you can manage Azure classic resources from runbooks.  This certificate has a one-year lifespan. 
 AzureClassicRunAsConnection|Connection asset automatically created that is used to authenticate with Azure so that you can manage Azure classic resources from runbooks.  
 
+### Verify service principal authentication
+
+Next we will perform a small test to confirm you are able to successfully authenticate using the new service principal. If you’re unable to successfully authenticate, go back to Step 1 and confirm each of the previous steps again.    
+
+1. In the Azure Portal, open the Automation account created earlier.  
+2. Click on the **Runbooks** tile to open the list of runbooks.
+3. Select the **AzureAutomationTutorialScript** runbook and then click **Start** to start the runbook.  You will receive a prompt verifying you wish to start the runbook.
+4. A [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile.  
+5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
+6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)<br>
+7. To see the detailed results of the runbook, click on the **Output** tile.
+8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all resources available in the resource group. 
+9. Close the **Output** blade to return to the **Job Summary** blade.
+13. Close the **Job Summary** and the corresponding **AzureAutomationTutorialScript** runbook blade.
+
+### Verify classic Run As authentication
+
+Next we will perform a small test to confirm you are able to successfully authenticate using the new classic Run As account. If you’re unable to successfully authenticate, go back to Step 1 and confirm each of the previous steps again.    
+
+1. In the Azure Portal, open the Automation account created earlier.  
+2. Click on the **Runbooks** tile to open the list of runbooks.
+3. Select the **AzureClassicAutomationTutorialScript** runbook and then click **Start** to  start the runbook.  You will receive a prompt verifying you wish to start the runbook.
+4. A [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile.  
+5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
+6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
+7. To see the detailed results of the runbook, click on the **Output** tile.
+8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all resources available in the resource group. 
+9. Close the **Output** blade to return to the **Job Summary** blade.
+13. Close the **Job Summary** and the corresponding **AzureClassicAutomationTutorialScript** runbook blade.
 
 ## Update an Automation Account using PowerShell
 
@@ -117,10 +143,11 @@ The PowerShell script below will configure the following:
 
 - An Azure AD application that will be authenticated with the self-signed cert, create a service principal account for this application in Azure AD, and assigned the Contributor role (you could change this to Owner or any other role) for this account in your current subscription.  For further information, please review the [Role-based access control in Azure Automation](../automation/automation-role-based-access-control.md) article.
 - An Automation certificate asset in the specified automation account named **AzureRunAsCertificate**, which holds the certificate used by the service principal.
-- An Automation connection asset in the specified automation account named **AzureRunAsConnection**, which holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.
+- An Automation connection asset in the specified automation account named **AzureRunAsConnection**, which holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.    
 
-<br>
-1. Save the following script on your computer.  In this example, save it with the filename **New-AzureServicePrincipal.ps1**.
+The steps below will walk you through the process of executing the script.
+
+1. Save the following script on your computer.  In this example, save it with the filename **New-AzureServicePrincipal.ps1**.  
 
         #Requires -RunAsAdministrator
         Param (
@@ -176,15 +203,15 @@ The PowerShell script below will configure the following:
 
         $NewRole = $null
         $Retries = 0;
-        While ($NewRole -eq $null -and $Retries -le 2)
+        While ($NewRole -eq $null -and $Retries -le 6)
         {
-          # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-         Sleep 5
-         New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
-         Sleep 5
-         $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
-         $Retries++;
-        }
+           # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+           Sleep 5
+           New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+           Sleep 10
+           $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+           $Retries++;
+        } 
 
         # Get the tenant id for this subscription
         $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
@@ -198,42 +225,27 @@ The PowerShell script below will configure the following:
         Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
         $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
         New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
- 
-<br>
-2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.  
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.
+
+2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
+3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
+
+    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You will be prompted to authenticate with Azure after you execute the script. You must log in with an account that is member of the Subscription Admins role and co-admin of the subscription.
     
-   >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You *must* log in with an account that is a Service administrator and co-admin of the subscription.   
-    
-    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
-    -AutomationAccountName <NameofAutomationAccount> `
-    -ApplicationDisplayName <DisplayNameofAutomationAccount> `
-    -SubscriptionId <SubscriptionId> `
-    -CertPlainPassword "<StrongPassword>"  
+        .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
+        -AutomationAccountName <NameofAutomationAccount> `
+        -ApplicationDisplayName <DisplayNameofAutomationAccount> `
+        -SubscriptionId <SubscriptionId> `
+        -CertPlainPassword "<StrongPassword>"  
 <br>
-After the script completes successfully, proceed to the next section to test and verify the new credential configuration.
 
-### Verify authentication
-
-Next we will perform a small test to confirm you are able to successfully authenticate using the new service principal. If you’re unable to successfully authenticate, go back to Step 1 and confirm each of the previous steps again.    
-
-1. In the Azure Portal, open the Automation account created earlier.  
-2. Click on the **Runbooks** tile to open the list of runbooks.
-3. Select the **AzureAutomationTutorialScript** runbook and then click **Start** to to start the runbook.  You will receive a prompt verifying you wish to start the runbook.
-4. A [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile.  
-5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
-6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)<br>
-7. To see the detailed results of the runbook, click on the **Output** tile.
-8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all resources available in the resource group. 
-9. Close the **Output** blade to return to the **Job Summary** blade.
-13. Close the **Job Summary** and the corresponding **AzureAutomationTutorialScript** runbook blade.
+After the script completes successfully, refer to [Verify service principal authentication](#verify-service-principal-authentication) to validate credential configuration. 
 
 ### Create classic Run As account PowerShell script
 
 The PowerShell script below will configure the following:
 
 - An Automation certificate asset in the specified automation account named **AzureClassicRunAsCertificate**, which holds the certificate used to authenticate your runbooks.
-- An Automation connection asset in the specified automation account named **AzureClassicRunAsConnection**, which holds the subscriptionId and certificate asset name.
+- An Automation connection asset in the specified automation account named **AzureClassicRunAsConnection**, which holds the subscription name, subscriptionId and certificate asset name.
 
 The script will create a self-signed management certificate and save it to the temporary files folder on your computer under the user profile used to execute the PowerShell session - *%USERPROFILE%\AppData\Local\Temp*.  After script execution, you will need to upload the Azure management certificate into the management store for the subscription the Automation account was created in.  The steps below will walk you through the process of executing the script and uploading the certificate.  
 
@@ -294,31 +306,15 @@ The script will create a self-signed management certificate and save it to the t
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.  
 3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
 
-   >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You *must* log in with an account that is a Service administrator and co-admin of the subscription.
+    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You *must* log in with an account that is a Service administrator and co-admin of the subscription.
    
-    .\New-AzureClassicRunAsAccount.ps1 -ResourceGroup <ResourceGroupName> 
-    -AutomationAccountName <NameofAutomationAccount> `
-    -ApplicationDisplayName <DisplayNameofAutomationAccount> `
-    -SubscriptionId <SubscriptionId> `
-    -CertPlainPassword "<StrongPassword>" 
+        .\New-AzureClassicRunAsAccount.ps1 -ResourceGroup <ResourceGroupName> 
+        -AutomationAccountName <NameofAutomationAccount> `
+        -ApplicationDisplayName <DisplayNameofAutomationAccount> `
+        -SubscriptionId <SubscriptionId> `
+        -CertPlainPassword "<StrongPassword>" 
 
-After the script completes successfully, you will need to copy the certificate created in your user profile **Temp** folder.  Follow the steps for [uploading a management API certificate](../azure-api-management-certs.md) to the Azure classic portal.  Then proceed to the next section to test and verify the new credential configuration.  
-
-
-### Verify authentication
-
-Next we will perform a small test to confirm you are able to successfully authenticate using the new classic Run As account. If you’re unable to successfully authenticate, go back to Step 1 and confirm each of the previous steps again.    
-
-1. In the Azure Portal, open the Automation account created earlier.  
-2. Click on the **Runbooks** tile to open the list of runbooks.
-3. Select the **AzureClassicAutomationTutorialScript** runbook and then click **Start** to to start the runbook.  You will receive a prompt verifying you wish to start the runbook.
-4. A [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile.  
-5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
-6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
-7. To see the detailed results of the runbook, click on the **Output** tile.
-8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all resources available in the resource group. 
-9. Close the **Output** blade to return to the **Job Summary** blade.
-13. Close the **Job Summary** and the corresponding **AzureClassicAutomationTutorialScript** runbook blade.
+After the script completes successfully, you will need to copy the certificate created in your user profile **Temp** folder.  Follow the steps for [uploading a management API certificate](../azure-api-management-certs.md) to the Azure classic portal and then refer to [Verify classic Run As authentication](#verify-classic-run-as-authentication) to validate credential configuration. 
 
 ## Sample code to authenticate with Resource Manager resources
 
