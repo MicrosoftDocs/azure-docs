@@ -18,7 +18,7 @@
 
 # Application deployment with Azure Batch application packages
 
-The application packages feature of Azure Batch provides easy management and deployment of applications to the compute nodes in your pool. With application packages, you can upload and manage multiple versions of the applications, including binaries and supporting files that your tasks run. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
+The application packages feature of Azure Batch provides easy management and deployment of applications to the compute nodes in your pool. With application packages, you can upload and manage multiple versions of the applications, including binaries run by your tasks and their supporting files. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
 
 In this article, you will learn how to upload and manage application packages by using the Azure portal. You will then how to install them on a pool's compute nodes by using the [Batch .NET][api_net] library.
 
