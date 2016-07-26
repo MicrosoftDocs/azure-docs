@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Author Logic App definitions | Microsoft Azure" 
 	description="Learn how to write the JSON definition for Logic apps" 
-	authors="stepsic-microsoft-com" 
+	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,36 +13,62 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
-	ms.author="stepsic"/>
+	ms.date="07/25/2016"
+	ms.author="jehollan"/>
 	
 # Author Logic App definitions
-This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
+This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
 
 ## Several steps that repeat over a list
 
-A common pattern is to have one step that gets a list of items, and then you have a series of two or more actions that you want to do for each item in the list:  
+You can leverage the [foreach type](app-service-logic-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.
 
-![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
+## A failure-handling step if something goes wrong
 
-![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
-
-![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
-
-![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists4.png) 
-
- 
-In this example, there are 3 actions:
-
-1. Get a list of articles. This returns an object that contains an array.
-
-2. An action that goes to a link property on each article, which returns the actual location of the article.
-
-3. An action that iterates over all of the results from the second action to download the actual articles. 
+You commonly want to be able to write a *remediation step* — some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later:  
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://myurl"
+			}
+		},
+		"postToErrorMessageQueue": {
+			"type": "ApiConnection",
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Failed"]
+			}
+		}
+	},
+	"outputs": {}
+}
+```
+
+You can make use of the `runAfter` property to specify the `postToErrorMessageQueue` should only run after `readData` is **Failed**.  This could also be a list of possible values, so `runAfter` could be `["Succeeded", "Failed"]`.
+
+Finally, because you have now handled the error, we no longer mark the run as **Failed**. As you can see here, this run is **Succeeded** even though one step Failed, because I wrote the step to handle this failure.
+
+## Two (or more) steps that execute in parallel
+
+To have multiple actions execution in parallel, the `runAfter` property must be equivalent at runtime. 
+
+```
+{
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {},
 	"triggers": {
@@ -51,40 +77,110 @@ In this example, there are 3 actions:
 		}
 	},
 	"actions": {
-		"getArticles": {
+		"readData": {
 			"type": "Http",
 			"inputs": {
 				"method": "GET",
-				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+				"uri": "http://myurl"
 			}
 		},
-		"readLinks": {
+		"branch1": {
 			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item().link"
-			},
-			"forEach": "@body('getArticles').responseData.feed.entries"
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Succeeded"]
+			}
 		},
-		"downloadLinks": {
+		"branch2": {
 			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item().outputs.headers.location"
-			},
-			"conditions": [{
-				"expression": "@not(equals(actions('readLinks').status, 'Skipped'))"
-			}],
-			"forEach": "@actions('readLinks').outputs"
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Succeeded"]
+			}
 		}
 	},
 	"outputs": {}
 }
 ```
 
-As covered in [use logic app features](app-service-logic-use-logic-app-features.md), you iterate over the first list by using the `forEach:` property on the second action. However, for the third action, you need to select the `@actions('readLinks').outputs` property, because the second executed for each article.
+As you can see in the example above, both `branch1` and `branch2` are set to run after `readData`. As a result, both of these branches will run in parallel:
 
-Inside the action you can use the [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item) function. In this example, I wanted to get the `location` header, so I had to continue with `@item().outputs.headers` to get the outputs of the action execution from the second action that we are now iterating over.  
+![Parallel](./media/app-service-logic-author-definitions/parallel.png)
+
+You can see the timestamp for both branches is identical. 
+
+## Join two parallel branches
+
+You can join two actions that were set to execute in parallel by adding items to the `runAfter` property similar to above.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
+    "actions": {
+        "readData": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {},
+            "type": "Http"
+        },
+        "branch1": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "readData": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        },
+        "branch2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "readData": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        },
+        "join": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "branch1": [
+                    "Succeeded"
+                ],
+                "branch2": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "parameters": {},
+    "triggers": {
+        "manual": {
+            "inputs": {
+                "schema": {}
+            },
+            "kind": "Http",
+            "type": "Request"
+        }
+    }
+}
+```
+
+![Parallel](./media/app-service-logic-author-definitions/join.png)
 
 ## Mapping items in a list to some different configuration
 
@@ -92,7 +188,7 @@ Next, let's say that we want to get completely different content depending on a 
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"specialCategories": {
@@ -143,344 +239,6 @@ In this case, we first get a list of articles, and then the second step looks up
 
 Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
 
-## Chain/nest Logic Apps while repeating over a list
-
-It can often be easier to manage your Logic Apps when they are more discreet. You can do this by factoring your logic into multiple definitions and calling them from the same parent definition. In this example, there will be a parent Logic app that receives orders, and a child logic app that executes some steps for each order.
-
-In the parent logic app:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"orders": {
-			"defaultValue": [{
-				"quantity": 10,
-				"id": "myorder1"
-			}, {
-				"quantity": 200,
-				"id": "specialOrder"
-			}, {
-				"quantity": 5,
-				"id": "myOtherOrder"
-			}],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"iterateOverOrders": {
-			"type": "Workflow",
-			"inputs": {
-				"uri": "https://westus.logic.azure.com/subscriptions/xxxxxx-xxxxx-xxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Logic/workflows/xxxxxxx",
-				"apiVersion": "2015-02-01-preview",
-				"trigger": {
-					"name": "submitOrder",
-					"outputs": {
-						"body": "@item()"
-					}
-				},
-				"authentication": {
-					"type": "Basic",
-					"username": "default",
-					"password": "xxxxxxxxxxxxxx"
-				}
-			},
-			"forEach": "@parameters('orders')"
-		},
-		"sendInvoices": {
-			"type": "Http",
-			"inputs": {
-				"uri": "http://www.example.com/?invoiceID=@{item().outputs.run.outputs.deliverTime.value}",
-				"method": "GET"
-			},
-			"forEach": "@outputs('iterateOverOrders')"
-		}
-	},
-	"outputs": {}
-}
-```
-
-Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"calulatePrice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?action=calcPrice&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-			}
-		},
-		"calculateDeliveryTime": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?action=calcTime&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-			}
-		}
-	},
-	"outputs": {
-		"deliverTime": {
-			"type": "String",
-			"value": "@outputs('calculateDeliveryTime').headers.etag"
-		}
-	}
-}
-```
-
-You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx). 
-
->[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
-
-
-## A failure-handling step if something goes wrong
-
-You commonly want to be able to write a *remediation step* — some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later:  
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"dataFeeds": {
-			"defaultValue": ["https://www.microsoft.com/en-us/default.aspx", "https://gibberish.gibberish/"],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item()"
-			},
-			"forEach": "@parameters('dataFeeds')"
-		},
-		"postToErrorMessageQueue": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?noteAnErrorFor=@{item().inputs.uri}"
-			},
-			"conditions": [{
-				"expression": "@equals(actions('readData').status, 'Failed')"
-			}, {
-				"expression": "@equals(item().status, 'Failed')"
-			}],
-			"forEach": "@actions('readData').outputs"
-		}
-	},
-	"outputs": {}
-}
-```
-
-I am using two conditions because in the first step I am repeating over a list. If you just had a single action, you'd only need one condition (the first one). Also note that you can use the *inputs* to the failed action in your remediation step — here I pass the failed URL to the second step:  
-
-![Remediation](./media/app-service-logic-author-definitions/remediation.png)
-
-Finally, because you have now handled the error, we no longer mark the run as **Failed**. As you can see here, this run is **Succeeded** even though one step Failed, because I wrote the step to handle this failure.
-
-## Two (or more) steps that execute in parallel
-
-To have multiple actions execution in parallel, rather than in sequence, you need to remove the `dependsOn` condition that links those two actions together. Once the dependency is removed, actions will automatically execute in parallel, unless they need data from each other. 
-
-![Branches](./media/app-service-logic-author-definitions/branches.png)
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"dataFeeds": {
-			"defaultValue": ["https://www.microsoft.com/en-us/default.aspx", "https://office.live.com/start/default.aspx"],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item()"
-			},
-			"forEach": "@parameters('dataFeeds')"
-		},
-		"branch1": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?branch1Logic=@{item().inputs.uri}"
-			},
-			"forEach": "@actions('readData').outputs"
-		},
-		"branch2": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?branch2Logic=@{item().inputs.uri}"
-			},
-			"forEach": "@actions('readData').outputs"
-		}
-	},
-	"outputs": {}
-}
-```
-
-As you can see in the example above, branch1 and branch2 just depend on the content from readData. As a result, both of these branches will run in parallel:
-
-![Parallel](./media/app-service-logic-author-definitions/parallel.png)
-
-You can see the timestamp for both branches is identical. 
-
-## Join two conditional branches of logic
-
-You can combine two conditional flows of logic (that may or may not have executed) by having a single action that takes data from both branches. 
-
-Your strategy for this varies depending on if you are handling one item, or a collection of items. In the case of a single item, you'll want to use the [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce) function:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"handleNormalOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderNormally=@{parameters('order').id}"
-			},
-			"conditions": [{
-				"expression": "@lessOrEquals(parameters('order').quantity, 100)"
-			}]
-		},
-		"handleSpecialOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderSpecially=@{parameters('order').id}"
-			},
-			"conditions": [{
-				"expression": "@greater(parameters('order').quantity, 100)"
-			}]
-		},
-		"submitInvoice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?invoice=@{coalesce(outputs('handleNormalOrders')?.headers?.etag,outputs('handleSpecialOrders')?.headers?.etag )}"
-			},
-			"conditions": [{
-				"expression": "@or(equals(actions('handleNormalOrders').status, 'Succeeded'), equals(actions('handleSpecialOrders').status, 'Succeeded'))"
-			}]
-		}
-	},
-	"outputs": {}
-}
-```
- 
-Alternatively, when your first two branches both operate on a list of orders, for example, you'll want to use the [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) function to combine the data from both branches. 
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"orders": {
-			"defaultValue": [{
-				"quantity": 10,
-				"id": "myorder1"
-			}, {
-				"quantity": 200,
-				"id": "specialOrder"
-			}, {
-				"quantity": 5,
-				"id": "myOtherOrder"
-			}],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"handleNormalOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderNormally=@{item().id}"
-			},
-			"conditions": [{
-				"expression": "@lessOrEquals(item().quantity, 100)"
-			}],
-			"forEach": "@parameters('orders')"
-		},
-		"handleSpecialOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderSpecially=@{item().id}"
-			},
-			"conditions": [{
-				"expression": "@greater(item().quantity, 100)"
-			}],
-			"forEach": "@parameters('orders')"
-		},
-		"submitInvoice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?invoice=@{item().outputs.headers.etag}"
-			},
-			"conditions": [{
-				"expression": "@equals(item().status, 'Succeeded')"
-			}],
-			"forEach": "@union(actions('handleNormalOrders').outputs, actions('handleSpecialOrders').outputs)"
-		}
-	},
-	"outputs": {}
-}
-```
 ## Working with Strings
 
 There are variety of functions that can be used to manipulate string. Let's take an example where we have a string that we want to pass to a system, but we are not confident that character encoding will be handled properly. One option is to base64 encode this string. However, to avoid escaping in a URL we are going to replace a few characters. 
@@ -489,7 +247,7 @@ We also want a substring of the the order's name because the first 5 characters 
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"order": {
@@ -539,7 +297,7 @@ Date Times can be useful, particularly when you are trying to pull data from a d
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"order": {
@@ -564,14 +322,15 @@ Date Times can be useful, particularly when you are trying to pull data from a d
 			}
 		},
 		"timingWarning": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-			},
-			"conditions": [{
-				"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
-			}]
+			"actions" {
+				"type": "Http",
+				"inputs": {
+					"method": "GET",
+					"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+				},
+				"runAfter": {}
+			}
+			"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
 		}
 	},
 	"outputs": {}
@@ -581,57 +340,6 @@ Date Times can be useful, particularly when you are trying to pull data from a d
 In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
 
 Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
-
-## Passing in values at runtime to vary behavior
-
-Let's say you have different behaviors that you want to run based on some value that you use to kick off your Logic app. You can use the [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs) function to get these values out of what you passed in:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@triggerOutputs().uriToGet"
-			}
-		},
-		"extraStep": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/extraStep"
-			},
-			"conditions": [{
-				"expression": "@triggerOutputs().doMoreLogic"
-			}]
-		}
-	},
-	"outputs": {}
-}
-```
-
-To actually make this work, when you start the run you need to pass the properties you want (in the above example `uriToGet` and `doMoreLogic`). 
-
-With the following payload. Note that you have provided the Logic app with the values to use now:
-
-```
-{
-    "outputs": {
-        "uriToGet" : "http://my.uri.I.want/",
-        "doMoreLogic" : true
-    }
-}
-``` 
-
-When this logic app runs it will call the uri I passed in, and run that additional step because I passed `true`. If you want to only vary parameters at deployment time (not for *each run*), then you should use `parameters` as called out below.
 
 ## Using deployment-time parameters for different environments
 
@@ -643,10 +351,10 @@ You can start with a very simplistic definition like this one:
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
-		"connection": {
+		"uri": {
 			"type": "string"
 		}
 	},
@@ -660,7 +368,7 @@ You can start with a very simplistic definition like this one:
 			"type": "Http",
 			"inputs": {
 				"method": "GET",
-				"uri": "@parameters('connection')"
+				"uri": "@parameters('uri')"
 			}
 		}
 	},
@@ -668,17 +376,11 @@ You can start with a very simplistic definition like this one:
 }
 ```
 
-Then, in the actual `PUT` request for the Logic app you can provide the parameter `connection`. Note, as there is no longer a default value this parameter is required in the Logic app payload:
+Then, in the actual `PUT` request for the Logic app you can provide the parameter `uri`. Note, as there is no longer a default value this parameter is required in the Logic app payload:
 
 ```
 {
-    "properties": {
-        "sku": {
-            "name": "Premium",
-            "plan": {
-                "id": "/subscriptions/xxxxx/resourceGroups/xxxxxx/providers/Microsoft.Web/serverFarms/xxxxxx"
-            }
-        },
+    "properties": {},
         "definition": {
           // Use the definition from above here
         },
@@ -693,40 +395,5 @@ Then, in the actual `PUT` request for the Logic app you can provide the paramete
 ``` 
 
 In each environment you can then provide a different value for the `connection` parameter. 
-
-## Running a step until a condition is met
-
-You may have an API that you are calling, and you want to wait for a certain response before proceeding. Imagine, for example, that you want to wait for someone to upload a file to a directory before processing the file. You can do that with *do-until*:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"http0": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://mydomain/listfiles"
-			},
-			"until": {
-				"limit": {
-					"timeout": "PT10M"
-				},
-				"conditions": [{
-					"expression": "@greater(length(action().outputs.body),0)"
-				}]
-			}
-		}
-	},
-	"outputs": {}
-}
-```
 
 See the [REST API documentation](https://msdn.microsoft.com/library/azure/mt643787.aspx) for all of the options you have for creating and managing Logic apps. 
