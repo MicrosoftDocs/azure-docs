@@ -157,10 +157,20 @@ You can browse to the IoT hub you want to delete by clicking **Browse**, and the
 
 ## Next steps
 
-Follow these links to learn more about Azure IoT Hub:
+Follow these links to learn more about managing Azure IoT Hub:
 
-- [Get started with IoT Hub (Tutorial)][lnk-get-started]
-- [What is Azure IoT Hub?][]
+- [Bulk manage IoT devices][lnk-bulk]
+- [Usage metrics][lnk-metrics]
+- [Operations monitoring][lnk-monitor]
+- [Manage access to IoT Hub][lnk-itpro]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Secure your IoT solution from the ground up][lnk-securing]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -174,3 +184,14 @@ Follow these links to learn more about Azure IoT Hub:
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+
+[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-securing]: iot-hub-security-ground-up.md

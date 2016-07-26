@@ -112,7 +112,7 @@ Custom health probes allow additional flexibility to the default probing behavio
 
 
 ###Solution
-Validate that the Custom Health Probe is configured correctly as per table below. In addition to the troubleshooting steps above, also ensure the following.
+Validate that the Custom Health Probe is configured correctly as per table above. In addition to the troubleshooting steps above, also ensure the following.
 
 - Ensure that the Protocol is set to HTTP only. HTTPS is not currently supported.
 - Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md). 

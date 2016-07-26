@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="07/19/2016"
 	ms.author="carlrab"/>
 
 # SQL Database tutorial: Create SQL database user accounts to access and manage a database using the Azure portal

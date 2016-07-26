@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/08/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Introduction to Microsoft Azure Storage
@@ -208,7 +208,9 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Tools and Utilities
 
-- [Azure SDKs and Tools](https://azure.microsoft.com/downloads/)
+- [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Azure Storage Client Tools](storage-explorers.md)
+- [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
 - [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure PowerShell](../powershell-install-configure.md)
 - [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)

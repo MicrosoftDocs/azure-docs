@@ -8,13 +8,13 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2016" 
-	ms.author="guayan"/>
+	ms.author="rachelap"/>
 
 # Azure App Service API app triggers
 

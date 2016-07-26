@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Advanced usage of the Reliable Services programming model
@@ -46,7 +46,7 @@ Although `RunAsync` should be sufficient in almost all cases, the open, close, a
 A stateful service replica's lifecycle is much more complex than a stateless service instance. In addition to open, close, and abort events, a stateful service replica undergoes role changes during its lifetime. When a stateful service replica changes role, the `OnChangeRoleAsync` event is triggered:
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`
-    OnChangeRoleAsync is called when the stateful service is changing roles, for example to primary or secondary. Primary replicas are given write status (are allowed to create and write to the reliable collections). Secondary replicas are given read status (can only read from existing reliable collections). You can start or update the background tasks in response to role changes, such as performing read-only validation, report generation, or data mining on a secondary.
+    OnChangeRoleAsync is called when the stateful service replica is changing role, for example to primary or secondary. Primary replicas are given write status (are allowed to create and write to Reliable Collections). Secondary replicas are given read status (can only read from existing Reliable Collections). Most work in a stateful service is performed at the primary replica. Secondary replicas can perform read-only validation, report generation, data mining, or other read-only jobs.
 
 In a stateful service, only the primary replica has write access to state and thus is generally when the service is performing actual work. The `RunAsync` method in a stateful service is executed only when the stateful service replica is primary. The `RunAsync` method is cancelled when a primary replica's role changes away from primary, as well as during the close and abort events. 
 

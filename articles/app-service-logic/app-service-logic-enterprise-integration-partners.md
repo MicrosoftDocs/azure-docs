@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn about partners and Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Learn about partners and Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -8,12 +8,12 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Learn about partners and Enterprise Integration Pack
@@ -63,15 +63,13 @@ Follow these steps to edit a partner that already exists in your integration acc
 4. If you are satisfied with your changes, select the **Save** link, else, select the **Discard** link to throw away your changes.  
 ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)  
 
-
 ## How to delete a partner
 1. Select the **Partners** tile  
 2. Select the partner you wish to edit when the Partners blade opens up  
 3. Select the **Delete** link    
 ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)   
 
-
 ## Next steps
-- [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
 
 

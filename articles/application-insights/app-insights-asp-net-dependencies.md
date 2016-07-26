@@ -99,11 +99,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## <a name="diagnosis"></a> Diagnosing dependency performance issues
 
-To assess the performance of requests at your server:
-
-![In the Overview page of your application in Application Insights, click the Performance tile](./media/app-insights-asp-net-dependencies/01-performance.png)
-
-Scroll down to look at the grid of requests:
+To assess the performance of requests at your server, open the Performance blade and scroll down to look at the grid of requests:
 
 ![List of requests with averages and counts](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
@@ -116,21 +112,24 @@ Click that row to see individual request events:
 
 Click any long-running instance to inspect it further.
 
-> [AZURE.NOTE] Scroll down a bit to choose an instance. Latency in the pipeline might mean that the data for the top instances is incomplete.
-
 Scroll down to the remote dependency calls related to this request:
 
 ![Find Calls to Remote Dependencies, identify unusual Duration](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 It looks like most of the time servicing this request was spent in a call to a local service. 
 
-Select that row to get more information:
 
+Select that row to get more information:
 
 ![Click through that remote dependency to identify the culprit](./media/app-insights-asp-net-dependencies/05-detail.png)
 
 The detail includes sufficient information to diagnose the problem.
 
+
+In a different case, no dependency call is long, but by switching to the timeline view, we can see where the delay occurred in our internal processing:
+
+
+![Find Calls to Remote Dependencies, identify unusual Duration](./media/app-insights-asp-net-dependencies/04-1.png)
 
 
 ## Failures
@@ -178,9 +177,9 @@ If you want to switch off the standard dependency tracking module, remove the re
 
 ## Next steps
 
-- [Exceptions](app-insights-asp-net-exception-mvc.md#selector1)
-- [User & page data](app-insights-asp-net-client.md#selector1)
-- [Availability](app-insights-monitor-web-app-availability.md#selector1)
+- [Exceptions](app-insights-asp-net-exceptions.md)
+- [User & page data][client]
+- [Availability](app-insights-monitor-web-app-availability.md)
 
 
 

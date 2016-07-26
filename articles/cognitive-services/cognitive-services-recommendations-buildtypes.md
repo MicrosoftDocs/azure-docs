@@ -197,7 +197,7 @@ At build time, as part of the respective FBT or Recommendation build parameters:
 
 This will trigger a build that uses only a subset of the data for training, and the rest of the
  data is used to compute evaluation metrics.  After the build is completed, to get the output of the evaluation,
- you just need to call the [Get build metrics API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console),
+ you just need to call the [Get build metrics API] (https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f),
  passing the respective *modelId* and *buildId*.
 
  Below is the JSON output for the sample evaluation we performed:

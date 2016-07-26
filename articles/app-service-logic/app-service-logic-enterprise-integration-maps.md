@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Overview of maps Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Overview of maps Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to use maps with the Enterprise Integration Pack and Logic apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -8,12 +8,12 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Learn about maps and the Enterprise Integration Pack
@@ -54,8 +54,7 @@ Follow these steps to upload a new map that replaces an existing map:
 ![](./media/app-service-logic-enterprise-integration-maps/edit-1.png)   
 4. Select the map file you wish to upload by using the file picker dialog that opens up then select **Open** in the file picker   
 ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)   
-5. You will receive a notification popup after the map is uploaded.  
-
+5. You will receive a notification popup after the map is uploaded.    
 
 ## How to delete a map?
 1. Select the **Maps** tile  
@@ -65,6 +64,7 @@ Follow these steps to upload a new map that replaces an existing map:
 4. Confirm you that you really intend to delete the map.  
 ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)   
 
-
 ## Next Steps
-- [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+- [Learn more about transforms](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration transforms")  

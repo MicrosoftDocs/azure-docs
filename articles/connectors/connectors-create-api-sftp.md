@@ -1,265 +1,420 @@
 <properties
-    pageTitle="Add the SFTP connector  in your Logic Apps | Microsoft Azure"
-    description="Overview of the SFTP connector  with REST API parameters"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+pageTitle="Learn how to use the SFTP connector in your logic apps | Microsoft Azure"
+description="Create logic apps with Azure App service. Connect to SFTP API to send and receive files. You can perform various operations such as create, update, get or delete files."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/18/2016"
-   ms.author="mandia"/>
+ms.service="logic-apps"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/20/2016"
+ms.author="deonhe"/>
 
-# Get started with the SFTP connector 
-Connect to an SFTP server to manage your files. You can do different tasks on the SFTP server, such as upload files, delete files, and more. The SFTP connector  can be used from: 
+# Get started with the SFTP connector
 
-- Logic apps
+Use the SFTP connector to access an SFTP account to send and receive files. You can perform various operations such as create, update, get or delete files.  
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-With SFTP, you can: 
+## Connect to SFTP
 
-- Build your business flow based on the data you get from SFTP. 
-- Use a trigger when a file is updated.
-- Use actions that create files, delete files, and more. These actions get a response, and then make the output available for other actions. For example, you can get the content of a file, and then update a SQL database. 
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Create a connection to SFTP
+
+>[AZURE.INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
+
+## Use an SFTP trigger
+
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+
+In this example, I will show you how to use the **SFTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an SFTP server. In the example, you will also learn how to add a condition that checks the contents of the new or modified file and make a decision to extract the file if its contents indicate that it  should be extracted before using the contents. Finally, you will learn how to add an action to extract the contents of a file and place the extracted contents in a folder on the SFTP server. 
+
+In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent orders from customers.  You could then use an SFTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
+
+>[AZURE.INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
+
+## Add a condition
+
+>[AZURE.INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
+
+## Use an SFTP action
+
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+
+>[AZURE.INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 
 
-## Triggers and actions
-The SFTP connector  has the following triggers and actions available.
+## Technical Details
 
-Triggers | Actions
---- | ---
-<ul><li>When a file is created or modified </li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is created or modified </li></ul>
+Here are the details about the triggers, actions and responses that this connection supports:
 
-All connectors support data in JSON and XML formats. 
+## SFTP triggers
+
+SFTP has the following trigger(s):  
+
+|Trigger | Description|
+|--- | ---|
+|[When a file is added or modified](connectors-create-api-sftp.md#when-a-file-is-added-or-modified)|This operation triggers a flow when a file is added or modified in a folder.|
 
 
-## Create a connection to SFTP
-When you add this connector to your logic apps, enter the following values:
+## SFTP actions
 
-|Property| Required|Description|
+SFTP has the following actions:
+
+
+|Action|Description|
+|--- | ---|
+|[Get file metadata](connectors-create-api-sftp.md#get-file-metadata)|This operation gets file metadata using the file id.|
+|[Update file](connectors-create-api-sftp.md#update-file)|This operation updates the file content.|
+|[Delete file](connectors-create-api-sftp.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-sftp.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
+|[Get file content using path](connectors-create-api-sftp.md#get-file-content-using-path)|This operation gets file contents using the file path.|
+|[Get file content](connectors-create-api-sftp.md#get-file-content)|This operation gets file contents using the file id.|
+|[Create file](connectors-create-api-sftp.md#create-file)|This operation uploads a file to an SFTP server.|
+|[Copy file](connectors-create-api-sftp.md#copy-file)|This operation copies a file to an SFTP server.|
+|[List files in folder](connectors-create-api-sftp.md#list-files-in-folder)|This operation gets files contained in a folder.|
+|[List files in root folder](connectors-create-api-sftp.md#list-files-in-root-folder)|This operation gets the files in the root folder.|
+|[Extract folder](connectors-create-api-sftp.md#extract-folder)|This operation extracts an archive file into a folder (example: .zip).|
+### Action details
+
+Here are the details for the actions and triggers for this connector, along with their responses:
+
+
+
+### Get file metadata
+This operation gets file metadata using the file id. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|Host Server Address| Yes | Enter the fully qualified domain (FQDN) or IP address of the SFTP server.|
-|User name| Yes | Enter the user name to connect to the SFTP Server.|
-|Password | Yes | Enter the user name's password.|
-|SSH Server Host Key Finger Print | Yes | Enter the fingerprint of the public host key for the SSH server. <br/><br/>Typically, the server administrator can give you this key. You can also use the ```WinSCP``` or ```ssh-keygen-g3 -F``` tools to get the key fingerprint. | 
+|id*|File|Specify the file|
 
-Here's a walk through of the steps to create the connection:  
+An * indicates that a property is required
 
->[AZURE.INCLUDE [Steps to create a connection to sftp](../../includes/connectors-create-api-sftp.md)]
+#### Output Details
 
-After you create the connection, you enter the SFTP properties, like the folder path or file. The **REST API reference** in this topic describes these properties.
-
->[AZURE.TIP] You can use this same SFTP connection in other logic apps.
+BlobMetadata
 
 
-## Swagger REST API reference
-Applies to version: 1.0.
-
-### Create file
-Uploads a file in SFTP.  
-```POST: /datasets/default/files```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|yes|query|none |Unique path of the folder in SFTP|
-|name|string|yes|query| none|Name of the file|
-|body|string(binary) |yes|body|none |Content of the file to create in SFTP|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-### Copy file
-Copies a file to SFTP.  
-```POST: /datasets/default/copyFile```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query| none|Path to the source file|
-|destination|string|yes|query|none |Path to the destination file, including file name|
-|overwrite|boolean|no|query|none|Overwrites the destination file if set to 'true'|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-### Delete file 
-Deletes a file in SFTP.  
-```DELETE: /datasets/default/files/{id}```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file in SFTP|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-### Extract folder
-Extracts an archive file into a folder using SFTP (example: .zip).  
-```POST: /datasets/default/extractFolderV2```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query|none |Path to the archive file|
-|destination|string|yes|query|none |Path to the destination folder|
-|overwrite|boolean|no|query|none|Overwrites the destination files if set to 'true'|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-### Get file content
-Retrieves file contents from SFTP using id.  
-```GET: /datasets/default/files/{id}/content```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file in SFTP|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
-### Get file content using path
-Retrieves file contents from SFTP using path.  
-```GET: /datasets/default/GetFileContentByPath```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query| none|Unique path of the file in SFTP|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get File Metadata 
-Retrieves file metadata from SFTP using file id.  
-```GET: /datasets/default/files/{id}```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path| none|Unique identifier of the file in SFTP|
-
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 | OK | 
-| default | Operation Failed.
-
-
-### Get File Metadata using path
-Retrieves file metadata from SFTP using path.  
-```GET: /datasets/default/GetFileByPath```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|none |Unique path of the file in SFTP|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
 
 
 ### Update file
-Updates file content using SFTP.  
-```PUT: /datasets/default/files/{id}```
+This operation updates the file content. 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file in SFTP|
-|body|string(binary) |yes|body| none|Content of the file to update in SFTP|
 
-#### Response
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Specify the file|
+|body*|File content|Content of the file to update|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Delete file
+This operation deletes a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Specify the file|
+
+An * indicates that a property is required
+
+
+
+
+### Get file metadata using path
+This operation gets file metadata using the file path. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|path*|File path|Unique path of the file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Get file content using path
+This operation gets file contents using the file path. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|path*|File path|Unique path of the file|
+
+An * indicates that a property is required
+
+
+
+
+### Get file content
+This operation gets file contents using the file id. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Specify the file|
+
+An * indicates that a property is required
+
+
+
+
+### Create file
+This operation uploads a file to an SFTP server. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderPath*|Folder path|Unique path of the folder|
+|name*|File name|Name of the file|
+|body*|File content|Content of the file to create|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+|| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Copy file
+This operation copies a file to an SFTP server. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source file path|Path to the source file|
+|destination*|Destination file path|Path to the destination file, including file name|
+|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### When a file is added or modified
+This operation triggers a flow when a file is added or modified in a folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderId*|Folder|Specify a folder|
+
+An * indicates that a property is required
+
+
+
+
+### List files in folder
+This operation gets files contained in a folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|Folder|Specify the folder|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### List files in root folder
+This operation gets the files in the root folder. 
+
+
+There are no parameters for this call
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Extract folder
+This operation extracts an archive file into a folder (example: .zip). 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source archive file path|Path to the archive file|
+|destination*|Destination folder path|Path to the destination folder|
+|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+## HTTP responses
+
+The actions and triggers above can return one or more of the following HTTP status codes: 
+
 |Name|Description|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
 
-### When a file is created or modified 
-Triggers a flow when a file is modified in SFTP.  
-```GET: /datasets/default/triggers/onupdatedfile```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|none |Unique identifier of the folder|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
 
 
-## Object definitions
-
-#### DataSetsMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-#### BlobMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|Id|string|no|
-|Name|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|Size|integer|no|
-|MediaType|string|no|
-|IsFolder|boolean|no|
-|ETag|string|no|
-|FileLocator|string|no|
 
 
-## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+## Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
