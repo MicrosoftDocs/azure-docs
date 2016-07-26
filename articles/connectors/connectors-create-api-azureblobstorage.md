@@ -9,16 +9,18 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="app-service-logic"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="07/18/2016"
+   ms.workload="integration" 
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Azure blob storage connector
 Azure Blob storage is a service for storing large amounts of unstructured data. Perform various actions such as upload, update, get, and delete blobs in Azure blob storage. 
+
+With Azure blob storage, you:
 
 - Build your workflow by uploading new projects, or getting files that have been  recently updated.
 - Use actions to get file metadata, delete a file, copy files, and more. For example,  when a tool is updated in an Azure web site (a trigger), then update a file in blob storage (an action). 
@@ -27,10 +29,7 @@ This topic shows you how to use the blob storage connector in a logic app, and a
 
 >[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-Get started by [creating a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
->[AZURE.INCLUDE [What you need to get started](../../includes/connectors-create-api-azureblobstorage.md)]
-
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to Azure blob storage
 
@@ -43,24 +42,11 @@ When you add this connector to your logic apps, you create a connection to the b
 
 #### Create the connection
 
-1. Enter the storage account details. Properties with an asterisk are required.
-
-	| Property | Details |
-|---|---|
-| Connection Name * | Enter any name for your connection. |
-| Azure Storage Account Name * | Enter the storage account name. The storage account name is displayed in the storage properties in the Azure portal. |
-| Azure Storage Account Access Key * | Enter the storage account key. The access keys are displayed in the storage properties in the Azure portal. |
-
-	These credentials are used to authorize your logic app to connect, and access your data. Once complete, your connection details look similar to the following:  
-
-	![Azure blob connection creation step](./media/connectors-create-api-azureblobstorage/sample-connection.png) 
-
-2. Select **Create**.
-
+>[AZURE.INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
  
 ## Use a trigger
 
-This connector does not have any triggers. Use other triggers to start the logic app, including a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
 
 ## Use an action
 	
@@ -90,7 +76,7 @@ An action is an operation carried out by the workflow defined in a logic app.
 
 ## Technical Details
 
-## Actions
+## Storage Blob actions
 
 |Action|Description|
 |--- | ---|
