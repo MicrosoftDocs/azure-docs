@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/26/2016"
+	ms.date="07/13/2016"
 	ms.author="anandy;billmath"/>
 
-# AD FS in Azure 
+# AD FS deployment in Azure 
 
 AD FS provides simplified, secured identity federation and Web single sign-on (SSO) capabilities. Federation with Azure AD or O365 enables users to authenticate using on-premises credentials and access all resources in cloud. As a result, it becomes important to have a highly available AD FS infrastructure to ensure access to resources both on-premises and in the cloud. Deploying AD FS in Azure can help achieve the high availability required with minimal efforts.
 There are several advantages of deploying AD FS in Azure, a few of them are listed below:
@@ -278,14 +278,12 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 |Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ|	Allow the HTTPS communication to DMZ | Inbound |
+|AllowHTTPSFromDMZ| Allow the HTTPS communication from DMZ | Inbound |
 |DenyAllFromDMZ| This rule will block all traffic from DMZ to internal subnet. The rule AllowHTTPSFromDMZ already takes care of ensuring that HTTPS communication goes through and anything else is blocked by this rule | Inbound |
-|AllowHTTPSToDMZ| This rule will allow HTTPS communication to DMZ to be allowed | Outbound |
-|DenyDMZAll| All other traffic to DMZ, except HTTPS, will be blocked by this rule | Outbound |
 |DenyInternetOutbound| No access to internet | Outbound |
 
-![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)
-![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png)
+[comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
+[comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2.	Securing the DMZ subnet**
 
@@ -293,14 +291,13 @@ Overall, you need the following rules to efficiently secure your internal subnet
 |:----|:----|:------:|
 |AllowHttpsFromVirtualNetwork| Allow HTTPS from virtual network | Inbound |
 |AllowHTTPSInternet| Allow HTTPS from internet to the DMZ | Inbound|
-|DenyingressexceptHTTPS|	Block anything other than HTTPS from internet | Inbound |
-|AllowOutToADFS| Allow HTTPS to internal subnet | Outbound |
-|AllowHTTPSToInternet| Allow HTTPS to internet | Outbound |
+|DenyingressexceptHTTPS| Block anything other than HTTPS from internet | Inbound |
 |DenyOutToInternet|	Anything except HTTPS to internet is blocked | Outbound |
 
-![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)
-![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png)
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
+>[AZURE.NOTE] If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.
 
 ###10.	Test the AD FS sign-in
 

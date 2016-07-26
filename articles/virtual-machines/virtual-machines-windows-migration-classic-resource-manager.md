@@ -47,6 +47,7 @@ There are three migration scopes that primarily target compute, network and stor
 ### Migration of virtual machines (not in a virtual network)
 
 In the Resource Manager deployment model, we enforce security of your applications by default. All VMs need to be in a virtual network in the Resource Manager model. Therefore, we will be restarting (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks:
+
 - You can request the platform to create a new virtual network and migrate the virtual machine into the new virtual network.
 - You can migrate the virtual machine into an existing virtual network in Resource Manager.
 
@@ -97,6 +98,7 @@ Compute | Multiple subnets associated with a VM | You should update the subnet c
 Compute | Virtual machines that belong to a virtual network but don't have an explicit subnet assigned | You can optionally delete the VM.
 Compute | Virtual machines that have alerts, Autoscale policies | At this time, the migration will go through and these settings will be dropped. So we highly recommend that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete.
 Compute | XML VM extensions (Visual Studio Debugger, Web Deploy, and Remote Debugging) | This is not supported. We recommend that you remove these extensions from the virtual machine to continue migration.
+Compute | Boot diagnostics with Premium storage | Please disable Boot Diagnostics feature for the VMs before continuing with migration. You can re-enable boot diagnostics in the Resource Manager stack after the migration is complete. Additionally, blobs that are being used for screenshot and serial logs should be deleted so you are no longer charged for those blobs.
 Compute | Cloud services that contain web/worker roles | This is currently not supported.
 Network | Virtual networks that contain virtual machines and web/worker roles |  This is currently not supported.
 Azure App Service | Virtual networks that contain App Service environments | This is currently not supported.
@@ -120,15 +122,21 @@ The migration workflow is as follows
 
 >[AZURE.NOTE] All the operations described in the following sections are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.
 
+### Validate
+
+The validate operation is the first step in the migration process. The goal of this step is to analyze data in the background for the resources under migration and return success/failure if the resources are capable of migration.
+
+You will select the virtual network or the hosted service (if it’s not a virtual network) that you want to validate for migration.
+
+* If the resource is not capable of migration, the platform will list all the reasons for why it’s not supported for migration.
+
 ### Prepare
 
-The prepare operation is the first step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
+The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
 
 You will select the virtual network or the hosted service (if it’s not a virtual network) that you want to prepare for migration.
 
-At first, the platform will always analyze data in the background for the resources under migration and return success/failure if the resources are capable of migration.
-
-* If the resource is not capable of migration, the platform will list the reasons for why it’s not supported for migration.
+* If the resource is not capable of migration, the platform will list the stop the migration process and list the reason why the prepare operation failed.
 * If the resource is capable of migration, the platform first locks down the management-plane operations for the resources under migration. For example, you will not able to add a data disk to a VM under migration.
 
 The platform will then start the migration of metadata from classic to Resource Manager for the migrating resources.
@@ -201,7 +209,7 @@ Azure Site Recovery and Backup support for VMs under Resource Manager was added 
 
 **Can I validate my subscription or resources to see if they're capable of migration?**
 
-At this time, the prepare operation does an implicit validation for the resources that are being prepared for migration. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. If the validation fails, the resources will not be touched at all.
+Yes. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. In case the validate operation fails, you will receive all messages for all the reasons the migration cannot be completed.
 
 **What happens if I run into a quota error while preparing the IaaS resources for migration?**
 
@@ -215,6 +223,9 @@ Please post your issues and questions about migration to our [VM forum](https://
 
 All the resources that you explicitly provide names for in the classic deployment model will be retained during migration. In some cases, new resources will be created. For example: a network interface will be created for every VM. At this moment, we don't support the ability to control the names of these new resources created during migration. Please log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
 
+**I got a message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Please ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension  whose Status is not being reported from the VM. Hence, this VM cannot be migrated."***
+
+This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every 5 minutes. 
 
 ## Next steps
 Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.

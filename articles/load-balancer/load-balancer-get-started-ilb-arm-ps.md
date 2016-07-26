@@ -64,7 +64,7 @@ Make sure you have the latest production version of the Azure module for PowerSh
 
 ### Step 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 
 
@@ -72,7 +72,7 @@ Make sure you have the latest production version of the Azure module for PowerSh
 
 Check the subscriptions for the account 
 
-		PS C:\> get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 You will be prompted to Authenticate with your credentials.<BR>
 
@@ -81,7 +81,7 @@ You will be prompted to Authenticate with your credentials.<BR>
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### Create Resource Group for load balancer
 
@@ -89,7 +89,7 @@ Choose which of your Azure subscriptions to use. <BR>
 
 Create a new resource group (skip this step if using an existing resource group)
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create a load balancer will use the same resource group.
 
@@ -191,7 +191,7 @@ In this step, we are creating a second network interface, assigning to the same 
 The end result will show the following:
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Expected output:
 
@@ -269,13 +269,13 @@ Load the already created network interface into a variable. the variable name us
 
 Change the backend configuration on the network interface.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Step 5 
 
 Save the network interface object.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 After a network interface is added to the load balancer backend pool, it starts receiving network traffic based on the load balancing rules for that load balancer resource.
 
