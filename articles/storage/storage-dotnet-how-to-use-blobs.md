@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/22/2016"
 	ms.author="tamram"/>
 
 
 # Get started with Azure Blob storage using .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 
@@ -392,6 +394,9 @@ Azure Storage supports encrypting blob data both at the client and on the server
 
 Now that you've learned the basics of Blob storage, follow these links
 to learn more.
+
+### Microsoft Azure Storage Explorer
+- [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, OS X, and Linux.
 
 ### Blob storage samples
 
