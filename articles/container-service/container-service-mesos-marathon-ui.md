@@ -96,3 +96,7 @@ After the scale operation finishes, you will see multiple instances of the same 
 ## Next steps
 
 - [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)
+
+Deep dive on the Azure Container Service with Mesos
+
+>[AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
