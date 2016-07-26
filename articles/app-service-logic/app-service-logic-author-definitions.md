@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Author Logic App definitions | Microsoft Azure" 
 	description="Learn how to write the JSON definition for Logic apps" 
-	authors="stepsic-microsoft-com" 
+	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/25/2016"
-	ms.author="stepsic"/>
+	ms.author="jehollan"/>
 	
 # Author Logic App definitions
 This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
