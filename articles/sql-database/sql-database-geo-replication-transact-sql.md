@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-    ms.workload="sqldb-bcdr"
+    ms.workload="NA"
     ms.date="07/18/2016"
     ms.author="carlrab"/>
 
@@ -186,4 +186,4 @@ In April 2017 the non-readable secondary type will be retired and existing non-r
 ## Next steps
 
 - To learn more about Active Geo-Replication, see - [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)

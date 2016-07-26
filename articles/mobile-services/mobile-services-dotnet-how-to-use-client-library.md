@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # How to use the managed client library for Azure Mobile Services

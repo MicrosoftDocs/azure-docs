@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/17/2016"
+   ms.date="07/23/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentication to Azure SQL Data Warehouse
@@ -51,7 +51,7 @@ It is again important to note that the Transact-SQL statement **USE <your DB>** 
 
 ## Azure Active Directory (AAD) authentication
 
-Azure Active Directory authentication is a mechanism of connecting to Microsoft Azure SQL Data Warehouse by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. 
+[Azure Active Directory][What is Azure Active Directory] authentication is a mechanism of connecting to Microsoft Azure SQL Data Warehouse by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. 
 
 ### Benefits
 
@@ -89,5 +89,6 @@ The principal differences between using Azure Active Directory authentication wi
 To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio][].
 
 <!-- Article references -->
-[Secure a database in SQL Data Warehouse]: sql-data-warehouse-overview-manage-security.md
-[Query with Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md

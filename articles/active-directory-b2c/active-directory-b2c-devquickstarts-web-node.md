@@ -13,13 +13,11 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="hero-article"
-	ms.date="05/31/2016"
+	ms.date="07/22/2016"
 	ms.author="brandwe"/>
 
 
 # B2C preview: Add sign-in to a Node.js web app
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 **Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. 
 

@@ -8,12 +8,12 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/25/2016"
 	ms.author="jehollan"/>
     
 # Creating a custom API to use with Logic Apps
@@ -29,6 +29,8 @@ For APIs to work best with Logic Apps, we recommend generating a [swagger](http:
 The basic action for a Logic App is a controller that will accept an HTTP Request and return a response (usually 200).  However there are different patterns you can follow to extend actions based on your needs.
 
 By default the Logic App engine will timeout a request after 1 minute.  However, you can have your API execute on actions that take longer, and have the engine wait for completion, by following either an async or webhook pattern detailed below.
+
+For standard actions, simply write an HTTP request method in your API which is exposed via swagger.  You can see samples of API apps that work with Logic Apps in our [GitHub repository](https://github.com/logicappsio).  Below are ways to accomplish common patterns with a custom connector.
 
 ### Long Running Actions - Async Pattern
 

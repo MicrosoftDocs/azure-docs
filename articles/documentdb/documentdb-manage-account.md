@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/20/2016"
 	ms.author="anhoh"/>
 
 # How to manage a DocumentDB account
@@ -33,9 +33,8 @@ Selecting the right consistency level depends on the semantics of your applicati
 
 3. In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
     ![Default consistency session][6]
-
-4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
-5. The progress of the operation may be monitored via the Azure Portal Notifications hub.
+4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
+5. The progress of the operation may be monitored via the Azure Portal Notifications hub.
 
 > [AZURE.NOTE] It can take several minutes before a change to the default
 consistency setting takes effect across your DocumentDB account.
