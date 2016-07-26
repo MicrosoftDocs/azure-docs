@@ -99,4 +99,4 @@ After the scale operation finishes, you will see multiple instances of the same 
 
 Deep dive on the Azure Container Service with Mesos
 
->[AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
