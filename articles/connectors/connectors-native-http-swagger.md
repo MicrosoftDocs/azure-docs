@@ -20,7 +20,7 @@
 
 # Get started with the HTTP + Swagger action
 
-With the HTTP + Swagger action, you can create a first-class connector to any REST endpoint through a [Swagger document](https://swagger.io). You can also extend a logic app to call any REST endpoint with a first-class designer experience.
+With the HTTP + Swagger action, you can create a first-class connector to any REST endpoint through a [Swagger document](https://swagger.io). You can also extend a logic app to call any REST endpoint with a first-class Logic App Designer experience.
 
 To get started with the HTTP + Swagger action in a logic app, see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -32,7 +32,7 @@ The HTTP + Swagger trigger and action function the same as the [HTTP action](con
 
 [Learn more about logic app triggers and actions.](connectors-overview.md)
 
-Here's an example of how to use the HTTP + Swagger operation as an action in a workflow.
+Here's an example of how to use the HTTP + Swagger operation as an action in a workflow in a logic app.
 
 1. Select the **New Step** button.
 2. Select **Add an action**.
@@ -41,7 +41,7 @@ Here's an example of how to use the HTTP + Swagger operation as an action in a w
 	![Select HTTP + Swagger action](./media/connectors-native-http-swagger/using-action-1.png)
 
 4. Type the URL for a Swagger document:
-	- To work from the designer, the URL must be an HTTPS endpoint and have CORS enabled.
+	- To work from the Logic App Designer, the URL must be an HTTPS endpoint and have CORS enabled.
 	- If the Swagger document doesn't meet this requirement, you can use [Azure Storage with CORS enabled](#hosting-swagger-from-storage) to store the document.
 5. Click **Next** to read and render from the Swagger document.
 6. Add in any parameters that are required for the HTTP call.
@@ -65,7 +65,7 @@ Here are the steps to create, configure, and store Swagger documents in Azure St
 
 ## Technical details
 
-Following are the details for the triggers and actions that this connector supports.
+Following are the details for the triggers and actions that this HTTP + Swagger connector supports.
 
 ## HTTP + Swagger triggers
 
