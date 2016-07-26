@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Restrict access through Internet-facing endpoints in Azure Security Center
 
 Azure Security Center will recommend that you restrict access through Internet-facing endpoints if any of your Network Security Groups (NSGs) has one or more inbound rules that allow access from “any” source IP address. Opening access to “any” may enable attackers to access your resources. Security Center will recommend that you edit these inbound rules to restrict access to source IP addresses that actually need access.
+
+This recommendation is generated for any non-web port that has "any" as source.
 
 > [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
 

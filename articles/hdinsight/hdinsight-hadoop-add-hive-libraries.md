@@ -51,7 +51,7 @@ __Requirements__
     
     * By being in a container on an linked storage container. For example, in the portal you can use __Optional Configuration__, __Linked storage accounts__ to add additional storage.
 
-* The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named __libs__ on a storage account named __mystorage__, the parameter would be __wasb://libs@mystorage.blob.core.windows.net/__.
+* The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named __libs__ on a storage account named __mystorage__, the parameter would be __wasbs://libs@mystorage.blob.core.windows.net/__.
 
     > [AZURE.NOTE] This document assumes that you have already create a storage account, blob container, and uploaded the files to it. 
     >
@@ -72,7 +72,7 @@ __Requirements__
     * __HEAD__: Check this option
     * __WORKER__: Check this option.
     * __ZOOKEEPER__: Leave this blank.
-    * __PARAMETERS__: Enter the WASB address to the container and storage account that contains the jars. For example, __wasb://libs@mystorage.blob.core.windows.net/__.
+    * __PARAMETERS__: Enter the WASB address to the container and storage account that contains the jars. For example, __wasbs://libs@mystorage.blob.core.windows.net/__.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration.
 
