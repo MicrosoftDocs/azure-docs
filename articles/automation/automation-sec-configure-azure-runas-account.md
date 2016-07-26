@@ -62,10 +62,9 @@ In this section, you will perform the following steps to create a new Azure Auto
 6. Verify the value **Yes** is selected for the **Create Azure Run As account** option, and click the **Create** button.  
 
     >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created in the Azure portal, it will not have a corresponding authentication identity within your classic or Resource Manager subscription directory service and therefore, no access to resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against resources in those deployment models.
-    >
-    >![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)
-
-    >[AZURE.NOTE] When the service principal is not created the Contributor role will not be assigned.
+    
+    >![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br>
+    When the service principal is not created the Contributor role will not be assigned.
 
 
 7. While Azure creates the Automation account, you can track the progress under **Notifications** from the menu.
