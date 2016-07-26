@@ -134,9 +134,9 @@ You can pin a diagram to one of your [shared dashboards](app-insights-dashboards
 
 This means that, when you put together a dashboard to help you monitor the performance or usage of your web services, you can include quite complex analysis alongside the other metrics. 
 
-#### Refresh
+#### Dashboard refresh
 
-The chart is refreshed automatically by re-running the query approximately every half hour.
+The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every half hour.
 
 #### Automatic simplifications
 
