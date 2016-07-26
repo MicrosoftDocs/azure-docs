@@ -210,18 +210,21 @@ domain name (FQDN) of your custom domain to the list.
 2.	Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
 
     >[AZURE.NOTE] Azure will attempt to verify the domain name you use here, so be sure that it is the same domain name
-    for which you created a DNS record in [Step 2](#dns).
+    for which you created a DNS record in [Step 2](#dns). If you are sure that 
 
 6.  Click **Save**.
 
+7.  Once the new custom domain name is successfully configured, navigate to your custom domain name in a brows. You should
+now see your app running and your custom
+
 <a name="verify"></a>
-## Step 3. Verify DNS propagation
+## Verify DNS propagation
 
 After you finish the configuration steps, it can take some time for the changes to propagate, depending on your DNS provider. You can verify that the DNS propagation is working as expected by using [http://digwebinterface.com/](http://digwebinterface.com/). After you browse to the site, specify the hostnames in the textbox and click **Dig**. Verify the results to confirm if the recent changes have taken effect.  
 
 ![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
-> [AZURE.NOTE] The propagation of the DNS entries takes up to 48 hours (sometimes longer). If you have configured everything correctly, you still need to wait for the propagation to succeed.
+> [AZURE.NOTE] The propagation of the DNS entries can take up to 48 hours (sometimes longer). If you have configured everything correctly, you still need to wait for the propagation to succeed.
 
 ## Next steps
 
