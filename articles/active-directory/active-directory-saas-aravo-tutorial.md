@@ -216,11 +216,7 @@ The objective of this section is to create a test user in the classic portal cal
 
 ### Creating a Aravo test user
 
-The objective of this section is to create a user called Britta Simon in Aravo. Aravo supports just-in-time provisioning, which is by default enabled.
-
-There is no action item for you in this section. A new user will be created during an attempt to access Aravo if it doesn't exist yet.
-
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the Aravo support team.
+The objective of this section is to create a user called Britta Simon in Aravo.Please work with Aravo support team to add the users in the Aravo account.
 
 
 ### Assigning the Azure AD test user
