@@ -1,92 +1,135 @@
 <properties
-    pageTitle="Add the SMTP Connector in your Logic Apps | Microsoft Azure"
-    description="Overview of the SMTP Connector with REST API parameters"
-    services=""
-    documentationCenter="" 
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+pageTitle="SMTP | Microsoft Azure"
+description="Create logic apps with Azure App service. Connect to SMTP to send email."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/19/2016"
-   ms.author="mandia"/>
+ms.service="app-service-logic"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/15/2016"
+ms.author="deonhe"/>
 
-# Get started with the SMTP Connector
-Connect to an SMTP server to send email. The SMTP Connector can be used from:
+# Get started with the SMTP connector
 
-- Logic apps (discussed in this topic)
-- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
+Connect to SMTP to send email.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-With SMTP, you can:
+## Connect to SMTP
 
-- Build your business flow that includes sending email using SMTP. 
-- Use an action to send email. This action gets a response, and then makes the output available for other actions. For example, when there is a new file on your FTP server, you can take that file and email it as an attachment using SMTP. 
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service. For example, in order to connect to SMTP, you first need an SMTP *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the SMTP example, you would need the credentials to your connection name, SMTP server address, and user login information in order to create the connection to SMTP. [Learn more about connections]()  
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Create a connection to SMTP
 
-## Triggers and actions
-The SMTP Connector has the following action available. There are no triggers.
+>[AZURE.INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
 
-|Triggers | Actions|
+## Use an SMTP trigger
+
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+In this example, because SMTP does not have a trigger of its own, we'll use the **Salesforce - When an object is created** trigger. This trigger will activate when a new object is created in Salesforce. For our example, we'll set it up such that every time a new lead is created in Salesforce, a *send email* action occurs via the SMTP connector with a notification of the new lead being created.
+
+1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created** trigger.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
+
+2. The **When an object is created** control is displayed.
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
+
+3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-3.png)  
+
+4. The trigger has been created.  
+ ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
+
+## Use an SMTP action
+
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+Now that the trigger has been added, follow these steps to add an SMTP action that will occur when a new lead is created in Salesforce.
+
+1. Select **+ New Step** to add the action you would like to take when a new lead is created.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action.PNG)  
+
+2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
+
+3. Enter *smtp* to search for actions related to SMTP.  
+
+4. Select **SMTP - Send Email** as the action to take when the new lead is created. The action control block opens. **Note**: you will have to establish your smtp connection in the designer block if you have not done so previously.  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
+
+5. Input your desired email information in the **SMTP - Send Email** block.  
+ ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
+
+6. Save your work in order to activate your workflow.  
+
+## Technical Details
+
+Here are the details about the triggers, actions and responses that this connection supports:
+
+## SMTP triggers
+
+SMTP has no triggers. 
+
+## SMTP actions
+
+SMTP has the following action:
+
+
+|Action|Description|
 |--- | ---|
-|None | Send email|
+|[Send Email](connectors-create-api-smtp.md#send-email)|This operation sends an email to one or more recipients.|
 
-All connectors support data in JSON and XML formats. 
+### Action details
 
-## Create a connection to SMTP
+Here are the details for the action of this connector, along with its responses:
 
->[AZURE.INCLUDE [Steps to create a SMTP connection](../../includes/connectors-create-api-smtp.md)] 
-
-After you create the connection, you enter the SMTP properties, like the To or CC values. The **REST API reference** in this topic describes these properties.
-
->[AZURE.TIP] You can use this same SMTP connection in other logic apps.
-
-## Swagger REST API reference
-Applies to version: 1.0.
 
 ### Send Email
-Sends an email to one or more recipients.  
-```POST: /SendEmail```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|emailMessage| many|yes|body|none |Email message|
-
-## Object definitions
-
-#### Email: SMTP email
-
-| Name | Data Type | Required|
-|---|---|---|
-|To|string|no|
-|CC|string|no|
-|Subject|string|no|
-|Body|string|no|
-|From|string|no|
-|IsHtml|boolean|no|
-|Bcc|string|no|
-|Importance|string|no|
-|Attachments|array|no|
+This operation sends an email to one or more recipients. 
 
 
-#### Attachment: Email attachment
+|Property Name| Display Name|Description|
+| ---|---|---|
+|To|To|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|CC|cc|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|Subject|Subject|Email subject|
+|Body|Body|Email body|
+|From|From|Email address of sender like sender@domain.com|
+|IsHtml|Is Html|Send the email as HTML (true/false)|
+|Bcc|bcc|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
+|Importance|Importance|Importance of the email (High, Normal, or Low)|
+|ContentData|Attachments Content Data|Content data (base64 encoded for streams and as-is for string)|
+|ContentType|Attachments Content Type|Content type|
+|ContentTransferEncoding|Attachments Content Transfer Encoding|Content Transfer Encoding (base64 or none)|
+|FileName|Attachments File Name|File name|
+|ContentId|Attachments Content ID|Content id|
 
-| Name | Data Type |Required|
-|---|---|---|
-|FileName|string|no|
-|ContentId|string|no|
-|ContentData|string|yes|
-|ContentType|string|yes|
-|ContentTransferEncoding|string|yes|
+An * indicates that a property is required
 
 
-## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## HTTP responses
+
+The actions and triggers above can return one or more of the following HTTP status codes: 
+
+|Name|Description|
+|---|---|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
+|default|Operation Failed.|
+
+## Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
