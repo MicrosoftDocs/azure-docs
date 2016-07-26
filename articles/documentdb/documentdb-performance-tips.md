@@ -21,7 +21,7 @@
 
 Azure DocumentDB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database tier with DocumentDB. Scaling up and down is as easy as making a single API call or [SDK method call](documentdb-performance-levels.md#changing-performance-levels-using-the-net-sdk). However, because DocumentDB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
 
-So if you're asking "How can I improve my database performance?", consider the following options.
+So if you're asking "How can I improve my database performance?" consider the following options.
 
 ## Networking
 
@@ -97,7 +97,7 @@ So if you're asking "How can I improve my database performance?", consider the f
 
 5. **Implement backoff at RetryAfter intervals**
  
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. This ensures that you  spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the DocumentDB [.NET](documentdb-sdk-dotnet.md) and [Java](documentdb-sdk-java.md), and version 1.9.0 and above of the [Node.js](documentdb-sdk-nodejs.md) and [Python](documentdb-sdk-python.md). For more information see [Exceeding reserved throughput limits](documentdb-request-units.md#exceeding-reserved-throughput-limits) and [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. This ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the DocumentDB [.NET](documentdb-sdk-dotnet.md) and [Java](documentdb-sdk-java.md), and version 1.9.0 and above of the [Node.js](documentdb-sdk-nodejs.md) and [Python](documentdb-sdk-python.md). For more information see [Exceeding reserved throughput limits](documentdb-request-units.md#exceeding-reserved-throughput-limits) and [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 
 6. **Scale out your client-workload**
 
