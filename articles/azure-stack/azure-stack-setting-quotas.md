@@ -18,7 +18,7 @@
 
 
 
-**Setting Quotas in Azure Stack**
+#Setting quotas in Azure Stack
 
 Quotas define the limits of resources that a tenant subscription
 can provision or consume. For example, a quota may allow a tenant to
