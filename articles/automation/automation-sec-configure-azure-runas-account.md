@@ -89,7 +89,7 @@ AzureClassicAutomationTutorial Script Runbook|An example runbook  which gets all
 AzureClassicRunAsCertificate|Certificate asset automatically created that is used to authenticate with Azure so that you can manage Azure classic resources from runbooks.  This certificate has a one-year lifespan. 
 AzureClassicRunAsConnection|Connection asset automatically created that is used to authenticate with Azure so that you can manage Azure classic resources from runbooks.  
 
-### Verify service principal authentication
+## Verify service principal authentication
 
 Next we will perform a small test to confirm you are able to successfully authenticate using the new service principal.     
 
@@ -104,7 +104,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 9. Close the **Output** blade to return to the **Job Summary** blade.
 13. Close the **Job Summary** and the corresponding **AzureAutomationTutorialScript** runbook blade.
 
-### Verify classic Run As authentication
+## Verify classic Run As authentication
 
 Next we will perform a small test to confirm you are able to successfully authenticate using the new classic Run As account.     
 
