@@ -74,7 +74,7 @@ Notice that charts are grouped into tiles: a tile can contain more than one char
 
 ### Analytics charts
 
-You can also pin Analytics charts to a dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics.
+You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics.
 
 ## Adjust a tile on the dashboard
 
@@ -108,8 +108,7 @@ On the dashboard, a blade appears as a tile: click it to go to the blade. A char
 
 ## Share dashboards with your team
 
-When you've created a dashboard, you can share it with other users. 
-
+When you've created a dashboard, you can share it with other users.
 
 ![In the dashboard header, click Share](./media/app-insights-dashboards/41.png)
 
