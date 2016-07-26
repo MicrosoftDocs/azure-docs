@@ -58,9 +58,9 @@ Now that the trigger has been added, follow these steps to add an action that wi
 3. Enter *dropbox* to search for actions related to Dropbox.  
 
 4. Select **Dropbox - Get file content using path** as the action to take when a new file is created in the selected Dropbox folder. The action control block opens. 
-
->[AZURE.NOTE] You will be prompted to authorize your logic app to access your Dropbox account if you have not done so previously.  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
+
+  >[AZURE.NOTE] You will be prompted to authorize your logic app to access your Dropbox account if you have not done so previously.  
 
 5. Select ... (located at the right side of the **File Path** control) and browse to the file path you would like to use. Or, use the **file path** token to speed up your logic app creation.  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  

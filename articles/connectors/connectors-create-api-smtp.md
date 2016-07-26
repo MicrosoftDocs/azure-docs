@@ -64,9 +64,9 @@ Now that the trigger has been added, follow these steps to add an SMTP action th
 3. Enter *smtp* to search for actions related to SMTP.  
 
 4. Select **SMTP - Send Email** as the action to take when the new lead is created. The action control block opens.
-
->[AZURE.NOTE] You will have to establish your smtp connection in the designer block if you have not done so previously.  
  ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
+
+  >[AZURE.NOTE] You will have to establish your smtp connection in the designer block if you have not done so previously.  
 
 5. Input your desired email information in the **SMTP - Send Email** block.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
