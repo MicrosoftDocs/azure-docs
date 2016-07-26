@@ -30,7 +30,7 @@ The application packages feature discussed in this article is compatible *only* 
 
 This feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2 and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
 
-> [AZURE.IMPORTANT] Currently, only pools that are created through *CloudServiceConfiguration* support application packages. You cannot use Application packages in pools created by using VirtualMachineConfiguration images. See the [Virtual machine configuration](batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two different configurations.
+> [AZURE.IMPORTANT] Currently, only *CloudServiceConfiguration* support application packages. You cannot use Application packages in pools created by using VirtualMachineConfiguration images. See the [Virtual machine configuration](batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two different configurations.
 
 ## About applications and application packages
 
@@ -102,9 +102,9 @@ Click an application in the **Applications** blade to open the blade that includ
 
 In the application details blade, you can configure the following settings for your application.
 
-* **Allow updates** -- Specify whether its application packages can be updated or deleted. See "Update or Delete an application package" later in this article.
-* **Default version** -- Specify a default application package to deploy to compute nodes.
-* **Display name** -- Specify a "friendly" name that your Batch solution can use when it displays information about the application, such as in the UI of a service that you provide your customers through Batch.
+* **Allow updates**--Specify whether its application packages can be updated or deleted. See "Update or Delete an application package" later in this article.
+* **Default version**--Specify a default application package to deploy to compute nodes.
+* **Display name**--Specify a "friendly" name that your Batch solution can use when it displays information about the application, such as in the UI of a service that you provide your customers through Batch.
 
 ### Add a new application
 
