@@ -67,7 +67,9 @@ See [Cluster types](#cluster-types).
 ### Operating system ###
 
 You can create HDInsight clusters on one of the following two operating systems:
+
 - HDInsight on Linux (Ubuntu 12.04 LTS for Linux). HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+
 - HDInsight on Windows (Windows Server 2012 R2 Datacenter).
 
 ### HDInsight version###
@@ -210,7 +212,7 @@ We strongly recommend that you use a custom metastore if you want to keep your H
 
 > [AZURE.IMPORTANT] HDInsight metastore is not backward compatible. For example, you cannot use a metastore of an HDInsight 3.3 cluster to create an HDInsight 3.2 cluster.
 
-The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. Using the metastore helps you to retain your Hive and Oozie metadata, so you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, you have a cluster created with a Hive metastore. You created some Hive tables. After you delete the cluster and recreate the cluster using the same Hive metastore, you will be able to see the Hive tables you created in the original cluster.
+The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. Using the metastore helps you to retain your Hive and Oozie metadata, so you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, if you create Hive tables in a cluster created with a Hive metastore, you will be able to see those tables if you delete and recreate the cluster using the same Hive metastore.
 
 Metastore configuration is not available for HBase cluster types.
 
@@ -257,7 +259,7 @@ Sometimes, you want to configure the following configuration files:
 To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. You can also use Ambari in Linux-based clusters. For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 >[AZURE.NOTE] The Windows-based clusters can't retain the changes due to re-image. For more information,
-see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).  To keep the changes throughout the clusters' lifetime, you must use HDInsight cluster customization during the creation process.
+see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).  To keep the changes throughout the lifetime of a cluster, you must use HDInsight cluster customization during the creation process.
 
 ## Customize clusters using Script action
 
