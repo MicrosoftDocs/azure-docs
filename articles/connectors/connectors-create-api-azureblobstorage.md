@@ -33,12 +33,7 @@ To learn more about Logic Apps, see [What are logic apps](../app-service-logic/a
 
 ## Connect to Azure blob storage
 
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Dropbox, you first create a Dropbox *connection*. To create a connection, you enter the credentials you normally use to access the service you are connecting to. So, in the Dropbox example, enter your Dropbox credentials to create the connection to Dropbox. 
-
-When you add this connector to your logic apps, you create a connection to the blob storage account. The first time you add this connector, you are prompted for the connection information: 
-
-![](./media/connectors-create-api-azureblobstorage/connection-details.png)  
-
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to a storage account, you first create a blob storage *connection*. To create a connection, enter the credentials you normally use to access the service you are connecting to. So with Azure storage, enter the credentials to your storage account to create the connection. 
 
 #### Create the connection
 
