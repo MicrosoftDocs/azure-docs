@@ -112,7 +112,7 @@ The following will retrieve the WASB URI of the clusters default storage:
 
 This will return a value similar to the following, where __CONTAINER__ is the default container and __ACCOUNTNAME__ is the Azure Storage Account name:
 
-    wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+    wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 You can then use this information with the [Azure CLI](../xplat-cli-install.md) to upload or download data from the container.
 
@@ -138,7 +138,7 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
         
     Replace __ACCOUNTNAME__ with the Storage Account name. Replace __ACCOUNTKEY__ with the key retrieved previously. __FILEPATH__ is the path to the file you want to upload, while __BLOBPATH__ is the path in the container.
 
-    For example, if you want the file to appear in HDInsight at wasb://example/data/filename.txt, then __BLOBPATH__ would be `example/data/filename.txt`.
+    For example, if you want the file to appear in HDInsight at wasbs://example/data/filename.txt, then __BLOBPATH__ would be `example/data/filename.txt`.
 
 ##Example: Update Ambari configuration
 

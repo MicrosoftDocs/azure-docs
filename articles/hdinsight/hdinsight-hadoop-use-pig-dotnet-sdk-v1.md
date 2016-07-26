@@ -112,7 +112,7 @@ Save the subscription ID, as it will be used later.
 					var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
 		
 		            // The Pig Latin statements to run
-		            string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
+		            string queryString = "LOGS = LOAD 'wasbs:///example/data/sample.log';" +
 		                "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
 		                "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
 		                "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +

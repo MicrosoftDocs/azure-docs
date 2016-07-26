@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="07/25/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (Java)
@@ -390,7 +390,7 @@ The jar created by this project contains two topologies; __com.microsoft.example
 
 7. On the __Query Console__, select __Hive Editor__ and replace the default `select * from hivesampletable` with the following:
 
-        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasb:///devicedata/';
+        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasbs:///devicedata/';
         select * from devicedata limit 10;
 
     Click __Select__ to run the query. This will return 10 rows from the data written to Azure Storage (WASB) by the EventHubReader. Once the query completes, you should see data similar to the following:
