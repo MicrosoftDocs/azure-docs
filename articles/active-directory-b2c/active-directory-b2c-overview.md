@@ -37,6 +37,7 @@ Check back here often to learn about future changes to the Azure Active Director
 - Learn about our [extensible policy framework](active-directory-b2c-reference-policies.md) and about the types of policies that you can create and use in your applications.
 - Bookmark our [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) for notifications on minor service issues, updates, status and mitigations. Continue to monitor the [Azure status dashboard](https://azure.microsoft.com/status/) as well.
 - Current [service limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
+- Finally, a [code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) using Azure AD B2C & ASP.NET Core.
 
 ## How-to articles
 
@@ -55,12 +56,10 @@ These links will be useful for exploring the service in depth:
 
 - See the [Azure Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 - Get help on Stack Overflow by using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
-- Give us your thoughts on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)--we want to hear them! Use the phrase "AzureADB2C:" in the title of your post so we can find it.
-- Azure Active Directory B2C supports industry-standard protocols, OpenID Connect and OAuth 2.0, using an application registration model that we call "App Model v2.0".
-  - [App Model v2.0 Protocol Reference](active-directory-b2c-reference-protocols.md)
-  - [App Model v2.0 Token Reference](active-directory-b2c-reference-tokens.md)
+- Give us your thoughts by using [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)--we want to hear them! Use the phrase "AzureADB2C:" in the title of your post so we can find it.
+- Review the [Azure AD B2C Protocol Reference](active-directory-b2c-reference-protocols.md).
+- Review the [Azure AD B2C Token Reference](active-directory-b2c-reference-tokens.md).
 - Read the [Azure Active Directory B2C FAQs](active-directory-b2c-faqs.md).
-- 
 - [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
 
 ## Get security updates for our products

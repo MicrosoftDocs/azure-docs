@@ -11,8 +11,8 @@
 	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
+    ms.devlang="na"
 	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 

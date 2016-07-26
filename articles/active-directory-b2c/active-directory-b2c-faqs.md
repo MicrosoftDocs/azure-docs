@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: FAQs
@@ -119,10 +119,6 @@ No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise 
 ### How do I report issues with Azure AD B2C?
 
 See [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
-
-### When will Azure AD B2C be generally available?
-
-We can't provide any information on the generally available date at this time.
 
 ## More information
 
