@@ -41,15 +41,15 @@ To use Microsoft account as an identity provider in Azure Active Directory (Azur
 
 	![Microsoft account - Web](./media/active-directory-b2c-setup-msa-app/msa-web.png)
 
-6. Click on **Generate New Password** under the **Application Secrets** section. Copy the new password displayed on screen. You will need it to configure Microsoft account as an identity provider in your tenant. This password is an important security credential.
+6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
+
+    ![Microsoft account - Redirect URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
+
+7. Click on **Generate New Password** under the **Application Secrets** section. Copy the new password displayed on screen. You will need it to configure Microsoft account as an identity provider in your tenant. This password is an important security credential.
 
 	![Microsoft account - Generate new password](./media/active-directory-b2c-setup-msa-app/msa-generate-new-password.png)
 
 	![Microsoft account - New password](./media/active-directory-b2c-setup-msa-app/msa-new-password.png)
-
-7. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Redirect URIs** field. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
-
-    ![Microsoft account - Redirect URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
 8. Check the box that says **Live SDK support** under the **Advanced Options** section. Click **Save**.
 
