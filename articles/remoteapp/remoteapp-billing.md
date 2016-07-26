@@ -24,7 +24,7 @@ As long as you have Azure RemoteApp collections, even with no users assigned, yo
 
 To delete your collection:
 
-1. In the Azure portal, open the RemoteApp page.
+1. In the Azure classic portal, open the RemoteApp page.
 2. Click the collection you want to delete, and then click **Delete** at the bottom of the page.
 3. Repeat this for each collection in your subscription. 
 
