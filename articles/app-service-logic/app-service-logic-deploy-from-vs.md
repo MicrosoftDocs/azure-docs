@@ -26,7 +26,7 @@ Below are the steps to install and configure the Visual Studio tools for Logic A
 
 ### Prerequisites
 
-- [Visual studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+- [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - [Latest Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 or greater)
 - Access to the web when using the embedded designer
 
@@ -60,7 +60,7 @@ Once installed you will be able to use the Azure Resource Group project with the
 	Now your Logic app project is added to your solution. You should see the deployment file in the Solution Explorer:
 	![Deployment](./media/app-service-logic-deploy-from-vs/deployment.png)
 
-## Using the logic app designer
+## Using the Logic App Designer
 
 Once you have an Azure Resource Group project that contains a logic app, you can open the designer within Visual Studio to assist you in creating the workflow.  The designer requires an internet connection in order to query the connectors for available properties and data (for example, if using the Dynamics CRM Online connector, the designer will query your CRM instance to list available custom and default properties).
 
