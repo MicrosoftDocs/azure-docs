@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli" />
 
 # Manage your StorSimple device controllers
@@ -140,7 +140,7 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 ## Reset the device to factory default settings
 
-> [AZURE.IMPORTANT] If you need to reset your device to factory default settings, contact Microsoft Support. The prcoedure described below should be used in conjunction with Microsoft Support.
+> [AZURE.IMPORTANT] If you need to reset your device to factory default settings, contact Microsoft Support. The procedure described below should be used only in conjunction with Microsoft Support.
 
 This procedure describes how to reset your Microsoft Azure StorSimple device to factory default settings using Windows PowerShell for StorSimple.
 Resetting a device removes all data and settings from the entire cluster by default.
