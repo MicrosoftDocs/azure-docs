@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyzing Trends in Visual Studio" 
+	pageTitle="Analyzing Trends in Visual Studio | Microsoft Azure" 
 	description="Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -65,7 +65,7 @@ To navigate between bubbles in the visualization:
 * Double-click a bubble to navigate to the Search tool and see all of the individual telemetry events that occured during that time period
 * Ctrl-click a bubble to de-select it in the visualization.
 
-> [Azure.TIP] The Trends and Search tools work together to help you pinpoint the causes of issues in your service among thousands of telemetry events. For example, if one afternoon your customers notice your app is being less responsive, start with Trends. Analyze requests made to your service over the past several hours, grouped by response time. See if there's an unusually large cluster of slow requests. Then double click that bubble to go to the Search tool, filtered to those request events. From Search, you can explore the contents of those requests and navigate to the code involved to resolve the issue.
+> [AZURE.TIP] The Trends and Search tools work together to help you pinpoint the causes of issues in your service among thousands of telemetry events. For example, if one afternoon your customers notice your app is being less responsive, start with Trends. Analyze requests made to your service over the past several hours, grouped by response time. See if there's an unusually large cluster of slow requests. Then double click that bubble to go to the Search tool, filtered to those request events. From Search, you can explore the contents of those requests and navigate to the code involved to resolve the issue.
 
 ## Filter
 
@@ -90,7 +90,7 @@ The Trends tool can highlight bubbles of events that are anomalous compared to o
 
 ![Colored dots indicate anomalies](./media/app-insights-trends/TrendsAnomalies-750.png)
 
-> [Azure.TIP] Highlighting anomalies is especially helpful for finding outliers in time series of small bubbles that may otherwise look similarly sized.  
+> [AZURE.TIP] Highlighting anomalies is especially helpful for finding outliers in time series of small bubbles that may otherwise look similarly sized.  
 
 ## <a name="next"></a>Next steps
 
