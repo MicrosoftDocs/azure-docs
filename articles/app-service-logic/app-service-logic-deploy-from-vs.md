@@ -57,7 +57,8 @@ Once installed you will be able to use the Azure Resource Group project with the
 
 1. Once you have selected your **Template**, hit **OK**.
 
-	Now your Logic app project is added to your solution. You should see the deployment file in the Solution Explorer:
+	Now your Logic app project is added to your solution. You should see the deployment file in the Solution Explorer:  
+
 	![Deployment](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Using the Logic App Designer
