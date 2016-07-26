@@ -45,6 +45,7 @@ For instructions, see [Buy a custom domain name for App Service](custom-dns-web-
 If you have already purchased a custom domain from [Azure DNS](https://azure.microsoft.com/services/dns/) or from a third-party provider, 
 there are three main steps to map the custom domain to your app:
 
+1. [*(A record only)* Get app's IP address](#vip).
 1. [Enable the custom domain name for your Azure app](#enable).
     - **Where**: the [Azure portal](https://portal.azure.com).
     - **Why**: so your app knows to respond to requests made to the custom domain name.
@@ -79,14 +80,17 @@ a CNAME record is still valid, whereas an A record must be updated.
 
 The tutorial shows you steps for using the A record and also for using the CNAME record.
 
-<a name="enable"></a>
-## Step 1. Enable the custom domain name for your app
+<a name="vip"></a>
+## Step 1. *(A record only)* Get app's IP address
+To map a custom domain name using an A record, you need your Azure app's IP address. If you will map using a CNAME record
+instead, skip this step and move onto the next section.
 
 1.	Log in to the [Azure portal](https://portal.azure.com).
 2.	Click **App Services** on the left menu.
 4.	Click your app, then click **Settings** > **Custom domains and SSL** > **Bring External Domains**.
 5.	In **Domain Names**, type your custom domain name.
-6.  *(A record only)* Take note of the IP address to use later.
+6.  Take note of the IP address to use later.
+7.  Keep this portal blade open. You will come back to it once you create the DNS records.
 
 <a name="dns"></a>
 ## Step 2. Create the DNS record(s)
@@ -195,14 +199,32 @@ Your CNAME record should be configured as follows (@ typically represents the ro
 
 >[AZURE.NOTE] You can use Azure DNS to host the necessary domain records for your web app. To configure your custom domain, and create your records, in Azure DNS, see [Create custom DNS records for a web app](../dns/dns-web-sites-custom-domain.md).
 
+<a name="enable"></a>
+## Step 3. Enable the custom domain name for your app
+
+Back in the **Bring Exteranl Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully-qualified
+domain name (FQDN) of your custom domain to the list.
+
+1.	Navigate back to the **Bring Exteranl Domains** blade in the Azure portal.
+
+2.	Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
+
+    >[AZURE.NOTE] Azure will attempt to verify the domain name you use here, so be sure that it is the same domain name
+    for which you created a DNS record in [Step 2](#dns). If you are sure that 
+
+6.  Click **Save**.
+
+7.  Once the new custom domain name is successfully configured, navigate to your custom domain name in a brows. You should
+now see your app running and your custom
+
 <a name="verify"></a>
-## Step 3. Verify DNS propagation
+## Verify DNS propagation
 
 After you finish the configuration steps, it can take some time for the changes to propagate, depending on your DNS provider. You can verify that the DNS propagation is working as expected by using [http://digwebinterface.com/](http://digwebinterface.com/). After you browse to the site, specify the hostnames in the textbox and click **Dig**. Verify the results to confirm if the recent changes have taken effect.  
 
 ![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
-> [AZURE.NOTE] The propagation of the DNS entries takes up to 48 hours (sometimes longer). If you have configured everything correctly, you still need to wait for the propagation to succeed.
+> [AZURE.NOTE] The propagation of the DNS entries can take up to 48 hours (sometimes longer). If you have configured everything correctly, you still need to wait for the propagation to succeed.
 
 ## Next steps
 
