@@ -478,6 +478,7 @@ Use [let](./app-insights-analytics-reference.md#let-statements) to separate out 
 > Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
 
 
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
