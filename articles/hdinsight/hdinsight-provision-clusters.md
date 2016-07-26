@@ -84,7 +84,9 @@ Each HDInsight cluster is tied to one Azure subscription.
 
 ### Credentials
 
-With the HDInsight clusters, you can configure three user accounts during cluster creation:
+With the HDInsight clusters, you can configure three user accounts during cluster creation.
+
+- [Azure Resource Manager](../resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all of the resources for your application in a single, coordinated operation.
 
 - HTTP user. The default user name is *admin* using the basic configuration on the Azure portal. Sometimes the default is called "Cluster user."
 - RDP user (Windows clusters). Connect to the cluster using RDP. When you create the account, you must set an expiration date within 90 days of the day you create the account.
@@ -100,6 +102,9 @@ During configuration, you must specify an Azure storage account and an Azure Blo
 
 >[AZURE.NOTE] A Blob storage container provides a grouping of a set of blobs as shown in the following image.
 
+During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation processes require the Azure storage account and the Blob storage container to be created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that the cluster can access. The cluster can also access any Blob containers that are configured with full public read access or public read access for blobs only. For more information, see [Manage Access to Azure Storage Resources](../storage/storage-manage-access-to-resources.md).
+
+
 ![Azure Blob Storage](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
 We do not recommend using the default Blob storage container for storing business data. Deleting the default Blob storage container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs.  Make sure to retrieve the logs before deleting the container.
@@ -108,7 +113,7 @@ We do not recommend using the default Blob storage container for storing busines
 
 For more information about using secondary Blob storage, see [Using Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-In addition to Azure Blob storage, you can also use [Azure Data Lake Store](data-lake-store-overview.md) as default storage account for HBase clusters in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+In addition to Azure Blob storage, you can also use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for an HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 
 ### Location (Region)###
 
@@ -159,7 +164,23 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 |Standard_D13 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
 |Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|
 
+
 ### Standard tier: Dv2-series###
+
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|---|---|---|---|---|---|---|
+|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
+|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
+|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
+|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
+|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|     
+
+For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-size.md). For information about pricing of various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight)   
+
+> [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, you must select a head node size with at least 8 cores and 14 GB of RAM.
+
+> Billing starts when a cluster is created and stops when the cluster is deleted. For more information about pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
+
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
