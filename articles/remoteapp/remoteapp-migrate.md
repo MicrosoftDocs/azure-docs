@@ -53,4 +53,4 @@ Although you cannot enable the OneDrive for Business sync agent in RemoteApp, yo
 
 ## Copy files by using drive redirection
 
-If you have enabled [drive redirection](remoteapp-redirect.md), you have already created a mapped drive for your users. In this case, they can zip their files on the redirected drive and then save them to their local PC.
+If you have enabled [drive redirection](remoteapp-redirection.md), you have already created a mapped drive for your users. In this case, they can zip their files on the redirected drive and then save them to their local PC.
