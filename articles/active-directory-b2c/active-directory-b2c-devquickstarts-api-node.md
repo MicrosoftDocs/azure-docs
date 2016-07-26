@@ -13,13 +13,10 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="hero-article"
-	ms.date="05/31/2016"
+	ms.date="07/22/2016"
 	ms.author="brandwe"/>
 
 # B2C preview: Secure a web API by using Node.js
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
 
 > [AZURE.NOTE] This article does not cover how to implement sign-in, sign-up and profile management by using Azure AD B2C. It focuses on calling web APIs after the user has been authenticated. You should start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure Active Directory B2C if you haven't already.
 

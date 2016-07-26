@@ -2,7 +2,7 @@
 - An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 - An [Office 365](https://office365.com) account  
 
-Before using your Office 365 account in a logic app, authorize the logic app to connect to your Office 365 account. You can do this easily within your logic app on the Azure Portal.  
+Before using your Office 365 account in a logic app, authorize the logic app to connect to your Office 365 account. You can do this easily within your logic app on the Azure portal.  
 
 Authorize your logic app to connect to your Office 365 account using the following steps:
 

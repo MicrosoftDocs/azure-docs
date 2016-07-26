@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="07/25/2016"
+ms.date="07/26/2016"
 ms.author="eugenesh" />
 
 # Indexing JSON blobs with Azure Search blob indexer 
@@ -97,9 +97,9 @@ If your JSON documents only contain simple top-level properties, you may not nee
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-## "Plucking" the array of JSON objects
+## Indexing nested JSON arrays
 
-What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can "pluck" the array using the `documentRoot` configuration property. For example, if your blobs look like this: 
+What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this: 
 
 	{ 
 		"level1" : {
