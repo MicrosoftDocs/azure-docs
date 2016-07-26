@@ -21,15 +21,17 @@
 This article explains how you can update a live Virtual Machine offer in the Azure Marketplace. It also guides you on the process of adding one or more new SKUs to an existing offer and remove a live Virtual Machine offer or SKU from the Azure Marketplace.
 
 Once an offer/SKU is staged in the [Azure Portal](http://portal.azure.com), you cannot change the fields given below:
-- **Offer Identifier:** [Publishing portal->Virtual Machines-> your Offer->VM Images tab ->Offer Identifier]
-- **SKU Identifier:** [Publishing portal->Virtual Machines->Select your Offer->SKUs tab ->Add a SKU]
-- **Publisher Namespace:** [Publishing portal->Virtual Machines->>Walkthrough tab->Tell Us About Your Company (Found Under “Step 2 Register Your Company”)->Publisher Namespace ->Namespace]
+
+- **Offer Identifier:** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Offer Identifier]
+- **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
+- **Publisher Namespace:** [Publishing portal -> Virtual  Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under “Step 2 Register Your Company”) -> Publisher Namespace -> Namespace]
 
 Once the offer/SKU is listed in the [Azure Marketplace](http://azure.microsoft.com/marketplace), you cannot change the fields given below:
-- **Offer Identifier:** [Publishing portal->Virtual Machines-> select your Offer->VM Images ->Offer Identifier]
-- **SKU Identifier:** [Publishing portal->Virtual Machines->Select your Offer->SKUs tab->Add a SKU]
-- **Publisher Namespace:** [Publishing portal->Virtual Machines->>Walkthrough tab->Tell Us About Your Company (Found Under Step 2 Register) Publisher Namespace ->Namespace]
-- **Ports** [Publishing portal->Virtual Machines-> your Offer ->VM Images tab ->Open Ports]
+
+- **Offer Identifier:** [Publishing portal -> Virtual Machines ->  select your Offer -> VM Images -> Offer Identifier]
+- **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
+- **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under Step 2 Register) Publisher Namespace -> Namespace]
+- **Ports** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Open Ports]
 - **Pricing Change of listed SKU(s)**
 - **Billing Model Change of listed SKU(s)**
 - **Removal of billing regions of listed SKU(s)**
@@ -250,6 +252,7 @@ You can delete the current version of a listed SKU from the Azure Marketplace by
 I have changed the pricing of a listed SKU (or I have removed the billing regions of a listed SKU). Since it is not supported in the Azure Marketplace, I want to revert my changes to the production values. How do I achieve that?
 
 Please follow the steps given below:
+
 1. Login to the [Publishing portal](https://publish.windowsazure.com).
 2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
 3. From the left hand side menu, click the **PRICING** tab.
@@ -291,6 +294,7 @@ Select “Draft” in the “View Version” section and “Production” in “
 I have changed the billing model of a listed SKU. Since it is not supported in the Azure Marketplace, I want to revert my changes to the production values. How do I achieve that?
 
 Please follow the steps below:
+
 1. Login to the [Publishing portal](https://publish.windowsazure.com).
 2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
 3. From the left hand side menu, click the **SKUS** tab.
@@ -304,6 +308,7 @@ Please follow the steps below:
 ## 10. How to revert visibility setting of a listed SKU to the production value
 
 Please follow the steps below:
+
 1. Login to the [Publishing portal](https://publish.windowsazure.com).
 2. Navigate to the **VIRTUAL MACHINES** tab and select your offer.
 3. From the left hand side menu, click the **SKUS** tab.
