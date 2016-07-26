@@ -19,7 +19,7 @@
 
 # Performance tips for DocumentDB
 
-Azure DocumentDB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database tier with DocumentDB. Scaling up and down is as easy as making a single API call or [SDK method call](documentdb-performance-levels.md#changing-performance-levels-using-the-net-sdk). However, because DocumentDB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
+Azure DocumentDB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with DocumentDB. Scaling up and down is as easy as making a single API call or [SDK method call](documentdb-performance-levels.md#changing-performance-levels-using-the-net-sdk). However, because DocumentDB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
 
 So if you're asking "How can I improve my database performance?" consider the following options.
 
@@ -32,7 +32,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     1. Gateway Mode (default)
     2. Direct Mode
 
-    Since DocumentDB is a distributed storage system, DocumentDB resources like collections and documents are partitioned across numerous machines and each partition is replicated for high availability. The logical to physical address translation is kept in a routing table which is also internally available as a resource.
+    Since DocumentDB is a distributed storage system, DocumentDB resources like collections are partitioned across numerous machines and each partition is replicated for high availability. The logical to physical address translation is kept in a routing table which is also internally available as a resource.
 
     In Gateway Mode, the DocumentDB gateway machines perform this routing, thereby allowing client code to be simple and compact. A client application issues requests to the DocumentDB gateway machines, which translate the logical URI in the request to the physical address of the backend node, and forward the request appropriately.  Conversely, in Direct Mode clients must maintain – and periodically refresh – a copy of this routing table, and then directly connect to the backend DocumentDB nodes.
 
@@ -74,7 +74,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     ![Illustration of the DocumentDB connection policy](./media/documentdb-performance-tips/azure-documentdb-same-region.png)
 
-5. **Increase number of threads/tasks**
+5. <a href="increase-threads"></a>**Increase number of threads/tasks**
 
     Since calls to DocumentDB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), please create in the order of 100s of Tasks reading or writing to DocumentDB.
 
@@ -116,6 +116,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
     You may also set the page size using the available DocumentDB SDKs.  For example:
     
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+
+9. **Increase number of threads/tasks**
+
+	See [Increase number of threads/tasks](increase-threads.md) in the Networking section.
 
 ## Indexing Policy
 
