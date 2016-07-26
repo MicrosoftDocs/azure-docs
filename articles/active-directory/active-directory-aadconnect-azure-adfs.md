@@ -278,7 +278,7 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 |Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHTTPSToDMZ|	Allow the HTTPS communication to DMZ | Inbound | 
+|AllowHTTPSFromDMZ| Allow the HTTPS communication from DMZ | Inbound |
 |DenyAllFromDMZ| This rule will block all traffic from DMZ to internal subnet. The rule AllowHTTPSFromDMZ already takes care of ensuring that HTTPS communication goes through and anything else is blocked by this rule | Inbound |
 |DenyInternetOutbound| No access to internet | Outbound |
 
