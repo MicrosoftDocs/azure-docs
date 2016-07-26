@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Map a custom domain name to an Azure app"
-	description="Learn how to map a your custom domain name (vanity domain) to your app in Azure App Service."
+	description="Learn how to map a custom domain name (vanity domain) to your app in Azure App Service."
 	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="07/26/2016"
 	ms.author="cephalin"/>
 
 # Map a custom domain name to an Azure app
