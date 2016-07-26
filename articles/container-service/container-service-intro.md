@@ -112,10 +112,10 @@ to, the following:
 Videos
 ------
 
-Getting started with Azure Container Service:  
+Getting started with Azure Container Service (101):  
 
-> [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
+> [AZURE.VIDEO azure-container-service-101]
 
-Building Applications Using the Azure Container Service
+Building Applications Using the Azure Container Service (Build 2016)
 
-> [https://channel9.msdn.com/Events/Build/2016/B822]
+> [AZURE.VIDEO build-2016-building-applications-using-the-azure-container-service]
