@@ -45,6 +45,7 @@ For instructions, see [Buy a custom domain name for App Service](custom-dns-web-
 If you have already purchased a custom domain from [Azure DNS](https://azure.microsoft.com/services/dns/) or from a third-party provider, 
 there are three main steps to map the custom domain to your app:
 
+1. [*(A record only)* Get app's IP address](#vip).
 1. [Enable the custom domain name for your Azure app](#enable).
     - **Where**: the [Azure portal](https://portal.azure.com).
     - **Why**: so your app knows to respond to requests made to the custom domain name.
