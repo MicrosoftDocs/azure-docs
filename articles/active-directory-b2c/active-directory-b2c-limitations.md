@@ -56,9 +56,11 @@ This chained Web API scenario can be supported by using the OAuth 2.0 Jwt Bearer
 
 ## Restriction on libraries and SDKs
 
-Not all languages and platforms have libraries that support Azure AD B2C. The set of authentication libraries is currently limited to .NET, iOS, Android, and NodeJS. Corresponding quick-start tutorials for each are available in our [Getting started](active-directory-b2c-overview.md#getting-started) section.
+The set of Microsoft supported libraries that work Azure AD B2C is very limited at this time. We have support for .NET based web apps and services, as well as NodeJS web apps and services.  We also have a preview .NET client library known as MSAL that can be used with Azure AD B2C in Windows & other .NET apps.
 
-If you want to integrate an application with Azure AD B2C by using another language or platform, refer to the [OAuth 2.0 and OpenID Connect Protocol Reference](active-directory-b2c-reference-protocols.md), which explains how to construct the HTTP messages necessary to communicate with the Azure AD B2C service.
+We do not currently have library support any other languages or platforms, including iOS & Android.  If you wish to build on a different platform than those mentioned above, we recommend using an open-source SDK, referring to our [OAuth 2.0 and OpenID Connect Protocol Reference](active-directory-b2c-reference-protocols.md) as necessary.  Azure AD B2C implements OAuth & OpenID Connect, which makes it possible to use a generic OAuth or OpenID Connect library for integration.
+
+Our iOS & Android quick start tutorials use open-source libraries that we have tested for compatibility with Azure AD B2C.  All of our quick-start tutorials are available in our [Getting started](active-directory-b2c-overview.md#getting-started) section.
 
 ## Restriction on protocols
 
@@ -66,7 +68,7 @@ Azure AD B2C supports OpenID Connect and OAuth 2.0. However, not all features an
 
 ## Restriction on tokens
 
-Many of the tokens issued by Azure AD B2C are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims. To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-reference-tokens.md).
+Many of the tokens issued by Azure AD B2C are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims.  As the values, format, or meaning of claims change over time, tokens for your existing policies will remain unaffected - you can rely on their values in production apps.  As values change, we will give you the opportunity to configure those changes for each of your policies.  To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-reference-tokens.md).
 
 ## Restriction on nested groups
 
@@ -84,11 +86,11 @@ B2C features are accessible on the Azure portal. However, you can use the Azure 
 
     ![Local account - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
-- For a local account user, you will not able to edit any of the fields and save changes on the **Profile** tab. We will fix this soon.
+- For a local account user, you will not able to edit any of the fields and save changes on the **Profile** tab.
 
 ## Issues with admin-initiated password reset on the Azure classic portal
 
-If you reset the password for a local account-based consumer on the Azure classic portal (the **Reset Password** command on the **Users** tab), that consumer will not be able to change his or her password on the next sign in, if you use a Sign up or Sign in policy, and will be locked out of your applications. We are working on fixing this issue. As a workaround, use the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) to reset the consumer's password (without password expiration) or use a Sign in policy instead of a Sign up or Sign in policy.
+If you reset the password for a local account-based consumer on the Azure classic portal (the **Reset Password** command on the **Users** tab), that consumer will not be able to change his or her password on the next sign in, if you use a Sign up or Sign in policy, and will be locked out of your applications. As a workaround, use the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) to reset the consumer's password (without password expiration) or use a Sign in policy instead of a Sign up or Sign in policy.
 
 ## Issues with creating a custom attribute
 
@@ -96,7 +98,7 @@ A [custom attribute added on the Azure portal](active-directory-b2c-reference-cu
 
 ## Issues with verifying a domain on the Azure classic portal
 
-Currently you can't verify a domain successfully on the [Azure classic portal](https://manage.windowsazure.com/). We are working on a fix.
+Currently you can't verify a domain successfully on the [Azure classic portal](https://manage.windowsazure.com/).
 
 ## Issues with Sign-in with MFA policy on Safari browsers
 

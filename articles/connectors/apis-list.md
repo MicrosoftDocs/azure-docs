@@ -109,7 +109,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [http~requestdoc]: ./connectors-native-reqres.md "Request and Response actions."
 [http~responsedoc]: ./connectors-native-reqres.md "Request and Response actions."
 [delaydoc]: ./connectors-native-delay.md "Learn about the delay action."
-[http-swaggerdoc]: ./connectors-native-httpswagger.md "HTTP + Swagger connector to make HTTP calls."
+[http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger connector to make HTTP calls."
 [querydoc]: ./connectors-native-query.md "Query action to select and filter arrays."
 [webhookdoc]: ./connectors-native-webhook.md "Webhook action and trigger for logic apps."
 [azure~functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrate logic apps with Azure Functions."

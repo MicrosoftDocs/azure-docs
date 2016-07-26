@@ -47,7 +47,7 @@ Here's how it works: Azure AD B2C runs code in your consumer's browser and uses 
 If you want to try out the UI customization feature by using our sample HTML and CSS content, we've provided you [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures sample content on your Azure Blob storage.
 
 > [AZURE.NOTE]
-You can host your UI content anywhere: on web servers, CDNs, file sharing systems, etc. As long as the content is hosted on a publicly-available HTTPS endpoint (with CORS allowed), you are good to go. We are using Azure Blob storage for illustrative purposes only.
+You can host your UI content anywhere: on web servers, CDNs, AWS S3, file sharing systems, etc. As long as the content is hosted on a publicly-available HTTPS endpoint (with CORS allowed), you are good to go. We are using Azure Blob storage for illustrative purposes only.
 
 ### The most basic HTML content for testing
 

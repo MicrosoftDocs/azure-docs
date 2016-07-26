@@ -203,13 +203,13 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 3. Once connected to the head node, use the following command to run the word count job
 
-        yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasb:///example/data/gutenberg/davinci.txt --output wasb:///example/wordcountout
+        yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasbs:///example/data/gutenberg/davinci.txt --output wasbs:///example/wordcountout
 
     This runs the WordCount class you implemented earlier. `--hdfs` instructs the job to use HDFS. `--input` specifies the input text file, while `--output` specifies the output location.
 
 4. After the job completes, use the following to view the output.
 
-        hdfs dfs -text wasb:///example/wordcountout/part-00000
+        hdfs dfs -text wasbs:///example/wordcountout/part-00000
 
     This will display information similar to the following:
 
@@ -279,13 +279,13 @@ The following steps use Windows PowerShell. For other methods of running MapRedu
         #Create a job definition and start the job
         $jobDef=New-AzureRmHDInsightMapReduceJobDefinition `
             -JobName ScaldingWordCount `
-            -JarFile wasb:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
+            -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
             -ClassName com.microsoft.example.WordCount `
             -arguments "--hdfs", `
                        "--input", `
-                       "wasb:///example/data/gutenberg/davinci.txt", `
+                       "wasbs:///example/data/gutenberg/davinci.txt", `
                        "--output", `
-                       "wasb:///example/wordcountout"
+                       "wasbs:///example/wordcountout"
         $job = Start-AzureRmHDInsightJob `
             -clustername $clusterName `
             -jobdefinition $jobDef `

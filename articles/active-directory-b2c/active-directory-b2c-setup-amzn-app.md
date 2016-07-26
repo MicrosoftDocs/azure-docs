@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
+    ms.topic="article"
+    ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Amazon accounts

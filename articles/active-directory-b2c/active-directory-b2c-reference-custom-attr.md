@@ -49,4 +49,4 @@ You can use the "Run now" feature on the policy to verify the consumer experienc
 ## Notes
 
 - Along with sign-up policies, custom attributes can also be used in sign-up or sign-in policies and profile editing policies.
-- There is a known limitation of custom attributes. It is only created the first time it is used in any policy, and not when you add it to the list of **User attributes**. We plan to fix this soon.
+- There is a known limitation of custom attributes. It is only created the first time it is used in any policy, and not when you add it to the list of **User attributes**.

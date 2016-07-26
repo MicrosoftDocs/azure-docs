@@ -161,7 +161,7 @@ For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Because the default file system for HDInsight is in Azure Blob storage, /example/data.txt is actually in Azure Blob storage. You can also refer to the file as:
 
-	wasb:///example/data/data.txt
+	wasbs:///example/data/data.txt
 
 or
 

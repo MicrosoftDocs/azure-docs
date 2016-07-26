@@ -14,7 +14,7 @@
 	ms.devlang="objectivec"
 	ms.topic="hero-article"
 
-	ms.date="05/31/2016"
+	ms.date="07/22/2016"
 	ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Call a web API from an iOS application
@@ -22,8 +22,6 @@
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your iOS apps and web APIs in a few short steps. This article shows you how to create an iOS "to-do list" app that calls a Node.js web API by using OAuth 2.0 bearer tokens. Both the iOS app and the web API use Azure AD B2C to manage user identities and authenticate users.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
 	To work fully, this Quickstart requires that you already have a web API protected by Azure AD B2C. We have built one for both .NET and Node.js that you can use. This walk-through assumes that the Node.js web API sample is configured. Refer to the [Azure Active Directory web API for Node.js sample](active-directory-b2c-devquickstarts-api-node.md) for more.
