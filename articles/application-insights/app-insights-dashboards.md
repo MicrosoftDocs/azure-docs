@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/27/2016"
 	ms.author="awills"/>
 
 # Navigation and Dashboards in the Application Insights portal
@@ -71,6 +71,10 @@ When you're looking at a blade or set of charts that's particularly interesting,
 ![To pin a chart, hover over it and then click "..." in the header.](./media/app-insights-dashboards/33.png)
 
 Notice that charts are grouped into tiles: a tile can contain more than one chart. You pin the whole tile to the dashboard.
+
+### Analytics charts
+
+You can also pin Analytics charts to a dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics.
 
 ## Adjust a tile on the dashboard
 
