@@ -723,10 +723,12 @@ The following steps are necessary when a VM for SAP is deployed from an OS image
 Please install the VM Agent for Linux using the following command
 
 - **SLES**
+
 ```
 sudo zypper install WALinuxAgent
 ```
 - **RHEL**
+
 ```
 sudo yum install WALinuxAgent
 ```
