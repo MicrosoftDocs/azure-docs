@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/28/2016"
+   ms.date="07/26/2016"
    ms.author="bharatn"/>
 
 # WCF-based communication stack for Reliable Services

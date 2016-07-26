@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/18/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: Token, session and single sign-on configuration
