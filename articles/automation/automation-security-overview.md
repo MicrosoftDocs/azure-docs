@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2016"
+   ms.date="07/26/2016"
    ms.author="magoedte" />
 
 # Azure Automation security
@@ -29,7 +29,7 @@ The Automation resources for each Automation account are associated with a singl
 
 All of the tasks that you perform against resources using Azure Resource Manager (ARM) and the Azure cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  Certificate-based  authentication was the original authentication method with Azure Service Management (ASM) mode, but it was complicated to setup.  Authenticating to Azure with Azure AD user was introduced back in 2014 to not only simplify the process to configure an Authentication account, but also support the ability to non-interactively authenticate to Azure with a single user account that worked with both ASM and ARM mode.   
 
-We recently released another update, where we now automatically create an Azure AD service principal object when the Automation account is created. This is referred to as an Azure Run As account and is the default authentication method for runbook automation with Azure Resource Manager.     
+We recently released another update, where we now automatically create an Azure AD service principal object and clasic Run As account when the Automation account is created. This is the default authentication method for runbook automation with Azure Resource Manager, and optional for Azure Service Management and classic resources.     
 
 Role-based access control is available in ARM mode to grant permitted actions to an Azure AD user account and service principal, and authenticate that service principal.  Please read [Role-based access control in Azure Automation article](../automation/automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.  
 
@@ -43,6 +43,7 @@ Method  |  Environment  | Article
 ----------|----------|----------
 Azure AD User Account | Azure Resource Manager and Azure Service Management | [Authenticate Runbooks with Azure AD User account](../automation/automation-sec-configure-aduser-account.md)
 Azure AD Service Principal object | Azure Resource Manager | [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+Azure classic Run As Account | Azure Service Management | [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 Windows Authentication | On-Premises Datacenter | [Authenticate Runbooks for Hybrid Runbook Workers](../automation/automation-hybrid-runbook-worker.md)
 AWS Credentials | Amazon Web Services | [Authenticate Runbooks with Amazon Web Services (AWS)](../automation/automation-sec-configure-aws-account.md)
 
