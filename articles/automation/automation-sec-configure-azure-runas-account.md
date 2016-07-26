@@ -18,7 +18,7 @@
 
 # Authenticate Runbooks with Azure Run As account
 
-This topic will show you how to configure an Automation account from the Azure portal using the  Run As account feature to authenticate runbooks managing resources in either Azure Resource Manager or Azure Service Management for Classic resource.
+This topic will show you how to configure an Automation account from the Azure portal using the  Run As account feature to authenticate runbooks managing resources in either Azure Resource Manager or Azure Service Management for Classic resources.
 
 When you create a new Automation account in the Azure portal, it automatically creates:
 
