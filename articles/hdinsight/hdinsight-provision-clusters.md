@@ -77,6 +77,7 @@ You can create HDInsight clusters on one of the following two operating systems:
 
 It is used to determine the version of HDInsight to use for this cluster. For more information, see [Hadoop cluster versions and components in HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
 
+<<<<<<< HEAD
 ### Subscription name###
 
 Each HDInsight cluster is tied to one Azure subscription.
@@ -84,6 +85,9 @@ Each HDInsight cluster is tied to one Azure subscription.
 ### Resource group name###
 
 	[Azure Resource Manager (ARM)](resource-group-overview.md) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation.
+=======
+	[Azure Resource Manager (ARM)](../resource-group-overview.md) enables you to work with the resources in your application as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the resources for your application in a single, coordinated operation.	
+>>>>>>> 9817c54f2963764ebb5df87d075450dd5b296b49
 
 - **Credentials**
 
@@ -97,7 +101,7 @@ Each HDInsight cluster is tied to one Azure subscription.
 
 	The original HDFS uses many local disks on the cluster. HDInsight uses Azure Blob storage instead for data storage. Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage. Storing data in Blob storage enables you to safely delete the HDInsight clusters that are used for computation without losing user data.
 
-	During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation process requires the Azure storage account and the Blob storage container created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that will be accessible by the cluster. In addition, the cluster can also access any Blob containers that are configured with full public read access or public read access for blobs only.  For more information on the restrict access, see [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md).
+	During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation process requires the Azure storage account and the Blob storage container created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that will be accessible by the cluster. In addition, the cluster can also access any Blob containers that are configured with full public read access or public read access for blobs only.  For more information on the restrict access, see [Manage Access to Azure Storage Resources](../storage/storage-manage-access-to-resources.md).
 
 	![HDInsight storage](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
@@ -111,8 +115,13 @@ Each HDInsight cluster is tied to one Azure subscription.
 
 	For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
+<<<<<<< HEAD
     In addition to Azure Blob storage, you can also use [Azure Data Lake store](data-lake-store-overview.md) as default storage account for HBase cluster in HDInsight and as linked storage for all 4 HDInsight cluster types. For the instructions, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 
+=======
+    In addition to Azure Blob storage, you can also use [Azure Data Lake store](../data-lake-store/data-lake-store-overview.md) as default storage account for HBase cluster in HDInsight and as linked storage for all 4 HDInsight cluster types. For the instructions, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 
+    
+>>>>>>> 9817c54f2963764ebb5df87d075450dd5b296b49
 - **Location (Region)**
 
 	The HDInsight cluster and its default storage account must be located on the same Azure location.
@@ -173,9 +182,15 @@ Each HDInsight cluster is tied to one Azure subscription.
         |Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
         |Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
         |Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|    
+<<<<<<< HEAD
 
     For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-size-specs.md). For information about pricing of the various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight)   
 
+=======
+ 
+    For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-size.md). For information about pricing of the various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight)   
+    
+>>>>>>> 9817c54f2963764ebb5df87d075450dd5b296b49
 	> [AZURE.IMPORTANT] If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB RAM.
 	> Billing starts once a cluster is created, and only stops when the cluster is deleted. For more information on pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
 

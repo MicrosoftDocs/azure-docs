@@ -14,12 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/19/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 # Get started with the OneDrive connector
 
-Connect to OneDrive to manage your files, including upload, get, delete files, and more. With OneDrive, you can: 
+Connect to OneDrive to manage your files, including upload, get, delete files, and more. 
+
+With OneDrive, you: 
 
 - Build your workflow by storing files in OneDrive, or update existing files in OneDrive. 
 - Use triggers to start your workflow when a file is created or updated within your OneDrive.
@@ -28,6 +30,8 @@ Connect to OneDrive to manage your files, including upload, get, delete files, a
 This topic shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
 
 >[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
+
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to OneDrive
 
