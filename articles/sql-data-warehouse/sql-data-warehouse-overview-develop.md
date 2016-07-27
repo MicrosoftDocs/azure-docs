@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Design decisions and coding techniques for SQL Data Warehouse
@@ -27,8 +27,8 @@ The following articles highlight some of the key concepts and design decisions y
 - [concurrency][]
 - [transactions][]
 - [user-defined schemas][]
-- [table design][]
-- [hash distribution keys][]
+- [table distribution][]
+- [table indexes][]
 - [table partitions][]
 - [CTAS][]
 - [statistics][]
@@ -51,25 +51,24 @@ Once you have been through the development articles take a look through the [Tra
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: sql-data-warehouse-develop-concurrency.md
-[connections]: sql-data-warehouse-develop-connections.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[dynamic SQL]: sql-data-warehouse-develop-dynamic-sql.md
-[group by options]: sql-data-warehouse-develop-group-by-options.md
-[hash distribution keys]: sql-data-warehouse-develop-hash-distribution-key.md
-[labels]: sql-data-warehouse-develop-label.md
-[looping]: sql-data-warehouse-develop-loops.md
-[statistics]: sql-data-warehouse-develop-statistics.md
-[stored procedures]: sql-data-warehouse-develop-stored-procedures.md
-[table design]: sql-data-warehouse-develop-table-design.md
-[table partitions]: sql-data-warehouse-develop-table-partitions.md
-[temporary tables]: sql-data-warehouse-develop-temporary-tables.md
-[transactions]: sql-data-warehouse-develop-transactions.md
-[user-defined schemas]: sql-data-warehouse-develop-user-defined-schemas.md
-[variable assignment]: sql-data-warehouse-develop-variable-assignment.md
-[views]: sql-data-warehouse-develop-views.md
-
-[Transact-SQL reference]: sql-data-warehouse-overview-reference.md
+[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[connections]: ./sql-data-warehouse-develop-connections.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
+[group by options]: ./sql-data-warehouse-develop-group-by-options.md
+[labels]: ./sql-data-warehouse-develop-label.md
+[looping]: ./sql-data-warehouse-develop-loops.md
+[statistics]: ./sql-data-warehouse-tables-statistics.md
+[stored procedures]: ./sql-data-warehouse-develop-stored-procedures.md
+[table distribution]: ./sql-data-warehouse-tables-distribute.md
+[table indexes]: ./sql-data-warehouse-tables-index.md
+[table partitions]: ./sql-data-warehouse-tables-partition.md
+[temporary tables]: ./sql-data-warehouse-tables-temporary.md
+[transactions]: ./sql-data-warehouse-develop-transactions.md
+[user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
+[variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
+[views]: ./sql-data-warehouse-develop-views.md
+[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

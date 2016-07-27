@@ -1,6 +1,6 @@
 <properties
-   pageTitle="About app token flow in Power BI Embedded"
-   description="Power BI Embedded about App Tokens for authentication and authorization"
+   pageTitle="Authenticating and authorizing with Power BI Embedded"
+   description="Authenticating and authorizing with Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="minewiskan"
@@ -13,14 +13,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/26/2016"
    ms.author="owend"/>
 
-# About app token flow in Power BI Embedded
+# Authenticating and authorizing with Power BI Embedded
 
-The **Power BI Embedded** service uses **App Tokens** for authentication and authorization instead of explicit end-user authentication.  In the **App Token** model, your application manages authentication and authorization for your end-users.  When necessary, your app creates and sends the **App Tokens** that tells our service to render the requested report. This design does not require your app to use **Azure Active Directory** for user authentication and authorization, although you can do this.
+The Power BI Embedded service uses **Keys** and **App Tokens** for authentication and authorization, instead of explicit end-user authentication. In this model, your application manages authentication and authorization for your end-users. When necessary, your app creates and sends the App Tokens that tells our service to render the requested report. This design doesn't require your app to use Azure Active Directory for user authentication and authorization, although you still can.
 
-**Here's how the app token key flow works**
+## Two ways to authenticate
+
+**Key** -  You can use keys for all Power BI Embedded REST API calls. The keys can be found in the **Azure portal** by clicking on **All settings** and then **Access keys**. Always treat your key as if it were a password. These keys have permissions to make any REST API call on a particular workspace collection.
+
+To use a key on a REST call, add the following authorization header:            
+
+    Authorization: AppKey {your key}
+
+**App token** - App tokens are used for all embedding requests. They’re designed to be run client-side, so they're restricted to a single report and it’s best practice to set an expiration time.
+
+App tokens are a JWT (JSON Web Token) that is signed by one of your keys.
+
+Your app token can contain the following claims:
+
+| Claim      | Description        |
+|--------------|------------|
+| **ver**      | The version of the app token. 0.2.0 is the current version.       |
+| **aud**      | The intended recipient of the token. For Power BI Embedded use: “https://analysis.windows.net/powerbi/api”.  |
+| **iss**      |  A string indicating the application which issued the token.    |
+| **type**     | The type of app token which is being created. Current the only supported type is **embed**.   |
+| **wcn**      | Workspace collection name the token is being issued for.  |
+| **wid**      | Workspace ID the token is being issued for.  |
+| **rid**      | Report ID the token is being issued for.     |
+| **username** (optional) |  Used with RLS, this is a string that can help identify the user when applying RLS rules. |
+| **roles** (optional)   |   A string containing the roles to select when applying Row Level Security rules. If passing more than one role, they should be passed as a sting array.    |
+| **exp** (optional)    |   Indicates the time in which the token will expire. These should be passed in as Unix timestamps.   |
+| **nbf** (optional)    |   Indicates the time in which the token starts being valid. These should be passed in as Unix timestamps.   |
+
+A sample app token will look like this:
+
+![](media\power-bi-embedded-app-token-flow\power-bi-embedded-app-token-flow-sample-coded.png)
+
+
+When decoded, it will look like this:
+
+![](media\power-bi-embedded-app-token-flow\power-bi-embedded-app-token-flow-sample-decoded.png)
+
+
+## Here's how the flow works
 
 1. Copy the API keys to your application. You can get the keys in **Azure Portal**.
 
@@ -52,6 +90,5 @@ After **Power BI Embedded** sends a report to the user, the user can view the re
 
 ## See Also
 - [Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md)
-- [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Common Microsoft Power BI Embedded Preview scenarios](power-bi-embedded-scenarios.md)
-- [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
+- [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
+- [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)

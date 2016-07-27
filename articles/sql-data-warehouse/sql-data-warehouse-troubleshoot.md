@@ -13,123 +13,125 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
-This topic lists some of the more common issues you might run into with Azure SQL Data Warehouse.
+
+This topic lists some of the more common troubleshooting questions we hear from our customers.
+
+## Connecting
+
+| Issue                              | Resolution                                      |
+| :----------------------------------| :---------------------------------------------- |
+| CTAIP error                        | This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][] article.  This article explains how to create create a login on master and then how to create a user in the SQL Data Warehouse database.|
+| Blocked by Firewall                |Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [Configure server firewall access for your client IP][] in the [Provisioning instructions][].|
+| Cannot connect with tool or driver | SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] is recommended.|
 
 
-##Connection Failures
+## Tools
 
-If you are having trouble connecting, below are some of the more common issues reported by customers.
+| Issue                              | Resolution                                      |
+| :----------------------------------| :---------------------------------------------- |
+| Visual Studio object explorer is missing AAD users | This is a known issue.  As a workaround, view the users in [sys.database_principals][].  See [Authentication to Azure SQL Data Warehouse][] to learn more about using Azure Active Directory with SQL Data Warehouse.|
 
-### CTAIP error
-This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security Overview][] article.  This article explains how to create create a login on master and then how to create a user in the SQL Data Warehouse database.
+## Performance
 
-### Firewall rules
-Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [configure server firewall access for your client IP][] in the [provisioning instructions][].
+|  Issue                             | Resolution                                      |
+| :----------------------------------| :---------------------------------------------- |
+| Query performance troubleshooting  | If you are trying to troubleshoot a particular query, start with [Learning how to monitor your queries][].|
+| Poor query performance and plans often is a result of missing statistics   | The most common cause of poor performance is lack of statistics on your tables.  See [Maintaining table statistics][Statistics] for details on how to create statistics and why they are critical to your performance.|
+| Low concurrency / queries queued   | Understanding [Workload management][] is important in order to understand how to balance memory allocation with concurrency.|
+| How to implement best practices    | The best place to start to learn ways to improve query performance is [SQL Data Warehouse best practices][] article.|
+| How to improve performance with scaling  | Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your SQL Data Warehouse][].|
+| Poor query performance as a result of poor index quality | Some times queries can slowdown because of [Poor columnstore index quality][].  See this article for more information and how to [Rebuild indexes to improve segment quality][].|
 
-### Unsupported tools/protocols
-SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.
+## System management
 
+|  Issue                             | Resolution                                      |
+| :----------------------------------| :---------------------------------------------- |
+| Msg 40847: Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 45000. | Either reduce the [DWU][] of the database you are trying to create or [request a quota increase][].|
+| Investigating space utilization    | See [Table sizes][] to understand the space utilization of your system.|
+| Help with managing tables          | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary].|
 
-## Performance Issues
+## Polybase
 
-The best place to start to learn ways to improve query performance is [SQL Data Warehouse Best Practices][] article.  If you are trying to troubleshoot a particular query, another good place to start is the article on [learning how to monitor your queries][].  Sometimes the solution to getting a query to execute faster is to simply add more compute power to your queries by [scaling your SQL Data Warehouse][].
+|  Issue                             | Resolution                                      |
+| :----------------------------------| :---------------------------------------------- |
+| UTF-8 error                        |  Currently PolyBase only supports loading data files that have been UTF-8 encoded.  See [Working around the PolyBase UTF-8 requirement][] for guidance on how to work around this limitation.|
+| Load fails because of large rows   | Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loads for large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release.|
+| bcp load of table with MAX data type is failing | There is a known issue which requires that VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX) be placed at the end of the table in some scenarios.  Try moving your MAX columns to the end of the table.|
 
-## Clustered Columnstore Segment Quality
+## Differences from SQL Database
 
-Clustered Columnstore segment quality is important to optimal query performance on Clustered Columnstore Tables.  Segment quality can be measured by number of rows in a compressed Row Group.  The following query will identify tables with poor Columnstore index segment health and generate the T-SQL to rebuild the columnstore index on these tables.  The first column of this query result will give you the T-SQL to rebuild each index.  The second column will provide a recommendation for the minimum resource class to use to optimize the compression. 
- 
-**STEP 1:** Run this query on each SQL Data Warehouse database to identify any sub-optimal cluster columnstore indexes.  If no rows are returned, then no further action is needed.
-
-```sql
-SELECT 
-     'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;' AS [T-SQL to Rebuild Index]
-    ,CASE WHEN n.nbr_nodes < 3 THEN 'xlargerc' WHEN n.nbr_nodes BETWEEN 4 AND 6 THEN 'largerc' ELSE 'mediumrc' END AS [Resource Class Recommendation]
-    ,s.name AS [Schema Name]
-    ,t.name AS [Table Name]
-    ,AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) AS [Ave Rows in Compressed Row Groups]
-FROM 
-    sys.pdw_nodes_column_store_row_groups rg
-    JOIN sys.pdw_nodes_tables pt 
-        ON rg.object_id = pt.object_id AND rg.pdw_node_id = pt.pdw_node_id AND pt.distribution_id = rg.distribution_id
-    JOIN sys.pdw_table_mappings tm 
-        ON pt.name = tm.physical_name
-    INNER JOIN sys.tables t 
-        ON tm.object_id = t.object_id
-INNER JOIN sys.schemas s
-    ON t.schema_id = s.schema_id
-CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compute') n
-GROUP BY 
-    n.nbr_nodes, s.name, t.name
-HAVING 
-    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000 OR
-    AVG(CASE WHEN rg.State = 0 THEN rg.Total_rows ELSE NULL END) < 100000
-
-ORDER BY 
-    s.name, t.name
-```
- 
-**STEP 2:** Increase the Resource Class of a user which has permissions to rebuild the index on this table to the recommended resource class from the 2nd column of the above query.
-
-```sql
-EXEC sp_addrolemember 'xlargerc', 'LoadUser'
-```
-
-> [AZURE.NOTE]  LoadUser above should be a valid user you create to run the ALTER INDEX statement. The resource class of the db_owner user cannot be changed.  More information about resource classes and how to create a new user can be found in the link below.
-
- 
-**STEP 3:** Logon as the user from step 2 (for example “LoadUser”), which is now using a higher resource class, and execute the ALTER INDEX statements generated by the query in STEP 1.  Be sure that this user has ALTER permission to the tables identified in the query from STEP 1.
- 
-**STEP 4:** Rerun the query from step 1.  If the indexes were built efficiently, no rows should be returned by this query.  If no rows are returned, you are done.  If you have multiple SQL DW databases, then you will want to repeat this process on each of your databases.  If rows are returned, continue on to step 5.
- 
-**STEP 5:** If rows are returned when you rerun the query from step 1, you might have tables with extra wide rows which need high amounts of memory to optimally build the clustered column store indexes.  If this is the case, retry this process for these table using the xlargerc class.  To change the resource class repeat step 2 using xlargerc.  Then repeat step 3 for the tables which still have suboptimal indexes.  If you are using a DW100 - DW300 and already used the xlargerc then you may choose to either leave the indexes as is or temporarily increase DWU to provide more memory to this operation.
- 
-**FINAL STEPS:**  The resource class designated above is the recommended minimum resource class to build the highest quality columnstore indexes.   We recommend that you keep this setting for the user which loads your data.  However, if you wish to undo the change from step 2, you can do this with the following command.
-
-```sql
-EXEC sp_droprolemember 'smallrc', 'LoadUser'
-```
-
-The guidance for minimum resource class for loads to a CCI table is to use xlargerc for DW100 to DW300, largerc for DW400 to DW600, and mediumrc for anything at or above DW1000.  This guidance is a good practice for most workloads.  The goal is to give each index build operation 400 MB or more of memory.  However, one size does not fit all.  The memory needed to optimize a columnstore index is dependent on the data being loaded, which is primarily influenced by row size.  Tables with narrower row widths need less memory, wider row widths need more.  If you would like to experiment, you can use the query from Step 1, to see if you get optimal columnstore indexes at smaller memory allocations.  Minimally you want on average more than 100K rows per row group.  Above 500K is even better.  The maximum you will see is 1 million rows per row group. For details on how to manage resources classes and concurrency see the link below.
-
+|  Issue                             | Resolution                                      |
+| :----------------------------------| :---------------------------------------------- |
+| Unsupported SQL Database features  | See [Unsupported table features][].|
+| Unsupported SQL Database data types  | See [Unsupported data types][].|
+| DELETE and UPDATE limitations      | See [UPDATE workarounds][], [DELETE workarounds][] and [Using CTAS to work around unsupported UPDATE and DELETE syntax][].  |
+| MERGE statement is not supported   | See [MERGE workarounds][].|
+| Stored procedure limitations       | See [Stored procedure limitations][] to understand some of the limitations of stored procedures.|
+| UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION][] for the syntax we support.   |
+'<--LocComment: Page not found "Stored procedure limitations" is broken. I've tried fixing the link in Article References -->'
 
 ## Next steps
 
 If you are were unable to find a solution to your issue above, here are some other resources you can try.
 
 - [Blogs]
-- [Feature Requests]
+- [Feature requests]
 - [Videos]
-- [CAT Team Blogs]
-- [Create Support Ticket]
-- [MSDN Forum]
-- [Stack Overflow Forum]
+- [CAT team blogs]
+- [Create support ticket]
+- [MSDN forum]
+- [Stack Overflow forum]
 - [Twitter]
 
 <!--Image references-->
 
 <!--Article references-->
-[Security Overview]: ./sql-data-warehouse-overview-manage-security.md
-[Create Support Ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
-[learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
-[provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
+[Security overview]: ./sql-data-warehouse-overview-manage-security.md
+[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change 
+[Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
+[Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
+[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 or 2015]: ./sql-data-warehouse-get-started-connect.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
+[Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[Unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[MERGE workarounds]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[Stored procedure limitations]: /sql-data-warehouse-develop-stored-procedures.md#limitations
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
 [SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
+[sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
+[CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT Team Blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature Requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN Forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow Forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[CAT team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[MSDN forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 

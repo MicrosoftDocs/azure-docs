@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/22/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture in Azure
@@ -51,7 +51,7 @@ The following diagram highlights the important components in this architecture (
 
 - **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud. See [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details about this structure.
 
-- **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs. However, response traffic cannot be forwarded through the NVAs at this point. Basically, incoming traffic fro the on-premises netowork to Azure will go through the NVAs, but response traffic, and traffic originating from Azure to the on-premises network will bypass the NVAs.
+- **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs. However, response traffic cannot be forwarded through the NVAs at this point. Basically, incoming traffic from the on-premises network to Azure will go through the NVAs, but response traffic, and traffic originating from Azure to the on-premises network will bypass the NVAs.
 
 	> [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network.
 
@@ -99,7 +99,7 @@ If you are familiar with resource groups, you can use [this diagram][6] to under
 
 Within a resource group, create separate RBAC roles for DevOps staff who can create and administer VMs, and centralized IT administrators who can manage the network (assign a public IP address to a network interface, change NSG rules on the network, create VPN connections, and so on). Segregating staff across roles in this way allows an IT administrator to change NSG rules and assign public IP addresses to VMs. DevOps staff will be unable to perform these tasks, but can manage VMs. To implement this scheme:
 
-- The DevOps staff role should include the Virtual Machine Contributor role and Storage Account Contributor role (to enable system administrators to create and attach disks to VMs), as well as the Reader role on the resource group as shown by the following example (replace *nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn* with your subscription ID):
+- The DevOps staff role should include the Virtual Machine Contributor role and Storage Account Contributor role (to enable system administrators to create and attach disks to VMs), as well as the Reader role on the resource group as shown by the following example (replace *nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn* with your subscription ID and *devops@contoso.com* with the Microsoft Account or Organizational Account used to manage your resources in Azure):
 
     ```cli
     azure role assignment create -o "Virtual Machine Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName devops@contoso.com
@@ -138,7 +138,7 @@ NVAs can provide different services for managing and monitoring network traffic.
 
 - [Check Point vSEC][checkpoint]
 
-You can also create an NVA by using your own custom VMs; this is the approach taken by the sample script and templates used to implement this reference architecture. As a further variation, you could connect multiple NVAs in series. Using this approach, you can create a service chain comprising specialised NVAs, each configured to perform a specific security task. For example, you could construct a sequence consisting of an NVA implementing a firewall with another running identity services.
+You can also create an NVA by using your own custom VMs; this is the approach taken by the sample script and templates used to implement this reference architecture. As a further variation, you could connect multiple NVAs in series. Using this approach, you can create a service chain comprising specialised NVAs, each configured to perform a specific security task. For example, you could construct a sequence consisting of an NVA implementing a firewall with another running identity services. In this case, assure you have the proper sizing for each NVA in chain, and be aware that you will be adding extra hops in the network that eventually could have some impact in the performance for your architecture. 
 
 > [AZURE.NOTE] For some NVAs that expose a public interface, it may be feasible to create a direct tunnel to the NVA from an on-premises appliance.
 
@@ -230,7 +230,7 @@ The sample deployment script below does not enable forced tunneling. To enable f
 ############################################################################
 ```
 
-Verify that the traffic is tunneled correctly. If you're using a VPN connection with the Routing and Remote Access Service on an on-premises server, use a tool such as [WireShark][wireshark] on this server to verify that Internet traffic from the VNet is being forwarded through this server.
+Verify that the traffic is tunneled correctly. If you're using a VPN connection with the Routing and Remote Access Service on an on-premises server, use a tool such as [WireShark][wireshark] or [Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) on this server to verify that Internet traffic from the VNet is being forwarded through this server.
 
 Configure the on-premises network security appliance to direct force-tunneled traffic to the Internet. This process will vary according to the device used to implement the appliance. But basically, it requires you to setup NAT (Network Address Translation) on your on-premises network.
 
@@ -246,7 +246,7 @@ Don't force DevOps requests through the NVA; the UDR that intercepts application
 
 ## Solution components
 
-The solution provided for this architecture utilizes the following ARM templates:
+The solution provided for this architecture utilizes the following resource manager templates:
 
 - [azuredeploy.json][azuredeploy]. This template is specific to this architecture. It creates a resource group containing the VNet network, subnets, NSGs, and UDRs for these subnets.
 
@@ -282,7 +282,7 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement
 
 1. The template configures IP forwarding for the NICs attached to the inbound and outbound NVA subnets by passing the following parameters to the [bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe] template:
 
-	```arm-template
+	```template
     "parameters": {
       ...
       "nic1IpForwarding": { "value": true },
@@ -293,7 +293,7 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement
 
 	The [bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe] template passes these parameters to a further template, [bb-vm-3nics-lbbe.json][bb-vm-3nics-lbbe], which configures the NICs for a single VM:
 
-	```arm-template
+	```template
     {
       ...
       "type": "Microsoft.Network/networkInterfaces",
@@ -334,7 +334,7 @@ It is important that both of these tasks complete successfully, otherwise traffi
 
 The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template creates an availability set for the VMs, and implements an internal load balancer which distributes HTTP requests sent to ports 80 and 443 across this availability set. The load balancer has a static IP address. The JSON snippet below shows how the template configures the load balancer. Note that in this snippet, the *ilbIpAddress* parameter contains the internal IP address of the load balancer, and the *feSubnetId* parameter is a reference to the inbound (front-end) NVA subnet. The variable *ilbBEName* refers to the pool containing the NVA VMs.
 
-```arm-template
+```template
 {
   "type": "Microsoft.Network/loadBalancers",
   ...
@@ -384,7 +384,7 @@ The UDR for the gateway subnet implements two routes, as follows:
 
 - **toMgmt**. This route matches traffic intended for the management subnet and allows it to pass through, bypassing the NVA load balancer:
 
-```arm-template
+```template
 {
   "type": "Microsoft.Network/routeTables",
   ...
@@ -414,7 +414,7 @@ The UDR for the gateway subnet implements two routes, as follows:
 
 The [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template takes this UDR as an input parameter and applies the UDR to the Gateway subnet created for the connection to the on-premises network.
 
-```arm-template
+```template
 "parameters": {
   ...
   "udrName": {
@@ -439,7 +439,7 @@ The [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template creates
 
 This template invokes further templates, [bb-gatewaysubnet.json][bb-gatewaysubnet] and [bb-gatewaysubnet-udr.json][bb-gatewaysubnet-udr], to actually create the subnet and associate it with the UDR. The parameters shown below are passed to these templates:
 
-```arm-template
+```template
 "parameters": {
   "vnetName": { "value": "[parameters('vnetName')]" },
   "gatewaySubnetAddressPrefix": { "value": "[parameters('gatewaySubnetAddressPrefix')]" },
@@ -455,7 +455,7 @@ The local network gateway and VPN connection don't require any special configura
 
 The virtual network gateway requires a public, dynamic IP address, as shown by the following snippet:
 
-```arm-template
+```template
 {
   ...
   "type": "Microsoft.Network/publicIPAddresses",
@@ -466,7 +466,7 @@ The virtual network gateway requires a public, dynamic IP address, as shown by t
 
 The virtual network gateway uses the following configuration:
 
-```arm-template
+```template
 {
   ...
   "type": "Microsoft.Network/virtualNetworkGateways",
@@ -509,7 +509,7 @@ In this snippet, you should pay specific attention to the following properties:
 
 The [azuredeploy.sh][azuredeploy-script] script uses the [bb-ntwk-forced-tunneling.json][bb-ntwk-forced-tunneling] template to implement forced tunneling for the web, business, and data access tiers. The template creates separate route tables for each tier; this allows you to customize the table and add further routes for each tier individually. The route table contains the following route that directs all Internet-bound traffic back through the virtual network gateway, which in turn send the traffic on to the default site (through the local network gateway connection):
 
-```arm-template
+```template
 {
   "type": "Microsoft.Network/routeTables",
   ...
@@ -541,7 +541,7 @@ The purpose of the jump box is to provide administrative access to DevOps staff 
 
 It is imperative to protect direct access to the jump box from access by unauthorized staff. The [azuredeploy.json][azuredeploy] template creates NSG rules named *on-prem-rdp-allow*, *on-prem-ssh-allow*, *gateway-allow*, *self-allow*, and *vnet-deny* for the management subnet:
 
-```arm-template
+```template
 {
   "type": "Microsoft.Resources/deployments",
   ...
@@ -796,6 +796,11 @@ If each tier in the system is protected by using NSG rules, it may also be neces
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
 > [AZURE.NOTE] You can find additional information specifically aimed at monitoring and managing VPN and ExpressRoute connections in the articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
+
+## Next steps
+
+- Learn how to implement a [DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md).
+- Learn how to implement a [highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md).
 
 <!-- links -->
 

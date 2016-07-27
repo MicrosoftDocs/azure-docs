@@ -26,7 +26,7 @@ You can create tasks that depend on other tasks in a one-to-one or one-to-many r
 
 ## Task dependencies with Batch .NET
 
-In this article we discuss configuring task dependencies using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependency) on your jobs, then briefly demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the [dependency scenarios](#dependency-scenarios) supported by Batch.
+In this article we discuss configuring task dependencies using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, then briefly demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the [dependency scenarios](#dependency-scenarios) supported by Batch.
 
 ## Enable task dependencies
 

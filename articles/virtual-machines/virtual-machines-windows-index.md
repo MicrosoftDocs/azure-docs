@@ -20,7 +20,7 @@
 # Technical articles for Windows VMs in the classic deployment model
 
 
-Find all the documentation you need to create and manage Windows-based virtual machines in the classic deployent model.
+Find all the documentation you need to create and manage Windows-based virtual machines in the classic deployment model.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -77,7 +77,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Capture a Windows virtual machine created in the classic deployment model](virtual-machines-windows-classic-capture-image.md)
 
-[Create and upload a classic Windows Server VHD using Powershell](virtual-machines-windows-classic-createupload-vhd.md)
+[Create and upload a classic Windows Server VHD using PowerShell](virtual-machines-windows-classic-createupload-vhd.md)
 
 [Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md)
 

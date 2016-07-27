@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/19/2016"
 	ms.author="casoper"/>
 
-# Get started with the Azure CDN Library for .NET
+# Get started with Azure CDN development
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.js](cdn-app-dev-node.md)
 
 You can use the [Azure CDN Library for .NET](https://msdn.microsoft.com/library/mt657769.aspx) to automate creation and management of CDN profiles and endpoints.  This tutorial will walk through the creation of a simple .NET console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN Library for .NET in detail.
 
 You will need Visual Studio 2015 to complete this tutorial.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) is freely available for download.
 
-A completed example of this tutorial can be found [here](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+> [AZURE.TIP] The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is available for download on MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -54,7 +58,7 @@ Let's get the basic structure of our program written.
 
 1. Back in the Program.cs tab, replace the `using` directives at the top with the following:
 
-	```
+	```csharp
 	using System;
 	using System.Collections.Generic;
 	using Microsoft.Azure.Management.Cdn;
@@ -67,7 +71,7 @@ Let's get the basic structure of our program written.
 
 2. We need to define some constants our methods will use.  In the `Program` class, but before the `Main` method, add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
 
-	```
+	```csharp
 	//Tenant app constants
 	private const string clientID = "<YOUR CLIENT ID>";
 	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
@@ -83,14 +87,14 @@ Let's get the basic structure of our program written.
 
 3. Also at the class level, define these two variables.  We'll use these later to determine if our profile and endpoint already exist.
 
-	```
+	```csharp
 	static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
 	```
 
 4.  Replace the `Main` method as follows:
 
-	```
+	```csharp
 	static void Main(string[] args)
 	{
 		//Get a token
@@ -126,7 +130,7 @@ Let's get the basic structure of our program written.
 
 5. Some of our other methods are going to prompt the user with "Yes/No" questions.  Add the following method to make that a little easier:
 
-	```
+	```csharp
 	private static bool PromptUser(string Question)
 	{
 		Console.Write(Question + " (Y/N): ");
@@ -142,7 +146,7 @@ Let's get the basic structure of our program written.
 		}
 		else
 		{
-			// They're not pressing Y or N.  Let's ask them again.
+			// They pressed something other than Y or N.  Let's ask them again.
 			return PromptUser(Question);
 		}
 	}
@@ -154,7 +158,7 @@ Now that the basic structure of our program is written, we should create the met
 
 Before we can use the Azure CDN Management Library, we need to authenticate our service principal and obtain an authentication token.  This method uses ADAL to retrieve the token.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority); 
@@ -170,7 +174,7 @@ If you are using individual user authentication, the `GetAccessToken` method wil
 
 >[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority);
@@ -187,7 +191,7 @@ Be sure to replace `<redirect URI>` with the redirect URI you entered when you r
 
 Now we're ready to perform CDN operations.  The first thing our method does is list all the profiles and endpoints in our resource group, and if it finds a match for the profile and endpoint names specified in our constants, makes a note of that for later so we don't try to create duplicates.
 
-```
+```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 {
 	// List all the CDN profiles in this resource group
@@ -222,7 +226,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 
 Next, we'll create a profile.
 
-```
+```csharp
 private static void CreateCdnProfile(CdnManagementClient cdn)
 {
 	if (profileAlreadyExists)
@@ -241,7 +245,7 @@ private static void CreateCdnProfile(CdnManagementClient cdn)
 
 Once the profile is created, we'll create an endpoint.
 
-```
+```csharp
 private static void CreateCdnEndpoint(CdnManagementClient cdn)
 {
 	if (endpointAlreadyExists)
@@ -270,7 +274,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 
 Assuming the endpoint has been created, one common task that we might want to perform in our program is purging the content in our endpoint.
 
-```
+```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 {
 	if (PromptUser(String.Format("Purge CDN endpoint {0}?", endpointName)))
@@ -287,9 +291,9 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 ## Delete CDN profiles and endpoints
 
-The last methods we will include delete our endpoint and profile.
+The last methods will delete our endpoint and profile.
 
-```
+```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
 {
 	if(PromptUser(String.Format("Delete CDN endpoint {0} on profile {1}?", endpointName, profileName)))

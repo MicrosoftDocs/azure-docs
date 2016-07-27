@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/28/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # My first graphical runbook
@@ -210,8 +210,8 @@ We will now modify the runbook so that it will only attempt to start the virtual
 29.	Save the runbook and open the Test pane.
 30.	Start the runbook with the virtual machine stopped, and it should start.
 
-## Next Steps
+## Next steps
 
 -	To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 -	To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
--	To get started with PowerShell workflow runbooks, see  [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+-	To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)

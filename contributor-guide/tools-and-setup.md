@@ -1,18 +1,18 @@
-<properties 
-pageTitle="Install and set up tools for authoring in GitHub" 
-description="Tools and steps to get set up for authoring Azure content in GitHub." 
-services="contributor-guide" 
-documentationCenter="" 
+<properties
+pageTitle="Install and set up tools for authoring in GitHub"
+description="Tools and steps to get set up for authoring Azure content in GitHub."
+services="contributor-guide"
+documentationCenter=""
 authors="tysonn"  
 manager="carolz" />
 
-<tags 
+<tags
 ms.service="contributor-guide"
- ms.devlang="" 
+ ms.devlang=""
  ms.topic="article"
-  ms.tgt_pltfrm="" 
-  ms.workload="" 
-  ms.date="01/19/2015" 
+  ms.tgt_pltfrm=""
+  ms.workload=""
+  ms.date="01/19/2015"
   ms.author="tysonn" />
 
 #Install and set up tools for authoring in GitHub
@@ -101,7 +101,7 @@ For the following sorts of work, we strongly recommend you install and learn to 
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are a Microsoft PM or writer who is working on Azure content, you must work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
+If you are a Microsoft PM or writer who is working on Azure content, you must work in our private content repository, azure-content-pr. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com ) to request the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
 
 ## Install Git for Windows
 
@@ -112,7 +112,7 @@ You can accept the default settings; if you want the commands to be available wi
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/gitbashinstall.png)
 
-(Note: This is not the same as "Github for Windows". "Github for Windows" is a different GUI-based tool that will also work if you want to read up on yourself. [https://windows.github.com/](https://windows.github.com/)) 
+(Note: This is not the same as "Github for Windows". "Github for Windows" is a different GUI-based tool that will also work if you want to read up on yourself. [https://windows.github.com/](https://windows.github.com/))
 
 ## Enable two-factor authentication
 
@@ -138,7 +138,7 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor.
 
-- **Atom**: Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check. 
+- **Atom**: Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check.
 
 - **Notepad**: You can use Notepad for a very lightweight option.
 
@@ -150,9 +150,9 @@ We author content using simple "markdown" notation in the files, rather than com
 
 If you use Atom, you'll need to set a few things up.
 
-- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under File>Settings>Editor Settings>Tab Length. 
-- You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. 
-- To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view. 
+- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under File>Settings>Editor Settings>Tab Length.
+- You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad.
+- To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view.
 
 ## Fork the repository and copy it to your computer
 
@@ -224,7 +224,7 @@ To ensure you are listed correctly as a contributor, you need to configure your 
 ##Next steps
 
 - Understand the type of content that belongs in the technical content repo, and know what does not belong. See the [content channel guidance](./content-channel-guidance.md)!
-- Follow [these steps to create or modify an article and then submit it for publishing](./git-commands-for-master.md). 
+- Follow [these steps to create or modify an article and then submit it for publishing](./git-commands-for-master.md).
 - Copy [the markdown template](../markdown templates/markdown-template-for-new-articles.md) as the basis for a new article.
 - Use [this checklist to verify your pull request will meet the quality criteria](./contributor-guide-pr-criteria.md) for merging.
 

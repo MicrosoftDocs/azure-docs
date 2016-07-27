@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="06/30/2016" 
     ms.author="elizapo" />
 
 # How does Azure RemoteApp save user data and settings?
@@ -51,9 +51,6 @@ We also recommend that you use "cached" mode in Outlook and use "server/online" 
 
 Check out [this article](remoteapp-outlook.md) for more information on using Outlook and Azure RemoteApp.
 
-## Can we use shared data solutions?
-Yes, Azure RemoteApp supports using shared data solutions - particularly OneDrive for Business and Dropbox. Note, however, that OneDrive Consumer (the personal version) and Box are not supported.
-
 ## What about redirection?
 You can configure Azure RemoteApp to let users access local devices by setting up [redirection](remoteapp-redirection.md). Local devices will then be able to access the data on the UPD.
 
@@ -85,7 +82,7 @@ You might want to disable UPDs in any of the following situations:
 
 - You need complete access and control of user data (for audit and review purposes such as financial institutions).
 - You have 3rd-party user profile management solutions on-premises and want to continue using them in your domain-joined Azure RemoteApp deployment. This would require the profile agent to be loaded into the gold image. 
-- You don’t need any local data storage or you have all data in the cloud (such as OneDrive for Business) or file share and would like to control saving of data locally using Azure RemoteApp.
+- You don’t need any local data storage or you have all data in the cloud or file share and would like to control saving of data locally using Azure RemoteApp.
 
 See  [Disable User Profile Disks (UPDs) in Azure RemoteApp](https://blogs.technet.microsoft.com/enterprisemobility/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp/) for more information.
 
@@ -112,7 +109,6 @@ No, all UPDs have 50 GB of storage. If you want to store different amounts of da
 3. Load the file share by using a startup script. See below for details on startup scripts in Azure RemoteApp.
 4. Direct users to save all data to the file share.
 
-You can also use data synchronization apps like OneDrive for Business.
 
 ## How do I run a startup script in Azure RemoteApp?
 
@@ -144,7 +140,7 @@ Nope, not supported by Azure RemoteApp.
 
 ## Can I store data on the VM locally?
 
-NO, data stored anywhere on the VM other than in the UPD will be lost. There is a high chance the user will not get the same VM the next time that they sign into Azure RemoteApp. We do not maintain user-VM persistence, so the user will not sign into the same VM, and the data will be lost. Additionally, when we update the collection, the existing VMs are replaced with a new set of VMs - that means any data stored on the VM itself is lost. The recommendation is to store data in the UPD, shared storage like Azure Files, a file server inside a VNET, or on the cloud using OneDrive for Business or another supported cloud storage system like DropBox.
+NO, data stored anywhere on the VM other than in the UPD will be lost. There is a high chance the user will not get the same VM the next time that they sign into Azure RemoteApp. We do not maintain user-VM persistence, so the user will not sign into the same VM, and the data will be lost. Additionally, when we update the collection, the existing VMs are replaced with a new set of VMs - that means any data stored on the VM itself is lost. The recommendation is to store data in the UPD, shared storage like Azure Files, a file server inside a VNET, or on the cloud using a cloud storage system like DropBox.
 
 ## How do I mount an Azure File share on a VM, using PowerShell?
 

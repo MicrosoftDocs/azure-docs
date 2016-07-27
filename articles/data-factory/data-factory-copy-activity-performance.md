@@ -185,13 +185,13 @@ In the **cloud copy scenario** where both source and sink data stores are in the
 
 ![Staged copy - cloud scenario](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
-Whereas, in the **hybrid copy scenario**, where source is on-premises and sink is in the cloud, the data movement from the source data store to staging data store is performed by the **Data Management Gateway** and data movement from the staging data store to the sink data store is performed by **Azure Data Factory service**.
+Whereas, in the **hybrid copy scenario**, where source is on-premises and sink is in the cloud, the data movement from the source data store to staging data store is performed by the **Data Management Gateway** and data movement from the staging data store to the sink data store is performed by **Azure Data Factory service**. Copying data from a cloud data store to an on-prem data store via staging is also supported with reversed flow.
 
 ![Staged copy - hybrid scenario](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png) 
 
 When you enable data movement using staging store, you can specify whether you want the data to be compressed prior to moving data from the source data store to interim/staging data store and decompressed before moving data from interim /staging data store to the sink data store.
 
-Copying data from a cloud data store to an on-prem data store or between two on-prem data stores with staging store is not supported at this point and would be ensbaled shortly. 
+Copying data between two on-prem data stores with staging store is not supported at this point and would be enabled shortly. 
 
 ### Configuration
 You can configure **enableStaging** setting on Copy Activity to specify whether you want the data to be staged in an Azure blob storage before loading into a destination data store. When you set enableStaging to true, you need to  specify additional properties listed in the following table. And You need to create an Azure Storage or Azure Storage SAS linked service as staging if you don’t yet have one.

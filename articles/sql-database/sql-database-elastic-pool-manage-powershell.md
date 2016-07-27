@@ -84,7 +84,7 @@ Metrics that can be retrieved as a percentage of the resource pool limit:
 **Metrics granularity/retention periods:**
 
 * Data will be returned at 5 minute granularity.  
-* Data retention is 14 days.  
+* Data retention is 35 days.  
 
 This cmdlet and API limits the number of rows that can be retrieved in one call to 1000 rows (about 3 days of data at 5 minute granularity). But this command can be called multiple times with different start/end time intervals to retrieve more data 
 

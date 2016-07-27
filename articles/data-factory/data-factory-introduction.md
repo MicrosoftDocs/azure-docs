@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/26/2016" 
+	ms.date="07/12/2016" 
 	ms.author="spelluru"/>
 
 # Introduction to Azure Data Factory Service, a data integration service in the cloud
@@ -69,4 +69,11 @@ For an example, let us assume that your compute environment(s) such as Azure HDI
 
 We intend to have Azure Data Factory in every geography supported by Azure in the future.
   
+## Next steps
+Follow step-by-step instruction in the following tutorials to learn how to build data factories with data pipelines. 
 
+Tutorial | Description
+-------- | -----------
+[Build a data pipeline that processes data using Hadoop cluster](data-factory-build-your-first-pipeline.md) | In this tutorial, you’ll build your first Azure data factory with a data pipeline that **processes data** by running Hive script on an Azure HDInsight (Hadoop) cluster. |
+[Build a data pipeline to move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | In this tutorial, you’ll create a data factory with a pipeline that **moves data** from Blob storage to SQL database.
+[Build a data pipeline to move data between an on-premises data store and a cloud data store using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |  In this tutorial, you'll build a data factory with a pipeline that **moves data** from an **on-premises** SQL Server database to an Azure blob. As part of the walkthrough, you will install and configure the Data Management Gateway on your machine. 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/17/2016"
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
@@ -142,7 +142,7 @@ With the backend configured to use Google Cloud Messaging (GCM), we can add the 
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")
+		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
 		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
@@ -330,43 +330,14 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
 
 ####Add push notifications to your iOS app
 
-1. Add the following `using` statement to the top of the **AppDelegate.cs** file.
+1. In the **iOS** project, open AppDelegate.cs add the following **using** statement to the top of the code file.
 
-        using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Newtonsoft.Json.Linq;
 
+4. In the **AppDelegate** class, add an override for the **RegisteredForRemoteNotifications** event to register for notifications:
 
-2. In the iOS project, open AppDelegate.cs and update`FinishedLaunching` to support remote notifications as follows.
-
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			global::Xamarin.Forms.Forms.Init ();
-
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-
-            // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
-            // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
-            //SQLitePCL.CurrentPlatform.Init();
-
-            // registers for push for iOS8
-            var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert
-                | UIUserNotificationType.Badge
-                | UIUserNotificationType.Sound,
-                new NSSet());
-
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
-
-			LoadApplication (new App ());
-
-			return base.FinishedLaunching (app, options);
-		}
-
-
-4. In AppDelegate.cs, also add an override for the **RegisteredForRemoteNotifications** event to register for notifications:
-
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        public override void RegisteredForRemoteNotifications(UIApplication application, 
+			NSData deviceToken)
         {
             const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
@@ -381,9 +352,10 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. In AppDelegate.cs also add an override for the **DidReceivedRemoteNotification** event to handle incoming notifications while the app is running:
+5. In **AppDelegate**, also add the following override for the **DidReceivedRemoteNotification** event handler:
 
-        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        public override void DidReceiveRemoteNotification(UIApplication application, 
+			NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
@@ -398,6 +370,22 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
                 avAlert.Show();
             }
         }
+
+	This method handles incoming notifications while the app is running.
+
+2. In the **AppDelegate** class, add the following code to the **FinishedLaunching** method: 
+
+        // Register for push notifications.
+        var settings = UIUserNotificationSettings.GetSettingsForTypes(
+            UIUserNotificationType.Alert
+            | UIUserNotificationType.Badge
+            | UIUserNotificationType.Sound,
+            new NSSet());
+
+        UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+        UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+	This enables support for remote notifications and requests push registration.
 
 Your app is now updated to support push notifications.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -40,14 +40,7 @@ You can also follow a video [here](https://mix.office.com/watch/1nqkqjt5xonza) t
 
 ## Install HDInsight Tools plugin for IntelliJ IDEA
 
-1. If you are on the IntelliJ IDEA welcome screen, click **Configure** and then click **Plugins**.
-
-2. In the next screen, click **Browse Repositories** from the lower left corner. In the **Browse Repositories** dialog box that opens, search for **HDInsight**, select the **Microsoft Azure HDInsight Tools for IntelliJ**, and then click **Install**. The plugin has a dependency on Scala plugin, so if Scala plugin is not installed you will be prompted to install Scala plugin as well.
-
-	![Install HDInsight plugin](./media/hdinsight-apache-spark-intellij-tool-plugin/install-hdinsight-plugin.png)
-
-3. When prompted, click the **Restart IntelliJ IDEA** button to restart the IDE.
-
+HDInsight tools plugin for IntelliJ IDEA is available as part of the Azure Toolkit for IntelliJ. For instructions on how to install the Azure Toolkit, see [Installing the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
 ## Run a Spark Scala application on an HDInsight Spark cluster
 
@@ -107,12 +100,12 @@ You can also follow a video [here](https://mix.office.com/watch/1nqkqjt5xonza) t
 			    val conf = new SparkConf().setAppName("MyClusterApp")
 			    val sc = new SparkContext(conf)
 
-			    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+			    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 			    //find the rows which have only one digit in the 7th column in the CSV
 				val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 
-			    rdd1.saveAsTextFile("wasb:///HVACOut")
+			    rdd1.saveAsTextFile("wasbs:///HVACOut")
 			  }
 
 			}
@@ -306,6 +299,8 @@ If you have any suggestions or feedbacks, or if you encounter any problems when 
 ### Tools and extensions
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
+* [Use HDInsight Tools Plugin for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 

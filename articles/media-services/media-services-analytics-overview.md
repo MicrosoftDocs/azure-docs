@@ -73,7 +73,7 @@ This section lists all the Media Services Analytics Media Processors (MP) and sh
 
 ### .NET
 
-The following function takes one of the specified MP names and return an NP object.
+The following function takes one of the specified MP names and return an MP object.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
