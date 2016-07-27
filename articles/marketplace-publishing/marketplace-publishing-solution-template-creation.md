@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="04/29/2016"
+      ms.date="07/27/2016"
       ms.author="hascipio; v-divte" />
 
 # Guide to create a solution template for Azure Marketplace
@@ -32,6 +32,7 @@ Go to  [https://publish.windowsazure.com](http://publish.windowsazure.com). When
 
 ### 3. Start with topologies
 A solution template is a "parent" to all of its topologies. You can define multiple topologies in one offer/solution template. When an offer is pushed to staging, it is pushed with all of its topologies. Follow the steps below to define your offer:     
+
 - Create a Topology: “Topology Identifier” is typically the name of the topology for the solution template. The topology identifier is used in the URL as shown below:
 
   Azure Marketplace:
@@ -44,10 +45,9 @@ https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{Topolog
 
 ### 4. Get your topology versions certified
 Upload a zip file that contains all required files to provision that particular version of the topology. This zip file must contain the following:
+
 - *mainTemplate.json* and *createUiDefinition.json* file at its root directory.
 - Any linked templates and all required scripts.
-
-After uploading the zip file, click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
 
   > [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
 
