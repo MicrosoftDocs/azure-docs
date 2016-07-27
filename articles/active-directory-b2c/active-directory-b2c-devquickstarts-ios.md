@@ -17,7 +17,7 @@
 	ms.date="07/26/2016"
 	ms.author="brandwe"/>
 
-# Azure AD B2C: Call a web API from an iOS application using a third party library
+# Azure AD B2C : Call a web API from an iOS application using a third party library
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
