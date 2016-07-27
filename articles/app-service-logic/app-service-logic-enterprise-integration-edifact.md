@@ -16,9 +16,9 @@
 	ms.date="07/26/2016" 
 	ms.author="jonfan"/>
 
->[AZURE.NOTE] This page covers the EDIFACT features of Logic Apps. For information on X12 click [here](app-service-logic-enterprise-integration-x12.md).
-
 # Enterprise integration with EDIFACT 
+
+>[AZURE.NOTE] This page covers the EDIFACT features of Logic Apps. For information on X12 click [here](app-service-logic-enterprise-integration-x12.md).
 
 ## Create an EDIFACT agreement 
 Before you can exchange EDIFACT messages, you need to create an EDIFACT agreement and store it in your integration account. The following steps will walk you through the process of creating an EDIFACT agreement.
@@ -39,20 +39,20 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 
 >[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
 
-![](./media/app-service-logic-enterprise-integration-EDIFACT/EDIFACT-0.png)    
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-0.png)    
 2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-![](./media/app-service-logic-enterprise-integration-EDIFACT/EDIFACT-1-3.png)    
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-3.png)    
 3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
-![](./media/app-service-logic-enterprise-integration-EDIFACT/EDIFACT-1-4.png)  
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-4.png)  
 4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-![](./media/app-service-logic-enterprise-integration-EDIFACT/EDIFACT-1-5.png)     
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-5.png)     
 5. Select the **Add** button in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-EDIFACT/EDIFACT-agreement-2.png)  
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-agreement-2.png)  
 6. Enter a **Name** for your agreement then select the **Agreement type** for EDIFACT, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-EDIFACT/EDIFACT-1.png)  
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1.png)  
 7. After you have set the agreement properties, select **Receive Settings** to configure how messages received via this agreement are to be handled.  
 9. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Control Numbers, Validation, Internal Settings and Batch processing. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
-![](./media/app-service-logic-enterprise-integration-EDIFACT/EDIFACT-2.png)  
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-2.png)  
 10. Select the **OK** button to save your settings.  
 
 ### Identifiers
@@ -123,7 +123,7 @@ To configure the settings that handle messages you send to partners:
 The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers and Validation. 
 
 Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
-![](./media/app-service-logic-enterprise-integration-EDIFACT/EDIFACT-3.png)    
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-3.png)    
 12. Select the **OK** button to save your settings.  
 
 ### Identifiers
