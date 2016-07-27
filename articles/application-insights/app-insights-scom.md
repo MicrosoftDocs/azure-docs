@@ -12,25 +12,25 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/11/2016" 
+	ms.date="07/27/2016" 
 	ms.author="awills"/>
  
-# Use SCOM to configure multiple servers for Application Insights
+# Application Performance Monitoring using Application Insights for SCOM
 
-System Center Operations Manager (SCOM) can be used to configure a multi-server web application for monitoring by [Visual Studio Application Insights](app-insights-asp-net.md). An SCOM management pack finds the servers where the application is running, installs [Application Insights Status Monitor](app-insights-monitor-performance-live-website-now.md) on those servers, and configures it to monitor the application.
+If you use System Center Operations Manager (SCOM) to manage your servers, you can monitor performance and diagnose performance issues with the help of [Visual Studio Application Insights](app-insights-asp-net.md). Application Insights monitors your web application's incoming requests, outgoing REST and SQL calls, exceptions, and log traces. It provides dashboards with metric charts and smart alerts, as well as powerful diagnostic search and analytical queries over this telemetry. 
 
-Application Insights is used by developers to monitor the performance and usage of web applications. They can display dashboards showing response times and failure rates for both incoming requests and calls to dependencies. The service automatically alerts them to unusual performance patterns, and they can diagnose problems by investigating individual exception, request and trace data.
+You can switch on Application Insights monitoring by using an SCOM management pack.
 
 ## Before you start
 
 We'll assume:
 
-* You're familiar with SCOM, and that you use SCOM 2012 R2 or 2016 to manage a number of IIS web servers.
+* You're familiar with SCOM, and that you use SCOM 2012 R2 or 2016 to manage your IIS web servers.
 * You have already installed on your servers a web application that you want to monitor with Application Insights.
 * App framework version is .NET 4.5 or later.
-* [It doesn't matter whether the app was built with the Application Insights SDK](#sdk).
 * You have access to a subscription in [Microsoft Azure](https://azure.com) and can sign in to the [Azure portal](https://portal.azure.com). Your organization may have an subscription, and can add your Microsoft account to it.
 
+(The development team might build the [Application Insights SDK](app-insights-asp-net.md) into the web app. This gives them greater flexibility in writing custom telemetry. However, this doesn't matter: you can follow the steps described here either with or without the SDK built in.)
 
 ## (One time) Install Application Insights management pack
 
@@ -101,15 +101,11 @@ You can verify which instances of the app it has found:
 In the [Azure portal](https://portal.azure.com), browse to the resource for your app. You will [see charts showing telemetry](app-insights-dashboards.md) from your app. (If it hasn't shown up on the main page yet, click Live Metrics Stream.)
 
 
-<a name="sdk"></a>
-## Does the app need the Application Insights SDK?
+## Next steps
 
-It doesn't matter.
-
-There is an [Application Insights SDK](app-insights-asp-net.md) that can be added to the application at development time. Doing so provides much of the telemetry without any need to instrument the app at runtime, as well as allowing the development team to write custom telemetry.
-
-However, it's still good to instrument the app at runtime - that is, the procedure you're about to follow.
-
-If the app was built with the SDK, then runtime instrumentation adds more telemetry such as performance counters, and in some cases will enable reporting on dependency calls.
-
-If the app wasn't built with the SDK, then runtime instrumentation will provide the standard telemetry that the SDK provides, but without the ability to write custom telemetry or capture log traces.
+* [Set up a dashboard](app-insights-dashboard.md) to bring together the most important charts monitoring this and other apps.
+* [Learn about metrics](app-insights-metrics-explorer.md)
+* [Set up alerts](app-insights-alerts.md)
+* [Diagnosing performance issues](app-insights-detect-triage-diagnose.md)
+* [Powerful Analytics queries](app-insights-analytics.md)
+* [Availability web tests](app-insights-monitor-web-app-availability.md)
