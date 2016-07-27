@@ -128,8 +128,8 @@ Your A record should be configured as follows (@ typically represents the root d
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
-    <th>Host/Name/Hostname</th>
-    <th>Value</th>
+    <th>A Host</th>
+    <th>A Value</th>
   </tr>
   <tr>
     <td>contoso.com (root)</td>
@@ -154,8 +154,8 @@ awverify.&lt;*subdomain*>.azurewebsites.net. See examples below:
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
-    <th>Host/Name/Hostname</th>
-    <th>Value</th>
+    <th>CNAME Host</th>
+    <th>CNAME Value</th>
   </tr>
   <tr>
     <td>contoso.com (root)</td>
@@ -189,8 +189,8 @@ Your CNAME record should be configured as follows (@ typically represents the ro
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
-    <th>Host/Name/Hostname</th>
-    <th>Value</th>
+    <th>CNAME Host</th>
+    <th>CNAME Value</th>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
