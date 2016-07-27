@@ -58,8 +58,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 [Providers By Location](expressroute-providers-by-location.md)
 
 ### Production Azure
-
-| **Location**  | **Service Providers** | 
+| **Location**  | **Service Providers** |
 |---------------|-----------------------|
 | **Amsterdam** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT+, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** | Equinix |
@@ -99,7 +98,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 #### China
 
-| **Location**  | **Service Providers** | 
+| **Location**  | **Service Providers** |
 |---------------|-----------------------|
 | **Beijing** | China Telecom |
 | **Shanghai** |  China Telecom |
@@ -107,7 +106,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 
 #### Germany
 
-| **Location**  | **Service Providers** | 
+| **Location**  | **Service Providers** |
 |---------------|-----------------------|
 | **Berlin** | Colt+, e-shelter+ |
 | **Frankfurt** | Colt, Equinix+, Interxion |
