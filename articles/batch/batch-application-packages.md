@@ -30,7 +30,7 @@ The application packages feature discussed in this article is compatible *only* 
 
 This feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2 and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
 
-> [AZURE.IMPORTANT] Currently, only *CloudServiceConfiguration* support application packages. You cannot use Application packages in pools created by using VirtualMachineConfiguration images. See the [Virtual machine configuration](batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two different configurations.
+> [AZURE.IMPORTANT] Currently, only *CloudServiceConfiguration* pools support application packages. You cannot use Application packages in pools created by using VirtualMachineConfiguration images. See the [Virtual machine configuration](batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two different configurations.
 
 ## About applications and application packages
 
@@ -108,7 +108,7 @@ In the application details blade, you can configure the following settings for y
 
 ### Add a new application
 
-To create a new application, add an application package by using a new, unique application ID. The first application package that you add by using the new application ID will also create the new application.
+To create a new application, add an application package and specify a new, unique application ID. The first application package that you add with the new application ID will also create the new application.
 
 Click **Add** on the **Applications** blade to open the **New application** blade.
 
