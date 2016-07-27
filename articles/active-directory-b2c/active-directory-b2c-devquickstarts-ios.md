@@ -29,18 +29,11 @@ If you're new to OAuth2 or OpenID Connect much of this sample configuration may 
 > [AZURE.NOTE]
     Some features of our platform that do have an expression in these standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries. 
 
-
 > [AZURE.NOTE] 
     Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
 
-
 > [AZURE.NOTE]
 	To work fully, this Quickstart requires that you already have a web API protected by Azure AD B2C. We have built one for both .NET and Node.js that you can use. This walk-through assumes that the Node.js web API sample is configured. Refer to the [Azure Active Directory web API for Node.js sample](active-directory-b2c-devquickstarts-api-node.md) for more.
-
-
-
-> [AZURE.NOTE]
-	This article does not cover how to implement sign-in, sign-up and profile management by using Azure AD B2C. It focuses on calling web APIs after the user is authenticated. If you haven't already, you should start with the [.NET web app get started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure AD B2C.
 
 ## Get an Azure AD B2C directory
 
@@ -115,7 +108,7 @@ $ open SampleforB2C.xcworkspace
 
 ```
 
-## The Structure of the Project
+## The structure of the project
 
 We have the following structure set up for our project in the skeleton:
 
@@ -308,27 +301,7 @@ Next, make sure you call it in the AppDelegate under `didFinishLaunchingWithOpti
 ```
 
 
-* Create a URL Cache
-
-Inside of `(void)viewDidLoad()`, which is always called once the view is loaded, we prime a cache for our use.
-
-Add the following code:
-
-```objc
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.loginView.delegate = self;
-    [self setupOAuth2AccountStore];
-    [self requestOAuth2Access];
-    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
-                                                         diskCapacity:20 * 1024 * 1024
-                                                             diskPath:nil];
-    [NSURLCache setSharedURLCache:URLCache];
-    
-}
-```
-
-## Create a `LoginViewController` class that we will use to handle Authentication requests
+## Create a `LoginViewController` class that we will use to handle authentication requests
 
 We use a webview for account sign-in. This allows us to prompt the user for additional factors like SMS text message (if configured) or give error messages back to the user. Here we'll set up the webview and then later write the code to handle the callbacks that will happen in the WebView from the Microsoft Identity Service.
 
