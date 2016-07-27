@@ -93,7 +93,7 @@ The Microsoft Developer Center is used to register the company information once.
 
     > [AZURE.IMPORTANT] You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
 
-8. 8.	Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
+8. Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_08.png)
 
