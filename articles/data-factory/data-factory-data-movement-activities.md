@@ -75,47 +75,6 @@ cloud | cloud | **The cloud service that powers the Copy Activity**. Azure Data 
 
 > [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity will fail instead of going through an alternative region. 
 
-
-## Type conversions across different type systems
-Different data stores have different native type systems. Copy Activity performs automatic type conversions from source types to sink types with the following 2 step approach:
-
-1. Convert from native source types to .NET type
-2. Convert from .NET type to native sink type
-
-You can find the mapping for a given native type system to .NET for the data store in the respective data store connector articles. You can use these mappings to determine appropriate types while creating your tables so that right conversions are performed during Copy Activity.
-
-### Ordered copy
-It is possible to run multiple copy operations one after another in a sequential/ordered manner. Say you have two copy activities in a pipeline: CopyActivity1 and CopyActivity with the following input data output datasets.   
-
-CopyActivity1: 
-Input: Dataset1
-Output Dataset2
-
-CopyActivity2: 
-Inputs: Dataset2
-Output: Dataset4
-
-CopyActivity2 would run only if the CopyActivity1 has run successfully and Dataset2 is available. 
-
-In the above example, CopyActivity2 can have a different input, say Dataset3, but you will need to specify Dataset2 also as an input to CopyActivity2 so the activity will not run until CopyActivity1 completes. For example: 
-
-CopyActivity1: 
-Input: Dataset1
-Output Dataset2
-
-CopyActivity2: 
-Inputs: Dataset3, Dataset2
-Output: Dataset4
-
-When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
-
-- CopyActivity2 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
-- Dataset3 is available. This dataset represents the data that is copied to the destination.  
-
-
-## Copy Activity Performance & Tuning 
-See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) article, which describes key factors that impact performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing, and discusses various ways to optimize the performance of the Copy Activity.
-
 ## How to author
 
 ### Tutorial: use copy activity in a pipeline 
@@ -190,6 +149,51 @@ Click the **Browse** button for the **File or folder**, navigate to one of these
 You can also use a **custom** variable as shown below and use any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Make sure that you select a folder with that structure using the Browse button first, replace a value with **{custom}** and press **TAB** to see the text box where you can type the format string.    
 
 ![Using custom variable](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
+
+## Copy Activity Performance & Tuning 
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) article, which describes key factors that impact performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing, and discusses various ways to optimize the performance of the Copy Activity.
+
+## Type conversions across different type systems
+Different data stores have different native type systems. Copy Activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+
+1. Convert from native source types to .NET type
+2. Convert from .NET type to native sink type
+
+You can find the mapping for a given native type system to .NET for the data store in the respective data store connector articles. You can use these mappings to determine appropriate types while creating your tables so that right conversions are performed during Copy Activity.
+
+
+## Scheduling and ordered copy
+
+## Scheduling
+See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for detailed information about how scheduling and execution works in Data Factory.
+
+### Ordered copy
+It is possible to run multiple copy operations one after another in a sequential/ordered manner. Say you have two copy activities in a pipeline: CopyActivity1 and CopyActivity with the following input data output datasets.   
+
+CopyActivity1: 
+Input: Dataset1
+Output Dataset2
+
+CopyActivity2: 
+Inputs: Dataset2
+Output: Dataset4
+
+CopyActivity2 would run only if the CopyActivity1 has run successfully and Dataset2 is available. 
+
+In the above example, CopyActivity2 can have a different input, say Dataset3, but you will need to specify Dataset2 also as an input to CopyActivity2 so the activity will not run until CopyActivity1 completes. For example: 
+
+CopyActivity1: 
+Input: Dataset1
+Output Dataset2
+
+CopyActivity2: 
+Inputs: Dataset3, Dataset2
+Output: Dataset4
+
+When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
+
+- CopyActivity2 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
+- Dataset3 is available. This dataset represents the data that is copied to the destination.  
 
 ## Next Steps
 - See [Copy data from Azure Blob to Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to learn about how to use Copy Activity to move data from a source data store to a sink data store in general. 
