@@ -39,6 +39,7 @@ This article answers some of the most common questions about Azure Billing and S
 - [What is a trial subscription and how long does it last?](#what-is-a-trial-subscription-and-how-long-does-it-last)
 - [What resources are available when using a trial account?](#what-resources-are-available-when-using-a-trial-account)
 - [What happens if I remove the spending limit on my free trial?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
+- [Can I get a quota increase on a free trial subscription?](#can-I-get-a-quota-increase-on-a-free-trial-subscription)
 - [Where can I get more details on Free Trial?](#where-can-i-get-more-details-on-free-trial)
 
 ## How to buy Azure
@@ -88,6 +89,10 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I migrate data and services for my Azure subscription to a new subscription?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 - [How do I transfer ownership of my subscriptions?](#how-do-i-transfer-ownership-of-my-subscriptions)
+
+## Subscription service limits (quotas)
+
+- [Can I get a quota increase on a free trial subscription?](#can-I-get-a-quota-increase-on-a-free-trial-subscription)
 
 ### What payment options do I have in purchasing Azure?
 
@@ -287,6 +292,11 @@ You receive $200 of Azure credits with the Free Trial. The choice is now yours o
 ### What happens if I remove the spending limit on my free trial?
 
 Once you remove the spending limit, you start getting charged for consuming resources beyond the free trial credit. You will not be able to reset the spending limit once it has been removed.
+
+### Can I get a quota increase on a Free Trial subscription?
+
+Free Trial subscriptions are not eligible for quota increases. If you have a Free Trial, you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For details on how to upgrade see [Upgrade Azure Free Trial to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#UpgradeFreeToPYG)
+Note: this also applies to DreamSpark subscriptions.
 
 ### Where can I get more details on Free Trial?
 Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
