@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create EAI Logic App using VETR in logic apps in Azure App Service | Microsoft Azure"
    description="Validate, Encode and Transform features of BizTalk XML services"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
