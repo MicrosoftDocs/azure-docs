@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C Preview: Use the Graph API | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Use the Graph API | Microsoft Azure"
 	description="How to call the Graph API for a B2C tenant by using an application identity to automate the process."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/25/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C Preview: Use the Graph API
+# Azure AD B2C: Use the Graph API
 
 Azure Active Directory (Azure AD) B2C tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in Azure AD behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 For B2C tenants, there are two primary modes of communicating with the Graph API.
 
@@ -39,7 +37,7 @@ After you have a B2C tenant, you need to create your service application by usin
 First, download and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152). Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
 > [AZURE.NOTE]
-To use the Graph API with your B2C tenant, you will need to register a dedicated application by using PowerShell. Follow the instruction in this article to do that. You can't reuse the already-existing B2C applications that you registered in the Azure portal. This is a limitation of the Azure AD B2C preview that is expected to be removed in the near future. We plan to update this article when this happens.
+To use the Graph API with your B2C tenant, you will need to register a dedicated application by using PowerShell. Follow the instruction in this article to do that. You can't reuse the already-existing B2C applications that you registered in the Azure portal.
 
 After you install the PowerShell module, open PowerShell and connect to your B2C tenant. After you run `Get-Credential`, you will be prompted for a user name and password, Enter the user name and password of your B2C tenant administrator account.
 
@@ -128,7 +126,7 @@ This will display a brief description of each command. Each time you invoke one 
 Any request to the Graph API requires an access token for authentication. `B2CGraphClient` uses the open-source Active Directory Authentication Library (ADAL) to help acquire access tokens. ADAL makes token acquisition easier by providing a simple API and taking care of some important details, such as caching access tokens. You don't have to use ADAL to get tokens, though. You can also get tokens by crafting HTTP requests.
 
 > [AZURE.NOTE]
-	This code sample uses ADAL v2, the generally available version of ADAL. It does not use ADAL v4, which is a preview version for working with Azure AD B2C. For the Azure AD B2C preview, you must use ADAL v2 to communicate with the Graph API. Over time, we expect to provide Graph API access by using ADAL v4, so that you don't have to use two versions of ADAL in your complete Azure AD B2C solution.
+	This code sample uses ADAL v2 in order to communicate with the Graph API.  You must use ADAL v2 or v3 in order to get access tokens which can be used with the Azure AD Graph API.
 
 When `B2CGraphClient` runs, it creates an instance of the `B2CGraphClient` class. The constructor for this class sets up an ADAL authentication scaffolding:
 
@@ -247,7 +245,7 @@ To see the request, run one of the following commands:
 > B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-The `Create-User` command takes a .json file as an input parameter. This contains a JSON representation of a user object. There are two sample .json files in the sample code: `usertemplate-email.json` and `usertemplate-username.json`. You can modify these files to suit your needs. In addition to the required fields above, several optional fields that you can use are included in these files. Details on the optional fields can be found in the [Azure AD Graph API entity reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity).
+The `Create-User` command takes a .json file as an input parameter. This contains a JSON representation of a user object. There are two sample .json files in the sample code: `usertemplate-email.json` and `usertemplate-username.json`. You can modify these files to suit your needs. In addition to the required fields above, several optional fields that you can use are included in these files. Details on the optional fields can be found in the [Azure AD Graph API entity reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
 
 You can see how the POST request is constructed in `B2CGraphClient.SendGraphPostRequest(...)`.
 
@@ -324,7 +322,7 @@ You can perform many other actions with the Azure AD Graph API in addition to us
 
 Most consumer applications need to store some type of custom user profile information. One way you can do this is to define a custom attribute in your B2C tenant. You can then treat that attribute the same way you treat any other property on a user object. You can update the attribute, delete the attribute, query by the attribute, send the attribute as a claim in sign-in tokens, and more.
 
-To define a custom attribute in your B2C tenant, see the [B2C preview custom attribute reference](active-directory-b2c-reference-custom-attr.md).
+To define a custom attribute in your B2C tenant, see the [B2C custom attribute reference](active-directory-b2c-reference-custom-attr.md).
 
 You can view the custom attributes defined in your B2C tenant by using `B2CGraphClient`:
 

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/14/2016"
+	ms.date="07/22/2016"
 	ms.author="kgremban"/>
 
 # Manage Role-Based Access Control with the Azure Command Line Interface
@@ -39,6 +39,10 @@ To list all available roles use:
 
 The following example shows the list of *all available roles*.
 
+```
+azure role list --json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+```
+
 ![RBAC Azure command line - azure role list - screenshot](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
 
 ###	List actions of a role
@@ -47,6 +51,12 @@ To list the actions of a role use:
     azure role show "<role name>"
 
 The following example shows the actions of the *Contributor* and *Virtual Machine Contributor* roles.
+
+```
+azure role show "contributor" --json | jq '.[] | {"Actions":.properties.permissions[0].actions,"NotActions":properties.permissions[0].notActions}'
+
+azure role show "virtual machine contributor" --json | jq '.[] | .properties.permissions[0].actions'
+```
 
 ![RBAC Azure command line - azure role show - screenshot](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
 
@@ -57,6 +67,10 @@ To list the role assignments that exist in a resource group, use:
     azure role assignment list --resource-group <resource group name>
 
 The following example shows the role assignments in the *pharma-sales-projecforcast* group.
+
+```
+azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+```
 
 ![RBAC Azure command line - azure role assignment list by group- screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
@@ -70,6 +84,12 @@ You can also see role assignments that are inherited from groups by modifying th
 	azure role assignment list --expandPrincipalGroups --signInName <user email>
 
 The following example shows the role assignments granted to the user *sameert@aaddemo.com*. This includes roles assigned directly to the user, but also roles inherited from groups.
+
+```
+azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+
+azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+```
 
 ![RBAC Azure command line - azure role assignment list by user - screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -85,6 +105,7 @@ To assign a role to a group at the subscription scope use:
 
 The following example assigns the *Reader* role to *Christine Koch's Team* at the *subscription* scope.
 
+
 ![RBAC Azure command line - azure role assignment create by group- screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
 ###	Assign role to application at subscription scope
@@ -99,7 +120,7 @@ The following example grants the *Contributor* role to an *Azure AD* application
 ###	Assign role to user at resource group scope
 To assign a role to a user at the resource group scope use:
 
-	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
+	azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
 
 The following example grants the *Virtual Machine Contributor* role to user *samert@aaddemo.com* at the *Pharma-Sales-ProjectForcast* resource group scope.
 
@@ -161,9 +182,17 @@ To list the roles that are available for assignment at a scope, use the `azure r
 
 The following example lists all role available for assignment in the selected subscription.
 
+```
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+```
+
 ![RBAC Azure command line - azure role list - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
 
 In the following example the *Virtual Machine Operator* custom role isn’t available in the *Production4* subscription because that subscription isn’t in the **AssignableScopes** of the role.
+
+```
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+```
 
 ![RBAC Azure command line - azure role list for custom roles - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 

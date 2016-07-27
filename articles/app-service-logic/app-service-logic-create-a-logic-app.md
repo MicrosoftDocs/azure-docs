@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -17,13 +17,6 @@
 	ms.author="jehollan"/>
 
 # Create a new logic app connecting SaaS services
-
-| Quick Reference |
-| --------------- |
-| [Examples and Scenarios](app-service-logic-examples-and-scenarios.md) |
-| [Logic Apps Definition Language](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [Logic Apps Connector Documentation](../connectors/apis-list.md) |
-| [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
 
 This topic demonstrates how, in just a few minutes, you can get started with [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a simple workflow that lets you send interesting tweets to your email.
 

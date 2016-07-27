@@ -1,6 +1,6 @@
 <properties
     pageTitle="Add the Office 365 Outlook connector in your Logic Apps | Microsoft Azure"
-    description="Create logic apps with Azure App service. Office 365 connector enables interaction with Office 365. For example: creating, editing, and updating contacts and calendar items."
+    description="Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items."
     services=""    
     documentationCenter=""     
     authors="MandiOhlinger"    
@@ -9,19 +9,19 @@
     tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/21/2016"
+ms.date="07/26/2016"
 ms.author="mandia"/>
 
 # Get started with the Office 365 Outlook connector 
 
 The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
 
-With Office 365 Outlook, you can:
+With Office 365 Outlook, you:
 
 - Build your workflow using the email and calendar features within Office 365. 
 - Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
@@ -30,6 +30,8 @@ With Office 365 Outlook, you can:
 This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
 
 >[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA).
+
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to Office 365
 
@@ -42,7 +44,7 @@ Before your logic app can access any service, you first create a *connection* to
 
 ## Use a trigger
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 1. In the logic app, type "office 365" to get a list of the triggers:  
 
@@ -56,7 +58,11 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 
 	> [AZURE.NOTE] In this example, the logic app runs when a calendar event is updated. To see the results of this trigger, add another action that sends you a text message. For example, add the Twilio *Send message* action that texts you when the calendar event is starting in 15 minutes. 
 
-3. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
+
+	![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
 ## Use an action
