@@ -1,7 +1,7 @@
 <properties
 pageTitle="Learn how to use the SharePoint Online connector in logic apps | Microsoft Azure"
 description="Create logic apps with the SharePoint Online connector to mange lists on SharePoint."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
