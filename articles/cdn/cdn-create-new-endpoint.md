@@ -67,7 +67,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 	
 	> [AZURE.NOTE] The **Origin port** only affects what port the endpoint uses to retrieve information from the origin.  The endpoint itself will only be available to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port**.  
 	>
-	> **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai behavior details](cdn-akamai-behavior-details.md).  
+	> **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
 	>
 	> Accessing CDN content using HTTPS has the following constraints:
 	> 
