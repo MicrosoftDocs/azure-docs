@@ -24,19 +24,9 @@ Azure Container Service makes it simpler for you to create,
 configure, and manage a cluster of virtual machines that are
 preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
 
->[AZURE.NOTE]
->Here are some points
->
->1. test mean
->
->    Sub content
->
->2. second item
->3. Third item
 
-<br />
 ![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
-<br /><br />
+
 
 Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
 
