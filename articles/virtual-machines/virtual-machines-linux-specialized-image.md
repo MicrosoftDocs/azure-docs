@@ -48,10 +48,12 @@ Ensure that you meet the following prerequisites before you start the steps:
 - You will need to make some choices about your new VM:
 	Container name
 	VM name
+	VM size
 	vNet name
 	SubNet name
 	IP Name
-	VM size 
+	NIC name
+	
 	
 
 
@@ -110,13 +112,13 @@ To copy the VHD to another container in the same storage account, type:
 
 Set up a virtual network and NIC for your new VM. 
 
-	$azure network vnet create <ResourceGroupName> <VnetName> -l <Location>
+	azure network vnet create <ResourceGroupName> <VnetName> -l <Location>
 
-	$azure network vnet subnet create <ResourceGroupName> <VnetName> <SubnetName>
+	azure network vnet subnet create -a <address.prefix.in.CIDR/format> <ResourceGroupName> <VnetName> <SubnetName>
 
-	$azure network public-ip create <ResourceGroupName> <IpName> -l <yourLocation>
+	azure network public-ip create <ResourceGroupName> <IpName> -l <yourLocation>
 
-	$azure network nic create <ResourceGroupName> <NicName> -k <SubnetName> -m <VnetName> -p <IpName> -l <Location>
+	azure network nic create <ResourceGroupName> <NicName> -k <SubnetName> -m <VnetName> -p <IpName> -l <Location>
 
 
 ## Create the new VM 
@@ -124,7 +126,7 @@ Set up a virtual network and NIC for your new VM.
 You can now create a VM from your uploaded virtual disk [using a resource manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) or through the CLI by specifying the URI to your disk as follows:
 
 ```bash
-azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <yourNicName> -z "<vmSize>" -Q https://<storageAccountName>.blob.core.windows.net/<destinationContainerName/<fileName.vhd> -y Linux
+azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <yourNicName> -z "<vmSize>" -d https://<storageAccountName>.blob.core.windows.net/<destinationContainerName/<fileName.vhd> -y Linux
 ```
 
 
