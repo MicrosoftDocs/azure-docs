@@ -26,9 +26,6 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 
 If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
 
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
 > [AZURE.NOTE]
     Some features of our platform that do have an expression in these standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries. 
 
