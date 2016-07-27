@@ -809,9 +809,38 @@ The output the script should deliver looks like:
 * To continue doing this, wait for 15-30 minutes until the Azure Diagnostics will have the relevant data collected.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
-Please follow the steps in [this article][install-extension-cli] to install the Azure Enhanced Monitoring Extension for SAP on a Linux VM from a Linux laptop/desktop.
 
- [comment]: <> (MSSedusch TODO check if link is still valid)
+In order to perform the task of installing the Azure Enhanced Monitoring Extension for SAP using Azure CLI, perform the following steps:
+
+1. Install Azure CLI as described in [this][azure-cli] article
+1. Login with your Azure account
+
+    ```
+    azure login
+    ```
+1. Switch to Azure Resource Manager mode
+
+    ```
+    azure config mode arm
+    ```
+1. Enable Azure Enhanced Monitoring
+
+    ```
+    azure vm enable-aem <resource-group-name> <vm-name>
+    ```  
+1. Verify that the Azure Enhanced Monitoring is active on the Azure Linux VM. Check if the file  /var/lib/AzureEnhancedMonitor/PerfCounters exists. If exists, display information collected by AEM with:
+
+    ```
+    cat /var/lib/AzureEnhancedMonitor/PerfCounters
+    ```
+    Then you will get output like:
+    
+    ```
+    2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
+    2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
+    …
+    …
+    ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure
 After you have deployed your Azure VM and set up the relevant Azure monitoring infrastructure, check whether all the components of the Azure Enhanced Monitoring are working in a proper way. 
