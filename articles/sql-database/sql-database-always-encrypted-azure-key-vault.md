@@ -219,10 +219,8 @@ Now that Always Encrypted is set up, you can build an application that performs 
 
 1. Open Visual Studio and create a new C# console application. Make sure your project is set to **.NET Framework 4.6** or later.
 2. Name the project **AlwaysEncryptedConsoleAKVApp** and click **OK**.
-
 ![new console application](./media/sql-database-always-encrypted-azure-key-vault/console-app.png)
-
- 3. Install the following NuGet packages by going to **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+3. Install the following NuGet packages by going to **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
 Run these two lines of code in the Package Manager Console.
 
