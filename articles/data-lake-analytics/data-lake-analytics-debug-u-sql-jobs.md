@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Debug U-SQL jobs | Azure" 
+   pageTitle="Debug U-SQL jobs | Microsoft Azure" 
    description="Learn how to debug U-SQL failed vertex using Visual Studio. " 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -30,13 +30,13 @@ The Data Lake Visual Studio tool allows users to download compiled code and nece
 ##Prerequisites
 -	Have gone through the [Get started](data-lake-analytics-data-lake-tools-get-started.md) article.
 
-## Create and configure debug projects in Visual Studio
+## Create and configure debug projects
 
 When you open a failed job in Data Lake Visual Studio tool, you will get an alert. The detailed error info will be shown in the error tab and the yellow alert bar on the top of the window. 
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-**To download vertext and create a debug solution**
+**To download vertet and create a debug solution**
 
 1.	Open a failed U-SQL job in Visual Studio.
 2.	Click **Download** to download all the required resources and input streams. Click **Retry** if the download failed.
@@ -81,4 +81,8 @@ After you have completed debugging your U-SQL code, you can resubmit the failed 
 2.	Or copy your C# code to script.usql.cs--C# code behind file.
 3.	Re-submit your job.
 
+##Next Steps
 
+- [Tutorial: Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
+- [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Develop U-SQL User defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
