@@ -1,6 +1,6 @@
 <properties
     pageTitle="Add the Office 365 Outlook connector in your Logic Apps | Microsoft Azure"
-    description="Create logic apps with Azure App service. Office 365 connector enables interaction with Office 365. For example: creating, editing, and updating contacts and calendar items."
+    description="Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items."
     services=""    
     documentationCenter=""     
     authors="MandiOhlinger"    
@@ -9,19 +9,19 @@
     tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/21/2016"
+ms.date="07/25/2016"
 ms.author="mandia"/>
 
 # Get started with the Office 365 Outlook connector 
 
 The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
 
-With Office 365 Outlook, you can:
+With Office 365 Outlook, you:
 
 - Build your workflow using the email and calendar features within Office 365. 
 - Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
@@ -30,6 +30,8 @@ With Office 365 Outlook, you can:
 This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
 
 >[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA).
+
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Connect to Office 365
 

@@ -2,7 +2,7 @@
 - An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 - A [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) account 
 
-Before you can use your OneDrive account in a logic app, you must authorize the logic app to connect to your OneDrive account. Fortunately, you can do this easily from within your logic app on the Azure Portal. 
+Before you can use your OneDrive account in a logic app, authorize the logic app to connect to your OneDrive account.  You can do this easily within your logic app on the Azure portal. 
 
 Authorize your logic app to connect to your OneDrive account using the following steps:
 
