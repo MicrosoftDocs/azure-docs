@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/22/2016"
+ms.date="07/27/2016"
 ms.author="deonhe"/>
 
 # Get started with the Azure Service Bus connector
@@ -165,8 +165,8 @@ The actions and triggers above can return one or more of the following HTTP stat
 |401|Unauthorized|
 |403|Forbidden|
 |404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
-## Next Steps
+## Next steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
