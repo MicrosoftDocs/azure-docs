@@ -13,11 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-<<<<<<< HEAD
 	ms.date="07/28/2016"
-=======
-	ms.date="07/14/2016"
->>>>>>> Azure/master
 	ms.author="casoper"/>
 
 #Restrict access to your content by country
@@ -26,11 +22,7 @@
 
 When a user requests your content, by default, the content is served regardless of where the user made this request from. In some cases, you may want to restrict access to your content by country. This topic explains how to use the **Country Filtering** feature in order to configure the service to allow or block access by country.
 
-<<<<<<< HEAD
->[AZURE.NOTE] Once the configuration is set up, it will apply to all **Azure CDN from Verizon** endpoints in this profile.
-=======
 >[AZURE.NOTE] Once the configuration is set up, it will apply to all **Azure CDN from Verizon** endpoints in this Azure CDN profile.
->>>>>>> Azure/master
 
 For information about considerations that apply to configuring this type of restriction, see the [Considerations](cdn-restrict-access-by-country.md#considerations) section at the end of the topic.  
 

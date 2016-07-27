@@ -22,13 +22,13 @@
 
 ## Overview
 
-The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers.  This tutorial will demonstrate the creation of a rule that will change the caching behavior of CDN assets.  There's also video content available in the "[See also](#see-also)" section.
+The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers.  This tutorial will demonstrate creating a rule that will change the caching behavior of CDN assets.  There's also video content available in the "[See also](#see-also)" section.
 
 ## Tutorial
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-rules-engine/cdn-rules-manage-btn.png)
+	![CDN profile blade manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
 
 	The CDN management portal opens.
 
@@ -48,7 +48,7 @@ The rules engine allows you to customize how HTTP requests are handled, such as 
 
 	>[AZURE.TIP] There are many types of match conditions available in the dropdown.  Clicking on the blue informational icon to the left of the match condition will explain the currently selected condition in detail.
 	>
-	>For the full list of match conditions in detail, see [Rules Engine Match Condition and Feature Details](cdn-rules-engine-details.md#match-conditions).
+	>For the full list of match conditions in detail, see [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
 
 5.  Click the **+** button next to **Features** to add a new feature.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**.  Leave the remaining default values.
 
@@ -56,7 +56,7 @@ The rules engine allows you to customize how HTTP requests are handled, such as 
 
 	>[AZURE.NOTE] As with match conditions, clicking the blue informational icon to the left of the new feature will display details about this feature.  In the case of **Force Internal Max-Age**, we are overriding the asset's **Cache-Control** and **Expires** headers to control when the CDN edge node will refresh the asset from the origin.  Our example of 300 seconds means the CDN edge node will cache the asset for 5 minutes before refreshing the asset from its origin.
 	>
-	>For the full list of features in detail, see [Rules Engine Match Condition and Feature Details](cdn-rules-engine-details.md#features).
+	>For the full list of features in detail, see [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
 
 6.  Click the **Add** button to save the new rule.  The new rule is now awaiting approval. Once it has been approved, the status will change from **Pending XML** to **Active XML**.
 
@@ -64,4 +64,4 @@ The rules engine allows you to customize how HTTP requests are handled, such as 
 
 ## See also
 * [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
-* [Rules Engine Match Condition and Feature Details](cdn-rules-engine-details.md)
+* [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx)
