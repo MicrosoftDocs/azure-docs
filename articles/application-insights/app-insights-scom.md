@@ -103,7 +103,7 @@ In the [Azure portal](https://portal.azure.com), browse to the resource for your
 
 ## Next steps
 
-* [Set up a dashboard](app-insights-dashboard.md) to bring together the most important charts monitoring this and other apps.
+* [Set up a dashboard](app-insights-dashboards.md) to bring together the most important charts monitoring this and other apps.
 * [Learn about metrics](app-insights-metrics-explorer.md)
 * [Set up alerts](app-insights-alerts.md)
 * [Diagnosing performance issues](app-insights-detect-triage-diagnose.md)
