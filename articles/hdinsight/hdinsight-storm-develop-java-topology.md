@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/17/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Develop Java-based topologies for a basic word-count application with Apache Storm and Maven on HDInsight
@@ -80,7 +80,10 @@ Because this is a Storm topology, you must add a dependency for Storm components
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
 	  <artifactId>storm-core</artifactId>
-	  <version>0.9.2-incubating</version>
+      <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+           To find the version information for earlier HDInsight cluster
+           versions, see https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/ -->
+	  <version>0.10.0</version>
 	  <!-- keep storm out of the jar-with-dependencies -->
 	  <scope>provided</scope>
 	</dependency>
@@ -96,9 +99,11 @@ Maven plug-ins allow you to customize the build stages of the project, such as h
 	<build>
 	  <plugins>
 	  </plugins>
+      <resources>
+      </resources>
 	</build>
 
-This section will be used to add plug-ins and other build configuration options.
+This section will be used to add plug-ins, resources, and other build configuration options. For a full reference of the __pom.xml__ file, see [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
 
 ###Add plug-ins
 
@@ -137,6 +142,20 @@ Add the following in the `<plugins>` section of the **pom.xml** file to include 
         <target>1.7</target>
       </configuration>
     </plugin>
+
+###Configure resources
+
+The resources section allows you to include non-code resources such as configuration files needed by components in the topology. For this example, add the following in the `<resources>` section of the **pom.xml** file.
+
+    <resource>
+        <directory>${basedir}/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>log4j2.xml</include>
+        </includes>
+    </resource>
+
+This adds the resources directory in the root of the project (`${basedir}`) as a location that contains resources, and includes the file named __log4j2.xml__. This file is used to configure what information is logged by the topology.
 
 ##Create the topology
 
@@ -319,8 +338,15 @@ Create two new files, **SplitSentence.java** and **WordCount.Java** in the **src
     import backtype.storm.tuple.Tuple;
     import backtype.storm.tuple.Values;
 
+    // For logging
+    import org.apache.logging.log4j.Logger;
+    import org.apache.logging.log4j.LogManager;
+
     //There are a variety of bolt types. In this case, we use BaseBasicBolt
     public class WordCount extends BaseBasicBolt {
+      //Create logger for this class
+      private static final Logger logger = LogManager.getLogger(WordCount.class);
+      
       //For holding words and counts
         Map<String, Integer> counts = new HashMap<String, Integer>();
 
@@ -338,6 +364,8 @@ Create two new files, **SplitSentence.java** and **WordCount.Java** in the **src
           counts.put(word, count);
           //Emit the word and the current count
           collector.emit(new Values(word, count));
+          //Log information
+          logger.info("Emitting a count of " + count + " for word " + word);
         }
 
         //Declare that we will emit a tuple containing two fields; word and count
@@ -349,7 +377,7 @@ Create two new files, **SplitSentence.java** and **WordCount.Java** in the **src
 
 Take a moment to read through the code comments to understand how each bolt works.
 
-###Create the topology
+###Define the topology
 
 The topology ties the spouts and bolts together into a graph, which defines how data flows between the components. It also provides parallelism hints that Storm uses when creating instances of the components within the cluster.
 
@@ -419,6 +447,35 @@ To implement the topology, create a new file named **WordCountTopology.java** in
 
 Take a moment to read through the code comments to understand how the topology is defined and then submitted to the cluster.
 
+###Configure logging
+
+Storm uses Apache Log4j to log information. If you do not configure logging, the topology will emit a lot of diagnostic information, which can be difficult to read. To control what is logged, create a file named __log4j2.xml__ in the __resources__ directory. Use the following as the contents of the file.
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Configuration>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.microsoft.example" level="trace" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="error">
+            <Appender-Ref ref="STDOUT"/>
+        </Root>
+    </Loggers>
+    </Configuration>
+
+This configures a new logger for the __com.microsoft.example__ class, which includes the components in this example topology. The level is set to trace for this logger, which will capture any logging information emitted by components in this topology. If you look back through the code for this project, you'll notice that only the WordCount.java file implements logging; it will log the count of each word.
+
+The `<Root level="error">` secton configures the root level of logging (everything not in __com.microsoft.example__,) to only log error information.
+
+For more information on configuring logging for Log4j, see [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+
+> [AZURE.NOTE] Storm version 0.10.0 uses Log4j 2.x. Older versions of storm used Log4j 1.x, which used a different format for log configuration. For information on the older configuration, see [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+
 ##Test the topology locally
 
 After you save the files, use the following command to test the topology locally.
@@ -427,29 +484,23 @@ After you save the files, use the following command to test the topology locally
 
 As it runs, the topology will display startup information. Then it begins to display lines similar to the following as sentences are emitted from the spout and processed by the bolts.
 
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.executor - Processing received message source: spout:10, stream: default, id: {}, [an apple a day keeps thedoctor away]]
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [an]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [an]
-    15399 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [apple]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [apple]
-    15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [a]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.task - Emitting: count default [an, 53]
-    15400 [Thread-12-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [a]
-    15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [day]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.task - Emitting: count default [apple, 53]
-    15401 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [day]
-    15401 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [keeps]
-    15401 [Thread-12-count] INFO  backtype.storm.daemon.task - Emitting: count default [a, 53]
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word i
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word at
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word with
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word nature
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word two
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word am
 
-As you can see from this output, the following occurred:
-
-1. Spout emits "an apple a day keeps the doctor away."
-
-2. Split bolt begins emitting individual words from the sentence.
-
-3. Count bolt begins emitting each word and how many times it has been emitted.
-
-By looking at the data emitted by the count bolt, we can see that 'apple' has been emitted 53 times. The count will continue to go up as long as the topology runs because the same sentences are randomly emitted over and over and the count is never reset.
+By looking at the logging emitted by the WordCount bolt, we can see that 'apple' has been emitted 53 times. The count will continue to go up as long as the topology runs because the same sentences are randomly emitted over and over and the count is never reset.
 
 ##Trident
 
