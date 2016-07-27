@@ -35,15 +35,15 @@ Before your logic app can access any service, you first need to create a *connec
 
 A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-[Learn more about the available Azure Service Bus triggers](../connectors-create-api-servicebus.md#azure-service-bus-triggers)  
+>[AZURE.INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]  
 
 ## Use a Azure Service Bus action
 
 An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-[Learn more about the available Azure Service Bus actions](../connectors-create-api-servicebus.md#azure-service-bus-actions)
+[AZURE.INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]  
 
-## Technical Details
+## Technical details
 
 Here are the details about the triggers, actions and responses that this connection supports:
 
@@ -95,7 +95,7 @@ This operation triggers a flow when a message is received in a queue.
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 ServiceBusMessage: This object has the content and properties of a Service Bus Message.
 
@@ -130,7 +130,7 @@ This operation triggers a flow when a message is received in a topic subscriptio
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 ServiceBusMessage: This object has the content and properties of a Service Bus Message.
 
