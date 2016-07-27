@@ -161,28 +161,30 @@ If you have issues with Developer Center registration, please log a support tick
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
 
 ## 3. Register your account in the publishing portal
-The Azure publishing portal is used to publish and manage your offer(s). You will find some useful information in the publishing portal that will guide you through your offer creation process.
+The [Publishing portal](http://publish.windowsazure.com) is used to publish and manage your offer(s).
 
-> [AZURE.WARNING] The same company Microsoft account that was used in the Microsoft Developer Center registration must be used here. Additional users can be added to assist once the master publisher account has been created.
+1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
 
-1.	Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
+2. Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-2.	Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
+3. If you are a new user and signing in to the Publishing portal for the first time, then you must sign in with the same email id with which your Dev Center account is registered. In this way your Dev Center account and Publishing portal account will be linked with each other. You can later add the other members of the company, who are working on the application, as a co-admin in the Publishing portal by following the steps below.
 
-3.	Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
+If you are added as a co-admin in the Publishing portal, then you can sign in with your co-admin account.
 
   > [AZURE.TIP] The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > If you have issues with Developer Center registration, please log a support ticket as below:
-  1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
-  2. Choose **Developer Center**.
-  3. Choose **Profile**.
-  4. Choose a contact method.
+## Steps to add a co admin in the publishing portal
+**Assuming that you are the admin,** given below are the steps to add a co-admin.
 
+>[AZURE.NOTE] Before you add a co-admin in the Publishing portal, ensure that you have created at least one application in the Publishing portal. This is required as the **PUBLISHERS** tab appear only after creating at least one application in the Publishing portal.
 
+1. Ensure that the co-admin email id is a Microsoft account(MSA). If not, register it as a MSA using this [link](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+2. Ensure that there is at least one application under the admin account before trying to add a co-admin.
+3. After the above steps are done, login to the Publishing portal with the co-admin email id and then log out.
+4. Now login to the Publishing portal with the admin email id.
+5. Navigate to Publishers->select your account->Administrators->Add the co-admin (screenshot given below)
 
-
-
+  ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
 
 ## Next steps
 Now that your account is created and registered, ensure you fulfill or meet all of the non-technical pre-requisites to publish your offer by reviewing [Non-technical pre-requisites](marketplace-publishing-pre-requisites.md).
