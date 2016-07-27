@@ -142,7 +142,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 ## Throughput
 
-1. **Measure and tune for lower request units/second usage**
+1. <a href="measure-rus"></a>**Measure and tune for lower request units/second usage**
 
     DocumentDB offers a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures, and triggers – all operating on the documents within a database collection. The cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
 
