@@ -33,13 +33,14 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 - You have the Azure CLI downloaded and installed on your machine, and you have signed in to your Azure subscription. For more information, see [How to install Azure CLI](../xplat-cli-install.md).
 
-- You have a resource group, a storage account, and a blob container created in that resource group to hold the new VM. For more information about creating storage accounts and blob containers, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
+- You have storage account information for the source VM.
 
 > [AZURE.NOTE] Similar steps apply for a VM created by using either of the two deployment models as the source image. Where applicable, this article notes the minor differences.  
 
 ## Login and set your subscription
 
 1. Login to the CLI.
+		
 		azure login
 
 2. Make sure you are in Resource Manager mode.
@@ -90,105 +91,90 @@ azure storage container create --account-name testuploadedstorage \
 	--account-key <key1> --container vm-images
 ```
 
-Finally, upload your VHD to the container you just created:
-
-```bash
-azure storage blob upload --blobtype page --account-name testuploadedstorage \
-	--account-key <key1> --container vm-images /path/to/disk/yourdisk.vhd
-```
-
 ## Stop the VM 
 
-
-
-3. Stop and deallocate the source VM. To get the names and resource group of all of the VMs in your subscription, use 'azure vm list'.
+Stop and deallocate the source VM. To get the names and resource group of all of the VMs in your subscription, use 'azure vm list'.
 	
 		azure vm stop <ResourceGroup> <VmName>
 		azure vm deallocate <ResourceGroup> <VmName>
 
+
+## Set the connection string for the source account 
+
+Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command. 
+
+You will need the storage account name and resource group of the source VM. To see a list of all of the storage accounts in a subscription and their resource groups, type `azure storage account list`. 
+
+1. Get the source connection string: 
+		azure storage account connectionstring show <sourceStorageAccount> -g <sourceResourceGroup>
 		
-		
-		
-## Get the access key for the source VM storage account
-
-Copy the access key source VM storage account. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
-
-- If your source VM was created by using the classic deployment model, change to classic mode by using 
-		
-		azure config mode asm
-		azure storage account keys list <yourSourceStorageAccountName>
-
-- If your source VM was created by using the Resource Manager deployment model, make sure you are in Resource Manager mode by using 
-		
-		azure config mode arm
-		azure storage account keys list -g <yourSourceResourceGroup> <yourSourceStorageAccount>
-
-## Copy the VHD files 
+				
+	The output should look something like this:
+	
+		C:\>azure storage account connectionstring show suseclassicst -g suseclassicrg
+		info:    Executing command storage account connectionstring show
+			+ Getting storage account keys
+		data:    connectionstring: DefaultEndpointsProtocol=https;AccountName=suseclassicst;AccountKey=Bnt4W6oMza4fj8EYs972MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+cUxyfm5+fw==
+		info:    storage account connectionstring show command OK
 
 
+2. Set the connection string. 
 
+		set AZURE_STORAGE_CONNECTION_STRING=<connectionString>
 
-
-Get the source connection string: 
-	azure storage account connectionstring show <source_storage_account>
-
-Output: 	
-	info:    Executing command storage account connectionstring show
-	+ Getting storage account keys
-	data:    connectionstring: DefaultEndpointsProtocol=https;AccountName=suseclassicrg5769;AccountKey=Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw==
-	info:    storage account connectionstring show command OK
-
-
-Set the connection string 
-
-DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
-
-AZURE_STORAGE_CONNECTION_STRING=<the_connectionstring_output_from_above_command>
-
->> AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=suseclassicrg5769;AccountKey=Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw==
-
-Set the destination storage account parameter:
-
-	set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 
 Get the container name:
 	azure storage container list -a <sourcestorageaccountname> 
 
-	Most likely the container is named **vhds**
+	In most cases, the container name will be **vhds**
 
-## Copy the VHD files using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md).
+Get the VHD name.
 
-Set up the connection string for the destination storage account. This connection string will contain the access key for destination storage account.
+		azure storage blob list --container <container_name>
+		
 
-			azure config mode arm
-			
-			azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
-			
-			>> azure storage account connectionstring show -g LinuxCopyRG copylinuxstorage
-			
-			set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
-				
-			>>  set AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg==
-			
-			
-## Create a shared access signature for the source storage account
 
-Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command.
+		
+		
+		
+		
+		
+		
+		
+		
+Copy the VHD from the source storage to the destination by using the following command.
 
-switch to asm: azure config mode asm
-get the connection string: azure storage account connectionstring show <source_storage_account>
-set the connection string: set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
-container: azure storage container list
-blob\vhd file name: azure storage blob list --container <container_name>
+To copy the VHD to another container in the same storage account, type:
 
-			azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
-			
-			>> azure storage blob sas create  --account-name suseclassicrg5769 --account-key Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw== --container vhds --blob SUSEClassic-os-5299.vhd  --permissions "r" --expiry 01/01/2020
-			
-			Output:
-			>> https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D
+		azure storage blob copy start https://<storageaccount>.blob.core.windows.net:8080/<sourceContainer>/<fileName.vhd> <newcontainerName>
+		
+To copy the VHD to another storage account and container, type:		
 
-3. Copy the VHD from the source storage to the destination by using the following command.
+
+		azure storage blob copy start https://<storageaccount>.blob.core.windows.net:8080/<sourceContainer>/<fileName.vhd> https://<storageaccount>.blob.core.windows.net:8080/<destinationContainer>/<fileName.vhd>
+		
+		azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net:8080/vhds/SUSEClassic-os-5299.vhd https://movedestination.blob.core.windows.net:8080/vhdscopy/SUSEClassic.vhd
+		
+		
+		
+		
+		azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net:8080/vhds/SUSEClassic-os-5299.vhd --dest-account-name movedestination --dest-container vhdscopy --dest-blob suseclassic.vhd 
+		
+		azure storage blob copy start --source-uri <sourceUri> --dest-container <destContainer>
+		
+		
+		
+		
+		azure storage blob copy start source destination
+		
+		
+
+
+
+
+
+
+
 
 			azure storage blob copy start <SharedAccessURL_ofTheSourceVHD> <DestinationContainerName>
 			
@@ -224,14 +210,137 @@ blob\vhd file name: azure storage blob list --container <container_name>
 			
 			Yep, needs --dest-container <destContainer>
 			
-			>> azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D --dest-container copylinuxcontainer --dest-connection-string DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg== 
+			>> azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D --dest-container copylinuxcontainer --dest-connection-string DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg== 	
+
+
+azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D --dest-container copylinuxcontainer --dest-connection-string DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg== 				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+## Create a shared access signature for the source storage account
+
+Using a shared access signature (SAS) is a powerful way to grant limited access to objects in your storage account to other clients, without having to expose your account key. ******* Do we need this???? *******
+		
+		azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
+		
+		
+		
+			azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
+			
+			>> azure storage blob sas create  --account-name suseclassicrg5769 --account-key Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw== --container vhds --blob SUSEClassic-os-5299.vhd  --permissions "r" --expiry 01/01/2020
+			
+			Output:
+			>> https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+
+## Copy the VHD files using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md).
+
+Set up the connection string for the destination storage account. This connection string will contain the access key for destination storage account.
+
+			azure config mode arm
+			
+			azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
+			
+			>> azure storage account connectionstring show -g LinuxCopyRG copylinuxstorage
+			
+			set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+				
+			>>  set AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg==
+			
+			
+## Create a shared access signature for the source storage account
+
+Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command.
+
+switch to asm: azure config mode asm
+get the connection string: azure storage account connectionstring show <source_storage_account>
+set the connection string: set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+container: azure storage container list
+blob\vhd file name: azure storage blob list --container <container_name>
+
+			azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
+			
+			>> azure storage blob sas create  --account-name suseclassicrg5769 --account-key Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw== --container vhds --blob SUSEClassic-os-5299.vhd  --permissions "r" --expiry 01/01/2020
+			
+			Output:
+			>> https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D
+
+3. 
 			
 			
 			
 
 4. The VHD file is copied asynchronously. Check the progress by using the following command.
 
-			$azure storage blob copy show <DestinationContainerName> <FileNameOfTheVHDtoCopy>
+			azure storage blob copy show <DestinationContainerName> <FileNameOfTheVHDtoCopy>
 
 </br>
 
