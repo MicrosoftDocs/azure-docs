@@ -60,7 +60,7 @@ To change a Logic App that has an App Service Plan associated with it to a consu
 
 ## Pricing
 
-For pricing details please see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logicapps/).
+For pricing details please see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## Next Steps
 
