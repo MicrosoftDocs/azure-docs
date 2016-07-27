@@ -39,9 +39,9 @@ Ensure that you meet the following prerequisites before you start the steps:
 | VM name | 'azure vm list' |
 | Resource Group name | 'azure vm list' |
 | Location | 'azure vm list' |
-| Storage Account name | |
-| Container name | ||
-| Source VM VHD file name | |
+| Storage Account name | azure storage account list -g <resourceGroup> |
+| Container name | azure storage container list -a <sourcestorageaccountname> ||
+| Source VM VHD file name | azure storage blob list --container <containerName> |
 
 
 
@@ -85,7 +85,7 @@ Stop and deallocate the source VM. You can use 'azure vm list' to get a list of 
 
 ## Get the container and VHD names
 		
-1. Get the container name:
+1. Get the container name. 
 	
 		azure storage container list -a <sourcestorageaccountname> 
 
