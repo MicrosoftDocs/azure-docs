@@ -195,4 +195,4 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 For a sample application used to evaluate DocumentDB for high-performance scenarios on a small number of client machines, see [Performance and scale testing with Azure DocumentDB](documentdb-performance-testing.md).
 
-Also, to learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data).
+Also, to learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data.md).
