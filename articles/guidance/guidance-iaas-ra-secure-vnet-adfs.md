@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="07/27/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -73,13 +73,47 @@ The following diagram highlights the important components in this architecture (
 
 	For more information about configuring UDRs and the NVAs, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
 
-- **AD FS servers.** The AD FS servers provide federated authorization. They perform the following tasks:
+- **AD FS servers.** The AD FS servers provide federated authorization and authentication. They perform the following tasks:
 
-	- They use AD DS to authenticate requests made by the application running in the cloud. The partner web application is configured as a *relying partner* of AD FS. The configuration information includes the claims that the partner web application expects.  AD DS can include attributes for the identities that it authenticates (such as the email address, location, etc), and AD FS can take this information and transform in into the claims expected by the relying party before sending these claims (encoded as a security token) to the partner federation server. In this role, the AD FS servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts.
+	- They use AD DS to authenticate requests made by the application running in the cloud. The partner web application is configured as a *relying partner* of AD FS. The configuration information includes the claims that the partner web application expects.  AD DS can include attributes for the identities that it authenticates (such as the email address, location, etc), and AD FS can take this information and transform in into the claims expected by the relying party before sending these claims (encoded as a security token) to the partner federation server. In this role, the AD FS servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts. The complete flow of control for this use case is as follows:
+	
+		1. A corporate user in your organization attempts to access a web application owned by partner A.
 
-	- They can receive security tokens containing claims made by a partner federation server on behalf of a partner application. AD FS can verify that these tokens are valid before passing the claims to web application running in Azure. The web application in Azure can use these claims to authorize requests (the claims can correspond to attributes held in AD DS for the authenticated identity). In this scenario, the web application in Azure is the relying party, and it is the responsibility of the partner federation server to issue claims that will be understood by the Azure web application. The AD FS servers are referred to as *resource partners* because they provide access to resources.
+		2. If the corporate user is not yet authenticated, she is redirected to the federation server of partner A.
 
-	- They can authenticate (via AD DS and the [Active Directory Device Registration Service][ADDRS]) and authorize incoming requests external users running a web browser or device that needs access to your web applications running in Azure. 
+		3. The federation server in partner A provides a Home Realm Discovery (HDR) mechanism, and the corporate user can select the account federation server (AD FS within the organization's Azure VNet).
+		
+			>[AZURE.NOTE] A user might be redirected based on the domain specified as part of her user principal name (UPN). For example, if the user's UPN is *fred@treyresearch.com* then the federation server at partner A could be configured to redirect the user to *treyresearch.com* to perform authentication. This scenario is not considered further in this guidance.
+
+		4. The user is redirected back to the account federation server, where she is authenticated.
+
+		5. The account federation server retrieves the user's claims from the AD database and passes them back to the user's process.
+
+		6. The user's process process wraps the claims inside a Security Assertion Markup Language (SAML) token which it encodes and sends to the federation server on Partner A.
+
+		7. Partner A authenticates the token to verify that it is valid, transforms the claims it contains (if appropriate) and sends the verified claims back to the user's process as another SAML token.
+
+		8. The user's process SAML token containing the authenticated claims to the web application on partner A, which can perform any necessary authorization.
+
+	- They can receive security tokens containing claims made by a partner federation server on behalf of a partner application. AD FS can verify that these tokens are valid before passing the claims to web application running in Azure. The corporate web application (in Azure) can use these claims to authorize requests (the claims can correspond to attributes held in AD DS for the authenticated identity). In this scenario, the corporate web application is the relying party, and it is the responsibility of the partner federation server to issue claims that will be understood by the corporate web application. The AD FS servers are referred to as *resource partners* because they provide access to resources. The flow of control is:
+
+		1. A user within a partner organization (Partner B) attempts to access the corporate web application running in your organization's Azure VNet.
+
+		2. If the partner user is not yet authenticated, she is redirected to your organization's federation server inside the VNet (AD FS).
+
+		3. HDR in AD FS enables the user to select the federation server in partner B, or she may be redirected to another site for authentication based on her UPN (this case is not considered further here).
+
+		4. The partner user authenticates using the account federation server at partner B.
+
+		5. The account federation server at partner B retrieves the user's claims and passes them back to the user's process.
+
+		6. The user's process creates a SAML token with these claims which it sends to the AD FS in your organization's VNet.
+
+		7. Your organization's ADFS authenticates the token to verify that it is valid, transforms the claims it contains (if appropriate) and sends the verified claims back to the user's process as another SAML token.
+
+		8. The user's process SAML token containing the authenticated claims to the web application in your organization, which can perform any necessary authorization.
+
+	- They can authenticate (via AD DS and the [Active Directory Device Registration Service][ADDRS]) and authorize incoming requests external users running a web browser or device that needs access to your corporate web applications. 
 
 	The AD FS servers are configured as a farm, accessed through an an Azure load balancer. This structure helps to improve availability and scalability. Also, note that the AD FS servers are not exposed directly to the Internet, rather all Internet traffic is filtered through AD FS web application proxy servers and a DMZ.
 
@@ -201,13 +235,7 @@ On each AD FS server VM, perform the following tasks:
 
 		[![28]][28]
 
-	- Proceed through the remaining pages, allow the installation to finish, and then run the following PowerShell command:
-
-		```powershell
-		set-AdfsProperties -EnableIdPInitiatedSignonPage $true
-		```
-
-	- Restart the VM.
+	- Proceed through the remaining pages, allow the installation to finish, and then restart the VM.
 
 7. If this is not the first AD FS server VM in the AD FS server farm, perform the following steps:
 
