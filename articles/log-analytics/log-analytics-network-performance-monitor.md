@@ -28,7 +28,7 @@ The solution uses synthetic transactions as a primary mechanism to detect networ
 
 Typical network monitoring products focus on monitoring the network device (routers, switches etc.) health but do not provide insights into the actual quality of network connectivity between two points, which Network Performance Monitor does.
 
-## Using Network Performance Monitor standalone
+## Using the solution standalone
 
 If you want to monitor the quality of network connections between their critical workloads, networks, datacenters or office sites, then you can use the Network Performance Monitor solution by itself to monitor connectivity health between:
 
@@ -37,17 +37,14 @@ If you want to monitor the quality of network connections between their critical
 - public cloud services like Microsoft Azure or Amazon Web Services (AWS) and on-premises networks, if you have IaaS (VM) available and you have gateways configured to allow communication between on-premises networks and cloud networks
 - Azure and on-premises networks when you use Express Route
 
-## Using Network Performance Monitor with other networking tools
+## Using the solution with other networking tools
 
 If you want to monitor a line of business application, you can use the Network Performance Monitor solution as a companion solution to other network tools. A slow network can lead to slow applications and Network Performance Monitor can help you investigate application performance issues that are caused by underlying networking issues. Because the solution does not require any access to network devices, the application administrator doesn't need to rely on a networking team to provide information about how the network is affecting applications.
 
 Also, if you already invest in other network monitoring tools, then the solution can complement those tools because most traditional network monitoring solutions do not provide insights into end-to-end network performance metrics like loss and latency.  The Network Performance Monitor solution can help fill that gap.
 
-## Preview status of the Network Performance Monitor solution
 
-The Network Performance Monitor is in Public Preview. During public preview, the solution is available to all OMS subscribers in all regions supported by OMS. Although the solution is publicly available, the preview status of the solution means that there may be potential bugs or possible limitations in the solution in certain cases. If problems are found, we'll investigate them, triage them, and fix them as promised in our service level agreements.
-
-## Installing and configuring agents for the Network Performance Monitor
+## Installing and configuring agents for the solution
 
 Use the basic processes to install agents at [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) and [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md).
 
@@ -154,7 +151,7 @@ The *Default rule* is created by the system and it creates a health event whenev
 
 #### To create custom monitoring rules
 
-1. Click **Add Rule** the **Monitor** tab and enter the rule name and description.
+1. Click **Add Rule** in the **Monitor** tab and enter the rule name and description.
 2. Select the pair of network or subnetwork links to monitor from the lists.
 3. First select the network in which the first subnetwork/s of interest is contained from the network dropdown, and then select the subnetwork/s from the corresponding subnetwork dropdown.
 Select **All subnetworks** if you want to monitor all the subnetworks in a network link. Similarly select the other subnetwork/s of interest. And, you can click **Add Exception** to exclude monitoring for particular subnetwork links from the selection you've made.
@@ -165,7 +162,7 @@ You can set custom thresholds for health event generation by typing threshold va
   ![create custom monitoring rule](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
 
-## Network Performance Monitor data collection details
+## Data collection details
 
 Network Performance Monitor uses TCP SYN-SYNACK-ACK handshake packets to collect loss and latency information and traceroute is also used to get topology information.
 
@@ -179,10 +176,7 @@ The solution makes use of synthetic transactions to assess the health of the net
 
 >[AZURE.NOTE] Although agents communicate with each other frequently, they do not generate a lot of network traffic while conducting the tests. Agents rely only on TCP SYN-SYNACK-ACK handshake packets to determine the loss and latency -- no data packets are exchanged. During this process, agents communicate with each other only when needed and the agent communication topology is optimized to reduce network traffic.
 
-
-
-
-## Using the Network Performance Monitor solution
+## Using the solution
 
 This section explains all the dashboard functions and how to use them.
 
@@ -212,14 +206,14 @@ The **Common Queries** blade contains a set of search queries that fetch raw net
 
 You can click various links on the solution dashboard to drill-down deeper into any area of interest. For example, when you see an alert or an unhealthy network link appear on the dashboard, you can click it to investigate further. You'll be taken to a page that lists all the subnetwork links for the particular network link. You will be able to see the loss, latency and health status of each subnetwork link and quickly find out what subnetwork links are causing the problem. You can then click **View node links** to see all the node links for the unhealthy subnet link. Then, you can see individual node-to-node links and find the unhealthy node links.
 
-You can click **View topology** to view the hop-by-hop topology of the routes between the source and destination nodes and the unhealthy routes or hops are shown in red show that you can quickly identify the problem to a particular portion of the network.
+You can click **View topology** to view the hop-by-hop topology of the routes between the source and destination nodes. The unhealthy routes or hops are shown in red so that you can quickly identify the problem to a particular portion of the network.
 
 ![drill-down data](./media/log-analytics-network-performance-monitor/npm-drill.png)
 
 
 #### Trend charts
 
-At each level that you the drill-down, you'll can see the trend of loss and latency for a network link. Trend charts are also available for Subnetwork and Node links. You can change the time interval for the graph to plot by using the time control at the top of the chart.
+At each level that you the drill-down, you can see the trend of loss and latency for a network link. Trend charts are also available for Subnetwork and Node links. You can change the time interval for the graph to plot by using the time control at the top of the chart.
 
 Trend charts show you a historical perspective of the performance of a network link. Some network issues are transient in nature and would be hard to catch only by looking at the current state of the network. This is because issues can surface quickly and disappear before anyone notices, only to reappear at a later point in time. Such transient issues can also be difficult for application administrators because those issues often surface as unexplained increases in application response time, even when all application components appear to run smoothly.
 
@@ -252,7 +246,7 @@ All data that is exposed graphically through the Network Performance Monitor das
 ![search queries](./media/log-analytics-network-performance-monitor/npm-queries.png)
 
 
-## Conduct a simple investigation for root-causing a health alert
+## Investigate the root cause of a health alert
 
 Now that you've read about Network Performance Monitor, let's look at a simple investigation into the root-cause for a health event.
 
