@@ -36,7 +36,7 @@ Once you have the prerequisites installed,
 
 1. Open Visual Studio 2015 to the **Tools** menu and select **Extensions and Updates**
 1. Select the **Online** category to search online
-1. Search for **Logic Apps** to display the **Azure Logic Apps Visual Studio Tools**
+1. Search for **Logic Apps** to display the **Azure Logic Apps Tools for Visual Studio**
 1. Click the **Download** button to download and install the extension
 1. Restart Visual Studio after installation
 
