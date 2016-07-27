@@ -28,9 +28,11 @@ preconfigured to run containerized applications. It uses an optimized configurat
 >Here are some points
 >
 >1. test mean
+>
 >    Sub content
 >
 >2. second item
+>3. Third item
 
 <br />
 ![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
