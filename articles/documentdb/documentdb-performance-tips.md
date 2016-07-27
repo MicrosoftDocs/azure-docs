@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2016" 
+	ms.date="07/27/2016" 
 	ms.author="arramac"/>
 
 # Performance tips for DocumentDB
@@ -24,6 +24,7 @@ Azure DocumentDB is a fast and flexible distributed database that scales seamles
 So if you're asking "How can I improve my database performance?" consider the following options.
 
 ## Networking
+<a href="direct-connection"></a>
 
 1. **Connection policy: Use direct connection mode**
     
