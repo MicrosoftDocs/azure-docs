@@ -679,7 +679,6 @@ After creating a database that uses Always Encrypted, you may want to do the fol
 - [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
 
 
-
 ## Related information
 
 - [Always Encrypted (client development)](https://msdn.microsoft.com/library/mt147923.aspx)
