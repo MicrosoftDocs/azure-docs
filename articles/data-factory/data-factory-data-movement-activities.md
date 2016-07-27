@@ -133,7 +133,7 @@ The **Data Factory Copy Wizard** allows you to create a pipeline with a copy act
 ## Performance & Tuning 
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) article, which describes key factors that impact performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing, and discusses various ways to optimize the performance of the Copy Activity.
 
-## Type conversions across different type systems
+## Type conversions 
 Different data stores have different native type systems. Copy Activity performs automatic type conversions from source types to sink types with the following 2 step approach:
 
 1. Convert from native source types to .NET type
