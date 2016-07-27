@@ -21,28 +21,23 @@
 
 ## Connect with what you already know
 
-The last thing a dev wants to do is learn something new just to connect with a database. Azure SQL Database makes it easy with a variety of languages and platforms you’re used to working with.
+The last thing you want to do is learn something new just to connect with a database. Azure SQL Database makes it easy with a variety of languages and platforms you’re used to working with.
 
 ![works-in-your-environment](./media/sql-database-works-in-your-environment/sql-database-works-in-your-environment.png)
 
-## JavaScript, Node.JS, and Python just to name a few
+When choosing a database, you shouldn't have to move to a new platform, or learn a new language. SQL Database has code samples to help you get started, wherever you are.  
 
-When choosing a database, you shouldn't have to learn a new language. SQL Database has many code samples to help you get started, for the platform you're working on. (i.e. Linux, Mac OS or Windows).  Additionally, the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity when developing.
-
-[Read the documentation](sql-database-develop-overview.md)
+[Learn more about SQL Database Development](sql-database-develop-overview.md) 
 
 ## The right tools for the job
 
-With SQL Database you don't have to learn a new tool when you’re developing an app. You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+You don't have to learn a whole new set of tools to get started with SQL Database. You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
 
 ## Get started quickly
 
-With guaranteed resources, tutorials on creating your first SQL Database, troubleshooting queries, and quick-start code samples&mdash;getting the right answer to your database question is never too far to find.
+The right anwers to your SQL Database questions are never too far away, with tutorials on creating your first SQL Database, troubleshooting queries, and quick-start code samples.
 
-[Read the documentation](sql-database-technical-overview.md)
-
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+[Learn more about SQL Database](sql-database-technical-overview.md)
 
 ## Next steps
 
@@ -50,6 +45,6 @@ Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [c
 
 ## Additional resources
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
- 
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+* Review the [technical overview of SQL Database](sql-database-technical-overview.md).
+* [SQL Database Development Overview](sql-database-develop-overview.md)

@@ -9,7 +9,7 @@
 	tags="connectors"/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -108,11 +108,11 @@ An action is an operation carried out by the workflow defined in a Logic app. [L
 |---|---|
 |HTTP|Make an HTTP call and return the response content|
 
-### Action details
+## HTTP details
 
 The HTTP connector comes with 1 possible action. Below, there is information on each of the actions, their required and optional input fields, and the corresponding output details associated with their usage.
 
-#### HTTP Request
+### HTTP Request
 Make an HTTP outbound request.
 An * means required field.
 
@@ -122,6 +122,7 @@ An * means required field.
 |URI*|uri|URI for the HTTP request|
 |Headers|headers|A JSON object of HTTP headers to include|
 |Body|body|The HTTP request body|
+|Authentication|authentication|[Details here](#authentication)|
 <br>
 
 **Output Details**
@@ -134,20 +135,86 @@ HTTP Response
 |Body|object|Response object|
 |Status Code|int|HTTP status code|
 
-### HTTP responses
+## Authentication
 
-When making calls to various actions, you might get certain responses. Below is a table outlining corresponding responses and descriptions.
+Logic Apps allows you to use different types of authentication against HTTP endpoints.  This authentication can be used with the HTTP, [HTTP + Swagger](./connectors-native-http-swagger.md), and [HTTP Webhook](./connectors-native-webhook.md) connectors.  The following types of authentication are configurable:
 
-|Name|Description|
-|---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
-|default|Operation Failed.|
+* [Basic Authentication](#basic-authentication)
+* [ClientCertificate Authentication](#client-certificate-authentication)
+* [ActiveDirectoryOAuth Authentication](#azure-active-directory-oauth-authentication)
+
+#### Basic authentication
+
+The following authentication object is needed for basic authentication:
+An * means required field.
+
+|Property Name|Data Type|Description|
+|---|---|---|
+|Type*|type|Type of authentication. For Basic authentication, the value must be `Basic`|
+|Username*|username|Username to authenticate|
+|Password*|password|Password to authenticate|
+
+>[AZURE.TIP] If you want to use a password that cannot be retrieved from the definition, use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs)
+
+So you would create an object like this in the authentication field:
+
+```javascript
+{
+	"type": "Basic",
+	"username": "user",
+	"password": "test"
+}
+```
+
+#### Client certificate authentication
+
+The following authentication object is needed for client certificate authentication:
+An * means required field.
+
+|Property Name|Data Type|Description|
+|---|---|---|
+|Type*|type|Type of authentication. For SSL client certificates, the value must be `ClientCertificate`|
+|PFX*|pfx|Base64-encoded contents of the PFX file|
+|Password*|password|Password to access the PFX file|
+
+>[AZURE.TIP] You can use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs) to use a parameter that won't be readable in the definition after saving.
+
+For example:
+
+```javascript
+{
+	"type": "ClientCertificate",
+	"pfx": "aGVsbG8g...d29ybGQ=",
+	"password": "@parameters('myPassword')"
+}
+```
+
+#### Azure Active Directory OAuth authentication
+
+The following authentication object is needed for Azure Active Directory OAuth authentication:
+An * means required field.
+
+|Property Name|Data Type|Description|
+|---|---|---|
+|Type*|type|Type of authentication. For ActiveDirectoryOAuth, the value must be `ActiveDirectoryOAuth`|
+|Tenant*|tenant|The tenant identifier for the Azure AD tenant|
+|Audience*|audience|This is set to `https://management.core.windows.net/`|
+|Client ID*|clientId|Provide the client identifier for the Azure AD application|
+|Secret*|secret|Secret of the client that is requesting the token|
+
+>[AZURE.TIP] You can use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs) to use a parameter that won't be readable in the definition after saving.
+
+For example:
+
+```javascript
+{
+	"type": "ActiveDirectoryOAuth",
+	"tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+	"audience": "https://management.core.windows.net/",
+	"clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+	"secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+}
+```
 
 ---
 

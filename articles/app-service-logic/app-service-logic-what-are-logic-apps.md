@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -76,11 +76,10 @@ The following are some of the key pieces that comprise the Logic Apps experience
 
 ## Getting Started  
 
- - To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
- - [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
- - [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
- - [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
-- For more information on Azure App Service platform, see [Azure App Service][appservice].
+- To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
+- [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
+- [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
+- [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: app-service-logic-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
