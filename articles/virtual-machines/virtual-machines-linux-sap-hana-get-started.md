@@ -20,8 +20,8 @@
 
 # Introduction
 
-This quickstart guide will help to set up a simple SAP HANA test or prototype system on 
-Azure VMs as quickly as possible by a manual installation of SAP NetWeaver 7.5 and SAP HANA SP12.
+This quickstart guide will help to set up a single-instance SAP HANA prototype/demo system on 
+Azure VMs by a manual installation of SAP NetWeaver 7.5 and SAP HANA SP12.
 The guide presumes that the reader is familiar with Azure IaaS basics like how to deploy
 virtual machines or virtual networks either via the Azure portal or Powershell/CLI 
 including the option to use json templates. Furthermore it's expected that the reader is
@@ -55,14 +55,15 @@ Be aware of the fact though that as of July 2016 SAP HANA is only fully supporte
 OLAP ( BW ) production systems on Azure VM type GS5. For testing purposes where one is
 not expecting official SAP support it's fine to use something smaller like e.g. GS4.
 What should always be used for SAP HANA on Azure is Azure premium storage for HANA data
-and log files. Regarding further details about which SAP products are supported on Azure
-please check the general information section at the end of this article.
+and log files - see the "Disk Setup" section further down. Regarding further details about 
+which SAP products are supported on Azure please check the general information section at 
+the end of this article.
 
 
 The guide describes two different ways to manually install SAP HANA on Azure VMs :
 
 * install SAP HANA via SAP Software Provisioning Manager ( SWPM ) as part of a distributed installation in the "database instance" step
-* install SAP HANA first using the HANA Life Cycle Manager tool hdblcm
+* install SAP HANA using the HANA Life Cycle Manager tool hdblcm
 
 Before starting an installation the next section about setting up the Azure test VMs should be read 
 to avoid several basic mistakes which will happen when using only a default Azure VM configuration.
@@ -76,7 +77,7 @@ to avoid several basic mistakes which will happen when using only a default Azur
 
 The root filesystem in a Linux VM on Azure is of limited size. Therefore it's necessary to attach
 additional disk space to a VM for running SAP. In the case of a SAP app server VM used in a pure
-test/demo/prototype environment it's fine to use Azure standard storage disks. Whereas for the SAP 
+prototype/demo environment it's fine to use Azure standard storage disks. Whereas for the SAP 
 HANA DB data and log files - Azure Premium storage disks should be used even in a non-production landscape.
 
 
@@ -120,7 +121,7 @@ SAP HANA data and log files as well as the /usr/sap directory.
 ## Kernel parameters
 
 
-SAP HANA requires specific Linux kernel settings which are not part of the Azure gallery images
+SAP HANA requires specific Linux kernel settings which are not part of the standard Azure gallery images
 and have to be set manually. There is a specific SAP note which describes the settings. 
 
 
@@ -207,7 +208,14 @@ Another important aspect before starting to install SAP is to include host names
 SAP VMs in the /etc/hosts file. One should deploy all the SAP VMs within one Azure virtual network and then
 use the internal IP addresses.
 
+## /etc/fstab
 
+![](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
+
+During the testing phase it turned out to be a good idea to add the nofail parameter to fstab. If something
+goes wrong with the disks then the VM would still come up and not hang in the boot process. But one has to
+watch out as in this case the additional disk space might not be available and processes could fill up the
+root filesystem. In case /hana would be missing SAP HANA wouldn't start though at all.
 
 
 ## Graphical desktop
@@ -217,7 +225,7 @@ use the internal IP addresses.
 Especially for those who have Microsoft Windows background and would like to use a graphical desktop directly
 within the SAP Linux VMs to run Firefox, Sapinst, SAP GUI, SAP MC or HANA Studio and maybe connect to the VM 
 via RDP from a Microsoft Windows computer there is a simple way to achieve this. While this might not be 
-appropriate e.g. for a production database server it's ok for a pure test/prototype/demo environment. Here
+appropriate e.g. for a production database server it's ok for a pure prototype/demo environment. Here
 are the steps to install the Gnome desktop on an Azure SLES VM :
 
 install the gnome desktop by the following command ( e.g. in a putty window ) :
