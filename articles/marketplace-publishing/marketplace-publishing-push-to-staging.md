@@ -31,6 +31,9 @@ In this step of the publishing process, you will need to provide certain marketi
 ### Details and plans
 1.	Enter the offer title (maximum 50 characters), offer summary (maximum 100 characters), offer long summary (maximum 256 characters), offer description (maximum 1300 characters), logos under the **Details** tab
 2.	Enter plan title (maximum 50 characters), plan summary (maximum 100 characters), plan description (maximum 2000 characters) under the **Plans** tab.
+
+    >[AZURE.NOTE] You can use the following HTML tags to format the summary, long summary and description of the offer and plans. The allowed HTML tags are h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], strong, em, b, i.
+
 3.	Do not enter duplicate text under offer and plan description.
 4.	Do not enter duplicate text under plan’s title and offer long summary.
 5.	Do not enter duplicate text under plan title and offer summary.
@@ -73,7 +76,8 @@ On the **Links** tab on the left bar, enter any links with information that may 
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### Sample images (optional)
-> [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for the push to staging.
+> [AZURE.NOTE] Including a sample image is an optional step.
+> Even though you can upload multiple sample images in the Publishing portal, only one image (randomly selected by the system) gets displayed in the Azure portal. For this reason, we recommend uploading at most one sample image.
 
 On the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
 
@@ -84,7 +88,24 @@ On the **Legal** tab, provide a link to your policies/terms of use. Enter or pas
 
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-> [AZURE.NOTE] For virtual machines, you cannot change the following once a SKU is staged or live: **Offer identifier**, **Publisher identifier**, and **SKU identifier**.
+**Note:**
+For Virtual Machine offers, once an offer/SKU is staged in the Azure Portal, you cannot change the fields given below:
+
+- **Offer Identifier:** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Offer Identifier]
+- **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
+- **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under “Step 2 Register Your Company”) -> Publisher Namespace ->Namespace]
+
+For Virtual Machine offers, once the offer/SKU is listed in the Azure Marketplace, you cannot change the fields given below:
+
+- **Offer Identifier:** [Publishing portal -> Virtual Machines -> select your Offer -> VM Images -> Offer Identifier]
+- **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
+- **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under Step 2 Register) Publisher Namespace ->Namespace]
+- **Ports:** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Open Ports]
+- **Pricing Change of listed SKU(s)**
+- **Billing Model Change of listed SKU(s)**
+- **Removal of billing regions of listed SKU(s)**
+- **Changing the data disk count of listed SKU(s)**
+
 
 ## Step 2: Set your prices
 ### Pricing models
@@ -176,10 +197,12 @@ Below is a detailed view of how the offer marketing information is used on the [
 
 ## Next steps
 Now that your Marketplace content is loaded, let's move forward with testing your offer in staging. However, you must select the appropriate offer type from the list below, as steps vary by offer type.
+
 - [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md)
 - [Test your Solution template offer in staging](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## See also
+
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
