@@ -34,25 +34,25 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 - You also need some information about your existing VM:
 
-| Source VM information | Where to get it ||
-|------------|-----------------||
-| VM name | 'azure vm list' || 
-| Resource Group name | 'azure vm list' ||
-| Location | 'azure vm list'
-| Storage Account name | ||
+| Source VM information | Where to get it |
+|------------|-----------------|
+| VM name | 'azure vm list' |
+| Resource Group name | 'azure vm list' |
+| Location | 'azure vm list' |
+| Storage Account name | |
 | Container name | ||
-| Source VM VHD file name | ||
+| Source VM VHD file name | |
 
 
 
-- You will need to make some choices about your new VM:
-	-Container name
-	-VM name
-	-VM size
-	-vNet name
-	-SubNet name
-	-IP Name
-	-NIC name
+- You will need to make some choices about your new VM: 
+     <br> Container name
+     <br> VM name 
+     <br> VM size 
+     <br> vNet name 
+     <br> SubNet name 
+     <br> IP Name 
+     <br> NIC name
 	
 	
 
