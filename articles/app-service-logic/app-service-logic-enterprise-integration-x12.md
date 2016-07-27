@@ -8,13 +8,15 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
+	ms.service="app-service-logic" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
+
+>[AZURE.NOTE]This page covers the X12 features of Logic Apps. For information on EDIFACT click [here](app-service-logic-enterprise-integration-edifact.md).
 
 # Enterprise integration with X12 
 
