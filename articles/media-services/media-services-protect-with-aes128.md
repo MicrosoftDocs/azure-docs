@@ -550,7 +550,7 @@ The following code shows how to send a request to the Media Services key deliver
 		                _context.AssetDeliveryPolicies.Create(
 		                            "AssetDeliveryPolicy",
 		                            AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
-		                            AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS,
+		                            AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
 		                            assetDeliveryPolicyConfiguration);
 		
 		            // Add AssetDelivery Policy to the asset
