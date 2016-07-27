@@ -46,12 +46,12 @@ If you have already purchased a custom domain from [Azure DNS](https://azure.mic
 there are three main steps to map the custom domain to your app:
 
 1. [*(A record only)* Get app's IP address](#vip).
+2. [Create the DNS records that map your domain to your app](#createdns). 
+    - **Where**: your domain registrar's own management tool (e.g. Azure DNS, GoDaddy, etc.).
+    - **Why**: so your domain registrar knows to resolves the desired custom domain to your Azure app.
 1. [Enable the custom domain name for your Azure app](#enable).
     - **Where**: the [Azure portal](https://portal.azure.com).
     - **Why**: so your app knows to respond to requests made to the custom domain name.
-2. [Create the DNS records that map your domain to your app](#dns). 
-    - **Where**: your domain registrar's own management tool (e.g. Azure DNS, GoDaddy, etc.).
-    - **Why**: so your domain registrar knows to resolves the desired custom domain to your Azure app.
 3. [Verify DNS propagation](#verify).
 
 ### Types of domains you can map
@@ -101,7 +101,7 @@ instead, skip this step and move onto the next section.
 
 7.  Keep this portal blade open. You will come back to it once you create the DNS records.
 
-<a name="dns"></a>
+<a name="createdns"></a>
 ## Step 2. Create the DNS record(s)
 
 Log in to your domain registrar and use their tool to add an A record or CNAME record. Every registrar’s UI is slightly 
@@ -134,17 +134,17 @@ Your A record should be configured as follows (@ typically represents the root d
   <tr>
     <td>contoso.com (root)</td>
     <td>@</td>
-    <td>IP address from <a href="#dns">Step 1</a></td>
+    <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
     <td>www</td>
-    <td>IP address from <a href="#dns">Step 1</a></td>
+    <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
   <tr>
     <td>*.contoso.com (wildcard)</td>
     <td>*</td>
-    <td>IP address from <a href="#dns">Step 1</a></td>
+    <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
 </table>
 
@@ -221,7 +221,7 @@ domain name (FQDN) of your custom domain to the list.
     ![Map a custom domain name to an Azure app: add to list of domain names](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
     >[AZURE.NOTE] Azure will attempt to verify the domain name you use here, so be sure that it is the same domain name
-    for which you created a DNS record in [Step 2](#dns). If you are sure that 
+    for which you created a DNS record in [Step 2](#createdns). If you are sure that 
 
 6.  Click **Save**.
 
@@ -245,13 +245,6 @@ After you finish the configuration steps, it can take some time for the changes 
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-
-<!-- Anchors. -->
-[Overview]: #overview
-[DNS record types]: #dns-record-types
-[Find the virtual IP address]: #find-the-virtual-ip-address
-[Create the DNS records]: #create-the-dns-records
-[Enable the domain name on your web app]: #enable-the-domain-name-on-your-web-app
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
