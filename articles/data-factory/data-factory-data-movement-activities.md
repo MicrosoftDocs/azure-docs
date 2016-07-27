@@ -20,9 +20,9 @@
 # Data movement and the Copy Activity: migrating data to the cloud and between cloud stores
 
 ## Overview
-Data movement from a source to a sink (destination) is performed by the [Copy Activity](#copyactivity) in Azure Data Factory. Copy Activity copies data from one input dataset (**source**) to one output dataset (**sink**). Data copy is done in a batch fashion according to the schedule specified on the activity. To learn about defining activities in general, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
+Data movement from a source to a sink (destination) is performed by the [Copy Activity](#copyactivity) in Azure Data Factory. The Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). The service automatically chooses the optimal region to perform the data movement, usually the region closest to the sink data store. 
 
-The Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). The service automatically chooses the optimal region to perform the data movement, usually the region closest to the sink data store.
+> [AZURE.NOTE] To learn about defining activities in general, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
 
 Here’s how data migration occurs between two cloud data stores, and between an on-premises data store and a cloud data store
 
@@ -55,6 +55,7 @@ Copy Activity copies data from a **source** data store to a **sink** data store.
 If you need to move data to/from a data store that is not supported by the **Copy Activity**, you may use the **custom activity** in Data Factory with your own logic for copying/moving the data. See [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md) article for details on creating and using a custom activity.
 
 Copy Activity supports a variety of file formats including binary (images, documents, music, etc...), text, Avro, ORC, and JSON formats for file based stores. However, it can only read internal contents of structured files in Text, Avro, ORC, JSON files. You can use the Copy Activity to convert data from one format to another. Example: text (CSV) to Avro.  If the data is unstructured, you can omit the **Structure** property in the JSON definition of the [dataset](data-factory-create-datasets.md). 
+
 
 ## <a name="global"></a>Globally available data movement
 The service powering the Copy Activity is available globally in the following regions and geographies even though the Azure Data Factory itself is available only in the West US, East US, and North Europe regions. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
@@ -123,6 +124,8 @@ Here is a sample JSON definition:
 	    "end": "2016-07-13T00:00:00Z"
 	  }
 	} 
+
+Copy Activity copies data from one input dataset (**source**) to one output dataset (**sink**). The schedule defined in the output dataset (for example - **frequency** set to **day** and **interval** set to **1**). You can specify more than one input dataset to the copy activity and they are used to verify the dependencies before the activity is run but only the data from the first dataset is copied to the destination dataset.  
 
 ### Using Copy Wizard
 The **Data Factory Copy Wizard** allows you to create a pipeline with a copy activity to copy data from supported sources to destinations **without writing JSON** definitions for linked services, datasets, and pipelines. See [Data Factory Copy Wizard](data-factory-copy-wizard.md) tutorial for details about the wizard. 

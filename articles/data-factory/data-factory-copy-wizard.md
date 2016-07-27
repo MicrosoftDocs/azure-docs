@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Data movement activities | Microsoft Azure" 
-	description="Learn about data movement in Data Factory pipelines: data migration between cloud stores, between on-premises and cloud. Use the Copy Activity." 
-	keywords="data movement, data migration, copy data, transfer data"
+	pageTitle="Data Factory Copy Wizard | Microsoft Azure" 
+	description="Learn about how to use Data Factory Copy Wizard to copy data from supported data sources to sinks." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/27/2016" 
 	ms.author="spelluru"/>
 
 # Data Factory Copy Wizard
@@ -79,3 +78,6 @@ Click the **Browse** button for the **File or folder**, navigate to one of these
 You can also use a **custom** variable as shown below and use any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Make sure that you select a folder with that structure using the Browse button first, replace a value with **{custom}** and press **TAB** to see the text box where you can type the format string.    
 
 ![Using custom variable](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
+
+## Next Steps
+- [Tutorial: Create a pipeline with Copy Activity using Data Factory Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
