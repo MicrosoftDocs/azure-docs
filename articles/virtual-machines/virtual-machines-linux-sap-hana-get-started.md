@@ -34,29 +34,38 @@ Due to the restriction to non-production systems this guide will not cover topic
 backup, DR, high performance or special security considerations.
 
 The sample setup was done using two virtual machines to accomplish a distributed SAP NetWeaver
-installation using the Azure ARM model as SAP-Linux-Azure is only supported on ARM and not the 
-classic model :
+installation using the Azure Resource Manager model ( ARM ) as SAP-Linux-Azure is only supported 
+on ARM and not the classic model. Links to further information about ARM can be also found in the
+general information section at the end of this article.
+
+These were the two test VMs used for the sample installation :
 
 * hana-appsrv ( type DS3 V2 ) to host the NW 7.5 ASCS instance + PAS
 * hana-dbsrv  ( type GS4 ) to host HANA SP12
 * both VMs belonged to one Azure virtual network ( azure-hana-test-vnet )
 * OS in both cases was SLES 12 SP1
 
+Here are two screenshots from the Azure portal to show the two test VMs :
+
+![](./media/virtual-machines-linux-sap-hana-get-started/image000a.jpg)
+
+![](./media/virtual-machines-linux-sap-hana-get-started/image000b.jpg)
+
 Be aware of the fact though that as of July 2016 SAP HANA is only fully supported for
 OLAP ( BW ) production systems on Azure VM type GS5. For testing purposes where one is
 not expecting official SAP support it's fine to use something smaller like e.g. GS4.
 What should always be used for SAP HANA on Azure is Azure premium storage for HANA data
-and log files. 
+and log files. Regarding further details about which SAP products are supported on Azure
+please check the general information section at the end of this article.
 
 
 The guide describes two different ways to manually install SAP HANA on Azure VMs :
 
-* install SAP HANA via SWPM as part of a distributed installation in the "database instance" step
+* install SAP HANA via SAP Software Provisioning Manager ( SWPM ) as part of a distributed installation in the "database instance" step
 * install SAP HANA first using the HANA Life Cycle Manager tool hdblcm
 
-Before starting with the installation the next section about setting up the Azure test VMs
-should be read to avoid several basic mistakes which will happen when using only a default
-Azure VM configuration.
+Before starting an installation the next section about setting up the Azure test VMs should be read 
+to avoid several basic mistakes which will happen when using only a default Azure VM configuration.
 
 
 
@@ -72,8 +81,14 @@ HANA DB data and log files - Azure Premium storage disks should be used even in 
 
 
 Depending on the size of the system and throughput requirements it might be necessary to attach multiple
-disks instead of one and later on create a stripe set across those disks on OS level. More information 
-regarding the two main tools to configure striping can be found here :
+disks instead of one and later on create a stripe set across those disks on OS level. These are the two
+aspects why one would create a stripe set across multiple Azure disks :
+
+* increase throughput
+* need a single filesystem > 1TB as the current Azure disk size limit is 1TB
+
+
+More information regarding the two main tools to configure striping can be found here :
 
 
 Blog which describes how to configure Linux software raid using mdadm :
@@ -166,6 +181,11 @@ under /hana and /usr/sap. The default setting for SAP HANA log backup is e.g. un
 Like before it's key to avoid that the root filesystem runs out of space. Therefore one should make
 sure that there is enough free space under /hana and /usr/sap before installing SAP HANA via swpm.
 
+This article from SAP describes the standard filesystem layout of SAP HANA :
+
+[http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm)
+
+
 ![](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg)
 
 When installing SAP NetWeaver on a standard SLES 12 Azure gallery image there will be a message that
@@ -179,6 +199,7 @@ Another option is to configure swap space via the Linux VM agent. More informati
 [https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/)
 
 
+## /etc/hosts
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
 
@@ -467,7 +488,7 @@ the HANA DB instance with transaction "dbacockpit".
 
 
 
-# General information regarding SAP Azure certifications and SAP software download
+# General information related to SAP Azure certifications, running SAP HANA on Azure and SAP software download
 
 general SAP Azure docu about running SAP on Azure with Windows OS in classic mode :
 [https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-sap-get-started/](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-sap-get-started/)
@@ -504,13 +525,15 @@ SAPOSCOL on Linux :
 Key Monitoring Metrics for SAP on Microsoft Azure :
 [https://launchpad.support.sap.com/#/notes/2178632/E](https://launchpad.support.sap.com/#/notes/2178632/E)
 
+Information about Azure Resource Manager - ARM :
+[https://azure.microsoft.com/documentation/articles/resource-group-overview/](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
 
+Comparison of deployment models between ARM and classic :
+[https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/](https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
 
+Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
 ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
 
-Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace
-
-
+Download HANA SP12 Platform Edition from the SAP Service Marketplace :
 ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-Download HANA SP12 Platform Edition from the SAP Service Marketplace
