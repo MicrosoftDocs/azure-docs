@@ -39,7 +39,7 @@ This article answers some of the most common questions about Azure Billing and S
 - [What is a trial subscription and how long does it last?](#what-is-a-trial-subscription-and-how-long-does-it-last)
 - [What resources are available when using a trial account?](#what-resources-are-available-when-using-a-trial-account)
 - [What happens if I remove the spending limit on my free trial?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
-- [Can I get a quota increase on a free trial subscription?](#can-I-get-a-quota-increase-on-a-free-trial-subscription)
+- [Can I get a quota increase on a free trial subscription?](#can-i-get-a-quota-increase-on-a-free-trial-subscription)
 - [Where can I get more details on Free Trial?](#where-can-i-get-more-details-on-free-trial)
 
 ## How to buy Azure
