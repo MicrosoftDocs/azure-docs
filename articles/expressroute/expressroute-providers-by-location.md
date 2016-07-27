@@ -93,7 +93,9 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Location**  |**Service Providers** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-
+| **Dallas** |  Equinix+, Verizon+ |
+| **New York** | Equinix, Level 3 Communications+, Verizon |
+| **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 #### China
 
@@ -101,7 +103,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 |---------------|-----------------------|
 | **Beijing** | China Telecom |
 | **Shanghai** |  China Telecom |
-To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
+To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
 
 #### Germany
 
