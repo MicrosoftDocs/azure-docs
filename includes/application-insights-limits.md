@@ -12,11 +12,11 @@ Total data rate for request, event, dependency, and page view telemetry | 200 dp
 [Raw data](../articles/application-insights/app-insights-diagnostic-search.md) retention | 7 days
 [Aggregated data](../articles/application-insights/app-insights-metrics-explorer.md) retention | 90 days
 [Property](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
-Property name length | 100 | 
-Property value length | 1000 | 
+Property name length | 150 | 
+Property value length | 8192 | 
 Trace and Exception message length | 10000 |
 [Metric](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) name count | 100 |
-Metric name length |  100 | 
+Metric name length |  150 | 
 [Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) | 10 | 
 
 <sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
